@@ -1,0 +1,3805 @@
+{
+  "passed": true,
+  "profiles": [
+    {
+      "character": "라피",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "046d151066f1083401497be0114f348b936a1b21a7baf6985506a7de23a7e6d7",
+      "squad": [
+        "라피",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "네온",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "105dc87aa06bf8638ebe2623c6a3ba854d0f1b05951296ec5ecb4c658e156987",
+      "squad": [
+        "네온",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "아니스",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "46360b7cf32e8a4b2803b933aea6d1ba3d8b5a29a36606273c3a69ee65e0d312",
+      "squad": [
+        "아니스",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 68,
+      "bound_effects": 68,
+      "input_words": 104400
+    },
+    {
+      "character": "네온 : 블루 오션",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "057e6cfa47e7b85f7e2f3414224d477e2493a1ca502821567c593dfc37035f20",
+      "squad": [
+        "네온 : 블루 오션",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 74,
+      "bound_effects": 74,
+      "input_words": 104400
+    },
+    {
+      "character": "아니스 : 스파클링 서머",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "449919026e90308b48ba21ff87e3f1d740858fc6f0f7177e9229be856501a120",
+      "squad": [
+        "아니스 : 스파클링 서머",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "input_words": 104400
+    },
+    {
+      "character": "라피 : 레드 후드",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: weapon_type"
+    },
+    {
+      "character": "아니스 : 스타",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "네온 : 비전 아이",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "820f2e058e5ffd81993b5d62f60a1a88ea05ebb5682b992dd5c5df8e178de89b",
+      "squad": [
+        "네온 : 비전 아이",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 83,
+      "bound_effects": 83,
+      "input_words": 104400
+    },
+    {
+      "character": "델타",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "50cf14870f634838336254e84ef709ccee253128b4683e88a74866ef95d958d1",
+      "squad": [
+        "델타",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 67,
+      "bound_effects": 67,
+      "input_words": 104400
+    },
+    {
+      "character": "시그널",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "4905860fab8692c5975dd8c94055b08aa5c7cbe264a2b48c964a43a64f69b94b",
+      "squad": [
+        "시그널",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 68,
+      "bound_effects": 68,
+      "input_words": 104400
+    },
+    {
+      "character": "델타 : 닌자 시프",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "폴리",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "894df4f5544c7e3d57b785334745405b7332faa27d9aa234d105fe85266cd056",
+      "squad": [
+        "폴리",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 68,
+      "bound_effects": 68,
+      "input_words": 104400
+    },
+    {
+      "character": "폴리",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "e221635e4159fcc2938554331784c5440644ce0efdc3eb183a856ccfc2af7585",
+      "squad": [
+        "폴리",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "input_words": 104400
+    },
+    {
+      "character": "폴리",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "73c506da5189bbd12ab6a6c16408c0495488b4e72203fd1e20774da36dbee0c3",
+      "squad": [
+        "폴리",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 75,
+      "bound_effects": 75,
+      "input_words": 104400
+    },
+    {
+      "character": "폴리",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "b7c277c6979e9dbaa074650eb8c1bcc6aa9891a108a401af73cc1f2397e8d1e1",
+      "squad": [
+        "폴리",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 76,
+      "bound_effects": 76,
+      "input_words": 104400
+    },
+    {
+      "character": "미란다",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "e2a83570df77866c2d01bfb66fda3c83af77326930fc184ccab027c5802d1c0b",
+      "squad": [
+        "미란다",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "미란다",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "ee355bd65b85b7e74f53aa52f4310fc5b7126d3eeccbc84027034a836a96a9bc",
+      "squad": [
+        "미란다",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 75,
+      "bound_effects": 75,
+      "input_words": 104400
+    },
+    {
+      "character": "미란다",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "95d571bdab53f00ae3068e39cd94fdb0107b9dad1d5792e4e4af434bed60d6d5",
+      "squad": [
+        "미란다",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 78,
+      "input_words": 104400
+    },
+    {
+      "character": "미란다",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "45f8385bd4aecad0ff781ac3fe8b8bf56bcc5cab414f3f64f81123fbcc453927",
+      "squad": [
+        "미란다",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 79,
+      "bound_effects": 79,
+      "input_words": 104400
+    },
+    {
+      "character": "키리",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "23b5ce2d4287942e8b1d6b8c4426f78c08c116c0e63dadd1a37ce2fadf6ab460",
+      "squad": [
+        "키리",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "D",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "K",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "512f1e13c72ee1e9c8a17c6d8f101a8f3ddd6df2dcdb1163da7b4307d2ba87b5",
+      "squad": [
+        "K",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "D : 킬러 와이프",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "70346fa6ed7a1ad93891f923224511a5b617e5b826ae61db47fde3f7194efd4a",
+      "squad": [
+        "D : 킬러 와이프",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 74,
+      "bound_effects": 82,
+      "input_words": 104400
+    },
+    {
+      "character": "벨로타",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported trigger timing: multi_hit:4"
+    },
+    {
+      "character": "미카",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "378d7d1835a123f631a39077b619f122de2ee907d4759a4b527c0de24efc0884",
+      "squad": [
+        "미카",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "미카 : 스노우 버디",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "8b9c80ac6e35388602f183043308b71354ffcc7bc07784bbb1add907a30cdd54",
+      "squad": [
+        "미카 : 스노우 버디",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "벨로타 : 펌킨 위치",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "595a1d39aeb3a4cf7932c1478e159ba809561d4b6701782fd15e55e29f063366",
+      "squad": [
+        "벨로타 : 펌킨 위치",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "브리드",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "dc73e2bc7c14a5dcf4d01be86b90c7366596e5ebfd804e36143caf265dfb8839",
+      "squad": [
+        "브리드",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "솔린",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "7c1663a72ce6e9faafccf1d289a13662d6dac8b7c06f171b5fe90443a50f1d77",
+      "squad": [
+        "솔린",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "디젤",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "2683829ab848c40b5b2cf7dc99ec795f86f267a1d720615c6d8492abd32b3581",
+      "squad": [
+        "디젤",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "디젤",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "2510b90ee769aa45dc6d9641fffba7f5de5fcf330350753dbae01fecea5025ed",
+      "squad": [
+        "디젤",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 75,
+      "bound_effects": 75,
+      "input_words": 104400
+    },
+    {
+      "character": "디젤",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "d0069c67693c13b850c02e720773385383b33aef9db980b1471b401a2b11a9e2",
+      "squad": [
+        "디젤",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 76,
+      "bound_effects": 76,
+      "input_words": 104400
+    },
+    {
+      "character": "디젤",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "0688c19acf97713f96f9bc86ffb8ba5e243e906ce48da062ffa20c5dc759555a",
+      "squad": [
+        "디젤",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "브리드 : 사일런트 트랙",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "솔린 : 프로스트 티켓",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "87850ea4464f9e5ceb64d1299f5e64f5609787f7b2c885eb89ed5fe75b15e969",
+      "squad": [
+        "솔린 : 프로스트 티켓",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 74,
+      "bound_effects": 74,
+      "input_words": 104400
+    },
+    {
+      "character": "디젤 : 윈터 스위츠",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: persist_on_revive"
+    },
+    {
+      "character": "센티",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported instant or recipient selector"
+    },
+    {
+      "character": "센티",
+      "favorite_stage": 1,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported instant or recipient selector"
+    },
+    {
+      "character": "센티",
+      "favorite_stage": 2,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported instant or recipient selector"
+    },
+    {
+      "character": "센티",
+      "favorite_stage": 3,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported instant or recipient selector"
+    },
+    {
+      "character": "리타",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "138584328c52d365e3220fbc6069c37bac12fb6da231060bad537e1d1734beaa",
+      "squad": [
+        "리타",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 74,
+      "bound_effects": 74,
+      "input_words": 104400
+    },
+    {
+      "character": "엠마",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "423b9d1a07ddeb098567c57bf2af51cdd3a0d4efe4e7b1cee360dd27936c54d5",
+      "squad": [
+        "엠마",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "베스티",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "cc5c43870e29ed55768c960e43fa0b9a96d808f1993ba8efd21dc6dc6b6b087a",
+      "squad": [
+        "베스티",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 75,
+      "bound_effects": 75,
+      "input_words": 104400
+    },
+    {
+      "character": "은화",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "a31fa046871a38bbaef0f67b971f0d40863949e3e2502fbe2c198850a9abe794",
+      "squad": [
+        "은화",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "엠마 : 택티컬 업",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "베스티 : 택티컬 업",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: hits_parts"
+    },
+    {
+      "character": "은화 : 택티컬 업",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "9744bf204d254304b7fb2d8044544121e64edf32627fb92b28ba3bdba590bc9d",
+      "squad": [
+        "은화 : 택티컬 업",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "라플라스",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "cc59d66109a49b619ae0244a4e303ce007034786ce74cb969c8209c457866019",
+      "squad": [
+        "라플라스",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 73,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "라플라스",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "ef1cf716452cbdefc9540a9a9c4738d737173a0edd72b999e32e758d5b98eeb0",
+      "squad": [
+        "라플라스",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 81,
+      "input_words": 104400
+    },
+    {
+      "character": "라플라스",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "15139bcf31be36c7bcf98aaf338b68b3b7010e07efe8707c32512cf2c0e9f194",
+      "squad": [
+        "라플라스",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 82,
+      "input_words": 104400
+    },
+    {
+      "character": "라플라스",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "e74d51643c0ce6a806fbf8a6ef54094a8ba2cd31f163e98e6eccccc8e69a0f29",
+      "squad": [
+        "라플라스",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 82,
+      "input_words": 104400
+    },
+    {
+      "character": "드레이크",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "6c5c776b72425477ef71a10de7f76bb4ab47876a9458377177e68501dfa527da",
+      "squad": [
+        "드레이크",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "드레이크",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "4da3729a6a1c31055456c09b63523d73839e704e5a5cdd1d6ae8f9438d92b69c",
+      "squad": [
+        "드레이크",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "드레이크",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "4c912cf60481cc36985af9f0474bb6943e62256a5be263a487315c612643df0d",
+      "squad": [
+        "드레이크",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 78,
+      "input_words": 104400
+    },
+    {
+      "character": "드레이크",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "4855356b880ef2f592b50fd1b7f128c9587673f2e92c95484da2a51887713d2d",
+      "squad": [
+        "드레이크",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 79,
+      "bound_effects": 79,
+      "input_words": 104400
+    },
+    {
+      "character": "맥스웰",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "d635bf6c25a85e1ffd0df696e72236cadcd9043df9b9737af9c77afda114850b",
+      "squad": [
+        "맥스웰",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "라플라스 : 얼티밋 히어로",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "9e306e9e94c78d0c0570510fb846f1eb9f63492da3f048bcdf3b64815cf4b37e",
+      "squad": [
+        "라플라스 : 얼티밋 히어로",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 83,
+      "bound_effects": 83,
+      "input_words": 104400
+    },
+    {
+      "character": "드레이크 : 그레이트 빌런",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: entry_reload"
+    },
+    {
+      "character": "맥스웰 : 오디너리 미케닉",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "2a1b969c67a67f3d39c46b4d488b1c5eb0cfeb7fe97a193cd00818de05956c36",
+      "squad": [
+        "맥스웰 : 오디너리 미케닉",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "크로우",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "e508b3c7131f39008657e47018e3ce21c9874a3e4852f53bc6a432c62ad6d419",
+      "squad": [
+        "크로우",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "자칼",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "7918360b1820b4afc952483b37e3717649cba0589305a587559b615d6cea73b3",
+      "squad": [
+        "자칼",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "바이퍼",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "1b58dee6df6fc0ce54a633311b28c6d14871d41f5f3b5604302ffdb6d45a3733",
+      "squad": [
+        "바이퍼",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "바이퍼",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "38a05a8546a4b11c742e70f7d2165d9d75c08c68521943d6e442d814ed7e217d",
+      "squad": [
+        "바이퍼",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "바이퍼",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "b62bb94d3d3a17ebaf4827fd6d1ca75119e8b34d484180be9e90dfb715af363a",
+      "squad": [
+        "바이퍼",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 78,
+      "input_words": 104400
+    },
+    {
+      "character": "바이퍼",
+      "favorite_stage": 3,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported instant or recipient selector"
+    },
+    {
+      "character": "E.H.",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: max_ammo_scaling_ref"
+    },
+    {
+      "character": "N102",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "a84052b9ec11aa67ec58c20323c3890fc62c5029b5800cdedae8fa99c0c72be1",
+      "squad": [
+        "N102",
+        "도라",
+        "드레이크",
+        "메어리",
+        "미란다"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "앤 : 미라클 페어리",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "메어리",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "653ea5f38a32fa8e8ba107f8eab6c9dc73c915d96a8a9bdbc038af51384ed4c9",
+      "squad": [
+        "메어리",
+        "도라",
+        "드레이크",
+        "N102",
+        "미란다"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "페퍼",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "e1443874fd6ba4e4b27a9c4349c2eb88a1a75f568e5b08cdbb7599a496fb454a",
+      "squad": [
+        "페퍼",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "input_words": 104400
+    },
+    {
+      "character": "메어리 : 베이 갓데스",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "eb35edac7cbb01261cc1b9dd537d691b1df57d7fd9913b5fe61df219c0e87879",
+      "squad": [
+        "메어리 : 베이 갓데스",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 74,
+      "bound_effects": 74,
+      "input_words": 104400
+    },
+    {
+      "character": "슈가",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "5f78895d765f255453254394003fc43d6ab429ce5811fc4af32cc057f4d791f6",
+      "squad": [
+        "슈가",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "슈가",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "8a3d0aba694580aa3696564830132f6196e2c109cb7afce94f28464ef0c6190d",
+      "squad": [
+        "슈가",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 79,
+      "bound_effects": 79,
+      "input_words": 104400
+    },
+    {
+      "character": "슈가",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "4c0f694ee9650139029d8fe3cb918aca4566ca50f3e08ae4aca3995ba6cb8759",
+      "squad": [
+        "슈가",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 81,
+      "bound_effects": 81,
+      "input_words": 104400
+    },
+    {
+      "character": "슈가",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "d7965926677ae80987a4650f29bae363cbe265e29105824a92a6add8269bf36b",
+      "squad": [
+        "슈가",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 83,
+      "bound_effects": 83,
+      "input_words": 104400
+    },
+    {
+      "character": "밀크",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "1b4b1a708e1edbac7fcd71fd49c235283001e675dbb7d2a6735dc26c00ed76f3",
+      "squad": [
+        "밀크",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "밀크",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "e3f32c9408033d5186d1c5b70f225a60b0e6c8e6cf12f5bf293d5a1785d8e9e9",
+      "squad": [
+        "밀크",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 75,
+      "bound_effects": 75,
+      "input_words": 104400
+    },
+    {
+      "character": "밀크",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "065a0c1d985ffd855849cd089ffd892d3825a1191f27aa15ceb0ccb8cd159970",
+      "squad": [
+        "밀크",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 76,
+      "bound_effects": 76,
+      "input_words": 104400
+    },
+    {
+      "character": "밀크",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "48bbabe8751293278d0e2bb93f578ee431439753938c82c29b9963763fd49802",
+      "squad": [
+        "밀크",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "프림",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "d47e1b2f5d50dc955be7a1cccbd809ee57bb74fff66446582236e13ae617b011",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "프림",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "41987c38104c849df999e5ba475901b3670a274362a8ea5176ee9ec6970ae018",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 76,
+      "bound_effects": 76,
+      "input_words": 104400
+    },
+    {
+      "character": "프림",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "6b40061d25ade7b4a150b14f49706582cec021edd6e4f8ae5c772d27753bab2a",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "프림",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "85e05ccfed301f59b353bc52fe7b1259d08ed17e10e358255ea5b30bbebaf569",
+      "squad": [
+        "프림",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 78,
+      "input_words": 104400
+    },
+    {
+      "character": "밀크 : 블루밍 바니",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "05a7954334a605f48a4046ed25180e48f5c977fa84a7adead1c4ed8e4c9893dc",
+      "squad": [
+        "밀크 : 블루밍 바니",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 81,
+      "bound_effects": 81,
+      "input_words": 104400
+    },
+    {
+      "character": "율리아",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "9bf4678ea22b1b21600debd5edd108c0ed87dc007c25ebe45354bf78934b77d6",
+      "squad": [
+        "율리아",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "율리아",
+      "favorite_stage": 1,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported predicate: trigger_hit_crit"
+    },
+    {
+      "character": "율리아",
+      "favorite_stage": 2,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported predicate: trigger_hit_crit"
+    },
+    {
+      "character": "율리아",
+      "favorite_stage": 3,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported predicate: trigger_hit_crit"
+    },
+    {
+      "character": "유니",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "미하라",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "d7c7cd9c9ed2921db45d0fa1326c5dd796ce182ce32b907bcd94f30dcf852050",
+      "squad": [
+        "미하라",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "미하라 : 본딩 체인",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported enemy damage selector"
+    },
+    {
+      "character": "프리바티",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported predicate: target_stunned"
+    },
+    {
+      "character": "프리바티",
+      "favorite_stage": 1,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported predicate: target_stunned"
+    },
+    {
+      "character": "프리바티",
+      "favorite_stage": 2,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "프리바티",
+      "favorite_stage": 3,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "율하",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "9fa0ed753b4e42c8cbdee2d1d775ee052bd9d2c3b77d7d111f3df3ad1d458652",
+      "squad": [
+        "율하",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "애드미",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "9f20b8b29100f047ec81627660c97f8bec52c9353740c2556b71d91e4f2ececb",
+      "squad": [
+        "애드미",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 67,
+      "bound_effects": 67,
+      "input_words": 104400
+    },
+    {
+      "character": "길로틴",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: scaling"
+    },
+    {
+      "character": "메이든",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "390d446a1d001499c853c7601b62ecc14cae144e1c0b522e2a6e200422200a81",
+      "squad": [
+        "메이든",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "길로틴 : 윈터 슬레이어",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported predicate: not_core"
+    },
+    {
+      "character": "메이든 : 아이스 로즈",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: scaling, scaling_hp_pct"
+    },
+    {
+      "character": "루드밀라",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "c0e616f59244126d82c00b7f720ddbc86135879f2175261d9176516d5b588c7c",
+      "squad": [
+        "루드밀라",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "앨리스",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "6b5d2485a802951c9e8e7c9732390a315ae01aced7a412b0393f907cead5ee03",
+      "squad": [
+        "앨리스",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "토브",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "f599a4c29c98c4b0e43082e544d3c67461a5032993f06be4e35d0774f36c6865",
+      "squad": [
+        "토브",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "input_words": 104400
+    },
+    {
+      "character": "토브",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "1bbcff8aacd0d40e1f77d9da6a772cb3a3d0fdda5ec4fe0a5a0a8ea02c5f6c1a",
+      "squad": [
+        "토브",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "토브",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "8d7f0af440fdd52e79ad0c0c91b0cb38fda401285b0a1a595f0f2da7a2bd94dd",
+      "squad": [
+        "토브",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "토브",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "5b5823e02fa6ce87b159de81e132811eb4e3d215cb2b499db90827e37f747c5c",
+      "squad": [
+        "토브",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "네베",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "7659145d1e665d4116c27d28a235cb934344292708254631b52e4cd327906031",
+      "squad": [
+        "네베",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "루드밀라 : 윈터 오너",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "fe2eeaf9617b3dc8d89d3df201218e29f8d94af1840786cacbefc95fef4778a0",
+      "squad": [
+        "루드밀라 : 윈터 오너",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "input_words": 104400
+    },
+    {
+      "character": "앨리스 : 원더랜드 바니",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported instant or recipient selector"
+    },
+    {
+      "character": "루피",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "b7232c25cdf24c25ae7efe9b015f46b3a4a3b99dc6cc4378f62f50b8c1818f1e",
+      "squad": [
+        "루피",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 68,
+      "bound_effects": 68,
+      "input_words": 104400
+    },
+    {
+      "character": "얀",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "도라",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "3bc6bc378841595838bebea4379d4920d5e3415258dcd980eda28faed3c67588",
+      "squad": [
+        "도라",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "루피 : 윈터 쇼퍼",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported trigger timing: event:ally_burst_cast"
+    },
+    {
+      "character": "엑시아",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "4f2f0582c45e87868d689d26b7b37f1dacdceded59441412614682dd81ed4fc3",
+      "squad": [
+        "엑시아",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "엑시아",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "b5347bb81731e1b0353bcd984b26d96765433885211c57d6d3dab8156aa26a0e",
+      "squad": [
+        "엑시아",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "엑시아",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "911943d4de5a5506c9f0fdbdbe4f0c8b0d0f39fce3a12caddb2c90cd8c935da4",
+      "squad": [
+        "엑시아",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 78,
+      "input_words": 104400
+    },
+    {
+      "character": "엑시아",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "95a352cdbb0df2f4f16f41a7dfc271c4963d6ba4a55c0187a3d587e75c0ecde7",
+      "squad": [
+        "엑시아",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 79,
+      "bound_effects": 79,
+      "input_words": 104400
+    },
+    {
+      "character": "노벨",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "2bcbf7e8fa8ccf7830dea12225358be5bccfecae7a338d5a99f9b3639a1c81cf",
+      "squad": [
+        "노벨",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 68,
+      "bound_effects": 68,
+      "input_words": 104400
+    },
+    {
+      "character": "스노우 화이트",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "ab967d89e9df99a2f10fe1a844c1c1ff41e8413f69a631a03391116a5805a16d",
+      "squad": [
+        "스노우 화이트",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "라푼젤",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported instant or recipient selector"
+    },
+    {
+      "character": "홍련",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "0306826ac88f58c8db6e7babdd74a9eeb0631f269d93f9c9195bfc81cbcfaa4c",
+      "squad": [
+        "홍련",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "나유타",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "스노우 화이트 : 이노센트 데이즈",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "홍련 : 흑영",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "라푼젤 : 퓨어 그레이스",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "778db465674aaf664db29cbd93b541e36f95ce66e0541a2854ff56add37ead48",
+      "squad": [
+        "라푼젤 : 퓨어 그레이스",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "input_words": 104400
+    },
+    {
+      "character": "하란",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "52de9cfaee80f6120c11f7503e1fbe4d35c5d89ad6463a6dde5ca1082c55fd25",
+      "squad": [
+        "하란",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "이사벨",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "d01ed27287af817ef2f39dad8138e76206250e79e464f177693d3f6dea914fdd",
+      "squad": [
+        "이사벨",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 75,
+      "bound_effects": 75,
+      "input_words": 104400
+    },
+    {
+      "character": "노아",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "ba5e741231c9bbae10845491a8eb4ad28bf8d1e760712b9e8c92424f9a0d1073",
+      "squad": [
+        "노아",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "도로시",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "도로시 : 세렌디피티",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "13249e415cc5dd9f44dc140fedb84c6eeb07802b890d800d8b98655b9b5ecd08",
+      "squad": [
+        "도로시 : 세렌디피티",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "루마니",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "a40644dbb7a6137fed7f29ccbce270670cb32d10bf9ced772155e692c020346b",
+      "squad": [
+        "루마니",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 76,
+      "input_words": 104400
+    },
+    {
+      "character": "에피넬",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "566412fb9d70d3776518854ae2f1263d0af61b8d866c23e9d0305f4a431ac72e",
+      "squad": [
+        "에피넬",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "폴크방",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "1eebfda03d60f084ecedfb8ab8b24394dc75af9665405438d5509f5be2a6f744",
+      "squad": [
+        "폴크방",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "모더니아",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported predicate: self_stat_above:accuracy_pct:0"
+    },
+    {
+      "character": "니힐리스타",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported trigger timing: multi_hit:2"
+    },
+    {
+      "character": "리버렐리오",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "6b7e3bbd4bda9b428ea9ee95c6473e415d999584dd427dd07b7e4705b2292b54",
+      "squad": [
+        "리버렐리오",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 78,
+      "input_words": 104400
+    },
+    {
+      "character": "블랑",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "ffb02e6626121d894b55deb13a009a8d7333795c31db99c28d92add618558264",
+      "squad": [
+        "블랑",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "누아르",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "360382bcc77a9dfd93a5f7eb1a465676cdec31e4d29849966bdf1f2bc8187603",
+      "squad": [
+        "누아르",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 74,
+      "bound_effects": 74,
+      "input_words": 104400
+    },
+    {
+      "character": "루주",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "82ecd890ae2e8fd32ba5e489a6a69a4f7bfc7fcb8a53f6a704705b0acb768251",
+      "squad": [
+        "루주",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 75,
+      "bound_effects": 75,
+      "input_words": 104400
+    },
+    {
+      "character": "로산나",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "3ffdc872f9c7d70b96be50b0f38c035c7bcfba794564efc678df17678bed3e4a",
+      "squad": [
+        "로산나",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 76,
+      "bound_effects": 76,
+      "input_words": 104400
+    },
+    {
+      "character": "로산나",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "48d745f2c5e816416e626554719255dffb6951471e9ac1f44e27cfb37270f9ab",
+      "squad": [
+        "로산나",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 82,
+      "bound_effects": 82,
+      "input_words": 104400
+    },
+    {
+      "character": "로산나",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "ead8110e25ea48591e1a792ae6186d0b3b0080c69aad9f8ec5af9a5fb6d9921c",
+      "squad": [
+        "로산나",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 83,
+      "bound_effects": 83,
+      "input_words": 104400
+    },
+    {
+      "character": "로산나",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "5bfb2ec8bddda6cddb9bccb66e311d86c13f4bcc221c86143a20dc3435772e79",
+      "squad": [
+        "로산나",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 84,
+      "bound_effects": 84,
+      "input_words": 104400
+    },
+    {
+      "character": "목단",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: scaling"
+    },
+    {
+      "character": "목단",
+      "favorite_stage": 1,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: scaling"
+    },
+    {
+      "character": "목단",
+      "favorite_stage": 2,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: scaling"
+    },
+    {
+      "character": "목단",
+      "favorite_stage": 3,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: scaling"
+    },
+    {
+      "character": "사쿠라",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "로산나 : 시크 오션",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "4c01694ec0c10ed7ee89bac6d9cdc99507ca2c2e47a6505fd38134913a48bcea",
+      "squad": [
+        "로산나 : 시크 오션",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "사쿠라 : 블룸 인 서머",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported duration extension recipient selector"
+    },
+    {
+      "character": "마나",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported instant or recipient selector"
+    },
+    {
+      "character": "에테르",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "8481cc254d568ad19c384958e1f5b2e45d028fe6c7440f10dae1e67403cda310",
+      "squad": [
+        "에테르",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "솔져 E.G.",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "06b65d583294f03b3cb63b461a773735eeef0d77a4b4b01621adfc4ee4a07ae9",
+      "squad": [
+        "솔져 E.G.",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "솔져 F.A.",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "2787874876f3faa184acba4dda455fb2204fa47c153810ed561916e1ff095828",
+      "squad": [
+        "솔져 F.A.",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 66,
+      "bound_effects": 66,
+      "input_words": 104400
+    },
+    {
+      "character": "프로덕트 08",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "a5b03107f3d9938a50398ae7b064e855fbd0170ca4e1f74c4ca8a2d52e8d6ae8",
+      "squad": [
+        "프로덕트 08",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "프로덕트 12",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "75cacbc2bc6446a9f59fe2656ce315699ddfd46282c899e5229a8896eb0b9539",
+      "squad": [
+        "프로덕트 12",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "iDoll 플라워",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "26f24972c4648594c6957cebc2b0ffa71891641b416583acba68e1945450d15a",
+      "squad": [
+        "iDoll 플라워",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "iDoll 오션",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "b6f39bbeaeb7b45ea176a7099393d18528a5dc822e1ec0a1bf62109147a147bf",
+      "squad": [
+        "iDoll 오션",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "솔져 O.W.",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "프로덕트 23",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "e5dd7a16322373e65c843300f5be20d68ca9e934466d14757f4bf57ab2ab6c6a",
+      "squad": [
+        "프로덕트 23",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 66,
+      "bound_effects": 66,
+      "input_words": 104400
+    },
+    {
+      "character": "iDoll 썬",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "fa026a28dad956d73e9817ad9b19bfe0df48e02a39d065695489e308fc2dce39",
+      "squad": [
+        "iDoll 썬",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "에이드",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "63adb5230fcfabbf74d128d38bbb8d15fd5075397cc035187acd95fe0e50f3b9",
+      "squad": [
+        "에이드",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "코코아",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported cleanse recipient selector"
+    },
+    {
+      "character": "소다",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported enemy damage selector"
+    },
+    {
+      "character": "프리바티 : 언카인드 메이드",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported trigger timing: pellet_hit_in_shot:5"
+    },
+    {
+      "character": "소다 : 트윙클링 바니",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "918447d2b3b9619d0b42690b8c69bd31b78f23628f30d93fd4196db966298365",
+      "squad": [
+        "소다 : 트윙클링 바니",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "에이드 : 에이전트 바니",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "5e91793687359d9a0e2df8fe468429205955cc5e42c9eb808e4dd7b5649a60cc",
+      "squad": [
+        "에이드 : 에이전트 바니",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "벨벳",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported health recipient selector"
+    },
+    {
+      "character": "마르차나",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "마르차나 : 마린 스터디",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported enemy damage selector"
+    },
+    {
+      "character": "크라운",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "8d964172e8f35a81bb52999a9f686fb621722f9042d6e08b5cb10bd56ae97e22",
+      "squad": [
+        "크라운",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 74,
+      "bound_effects": 74,
+      "input_words": 104400
+    },
+    {
+      "character": "차임",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "마스트",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "c934a30217dd412fb8273351235cf1415b074c6f61bfc57f7d92ab92b14eb264",
+      "squad": [
+        "마스트",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "앵커",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "헬름",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "bd13d7fc00441e749edf70dc4c130e5adb4cee41138b1d2f5c9c3e0f96647511",
+      "squad": [
+        "헬름",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "헬름",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "29cefd9cd48e1829c414589f108c4d263707e832472e8278cb6903defc25d4ab",
+      "squad": [
+        "헬름",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "헬름",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "b1e6077798111cd90ed2ae9a1734263eb73a81d0c448e63236a52bb2a370f69e",
+      "squad": [
+        "헬름",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 78,
+      "input_words": 104400
+    },
+    {
+      "character": "헬름",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "a8d1e5998a1c5ac0b9338fb662364dd015668cac3d6b72f0d1daaaa5ce2d83ef",
+      "squad": [
+        "헬름",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 79,
+      "bound_effects": 79,
+      "input_words": 104400
+    },
+    {
+      "character": "헬름 : 아쿠아마린",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported enemy damage selector"
+    },
+    {
+      "character": "마스트 : 로망틱 메이드",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "앵커 : 이노센트 메이드",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "킬로",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: scaling, scaling_hp_pct"
+    },
+    {
+      "character": "네로",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "52ed803a921b73b5615da9e82f57c049c082f01f871bcac129d78ef0c7c1747a",
+      "squad": [
+        "네로",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "비스킷",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported health recipient selector"
+    },
+    {
+      "character": "레오나",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "38a361ad3379465b01f0e28d6192ed1c39eb2ccf88fc2d65a1400e4967ce69ae",
+      "squad": [
+        "레오나",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "츠바이",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "0db5d0a20ba1fd62e421678b730ec25a63a3d31c766a6dfbabbb314aed91c807",
+      "squad": [
+        "츠바이",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "input_words": 104400
+    },
+    {
+      "character": "츠바이",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "f1299ecdbdc322f77a0a72bb0b07ba66d8ae7b36de6e8644f8ca5d26bf3c142a",
+      "squad": [
+        "츠바이",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "츠바이",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "b248b7f59d0714e127b586926295deadfb0b8f44f8836457e329a5fbe7d8b3cd",
+      "squad": [
+        "츠바이",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 78,
+      "input_words": 104400
+    },
+    {
+      "character": "츠바이",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "e170fd81082786066bd64ef30dcc208cf44d7d9651b7b6323a1267e2a10af15e",
+      "squad": [
+        "츠바이",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 79,
+      "bound_effects": 79,
+      "input_words": 104400
+    },
+    {
+      "character": "아인",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported enemy damage selector"
+    },
+    {
+      "character": "라이",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "c572bc4d748b9e5c1a363a768ea996ab34e0cde36f77468307a9899232513591",
+      "squad": [
+        "라이",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "길티",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: copy_from"
+    },
+    {
+      "character": "신",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: copy_from"
+    },
+    {
+      "character": "퀀시",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: copy_from"
+    },
+    {
+      "character": "퀀시 : 이스케이프 퀸",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "344b0a6b74c3560cf45fdff842d8bad64bbf9de85ce0af9f1eacc445c9a2bdc5",
+      "squad": [
+        "퀀시 : 이스케이프 퀸",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 78,
+      "input_words": 104400
+    },
+    {
+      "character": "길티 : 마이티 바니",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "b607aae95b8ec85cf6b5d83769ed6426adc0c71a51cd6c68f922a4e870e12bbf",
+      "squad": [
+        "길티 : 마이티 바니",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 85,
+      "bound_effects": 85,
+      "input_words": 104400
+    },
+    {
+      "character": "신 : 스위프트 바니",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "7b72759563e556f59a2380ddd151e2e131f316db1a4c1e364b45d382a73212f3",
+      "squad": [
+        "신 : 스위프트 바니",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 88,
+      "bound_effects": 88,
+      "input_words": 104400
+    },
+    {
+      "character": "플로라",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "d258147c983767b75138bbcfbcf91823b345934f8802eb0c03cd0ccaed75a55c",
+      "squad": [
+        "플로라",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "플로라",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "1d6096a7f8c1c5395a9569692827654e5e69a51ba6beb9bfb1c10b123f5a13bf",
+      "squad": [
+        "플로라",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 75,
+      "bound_effects": 75,
+      "input_words": 104400
+    },
+    {
+      "character": "플로라",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "1fa9d24e94e3c6cd25b0a2f05a5d03cb423159b671336327d57bcd2b3f1408c1",
+      "squad": [
+        "플로라",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 76,
+      "bound_effects": 76,
+      "input_words": 104400
+    },
+    {
+      "character": "플로라",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "d0b26698f6bfca01c3e50d81cfc8f14c668b8f0e54f655dbb57a38fa3d63abfb",
+      "squad": [
+        "플로라",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "트리나",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "노이즈",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "ea60d1e62bdfe665b90122d6a774e9bf136dd176aaca71e143136d222959212a",
+      "squad": [
+        "노이즈",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "볼륨",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "4fd117cd5f66aaf6de6837401b47e79fd9b0985e27eaaec63ccccae873e4250a",
+      "squad": [
+        "볼륨",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 74,
+      "bound_effects": 74,
+      "input_words": 104400
+    },
+    {
+      "character": "아리아",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "e3012e6d2490fbb41ff212df5d215cb7bea424a4ac789166fd22000f7955e786",
+      "squad": [
+        "아리아",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 67,
+      "bound_effects": 67,
+      "input_words": 104400
+    },
+    {
+      "character": "아비스타",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "나가",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "4081489e07104778c335693ca519adaa209e51a602206c61a50439bb3d0d4377",
+      "squad": [
+        "나가",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "티아",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported instant or recipient selector"
+    },
+    {
+      "character": "레드 후드",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported trigger timing: squad_burst_cast:1"
+    },
+    {
+      "character": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "일레그",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "트로니",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "일레그 : 붐 앤 쇼크",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "신데렐라",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported enemy damage selector"
+    },
+    {
+      "character": "리틀 머메이드",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported predicate: focusing"
+    },
+    {
+      "character": "그레이브",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "5198d5a8f866ab52d271ae7a4cd0a3cdb6fed7abfe05db868d90d86fdbae5e52",
+      "squad": [
+        "그레이브",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 83,
+      "bound_effects": 83,
+      "input_words": 104400
+    },
+    {
+      "character": "신데렐라 : 크리스탈 웨이브",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported instant or recipient selector"
+    },
+    {
+      "character": "브래디",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "크러스트",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported trigger timing: non_full_charge_fire_count:3"
+    },
+    {
+      "character": "소라",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "베이",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "베이",
+      "favorite_stage": 1,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "베이",
+      "favorite_stage": 2,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "베이",
+      "favorite_stage": 3,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "클레이",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "아크레인저 블랙",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "941a0b68bd3a33dfd60223ab232d868bebeff597d26a72a540b8fa3b58424e34",
+      "squad": [
+        "아크레인저 블랙",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 80,
+      "bound_effects": 80,
+      "input_words": 104400
+    },
+    {
+      "character": "팬텀",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "1c25fbbff600f1f895e40d5017487314f796b01c7bdbec2ae39accf386450be8",
+      "squad": [
+        "팬텀",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
+    },
+    {
+      "character": "팬텀",
+      "favorite_stage": 1,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "39bba50812d858f474e290c9ff18dc4c46b6efabe53b7fc4fdef4f900fa1f9b1",
+      "squad": [
+        "팬텀",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 82,
+      "bound_effects": 82,
+      "input_words": 104400
+    },
+    {
+      "character": "팬텀",
+      "favorite_stage": 2,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "58d60326f6ae423f948bad59aa4bf712498963a33bde03fd2401be77bf70914e",
+      "squad": [
+        "팬텀",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 83,
+      "bound_effects": 83,
+      "input_words": 104400
+    },
+    {
+      "character": "팬텀",
+      "favorite_stage": 3,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "7af1c9d98e4695bb393cfe45dd0233c93d807260ef948a52c75abbbb08254360",
+      "squad": [
+        "팬텀",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 85,
+      "bound_effects": 85,
+      "input_words": 104400
+    },
+    {
+      "character": "아르카나",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "레이블",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: duration_scaling, duration_scaling_ref"
+    },
+    {
+      "character": "아르카나 : 포츈 메이트",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "f2e0928a8b6218b7fc45efba8f716a8d7e18173325098e226a0521ebe76ab182",
+      "squad": [
+        "아르카나 : 포츈 메이트",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 80,
+      "bound_effects": 80,
+      "input_words": 104400
+    },
+    {
+      "character": "모리",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "25ede4e8f082a9d18197a21291d78929feb0b78ba14699d5bbaad8a1f33a88dc",
+      "squad": [
+        "모리",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
+    },
+    {
+      "character": "민트",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "244d61ea2a2b249e38170eb14bcb9783bc66e268bead6890b22768557f439637",
+      "squad": [
+        "민트",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 78,
+      "input_words": 104400
+    },
+    {
+      "character": "프리카",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "백학",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "85b8823a740177a91a77cf9ac9dcffe5526de0abe08299f0e81ecd454bbc1fd3",
+      "squad": [
+        "백학",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "마키마",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported predicate: self_undying"
+    },
+    {
+      "character": "파워",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "63dd3a96263ced87330f22d581460c0620e0b155952b3034cd4ff5d5c710b838",
+      "squad": [
+        "파워",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "히메노",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "fa60b4d5cb52f2b224c99928d6fccf34d279c7d70fdb7b9f964eef961388cf36",
+      "squad": [
+        "히메노",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 68,
+      "bound_effects": 68,
+      "input_words": 104400
+    },
+    {
+      "character": "2B",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "e56cd86d964aac760788704068264cdd1440a8b19ba8d5d43c57da4621be8ba5",
+      "squad": [
+        "2B",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "input_words": 104400
+    },
+    {
+      "character": "A2",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "43065d25f99defd622086a7602ca5009e5309305fc2e129bba332845da64f523",
+      "squad": [
+        "A2",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 75,
+      "bound_effects": 75,
+      "input_words": 104400
+    },
+    {
+      "character": "파스칼",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "4935eb80f44f79a79586a705691a625d42ccee1b59a1810930f7adacbc9c700d",
+      "squad": [
+        "파스칼",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "bound_effects": 69,
+      "input_words": 104400
+    },
+    {
+      "character": "렘",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "에밀리아",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: scaling"
+    },
+    {
+      "character": "람",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "3db04f1be1543f284a70c8f4e2604f23d35218c64ba38f554aa1f14330a7b8ed",
+      "squad": [
+        "람",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
+    },
+    {
+      "character": "아스카",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "레이",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "마리",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "미사토",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "레이 (가칭)",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "아스카 : WILLE",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported enemy damage selector"
+    },
+    {
+      "character": "사쿠라 (SR)",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "983dc91c6e4fe6d9941ed42654a86e742092f0e98ae50623a2ce8d62e634f768",
+      "squad": [
+        "사쿠라 (SR)",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "에이다",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "질",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "bb8ebfdd3d7de9b1d4e3149ecd5fcfdf55769ff61ee2d3a5c166ed16f2663fdf",
+      "squad": [
+        "질",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 78,
+      "bound_effects": 78,
+      "input_words": 104400
+    },
+    {
+      "character": "클레어",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "5cd05537b62a6d9676a07f7ee0c7158bd40cbc2f0fcc7c2405a79576d0d0d19b",
+      "squad": [
+        "클레어",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "이브",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported enemy damage selector"
+    },
+    {
+      "character": "레이븐",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported effect fields: hits_parts"
+    },
+    {
+      "character": "릴리",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "치사토",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "270657701b3a9d55a24760c7cf6b6d3d914e19f301e73cf34b0c6e48038bb0cc",
+      "squad": [
+        "치사토",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 76,
+      "bound_effects": 76,
+      "input_words": 104400
+    },
+    {
+      "character": "타키나",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "쿠루미",
+      "favorite_stage": 0,
+      "input_packed": true,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "input_sha256": "8a6d73ac8b53fad26e28e137dbfdb24b4ce30219261dffc4a2aa5df1fcf67f80",
+      "squad": [
+        "쿠루미",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "input_words": 104400
+    },
+    {
+      "character": "퀸(마코토)",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "유키코",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    },
+    {
+      "character": "아이기스",
+      "favorite_stage": 0,
+      "input_packed": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "error": "Unported buff or recipient selector"
+    }
+  ],
+  "profile_count": 266,
+  "base_count": 203,
+  "packed_profiles": 163,
+  "packed_base": 116,
+  "issues": {
+    "Unported buff or recipient selector": 48,
+    "Unported instant or recipient selector": 10,
+    "Unported enemy damage selector": 8,
+    "Unported effect fields: scaling": 6,
+    "Unported predicate: trigger_hit_crit": 3,
+    "Unported effect fields: copy_from": 3,
+    "Unported effect fields: hits_parts": 2,
+    "Unported predicate: target_stunned": 2,
+    "Unported effect fields: scaling, scaling_hp_pct": 2,
+    "Unported health recipient selector": 2,
+    "Unported effect fields: weapon_type": 1,
+    "Unported trigger timing: multi_hit:4": 1,
+    "Unported effect fields: persist_on_revive": 1,
+    "Unported effect fields: entry_reload": 1,
+    "Unported effect fields: max_ammo_scaling_ref": 1,
+    "Unported predicate: not_core": 1,
+    "Unported trigger timing: event:ally_burst_cast": 1,
+    "Unported predicate: self_stat_above:accuracy_pct:0": 1,
+    "Unported trigger timing: multi_hit:2": 1,
+    "Unported duration extension recipient selector": 1,
+    "Unported cleanse recipient selector": 1,
+    "Unported trigger timing: pellet_hit_in_shot:5": 1,
+    "Unported trigger timing: squad_burst_cast:1": 1,
+    "Unported predicate: focusing": 1,
+    "Unported trigger timing: non_full_charge_fire_count:3": 1,
+    "Unported effect fields: duration_scaling, duration_scaling_ref": 1,
+    "Unported predicate: self_undying": 1
+  },
+  "forbidden_calls": {
+    "cpu_battle": 0,
+    "gpu": 0
+  },
+  "full_character_verified": 0,
+  "canonical_world_admission": false,
+  "normal_ui": "CPU",
+  "full_goal_complete": false,
+  "scope": "Complete real 30-second all-effect five-member input packing, default growth/no cube and all favorite stages; GPU admission and battle certification remain unproven."
+}

@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-ally-random-retention-v1-metal",
+  "raw_bytes": 3881828352,
+  "raw_sha256": "eb4c6615ed6b76683763d46ebe825647fe24ed0b1b0361aec6ad49a8ca536aff",
+  "evidence_sha256": "5069f7a3734cb52ee8fa17d9deb91bff005e35f8e330a2fc6b1cc3183a503708",
+  "raw_inode": 507913369,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 29802,
+  "zero_range_bytes": 3721826304,
+  "allocated_before": 1123024896,
+  "allocated_after": 160002048,
+  "allocated_reclaimed": 963022848,
+  "full_hash_verified": true
+}

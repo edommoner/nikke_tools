@@ -1,0 +1,105 @@
+{
+  "schema": "product-sdk-reference-v1",
+  "changed_helper": "scripts/windows-product/prepare-api.py",
+  "helper_sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739",
+  "configuration_key": "sdk_program_root",
+  "changes": [
+    "Explicit absolute read-only SDK program root, separate from fresh API program/capture",
+    "Exact owner/source commit/kernel/input-output stride and identical immutable packet path required",
+    "SDK program must own packet.parent used by existing static/admission/audit helpers",
+    "All original SDK metadata plus old stop SHA anchored before/after preparation",
+    "Source stop and claims remain old evidence; target stop and prior-batch/fresh-capture guards remain enforced"
+  ],
+  "shared_cli_regression_tests": 57,
+  "regression_log_sha256": "45f11f1a231da7f5f98f54975c38bf5d104caa2bfcdc7d032e040f1343ef71f8",
+  "data_only_integration": {
+    "schema": "sdk-reference-data-integration-v1",
+    "owner": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+    "cases": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "batches": [
+      {
+        "batch": 0,
+        "original_case_indices": [
+          0,
+          1
+        ],
+        "caller_byte_exact": true,
+        "all_original_expected_fields_exact": true,
+        "correct_saved_generation_key_used": true,
+        "correct_saved_image_identity_used": true,
+        "source_metadata_unchanged": true
+      },
+      {
+        "batch": 1,
+        "original_case_indices": [
+          2,
+          3
+        ],
+        "caller_byte_exact": true,
+        "all_original_expected_fields_exact": true,
+        "correct_saved_generation_key_used": true,
+        "correct_saved_image_identity_used": true,
+        "source_metadata_unchanged": true
+      },
+      {
+        "batch": 2,
+        "original_case_indices": [
+          4,
+          5
+        ],
+        "caller_byte_exact": true,
+        "all_original_expected_fields_exact": true,
+        "correct_saved_generation_key_used": true,
+        "correct_saved_image_identity_used": true,
+        "source_metadata_unchanged": true
+      },
+      {
+        "batch": 3,
+        "original_case_indices": [
+          6
+        ],
+        "caller_byte_exact": true,
+        "all_original_expected_fields_exact": true,
+        "correct_saved_generation_key_used": true,
+        "correct_saved_image_identity_used": true,
+        "source_metadata_unchanged": true
+      }
+    ],
+    "source_files_preserved": 2790,
+    "source_all_bytes_unchanged": true,
+    "old_stop_preserved": true,
+    "packet_metadata_not_modified": true,
+    "artifact_admission_invoked": false,
+    "job_or_sdk_provenance_verified": false,
+    "fixture_scope": "Data-only preparation with exact immutable packet and reported artifact identity; no real SDK image/claim/Job exists here",
+    "cpu_battles": 0,
+    "sdk_calls": 0,
+    "posts": 0,
+    "gpu_calls": 0,
+    "full_goal_complete": false
+  },
+  "existing_job_ram_sdk_api_admission_and_saved_audit_helpers_changed": false,
+  "calculation_source_changed": false,
+  "source_package_owner": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+  "old_source_probe_failure_reclassified": false,
+  "mac_artifact_admission_executed": false,
+  "windows_gpu_executed": false,
+  "scope": "Preparation/reference boundary only; existing real artifact/source/claim/phase validation remains mandatory before GPU",
+  "failures_retained": [
+    "First new positive test compared /var to canonical /private/var rather than resolved path; implementation had preserved all bytes. Fixed only the assertion; retained log."
+  ],
+  "standard_profile_delta": 0,
+  "standard_metal_profiles": 263,
+  "standard_cuda_recorded_profiles": 263,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}

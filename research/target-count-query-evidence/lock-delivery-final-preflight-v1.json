@@ -1,0 +1,53 @@
+{
+  "schema": "lock-delivery-final-preflight-v1",
+  "packages": [
+    {
+      "suite": "lock-delivery-policy",
+      "package_id": "a2e38df1c91253977308eaf8d249649f92f4ed9ba744221723671d1b46009a80",
+      "source_commit": "c35925427b82ee67c0b96c6824fa64dfadadfc71"
+    },
+    {
+      "suite": "lock-delivery-cache-only",
+      "package_id": "efba68b80782926c730e3d6fbddb1ae89d1aa5bfc4973dd9f3add27fe750e00b",
+      "source_commit": "c35925427b82ee67c0b96c6824fa64dfadadfc71"
+    }
+  ],
+  "checks": {
+    "policy": {
+      "groups": 2,
+      "tests": 5,
+      "skipped": 0,
+      "passed": true
+    },
+    "smoke": {
+      "groups": 66,
+      "tests": 642,
+      "skipped": 1,
+      "passed": true
+    },
+    "cache": {
+      "groups": 3,
+      "tests": 12,
+      "skipped": 0,
+      "passed": true
+    }
+  },
+  "raw_input_and_slang_producer_unchanged": true,
+  "python_API_stricter_immutable_tuple_check": true,
+  "required_cache_negative": {
+    "schema": "lock-delivery-cache-only-required-negative-v1",
+    "exit_code": 1,
+    "expected_error": "Cached CUDA profile requires --require-cache and an existing absolute --compile-cache",
+    "capture_created": false,
+    "execution_claim_consumed": false,
+    "cuda_calculation_verified": false,
+    "CUDA_cache_hit_verified": false,
+    "scope": "Actual immutable CLI rejects missing cache requirements before creating capture/claim; no CUDA execution proof"
+  },
+  "additional_gpu_calls": 0,
+  "cuda_executed": false,
+  "cuda_cache_hit_verified": false,
+  "actual_battle_queue_connected": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

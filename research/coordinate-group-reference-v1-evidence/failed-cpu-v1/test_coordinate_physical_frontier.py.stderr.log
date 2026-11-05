@@ -1,0 +1,14 @@
+.F...
+======================================================================
+FAIL: test_changed_packet_probability_or_observation_requires_review (test_coordinate_physical_frontier.FrontierTests.test_changed_packet_probability_or_observation_requires_review) (name='app/battle_attack_group_runtime.py', old='ev.part_damage or ev.interrupt_damage')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-group-reference-compact-v1/tests/test_coordinate_physical_frontier.py", line 103, in test_changed_packet_probability_or_observation_requires_review
+    with self.assertRaises(AssertionError):verify(ROOT,{name:text.replace(old,new,1)})
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+----------------------------------------------------------------------
+Ran 5 tests in 3.027s
+
+FAILED (failures=1)

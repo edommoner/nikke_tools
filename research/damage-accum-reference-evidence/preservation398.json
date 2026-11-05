@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "source_capture": "/tmp/nikke-heal-lifetime-metal398-v3",
+  "replay_capture": "/tmp/nikke-damage-accum-reader-replay398-v3",
+  "replay_package_id": "a65751e6d847348ed48fbe4349cd1200ca0c2bfc4829ebbf556ca79454525800",
+  "entries398_input_output_native_identical": true,
+  "input_sha256": "8dfd26fb7ddd181c5c40d38382516a5fcd58b64ba49ed7da7b9a8ad1b24aeaa5",
+  "output_sha256": "03293c512f0eba5f164e6a50d038e95b006d70368b652d687b3b9f3becf1fb25",
+  "retained_raw_bytes": 1251999744,
+  "independent_seal_exactly_matches_registered_golden": true,
+  "independent_seal_sha256": "00e5f949a84687c39c63de713673e5d04d86794169182cb66cd7080043c5fd7c",
+  "gpu_source_files": 143,
+  "all_shared_gpu_source_unchanged": true,
+  "all266_profile_records_and242_input_sha256_identical": true,
+  "gpu_calls": 0,
+  "windows_commands": 0,
+  "new_damage_accum_gpu_verified": false
+}

@@ -1,0 +1,455 @@
+{
+  "schema": 1,
+  "scope": "Normal API shared coordinate sampling, manual cover and explicit independent cover DEF; BODY and3 ADD scenes in fixed/accumulate modes",
+  "proof_root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-cover-v1-20261101",
+  "own_cpu_tests": 145,
+  "independent_audit": {
+    "package_id": "992713a649ee87458e21f27323bc25b2205198506144ea13a354a692f878a0cc",
+    "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-cover-v1-20261101/metal-v2",
+    "child_pid": 16019,
+    "input_count": 1,
+    "native_cases": 1,
+    "live_parent_receipt_present": false,
+    "elapsed_seconds": 1.903718875022605,
+    "gpu_calls": 0,
+    "calculation_verified": true,
+    "input_sha256": "58d82004b82b22e8eaf53a47951d0e08c014de8ce1ada7e25aff5f60cecbfc70",
+    "output_sha256": "732176cab594984c9f2c2ebb3f306a092442cc4a488207f0f86f1378add727fd",
+    "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+    "schema": "independent-metal-audit-v1"
+  },
+  "cli_comparison": {
+    "calculation_verified": true,
+    "entries": [
+      {
+        "name": "product/coordinate-cover-fixed-30s",
+        "input_sha256": "4b24ff6b98e6053542bca379cb3ca97d00a8f49b3e290a20e7bae6951009fb35",
+        "output_sha256": "732176cab594984c9f2c2ebb3f306a092442cc4a488207f0f86f1378add727fd",
+        "native_sha256": "1759a687930216c854a461c95b49a43a4f90390ce4c9099566ac6dd09090877f"
+      }
+    ],
+    "mismatches": [],
+    "input_count": 1,
+    "native_oracles": 1,
+    "input_sha256": "58d82004b82b22e8eaf53a47951d0e08c014de8ce1ada7e25aff5f60cecbfc70",
+    "output_sha256": "732176cab594984c9f2c2ebb3f306a092442cc4a488207f0f86f1378add727fd",
+    "generated_normalized": {
+      "cuda": "e8ce5d544709f383a712eb0dab13e15e172e5255483fa69759ee098a88e6e132",
+      "metal": "fe82cda8954fbffc296670e9f631f15a0022d4fc610f962fd3fbda1ef2e7b561"
+    },
+    "audit_gpu_calls": 0,
+    "parent_oracles": {
+      "scope": "live-parent-preflight",
+      "reused_native_cases": 1,
+      "fresh_native_cases": 0,
+      "rejection_cases": 0,
+      "saved_results_used": false,
+      "independent_audit_reuse": false
+    }
+  },
+  "old_failed_calculation_retained": {
+    "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-coordinate-cover-v1-20261101/metal-v1",
+    "mismatch_fields": [
+      "control",
+      "control_detail"
+    ],
+    "cause": "Missing product_manual_cover_owners metadata; common device input and every readback byte unchanged by correction",
+    "saved_projection": {
+      "saved_input_unchanged": true,
+      "saved_gpu_status": 0,
+      "full_payload_differences": [],
+      "product_manual_cover_owners": [
+        0
+      ],
+      "new_gpu_calls": 0,
+      "native_comparisons": 1,
+      "output_sha256": "732176cab594984c9f2c2ebb3f306a092442cc4a488207f0f86f1378add727fd"
+    },
+    "old_and_corrected_gpu_input_equal": true,
+    "old_and_corrected_gpu_readback_equal": true
+  },
+  "api": {
+    "cases": [
+      {
+        "character": "마르차나",
+        "variant": "fixed-body",
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "3f83e8c2907e4162bb1f6e76e2ff43de",
+          "device": "Apple M5",
+          "elapsed_ms": 3634.433667000849,
+          "gpu_execution_verified": true,
+          "input_sha256": "58d82004b82b22e8eaf53a47951d0e08c014de8ce1ada7e25aff5f60cecbfc70",
+          "output_sha256": "732176cab594984c9f2c2ebb3f306a092442cc4a488207f0f86f1378add727fd",
+          "source": "gpu/product_coordinate_cover_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.5452293749549426,
+          "batch": {
+            "capture_id": "batch-2f98d5b7931e41b69acc690e16795c02",
+            "index": 0,
+            "cases": 2,
+            "input_words": 115704,
+            "output_words": 2048912,
+            "input_sha256": "58d82004b82b22e8eaf53a47951d0e08c014de8ce1ada7e25aff5f60cecbfc70",
+            "output_sha256": "732176cab594984c9f2c2ebb3f306a092442cc4a488207f0f86f1378add727fd",
+            "transport_input_sha256": "815be821b97f284e8d48885bcd2f2acfe13bafedd5cde671119452e6dd4c46a6",
+            "transport_output_sha256": "615cad27848cc4ed3bcec21242a63bcd5bf47eaedd8c1f13a6fcbc4df9b61d16",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        "logical_colliders": 0,
+        "cover_receipts": [
+          {
+            "name": "마르차나",
+            "divisor": 1,
+            "time": 0.7500000000000007,
+            "attack": 1000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 100,
+            "effective_defense": 100,
+            "quantity": 900,
+            "shared_quantity": 900,
+            "hp_before": 2000000,
+            "applied": 900,
+            "hp_after": 1999100
+          },
+          {
+            "name": "마르차나",
+            "divisor": 1,
+            "time": 1.2500000000000004,
+            "attack": 1000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 100,
+            "effective_defense": 100,
+            "quantity": 900,
+            "shared_quantity": 900,
+            "hp_before": 1999100,
+            "applied": 900,
+            "hp_after": 1998200
+          }
+        ]
+      },
+      {
+        "character": "벨로타",
+        "variant": "fixed-three-adds",
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "fec660bac96b4c0dbaa89045a4b67fa0",
+          "device": "Apple M5",
+          "elapsed_ms": 3997.1513749915175,
+          "gpu_execution_verified": true,
+          "input_sha256": "9c39ccf864784947318902432bc9e4d3808c9476d15233ed167cc5380a2b71b8",
+          "output_sha256": "4cede03f79d0bed033ab7452fa6734a527ae103ef73ebb1d0a6e109f4e2a01bf",
+          "source": "gpu/product_coordinate_cover_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.5452293749549426,
+          "batch": {
+            "capture_id": "batch-2f98d5b7931e41b69acc690e16795c02",
+            "index": 1,
+            "cases": 2,
+            "input_words": 115704,
+            "output_words": 2048912,
+            "input_sha256": "9c39ccf864784947318902432bc9e4d3808c9476d15233ed167cc5380a2b71b8",
+            "output_sha256": "4cede03f79d0bed033ab7452fa6734a527ae103ef73ebb1d0a6e109f4e2a01bf",
+            "transport_input_sha256": "815be821b97f284e8d48885bcd2f2acfe13bafedd5cde671119452e6dd4c46a6",
+            "transport_output_sha256": "615cad27848cc4ed3bcec21242a63bcd5bf47eaedd8c1f13a6fcbc4df9b61d16",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        "logical_colliders": 3,
+        "cover_receipts": [
+          {
+            "name": "벨로타",
+            "divisor": 1,
+            "time": 0.7500000000000007,
+            "attack": 1000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 100,
+            "effective_defense": 100,
+            "quantity": 900,
+            "shared_quantity": 900,
+            "hp_before": 2000000,
+            "applied": 900,
+            "hp_after": 1999100
+          },
+          {
+            "name": "벨로타",
+            "divisor": 1,
+            "time": 1.2500000000000004,
+            "attack": 1000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 100,
+            "effective_defense": 100,
+            "quantity": 900,
+            "shared_quantity": 900,
+            "hp_before": 1999100,
+            "applied": 900,
+            "hp_after": 1998200
+          }
+        ]
+      },
+      {
+        "character": "마르차나",
+        "variant": "accumulate-body",
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "3c9f5d39fe0a4047ac854c3c5c34b897",
+          "device": "Apple M5",
+          "elapsed_ms": 24849.630207987502,
+          "gpu_execution_verified": true,
+          "input_sha256": "cfcb87fb43374b568e09053c25f3ac5428a464706931e92bf2f6867f04746d3f",
+          "output_sha256": "b07a956af41a45813961532a4f9931041e93c690251256b3a0e52d36a6ee00d1",
+          "source": "gpu/product_coordinate_cover_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.598146958334837,
+          "batch": {
+            "capture_id": "batch-37ceb0632994492c8240d247f1382d9e",
+            "index": 0,
+            "cases": 2,
+            "input_words": 115704,
+            "output_words": 2048912,
+            "input_sha256": "cfcb87fb43374b568e09053c25f3ac5428a464706931e92bf2f6867f04746d3f",
+            "output_sha256": "b07a956af41a45813961532a4f9931041e93c690251256b3a0e52d36a6ee00d1",
+            "transport_input_sha256": "8f9ecd1784da806cfe639f4f61fb3de83624f67e6a4fdfe59876221f7972ad7d",
+            "transport_output_sha256": "a70c6e669829b6e85ddf9eac61444ba4dd4ddf0839784b579bf83ca66b953629",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        "logical_colliders": 0,
+        "cover_receipts": [
+          {
+            "name": "마르차나",
+            "divisor": 1,
+            "time": 0.7500000000000007,
+            "attack": 1000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 100,
+            "effective_defense": 100,
+            "quantity": 900,
+            "shared_quantity": 900,
+            "hp_before": 2000000,
+            "applied": 900,
+            "hp_after": 1999100
+          },
+          {
+            "name": "마르차나",
+            "divisor": 1,
+            "time": 1.2500000000000004,
+            "attack": 1000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 100,
+            "effective_defense": 100,
+            "quantity": 900,
+            "shared_quantity": 900,
+            "hp_before": 1999100,
+            "applied": 900,
+            "hp_after": 1998200
+          }
+        ]
+      },
+      {
+        "character": "벨로타",
+        "variant": "accumulate-three-adds",
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "72b39d6eeb544f0196677b8101815eee",
+          "device": "Apple M5",
+          "elapsed_ms": 25262.484000006225,
+          "gpu_execution_verified": true,
+          "input_sha256": "bf94f92c1df86bc89d9d302e29cbec4ac8295a591a7383150d37da5a6ead542e",
+          "output_sha256": "1b7ecf75fe6881d0cf6ac8092ab793c6973357361c63d804de440c00a10ad25a",
+          "source": "gpu/product_coordinate_cover_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.598146958334837,
+          "batch": {
+            "capture_id": "batch-37ceb0632994492c8240d247f1382d9e",
+            "index": 1,
+            "cases": 2,
+            "input_words": 115704,
+            "output_words": 2048912,
+            "input_sha256": "bf94f92c1df86bc89d9d302e29cbec4ac8295a591a7383150d37da5a6ead542e",
+            "output_sha256": "1b7ecf75fe6881d0cf6ac8092ab793c6973357361c63d804de440c00a10ad25a",
+            "transport_input_sha256": "8f9ecd1784da806cfe639f4f61fb3de83624f67e6a4fdfe59876221f7972ad7d",
+            "transport_output_sha256": "a70c6e669829b6e85ddf9eac61444ba4dd4ddf0839784b579bf83ca66b953629",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        "logical_colliders": 3,
+        "cover_receipts": [
+          {
+            "name": "벨로타",
+            "divisor": 1,
+            "time": 0.7500000000000007,
+            "attack": 1000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 100,
+            "effective_defense": 100,
+            "quantity": 900,
+            "shared_quantity": 900,
+            "hp_before": 2000000,
+            "applied": 900,
+            "hp_after": 1999100
+          },
+          {
+            "name": "벨로타",
+            "divisor": 1,
+            "time": 1.2500000000000004,
+            "attack": 1000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 100,
+            "effective_defense": 100,
+            "quantity": 900,
+            "shared_quantity": 900,
+            "hp_before": 1999100,
+            "applied": 900,
+            "hp_after": 1998200
+          }
+        ]
+      }
+    ],
+    "posts": 1,
+    "physical_batches": 2,
+    "seconds": 27.03305516700493,
+    "saved_audit": {
+      "rows": [
+        {
+          "index": 0,
+          "profile": "마르차나",
+          "variant": "fixed-body",
+          "capture": "3f83e8c2907e4162bb1f6e76e2ff43de",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 1,
+          "profile": "벨로타",
+          "variant": "fixed-three-adds",
+          "capture": "fec660bac96b4c0dbaa89045a4b67fa0",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 2,
+          "profile": "마르차나",
+          "variant": "accumulate-body",
+          "capture": "3c9f5d39fe0a4047ac854c3c5c34b897",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 3,
+          "profile": "벨로타",
+          "variant": "accumulate-three-adds",
+          "capture": "72b39d6eeb544f0196677b8101815eee",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        }
+      ],
+      "audited": 4,
+      "native_battle_calls": 0,
+      "gpu_calls": 0
+    },
+    "server_stop": {
+      "pid": 16042,
+      "exit_code": -15,
+      "process_group_absent": true
+    },
+    "retained_first_saved_audit_failure": "Python request duration2.0 vs actual Node worker JSON duration2 differed only in spec text; no numeric/raw/payload values altered",
+    "node_transport": {
+      "input": "requests.json",
+      "input_sha256": "f26d9f51652c2e81fac4d4880f378fa433937dde807c88455505d66a61171d6f",
+      "output": "requests-node-transport-v1.json",
+      "output_sha256": "4464acb800c261b78a01eea9383a2698d7021d8735634fd53a5915b365a38ebe",
+      "node": "v24.22.1",
+      "operation": "let s=\"\";process.stdin.setEncoding(\"utf8\");process.stdin.on(\"data\",x=>s+=x);process.stdin.on(\"end\",()=>process.stdout.write(JSON.stringify(JSON.parse(s))));",
+      "scope": "Same JSON.parse/JSON.stringify as Node HTTP server and worker transport; preserve original request, raw GPU and saved payloads; no comparison exclusions",
+      "gpu_calls": 0,
+      "native_battle_calls": 0
+    }
+  },
+  "baselines": {
+    "version": 39,
+    "new": "coordinate-cover-fixed",
+    "old_members_unchanged": 31,
+    "accumulate": "Normal API verified; independent CLI baseline not registered"
+  },
+  "protected_cpu_files_changed": [],
+  "numerical_arithmetic_or_tolerance_changed": false,
+  "new_suite_or_persistent_tool": false,
+  "coverage": {
+    "new_default_profiles": 0,
+    "historical_source_metal_profiles": 262,
+    "historical_source_cuda_profiles": 262,
+    "total_profiles": 266,
+    "current_source_cuda_verified": false,
+    "whole_environment_preservation_verified": false,
+    "overall_verified": false,
+    "full_goal_complete": false
+  },
+  "remaining": [
+    "Unrestricted compositions and complete original definition coverage",
+    "Four unconfigured default profiles",
+    "Current source CUDA execution",
+    "Independent CLI accumulate/cover baseline"
+  ]
+}

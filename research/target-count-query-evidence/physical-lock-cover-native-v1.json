@@ -1,0 +1,121 @@
+{
+  "schema": "physical-lock-cover-native-v1",
+  "source_commit": "18f4b4ecb743ca3e7c23e0a58bb4d6f36bb2a516",
+  "package_id": "4acdadd20a72eaded933e4d5b17ff02cb135b698461705e56c7c257c7e60183e",
+  "archive_sha256": "d773380cfdddf0fb6b9510bb7f3879480447f4e4aaeceed1a54246943bf313fa",
+  "checks": {
+    "cpu": {
+      "groups": 8,
+      "tests": 59,
+      "skipped": 0,
+      "passed": true
+    },
+    "smoke": {
+      "groups": 66,
+      "tests": 642,
+      "skipped": 1,
+      "passed": true
+    }
+  },
+  "native_contract_cases": [
+    {
+      "name": "physical-lock-cover/charging-owner",
+      "input_sha256": "886c842e52eedaf9890b5964839f973aece680b47f3d8651e8d7584fa9d024e0",
+      "native_sha256": "0dd118230095d252f76f35aecaa5d7192799e35bd4b14cd189cf0216c0139f5a",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "native_cover_notifications": 1,
+        "owner_cover_clears": 1,
+        "native_attack_clears": 2,
+        "actual_native_controls": true,
+        "charging_cancelled_before_cover_notification": true,
+        "spatial_selection_verified": false,
+        "full25_verified": false,
+        "gpu_supported": false
+      }
+    },
+    {
+      "name": "physical-lock-cover/other-owner",
+      "input_sha256": "23746e1c51dc6063ebb1333b76ab66591d6107d215a5b9e611bda9432b36f4dd",
+      "native_sha256": "2fee2e729d9ca2ba03b7e9c6710c6886e26eb47cc8bb76296609dabceb385806",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "native_cover_notifications": 1,
+        "owner_cover_clears": 0,
+        "native_attack_clears": 2,
+        "actual_native_controls": true,
+        "charging_cancelled_before_cover_notification": true,
+        "spatial_selection_verified": false,
+        "full25_verified": false,
+        "gpu_supported": false
+      }
+    },
+    {
+      "name": "physical-lock-cover/blocked-owner",
+      "input_sha256": "270ab7c40e1bd8c9d684d3f392ee1489baab0d1442bdf0b30c773ae384873b84",
+      "native_sha256": "d28aff6f93c90fa4918ba6a256e6bd743ec71a8366b89e3f6365799ae7f956ae",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "native_cover_notifications": 0,
+        "owner_cover_clears": 0,
+        "native_attack_clears": 2,
+        "actual_native_controls": true,
+        "charging_cancelled_before_cover_notification": true,
+        "spatial_selection_verified": false,
+        "full25_verified": false,
+        "gpu_supported": false
+      }
+    },
+    {
+      "name": "physical-lock-cover/empty-owner",
+      "input_sha256": "b23f5093af9d31818cde30f071709aa13f9ae194a1e953e03351f86be064459f",
+      "native_sha256": "a43b8934973c7438bbcfc1f8e1c8da7696190fd0c695ec4906cf23e87aa97470",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "native_cover_notifications": 1,
+        "owner_cover_clears": 1,
+        "native_attack_clears": 2,
+        "actual_native_controls": true,
+        "charging_cancelled_before_cover_notification": true,
+        "spatial_selection_verified": false,
+        "full25_verified": false,
+        "gpu_supported": false
+      }
+    },
+    {
+      "name": "physical-lock-cover/reload-bound-owner",
+      "input_sha256": "ba69001d3f8451cb1dd5a53632a5e999a6d45c942834d5a532f2746d5c7db2c1",
+      "native_sha256": "4e8bb2e306af35b9a24c3d8b95a845277acc42542da05ad1dbb617e0174bdccc",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "native_cover_notifications": 1,
+        "owner_cover_clears": 1,
+        "native_attack_clears": 2,
+        "actual_native_controls": true,
+        "charging_cancelled_before_cover_notification": true,
+        "spatial_selection_verified": false,
+        "full25_verified": false,
+        "gpu_supported": false
+      }
+    }
+  ],
+  "native_reference_passed": true,
+  "model_check_passed": true,
+  "all_packaged_gpu_files_unchanged": 388,
+  "old_native_fingerprints_retained": true,
+  "cover_gpu_connected": false,
+  "additional_gpu_calls": 0,
+  "additional_windows_requests": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

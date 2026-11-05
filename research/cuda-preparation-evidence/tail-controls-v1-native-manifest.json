@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "package_id": "1e54383d95d39389d10e0bfb8b9d3a037f2fa6f310ac0749da13c10c64b2abc9",
+  "source_commit": "bf6e9f4b212aee708b7b9f6e5241ecb86c4c0510",
+  "summary_file": "native-tail-summary-v1.json",
+  "summary_bytes": 5354,
+  "summary_sha256": "13dac24092cd9415f523219a9a8a9c88a43c3926547f058fba3d581bf21148a2",
+  "public_payload": "summary-and-manifest-only",
+  "raw_included": false,
+  "logs_included": false,
+  "personal_paths_included": false
+}

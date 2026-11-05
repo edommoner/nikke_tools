@@ -1,0 +1,839 @@
+{
+  "combat": {
+    "weapons": [
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      }
+    ],
+    "targets": [
+      {
+        "hp": 1000000000.0
+      }
+    ],
+    "trace": "summary"
+  },
+  "effects": [
+    {
+      "name": "scalar 0",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 1",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 2",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 3",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 4",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 5",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 6",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 7",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 8",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 9",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 10",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 11",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 12",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 13",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 14",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 15",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 16",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 17",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 18",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 19",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 20",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 21",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 22",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 23",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 24",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 25",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 26",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 27",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 28",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 29",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 30",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "scalar 31",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    }
+  ],
+  "script": [
+    [
+      0,
+      24,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0.1,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      0.2,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      0.3,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      0.4,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      0.5,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      0.6,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      0.7,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      0.8,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      0.9,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      1.0,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      1.1,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      1.2,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      1.3,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      1.4,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      1.5,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      1.6,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      1.7,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      1.8,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      1.9,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      2.0,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      2.1,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      2.2,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      2.3,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      2.4,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      2.5,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      2.6,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      2.7,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      2.8,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      2.9,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      3.0,
+      25,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      100
+    ],
+    [
+      3,
+      2,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0
+    ]
+  ],
+  "expected_damage": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "expected_ammo": 1
+}

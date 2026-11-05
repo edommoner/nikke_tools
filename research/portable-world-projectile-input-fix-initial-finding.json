@@ -1,0 +1,7 @@
+{
+  "stage": "module import before input capture/build/execute",
+  "error": "AttributeError: ModuleSpec has no attribute __name__",
+  "gpu_calls": 0,
+  "input_blocks_submitted": 0,
+  "correction": "Pass the created module to loader.exec_module; added GPU-forbidden import check"
+}

@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "cases": 10,
+      "generated_cuda_equal": true,
+      "generated_metal_equal": true,
+      "input_equal": true,
+      "output_equal": true,
+      "required_pipeline_hit": true,
+      "pipeline_seconds": 0.0018509626388549805,
+      "gpu_seconds": 0.045454375009285286,
+      "input_sha256": "da951950f7ff590dea65c04f635136ed96adb56384f908d29cc9e64ecc72e5d7",
+      "output_sha256": "f32aa2d1872cc0e9eab022a5433891f788c14e95a37e3ec54b4cf4d243c4d61a"
+    },
+    {
+      "cases": 16,
+      "generated_cuda_equal": true,
+      "generated_metal_equal": true,
+      "input_equal": true,
+      "output_equal": true,
+      "required_pipeline_hit": true,
+      "pipeline_seconds": 0.0013689994812011719,
+      "gpu_seconds": 0.019240249996073544,
+      "input_sha256": "1f006d28b9badcff012c99464b2dc8e560fddc737ad423c741b274f214d9055e",
+      "output_sha256": "f9eafe5a270b628790c5292ba52d46b8127057647168f0a5a56cd80523cfb840"
+    }
+  ],
+  "current_legacy23_verified": false,
+  "current_legacy23_failure": "Required cache miss before dispatch; failed packet not retried",
+  "GPU_runs": 2,
+  "same_claim_retries": 0,
+  "Windows_new_requests": 0
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "weighted-incoming-progress-v1",
+  "priority": "received_dmg_split:4 original favorite-stage profiles",
+  "metal_proof": "tests/fixtures/weighted-incoming-metal-v1.json",
+  "metal_proof_sha256": "0fe834dee3a4938a78cf1b6704a2b0c79d40f28bd60048c72d25884b6dfe7b32",
+  "standalone_numeric_only": true,
+  "explicit_weights": true,
+  "game_constants_inferred_not_adopted": true,
+  "scope": "Frozen five-body plus independent cover allocation; no carriers/protection/callbacks",
+  "source_file": "gpu/incoming_weighted_allocation.slang",
+  "gpu_seconds": 0.0005699582980014384,
+  "independent_seconds": 0.38664587505627424,
+  "predevice_failure": {
+    "capture": "weighted-incoming-v1-20261030-metal",
+    "device_visible": false,
+    "claim_consumed": false,
+    "gpu_calls": 0
+  },
+  "successful_gpu_runs": 1,
+  "windows_requests": 0,
+  "full_goal_complete": false,
+  "next_required": [
+    "bind unmodified all_allies/self_cover original carrier identity and lifetime",
+    "snapshot at existing incoming frame boundary; separate cover recipient",
+    "reuse original protection/HP/cover mutation and notifications without second clock",
+    "cover break/revival/caster down/even-share overlap and four favorite stages",
+    "bounded CUDA validation after battle integration"
+  ]
+}

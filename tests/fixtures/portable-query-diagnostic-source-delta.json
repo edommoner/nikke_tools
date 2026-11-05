@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "baseline_commit": "5412ffd",
+  "sources": {
+    "gpu/native_query_diagnostic.slang": {
+      "baseline_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "d99415f7929b37d7665f2208fb31c44d2fd3fdc278793cf1a2383c34d4b2032f",
+      "changes": [
+        {
+          "baseline": "",
+          "current": "// Read-only semantic observation in a separate compile-time diagnostic entry.\n// No additional buff/recipient query, invalidation or arithmetic is performed.\nvoid initializeNativeQueryDiagnostic(inout Runtime s)\n{\n#ifdef PORTABLE_NATIVE_QUERY_DIAGNOSTIC\n    uint head=s.resourceOutput+P_NATIVE_DIAG_BASE;\n    for(uint i=0;i<P_NATIVE_DIAG_WORDS;i++) results[head+i]=0;\n#ifdef PORTABLE_NATIVE_QUERY_CENSUS\n    results[head]=0x4e514331U;results[head+8]=2;results[head+9]=2048;\n#else\n    results[head]=0x4e514431U;results[head+8]=16;results[head+9]=256;\n    storeNumber(head+4,(uint64_t(0x402a9999U)<<32)|0x9999999aU); //13.3\n    storeNumber(head+6,(uint64_t(0x402abd70U)<<32)|0xa3d70a3dU); //13.37\n#endif\n#endif\n}\nvoid recordNativeQueryDiagnostic(inout Runtime s,uint who,uint target,uint exclusion,uint epoch,uint64_t when,bool hit,uint64_t values[64])\n{\n#ifdef PORTABLE_NATIVE_QUERY_DIAGNOSTIC\n#ifdef PORTABLE_NATIVE_QUERY_CENSUS\n    if(hit || who!=0) return;\n    uint head=s.resourceOutput+P_NATIVE_DIAG_BASE;\n    if(results[head+2]!=0 && (uint64_t(results[head+6]) | uint64_t(results[head+7])<<32)==when) return;\n    uint index=results[head+2]++;\n    if(index==0) storeNumber(head+4,when);\n    storeNumber(head+6,when);\n    if(index>=2048) { results[head+3]++;return; }\n    results[head+1]++;\n    results[head+16+index*2]=results[s.resourceOutput+P_REVIVAL_BASE+6];\n    results[head+17+index*2]=results[s.resourceOutput+P_REVIVAL_RNG_BASE];\n#else\n    uint64_t lower=(uint64_t(0x402a9999U)<<32)|0x9999999aU,upper=(uint64_t(0x402abd70U)<<32)|0xa3d70a3dU;\n    if(f64Less(when,lower) || f64Less(upper,when)) return;\n    uint head=s.resourceOutput+P_NATIVE_DIAG_BASE,index=results[head+2]++;\n    if(index>=256) { results[head+3]++;return; }\n    uint at=head+16+index*16;results[head+1]++;\n    results[at]=hit ? 1U : 2U;results[at+1]=who;results[at+2]=target;\n    results[at+3]=exclusion;results[at+4]=epoch;results[at+5]=s.phase;\n    storeNumber(at+6,when);storeNumber(at+8,values[S_atk_flat]);storeNumber(at+10,values[S_atk_pct]);\n    results[at+12]=results[s.resourceOutput+P_REVIVAL_RNG_BASE];\n    results[at+13]=results[s.resourceOutput+P_REVIVAL_BASE+6];\n#endif\n#endif\n}\n"
+        }
+      ]
+    },
+    "gpu/world_native_query_diagnostic_entry.slang": {
+      "baseline_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "4c822a415373817a0a573f1bbacfcf89cc555e1e9cfe5036b2dc804327cb1d81",
+      "changes": [
+        {
+          "baseline": "",
+          "current": "#define PORTABLE_NATIVE_QUERY_CENSUS\n#define PORTABLE_NATIVE_QUERY_DIAGNOSTIC\n#include \"world_entry_reload_resident_entry.slang\"\n"
+        }
+      ]
+    },
+    "gpu/world_native_query_window_entry.slang": {
+      "baseline_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "995418f08033e39d6a248e9e65ca141a2e5caa7bf056824dcf1de2bb5fb87da6",
+      "changes": [
+        {
+          "baseline": "",
+          "current": "#define PORTABLE_NATIVE_QUERY_DIAGNOSTIC\n#include \"world_entry_reload_resident_entry.slang\"\n"
+        }
+      ]
+    },
+    "gpu/native_numeric_query_runtime.slang": {
+      "baseline_sha256": "9531db5441a65d9e0e3f73653bdd5dcfd4612e3d63f74cea7f51380787062ec3",
+      "current_sha256": "01f9a77d751f0bd09e511b3312d6a1c9872e8d09db8e5b0dcd5cd1affb7e6ef0",
+      "changes": [
+        {
+          "baseline": "    // Reuse that same reader/continuation so post-hit mutations consume RNG.\n    s.healthMask|=64U;\n    results[s.resourceOutput+P_NATIVE_QUERY_BASE]=0x4e515231U;\n#else\n    if(enabled) return false;\n#endif\n",
+          "current": "    // Reuse that same reader/continuation so post-hit mutations consume RNG.\n    s.healthMask|=64U;\n    results[s.resourceOutput+P_NATIVE_QUERY_BASE]=0x4e515231U;\n    initializeNativeQueryDiagnostic(s);\n#else\n    if(enabled) return false;\n#endif\n"
+        },
+        {
+          "baseline": "    uint at=s.resourceOutput+P_NATIVE_QUERY_BASE;\n    if(results[at+1]==0xffffffffU) { s.error=2;return; }\n    results[at+1]++;results[at+2]=0;\n}\nuint nativeNumericTarget(inout Runtime s)\n{\n",
+          "current": "    uint at=s.resourceOutput+P_NATIVE_QUERY_BASE;\n    if(results[at+1]==0xffffffffU) { s.error=2;return; }\n    results[at+1]++;results[at+2]=0;\n}\n// Explicit native sync_hp observes the first synchronization even at full HP.\n// Seen mask and five exact values use previously reserved cache-header words.\nvoid observeNativeNumericHP(inout Runtime s,uint who)\n{\n    if(!nativeNumericEnabled(s)) return;\n    uint head=s.resourceOutput+P_NATIVE_QUERY_BASE,bit=1U<<who,at=head+12+who*2;\n    uint64_t previous=uint64_t(results[at])|(uint64_t(results[at+1])<<32);\n    if((results[head+10]&bit)==0 || !f64Equal(previous,s.hp[who])) invalidateNativeNumeric(s);\n    results[head+10]|=bit;storeNumber(at,s.hp[who]);\n}\nuint nativeNumericTarget(inout Runtime s)\n{\n"
+        },
+        {
+          "baseline": "        if(results[at]==who && results[at+1]==target && results[at+2]==s.damageExclusion && results[at+3]==epoch && results[at+4]!=0)\n        {\n            for(uint k=0;k<64;k++) values[k]=uint64_t(results[at+8+k*2])|(uint64_t(results[at+9+k*2])<<32);\n            results[head+8]++;return true;\n        }\n    }\n",
+          "current": "        if(results[at]==who && results[at+1]==target && results[at+2]==s.damageExclusion && results[at+3]==epoch && results[at+4]!=0)\n        {\n            for(uint k=0;k<64;k++) values[k]=uint64_t(results[at+8+k*2])|(uint64_t(results[at+9+k*2])<<32);\n            recordNativeQueryDiagnostic(s,who,target,s.damageExclusion,epoch,when,true,values);\n            results[head+8]++;return true;\n        }\n    }\n"
+        },
+        {
+          "baseline": "void storeNativeNumeric(inout Runtime s,uint slot,uint epoch,uint64_t values[64])\n{\n    uint head=s.resourceOutput+P_NATIVE_QUERY_BASE;results[head+4]=0;\n    if(s.error!=0 || slot==0xffffffffU || results[head+1]!=epoch) return;\n    for(uint k=0;k<64;k++) storeNumber(slot+8+k*2,values[k]);\n    results[slot+4]=1;\n",
+          "current": "void storeNativeNumeric(inout Runtime s,uint slot,uint epoch,uint64_t values[64])\n{\n    uint head=s.resourceOutput+P_NATIVE_QUERY_BASE;results[head+4]=0;\n    if(s.error==0 && slot!=0xffffffffU)\n        recordNativeQueryDiagnostic(s,results[slot],results[slot+1],results[slot+2],epoch,\n            uint64_t(results[head+5])|(uint64_t(results[head+6])<<32),false,values);\n    if(s.error!=0 || slot==0xffffffffU || results[head+1]!=epoch) return;\n    for(uint k=0;k<64;k++) storeNumber(slot+8+k*2,values[k]);\n    results[slot+4]=1;\n"
+        }
+      ]
+    },
+    "gpu/event_runtime.slang": {
+      "baseline_sha256": "db9fa90b325f588f451c6d19cd90ab6dd518a22c8eed98967142201a52413eb0",
+      "current_sha256": "26e4673fee86f8ce7ae164e888fea96cf03bdc0206241896174c0850b2806d3e",
+      "changes": [
+        {
+          "baseline": "                uint mask = packedRecipientMask(f.value);\n                if (!f64Zero(grant)) for (uint who = 0; who < 5; who++) if ((mask & (1U << who)) != 0)\n                    s.hp[who] = smaller(f64Add(s.hp[who],grant),effectiveMaxHP(s,who,f.time));\n                syncHealth(s,f.time);\n            }\n            return;\n",
+          "current": "                uint mask = packedRecipientMask(f.value);\n                if (!f64Zero(grant)) for (uint who = 0; who < 5; who++) if ((mask & (1U << who)) != 0)\n                    s.hp[who] = smaller(f64Add(s.hp[who],grant),effectiveMaxHP(s,who,f.time));\n                for(uint who=0;who<5;who++) if((mask&(1U<<who))!=0) observeNativeNumericHP(s,who);\n                syncHealth(s,f.time);\n            }\n            return;\n"
+        },
+        {
+          "baseline": "        if (s.hpDirtyMask != 0)\n        {\n            uint who = 0; while ((s.hpDirtyMask & (1U << who)) == 0) who++;\n            s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time); continue;\n        }\n        COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.triggerHitCrit=f.hitCrit; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; WORLD_TEAM_FRAME(s,f)\n        if(f.mode==0 && f.event==16 && f.cursor==0) traceHealShare(s,6,f.owner,f.time,0,0,uint(f.argument));\n",
+          "current": "        if (s.hpDirtyMask != 0)\n        {\n            uint who = 0; while ((s.hpDirtyMask & (1U << who)) == 0) who++;\n            s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time,false); continue;\n        }\n        COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.triggerHitCrit=f.hitCrit; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; WORLD_TEAM_FRAME(s,f)\n        if(f.mode==0 && f.event==16 && f.cursor==0) traceHealShare(s,6,f.owner,f.time,0,0,uint(f.argument));\n"
+        },
+        {
+          "baseline": "        }\n        if (f.mode == 9)\n        {\n            if (f.cursor == f.repeatLeft) { s.removalCount = f.value; depth--; continue; }\n            uint payload=loadRemovalNotice(s,f.value+f.cursor);frames[depth].cursor++;\n            uint index=f.value+f.cursor,stack=loadStackNoticeValue(s,index);\n            if((payload&16384)!=0) { pushFrame(s,frames,depth,27,0,0,0,f.time,stack);continue; }\n            pushFrame(s,frames,depth,0,(payload&32768)!=0 ? 9 : 29,payload&7,int((payload>>3)&255),f.time,stack);continue;\n        }\n        if(f.mode==24)\n",
+          "current": "        }\n        if (f.mode == 9)\n        {\n            if(f.repeatRow!=0)\n            { frames[depth].repeatRow=0;finishNativeExpiredSnapshot(s,f.repeatRow-1,f.time);continue; }\n            if (f.cursor == f.repeatLeft) { s.removalCount = f.value; depth--; continue; }\n            uint payload=loadRemovalNotice(s,f.value+f.cursor);frames[depth].cursor++;\n            uint index=f.value+f.cursor,stack=loadStackNoticeValue(s,index);\n            if((payload&16384)!=0) { pushFrame(s,frames,depth,27,0,0,0,f.time,stack);continue; }\n            if((payload&32768)==0 && (stack&0x80000000U)!=0)\n            { frames[depth].repeatRow=(stack&0x7fffffffU)+1;stack=0; }\n            pushFrame(s,frames,depth,0,(payload&32768)!=0 ? 9 : 29,payload&7,int((payload>>3)&255),f.time,stack);continue;\n        }\n        if(f.mode==24)\n"
+        },
+        {
+          "baseline": "        if (s.alive[slot] != 0 && !f64Less(when,s.end[slot]))\n        {\n            Definition expired=residentDefinition(s,slot);uint mask=s.activeRecipients[slot];\n            queueCarrierEnd(s,slot);\n            if((s.quantityMask&8192)!=0 && commands[s.inputBase+P_HP_UNCLAMP_POLICY]!=0 && expired.kind==0 &&\n               (expired.stat==S_hp_copy || expired.stat==S_hp_caster_based_pct || expired.stat==S_hp_only_caster_based_pct || expired.stat==S_max_hp_from_max_hp_pct)) queueHealthCapNotice(s,mask);\n        }\n",
+          "current": "        if (s.alive[slot] != 0 && !f64Less(when,s.end[slot]))\n        {\n            Definition expired=residentDefinition(s,slot);uint mask=s.activeRecipients[slot];\n            bool snapshot=nativeNumericEnabled(s) && commands[s.inputBase+P_RECIPIENT_META_BASE+6]!=0 &&\n                s.lazyPending[slot]!=0 && expired.name<P_DEFINITIONS;\n            uint notice=s.removalCount;\n            queueCarrierEnd(s,slot,0,snapshot);\n            if(snapshot && s.error==0 && s.removalCount>notice)\n                results[s.resourceOutput+P_STACK_NOTICE_VALUE_BASE+notice]=0x80000000U|slot;\n            if((s.quantityMask&8192)!=0 && commands[s.inputBase+P_HP_UNCLAMP_POLICY]!=0 && expired.kind==0 &&\n               (expired.stat==S_hp_copy || expired.stat==S_hp_caster_based_pct || expired.stat==S_hp_only_caster_based_pct || expired.stat==S_max_hp_from_max_hp_pct)) queueHealthCapNotice(s,mask);\n        }\n"
+        },
+        {
+          "baseline": "#include \"focus_aim_runtime.slang\"\n#include \"native_numeric_query_runtime.slang\"\n#include \"ordered_history_runtime.slang\"\n",
+          "current": "#include \"focus_aim_runtime.slang\"\n#include \"native_numeric_query_runtime.slang\"\n#include \"ordered_history_runtime.slang\"\n#include \"native_query_diagnostic.slang\"\n#include \"native_snapshot_runtime.slang\"\n"
+        }
+      ]
+    },
+    "gpu/portable_schema.slang": {
+      "baseline_sha256": "4029af005d50370f901202a18656c0a17e8c065770f7c2cf84ec3dd5ab81f299",
+      "current_sha256": "bc65779a72ea96e71edd3e92e0deb7f2eb8f9abac48dbf5f8a0a0de13e4ded69",
+      "changes": [
+        {
+          "baseline": "static const uint P_NATIVE_QUERY_WORDS = 8736U;\nstatic const uint P_ORDERED_HISTORY_BASE = 781792U;\nstatic const uint P_ORDERED_HISTORY_WORDS = 64U;\nstatic const uint D_OWNER = 0U;\nstatic const uint D_KIND = 1U;\nstatic const uint D_STAT = 2U;\n",
+          "current": "static const uint P_NATIVE_QUERY_WORDS = 8736U;\nstatic const uint P_ORDERED_HISTORY_BASE = 781792U;\nstatic const uint P_ORDERED_HISTORY_WORDS = 64U;\nstatic const uint P_NATIVE_DIAG_BASE = 781856U;\nstatic const uint P_NATIVE_DIAG_WORDS = 4112U;\nstatic const uint D_OWNER = 0U;\nstatic const uint D_KIND = 1U;\nstatic const uint D_STAT = 2U;\n"
+        }
+      ]
+    },
+    "gpu/combat_runtime.slang": {
+      "baseline_sha256": "7ca673507b766ea09abbdc9f372e1e19590950b8bc97ae35e6b52159df863053",
+      "current_sha256": "1a7f95259bea2826c51c76a29500d8a934b94574e80ff7569a8e5bf0ac181d74",
+      "changes": [
+        {
+          "baseline": "    { s.phase = 5; s.lastFullStart = when; s.fullEnd = f64Add(when,fullBurstLength(s,when));\n      if (s.error != 0) return;\n      invalidateNativeNumeric(s);\n      teamNotify(s,1,when,output); reconcileBurstCooldowns(s,when); firePendingBursts(s,when,output); logBurst(s,4,0xffffffff,when,output); }\n    s.gaugeCharging = uint(s.phase == 0);\n}\n[noinline]\n",
+          "current": "    { s.phase = 5; s.lastFullStart = when; s.fullEnd = f64Add(when,fullBurstLength(s,when));\n      if (s.error != 0) return;\n      invalidateNativeNumeric(s);\n      teamNotify(s,1,when,output); reconcileBurstCooldowns(s,when); firePendingBursts(s,when,output); logBurst(s,4,0xffffffff,when,output); nativeFullBurstSnapshot(s,when); }\n    s.gaugeCharging = uint(s.phase == 0);\n}\n[noinline]\n"
+        }
+      ]
+    },
+    "gpu/health_runtime.slang": {
+      "baseline_sha256": "cdb06331fd7cf7ea99cb2a67418de8efcdb74b43144ab8c1de8c3fa99ea76e7f",
+      "current_sha256": "eee20a026c95deccfef5f69bd7ba4323d0450cc76e9cebcc1b5775ea64762b6d",
+      "changes": [
+        {
+          "baseline": "    return result;\n}\n[noinline]\nvoid syncHealthActor(inout Runtime s, uint who, uint64_t when)\n{\n    if ((s.downMask & (1U << who)) != 0) { s.hp[who] = 0; s.hpPct[who] = 0; return; }\n    bool nullPrevious=revivalNullHP(s,who);\n    uint64_t previous = s.hpPct[who], maximum = effectiveMaxHP(s,who,when);\n    if (s.error != 0) return;\n    s.hp[who] = larger(0,commands[s.inputBase+P_HP_UNCLAMP_POLICY]!=0 ? s.hp[who] : smaller(maximum,s.hp[who]));\n    s.hpPct[who] = f64Mul(f64Div(s.hp[who],maximum),HUNDRED);\n    if (!f64Finite(s.hpPct[who])) { s.error = 16; return; }\n    if(!f64Equal(previous,s.hpPct[who])) invalidateFocusNumeric(s);\n",
+          "current": "    return result;\n}\n[noinline]\nvoid syncHealthActor(inout Runtime s, uint who, uint64_t when,bool nativeNotification=true)\n{\n    if ((s.downMask & (1U << who)) != 0) { s.hp[who] = 0; s.hpPct[who] = 0; return; }\n    bool nullPrevious=revivalNullHP(s,who);\n    uint64_t previous = s.hpPct[who], maximum = effectiveMaxHP(s,who,when);\n    if (s.error != 0) return;\n    s.hp[who] = larger(0,commands[s.inputBase+P_HP_UNCLAMP_POLICY]!=0 ? s.hp[who] : smaller(maximum,s.hp[who]));\n    if(nativeNotification || (s.healthMask&32)!=0) observeNativeNumericHP(s,who);\n    s.hpPct[who] = f64Mul(f64Div(s.hp[who],maximum),HUNDRED);\n    if (!f64Finite(s.hpPct[who])) { s.error = 16; return; }\n    if(!f64Equal(previous,s.hpPct[who])) invalidateFocusNumeric(s);\n"
+        },
+        {
+          "baseline": "    // With listeners, synchronize one actor at a time in the explicit event\n    // stack. A crossing's children finish before the next actor is observed.\n    if (s.hpWatchCount != 0) { s.hpDirtyMask |= 31; return; }\n    for (uint who = 0; who < 5 && s.error == 0; who++) syncHealthActor(s,who,when);\n}\n[noinline]\nuint64_t prepareHealthGrant(inout Runtime s, uint row, uint64_t when)\n",
+          "current": "    // With listeners, synchronize one actor at a time in the explicit event\n    // stack. A crossing's children finish before the next actor is observed.\n    if (s.hpWatchCount != 0) { s.hpDirtyMask |= 31; return; }\n    for (uint who = 0; who < 5 && s.error == 0; who++) syncHealthActor(s,who,when,false);\n}\n[noinline]\nuint64_t prepareHealthGrant(inout Runtime s, uint row, uint64_t when)\n"
+        },
+        {
+          "baseline": "    if (s.error != 0) return;\n    if (!f64Zero(grant)) for (uint who = 0; who < 5; who++) if ((s.activeRecipients[row] & (1U << who)) != 0)\n        s.hp[who] = smaller(f64Add(s.hp[who],grant),effectiveMaxHP(s,who,when));\n    syncHealth(s,when);\n}\n[noinline]\n",
+          "current": "    if (s.error != 0) return;\n    if (!f64Zero(grant)) for (uint who = 0; who < 5; who++) if ((s.activeRecipients[row] & (1U << who)) != 0)\n        s.hp[who] = smaller(f64Add(s.hp[who],grant),effectiveMaxHP(s,who,when));\n    for(uint who=0;who<5;who++) if((s.activeRecipients[row]&(1U<<who))!=0) observeNativeNumericHP(s,who);\n    syncHealth(s,when);\n}\n[noinline]\n"
+        }
+      ]
+    },
+    "gpu/carrier_runtime.slang": {
+      "baseline_sha256": "2bedc3fc7ea3d3c373a4cfc88e0a545944c316c4b304bf000f7fe1e0f69f73c9",
+      "current_sha256": "9cc10332d3f6b83a172538518754f6d76bb6e7295463eac6481b3eefa60a3748",
+      "changes": [
+        {
+          "baseline": "    {\n        bool primaryLive = s.alive[definition] != 0;\n        if (primaryLive && (incoming.bulletDuration != 0 || incoming.lazyGroup != 0 || s.lazyPending[definition] == 0 && s.activeRecipients[definition] == recipients && (!ordered || visibleCarrierOrder(s,definition)==incomingOrder))) return definition;\n        if (!primaryLive && (incoming.mergeEligible & 2) == 0) return definition;\n    }\n#endif\n    uint merged = P_CARRIERS;\n",
+          "current": "    {\n        bool primaryLive = s.alive[definition] != 0;\n        if (primaryLive && (incoming.bulletDuration != 0 || incoming.lazyGroup != 0 || s.lazyPending[definition] == 0 && s.activeRecipients[definition] == recipients && (!ordered || visibleCarrierOrder(s,definition)==incomingOrder))) return definition;\n        if (!primaryLive && s.lazyPending[definition]==0 && (incoming.mergeEligible & 2) == 0) return definition;\n    }\n#endif\n    uint merged = P_CARRIERS;\n"
+        },
+        {
+          "baseline": "            incoming.owner == prior.owner && incoming.kind == prior.kind && incoming.statKey == prior.statKey && incoming.maxStack == prior.maxStack) merged = slot;\n    }\n    if (merged != P_CARRIERS) return merged;\n    if (s.alive[definition] == 0) return definition;\n    for (uint slot = s.count; slot < s.carrierCount; slot++)\n        if (s.alive[slot] == 0)\n        { resetBulletCarrier(s,slot); discardLazy(s,slot); s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot; }\n    if (s.carrierCount == P_CARRIERS) { s.error = 64; return definition; }\n    uint slot = s.carrierCount++; s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot;\n",
+          "current": "            incoming.owner == prior.owner && incoming.kind == prior.kind && incoming.statKey == prior.statKey && incoming.maxStack == prior.maxStack) merged = slot;\n    }\n    if (merged != P_CARRIERS) return merged;\n    if (s.alive[definition] == 0 && s.lazyPending[definition] == 0) return definition;\n    for (uint slot = s.count; slot < s.carrierCount; slot++)\n        if (s.alive[slot] == 0 && s.lazyPending[slot] == 0)\n        { resetBulletCarrier(s,slot); discardLazy(s,slot); s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot; }\n    if (s.carrierCount == P_CARRIERS) { s.error = 64; return definition; }\n    uint slot = s.carrierCount++; s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot;\n"
+        },
+        {
+          "baseline": "    }\n}\n[noinline]\nvoid queueCarrierEnd(inout Runtime s,uint slot,uint repeats=0)\n{\n    uint definition=s.carrierDefinition[slot];\n    if(repeats==0) repeats=WORLD_STATE_END_REPEATS(s,slot,definition_enemyBuff(s.inputBase,definition)!=0 && s.bulletInitialized[slot]!=2 ? countbits(s.activeRecipients[slot]>>5) : 1);\n    invalidateFocusNumeric(s);\n    unlinkBulletCarrier(s,slot);discardLazy(s,slot);s.alive[slot]=0;s.stacks[slot]=0;\n    queueRemovalNotice(s,definition_owner(s.inputBase,definition),definition_name(s.inputBase,definition),repeats);\n}\n\n",
+          "current": "    }\n}\n[noinline]\nvoid queueCarrierEnd(inout Runtime s,uint slot,uint repeats=0,bool preserveLazy=false)\n{\n    uint definition=s.carrierDefinition[slot];\n    if(repeats==0) repeats=WORLD_STATE_END_REPEATS(s,slot,definition_enemyBuff(s.inputBase,definition)!=0 && s.bulletInitialized[slot]!=2 ? countbits(s.activeRecipients[slot]>>5) : 1);\n    invalidateFocusNumeric(s);\n    unlinkBulletCarrier(s,slot);\n    if(!preserveLazy) { discardLazy(s,slot);s.stacks[slot]=0; }\n    s.alive[slot]=0;\n    queueRemovalNotice(s,definition_owner(s.inputBase,definition),definition_name(s.inputBase,definition),repeats);\n}\n\n"
+        }
+      ]
+    },
+    "gpu/recipient_runtime.slang": {
+      "baseline_sha256": "f4b59b95237f61526191bdd68aec3173349be09d33645cdaffe9e405934e29f8",
+      "current_sha256": "a3eaac6096574e486cfa8b4ccbbaa7143450694af083dfa28772f17ccd27c21c",
+      "changes": [
+        {
+          "baseline": "    if(commands[at+2]!=0 && commands[at+2]!=0x41524731U) return false;\n    if(commands[at+2]==0 && (commands[at+3]!=0 || commands[at+4]!=0)) return false;\n    if(commands[at+5]!=0 && (commands[at+5]!=0x4e515231U || commands[at+2]!=0x41524731U)) return false;\n    for(uint word=6;word<8;word++) if(commands[at+word]!=0) return false;\n    return true;\n}\nbool alliedRandomEnabled(inout Runtime s)\n",
+          "current": "    if(commands[at+2]!=0 && commands[at+2]!=0x41524731U) return false;\n    if(commands[at+2]==0 && (commands[at+3]!=0 || commands[at+4]!=0)) return false;\n    if(commands[at+5]!=0 && (commands[at+5]!=0x4e515231U || commands[at+2]!=0x41524731U)) return false;\n    if(commands[at+6]>1 || (commands[at+6]!=0 && commands[at+5]!=0x4e515231U)) return false;\n    if(commands[at+7]!=0) return false;\n    return true;\n}\nbool alliedRandomEnabled(inout Runtime s)\n"
+        }
+      ]
+    },
+    "gpu/native_snapshot_runtime.slang": {
+      "baseline_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "b11b2570c50b3ffa08e2b061a9e126f5183efbf1ec988ce95f95a80d8427e2f7",
+      "changes": [
+        {
+          "baseline": "",
+          "current": "// Pinned logging is observable: a full-burst snapshot directly resolves every\n// pending carrier once for each squad member, without freezing membership.\nvoid nativeFullBurstSnapshot(inout Runtime s,uint64_t when)\n{\n    if(!nativeNumericEnabled(s) || commands[s.inputBase+P_RECIPIENT_META_BASE+6]==0) return;\n    for(uint who=0;who<5;who++)\n        for(uint pass=0;pass<s.orderedCount && s.error==0;pass++)\n        {\n            uint row=s.orderedRows[pass];\n            if(s.alive[row]==0 || s.lazyPending[row]==0) continue;\n            uint64_t order;selectRecipients(s,s.carrierDefinition[row],when,order);\n        }\n}\n\n// Expiration logs consume pending lazy membership after state-end children.\n// The dead carrier is reserved until this continuation releases its snapshot.\nvoid finishNativeExpiredSnapshot(inout Runtime s,uint slot,uint64_t when)\n{\n    ensureLazyRecipients(s,slot,when);\n    discardLazy(s,slot);s.stacks[slot]=0;\n}\n"
+        }
+      ]
+    }
+  }
+}

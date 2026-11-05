@@ -1,0 +1,72 @@
+{
+  "schema": "boss-dot-windows-build-peer-v1",
+  "evidence_authority": "Windows peer; original captures remain on Windows",
+  "source_commit": "463d70761a61ca14904e5bb5b55308d7f855f661",
+  "owner": "e4307f8f674b2f01b92b612b8117f5c1e82bd9adfaea57b236f83793b8aa121a",
+  "transport_commit": "fd0dacbb",
+  "overall_passed": false,
+  "unit_tests": 61,
+  "unit_skips": 0,
+  "ptx": {
+    "compiler_seconds": 20.427736,
+    "inner_seconds": 32.346,
+    "outer_seconds": 42.499,
+    "inner_peak_bytes": 225603584,
+    "outer_peak_bytes": 254611456,
+    "sha256": "08dd6b3e9308b6ac692278544e00a6c51217fbe6e8f4a8740201edbc01f8c851"
+  },
+  "object": {
+    "compiler_seconds": 8.715133,
+    "inner_seconds": 23.565,
+    "outer_seconds": 43.131,
+    "inner_peak_bytes": 355942400,
+    "outer_peak_bytes": 399151104,
+    "sha256": "92b6386819c38dc42f15fbd9598ca0edb41e2afbdbfe39dd643231965d421ac8"
+  },
+  "link": {
+    "api_seconds": 0.040114,
+    "inner_seconds": 18.602,
+    "outer_seconds": 49.31,
+    "inner_peak_bytes": 111874048,
+    "outer_peak_bytes": 227659776,
+    "cubin_sha256": "774ce4da644ce14884f53afded138843982947c47bce701a3fc3b24b1b49c060",
+    "inner_missing": 0,
+    "outer_missing": 1,
+    "supervisor_missing": 0,
+    "termination_cause": "unknown"
+  },
+  "observed_total_seconds": 140.534,
+  "timeout": false,
+  "services_identified": false,
+  "preservation_verified": false,
+  "cleanup_errors": 0,
+  "observation_operation_errors": 0,
+  "all_jobs_terminated": true,
+  "driver_gpu_api_calls": 0,
+  "old_and_new_claims_retained": true,
+  "further_gpu_requests": false,
+  "saved_missing_analysis": {
+    "cause": "unknown",
+    "own_pipeline_relationship_verified": false,
+    "historical_binding_compatible": false,
+    "incompatibilities": [
+      "Empty path rejected by missing_identities()",
+      "Failure belongs to outer capture; inner proof has no missing identity and cannot be substituted"
+    ],
+    "raw_observation_sha256": {
+      "outer": "a8ad3049d72fc0769c0d6a769dd63188e33d0aaa201b27149686fba29a90de9e",
+      "inner": "456aae102f4f0618ddbeac192fb51c3cdd07077234a25e8220c6b06f90445b1b",
+      "supervisor": "e15fa2d7f4124137aa4dc9d3e3457f7c0b4a2358634a8cb389a0ecddeb901ea3"
+    },
+    "new_gpu_or_compiler_calls": 0,
+    "new_jobs": 0,
+    "original_false_retained": true,
+    "image_name": "python.exe",
+    "path_available": false
+  },
+  "mac_reference_conditions": 2,
+  "mac_new_api_conditions": 1,
+  "mac_reused_api_conditions": 1,
+  "mac_reference_scope": "Miranda multiple DoT clocks (retained original capture) and Moran HP threshold accumulate (one new Metal API request), both full CPU match; no CUDA execution",
+  "mac_reference_sha256": "4273c850ef5fcb7d7ecead1f1f6a42fad69cf257e02c8c12986a3442555dd1b0"
+}

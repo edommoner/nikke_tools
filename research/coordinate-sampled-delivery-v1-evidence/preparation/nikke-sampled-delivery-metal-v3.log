@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/private/tmp/nikke-sampled-delivery-develop-v3/scripts/nikke_gpu.py", line 2912, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/private/tmp/nikke-sampled-delivery-develop-v3/scripts/nikke_gpu.py", line 2855, in main
+    result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**(dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-sampled-delivery-develop-v3/scripts/nikke_gpu.py", line 1725, in run_capture
+    if not smoke:capture_storage_preflight(m,capture,prepared=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-sampled-delivery-develop-v3/scripts/nikke_gpu.py", line 851, in capture_storage_preflight
+    if not budget['passed']:raise ValueError('Insufficient space for uncompressed input/readback and reserve; see storage receipt')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Insufficient space for uncompressed input/readback and reserve; see storage receipt

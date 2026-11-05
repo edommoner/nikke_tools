@@ -1,0 +1,49 @@
+{
+  "schema": "product-sdk-reference-continuation-v1",
+  "helper_review_commit": "cfe8467f",
+  "transport_commit": "3e1a0e4b71c9fe1d1e78dabb22a7dbe0b26358d1",
+  "readiness_clarification_commit": "0eb398d0fec35aca13588848a12ba52fb28b8271",
+  "owner": "ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168",
+  "original_host_hold_retained": true,
+  "setup_terminal_process_absent_evidence": {
+    "prior_setup_terminal": true,
+    "owned_setup_process_absent": true,
+    "owned_dism_session_shutdown_logged": true,
+    "prior_setup_succeeded": false,
+    "pending_reboot_flags": true,
+    "pending_reboot_flags_origin": "unknown",
+    "all_new_execution_counts_zero": true
+  },
+  "pending_reboot_flags_left_unknown": true,
+  "os_or_ssh_changes": 0,
+  "final_observed_turn": "01a1974c-5546-7102-b484-e1cd01f63bda",
+  "cuda_numerical_cases": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "audit_gate_verified_cases": [
+    0,
+    1
+  ],
+  "unexecuted_cases": [
+    4,
+    5,
+    6
+  ],
+  "result_commit": "7713f7a0",
+  "sdk_or_unit_or_diagnostic_reexecution": 0,
+  "gpu_or_api_reexecution": 0,
+  "current_stop": "Missing3 monitored processes during CPU-only second saved audit; cause unknown",
+  "followup": "Saved-only diagnostic imported; ownership and cause remain unknown. No retry or remaining-case execution authorized by diagnostic. Continue independent Mac work.",
+  "next_missing_product_category": "Native multi-target/coordinate plus weighted group callback; current single-BODY callback inactive",
+  "standard_profile_delta": 0,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "diagnostic_commit": "4dd7157ee155906b5028bd198cfab57c771618ef",
+  "diagnostic_sha256": "735e66054a9b1360ec2ec3aa95b0f3c3c08d96529af99b22862ecdd3dbb7c312",
+  "diagnostic_owned_identity_matches": 0,
+  "diagnostic_runtime_job_records_checked": 22
+}

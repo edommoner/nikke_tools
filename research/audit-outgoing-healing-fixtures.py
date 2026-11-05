@@ -10,7 +10,7 @@ for name,b,extra in list(m.fixtures())+list(m.real_fixtures(include_unsupported=
         r=original(self,who,t,**kwargs);calls.append(dict(recipient=who,source=kwargs.get('heal_source'),time=t,multiplier=r));return r
     try:
         with m.v.s.v.context(name,extra),patch.object(m.BuffManager,'heal_received_mult',observe):
-            c=m.v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True});cpu=m.v.s.v.v.a.evaluate(b)
+            c=m.v.s.v.v.a.evaluate({**b,'_compile_detail':True});cpu=m.v.s.v.v.a.evaluate(b)
         expected={'source-only':1.5,'recipient-is-not-source':1,'separate-layers':1.875,'additive-sources':1.75,'negative-source':0,'negative-recipient':0,'stacked-source':2.5,'periodic':1.5,'caster-max':1.5,'duplicates':1.5,'expired':1,'lazy-target':1.5,'conditional':1.5,'lifesteal':1.5,'lifesteal-negative':0,'registered-timer-source-down':1}
         case=name.removeprefix('outgoing-');checks={}
         if case in expected:

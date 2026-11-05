@@ -1,0 +1,165 @@
+{
+  "passed": true,
+  "source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
+  "previous_partial_proof_commit": "d181fcd9ec57734bac2b3e08c75d828509a8b668",
+  "previous_complete_proof_commit": "ba9015c41157c4fa698422ee3638a1ba4f4fba19",
+  "checked_at": "2026-10-20T11:32:24.539230+00:00",
+  "mac_gates": 47,
+  "unit_tests": 263,
+  "core_programs": 4070,
+  "positive_cases": 3540,
+  "rejections": 530,
+  "hp_attack_native_cases": 185,
+  "mode_entry_native_cases": 400,
+  "pending_reference_native_cases": 120,
+  "additional_metal_physical_cases": 80,
+  "conditional_hp_metal_cases": 20,
+  "real_profiles": 136,
+  "native_projection_exact_profiles": 134,
+  "known_native_hp_gap_profiles": 2,
+  "prior3539_input_projection_outputs_decoded_native_preserved": true,
+  "prior134_successful_profiles_preserved": true,
+  "prior2_refused_laplace_profiles_now_verified": true,
+  "cuda_core_inputs": 4070,
+  "windows_v76_actual_gpu_sessions": 1,
+  "windows_v76_elapsed_seconds": 133.46083929995075,
+  "transfer_complete": true,
+  "artifact_commit": "8eee91b575d0e8a37e37bd89af62bc688e1b2d44",
+  "all4070_cross_backend_input_output_bytes_equal": true,
+  "efficiency_evaluated": true,
+  "production_optimization_adopted": false,
+  "efficiency_decision": {
+    "passed": true,
+    "source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
+    "evaluated": true,
+    "adoption_criteria": "At least one feature workload median improves2% with disjoint ranges; no workload regresses2% with disjoint ranges.",
+    "criteria_met": false,
+    "production_change_adopted": false,
+    "adoption_pending_new_fixed_source_verification": false,
+    "workloads": {
+      "ordinary": {
+        "ratio": 1.000565428650226,
+        "improves": false,
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.07017600000835955,
+            0.07557975000236183
+          ],
+          "candidate": [
+            0.069717500009574,
+            0.07119987497571856
+          ]
+        }
+      },
+      "hp-single": {
+        "ratio": 1.0168404857881872,
+        "improves": false,
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.11349754163529724,
+            0.11572137498296797
+          ],
+          "candidate": [
+            0.11598800006322563,
+            0.12561420840211213
+          ]
+        }
+      },
+      "hp-multiple": {
+        "ratio": 0.9919993189953918,
+        "improves": false,
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.06269962491933256,
+            0.06366583332419395
+          ],
+          "candidate": [
+            0.06237191671971232,
+            0.06269533338490874
+          ]
+        }
+      },
+      "hp-fresh-rank": {
+        "ratio": 1.0076308042818174,
+        "improves": false,
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.10593499999959022,
+            0.10887124994769692
+          ],
+          "candidate": [
+            0.10564666660502553,
+            0.11263637500815094
+          ]
+        }
+      },
+      "mode-entry": {
+        "ratio": 1.0078250344481714,
+        "improves": false,
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.13581258337944746,
+            0.136707124998793
+          ],
+          "candidate": [
+            0.1365022499812767,
+            0.1380265000043437
+          ]
+        }
+      },
+      "pending-reference": {
+        "ratio": 1.0173672387534691,
+        "improves": false,
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.07900254160631448,
+            0.08080350002273917
+          ],
+          "candidate": [
+            0.07951374992262572,
+            0.08073112496640533
+          ]
+        }
+      },
+      "hp-sg-physical": {
+        "ratio": 0.9999400548942086,
+        "improves": false,
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.13049875001888722,
+            0.1328066666610539
+          ],
+          "candidate": [
+            0.12927675002720207,
+            0.1307997916592285
+          ]
+        }
+      }
+    },
+    "scope": "Apple M5 isolated local workloads, alternating order,warmup+3 samples. No CUDA speed/full-roster speed/physical memory claim. No production adoption before fresh verification.",
+    "all4070_plus80_plus20_input_output_equal": true
+  },
+  "own_effect_preflight_passed": 68,
+  "unadmitted_effects": 294,
+  "favorite_preflight_contexts": 269,
+  "all_four_stages_preflight_characters": 67,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "normal_ui": "CPU",
+  "initial_unlocalized_metal_finding_open": true,
+  "proof_reports": [
+    "portable-mode-entry-broad-validation.json",
+    "portable-mode-entry-transfer-completed.json",
+    "portable-mode-entry-hp-cache-parity.json",
+    "portable-mode-entry-hp-cache-benchmark.json",
+    "portable-mode-entry-efficiency-decision.json"
+  ],
+  "scope": "Shared runtime mechanics,136 fixed simple-boss profiles and existing API regression. Full characters/variants and general enemy-world scheduling remain incomplete. Additional80 physical and20 conditional-HP fresh execution is Mac only."
+}

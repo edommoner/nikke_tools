@@ -1,0 +1,651 @@
+{
+  "schema": "product-typed-targets-v1",
+  "shared_cuda_metal": true,
+  "new_calculation_formulas": 0,
+  "new_suites": 0,
+  "new_auditors": 0,
+  "canonical_cpu_changes": 0,
+  "pinned_changes": 0,
+  "numeric_rules_changed": false,
+  "implementation": "Public declared typed projectile/HP-shield weapon worlds reuse coordinate execution, original typed actor/aim/owner histories and common Slang runtime. Original skill definitions retained; typed skill consumer remains explicitly unsupported.",
+  "cli": {
+    "new_programs": [
+      "typed-accumulate",
+      "typed-fixed"
+    ],
+    "registry_count": 78,
+    "new_sealed_program": "typed-accumulate",
+    "baseline_version": 53,
+    "old39_members_preserved": true,
+    "independent_native_and_metal_cases": 1,
+    "independent_saved_seal_passed": true,
+    "fixed_independent_cli_baseline_registered": false
+  },
+  "normal_api": {
+    "conditions": 16,
+    "posts": 1,
+    "physical_gpu_dispatches": 2,
+    "seconds": 10.920834499993362,
+    "all_full_cpu_gpu_http_equal": true,
+    "saved_audit_extra_battles": 0,
+    "saved_audit_extra_gpu": 0,
+    "owned_node_process_group_absent": true,
+    "rows": [
+      {
+        "variant": "owner-shield-fixed",
+        "capture_id": "1c576283950a485da0a16eefcd5680d2",
+        "packets": 67,
+        "shots": 15,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "handle": [
+              3,
+              11,
+              1
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "c79875e46b7d6c3bc8a8fcfb59537d678aed4c89525ce2f8f59b1edc76344a37",
+        "output_sha256": "e37cc2429785c43f4be916f3ce015dd0723877c2411abd43da30afc19fceb32b",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "owner-projectile-fixed",
+        "capture_id": "a3a38047fd3544ff844c28ad6d59011c",
+        "packets": 67,
+        "shots": 15,
+        "state": [
+          {
+            "handle": [
+              2,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "handle": [
+              2,
+              11,
+              1
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "72f4c97a432b4a07661ad6c8a049fda92b9ce2313940dd6667d297273d85f18d",
+        "output_sha256": "384d354f11fc78a864858149e2b93ca552db533d39fc686bb05c7c34ee084570",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "finite-shield-fixed",
+        "capture_id": "efa8c196a62f4361b09fcb7f5a2360e4",
+        "packets": 44,
+        "shots": 15,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 0,
+            "capacity": 1000000,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "handle": [
+              3,
+              11,
+              1
+            ],
+            "alive": false,
+            "remaining": 0,
+            "capacity": 1000000,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "c8eae10dc05660bd06d91b8d09df4df5223644b5f4e9e92f32199ff9ef4041bb",
+        "output_sha256": "ecb805b9fa0849d34cae8f70b1ed514e617169d7a20edc616f9d774b9b100323",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "renewal-fixed",
+        "capture_id": "1fd71078f590461ca013bc05b9052d0c",
+        "packets": 38,
+        "shots": 15,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              2
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "handle": [
+              3,
+              11,
+              2
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "e36c90cc76f35c76ffc7f3992a314971d4bdad5e8ff2ca236947fb60d2cfef9a",
+        "output_sha256": "fb05dbf516160e6759e8c360530fb73171efbd9d9a1f238de173064a6a2af708",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "not-born-fixed",
+        "capture_id": "48352dabd28744ba9a28aa680976af3c",
+        "packets": 0,
+        "shots": 4,
+        "state": [
+          null,
+          null
+        ],
+        "input_sha256": "72f8b60094dc06dbddd6433a6cfb18040453b025ded18e30eaf51aafa949cfc1",
+        "output_sha256": "b8e40828aa68f17e7aab4cd3292f2ba1852bd64ac7a8ed2c19b71a81869ffbac",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "Sakura-full-burst-fixed",
+        "capture_id": "acf2a93b17964e5c83a65c5caa87dac0",
+        "packets": 904,
+        "shots": 139,
+        "state": [
+          {
+            "handle": [
+              2,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "e7c49718e381ea96265976aba8e971fae1ac1d1bfa5d9a4885a55c9d0c9175e2",
+        "output_sha256": "9d895dbd153977dccbacef1b1707cb6d21bbc96767bf34765723c42323f13f72",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "Rei-shield-fixed",
+        "capture_id": "4ce14d1a85904caa97e6c93017c6e7db",
+        "packets": 157,
+        "shots": 112,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "872575ce47a149c7b724d03eb29be5ff75b2cff9e3e675ac50fe50119de0d561",
+        "output_sha256": "2a3e49ccde0657271fa97992c3831611f6a989b905c93fa0f962937782aa7aea",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "Marciana-frozen-fixed",
+        "capture_id": "02c83b28a1134daa8a5d6fe720f81e5e",
+        "packets": 11,
+        "shots": 30,
+        "state": [
+          {
+            "handle": [
+              2,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 0,
+            "capacity": 1,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "handle": [
+              2,
+              11,
+              1
+            ],
+            "alive": false,
+            "remaining": 0,
+            "capacity": 1,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "68fc15b7c8ad7c12b9e2467f139845f16a7eb16c4c56f7e224a33a286bac1d24",
+        "output_sha256": "d97c5776905b2934d46bd9c84d7d5d821876cc2c56f512a79c82d5ae8f2af90f",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "owner-shield-accumulate",
+        "capture_id": "9bee047c9176495ca89a0d4f90031aa2",
+        "packets": 67,
+        "shots": 15,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "handle": [
+              3,
+              11,
+              1
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "f18e7c2c9450a35e34691d52917d57dabddb7c57e6e1c9cc98d187458910439d",
+        "output_sha256": "d893280ad1b5f0205066a23c867ae1375c04e4f042e9971f2295ff0b46b97efa",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "owner-projectile-accumulate",
+        "capture_id": "8821226e8c584679be3425155d6f554c",
+        "packets": 67,
+        "shots": 15,
+        "state": [
+          {
+            "handle": [
+              2,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "handle": [
+              2,
+              11,
+              1
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "4bd7f754da41c69b156b70c4573395fd1a2f463799c544acb5fd4c730008f995",
+        "output_sha256": "d145a2365a9c83e3fece13f3b781918ed21c9a46ae0bc77d8627c80bbf86ceef",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "finite-shield-accumulate",
+        "capture_id": "b5e85e5228c84d1d8266970337fafa7c",
+        "packets": 44,
+        "shots": 15,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 0,
+            "capacity": 1000000,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "handle": [
+              3,
+              11,
+              1
+            ],
+            "alive": false,
+            "remaining": 0,
+            "capacity": 1000000,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "ee05614bb4ff593c98c5fae955a41bd9feb0972f74db0240ec88cc1576c7a594",
+        "output_sha256": "81818e76a7b55855d92727794d62c2d11d87aaf82b664365bd34fec07490855a",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "renewal-accumulate",
+        "capture_id": "f5eb2bccd3b546289b2d3ce1275517e5",
+        "packets": 38,
+        "shots": 15,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              2
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "handle": [
+              3,
+              11,
+              2
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "885d1be655ee7b9a85dc553678889c596ee342434b002fb4ec19584f8365caaf",
+        "output_sha256": "ea988decae0b185055171cd740d82b614199c1d5ec0981ade9583db993ce0fd4",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "not-born-accumulate",
+        "capture_id": "e0de410dcec74f16bfed2b5364a0aa5a",
+        "packets": 0,
+        "shots": 4,
+        "state": [
+          null,
+          null
+        ],
+        "input_sha256": "9353aac7acdca1d784e2d8d1f5f8c620bfa8a608d4fcf972a7eaa7e5043e4728",
+        "output_sha256": "b8e40828aa68f17e7aab4cd3292f2ba1852bd64ac7a8ed2c19b71a81869ffbac",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "Sakura-full-burst-accumulate",
+        "capture_id": "2f94cac60ab74faab685f6ef080d302d",
+        "packets": 904,
+        "shots": 139,
+        "state": [
+          {
+            "handle": [
+              2,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "a7f8e612e9174f9606289183c325ef26dd6b062cf04141c870eeda60dac5f06a",
+        "output_sha256": "8ba56b6b090d39f125dddddae56c08c7afbf079074e2067fb3b68b1fc9b50857",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "Rei-shield-accumulate",
+        "capture_id": "a82263cd0b59475592fa51e5658a2bf2",
+        "packets": 157,
+        "shots": 112,
+        "state": [
+          {
+            "handle": [
+              3,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 1e+30,
+            "capacity": 1e+30,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "0315f62f179df57f196eab4b4f0a937713d9304b0d74b2987970262b5aa1a3e0",
+        "output_sha256": "ad37894ce29bac6ddd762e96b616af39c5d6f23ce7c17dca7847b8f4429a5e11",
+        "full_cpu_gpu_http_equal": true
+      },
+      {
+        "variant": "Marciana-frozen-accumulate",
+        "capture_id": "957a8edc729b4ec1bf74c19da69a76be",
+        "packets": 11,
+        "shots": 30,
+        "state": [
+          {
+            "handle": [
+              2,
+              10,
+              1
+            ],
+            "alive": false,
+            "remaining": 0,
+            "capacity": 1,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "handle": [
+              2,
+              11,
+              1
+            ],
+            "alive": false,
+            "remaining": 0,
+            "capacity": 1,
+            "expires": -1,
+            "owner": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "input_sha256": "7bfbfcf7784d2ad8655957104f562198d62401e059483401a20402323ab270dd",
+        "output_sha256": "d97c5776905b2934d46bd9c84d7d5d821876cc2c56f512a79c82d5ae8f2af90f",
+        "full_cpu_gpu_http_equal": true
+      }
+    ]
+  },
+  "release": {
+    "owner": "25ded066e0e331bb135fcdf9bc6498eb9b48bc50cf812f5cdf76097d071dcb01",
+    "own_unit_tests": 167,
+    "own_cpu_deps_ptx_o1_plans_passed": true,
+    "api_packet_owner": "a41ce0c9ff7bd3db04a21394d3d11feb8a30994994430ec5de471ccf1115269a",
+    "only_delta_from_verified_api_packet": [
+      "server.mjs"
+    ],
+    "delta_is_server_line_endings_only": true,
+    "calculation_sources_input_and_decoder_identical": true
+  },
+  "retained_failures": [
+    {
+      "stage": "initial native scout",
+      "reason": "Frame configuration wrapper order fixed before successful CPU contract"
+    },
+    {
+      "stage": "P1 Metal decoder",
+      "reason": "Legitimate typed aim bank initially treated as unused tail; original raw retained and reprojected exactly"
+    },
+    {
+      "stage": "api-v1",
+      "conditions": 16,
+      "reason": "Weapon-only common decoder eagerly imported research-only skill helpers. Original HTTP remained CPU fallback. Moved unchanged skill imports to actual skill branch; all saved raw subsequently exactly matched full original CPU HTTP payload without more battles or GPU."
+    },
+    {
+      "stage": "workspace saved projection",
+      "reason": "Evaluator git provenance reflected workspace commit. No fields ignored; repeated saved-only projection in frozen packet, full payload including provenance equal."
+    }
+  ],
+  "windows": {
+    "new_typed_cuda_verified": false,
+    "healing_import": "research/product-coordinate-healing-cuda-stop-import-v1.json",
+    "new_windows_execution_requested": false
+  },
+  "standard_profiles": {
+    "metal": 263,
+    "cuda_recorded": 263,
+    "total": 266,
+    "new_profiles": 0,
+    "current_full_cuda_matrix_revalidated": false
+  },
+  "declared_models_game_verified": false,
+  "whole_environment_preservation_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Original all_projectiles and typed_point skill damage consumers",
+    "Mixed typed kinds, hit shields and non-BODY owners",
+    "Typed targets with incoming/weighted/healing consumers",
+    "Short current typed CUDA check after resolving observation failure"
+  ]
+}

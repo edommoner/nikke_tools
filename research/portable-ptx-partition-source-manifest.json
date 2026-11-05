@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "purpose": "CPU-only partition candidate generation and reconstruction audit; not GPU execution package",
+  "parent_package_id": "0fa83675dc2134df5b9c908a9f411d47e3c6a0c0e8fe676d5dd4169005f906b0",
+  "files": [
+    {
+      "path": "app/portable_ptx_stats.py",
+      "bytes": 6546,
+      "sha256": "13f18c3efe27636023e9fa69cf5b441ca71256fa8665669a6b875bbf7dadc2dd"
+    },
+    {
+      "path": "app/portable_ptx_callgraph.py",
+      "bytes": 7529,
+      "sha256": "8b1c5665207bbf65e2e01e5e17947ad1b28a397bcd08f4fbdb48ac5e94028540"
+    },
+    {
+      "path": "app/portable_ptx_partition.py",
+      "bytes": 13193,
+      "sha256": "61f357ca3f160cda8c4d50af0288ff645525c3ed36014603fd7ec82d8baf4095"
+    },
+    {
+      "path": "app/portable_reference.py",
+      "bytes": 6516,
+      "sha256": "2c6d77219cffbf3c8fd059764be36d0f1aa7578bb77d03ba9a8890f9f482d4ca"
+    },
+    {
+      "path": "scripts/nikke_gpu.py",
+      "bytes": 111671,
+      "sha256": "834ae1e648dfacbd0b7d9a3067c784ea7f0efc76f0dbc3cb3d98fb8d507a2f26"
+    },
+    {
+      "path": "tests/test_portable_ptx_stats.py",
+      "bytes": 4470,
+      "sha256": "cc00a98a78c320f9ac42d9447022ab02a36263b31b93a8090de723e9c1ec54f6"
+    },
+    {
+      "path": "tests/test_portable_ptx_callgraph.py",
+      "bytes": 5841,
+      "sha256": "7e1fe3437c626ee181c1c01c2f85c65331c7edf3f790ffc0086ab8f32bb7a6a9"
+    },
+    {
+      "path": "tests/test_portable_ptx_partition.py",
+      "bytes": 7814,
+      "sha256": "7ff92b09a617bbdc09eedf9b87fd42dae5bf3584e191d71dd9d4c931acf9e2d7"
+    }
+  ],
+  "total_bytes": 163580
+}

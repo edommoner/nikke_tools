@@ -1,0 +1,47 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "heal-charge-real/Delta-ninja-thief/control/3s",
+      "input_sha256": "d26c79288a9f1313a254b2a0bd0a632d96a9cfac056714888e46c67087cc1e6e",
+      "output_sha256": "0901b7bdf365667aac1a6928e676bebfeb00addeda2af4da8644ab4e72f28d89",
+      "native_sha256": "6f0ae0b75a303ea25608cc7c8aa749572927848ad3709ef94988c7e44e604200"
+    },
+    {
+      "name": "heal-charge-real/Delta-ninja-thief/control/30s",
+      "input_sha256": "acdcb7035b11298c510c4f65fd26ba4c50c24ea5f6ad3a395cb7b8f61c1d6cbc",
+      "output_sha256": "6a6387742d84e2f2510f05c80a73cefcf2449e18457274a69f221bd71ec3f18e",
+      "native_sha256": "30f6ff81dba1f9253c4edbc9a1928b4c699c827c99bc94e511772ac908a2276e"
+    },
+    {
+      "name": "heal-charge-real/Delta-ninja-thief/defender/3s",
+      "input_sha256": "b1195942bce4d8303c1102c2a85634151c060086389a141bd9f63236c6c8d3a5",
+      "output_sha256": "240d4a861a0f4d58c5307384acda2ae8b772c253eaea633d80e0896c09f49e9a",
+      "native_sha256": "c7366ab4ac1315a62b18df213704c885c15ec70b6546422703f1f5c042342201"
+    },
+    {
+      "name": "heal-charge-real/Delta-ninja-thief/defender/30s",
+      "input_sha256": "d963daae778e4ee2f43505edca086eb7aae63052381777ac0ea2eda9f06abb08",
+      "output_sha256": "40b10ddb335c0de6ff927299d8d6b4571132a020d1d32f98406a2770a75735d2",
+      "native_sha256": "15f75fb01da648dac04dbff1642607bbb617898237427f46f4ae6acc3e953e4a"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 4,
+  "native_oracles": 4,
+  "input_sha256": "efa0c2643af4b2f3ea0c22f8706285b9d436600e60935efce85fd9a9396d5198",
+  "output_sha256": "851aa94b07bf51adf3c785f0962391d10921f625d229d86ae616fb5c4767ede7",
+  "generated_normalized": {
+    "cuda": "be0eaea2cae7f74a60d8c8cc6d7573da44e213f4d9d96b620e8981d8a667bab9",
+    "metal": "8948899d7a57a92db678cd9f7aa2927de2ddceea513839bbfffe9e25e0784fcc"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 4,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "old_package_id": "7a43462686060023b4f0d5079b74700976dc8a33667c8a9cfec21a94a26d476c",
+  "new_package_id": "c5c83620762cbd549093e738b0685d5a4fa8335a79d030fa9f93c7bf5a9f2989",
+  "all_five_input_and_native_fingerprints_retained": true,
+  "already_passing_three_full_readbacks_retained": true,
+  "retained_bytes": 21238272,
+  "retained_sha256": "22c25c18c367eaa5b2dbf69603998eade732f33f406d97bac7a4bb436cfd9094",
+  "failed_two_cases_preserved": true,
+  "failure_capture": "/tmp/nikke-original-source-metal-v1",
+  "corrected_capture": "/tmp/nikke-original-source-metal-v3",
+  "gpu_calls": 0
+}

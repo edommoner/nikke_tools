@@ -1,0 +1,16 @@
+{
+  "package_id": "5e8952066cc0712efc9a225c355cf1d616c2b18c7a6ad80c3923fb9b414b3ebb",
+  "generated_normalized": {
+    "cuda": "c5996421c66430371711a438ba0589ad457db12a39cc38fdf63236e2f3e7883d",
+    "metal": "9dab02cfa2706a936524ad7a572e716a8f7e85c18038733f3e838f03a6b665b8"
+  },
+  "verified": true,
+  "cache_hit": true,
+  "compiler_invocations": 0,
+  "gpu_calls": 0,
+  "development_only": true,
+  "sealed_generated_baseline_verified": false,
+  "calculation_verified": false,
+  "executable_battle_verified": false,
+  "schema": "lock-projectile-required-generation-v1"
+}

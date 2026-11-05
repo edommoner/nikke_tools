@@ -1,0 +1,19 @@
+{
+  "all_keys_bytes_and_sha256_equal": true,
+  "allocated_after": 534904832,
+  "allocated_before": 2651963392,
+  "allocated_reclaimed": 2117058560,
+  "already_compressed_entries": 0,
+  "apply": true,
+  "artifacts_per_entry": 4,
+  "cache_format_changed": false,
+  "cache_identity_changed": false,
+  "calculation_verified": false,
+  "compiler_calls": 0,
+  "compressed_entries": 371,
+  "entries": 371,
+  "gpu_calls": 0,
+  "logical_bytes": 2651270674,
+  "passed": true,
+  "source_or_capture_files_modified": false
+}

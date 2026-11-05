@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "stage": "cpu_verified_windows_module_not_run",
+  "baseline_commit": "4a33d176b2d165572d623e61148b1b9adcdf3e5e",
+  "cpu_package": {
+    "package_id": "9652397c4a103a0968c91a890b75e7d1d3eed65abfd6c983631b8bb6a7799a4f",
+    "files": 1936,
+    "bytes": 5234605,
+    "archive_sha256": "dca7533a723c1e03d450dfe5a9b618a4348d2bf66be5a0d41dd206565f9bf8fd",
+    "source_commit": "4a33d176b2d165572d623e61148b1b9adcdf3e5e"
+  },
+  "portable_cpu": {
+    "discovered": 776,
+    "passed": 775,
+    "skipped": 1,
+    "failed": 0,
+    "elapsed_seconds": 53.593,
+    "log_sha256": "e92bd90a6f231ac4a2f480a1846156df5e1eccfc58afee11648a67110b4aec04",
+    "pattern": "test_portable*.py"
+  },
+  "module_fault_injection_tests": 14,
+  "shared_gpu_source_unchanged": true,
+  "metal_gpu_reexecutions": 0,
+  "ptx_cache_source_report": "research/portable-world-v125-ptx-sanitized.json",
+  "ptx_cache_key": "b59ad6c3873b40f774fa9ab2357f86771979d6bc8847f8481e09b7ded0a36f1b",
+  "windows": {
+    "status": "not_run",
+    "module_verified": false,
+    "calculation_verified": false
+  },
+  "normal_ui": "CPU",
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

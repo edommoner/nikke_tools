@@ -1,0 +1,32 @@
+{
+  "schema": "resident-device-packet-v1",
+  "suite": "coordinate-resident-device",
+  "package_id": "a446dcffaad1b65ec7ab74694a5d8dd89e4ca54bbea238d799956831f676437d",
+  "archive_bytes": 9458633,
+  "archive_sha256": "c93fb5146baab8061e139e28f25a546e1b5d6ef2b2850f7c8162e0f8c65f0db3",
+  "source_commit": "42fbf2fbe85ecd96c26a29934d3340e22ab8b6e4",
+  "scope": "Four original prefix cases; full source and comparator; not full106 CUDA proof",
+  "cpu_preflight": {
+    "groups": 4,
+    "tests": 46,
+    "skipped": 0
+  },
+  "cpu_verified": true,
+  "smoke": {
+    "groups": 60,
+    "tests": 586,
+    "skipped": 1
+  },
+  "retention": {
+    "schema": "resident-device-package-retention-v1",
+    "passed": true,
+    "full_files": 3559,
+    "compact_files": 2129,
+    "omitted_python_only": 1430,
+    "all_retained_bytes_identical": true,
+    "gpu_upstream_fixtures_preserved": true,
+    "full_package": "017d7acc1c928517ca2cec73b0ebf8efe7cd5473425dbe47324f8ed706c6f643",
+    "compact_package": "a446dcffaad1b65ec7ab74694a5d8dd89e4ca54bbea238d799956831f676437d"
+  },
+  "new_cuda_calculation_verified": false
+}

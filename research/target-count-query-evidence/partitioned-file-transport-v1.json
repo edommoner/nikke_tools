@@ -1,0 +1,231 @@
+{
+  "schema": "partitioned-file-transport-development-v1",
+  "executed_package_id": "9a69d35dc7434c162710e56db5f29a1ffac44bf4294578a35ae84deafded83d6",
+  "current_packet": {
+    "package_id": "69f25d903814c48edb3ad7463a82d2ebf10f126fc0456170b65fe09f9e83a531",
+    "archive_bytes": 9610718,
+    "archive_sha256": "8e0600e8100d48673ffd5f78cb99341a8eb39e092e91159f4b1d64f9bb1f855a",
+    "verified_original_files": 2147,
+    "changed_original_files": [
+      "scripts/nikke_gpu.py"
+    ],
+    "added_files": [
+      "app/portable_partitioned_addresses.py",
+      "app/portable_partitioned_cli.py",
+      "app/portable_partitioned_transport.py",
+      "tests/test_portable_partitioned_addresses.py",
+      "tests/test_portable_partitioned_transport.py"
+    ],
+    "golden_unchanged": true,
+    "new_unit_tests": 18
+  },
+  "fresh_cpu": {
+    "input_count": 106,
+    "native_oracles": 63,
+    "elapsed_seconds": 391.9733924170141,
+    "passed": true,
+    "input_sha256": "7892c2b3f5800c602d96a92192b89094d746f1674aaa18fcac2436677c11923d"
+  },
+  "actual_metal": {
+    "dispatches": 7,
+    "cases": [
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      10
+    ],
+    "gpu_seconds": 11.21628904165118,
+    "bounded_child_seconds": 14.217146916984348,
+    "all_dispatches_completed": true,
+    "all_pipeline_cache_hits": true,
+    "maximum_input_buffer_bytes": 7403524,
+    "maximum_output_buffer_bytes": 132146304,
+    "maximum_runtime_buffer_bytes": 2288768,
+    "full_output_bytes": 875469264,
+    "original_flat_wire_stage_passed": false,
+    "original_flat_wire_stage_exit_code": 1,
+    "original_parent_cli_exit_code": 0,
+    "parent_failure_exit_fixed_in_current_code": true
+  },
+  "saved_wire_audit": {
+    "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/partitioned-metal-v4-address-audit-v2.json",
+    "sha256": "694e2480dd558443b955d50c4107f163a63aafed72c806745f80604e72e1c14a",
+    "report": {
+      "active_references_checked": 20,
+      "calculation_verified": false,
+      "compiler_calls": 0,
+      "expected_hash_changed": false,
+      "expected_output_sha256": "4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09",
+      "full_goal_complete": false,
+      "gpu_calls": 0,
+      "input_count": 106,
+      "input_sha256": "7892c2b3f5800c602d96a92192b89094d746f1674aaa18fcac2436677c11923d",
+      "logical_address_changes": [
+        {
+          "depth": 1,
+          "global_case": 16,
+          "local_case": 0,
+          "logical_address": 34811040,
+          "raw_address": 1774464,
+          "receipt_id": 2,
+          "word": 1924498
+        },
+        {
+          "depth": 1,
+          "global_case": 28,
+          "local_case": 12,
+          "logical_address": 59588472,
+          "raw_address": 26551896,
+          "receipt_id": 2,
+          "word": 1924498
+        },
+        {
+          "depth": 1,
+          "global_case": 29,
+          "local_case": 13,
+          "logical_address": 61653258,
+          "raw_address": 28616682,
+          "receipt_id": 2,
+          "word": 1924498
+        },
+        {
+          "depth": 1,
+          "global_case": 30,
+          "local_case": 14,
+          "logical_address": 63718044,
+          "raw_address": 30681468,
+          "receipt_id": 2,
+          "word": 1924498
+        },
+        {
+          "depth": 1,
+          "global_case": 31,
+          "local_case": 15,
+          "logical_address": 65782830,
+          "raw_address": 32746254,
+          "receipt_id": 2,
+          "word": 1924498
+        }
+      ],
+      "logical_view_sha256": "4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09",
+      "logical_wire_equivalence_verified": true,
+      "materialized_output_created": false,
+      "metal_cache_checks": [
+        {
+          "calculation_verified": false,
+          "enabled": true,
+          "external_cache_read": false,
+          "hit": true,
+          "key": "a626428695c38c26f6d066f9b07c96d485b427ee14414d2bc24a5cc206203609",
+          "native_archive_miss_rejected": true,
+          "required": true
+        },
+        {
+          "calculation_verified": false,
+          "enabled": true,
+          "external_cache_read": false,
+          "hit": true,
+          "key": "a626428695c38c26f6d066f9b07c96d485b427ee14414d2bc24a5cc206203609",
+          "native_archive_miss_rejected": true,
+          "required": true
+        },
+        {
+          "calculation_verified": false,
+          "enabled": true,
+          "external_cache_read": false,
+          "hit": true,
+          "key": "a626428695c38c26f6d066f9b07c96d485b427ee14414d2bc24a5cc206203609",
+          "native_archive_miss_rejected": true,
+          "required": true
+        },
+        {
+          "calculation_verified": false,
+          "enabled": true,
+          "external_cache_read": false,
+          "hit": true,
+          "key": "a626428695c38c26f6d066f9b07c96d485b427ee14414d2bc24a5cc206203609",
+          "native_archive_miss_rejected": true,
+          "required": true
+        },
+        {
+          "calculation_verified": false,
+          "enabled": true,
+          "external_cache_read": false,
+          "hit": true,
+          "key": "a626428695c38c26f6d066f9b07c96d485b427ee14414d2bc24a5cc206203609",
+          "native_archive_miss_rejected": true,
+          "required": true
+        },
+        {
+          "calculation_verified": false,
+          "enabled": true,
+          "external_cache_read": false,
+          "hit": true,
+          "key": "a626428695c38c26f6d066f9b07c96d485b427ee14414d2bc24a5cc206203609",
+          "native_archive_miss_rejected": true,
+          "required": true
+        },
+        {
+          "calculation_verified": false,
+          "enabled": true,
+          "external_cache_read": false,
+          "hit": true,
+          "key": "a626428695c38c26f6d066f9b07c96d485b427ee14414d2bc24a5cc206203609",
+          "native_archive_miss_rejected": true,
+          "required": true
+        }
+      ],
+      "native_calls": 0,
+      "numeric_words_modified": 0,
+      "original_capture_modified": false,
+      "original_stage_passed": false,
+      "output_bytes": 875469264,
+      "package_id": "9a69d35dc7434c162710e56db5f29a1ffac44bf4294578a35ae84deafded83d6",
+      "profile": "resident-frames-dfs-receipt-address-v1",
+      "raw_gpu_bytes_modified": 0,
+      "raw_joined_output_sha256": "0a737874d7e32912167b90e2f48a0ebf8176d79861cd6b5843fc09204ed9f829",
+      "schema": "partitioned-wire-address-audit-v1",
+      "scope": "Read-only explicit address-space view. Raw physical GPU readbacks differ; no byte-normalization of numeric/status data and no promotion of the failed stage.",
+      "source_abi": {
+        "gpu/destructible_battle_runtime.slang": "91be4819b2f6f28d7fdedfbed014bea3c1aaa67f396968e506b39f11f2c75c8a",
+        "gpu/destructible_shield_frame_hooks.slang": "8ab3384c7b37fd774ef20a2b60c15fd37f4dd0bbd965832e79b608aadd747d92",
+        "gpu/world_coordinate_resident_frames_entry.slang": "c8a609773a753df312a3714958fe61e6b73a48c66a1afb120f957801b5851dc8",
+        "gpu/world_coordinate_typed_entry.slang": "2dc5fb456a7f7edbceb4b5122fe99f6750f418a170ddb47694cb9678e3828f71"
+      },
+      "view_controller_sha256": "7164b66db37b6e9fac3193522e289bf437d1f2edd80df2be779172d9248c3564"
+    }
+  },
+  "source_contract": {
+    "scope": "Source contract equality and read-only audit; no new device execution",
+    "plan_and_split_ast_unchanged": true,
+    "cuda_sequence_call_ast_unchanged": true,
+    "metal_sequence_call_ast_unchanged": true,
+    "audited_profile_controller_matches_current": true,
+    "active_references_checked": 20,
+    "relocated_fields": 5,
+    "cache_checks": 7,
+    "current_transport_sha256": "93ed6db578a5d5fab84a4e3164e389bf26e6049d3b38f6ded4dc79d0d6288a14",
+    "audited_transport_sha256": "325639ad521434b07e7622c1e155d99838a5584616d9fc26b83dddba1cdd46ad"
+  },
+  "regression_tests": {
+    "partitioned_transport": 13,
+    "address_view": 5,
+    "existing_batch": 8,
+    "existing_file_transport": 15,
+    "existing_stream": 4,
+    "existing_cli": 50
+  },
+  "model_report_sha256": "e061e679b910efd5f05ff38b20539ac922df305dcf389cd21a62f8ab544a7835",
+  "gpu_source_changes": 0,
+  "protected_cpu_changes": 0,
+  "generated_normalizer_changes": 0,
+  "windows_additional_executions": 0,
+  "gpu_replays_after_failure": 0,
+  "calculation_verified": false,
+  "independent_post_gpu_native_audit_pending": true,
+  "full_goal_complete": false,
+  "scope": "All 106 actual M5 GPU rows completed. Raw physical buffer indices differ in five words; the separately source-pinned logical view matches all old row/full hashes. The failed flat-wire stage is preserved and not promoted. New explicit-profile integration has unit/source-contract checks, not another device run."
+}

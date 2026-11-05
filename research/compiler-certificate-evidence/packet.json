@@ -1,0 +1,10 @@
+{
+  "package_id": "ca71d9c09535c9eeb36891da02d65c23436cc19f21b2b2820cbb213235a20cf3",
+  "suite": "compiler-full--max-ammo-scaling-retention",
+  "purpose": "compiler-diagnostic",
+  "files": 2556,
+  "files_table_sha256": "62cfb806a71b9abab9af4f82c6c6707ee858ed7f3fd559df77496343f0b9bdd0",
+  "zip_bytes": 6400142,
+  "zip_sha256": "aca31c682be49fa80d0c7ede73bbe17d967d0253fd370fd0dbcd125432853904",
+  "delivered_code_matches_immutable_packet": true
+}

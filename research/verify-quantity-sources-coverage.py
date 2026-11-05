@@ -14,14 +14,14 @@ loader=importlib.util.spec_from_file_location('quantity_previous_compiler',old_s
 unchanged=[]
 for name in sorted(accepted(previous)):
     names=[name]+[n for n in ['모더니아','루주','마스트 : 로망틱 메이드','도라','얀'] if n!=name][:4]
-    body=body_for(names);current=a.evaluate({**body,'_compile_gpu_detail':True})
+    body=body_for(names);current=a.evaluate({**body,'_compile_detail':True})
     prior=old.compile_full(current['prepared'],lambda char:current['base_stats'][char['name']],body,current['policy'],current['requested_policy'])
     assert current['program']==prior['program'],name
     unchanged.append(name)
 stages=[]
 for stage in range(4):
     body=body_for(['에밀리아','리타','크라운','앨리스','모더니아'],8,True);body['profile']['chars']['에밀리아']['favorite_stage']=stage
-    p=a.evaluate({**body,'_compile_gpu_detail':True})['program'];assert sum(r[1]==36 for r in p['effects'])==1 and sum(r[10]==-4 for r in p['effects'])==1;stages.append(stage)
+    p=a.evaluate({**body,'_compile_detail':True})['program'];assert sum(r[1]==36 for r in p['effects'])==1 and sum(r[10]==-4 for r in p['effects'])==1;stages.append(stage)
 assert before=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in before}
 report.update(passed=True,compile_only=True,new_character_inputs=stages,existing_programs_identical=len(unchanged),source_stable=True,source_sha256=before)
 (ROOT/'research/quantity-sources-coverage.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

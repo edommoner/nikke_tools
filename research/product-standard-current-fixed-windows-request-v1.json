@@ -1,0 +1,67 @@
+{
+  "schema": "product-standard-current-fixed-windows-request-v1",
+  "package_id": "30e9e40cc57796226732c0b47db1523e347a4abdd920e32fa781be98042af671",
+  "source": "gpu/product_fixed_battle_entry.slang",
+  "entry": "portableEvents",
+  "input_words": 104400,
+  "output_words": 786432,
+  "source_packet": "research/windows-source-packets/product-standard-current-fixed-v1.zip",
+  "source_packet_bytes": 12303978,
+  "source_packet_sha256": "113f9c1f3fa50e4470f8ca51db5ffc7d633fdfa197adfd70f74a444b40ba3c6c",
+  "metal_native_verified_cases": 4,
+  "all_old_input_native_and_full_raw_exact": true,
+  "paired_generated_cuda_bytes": 2745490,
+  "requested_first_stages": [
+    "paired-generation",
+    "cache-probe-cubin-o1",
+    "compile-cubin-o1-only-if-miss"
+  ],
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "30e9e40cc57796226732c0b47db1523e347a4abdd920e32fa781be98042af671",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=sm_86",
+      "--fmad=false",
+      "--ptxas-options",
+      "-O1"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "artifact_kind": "cubin",
+  "ptxas_level": 1,
+  "requested_gpu_dispatches": 0,
+  "later_ordinary_api_target": "fixed/default-Miranda-squad-30s-one-request",
+  "later_gpu_requires_separate_static_input_artifact_and_resource_admission": true,
+  "ram_gate": {
+    "required_available_bytes": 4294967296,
+    "fresh_samples_per_execution_gate": 1,
+    "stop_without_resampling_if_insufficient": true
+  },
+  "budget": {
+    "total_wall_seconds": 180,
+    "sdk_child_seconds": 60,
+    "memory_limit_mb": 2048,
+    "below_normal": true,
+    "fresh_child_job_and_start_gate_required": true
+  },
+  "stop_on_any_timeout_or_failed_gate": true,
+  "no_ptx_object_link_fallback_or_retries": true,
+  "no_battle_or_full_unit_tests_before_compile": true,
+  "preserve_original_workspace": true,
+  "scope": "Immutable common source and compiler validation only;no personal settings,raw,SDK distribution or generated PTX/CUBIN payload"
+}

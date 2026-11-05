@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "tests": 101,
+  "log": ".....................................................................................................\n----------------------------------------------------------------------\nRan 101 tests in 3.557s\n\nOK\n",
+  "validation_sha256": {
+    "tests/test_portable_staged.py": "02eca2ac1a25aad73c7e4b1f189701ed5af862050f17be078748124729258d93",
+    "tests/test_portable_enemy_spawn.py": "06569df12a3256865e9964f33369883be93f279c223c89b914c39f871a7d2fbe",
+    "tests/test_portable_enemy_attack.py": "a0c1b7400d2b50be57c3285dd308632ec9e34784c075fac105efb9ae95ff232f",
+    "tests/test_portable_numeric_design.py": "cd615ca10d1566b453ba747961b55befc36f038b0dc55b89505d7e68a0a74a14",
+    "tests/test_portable_enemy_aim.py": "13bbf8b806d0c035de7e6a945bdd4b111c9e6404cbfbdba89c1741a4a0c339d4",
+    "tests/test_portable_sources.py": "4449025637250cbe125c923e5a22827cca38bbeb36a4921e326369477f058734",
+    "tests/test_portable_resources.py": "8266c3fa801d2a51299d6ab6724d52fe8c6a099216ffed22030e93da2028e2ed",
+    "tests/test_portable_periodic_targets.py": "002fcb8699977734ee2ce266568e2116085214229b2b73e7308dab1adc1f7bf6",
+    "tests/test_portable_references.py": "f8f4d5580b279e4e943c4d60c7e9830dc4ada528fd26c01fa7ab2ac58eed57e4",
+    "tests/test_portable_probe.py": "498279f222d8643cfa9e8da1609e98e3bc0d1bd8e9a8aa5b901446f59dfc3f3d",
+    "tests/test_portable_runtime.py": "ebd0de5ac7d9c6d0fbefcf0e58ec5db29d420551b26c744b831f930767050f5f",
+    "tests/test_portable_combat.py": "64a1c90e4acf054b4dfc07e286bf712ead58106c4031de42669382a213f98103",
+    "tests/test_portable_reference_scales.py": "983b5f80c7ba3e1d30cfbf2d0cfd61e3553c3a44d3a9679ae09a4d6092ea4321",
+    "tests/test_portable_lifesteal.py": "2fb65d5b453f92f2314e62652f075f3273369dd772a21650996a3a467a1094b1",
+    "tests/test_portable_event_candidates.py": "ed44559cdb08639441ce9d9d5b7b079c8789b8615b32fde5d874e47817a190a1",
+    "tests/test_portable_metal_deadlines.py": "9795079b34bf86221d40e3b4e232170bf1ffe485ebfbee514cec6f4afb41885f",
+    "tests/test_portable_timeline.py": "3d74cb2aa4a41971fd3c70dc3e56be2513a47c6cdfff557265b09ea508f4510a"
+  }
+}

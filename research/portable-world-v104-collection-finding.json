@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "calculation_verified": true,
+  "environment_preservation_verified": false,
+  "execution_turn": "01a15d3b-9ca3-7bc3-8367-8beb4644486f",
+  "execution_turn_error": "Selected model is at capacity. Please try a different model.",
+  "existing_os_command_completed_exit_code": 0,
+  "result_only_turn": "01a15d45-b5fc-7192-8433-0e6271e36e30",
+  "result_only_turn_status": "completed",
+  "result_only_gpu_calls": 0,
+  "total_gpu_calls": 1,
+  "gpu_retries": 0,
+  "missing_existing_processes": 28,
+  "termination_cause": "unknown",
+  "missing_processes_preexist_and_are_outside_validation_job": true,
+  "post_snapshot_delay_after_job_seconds": 401.9489005,
+  "pre_gpu_to_after_snapshot_window_seconds": 529.9731875,
+  "process_exit_during_gpu_execution_proven": false,
+  "cpu_only_control": {
+    "gpu_calls": 0,
+    "job_calls": 0,
+    "service_operations": 0,
+    "missing_existing": 1,
+    "missing_identity": "own venv observation launcher",
+    "missing_mcp": 0,
+    "original_bytes": 71945,
+    "original_sha256": "9cc2f383a4266cfd50323b9495093dfaa5e926d4e2ce23f26022df40fec0cb17"
+  },
+  "next_observation_requirement": "Collect complete after snapshot inside external bounded wrapper finally immediately after wait; do not depend on a later model turn",
+  "previous_missing_findings_resolved": false,
+  "no_gpu_rerun_for_reporting": true
+}

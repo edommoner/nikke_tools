@@ -1,0 +1,15 @@
+{
+  "package_id": "32ea1c5932e58c4b97e3c99140b2fec0e3856b20e8b78affd7ccdf985bc05cda",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/original-resources-current-recert-v4-metal",
+  "child_pid": 76303,
+  "input_count": 3,
+  "native_cases": 3,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 22.437468749994878,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "4e1d3c4e87143f66c67c9f96426b18e58b5f2f8bf400d1e37b96cfe1852a95bc",
+  "output_sha256": "5e34563f524a89dc1b4518673432636fce6bbfee687cf7d574f2a909fff58751",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}

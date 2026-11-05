@@ -1,0 +1,94 @@
+{
+  "schema": "product-current-declared-three-v2",
+  "scope": "The same original Yuni/Yan BODY-only empty-ADD movement declarations and Heavy Arms BODY-first Lock On declaration; unchanged stats/equipment/roster/skills/30s/seed. This does not change default unsupported3 or prove actual displacement/typed interception.",
+  "current_runtime_owner": "c51b3d437bb4f3148755f6fd4a47225e90bfbe95a88c22e74de491a428ff19af",
+  "current_source_standard_metal_profiles": 263,
+  "standard_proofs_reused": 263,
+  "additional_declared_profiles_fresh_gpu": 3,
+  "current_source_observed_union_profiles": 266,
+  "current_source_observed_union_characters": 203,
+  "fresh_http_posts": 1,
+  "fresh_physical_gpu_dispatches": 2,
+  "fresh_native_battles": 3,
+  "api_job_seconds": 14.801100082928315,
+  "all_original_definitions_preserved": [
+    {
+      "index": 88,
+      "source": "gpu/product_movement_fixed_battle_entry.slang",
+      "input_words": 117476,
+      "output_words": 2032000,
+      "all_original_definitions_preserved": true,
+      "original_definitions": 69,
+      "profile_stats_equipment_roster_and_skill_levels_unchanged": true,
+      "game_rule_verification": false
+    },
+    {
+      "index": 111,
+      "source": "gpu/product_movement_fixed_battle_entry.slang",
+      "input_words": 117476,
+      "output_words": 2032000,
+      "all_original_definitions_preserved": true,
+      "original_definitions": 71,
+      "profile_stats_equipment_roster_and_skill_levels_unchanged": true,
+      "game_rule_verification": false
+    },
+    {
+      "index": 210,
+      "source": "gpu/product_lock_fixed_battle_entry.slang",
+      "input_words": 109536,
+      "output_words": 1310720,
+      "all_original_definitions_preserved": true,
+      "original_definitions": 91,
+      "profile_stats_equipment_roster_and_skill_levels_unchanged": true,
+      "game_rule_verification": false
+    }
+  ],
+  "rows": [
+    {
+      "original_profile_index": 88,
+      "character": "유니",
+      "variant": "88-declared-body-only",
+      "input_sha256": "787f537c7c00d9d24acc9f931106228d04babf60cfc121ad429a5a78fa743193",
+      "output_sha256": "4f98034477055f1b3b5a342321ea508edc0c6dcadfd51aa71a575301f8e3c4d3",
+      "current_execution_verified": true,
+      "complete_cpu_gpu_http_equal": true,
+      "original_input_raw_exact": true,
+      "original_output_raw_exact": true,
+      "saved_audit_passed": true
+    },
+    {
+      "original_profile_index": 111,
+      "character": "얀",
+      "variant": "111-declared-body-only",
+      "input_sha256": "9b5180903d62ccef05684c9b8f0b71e2912c9d7a47b6f053922ce6d85a6e95f0",
+      "output_sha256": "0e094f4b65958baeadd072d761a9b213cd144802dfa5d43a28cae638972120a0",
+      "current_execution_verified": true,
+      "complete_cpu_gpu_http_equal": true,
+      "original_input_raw_exact": true,
+      "original_output_raw_exact": true,
+      "saved_audit_passed": true
+    },
+    {
+      "original_profile_index": 210,
+      "character": "스노우 화이트 : 헤비암즈",
+      "variant": "210-declared-body-only",
+      "input_sha256": "9337f726787944458cb09c19b1de2b7f955f11c149f42bd6b385a7284bb50afa",
+      "output_sha256": "76fd63c5f64fd0b6fd0693e4906a4ba06f74a43e8626b7f570f3d6a757d72f2e",
+      "current_execution_verified": true,
+      "complete_cpu_gpu_http_equal": true,
+      "original_input_raw_exact": true,
+      "original_output_raw_exact": true,
+      "saved_audit_passed": true
+    }
+  ],
+  "default_policies_changed": false,
+  "all_prior_raw_inputs_outputs_exact": true,
+  "saved_audits": 3,
+  "saved_audit_extra_battles": 0,
+  "saved_audit_extra_gpu": 0,
+  "owned_server_group_absent": true,
+  "current_source_cuda_profiles": 0,
+  "all_special_effects_verified": false,
+  "full_goal_complete": false,
+  "proof_directory": "product-current-standard-v4-20261102/declared-three-api-v1"
+}

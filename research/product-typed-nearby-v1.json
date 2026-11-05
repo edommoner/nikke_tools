@@ -1,0 +1,1869 @@
+{
+  "schema": "product-typed-primary-nearby-v1",
+  "scope": "Original Elegg70 definitions and mixed physical interception plus an explicit primary-center-to-neighbour-edge selection model. Literal radius/shape/tie rule is declared, not game verified. Default undeclared nearby behavior remains rejected.",
+  "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-nearby-run-v2-20261102",
+  "execution_owner": "c9d786f88bc908fab0ef2322b8eee92071df6729ab6b4cb6b8f3098bc953a465",
+  "release_owner": "c51b3d437bb4f3148755f6fd4a47225e90bfbe95a88c22e74de491a428ff19af",
+  "implementation": {
+    "shared_cuda_metal_slang": true,
+    "new_suites": 0,
+    "new_auditors": 0,
+    "new_shader_entry_files": 0,
+    "new_generated_layout_files": 1,
+    "input_words": 121936,
+    "output_words_unchanged": 2032000,
+    "nearby_base": 121392,
+    "nearby_bank_words": 544,
+    "nearby_history_words": 32,
+    "nearby_cast_capacity_unchanged": 512,
+    "nearby_history_uses_checked_disjoint_former_reserved_bank": true,
+    "selection": "primary-center-edge-v1",
+    "primary_always_included": true,
+    "neighbours_sorted_by_common_binary64_edge_distance": true,
+    "ties_keep_canonical_add_birth_body_order": true,
+    "capacity_is_original_primary_plus_neighbours": true,
+    "same_frozen_queue_and_actor_pool": true,
+    "captured_actor_set_reused_for_distance_sort": true,
+    "no_new_large_local_actor_array": true,
+    "temporary_kind_identity_fields_restored": true,
+    "ordered_recipient_kind_identity_generation_sha256": true,
+    "existing_integer_and_binary64_arithmetic_reused": true,
+    "split_uses_existing_landing_consumer": true,
+    "original_modifier_axes_retained": true,
+    "canonical_cpu_changed": false,
+    "pinned_changed": false,
+    "tolerances_changed": false,
+    "effects_removed": false
+  },
+  "product": {
+    "metal_profiles": 1,
+    "new_distinct_profiles": 0,
+    "conditions": 17,
+    "positive_nearby_selection_conditions": 14,
+    "inactive_conditions": 3,
+    "original_effects": 70,
+    "rows": [
+      {
+        "variant": "fixed-tie",
+        "capture_id": "e3385dbd01434fa893fd4f4bb6a5f147",
+        "input_sha256": "8289e52175913c4e3972e0ec8d32760bfc0bfaa239bdeae9890db469f098a04c",
+        "output_sha256": "23d293aa3fb8966ea9f173b3f7e2ed3bf616061a1bb59bf46ae1d32272719e2d",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "c59f46ebb99c83da8b6a58fd32ad1d9d874e5e71c1db736e78fade5bcf3e33bc"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "c59f46ebb99c83da8b6a58fd32ad1d9d874e5e71c1db736e78fade5bcf3e33bc"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "c59f46ebb99c83da8b6a58fd32ad1d9d874e5e71c1db736e78fade5bcf3e33bc"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "c59f46ebb99c83da8b6a58fd32ad1d9d874e5e71c1db736e78fade5bcf3e33bc"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 10.800000000000116,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "c59f46ebb99c83da8b6a58fd32ad1d9d874e5e71c1db736e78fade5bcf3e33bc"
+          }
+        ],
+        "nearby_cast_count": 5,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-swap",
+        "capture_id": "0118f8ae2d58407bbd7634c0cf4eca52",
+        "input_sha256": "01e9fee6bcf2f3815ec4cd3303be9d685b935d1d30839b9f6e176d6c625943a1",
+        "output_sha256": "3ee14216a0ba2b29c0ed4f372fff45de75bebe80180ac6c573dbc9f39cebdb26",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "a6609cde28ad7fcf40d5f735a8d9441cd8a6c7b5bb25cc4fca15397b15ade201"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "a6609cde28ad7fcf40d5f735a8d9441cd8a6c7b5bb25cc4fca15397b15ade201"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "a6609cde28ad7fcf40d5f735a8d9441cd8a6c7b5bb25cc4fca15397b15ade201"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "a6609cde28ad7fcf40d5f735a8d9441cd8a6c7b5bb25cc4fca15397b15ade201"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 10.800000000000116,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "a6609cde28ad7fcf40d5f735a8d9441cd8a6c7b5bb25cc4fca15397b15ade201"
+          }
+        ],
+        "nearby_cast_count": 5,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-primary-only",
+        "capture_id": "b921983e9d724fcbadc66e6557c33374",
+        "input_sha256": "cc43c5e63f365430373140eb29f59539a8568cbb5f6d5befaa0c90ebc27dff55",
+        "output_sha256": "b625572dce486bafdbb363bc4599ad2dd12adf787c5f6dce674c1fa350361cc4",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 0,
+            "percent": 0,
+            "factor": 1,
+            "radius": 0,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 1,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "6fc83da421056e5e69edbfc64e639a6dd536bf7961a9cf8d0c5f2c762a30064b"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 0,
+            "percent": 0,
+            "factor": 1,
+            "radius": 0,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 1,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "6fc83da421056e5e69edbfc64e639a6dd536bf7961a9cf8d0c5f2c762a30064b"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 0,
+            "percent": 0,
+            "factor": 1,
+            "radius": 0,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 1,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "6fc83da421056e5e69edbfc64e639a6dd536bf7961a9cf8d0c5f2c762a30064b"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 0,
+            "percent": 0,
+            "factor": 1,
+            "radius": 0,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 1,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "6fc83da421056e5e69edbfc64e639a6dd536bf7961a9cf8d0c5f2c762a30064b"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 10.800000000000116,
+            "base_radius": 0,
+            "percent": 0,
+            "factor": 1,
+            "radius": 0,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 1,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "6fc83da421056e5e69edbfc64e639a6dd536bf7961a9cf8d0c5f2c762a30064b"
+          }
+        ],
+        "nearby_cast_count": 5,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-body-far",
+        "capture_id": "22f17aff9cc34166b39a1bdc58b94e70",
+        "input_sha256": "46955c39d231ff97c561e5b5363a189bd507f5909c0fff1daa6d9975f2fa13a4",
+        "output_sha256": "77b21a57e7c59ccaa59a526a1452134724381e9ceead99373fcf17752c0c94c7",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 2,
+            "recipient_sha256": "c8de8fffcb6d03b827f8c49aa1928f0950455b8b492d50aa004a11c2c59fb9b1"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 2,
+            "recipient_sha256": "c8de8fffcb6d03b827f8c49aa1928f0950455b8b492d50aa004a11c2c59fb9b1"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 2,
+            "recipient_sha256": "c8de8fffcb6d03b827f8c49aa1928f0950455b8b492d50aa004a11c2c59fb9b1"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 2,
+            "recipient_sha256": "c8de8fffcb6d03b827f8c49aa1928f0950455b8b492d50aa004a11c2c59fb9b1"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 10.800000000000116,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 2,
+            "recipient_sha256": "c8de8fffcb6d03b827f8c49aa1928f0950455b8b492d50aa004a11c2c59fb9b1"
+          }
+        ],
+        "nearby_cast_count": 5,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-three-adds",
+        "capture_id": "e932fe1ec4114c0bb09e66cde61de0ca",
+        "input_sha256": "06ec480bf9889e6ddd011bf1e4f54c9ffb79d61bf471994f128fe291694d34d1",
+        "output_sha256": "474b542af660a8600b424a67b617db0e57803215e99782cc90fe276391c17820",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 1000,
+            "percent": 0,
+            "factor": 1,
+            "radius": 1000,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 3,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "9ca277fc361204e9d93e82a4cd7f4dfa35d03f213b633c021c8ed2ca80e3fade"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 1000,
+            "percent": 0,
+            "factor": 1,
+            "radius": 1000,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 3,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "9ca277fc361204e9d93e82a4cd7f4dfa35d03f213b633c021c8ed2ca80e3fade"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 1000,
+            "percent": 0,
+            "factor": 1,
+            "radius": 1000,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 3,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "9ca277fc361204e9d93e82a4cd7f4dfa35d03f213b633c021c8ed2ca80e3fade"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 1000,
+            "percent": 0,
+            "factor": 1,
+            "radius": 1000,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 3,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "9ca277fc361204e9d93e82a4cd7f4dfa35d03f213b633c021c8ed2ca80e3fade"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 10.800000000000116,
+            "base_radius": 1000,
+            "percent": 0,
+            "factor": 1,
+            "radius": 1000,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 3,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "9ca277fc361204e9d93e82a4cd7f4dfa35d03f213b633c021c8ed2ca80e3fade"
+          }
+        ],
+        "nearby_cast_count": 5,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-renewal",
+        "capture_id": "361a4514557a4324ba0a1398eebc33f4",
+        "input_sha256": "9846348648ad1a9edfae4f81accc3ffecc9abf056f300603e14ec73898527aa9",
+        "output_sha256": "f2d0657582a52c15f10f6e1af8a08b6120164eb53ffd346ea0c59dfe2fd1c9f6",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "99d99be20c915b302adb47a16b4c7cb65aec023b4543a1b34990df6d7b90696a"
+          }
+        ],
+        "nearby_cast_count": 1,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-dead",
+        "capture_id": "a873cfd8e4f44e059aa80ece92ef769a",
+        "input_sha256": "508cadafbe165ff968c700debcfe8572fbca308d31a1a9bb3d8460ed1d33915b",
+        "output_sha256": "8e07c23c31ec1fa852ef8c09fc45320e4f7c367cf1c586a1188b263fe53448d3",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 10.800000000000116,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          }
+        ],
+        "nearby_cast_count": 5,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-body-only",
+        "capture_id": "2cb6446a69bf48ad8f2cdbc52eb2e221",
+        "input_sha256": "9e08442986babcc5b60572813422ec265d6c33db6610087440d93f116f81dbbb",
+        "output_sha256": "734307ee65d52be8bf5fc8bb258bf9d098f29ef6d8ccea32a103b553930cc465",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 10.800000000000116,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          }
+        ],
+        "nearby_cast_count": 5,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-tie",
+        "capture_id": "0ea78b641a4f40bbaec6663b9ffc5c92",
+        "input_sha256": "73e3ac4dceb133e8f740c216ee145cca3f9ed3a2e839ee869fbb93ce3d9725ff",
+        "output_sha256": "bf8ba21a6ec4168d88a573cadf54dd98ad4706aa1e24b50ac1506c605aa77f22",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "c59f46ebb99c83da8b6a58fd32ad1d9d874e5e71c1db736e78fade5bcf3e33bc"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "c59f46ebb99c83da8b6a58fd32ad1d9d874e5e71c1db736e78fade5bcf3e33bc"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "c59f46ebb99c83da8b6a58fd32ad1d9d874e5e71c1db736e78fade5bcf3e33bc"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "c59f46ebb99c83da8b6a58fd32ad1d9d874e5e71c1db736e78fade5bcf3e33bc"
+          }
+        ],
+        "nearby_cast_count": 4,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-swap",
+        "capture_id": "b05d0ea14e4344cb93125b275d46dba9",
+        "input_sha256": "fc506020492bc40e05b90fa2f2e6a55caae57f4f8e89af47d5baa9272f6440a9",
+        "output_sha256": "46dce88dab46378d82d53f323966f0d65268c8dc45bfd6da5d2a2425e8179a5c",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "a6609cde28ad7fcf40d5f735a8d9441cd8a6c7b5bb25cc4fca15397b15ade201"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "a6609cde28ad7fcf40d5f735a8d9441cd8a6c7b5bb25cc4fca15397b15ade201"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "a6609cde28ad7fcf40d5f735a8d9441cd8a6c7b5bb25cc4fca15397b15ade201"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 3,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "a6609cde28ad7fcf40d5f735a8d9441cd8a6c7b5bb25cc4fca15397b15ade201"
+          }
+        ],
+        "nearby_cast_count": 4,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-primary-only",
+        "capture_id": "be91622cf52340d783f4937b4acc3933",
+        "input_sha256": "0c688d291f6651a8837c0a7a5bbd6b3d50a6aef0f34463123c60d9cae4f0cb19",
+        "output_sha256": "1dd2ff7a6b53acef4e487b30e23024bc144b85692844b84e0dccb4c147594b80",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 0,
+            "percent": 0,
+            "factor": 1,
+            "radius": 0,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 1,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "6fc83da421056e5e69edbfc64e639a6dd536bf7961a9cf8d0c5f2c762a30064b"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 0,
+            "percent": 0,
+            "factor": 1,
+            "radius": 0,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 1,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "6fc83da421056e5e69edbfc64e639a6dd536bf7961a9cf8d0c5f2c762a30064b"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 0,
+            "percent": 0,
+            "factor": 1,
+            "radius": 0,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 1,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "6fc83da421056e5e69edbfc64e639a6dd536bf7961a9cf8d0c5f2c762a30064b"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 0,
+            "percent": 0,
+            "factor": 1,
+            "radius": 0,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 1,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "6fc83da421056e5e69edbfc64e639a6dd536bf7961a9cf8d0c5f2c762a30064b"
+          }
+        ],
+        "nearby_cast_count": 4,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-body-far",
+        "capture_id": "c396b9c28aaf4d7ba1d5d01e94991eb1",
+        "input_sha256": "a29fae0e1cd0a4d966ac7a79ee5983ae16854de54cf5cb6ea5196027146ce496",
+        "output_sha256": "31443f7bc82fb4aa99bd949f324ffe6a9dc2edaf4430a628d8a28e7f6f9e8918",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 2,
+            "recipient_sha256": "c8de8fffcb6d03b827f8c49aa1928f0950455b8b492d50aa004a11c2c59fb9b1"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 2,
+            "recipient_sha256": "c8de8fffcb6d03b827f8c49aa1928f0950455b8b492d50aa004a11c2c59fb9b1"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 2,
+            "recipient_sha256": "c8de8fffcb6d03b827f8c49aa1928f0950455b8b492d50aa004a11c2c59fb9b1"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 2,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 2,
+            "recipient_sha256": "c8de8fffcb6d03b827f8c49aa1928f0950455b8b492d50aa004a11c2c59fb9b1"
+          }
+        ],
+        "nearby_cast_count": 4,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-three-adds",
+        "capture_id": "bd8bc1a388b04b69a4601d593b137f74",
+        "input_sha256": "5ce47bbf0124d8591a1607e5a78cbf1384b45b475f80d464b3d696bd1b2bf2b8",
+        "output_sha256": "2dda2ba18586b834acfda46369d2d6d4aa26bf8322b5a5c531020e272e46f177",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 1000,
+            "percent": 0,
+            "factor": 1,
+            "radius": 1000,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 3,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "9ca277fc361204e9d93e82a4cd7f4dfa35d03f213b633c021c8ed2ca80e3fade"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 1000,
+            "percent": 0,
+            "factor": 1,
+            "radius": 1000,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 3,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "9ca277fc361204e9d93e82a4cd7f4dfa35d03f213b633c021c8ed2ca80e3fade"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 1000,
+            "percent": 0,
+            "factor": 1,
+            "radius": 1000,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 3,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "9ca277fc361204e9d93e82a4cd7f4dfa35d03f213b633c021c8ed2ca80e3fade"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 1000,
+            "percent": 0,
+            "factor": 1,
+            "radius": 1000,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 0,
+            "add_count": 3,
+            "aim": [
+              0,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 3,
+            "recipient_sha256": "9ca277fc361204e9d93e82a4cd7f4dfa35d03f213b633c021c8ed2ca80e3fade"
+          }
+        ],
+        "nearby_cast_count": 4,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-renewal",
+        "capture_id": "0f2d4556313d49488b10d4b251297772",
+        "input_sha256": "24076275fcf143e00d1c4707989a145d7f742398cef762ecb93db844e7f787a3",
+        "output_sha256": "fb6dd58a142bf69a9b80a08d04bfda984b1755e3ffce133a98ad45f30b919fa2",
+        "weapon_packets": 1219,
+        "nearby_casts": [],
+        "nearby_cast_count": 0,
+        "positive_nearby_selection_witness": false,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-dead",
+        "capture_id": "84f221f92d424b71a3f4cd233c0f218f",
+        "input_sha256": "cf3bed0b7a36b82cb7b7d9467a5fa217c7e8b7fa9e50a08cda7ba478ea3271cc",
+        "output_sha256": "bfcd3129cc658d1c2fd05fd9f69e5b17b93bfbec17dd105acc986e76777ebe78",
+        "weapon_packets": 1219,
+        "nearby_casts": [],
+        "nearby_cast_count": 0,
+        "positive_nearby_selection_witness": false,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-body-only",
+        "capture_id": "6232b0d4c7b146958cbbc20e309ea052",
+        "input_sha256": "daef8096a7a6a12e04c4309595d3134a6dca906bc13513d1f47279aa938c95e8",
+        "output_sha256": "ed677e4dde61b2ae8ba628e85ac8c4fd6e4610483503a4f5b0faf889027131dc",
+        "weapon_packets": 1219,
+        "nearby_casts": [
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 4.133333333333324,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 5.799999999999985,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 7.4666666666666455,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          },
+          {
+            "owner": "일레그",
+            "effect": "쇼트 2",
+            "time": 9.133333333333367,
+            "base_radius": 20,
+            "percent": 0,
+            "factor": 1,
+            "radius": 20,
+            "base_count": 3,
+            "capacity": 3,
+            "additional_targets": 0,
+            "body_position": 1,
+            "add_count": 0,
+            "aim": [
+              -10,
+              0
+            ],
+            "selection": "primary-center-edge-v1",
+            "split": true,
+            "recipient_count": 1,
+            "recipient_sha256": "9d34149fbd1fe777eb238799054c8cbfbce372255f219f8740838def9bfd02db"
+          }
+        ],
+        "nearby_cast_count": 4,
+        "positive_nearby_selection_witness": true,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-renewal-active",
+        "capture_id": "83dcf2cced6c4a5e8d136ef83f2c8d9d",
+        "input_sha256": "06e6788fcc85dbe79c66d18309eba21f629ad7da02664f600998f9a12e38b9f5",
+        "output_sha256": "3f626ea6ac171315e820059f6213d5d2fa9ac6e15da05dac84fb23c110648e47",
+        "weapon_packets": 1219,
+        "nearby_casts": [],
+        "nearby_cast_count": 0,
+        "positive_nearby_selection_witness": false,
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      }
+    ],
+    "jobs": [
+      {
+        "path": "api-v1",
+        "conditions": 16,
+        "wall_seconds": 39.69975495804101,
+        "saved_audits": 16,
+        "extra_audit_gpu": 0,
+        "extra_audit_battles": 0,
+        "owned_node_group_absent": true
+      },
+      {
+        "path": "api-positive-renewal-v1",
+        "conditions": 1,
+        "wall_seconds": 4.617382250027731,
+        "saved_audits": 1,
+        "extra_audit_gpu": 0,
+        "extra_audit_battles": 0,
+        "owned_node_group_absent": true
+      }
+    ],
+    "physical_gpu_dispatches": 3,
+    "physical_cases": 17,
+    "original_projectile_bonus_real_same_pellet_example": [
+      {
+        "owner": "N102",
+        "actor": [
+          3,
+          10,
+          1
+        ],
+        "damage": 166232,
+        "extra": true
+      },
+      {
+        "owner": "N102",
+        "actor": [
+          2,
+          11,
+          1
+        ],
+        "damage": 265406,
+        "extra": true
+      }
+    ],
+    "unconfigured_original8_still_rejected": [
+      {
+        "variant": "fixed-일레그-projectile-front-break",
+        "reason": "Unported enemy damage selector",
+        "no_declaration_still_rejected": true
+      },
+      {
+        "variant": "fixed-일레그-shield-front-live",
+        "reason": "Unported enemy damage selector",
+        "no_declaration_still_rejected": true
+      },
+      {
+        "variant": "accumulate-일레그-projectile-front-break",
+        "reason": "Unported enemy damage selector",
+        "no_declaration_still_rejected": true
+      },
+      {
+        "variant": "accumulate-일레그-shield-front-live",
+        "reason": "Unported enemy damage selector",
+        "no_declaration_still_rejected": true
+      },
+      {
+        "variant": "fixed-일레그-projectile-front-break-body-only",
+        "reason": "Unported enemy damage selector",
+        "no_declaration_still_rejected": true
+      },
+      {
+        "variant": "fixed-일레그-shield-front-live-body-only",
+        "reason": "Unported enemy damage selector",
+        "no_declaration_still_rejected": true
+      },
+      {
+        "variant": "accumulate-일레그-projectile-front-break-body-only",
+        "reason": "Unported enemy damage selector",
+        "no_declaration_still_rejected": true
+      },
+      {
+        "variant": "accumulate-일레그-shield-front-live-body-only",
+        "reason": "Unported enemy damage selector",
+        "no_declaration_still_rejected": true
+      }
+    ],
+    "saved_audits": 17,
+    "saved_audit_extra_gpu": 0,
+    "saved_audit_extra_battles": 0,
+    "final_projection_extra_gpu": 0,
+    "final_projection_extra_battles": 0
+  },
+  "cli": {
+    "program": "typed-accumulate",
+    "actual_metal_cases": 4,
+    "independent_gpu_forbidden_audit": {
+      "package_id": "c9d786f88bc908fab0ef2322b8eee92071df6729ab6b4cb6b8f3098bc953a465",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-nearby-run-v2-20261102/metal-v1",
+      "child_pid": 60139,
+      "input_count": 4,
+      "native_cases": 4,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 2.6971953340107575,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "d9d6424057b12b14b8ecf440fac53efe4a93cf2ebfd9999a1f60cf5cdea82be8",
+      "output_sha256": "cb2fc2530b42defb420f4375f44633714ba58dbcd13b321626fd3a965d53b254",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "old3_native_fingerprints_exact": true,
+    "old3_complete_input_prefixes_exact": true,
+    "old3_raw_changed_words": [
+      {
+        "case": 0,
+        "difference_words": 2,
+        "rows": [
+          [
+            1867648,
+            0,
+            1314013745
+          ],
+          [
+            1867649,
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "case": 1,
+        "difference_words": 2,
+        "rows": [
+          [
+            1867648,
+            0,
+            1314013745
+          ],
+          [
+            1867649,
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "case": 2,
+        "difference_words": 2,
+        "rows": [
+          [
+            1867648,
+            0,
+            1314013745
+          ],
+          [
+            1867649,
+            0,
+            1
+          ]
+        ]
+      }
+    ],
+    "raw_delta_is_new_empty_nearby_header_only": true,
+    "raw_numbers_never_masked": true,
+    "golden": "research/portable-product-programs-v62-expected.json",
+    "old_other41_programs_unchanged": true,
+    "release_cpu_tests": 177,
+    "release_native_cases": 4
+  },
+  "source_dependency_audit": {
+    "passed": true,
+    "sha256": "616d9810a60a459440705bca24b0a3c383e67b36bb41aa0d4f082af1ae3dc74d",
+    "gpu_calls": 0,
+    "native_battle_calls": 0
+  },
+  "compile_policy_plans": {
+    "ptx": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "c51b3d437bb4f3148755f6fd4a47225e90bfbe95a88c22e74de491a428ff19af",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    },
+    "cubin": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "c51b3d437bb4f3148755f6fd4a47225e90bfbe95a88c22e74de491a428ff19af",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "cubin",
+      "ptxas_level": 1,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "--ptxas-options",
+        "-O1"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    }
+  },
+  "retained_failures": [
+    {
+      "path": "product-nearby-v1-20261102",
+      "scope": "Standalone named-range scout",
+      "error": "Unported buff stat",
+      "resolution": "Kept original Elegg projectile modifier; composed existing typed modifier axes and nearby consumer instead of removing the effect.",
+      "gpu_calls": 0
+    },
+    {
+      "path": "product-typed-nearby-run-v1-20261102",
+      "scope": "Legacy frozen-handle CPU test",
+      "error": "IndexError for injected legacy pending tuple without a cast-history row",
+      "resolution": "Store split ownership in the new pending tuple, preserving old3-field pending handles. Existing5 tests then passed. New v2 owner; old packet retained.",
+      "gpu_calls": 0
+    }
+  ],
+  "extra_cpu_regressions": {
+    "existing_named_range_tests": 5,
+    "existing_named_range_wire_tests": 5,
+    "passed": true
+  },
+  "inactive_scope": {
+    "variants": [
+      "accumulate-renewal",
+      "accumulate-dead",
+      "accumulate-renewal-active"
+    ],
+    "additional_requested_active_case_observed_inactive": true,
+    "burst_stage2_at_seconds": 0.1,
+    "source_named_condition_not_forced": true,
+    "not_counted_as_positive_selection_proof": true,
+    "no_inactive_run_retries": true
+  },
+  "windows": {
+    "new_requests": 0,
+    "current_source_cuda_profiles": 0,
+    "ram_resampling": 0,
+    "prior_ram_and_process_stops_preserved": true
+  },
+  "coverage": {
+    "last_full_standard_metal_profiles": 263,
+    "total_standard_profiles": 266,
+    "last_full_declared_extra_profiles": 3,
+    "last_full_matrix_owner": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+    "full_matrix_recertified_on_this_source": false,
+    "historical_cuda_standard_profiles": 263,
+    "current_source_cuda_profiles": 0,
+    "game_distance_policy_verified": false,
+    "all_special_effects_verified": false,
+    "full_goal_complete": false
+  },
+  "remaining": [
+    "Typed nearby plus Lock On remains explicitly unsupported.",
+    "Typed movement composition is rejected by current model admission. A future moving-nearby consumer must read live primary/recipient positions rather than literal colliders.",
+    "Undeclared Elegg nearby and game distance rules are still unverified; no automatic geometry/radius was invented.",
+    "Other original effect combinations, current full profile matrix and bounded CUDA differential verification remain incomplete."
+  ]
+}

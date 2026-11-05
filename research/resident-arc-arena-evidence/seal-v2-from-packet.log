@@ -1,0 +1,15 @@
+{
+  "sealed": true,
+  "gpu_calls": 0,
+  "package_id": "58daee4744855a23251c014814f2da1dc05c347fda66b16f32440dd091e85687",
+  "input_count": 106,
+  "golden": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/golden-v2.json",
+  "compiler_certificate": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/source-certificate-v2.json",
+  "compiler_certificate_sha256": "44f73a6fb9a77c45e86b3f1aaf36e7d31e80fbb50122abbb5777fa72c05549fb",
+  "certificate_from_same_fresh_audit": true,
+  "independent_metal_audits": 1,
+  "compiler_verified": false,
+  "cache_hit_verified": false,
+  "audit_receipt": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/independent-v2.json",
+  "audit_receipt_sha256": "b6d1cda306d31537d999b6180a3bc6d900fc5d573efcf737cf997d24d31667d3"
+}

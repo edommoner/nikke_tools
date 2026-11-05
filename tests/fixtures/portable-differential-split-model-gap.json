@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "source_path": "research/upstream/nikke-calc-master/docs/IMPL-STATUS.md",
+  "document_sha256": "9a1249c6951a4d56d67061a71131289d9e6d87a64d8999fcdd7d7512ceb0f3d3",
+  "row_sha256": "ee2e4e4a736e69eab9c577f0dc9618eff8b5b35768c72ed2e7f8ce288268fbf1",
+  "row": "| `received_dmg_split` | — | — | ❌ | 받는 대미지 **차등** 분배. **로스터 유일 보유자가 베이**다(2026-09-20 파싱 — 원문 전수 검색 결과 균등판 보유자는 아니스·폴리·율하·자칼 4명이고 차등판은 베이뿐). 균등판(`received_dmg_split_even`)과 달리 **분배 비율이 원문에 없다** — 「차등」이 무엇을 기준으로 갈리는지(방어력·최대 체력·시전자 고정 지분 등)를 정하는 근거가 레포에도 `REFERENCES.md`의 어느 출처에도 없다. **구현 규격 미정이라 ❌로 둔다**(유저 결정 2026-09-20 — 규격이 확인되면 그때 구현한다. 방어 효과라 시뮬 딜에는 영향이 0이다). 짝인 target `self_cover`도 같은 이유로 ❌로 함께 보류한다 — 그것만 구현하면 `치얼업 투게더`가 아무 일도 하지 않는 채로 활성화되기만 한다. 베이 `유 캔 두잇`(`all_allies`) · `치얼업 투게더`(`self_cover` — 같은 stat이 엄폐물에 걸리는 첫 사례) |",
+  "scope": "Pinned upstream model-gap evidence, not a user instruction or GPU admission"
+}

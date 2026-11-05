@@ -7,7 +7,7 @@ sp=importlib.util.spec_from_file_location('capacity_bounds',ROOT/'scripts/verify
 class CoverCapacityBoundaries(unittest.TestCase):
     def setUp(self):
         b=v.v.body(1);b['enemy']['patterns']=[]
-        with v.v.s.v.context('capacity-boundary',{v.N[0]:[v.B('cover max','cover_hp_pct',20,scaling='max_hp')]}):self.compiled=v.v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True})
+        with v.v.s.v.context('capacity-boundary',{v.N[0]:[v.B('cover max','cover_hp_pct',20,scaling='max_hp')]}):self.compiled=v.v.s.v.v.a.evaluate({**b,'_compile_detail':True})
     def reject(self,p):
         with patch.object(g,'module_image',side_effect=AssertionError('CUDA must not be reached')):
             with self.assertRaisesRegex(ValueError,'maximum-HP value reference'):g.run(object(),[p],[[0,2,101,0,0,0,0,0]],[self.compiled['enemy']],[self.compiled['base_stats']])

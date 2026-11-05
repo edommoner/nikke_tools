@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "audit-phases.jsonl",
+      "bytes": 311,
+      "sha256": "4eb0bd104730a56611a61423537e06f3f8fa7aec7d8916edebac70bfebb6116f"
+    },
+    {
+      "path": "comparison.json",
+      "bytes": 4629,
+      "sha256": "d43e28853ad9be1a67b0cbd053cbb8447134f917a81772ee1821bf2c0abd8031"
+    },
+    {
+      "path": "cpu-batch.json",
+      "bytes": 390,
+      "sha256": "9ef5f9069e1e582b141b8efd5a8f109e8acb2abf72c4715e0a1854e69e77082a"
+    },
+    {
+      "path": "cpu-batch.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cpu-batch.stdout.log",
+      "bytes": 58,
+      "sha256": "1df062f37eee959910ab246829178b72df1642ea0ffb65352567e4aa92d556d6"
+    },
+    {
+      "path": "cpu-tests.json",
+      "bytes": 444,
+      "sha256": "83ef173374d2db4f9a5a340e714d79536ad527b9accd27b761d0d78d4d353b1e"
+    },
+    {
+      "path": "cpu.json",
+      "bytes": 544,
+      "sha256": "622c3a053e8fe72dd0e271c96f294fc4f433e37f936b2346e02cafb5897f17d2"
+    },
+    {
+      "path": "evidence.json",
+      "bytes": 53292,
+      "sha256": "8064dd56f30d1db0e6c2eaa1180373c0e2e7ecb89d978f2a9f0e37d18278c6ff"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 4141,
+      "sha256": "b002ce8f1baf2b50fe26026ac4c03ea9c2f113fc7637884b9c450cf6cede0db6"
+    },
+    {
+      "path": "generated.cu.reflection.json",
+      "bytes": 415556,
+      "sha256": "e8ba84d9985924cb994674784ec6d10760400a18f1996cf53109e6b68de7cf60"
+    },
+    {
+      "path": "generated.metal.reflection.json",
+      "bytes": 415093,
+      "sha256": "24267df732b4fda279ba3a76f2c088a448156df36fbe3809a6c5d2cefd8f12b0"
+    },
+    {
+      "path": "generation-cache.json",
+      "bytes": 30621,
+      "sha256": "6bd592218e47b80e35f55eb1a840c44e7b73f588adcc0c82877c00ddf08bbbd4"
+    },
+    {
+      "path": "generation-preflight.json",
+      "bytes": 33716,
+      "sha256": "6c40e605d9d776b03af20a47fbe0e842feef46ad4f97f6b220c22bff5b8e6d42"
+    },
+    {
+      "path": "input-preflight.json",
+      "bytes": 260,
+      "sha256": "236052a670cf4a0042108f5d0d582a820b6c6e7150807bd99fa52a66c380097a"
+    },
+    {
+      "path": "phases.jsonl",
+      "bytes": 37740,
+      "sha256": "b5a17db82a37172bda75e3f88325221ff333620c34ddc0c8a0a6b87730490c1f"
+    },
+    {
+      "path": "preparation.jsonl",
+      "bytes": 950,
+      "sha256": "0c661b002cb08056ad8ef8906a8016ce4e4560cbc7383d6dbe068c05265b0954"
+    },
+    {
+      "path": "result.json",
+      "bytes": 3973,
+      "sha256": "63961e18c8caa48f2676373906b4ea7ffc46d7f6258d6f7499e495a441e481c0"
+    },
+    {
+      "path": "run.json",
+      "bytes": 267,
+      "sha256": "5abccb61e1329c08931fa2f865e6af63f808c0ca6d7dde65af16ffc93687f429"
+    },
+    {
+      "path": "runtime.json",
+      "bytes": 1013,
+      "sha256": "d6ea849f5909f8619b8e0f7eb886c7bb4bff8ab46bed54b5a95a736f4ae9279f"
+    },
+    {
+      "path": "start.json",
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "storage-before-gpu.json",
+      "bytes": 249,
+      "sha256": "32b167261a6c8d5b53b84ff80423ab6a4c633f7aaf388cfc6d60b03c52e9d749"
+    },
+    {
+      "path": "storage.json",
+      "bytes": 250,
+      "sha256": "eb086fb95e85b1665e05998348fc96a97877280e6e3910aaf81d49c55d03fa9e"
+    },
+    {
+      "path": "test_destructible_body_heal_share.py.stderr.log",
+      "bytes": 101,
+      "sha256": "2e9d5ed17406f97e6635a21098b7d224dce904f5e83745b1aac38724e1b3af26"
+    },
+    {
+      "path": "test_destructible_body_heal_share.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_heal_share_reference.py.stderr.log",
+      "bytes": 105,
+      "sha256": "766051b900b3b2cae80419cfb2428bb5c5cfafd83c03d027212ec822d5e60da1"
+    },
+    {
+      "path": "test_portable_heal_share_reference.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

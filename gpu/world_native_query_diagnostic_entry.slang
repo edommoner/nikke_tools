@@ -1,0 +1,3 @@
+#define PORTABLE_NATIVE_QUERY_CENSUS
+#define PORTABLE_NATIVE_QUERY_DIAGNOSTIC
+#include "world_entry_reload_resident_entry.slang"

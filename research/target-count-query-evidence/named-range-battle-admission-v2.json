@@ -1,0 +1,16 @@
+{
+  "schema": "named-range-battle-admission-failure-v1",
+  "capture": "named-range-battle-metal-v2",
+  "source_commit": "b77c383d39e4e3a7cd7bdd4abe8aa96009f841fc",
+  "calculation_verified": false,
+  "first_difference": {
+    "index": 0,
+    "name": "named-range-battle/Asuka-Rei/expanded",
+    "reason": "ValueError: Expected GPU success status0; got status64"
+  },
+  "diagnostic_stage": 15,
+  "cause": "Original named-enemy MODE24..27 was rejected by stack metadata admission; new entry also omitted PORTABLE_NAMED_ENEMY",
+  "correction": "Enable shared named-enemy route/descriptor validation and permit only its owned MODE24..27 in stack validation. Add four malformed descriptor raw cases.",
+  "same_claim_retries": 0,
+  "corrected_metal_verified": false
+}

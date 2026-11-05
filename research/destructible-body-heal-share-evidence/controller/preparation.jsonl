@@ -1,0 +1,2 @@
+{"monotonic_ns": 918691958856791, "pid": 83299, "stage": "cpu_worker_verify_package", "state": "entered", "wall_time_ns": 1792819542041411000}
+{"elapsed_seconds": 0.056565958, "monotonic_ns": 918692015596208, "pid": 83299, "stage": "cpu_worker_verify_package", "state": "returned", "wall_time_ns": 1792819542098149000}

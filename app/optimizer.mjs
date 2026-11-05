@@ -92,10 +92,13 @@ export function rankCombatPool(pool,groups,scores){
     if(!Number.isInteger(s.index)||s.index<0||s.index>=pool.length||!Number.isSafeInteger(s.damage)||s.damage<0||JSON.stringify(s.squad)!==JSON.stringify(pool[s.index])||byIndex.has(s.index))throw Error('GPU combat result validation failed');
     byIndex.set(s.index,s.damage);
   }
-  if(!byIndex.size)throw Error('GPU combat returned no scores');
+  // No invented score for preparation failures. Keep original order if none
+  // were scored; otherwise reserve one complete group, including unscored rows.
+  if(!byIndex.size)return pool.map((_,i)=>i);
   const ranked=[...byIndex.keys()].sort((a,b)=>byIndex.get(b)-byIndex.get(a)||a-b);
-  const usable=groups.filter(g=>g.every(i=>byIndex.has(i)));
-  usable.sort((a,b)=>b.reduce((n,i)=>n+byIndex.get(i),0)-a.reduce((n,i)=>n+byIndex.get(i),0));
-  const first=usable[0]||[];
-  return [...new Set([...first,...ranked,...pool.map((_,i)=>i)])];
+  const rankedGroups=groups.map((group,index)=>({group,index,missing:group.filter(i=>!byIndex.has(i)).length,known:group.reduce((n,i)=>n+(byIndex.get(i)??0),0)}));
+  rankedGroups.sort((a,b)=>a.missing-b.missing||b.known-a.known||a.index-b.index);
+  const first=rankedGroups[0]?.group||[];
+  const unscored=pool.map((_,i)=>i).filter(i=>!byIndex.has(i));
+  return [...new Set([...first,...ranked,...unscored])];
 }

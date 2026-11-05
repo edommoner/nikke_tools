@@ -1,0 +1,1674 @@
+{
+  "schema": "heavyarms-lock-observation-v1",
+  "passed": true,
+  "character": "스노우 화이트 : 헤비암즈",
+  "original_skill_definitions": 25,
+  "prepared_definitions": 91,
+  "observed_seconds": 0.25152087500100606,
+  "baseline_seconds": 0.2198059580005065,
+  "native_result_and_shots_equal": true,
+  "native_sha256": "978ff18dd06935cf24292d11f4fa79679912e75f394cbdd7c00a5022c28e9a37",
+  "activation_calls": 110,
+  "active_marker_samples": 110,
+  "named_query_calls": 0,
+  "named_query_true": 0,
+  "numeric_reader_samples": 0,
+  "activate": [
+    {
+      "time": 0.21666666666666665,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 0.41666666666666663,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 0.6000000000000002,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 0.8000000000000008,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 1.0000000000000013,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 1.2000000000000006,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 1.6166666666666658,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 1.816666666666665,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 2.0166666666666644,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 2.2166666666666637,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 2.416666666666663,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 2.6166666666666623,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 3.21666666666666,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 3.4166666666666594,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 3.6166666666666587,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 3.816666666666658,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 4.016666666666658,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 4.216666666666657,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 4.416666666666656,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 4.616666666666656,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 4.816666666666655,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 5.016666666666654,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 5.2166666666666535,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 5.416666666666653,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 5.616666666666652,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 5.816666666666651,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 6.016666666666651,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 6.21666666666665,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 6.816666666666648,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 7.016666666666647,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 7.216666666666646,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 7.416666666666646,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 7.616666666666645,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 7.816666666666644,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 8.016666666666644,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 8.216666666666654,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 8.416666666666664,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 8.600000000000007,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 8.800000000000017,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 9.000000000000027,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 9.200000000000037,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 9.400000000000047,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 9.600000000000056,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 9.800000000000066,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 10.400000000000096,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 10.600000000000106,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 10.800000000000116,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 11.000000000000126,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 11.200000000000136,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 11.400000000000146,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 12.000000000000176,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 12.200000000000186,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 12.400000000000196,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 12.600000000000206,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 12.800000000000216,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 13.000000000000226,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 13.600000000000255,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 13.800000000000265,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 14.000000000000275,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 14.200000000000285,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 14.400000000000295,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 14.600000000000305,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 15.200000000000335,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 15.400000000000345,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 15.600000000000355,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 15.800000000000365,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 16.000000000000373,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 16.20000000000036,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 16.800000000000328,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 17.000000000000316,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 17.200000000000305,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 17.400000000000293,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 17.600000000000282,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 17.80000000000027,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 18.400000000000237,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 18.600000000000225,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 18.800000000000214,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 19.000000000000203,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 19.20000000000019,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 19.40000000000018,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 20.000000000000146,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 20.200000000000134,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 20.400000000000123,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 20.60000000000011,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 20.8000000000001,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 21.00000000000009,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 21.600000000000055,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 21.800000000000043,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 22.000000000000032,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 22.20000000000002,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 22.40000000000001,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 22.599999999999998,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 23.199999999999964,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 23.399999999999952,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 23.616666666666607,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 23.816666666666595,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 24.016666666666584,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 24.216666666666573,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 24.81666666666654,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 25.016666666666527,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 25.216666666666516,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 25.416666666666504,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 25.616666666666493,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 25.81666666666648,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 28.416666666666334,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 1,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 28.616666666666323,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 2,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 28.81666666666631,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 3,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 29.0166666666663,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 4,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 29.21666666666629,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    },
+    {
+      "time": 29.416666666666277,
+      "caster": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "active": [
+        {
+          "caster": "스노우 화이트 : 헤비암즈",
+          "targets": [
+            "__enemy__"
+          ],
+          "stack": 5,
+          "expires": "infinite"
+        }
+      ]
+    }
+  ],
+  "queries": [],
+  "numeric": [],
+  "gpu_calls": 0,
+  "gpu_supported": false,
+  "full_character_verified": false,
+  "scope": "Native logical named-marker observation only; dedicated Lock On selection, target-count extension and typed projectile full25 remain unverified"
+}

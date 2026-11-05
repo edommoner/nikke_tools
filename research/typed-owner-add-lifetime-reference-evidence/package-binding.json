@@ -1,0 +1,27 @@
+{
+  "native_package_id": "afe9bed64a1e2cbb61c01903d9875930b6239604ac48ddc8801b8d68d6f85917",
+  "final_package_id": "2f6e0c5f9048206911d07c942fe6a4b5b778ed50207ea1866f6196831b9238dd",
+  "changed_files": [
+    "app/portable_readiness_semantics.py",
+    "scripts/nikke_gpu.py",
+    "tests/test_coordinate_typed_owner_add_lifetime.py"
+  ],
+  "all_cli_functions_ast_exact": true,
+  "all_native_producers_and_comparators_exact": true,
+  "all_gpu_upstream_and_protected_files_unchanged": true,
+  "protected_files": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "app/portable_backend.py",
+    "app/portable_compile_cache.py",
+    "gpu/binary64.slang",
+    "gpu/core_probability.slang",
+    "research/summarize-portable-cross-gpu.py"
+  ],
+  "old99_goldens_unchanged": true,
+  "all_current_payload_hashes_verified": true,
+  "final_new4_fresh_native_run": false,
+  "gpu_calls": 0
+}

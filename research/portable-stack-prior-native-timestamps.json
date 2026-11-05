@@ -1,0 +1,426 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "target-generation-reapply-restarts",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ]
+    },
+    {
+      "name": "pending-periodic-registration-stack-does-not-scale-bonus",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0.2
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0.0
+        },
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0.2
+        }
+      ]
+    },
+    {
+      "name": "periodic-target-same-effect-refresh-keeps-removed-target",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ]
+    },
+    {
+      "name": "periodic-target-same-effect-refresh-keeps-original-recipient",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ]
+    },
+    {
+      "name": "periodic-target-named-alias-unions-in-insertion-order",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ]
+    },
+    {
+      "name": "periodic-target-alias-grant-duration-with-root-interval-value",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ]
+    },
+    {
+      "name": "periodic-target-first-active-root-can-be-later-definition",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0
+        }
+      ]
+    },
+    {
+      "name": "periodic-target-stack-count-without-scaling-is-not-coefficient",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ]
+    },
+    {
+      "name": "periodic-target-own-stack-scaling",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ]
+    },
+    {
+      "name": "periodic-target-named-identity-zero",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0
+        }
+      ]
+    },
+    {
+      "name": "periodic-target-empty-recipients-still-notify",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        },
+        {
+          "order": 3,
+          "definition": 2,
+          "activated": 1
+        }
+      ]
+    },
+    {
+      "name": "periodic-target-pending-bonus-all-receivers",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0.2
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0.0
+        },
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0.2
+        }
+      ]
+    },
+    {
+      "name": "periodic-target-named-inherited-capture-uses-logical-aim",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 1,
+          "activated": 0
+        }
+      ]
+    },
+    {
+      "name": "scale-dot-capture-refresh-1",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0.1
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0.1
+        }
+      ]
+    },
+    {
+      "name": "scale-dot-capture-refresh-5",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0.1
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0.1
+        }
+      ]
+    },
+    {
+      "name": "scale-dot-alias-keeps-first-capture",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0.1
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0.1
+        }
+      ]
+    },
+    {
+      "name": "staged-refresh-replaces-stale-stages",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0.1
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0.1
+        }
+      ]
+    },
+    {
+      "name": "staged-callback-refresh-invalidates-old-generation",
+      "passed": true,
+      "native_carriers": [
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0.1
+        }
+      ],
+      "all_native_births": [
+        {
+          "order": 1,
+          "definition": 0,
+          "activated": 0
+        },
+        {
+          "order": 2,
+          "definition": 2,
+          "activated": 0.1
+        }
+      ]
+    }
+  ],
+  "cpu_trace_used_as_gpu_input": false,
+  "scope": "Every changed prior timestamp word matched the corresponding independent native carrier birth order and definition."
+}

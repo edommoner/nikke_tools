@@ -1,0 +1,16 @@
+status 0
+Traceback (most recent call last):
+  File "<stdin>", line 9, in <module>
+  File "/private/tmp/nikke-coordinate-original-removal-develop-v1/research/verify-coordinate-original-short.py", line 26, in compare
+    parent.compare_observed(block,domain,n,indices)
+  File "/private/tmp/nikke-coordinate-original-removal-develop-v1/research/verify-coordinate-healing-short.py", line 45, in compare_observed
+    burst.compare_observed(block,domain,n,indices,manual=bool(domain[0].get('manual_controls')))
+  File "/private/tmp/nikke-coordinate-original-removal-develop-v1/research/verify-coordinate-sampled-burst-short.py", line 42, in compare_observed
+    parent.parent.compare_observed(block[:BASE],domain,n,check_parent=False,trace_view=trace_view(n['skill_trace'],indices),sampled_burst_totals=True,sampled_manual=manual)
+  File "/private/tmp/nikke-coordinate-original-removal-develop-v1/research/verify-coordinate-sampled-parent-short.py", line 35, in compare_observed
+    actual=codec.suite.decoded(view,m,c,b)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-original-removal-develop-v1/research/verify-world-projectile.py", line 17, in decoded
+    r=reload.decoded(block,meta,case,bindings);head=HEAD;assert block[head]==0x57505231 and block[head+1]<=TRACE_COUNT and block[head+2]==0 and block[head+3]<=1 and not any(block[head+4:head+16]);events=[]
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

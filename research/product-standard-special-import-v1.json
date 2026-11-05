@@ -1,0 +1,162 @@
+{
+  "schema": "standard-special-import-and-world-clock-diagnosis-v1",
+  "windows_origin_commit": "cdf5cdde9bb43fbc19c9437e15e9a0a5adcb3a6d",
+  "original_report_sha256": "f06844eb5680a61455c56f4073b876f647f621b95c4fcdbde3ea76a0261b29ce",
+  "profiles_original_identity_and_hashes_verified": 17,
+  "strict_profiles": 16,
+  "strict_profile_indices": [
+    23,
+    135,
+    148,
+    174,
+    211,
+    225,
+    247,
+    248,
+    249,
+    250,
+    67,
+    221,
+    222,
+    223,
+    224,
+    159
+  ],
+  "source_owner_archive_and_paired_baselines_verified": 6,
+  "parent_batches_launch_and_chunk_hashes_verified": 8,
+  "stage_metrics_verified": 79,
+  "failed_api_stage_preserved": [
+    {
+      "program": "ammo-fixed",
+      "stage": "api-once-v1",
+      "scope": "outer",
+      "child_exit_code": 1
+    }
+  ],
+  "nonzero_outer_sdk_exits_preserved": [
+    {
+      "program": "fixed-group",
+      "stage": "compile-ptx",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "fixed-group",
+      "stage": "module-object",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "fixed-group",
+      "stage": "jit-link-object",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "fixed-target",
+      "stage": "compile-ptx",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "fixed-target",
+      "stage": "module-object",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "fixed-target",
+      "stage": "jit-link-object",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "healing-fixed",
+      "stage": "compile-ptx",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "healing-fixed",
+      "stage": "module-object",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "healing-fixed",
+      "stage": "jit-link-object",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "default-weighted-fixed",
+      "stage": "compile-ptx",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "default-weighted-fixed",
+      "stage": "module-object",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "default-weighted-fixed",
+      "stage": "jit-link-object",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "default-cover-fixed",
+      "stage": "compile-ptx",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "default-cover-fixed",
+      "stage": "module-object",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "default-cover-fixed",
+      "stage": "jit-link-object",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "ammo-fixed",
+      "stage": "compile-ptx",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "ammo-fixed",
+      "stage": "module-object",
+      "scope": "outer",
+      "child_exit_code": 2
+    },
+    {
+      "program": "ammo-fixed",
+      "stage": "jit-link-object",
+      "scope": "outer",
+      "child_exit_code": 2
+    }
+  ],
+  "outer_sdk_overall_success_claim": false,
+  "standard_metal_last_verified": 262,
+  "standard_cuda_strict_verified": 261,
+  "standard_total": 266,
+  "ammo_cuda_cpu_api_payload_equal": true,
+  "ammo_metal_raw_equal": false,
+  "changed_block_byte_starts": [
+    0,
+    638976,
+    851968
+  ],
+  "world_clock_missing_evidence": "CUDA entire block bytes638976..655360 is zero; Metal includes mandatory root-start at word160528 and world histories",
+  "root_cause": "unknown",
+  "gpu_reruns": 0,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false
+}

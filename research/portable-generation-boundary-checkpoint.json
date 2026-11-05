@@ -1,0 +1,135 @@
+{
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "normal_ui": "cpu",
+  "feature": "Slang producer boundary independent of backend transport",
+  "current_host_gpu_calculation_verified": false,
+  "prior_metal175_evidence_retained": true,
+  "gpu_source_changed": false,
+  "normalizer_changed": false,
+  "static_effect_input_changes": false,
+  "proof": {
+    "passed": true,
+    "packages": {
+      "base": "0a9f5ca104cc82b6c070abeac0f5b9d5edef494381f9088ccc67b76beadd66bd",
+      "transport_variant": "d4147d9f35c8c49c17347b52f68a104b43b8bfd8f0721361ef31e1e2f5728d47"
+    },
+    "same_gpu_source_input_native": true,
+    "entries": 175,
+    "pair": [
+      {
+        "path": "generated.cu",
+        "bytes": 2022083,
+        "sha256": "bb222cfaf2660bd4a1628efe0ab43bec6fd1dc22f1f30258dd3a68b144202f3d",
+        "all_bytes_equal": true
+      },
+      {
+        "path": "generated.metal",
+        "bytes": 2142705,
+        "sha256": "eab85f9cfd1d183b0fcf80e2f3bb78d9f91bb445a396d3fdffcc1ecc41c692f2",
+        "all_bytes_equal": true
+      },
+      {
+        "path": "generated.cu.reflection.json",
+        "bytes": 415556,
+        "sha256": "e8ba84d9985924cb994674784ec6d10760400a18f1996cf53109e6b68de7cf60",
+        "all_bytes_equal": true
+      },
+      {
+        "path": "generated.metal.reflection.json",
+        "bytes": 415093,
+        "sha256": "24267df732b4fda279ba3a76f2c088a448156df36fbe3809a6c5d2cefd8f12b0",
+        "all_bytes_equal": true
+      }
+    ],
+    "cache": {
+      "same_key_for_different_transport": true,
+      "cold": {
+        "seconds": 2.765929667,
+        "compiler_entered": 2
+      },
+      "transport_hit": {
+        "seconds": 0.287244541,
+        "compiler_entered": 0
+      },
+      "old_key_different": true,
+      "old_cache_payload_still_matches_original_capture": true
+    },
+    "non_generation_backend_ast_and_constants_identical": true,
+    "protected_files_unchanged": [
+      "app/portable_compile_cache.py",
+      "app/portable_runtime.py",
+      "app/portable_resident_layout.py",
+      "app/portable_scope_snapshot_audit.py",
+      "app/detail_gpu.py",
+      "app/engine_worker.py",
+      "app/effect_spec.py",
+      "app/engine_compat.py",
+      "research/windows_validation_observer.py",
+      "research/summarize-portable-cross-gpu.py"
+    ],
+    "gpu_source_changed": false,
+    "normalizer_changed": false,
+    "gpu_calls": 0,
+    "windows_execution": 0,
+    "current_host_gpu_calculation_verified": false
+  },
+  "cpu": {
+    "groups": 11,
+    "tests": 116,
+    "skipped": 0,
+    "unit_seconds": 2.7941077077994123,
+    "native_inputs": 175,
+    "native_oracles": 132,
+    "native_seconds": 10.652535249944776,
+    "passed": true
+  },
+  "original_cpu_failure": {
+    "preserved": true,
+    "reason": "sandbox PermissionError for owned descendant ps termination check",
+    "same_package_retested_with_process_observation_permission": true,
+    "checks_skipped": 0
+  },
+  "cache": {
+    "schema": 1,
+    "legacy_receipts_auditable": true,
+    "new_key_required": true,
+    "old_cache_payload_preserved": true,
+    "nvrtc_cache_changed": false,
+    "cold_compiler_invocations": 2,
+    "warm_compiler_invocations": 0
+  },
+  "gpu_dispatches": 0,
+  "windows_execution": 0,
+  "windows_existing_reports_read": true,
+  "windows_missing_process_cause": "unknown",
+  "environment_preservation_verified": false,
+  "current_cuda_verified": false,
+  "protected_files": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "app/portable_compile_cache.py",
+    "app/portable_runtime.py",
+    "app/portable_resident_layout.py",
+    "app/portable_scope_snapshot_audit.py",
+    "research/windows_validation_observer.py",
+    "research/summarize-portable-cross-gpu.py"
+  ],
+  "archives": {
+    "base": {
+      "path": "/tmp/nikke-generation-boundary-v1.zip",
+      "sha256": "37753c409d910206b0f883c4dc50eae4a5e9ee983f998fc6a7a6907e338dc067"
+    },
+    "transport-variant": {
+      "path": "/tmp/nikke-generation-boundary-transport-v1.zip",
+      "sha256": "36ab8af046ab98a599551378ddcd7e27ce2d6c13cab1febc9d0d75533d5394e8"
+    }
+  },
+  "next": [
+    "named_enemy_recipient_native_contracts_and_shared_lowering",
+    "saved_cuda_module_object_link_evidence_and_short_verification"
+  ],
+  "evidence_directory": "research/generation-boundary-evidence"
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "portable-prepared-memory-and-ptx-peer-v1",
+  "source_commit": "378bf9a0accde8ea20f8cec6fd7a71577949d7bc",
+  "source_package_id": "164a2455feb62bb1fdbfc3f2f509a0316b5b1e3ce981e49982f4395c1e35bc9a",
+  "reports": [
+    {
+      "commit": "d23a92989a3e538b52f0c557f60e2df6cf4b0379",
+      "files": {
+        "memory-observation-v1-summary.json": {
+          "bytes": 4512,
+          "sha256": "00d8120795f00cffde182d4de60e1fa9f94e154e34b67e5685b14253ba075f31"
+        },
+        "memory-observation-v1-manifest.json": {
+          "bytes": 719,
+          "sha256": "6c5df8c509315a4523f31d01a681c654f7444b84f0261417911d1b06f88c86b4"
+        }
+      }
+    },
+    {
+      "commit": "cf81ebe6c2ddd2c0f527fa4292e15ac9a96f5eb7",
+      "files": {
+        "ptx-resources-v1-summary.json": {
+          "bytes": 5991,
+          "sha256": "b17ce39aeccd2b8e2da52cb34990d008e5a2ad3db2ba678b16078d52dd099015"
+        },
+        "ptx-resources-v1-manifest.json": {
+          "bytes": 565,
+          "sha256": "88e409612fd6cccefa86d2361b540e63d738870df212df7f39a62aa7ed10d56f"
+        }
+      }
+    }
+  ],
+  "imported_bytes_sha256_verified": true,
+  "windows_cpu_tests_passed": 53,
+  "actual_host_memory_abi_verified": true,
+  "actual_device_sampling_verified": false,
+  "failure_time_memory_known": false,
+  "saved_launch_return_code": 2,
+  "ptx_direct_reachable_functions": 271,
+  "ptx_largest_local_bytes": {
+    "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f610dispatch_0Ejjjjiyjyj": 9784,
+    "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f616quantityTotals_0Ejjjyyy": 5192,
+    "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f66tick_0Ejyj": 2584
+  },
+  "physical_resources_inferred_from_ptx": false,
+  "root_cause": "unresolved",
+  "new_gpu_calls": 0,
+  "new_driver_calls": 0,
+  "new_compiler_calls": 0,
+  "old_claims_preserved": true,
+  "calculation_verified": false,
+  "environment_preservation_verified": false,
+  "full_goal_complete": false,
+  "next_action": "Reuse existing resident dispatch frame storage in the moving-group source, preserving all 15 inputs/native3/reject12 and whole-output comparison; verify on Metal before a new bounded CUDA source measurement."
+}

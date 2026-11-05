@@ -1,0 +1,19 @@
+# 非フルチャージ発射の正本契約
+
+共通CLIの`reference --suite nonfull-charge --out <fresh.json>`へ23のCPU契約を追加した。GPU・portable packingを禁止し、正本の`CharState._charge_fire`、`BuffManager.notify`、実行済みinstantを観測する。notifyを注入せず、正本の計算や効果定義も変更しない。観測前後で全battle・skill trace・get_buffs/has_live_stat/random.sample回数を保持した。
+
+クロストの4定義が使う`non_full_charge_fire_count:3`には正本consumerがある。自動射撃は常にフルチャージなので、event40の受付だけを開いても機能しない。`portable_charge_control_specs.normalize_static_controls`はtapを明示拒否し、GPUの`finishWeaponShot`もチャージ武器へ無条件でfull_charge_fire/hitを配信している。現時点では受付を開放しない。
+
+23契約はN=1/2/3/未到達、owner4/別owner、全員対象、budget、偽条件、重複descriptor/raw alias、on_attack混在、回数軽減、0/負数の最小1・未展開template、短押しの低頻度化、周期的フルチャージ、実際にフルとなる短押し、散弾3×2銃口、短押し間のreload、通知callbackからauto武器へ変更して復帰するケースを含む。回数は発射単位であり、hit_countは銃口数だけ配信する。順序はfullならfull_charge→弾消費→on_attack→full_charge_fire→hit_count→full_charge_hit、partialなら弾消費→on_attack→non_full_charge_fire→hit_count。短押し設定でもfullは起こる。
+
+最初の探索ではreleaseを押下時間と混同し、発射4回を仮定した。正本`_tap_timing`の分解を読み直し、0.22秒の射撃前delay・release・最大0.16秒の残存post delayと余剰chargeを区別した。rate4/release0.05の0.95秒caseは正本のframe開始と押下から3発射になる。HPを初期50%へ下げるliteralも追加し、回復を満HPの無変化で判定しない。これらはGPU未実行の探索段階で確定し、固定CPU契約へ記録した。
+
+次の共有実装には以下が必要である。
+
+1. static normalizationは既存CharStateのliteralな`_timing`を保存し、押下時にhold/charge/release/post/full intervalをGPUでラッチする。CPUの発射時刻や結果を入力へ渡さない。
+2. 制御owner・camera・window・priority・sequenceの既存仲裁を使う。現在のclick mode1は未受付。reserved領域を使う場合も旧入力のゼロ・未知mode拒否を保持し、明示的な新規wire契約とraw負例を追加する。
+3. tap chargeとその時点のeffective charge timeでfull/partialを判定する。周期的fullの押下時ラッチ、動的charge speed、チャージ完了後のholdとの違いを保持する。
+4. partialのdamage/core/ゲージ係数と各通知、射撃後のrelease+postを共有software binary64で計算する。full時だけの倍率や通知をpartialへ漏らさない。整数回数・raw timing軽減は既存の共有実行器へ接続する。
+5. 武器変更、reload、stun/down、窓境界と複数ownerの混在契約を拡張し、実クロスト全定義も短押しを伴って確認する。その後にMetal全出力と必要最小限のCUDAを検証する。
+
+初期の不変package b59f32e3caf525e56473195ff221bc5528beef456e0f93be49fde55ba58b7b4dで21成功後、混在2ケースを追加。最終package 734e2b053645aa1150e0b612aad2f9852800a5f45488423cb2123215d0e47916からCPU reference23成功（1.815秒）。既存CPU群runnerを再利用し7群47検査成功（9.282秒）。7種の偽event/owner/order/count/HP・余剰通知を拒否する。初期21の入力/native/trace指紋も全保持した。未対応4分類のlaneだけをnative_contract_extensionへ変更し、54分類のcode順序、全266profile記録、231入力SHAと35拒否を全保持。GPU122sourceは既存Metal1442のものと同一で、追加GPU/Windows操作0。GPU対応・全キャラ認定の追加は0、development_onlyとUI CPUを維持する。

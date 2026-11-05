@@ -1,0 +1,6860 @@
+{
+  "passed": true,
+  "scope": "Actual full CPU simulate with128 typed recipients",
+  "cases": [
+    {
+      "name": "128-global-immunity",
+      "carrier_count_by_name": {
+        "immune": 128
+      },
+      "mark_count": 0,
+      "mark_stack_distribution": {},
+      "charge_used": [],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "65-current-generation-immune-recipients",
+      "carrier_count_by_name": {
+        "immune": 65,
+        "mark": 63
+      },
+      "mark_count": 63,
+      "mark_stack_distribution": {
+        "4": 63
+      },
+      "charge_used": [],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "128-named-immunity-mark",
+      "carrier_count_by_name": {
+        "immune": 128
+      },
+      "mark_count": 0,
+      "mark_stack_distribution": {},
+      "charge_used": [],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "128-named-immunity-other",
+      "carrier_count_by_name": {
+        "immune": 128,
+        "mark": 128
+      },
+      "mark_count": 128,
+      "mark_stack_distribution": {
+        "4": 128
+      },
+      "charge_used": [],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "128-count-immunity-0",
+      "carrier_count_by_name": {
+        "charges": 128,
+        "mark": 128
+      },
+      "mark_count": 128,
+      "mark_stack_distribution": {
+        "4": 128
+      },
+      "charge_used": [],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "128-count-immunity-0.5",
+      "carrier_count_by_name": {
+        "charges": 128,
+        "mark": 128
+      },
+      "mark_count": 128,
+      "mark_stack_distribution": {
+        "3": 128
+      },
+      "charge_used": [
+        {
+          "target": "__enemy__",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#1",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#2",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#3",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#4",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#5",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#6",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#7",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#8",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#9",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#10",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#11",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#12",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#13",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#14",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#15",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#16",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#17",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#18",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#19",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#20",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#21",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#22",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#23",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#24",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#25",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#26",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#27",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#28",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#29",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#30",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#31",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#32",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#33",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#34",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#35",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#36",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#37",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#38",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#39",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#40",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#41",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#42",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#43",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#44",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#45",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#46",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#47",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#48",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#49",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#50",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#51",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#52",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#53",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#54",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#55",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#56",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#57",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#58",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#59",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#60",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#61",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#62",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#63",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#64",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#65",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#66",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#67",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#68",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#69",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#70",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#71",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#72",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#73",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#74",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#75",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#76",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#77",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#78",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#79",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#80",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#81",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#82",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#83",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#84",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#85",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#86",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#87",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#88",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#89",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#90",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#91",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#92",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#93",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#94",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#95",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#96",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#97",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#98",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#99",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#100",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#101",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#102",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#103",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#104",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#105",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#106",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#107",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#108",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#109",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#110",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#111",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#112",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#113",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#114",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#115",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#116",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#117",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#118",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#119",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#120",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#121",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#122",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#123",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#124",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#125",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#126",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#127",
+          "name": "charges",
+          "used": 1.0
+        }
+      ],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "128-count-immunity-1",
+      "carrier_count_by_name": {
+        "charges": 128,
+        "mark": 128
+      },
+      "mark_count": 128,
+      "mark_stack_distribution": {
+        "3": 128
+      },
+      "charge_used": [
+        {
+          "target": "__enemy__",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#1",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#2",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#3",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#4",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#5",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#6",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#7",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#8",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#9",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#10",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#11",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#12",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#13",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#14",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#15",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#16",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#17",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#18",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#19",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#20",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#21",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#22",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#23",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#24",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#25",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#26",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#27",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#28",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#29",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#30",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#31",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#32",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#33",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#34",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#35",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#36",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#37",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#38",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#39",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#40",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#41",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#42",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#43",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#44",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#45",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#46",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#47",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#48",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#49",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#50",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#51",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#52",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#53",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#54",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#55",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#56",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#57",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#58",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#59",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#60",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#61",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#62",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#63",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#64",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#65",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#66",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#67",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#68",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#69",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#70",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#71",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#72",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#73",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#74",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#75",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#76",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#77",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#78",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#79",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#80",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#81",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#82",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#83",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#84",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#85",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#86",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#87",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#88",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#89",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#90",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#91",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#92",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#93",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#94",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#95",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#96",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#97",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#98",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#99",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#100",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#101",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#102",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#103",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#104",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#105",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#106",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#107",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#108",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#109",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#110",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#111",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#112",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#113",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#114",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#115",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#116",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#117",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#118",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#119",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#120",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#121",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#122",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#123",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#124",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#125",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#126",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#127",
+          "name": "charges",
+          "used": 1.0
+        }
+      ],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "128-count-immunity-1.5",
+      "carrier_count_by_name": {
+        "charges": 128,
+        "mark": 128
+      },
+      "mark_count": 128,
+      "mark_stack_distribution": {
+        "2": 128
+      },
+      "charge_used": [
+        {
+          "target": "__enemy__",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#1",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#2",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#3",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#4",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#5",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#6",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#7",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#8",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#9",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#10",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#11",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#12",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#13",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#14",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#15",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#16",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#17",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#18",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#19",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#20",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#21",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#22",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#23",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#24",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#25",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#26",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#27",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#28",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#29",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#30",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#31",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#32",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#33",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#34",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#35",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#36",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#37",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#38",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#39",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#40",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#41",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#42",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#43",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#44",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#45",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#46",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#47",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#48",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#49",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#50",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#51",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#52",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#53",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#54",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#55",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#56",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#57",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#58",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#59",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#60",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#61",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#62",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#63",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#64",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#65",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#66",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#67",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#68",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#69",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#70",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#71",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#72",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#73",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#74",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#75",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#76",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#77",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#78",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#79",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#80",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#81",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#82",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#83",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#84",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#85",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#86",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#87",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#88",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#89",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#90",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#91",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#92",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#93",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#94",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#95",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#96",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#97",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#98",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#99",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#100",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#101",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#102",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#103",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#104",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#105",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#106",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#107",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#108",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#109",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#110",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#111",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#112",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#113",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#114",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#115",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#116",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#117",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#118",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#119",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#120",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#121",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#122",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#123",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#124",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#125",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#126",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#127",
+          "name": "charges",
+          "used": 2.0
+        }
+      ],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "128-count-immunity-2",
+      "carrier_count_by_name": {
+        "charges": 128,
+        "mark": 128
+      },
+      "mark_count": 128,
+      "mark_stack_distribution": {
+        "2": 128
+      },
+      "charge_used": [
+        {
+          "target": "__enemy__",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#1",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#2",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#3",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#4",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#5",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#6",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#7",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#8",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#9",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#10",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#11",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#12",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#13",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#14",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#15",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#16",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#17",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#18",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#19",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#20",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#21",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#22",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#23",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#24",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#25",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#26",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#27",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#28",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#29",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#30",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#31",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#32",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#33",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#34",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#35",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#36",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#37",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#38",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#39",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#40",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#41",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#42",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#43",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#44",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#45",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#46",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#47",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#48",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#49",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#50",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#51",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#52",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#53",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#54",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#55",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#56",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#57",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#58",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#59",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#60",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#61",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#62",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#63",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#64",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#65",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#66",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#67",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#68",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#69",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#70",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#71",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#72",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#73",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#74",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#75",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#76",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#77",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#78",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#79",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#80",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#81",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#82",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#83",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#84",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#85",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#86",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#87",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#88",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#89",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#90",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#91",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#92",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#93",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#94",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#95",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#96",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#97",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#98",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#99",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#100",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#101",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#102",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#103",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#104",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#105",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#106",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#107",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#108",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#109",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#110",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#111",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#112",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#113",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#114",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#115",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#116",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#117",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#118",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#119",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#120",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#121",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#122",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#123",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#124",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#125",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#126",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#127",
+          "name": "charges",
+          "used": 2.0
+        }
+      ],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "count-name-pool-max-across-two-owners",
+      "carrier_count_by_name": {
+        "charges": 256,
+        "mark": 128
+      },
+      "mark_count": 128,
+      "mark_stack_distribution": {
+        "2": 128
+      },
+      "charge_used": [
+        {
+          "target": "__enemy__",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#1",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#2",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#3",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#4",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#5",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#6",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#7",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#8",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#9",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#10",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#11",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#12",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#13",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#14",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#15",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#16",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#17",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#18",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#19",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#20",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#21",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#22",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#23",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#24",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#25",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#26",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#27",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#28",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#29",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#30",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#31",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#32",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#33",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#34",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#35",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#36",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#37",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#38",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#39",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#40",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#41",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#42",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#43",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#44",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#45",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#46",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#47",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#48",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#49",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#50",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#51",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#52",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#53",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#54",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#55",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#56",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#57",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#58",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#59",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#60",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#61",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#62",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#63",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#64",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#65",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#66",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#67",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#68",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#69",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#70",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#71",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#72",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#73",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#74",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#75",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#76",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#77",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#78",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#79",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#80",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#81",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#82",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#83",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#84",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#85",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#86",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#87",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#88",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#89",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#90",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#91",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#92",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#93",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#94",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#95",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#96",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#97",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#98",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#99",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#100",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#101",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#102",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#103",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#104",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#105",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#106",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#107",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#108",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#109",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#110",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#111",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#112",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#113",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#114",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#115",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#116",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#117",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#118",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#119",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#120",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#121",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#122",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#123",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#124",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#125",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#126",
+          "name": "charges",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#127",
+          "name": "charges",
+          "used": 2.0
+        }
+      ],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distinct-count-names-have-independent-pools",
+      "carrier_count_by_name": {
+        "first": 128,
+        "second": 128,
+        "mark": 128
+      },
+      "mark_count": 128,
+      "mark_stack_distribution": {
+        "1": 128
+      },
+      "charge_used": [
+        {
+          "target": "__enemy__",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#1",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#2",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#3",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#4",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#5",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#6",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#7",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#8",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#9",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#10",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#11",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#12",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#13",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#14",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#15",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#16",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#17",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#18",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#19",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#20",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#21",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#22",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#23",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#24",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#25",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#26",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#27",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#28",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#29",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#30",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#31",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#32",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#33",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#34",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#35",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#36",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#37",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#38",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#39",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#40",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#41",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#42",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#43",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#44",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#45",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#46",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#47",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#48",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#49",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#50",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#51",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#52",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#53",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#54",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#55",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#56",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#57",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#58",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#59",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#60",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#61",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#62",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#63",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#64",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#65",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#66",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#67",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#68",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#69",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#70",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#71",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#72",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#73",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#74",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#75",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#76",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#77",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#78",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#79",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#80",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#81",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#82",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#83",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#84",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#85",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#86",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#87",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#88",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#89",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#90",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#91",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#92",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#93",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#94",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#95",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#96",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#97",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#98",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#99",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#100",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#101",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#102",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#103",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#104",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#105",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#106",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#107",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#108",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#109",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#110",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#111",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#112",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#113",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#114",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#115",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#116",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#117",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#118",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#119",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#120",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#121",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#122",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#123",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#124",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#125",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#126",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#127",
+          "name": "first",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#1",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#2",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#3",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#4",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#5",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#6",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#7",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#8",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#9",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#10",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#11",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#12",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#13",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#14",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#15",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#16",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#17",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#18",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#19",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#20",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#21",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#22",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#23",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#24",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#25",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#26",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#27",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#28",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#29",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#30",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#31",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#32",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#33",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#34",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#35",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#36",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#37",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#38",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#39",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#40",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#41",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#42",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#43",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#44",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#45",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#46",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#47",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#48",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#49",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#50",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#51",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#52",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#53",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#54",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#55",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#56",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#57",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#58",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#59",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#60",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#61",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#62",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#63",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#64",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#65",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#66",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#67",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#68",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#69",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#70",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#71",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#72",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#73",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#74",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#75",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#76",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#77",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#78",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#79",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#80",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#81",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#82",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#83",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#84",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#85",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#86",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#87",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#88",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#89",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#90",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#91",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#92",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#93",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#94",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#95",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#96",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#97",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#98",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#99",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#100",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#101",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#102",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#103",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#104",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#105",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#106",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#107",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#108",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#109",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#110",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#111",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#112",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#113",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#114",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#115",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#116",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#117",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#118",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#119",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#120",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#121",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#122",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#123",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#124",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#125",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#126",
+          "name": "second",
+          "used": 2.0
+        },
+        {
+          "target": "__enemy__:wave#127",
+          "name": "second",
+          "used": 2.0
+        }
+      ],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "zero-valued-count-carrier-still-has-state",
+      "carrier_count_by_name": {
+        "charges": 128,
+        "mark": 128
+      },
+      "mark_count": 128,
+      "mark_stack_distribution": {
+        "4": 128
+      },
+      "charge_used": [],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "charge-refresh-rearms-one-pool-per-target",
+      "carrier_count_by_name": {
+        "charges": 128
+      },
+      "mark_count": 0,
+      "mark_stack_distribution": {},
+      "charge_used": [
+        {
+          "target": "__enemy__",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#1",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#2",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#3",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#4",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#5",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#6",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#7",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#8",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#9",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#10",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#11",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#12",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#13",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#14",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#15",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#16",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#17",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#18",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#19",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#20",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#21",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#22",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#23",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#24",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#25",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#26",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#27",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#28",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#29",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#30",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#31",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#32",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#33",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#34",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#35",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#36",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#37",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#38",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#39",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#40",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#41",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#42",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#43",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#44",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#45",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#46",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#47",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#48",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#49",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#50",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#51",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#52",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#53",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#54",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#55",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#56",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#57",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#58",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#59",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#60",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#61",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#62",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#63",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#64",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#65",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#66",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#67",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#68",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#69",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#70",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#71",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#72",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#73",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#74",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#75",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#76",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#77",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#78",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#79",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#80",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#81",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#82",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#83",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#84",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#85",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#86",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#87",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#88",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#89",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#90",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#91",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#92",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#93",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#94",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#95",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#96",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#97",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#98",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#99",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#100",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#101",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#102",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#103",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#104",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#105",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#106",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#107",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#108",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#109",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#110",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#111",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#112",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#113",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#114",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#115",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#116",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#117",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#118",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#119",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#120",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#121",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#122",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#123",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#124",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#125",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#126",
+          "name": "charges",
+          "used": 1.0
+        },
+        {
+          "target": "__enemy__:wave#127",
+          "name": "charges",
+          "used": 1.0
+        }
+      ],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "irremovable-bypasses-count-immunity",
+      "carrier_count_by_name": {
+        "charges": 128,
+        "mark": 128
+      },
+      "mark_count": 128,
+      "mark_stack_distribution": {
+        "4": 128
+      },
+      "charge_used": [],
+      "shared_seed": [],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "one-shared-initialized-carrier-1",
+      "carrier_count_by_name": {
+        "seed": 1
+      },
+      "mark_count": 0,
+      "mark_stack_distribution": {},
+      "charge_used": [],
+      "shared_seed": [
+        {
+          "name": "seed",
+          "stat": "received_dmg_pct",
+          "caster": "리타",
+          "targets": [
+            "__enemy__"
+          ],
+          "recipient_keys": [
+            {
+              "label": "__enemy__",
+              "kind": 0,
+              "identity": 0,
+              "generation": 1
+            }
+          ],
+          "stack": 3,
+          "activated": 0.0,
+          "end": 2.0
+        }
+      ],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "one-shared-initialized-carrier-128",
+      "carrier_count_by_name": {
+        "seed": 1
+      },
+      "mark_count": 0,
+      "mark_stack_distribution": {},
+      "charge_used": [],
+      "shared_seed": [
+        {
+          "name": "seed",
+          "stat": "received_dmg_pct",
+          "caster": "리타",
+          "targets": [
+            "__enemy__",
+            "__enemy__:wave#1",
+            "__enemy__:wave#2",
+            "__enemy__:wave#3",
+            "__enemy__:wave#4",
+            "__enemy__:wave#5",
+            "__enemy__:wave#6",
+            "__enemy__:wave#7",
+            "__enemy__:wave#8",
+            "__enemy__:wave#9",
+            "__enemy__:wave#10",
+            "__enemy__:wave#11",
+            "__enemy__:wave#12",
+            "__enemy__:wave#13",
+            "__enemy__:wave#14",
+            "__enemy__:wave#15",
+            "__enemy__:wave#16",
+            "__enemy__:wave#17",
+            "__enemy__:wave#18",
+            "__enemy__:wave#19",
+            "__enemy__:wave#20",
+            "__enemy__:wave#21",
+            "__enemy__:wave#22",
+            "__enemy__:wave#23",
+            "__enemy__:wave#24",
+            "__enemy__:wave#25",
+            "__enemy__:wave#26",
+            "__enemy__:wave#27",
+            "__enemy__:wave#28",
+            "__enemy__:wave#29",
+            "__enemy__:wave#30",
+            "__enemy__:wave#31",
+            "__enemy__:wave#32",
+            "__enemy__:wave#33",
+            "__enemy__:wave#34",
+            "__enemy__:wave#35",
+            "__enemy__:wave#36",
+            "__enemy__:wave#37",
+            "__enemy__:wave#38",
+            "__enemy__:wave#39",
+            "__enemy__:wave#40",
+            "__enemy__:wave#41",
+            "__enemy__:wave#42",
+            "__enemy__:wave#43",
+            "__enemy__:wave#44",
+            "__enemy__:wave#45",
+            "__enemy__:wave#46",
+            "__enemy__:wave#47",
+            "__enemy__:wave#48",
+            "__enemy__:wave#49",
+            "__enemy__:wave#50",
+            "__enemy__:wave#51",
+            "__enemy__:wave#52",
+            "__enemy__:wave#53",
+            "__enemy__:wave#54",
+            "__enemy__:wave#55",
+            "__enemy__:wave#56",
+            "__enemy__:wave#57",
+            "__enemy__:wave#58",
+            "__enemy__:wave#59",
+            "__enemy__:wave#60",
+            "__enemy__:wave#61",
+            "__enemy__:wave#62",
+            "__enemy__:wave#63",
+            "__enemy__:wave#64",
+            "__enemy__:wave#65",
+            "__enemy__:wave#66",
+            "__enemy__:wave#67",
+            "__enemy__:wave#68",
+            "__enemy__:wave#69",
+            "__enemy__:wave#70",
+            "__enemy__:wave#71",
+            "__enemy__:wave#72",
+            "__enemy__:wave#73",
+            "__enemy__:wave#74",
+            "__enemy__:wave#75",
+            "__enemy__:wave#76",
+            "__enemy__:wave#77",
+            "__enemy__:wave#78",
+            "__enemy__:wave#79",
+            "__enemy__:wave#80",
+            "__enemy__:wave#81",
+            "__enemy__:wave#82",
+            "__enemy__:wave#83",
+            "__enemy__:wave#84",
+            "__enemy__:wave#85",
+            "__enemy__:wave#86",
+            "__enemy__:wave#87",
+            "__enemy__:wave#88",
+            "__enemy__:wave#89",
+            "__enemy__:wave#90",
+            "__enemy__:wave#91",
+            "__enemy__:wave#92",
+            "__enemy__:wave#93",
+            "__enemy__:wave#94",
+            "__enemy__:wave#95",
+            "__enemy__:wave#96",
+            "__enemy__:wave#97",
+            "__enemy__:wave#98",
+            "__enemy__:wave#99",
+            "__enemy__:wave#100",
+            "__enemy__:wave#101",
+            "__enemy__:wave#102",
+            "__enemy__:wave#103",
+            "__enemy__:wave#104",
+            "__enemy__:wave#105",
+            "__enemy__:wave#106",
+            "__enemy__:wave#107",
+            "__enemy__:wave#108",
+            "__enemy__:wave#109",
+            "__enemy__:wave#110",
+            "__enemy__:wave#111",
+            "__enemy__:wave#112",
+            "__enemy__:wave#113",
+            "__enemy__:wave#114",
+            "__enemy__:wave#115",
+            "__enemy__:wave#116",
+            "__enemy__:wave#117",
+            "__enemy__:wave#118",
+            "__enemy__:wave#119",
+            "__enemy__:wave#120",
+            "__enemy__:wave#121",
+            "__enemy__:wave#122",
+            "__enemy__:wave#123",
+            "__enemy__:wave#124",
+            "__enemy__:wave#125",
+            "__enemy__:wave#126",
+            "__enemy__:wave#127"
+          ],
+          "recipient_keys": [
+            {
+              "label": "__enemy__",
+              "kind": 0,
+              "identity": 0,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#1",
+              "kind": 5,
+              "identity": 0,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#2",
+              "kind": 5,
+              "identity": 1,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#3",
+              "kind": 5,
+              "identity": 2,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#4",
+              "kind": 5,
+              "identity": 3,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#5",
+              "kind": 5,
+              "identity": 4,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#6",
+              "kind": 5,
+              "identity": 5,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#7",
+              "kind": 5,
+              "identity": 6,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#8",
+              "kind": 5,
+              "identity": 7,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#9",
+              "kind": 5,
+              "identity": 8,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#10",
+              "kind": 5,
+              "identity": 9,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#11",
+              "kind": 5,
+              "identity": 10,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#12",
+              "kind": 5,
+              "identity": 11,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#13",
+              "kind": 5,
+              "identity": 12,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#14",
+              "kind": 5,
+              "identity": 13,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#15",
+              "kind": 5,
+              "identity": 14,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#16",
+              "kind": 5,
+              "identity": 15,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#17",
+              "kind": 5,
+              "identity": 16,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#18",
+              "kind": 5,
+              "identity": 17,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#19",
+              "kind": 5,
+              "identity": 18,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#20",
+              "kind": 5,
+              "identity": 19,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#21",
+              "kind": 5,
+              "identity": 20,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#22",
+              "kind": 5,
+              "identity": 21,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#23",
+              "kind": 5,
+              "identity": 22,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#24",
+              "kind": 5,
+              "identity": 23,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#25",
+              "kind": 5,
+              "identity": 24,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#26",
+              "kind": 5,
+              "identity": 25,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#27",
+              "kind": 5,
+              "identity": 26,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#28",
+              "kind": 5,
+              "identity": 27,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#29",
+              "kind": 5,
+              "identity": 28,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#30",
+              "kind": 5,
+              "identity": 29,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#31",
+              "kind": 5,
+              "identity": 30,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#32",
+              "kind": 5,
+              "identity": 31,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#33",
+              "kind": 5,
+              "identity": 32,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#34",
+              "kind": 5,
+              "identity": 33,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#35",
+              "kind": 5,
+              "identity": 34,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#36",
+              "kind": 5,
+              "identity": 35,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#37",
+              "kind": 5,
+              "identity": 36,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#38",
+              "kind": 5,
+              "identity": 37,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#39",
+              "kind": 5,
+              "identity": 38,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#40",
+              "kind": 5,
+              "identity": 39,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#41",
+              "kind": 5,
+              "identity": 40,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#42",
+              "kind": 5,
+              "identity": 41,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#43",
+              "kind": 5,
+              "identity": 42,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#44",
+              "kind": 5,
+              "identity": 43,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#45",
+              "kind": 5,
+              "identity": 44,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#46",
+              "kind": 5,
+              "identity": 45,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#47",
+              "kind": 5,
+              "identity": 46,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#48",
+              "kind": 5,
+              "identity": 47,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#49",
+              "kind": 5,
+              "identity": 48,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#50",
+              "kind": 5,
+              "identity": 49,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#51",
+              "kind": 5,
+              "identity": 50,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#52",
+              "kind": 5,
+              "identity": 51,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#53",
+              "kind": 5,
+              "identity": 52,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#54",
+              "kind": 5,
+              "identity": 53,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#55",
+              "kind": 5,
+              "identity": 54,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#56",
+              "kind": 5,
+              "identity": 55,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#57",
+              "kind": 5,
+              "identity": 56,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#58",
+              "kind": 5,
+              "identity": 57,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#59",
+              "kind": 5,
+              "identity": 58,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#60",
+              "kind": 5,
+              "identity": 59,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#61",
+              "kind": 5,
+              "identity": 60,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#62",
+              "kind": 5,
+              "identity": 61,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#63",
+              "kind": 5,
+              "identity": 62,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#64",
+              "kind": 5,
+              "identity": 63,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#65",
+              "kind": 5,
+              "identity": 64,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#66",
+              "kind": 5,
+              "identity": 65,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#67",
+              "kind": 5,
+              "identity": 66,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#68",
+              "kind": 5,
+              "identity": 67,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#69",
+              "kind": 5,
+              "identity": 68,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#70",
+              "kind": 5,
+              "identity": 69,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#71",
+              "kind": 5,
+              "identity": 70,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#72",
+              "kind": 5,
+              "identity": 71,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#73",
+              "kind": 5,
+              "identity": 72,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#74",
+              "kind": 5,
+              "identity": 73,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#75",
+              "kind": 5,
+              "identity": 74,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#76",
+              "kind": 5,
+              "identity": 75,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#77",
+              "kind": 5,
+              "identity": 76,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#78",
+              "kind": 5,
+              "identity": 77,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#79",
+              "kind": 5,
+              "identity": 78,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#80",
+              "kind": 5,
+              "identity": 79,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#81",
+              "kind": 5,
+              "identity": 80,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#82",
+              "kind": 5,
+              "identity": 81,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#83",
+              "kind": 5,
+              "identity": 82,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#84",
+              "kind": 5,
+              "identity": 83,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#85",
+              "kind": 5,
+              "identity": 84,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#86",
+              "kind": 5,
+              "identity": 85,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#87",
+              "kind": 5,
+              "identity": 86,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#88",
+              "kind": 5,
+              "identity": 87,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#89",
+              "kind": 5,
+              "identity": 88,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#90",
+              "kind": 5,
+              "identity": 89,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#91",
+              "kind": 5,
+              "identity": 90,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#92",
+              "kind": 5,
+              "identity": 91,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#93",
+              "kind": 5,
+              "identity": 92,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#94",
+              "kind": 5,
+              "identity": 93,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#95",
+              "kind": 5,
+              "identity": 94,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#96",
+              "kind": 5,
+              "identity": 95,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#97",
+              "kind": 5,
+              "identity": 96,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#98",
+              "kind": 5,
+              "identity": 97,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#99",
+              "kind": 5,
+              "identity": 98,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#100",
+              "kind": 5,
+              "identity": 99,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#101",
+              "kind": 5,
+              "identity": 100,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#102",
+              "kind": 5,
+              "identity": 101,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#103",
+              "kind": 5,
+              "identity": 102,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#104",
+              "kind": 5,
+              "identity": 103,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#105",
+              "kind": 5,
+              "identity": 104,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#106",
+              "kind": 5,
+              "identity": 105,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#107",
+              "kind": 5,
+              "identity": 106,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#108",
+              "kind": 5,
+              "identity": 107,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#109",
+              "kind": 5,
+              "identity": 108,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#110",
+              "kind": 5,
+              "identity": 109,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#111",
+              "kind": 5,
+              "identity": 110,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#112",
+              "kind": 5,
+              "identity": 111,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#113",
+              "kind": 5,
+              "identity": 112,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#114",
+              "kind": 5,
+              "identity": 113,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#115",
+              "kind": 5,
+              "identity": 114,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#116",
+              "kind": 5,
+              "identity": 115,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#117",
+              "kind": 5,
+              "identity": 116,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#118",
+              "kind": 5,
+              "identity": 117,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#119",
+              "kind": 5,
+              "identity": 118,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#120",
+              "kind": 5,
+              "identity": 119,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#121",
+              "kind": 5,
+              "identity": 120,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#122",
+              "kind": 5,
+              "identity": 121,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#123",
+              "kind": 5,
+              "identity": 122,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#124",
+              "kind": 5,
+              "identity": 123,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#125",
+              "kind": 5,
+              "identity": 124,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#126",
+              "kind": 5,
+              "identity": 125,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#127",
+              "kind": 5,
+              "identity": 126,
+              "generation": 1
+            }
+          ],
+          "stack": 3,
+          "activated": 0.0,
+          "end": 2.0
+        }
+      ],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "one-shared-initialized-carrier-65",
+      "carrier_count_by_name": {
+        "seed": 1
+      },
+      "mark_count": 0,
+      "mark_stack_distribution": {},
+      "charge_used": [],
+      "shared_seed": [
+        {
+          "name": "seed",
+          "stat": "received_dmg_pct",
+          "caster": "리타",
+          "targets": [
+            "__enemy__",
+            "__enemy__:wave#1",
+            "__enemy__:wave#2",
+            "__enemy__:wave#3",
+            "__enemy__:wave#4",
+            "__enemy__:wave#5",
+            "__enemy__:wave#6",
+            "__enemy__:wave#7",
+            "__enemy__:wave#8",
+            "__enemy__:wave#9",
+            "__enemy__:wave#10",
+            "__enemy__:wave#11",
+            "__enemy__:wave#12",
+            "__enemy__:wave#13",
+            "__enemy__:wave#14",
+            "__enemy__:wave#15",
+            "__enemy__:wave#16",
+            "__enemy__:wave#17",
+            "__enemy__:wave#18",
+            "__enemy__:wave#19",
+            "__enemy__:wave#20",
+            "__enemy__:wave#21",
+            "__enemy__:wave#22",
+            "__enemy__:wave#23",
+            "__enemy__:wave#24",
+            "__enemy__:wave#25",
+            "__enemy__:wave#26",
+            "__enemy__:wave#27",
+            "__enemy__:wave#28",
+            "__enemy__:wave#29",
+            "__enemy__:wave#30",
+            "__enemy__:wave#31",
+            "__enemy__:wave#32",
+            "__enemy__:wave#33",
+            "__enemy__:wave#34",
+            "__enemy__:wave#35",
+            "__enemy__:wave#36",
+            "__enemy__:wave#37",
+            "__enemy__:wave#38",
+            "__enemy__:wave#39",
+            "__enemy__:wave#40",
+            "__enemy__:wave#41",
+            "__enemy__:wave#42",
+            "__enemy__:wave#43",
+            "__enemy__:wave#44",
+            "__enemy__:wave#45",
+            "__enemy__:wave#46",
+            "__enemy__:wave#47",
+            "__enemy__:wave#48",
+            "__enemy__:wave#49",
+            "__enemy__:wave#50",
+            "__enemy__:wave#51",
+            "__enemy__:wave#52",
+            "__enemy__:wave#53",
+            "__enemy__:wave#54",
+            "__enemy__:wave#55",
+            "__enemy__:wave#56",
+            "__enemy__:wave#57",
+            "__enemy__:wave#58",
+            "__enemy__:wave#59",
+            "__enemy__:wave#60",
+            "__enemy__:wave#61",
+            "__enemy__:wave#62",
+            "__enemy__:wave#63",
+            "__enemy__:wave#64"
+          ],
+          "recipient_keys": [
+            {
+              "label": "__enemy__",
+              "kind": 0,
+              "identity": 0,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#1",
+              "kind": 5,
+              "identity": 0,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#2",
+              "kind": 5,
+              "identity": 1,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#3",
+              "kind": 5,
+              "identity": 2,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#4",
+              "kind": 5,
+              "identity": 3,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#5",
+              "kind": 5,
+              "identity": 4,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#6",
+              "kind": 5,
+              "identity": 5,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#7",
+              "kind": 5,
+              "identity": 6,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#8",
+              "kind": 5,
+              "identity": 7,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#9",
+              "kind": 5,
+              "identity": 8,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#10",
+              "kind": 5,
+              "identity": 9,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#11",
+              "kind": 5,
+              "identity": 10,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#12",
+              "kind": 5,
+              "identity": 11,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#13",
+              "kind": 5,
+              "identity": 12,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#14",
+              "kind": 5,
+              "identity": 13,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#15",
+              "kind": 5,
+              "identity": 14,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#16",
+              "kind": 5,
+              "identity": 15,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#17",
+              "kind": 5,
+              "identity": 16,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#18",
+              "kind": 5,
+              "identity": 17,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#19",
+              "kind": 5,
+              "identity": 18,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#20",
+              "kind": 5,
+              "identity": 19,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#21",
+              "kind": 5,
+              "identity": 20,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#22",
+              "kind": 5,
+              "identity": 21,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#23",
+              "kind": 5,
+              "identity": 22,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#24",
+              "kind": 5,
+              "identity": 23,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#25",
+              "kind": 5,
+              "identity": 24,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#26",
+              "kind": 5,
+              "identity": 25,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#27",
+              "kind": 5,
+              "identity": 26,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#28",
+              "kind": 5,
+              "identity": 27,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#29",
+              "kind": 5,
+              "identity": 28,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#30",
+              "kind": 5,
+              "identity": 29,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#31",
+              "kind": 5,
+              "identity": 30,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#32",
+              "kind": 5,
+              "identity": 31,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#33",
+              "kind": 5,
+              "identity": 32,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#34",
+              "kind": 5,
+              "identity": 33,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#35",
+              "kind": 5,
+              "identity": 34,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#36",
+              "kind": 5,
+              "identity": 35,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#37",
+              "kind": 5,
+              "identity": 36,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#38",
+              "kind": 5,
+              "identity": 37,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#39",
+              "kind": 5,
+              "identity": 38,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#40",
+              "kind": 5,
+              "identity": 39,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#41",
+              "kind": 5,
+              "identity": 40,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#42",
+              "kind": 5,
+              "identity": 41,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#43",
+              "kind": 5,
+              "identity": 42,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#44",
+              "kind": 5,
+              "identity": 43,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#45",
+              "kind": 5,
+              "identity": 44,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#46",
+              "kind": 5,
+              "identity": 45,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#47",
+              "kind": 5,
+              "identity": 46,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#48",
+              "kind": 5,
+              "identity": 47,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#49",
+              "kind": 5,
+              "identity": 48,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#50",
+              "kind": 5,
+              "identity": 49,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#51",
+              "kind": 5,
+              "identity": 50,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#52",
+              "kind": 5,
+              "identity": 51,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#53",
+              "kind": 5,
+              "identity": 52,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#54",
+              "kind": 5,
+              "identity": 53,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#55",
+              "kind": 5,
+              "identity": 54,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#56",
+              "kind": 5,
+              "identity": 55,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#57",
+              "kind": 5,
+              "identity": 56,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#58",
+              "kind": 5,
+              "identity": 57,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#59",
+              "kind": 5,
+              "identity": 58,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#60",
+              "kind": 5,
+              "identity": 59,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#61",
+              "kind": 5,
+              "identity": 60,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#62",
+              "kind": 5,
+              "identity": 61,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#63",
+              "kind": 5,
+              "identity": 62,
+              "generation": 1
+            },
+            {
+              "label": "__enemy__:wave#64",
+              "kind": 5,
+              "identity": 63,
+              "generation": 1
+            }
+          ],
+          "stack": 3,
+          "activated": 0.0,
+          "end": 2.0
+        }
+      ],
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "gpu_executions": 0,
+  "cpu_runtime_state_used_as_gpu_input": false,
+  "shared_initialization_requires_multi_recipient_canonical_resident": true,
+  "normal_ui": "CPU",
+  "canonical_world_admission": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

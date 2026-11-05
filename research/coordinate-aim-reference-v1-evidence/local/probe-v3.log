@@ -1,0 +1,60 @@
+coordinate-aim/manual-owner-only
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 44, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/first-live-entry
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 44, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/target-expires
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 18, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/core-expires-fallback
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 44, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/core-changes-manual-stays
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 44, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/priority-preemption
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 66, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/equal-priority-new-edge
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 66, 'anchors': 28, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/warn-all-own
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 88, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/layer2-interrupt
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 0, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/layer1-ignores-interrupt
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 0, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/shared-camera-layer2
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 0, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/focus-zero-marker-expires
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 44, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/full-burst-follow
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 60, 'actual_aim_queries': 11, 'windows': 120, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/window-always
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 60, 'actual_aim_queries': 11, 'windows': 120, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/window-burst_charge
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 60, 'actual_aim_queries': 11, 'windows': 73, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/window-burst_chain
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 60, 'actual_aim_queries': 11, 'windows': 95, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/window-own_full_burst
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 60, 'actual_aim_queries': 11, 'windows': 85, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/combat-start-anchor
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 28, 'anchors': 28, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/anchor-fb_end
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 60, 'actual_aim_queries': 11, 'windows': 66, 'anchors': 66, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/anchor-own_fb_end
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 60, 'actual_aim_queries': 11, 'windows': 66, 'anchors': 66, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/anchor-own-buff-end
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 28, 'anchors': 28, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/anchor-reload-minus
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 28, 'anchors': 28, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/anchor-next-fb-prediction
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 660, 'actual_aim_queries': 1, 'windows': 685, 'anchors': 685, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/gate-True
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 60, 'actual_aim_queries': 11, 'windows': 120, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/gate-False
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 60, 'actual_aim_queries': 11, 'windows': 60, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/same-frame-target-break
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 9, 'windows': 2, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/default-interrupt-priority
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 53, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/shared-camera-manual
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 88, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/forced-camera-sequence
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 22, 'actual_aim_queries': 5, 'windows': 66, 'anchors': 0, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}
+coordinate-aim/dynamic-reload-minus
+{'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'frame_count': 34, 'actual_aim_queries': 7, 'windows': 43, 'anchors': 43, 'gpu_supported': False, 'shared_gpu_aim_connected': False, 'historical_native_equivalence': False}

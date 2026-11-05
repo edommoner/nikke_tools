@@ -1,0 +1,81 @@
+{
+  "schema": "normal-resident-fixed-compile-status-v1",
+  "owner": "e398f26377f9f2234548b8c55eae9c451dfdb85535d0344487cbd099ec772a58",
+  "source_commit": "7de4a2f0961bf7af700a2bc2ac96fbcd2d1889df",
+  "transport_commit": "192fe653f9ca5c071b62d63ff1a4160ffb031807",
+  "path_base": "Documents/Codex",
+  "capture": "normal-resident-fixed-v1/unpack-v2",
+  "zip": {
+    "bytes": 11948458,
+    "sha256": "4a7c394368bed45d720f72d922271ce7075e3101c1b7f9f9a77301ec68d94e1e"
+  },
+  "zip_all_files_owner_verified": true,
+  "bootstrap_raw_verified": true,
+  "unpack_payload_passed": true,
+  "unpack_payload_seconds": 13.061127699911594,
+  "whole_stage_gate_passed": false,
+  "stopped": true,
+  "stop_reason": "Unpack coordinator rejected: 7 missing existing processes in before/after observation",
+  "termination_cause": "unknown",
+  "original_exception": null,
+  "observation": {
+    "missing": 7,
+    "service": "unverified",
+    "service_preservation_verified": false,
+    "timeout": false,
+    "seconds": 19.0529006998986,
+    "peak_bytes": 73404416,
+    "job_empty": true,
+    "observation_error": null,
+    "cleanup_error": null,
+    "inspection_error": false,
+    "child_exit_code": 0,
+    "coordinator_exit_code": 1
+  },
+  "preservation_verified": false,
+  "compiler_verification_performed": false,
+  "compiler_verified": false,
+  "origin_verification_performed": false,
+  "containment_sdk_verification_performed": false,
+  "ptx": null,
+  "object": null,
+  "cubin": null,
+  "resource_metrics": null,
+  "cpu_delta_tests": {
+    "requested": 19,
+    "executed": 0
+  },
+  "additional_calls": {
+    "paired_generation": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "native_battle": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0,
+    "retry": 0
+  },
+  "unexecuted": [
+    "CPU delta19",
+    "paired generation",
+    "PTX",
+    "module-object",
+    "jit-link-object",
+    "driver",
+    "context",
+    "GPU",
+    "HTTP"
+  ],
+  "old_records_unchanged": true,
+  "old_records_checked": 785,
+  "range_reexecuted": false,
+  "range_failure_retained": {
+    "inner_missing": 7,
+    "outer_missing": 7,
+    "cause": "unknown",
+    "preservation_verified": false
+  },
+  "original_claims_retained": true
+}

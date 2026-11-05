@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "old_inputs": 247,
+  "new_inputs": 251,
+  "all_old_input_and_native_hashes_identical": true,
+  "old_package": "233a7ecd55d2bb2110e65047f0f878b6d2ef116f8d41aa2c2d46d33e72b88cd9",
+  "new_package": "9810324727c7ca218f59afdfab2c4a93d820f31f18d3a77f402d9c2c98927367",
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

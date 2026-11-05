@@ -1,0 +1,177 @@
+{
+  "events": [
+    {
+      "event": "on_attack",
+      "time": 0.4666666666666666,
+      "gauge": 2.0
+    },
+    {
+      "event": "full_charge_fire",
+      "time": 0.4666666666666666,
+      "gauge": 2.0
+    },
+    {
+      "event": "hit_count:오토 파이어 2",
+      "time": 0.4666666666666666,
+      "gauge": 2.0
+    },
+    {
+      "event": "hit_count:오토 파이어 2",
+      "time": 0.4666666666666666,
+      "gauge": 2.0
+    },
+    {
+      "event": "hit_count",
+      "time": 0.4666666666666666,
+      "gauge": 0.0
+    },
+    {
+      "event": "hit_count",
+      "time": 0.4666666666666666,
+      "gauge": 0.0
+    },
+    {
+      "event": "on_attack",
+      "time": 1.1333333333333342,
+      "gauge": 2.0
+    },
+    {
+      "event": "full_charge_fire",
+      "time": 1.1333333333333342,
+      "gauge": 2.0
+    },
+    {
+      "event": "hit_count:오토 파이어 2",
+      "time": 1.1333333333333342,
+      "gauge": 2.0
+    },
+    {
+      "event": "hit_count:오토 파이어 2",
+      "time": 1.1333333333333342,
+      "gauge": 2.0
+    },
+    {
+      "event": "hit_count",
+      "time": 1.1333333333333342,
+      "gauge": 0.0
+    },
+    {
+      "event": "hit_count",
+      "time": 1.1333333333333342,
+      "gauge": 0.0
+    }
+  ],
+  "shots": [
+    {
+      "time": 0.4666666666666666,
+      "revision": 2,
+      "handles": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          5,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "time": 1.1333333333333342,
+      "revision": 5,
+      "handles": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          5,
+          0,
+          1
+        ]
+      ]
+    }
+  ],
+  "clears": [
+    0.4666666666666666,
+    1.1333333333333342
+  ],
+  "original_definitions": [
+    {
+      "index": 4,
+      "definition": {
+        "source": "스킬1",
+        "type": "instant",
+        "name": "오토 파이어 레디 충전",
+        "trigger": {
+          "timing": [
+            "every:0.2s"
+          ],
+          "condition": [
+            "during_charge"
+          ]
+        },
+        "target": "self",
+        "stat": "gauge_charge",
+        "gauge_id": "오토 파이어 레디",
+        "gauge_max": 5,
+        "fixed_value": 1.0
+      }
+    },
+    {
+      "index": 8,
+      "definition": {
+        "source": "스킬1",
+        "type": "damage",
+        "name": "오토 파이어 2",
+        "trigger": {
+          "timing": [
+            "full_charge_fire"
+          ],
+          "condition": []
+        },
+        "target": "enemies_with_buff:록 온",
+        "stat": "sequential_damage:오토 파이어 레디",
+        "values": {
+          "1": 62.39,
+          "2": 67.19,
+          "3": 71.99,
+          "4": 76.79,
+          "5": 81.59,
+          "6": 86.39,
+          "7": 91.19,
+          "8": 95.99,
+          "9": 100.79,
+          "10": 105.59
+        },
+        "scaling": "stack_count",
+        "scaling_ref": "오토 파이어 레디"
+      }
+    },
+    {
+      "index": 9,
+      "definition": {
+        "source": "스킬1",
+        "type": "instant",
+        "name": "오토 파이어 레디 소모",
+        "trigger": {
+          "timing": [
+            "full_charge_fire"
+          ],
+          "condition": []
+        },
+        "target": "self",
+        "stat": "gauge_consume",
+        "gauge_id": "오토 파이어 레디",
+        "fixed_value": -1
+      }
+    }
+  ],
+  "native_order_observed": true,
+  "delivery_policy_installed": false,
+  "sequential_target_selection_verified": false,
+  "full25_verified": false
+}

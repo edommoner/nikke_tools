@@ -1,0 +1,352 @@
+{
+  "scope": "Exploratory CPU-only notification observation; no GPU proof or profile-filter equivalence certification",
+  "duration": 64,
+  "python_observer_filter_optin": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "definitions": 82,
+  "stack_dispatches": 0,
+  "burst_events": [
+    {
+      "time": 3.733333333333325,
+      "event": "burst_enter:1",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 3.733333333333325,
+      "event": "burst_enter:1",
+      "caster": "앵커 : 이노센트 메이드"
+    },
+    {
+      "time": 3.733333333333325,
+      "event": "burst_enter:1",
+      "caster": "드레이크"
+    },
+    {
+      "time": 3.733333333333325,
+      "event": "burst_enter:1",
+      "caster": "모더니아"
+    },
+    {
+      "time": 3.733333333333325,
+      "event": "burst_enter:1",
+      "caster": "미란다"
+    },
+    {
+      "time": 3.733333333333325,
+      "event": "burst_cast",
+      "caster": "미란다"
+    },
+    {
+      "time": 3.733333333333325,
+      "event": "burst_enter:2",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 3.733333333333325,
+      "event": "burst_enter:2",
+      "caster": "앵커 : 이노센트 메이드"
+    },
+    {
+      "time": 3.733333333333325,
+      "event": "burst_enter:2",
+      "caster": "드레이크"
+    },
+    {
+      "time": 3.733333333333325,
+      "event": "burst_enter:2",
+      "caster": "모더니아"
+    },
+    {
+      "time": 3.733333333333325,
+      "event": "burst_enter:2",
+      "caster": "미란다"
+    },
+    {
+      "time": 3.8333333333333246,
+      "event": "burst_cast",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 3.8333333333333246,
+      "event": "burst_enter:3",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 3.8333333333333246,
+      "event": "burst_enter:3",
+      "caster": "앵커 : 이노센트 메이드"
+    },
+    {
+      "time": 3.8333333333333246,
+      "event": "burst_enter:3",
+      "caster": "드레이크"
+    },
+    {
+      "time": 3.8333333333333246,
+      "event": "burst_enter:3",
+      "caster": "모더니아"
+    },
+    {
+      "time": 3.8333333333333246,
+      "event": "burst_enter:3",
+      "caster": "미란다"
+    },
+    {
+      "time": 3.9333333333333242,
+      "event": "burst_cast",
+      "caster": "드레이크"
+    },
+    {
+      "time": 4.316666666666657,
+      "event": "full_burst_start",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 4.316666666666657,
+      "event": "full_burst_start",
+      "caster": "앵커 : 이노센트 메이드"
+    },
+    {
+      "time": 4.316666666666657,
+      "event": "full_burst_start",
+      "caster": "드레이크"
+    },
+    {
+      "time": 4.316666666666657,
+      "event": "full_burst_start",
+      "caster": "모더니아"
+    },
+    {
+      "time": 4.316666666666657,
+      "event": "full_burst_start",
+      "caster": "미란다"
+    },
+    {
+      "time": 14.316666666666958,
+      "event": "full_burst_end",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 14.316666666666958,
+      "event": "full_burst_end",
+      "caster": "앵커 : 이노센트 메이드"
+    },
+    {
+      "time": 14.316666666666958,
+      "event": "full_burst_end",
+      "caster": "드레이크"
+    },
+    {
+      "time": 14.316666666666958,
+      "event": "full_burst_end",
+      "caster": "모더니아"
+    },
+    {
+      "time": 14.316666666666958,
+      "event": "full_burst_end",
+      "caster": "미란다"
+    },
+    {
+      "time": 19.40000000000018,
+      "event": "burst_enter:1",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 19.40000000000018,
+      "event": "burst_enter:1",
+      "caster": "앵커 : 이노센트 메이드"
+    },
+    {
+      "time": 19.40000000000018,
+      "event": "burst_enter:1",
+      "caster": "드레이크"
+    },
+    {
+      "time": 19.40000000000018,
+      "event": "burst_enter:1",
+      "caster": "모더니아"
+    },
+    {
+      "time": 19.40000000000018,
+      "event": "burst_enter:1",
+      "caster": "미란다"
+    },
+    {
+      "time": 23.733333333333267,
+      "event": "burst_cast",
+      "caster": "미란다"
+    },
+    {
+      "time": 23.733333333333267,
+      "event": "burst_enter:2",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 23.733333333333267,
+      "event": "burst_enter:2",
+      "caster": "앵커 : 이노센트 메이드"
+    },
+    {
+      "time": 23.733333333333267,
+      "event": "burst_enter:2",
+      "caster": "드레이크"
+    },
+    {
+      "time": 23.733333333333267,
+      "event": "burst_enter:2",
+      "caster": "모더니아"
+    },
+    {
+      "time": 23.733333333333267,
+      "event": "burst_enter:2",
+      "caster": "미란다"
+    },
+    {
+      "time": 43.83333333333213,
+      "event": "burst_cast",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 43.83333333333213,
+      "event": "burst_enter:3",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 43.83333333333213,
+      "event": "burst_enter:3",
+      "caster": "앵커 : 이노센트 메이드"
+    },
+    {
+      "time": 43.83333333333213,
+      "event": "burst_enter:3",
+      "caster": "드레이크"
+    },
+    {
+      "time": 43.83333333333213,
+      "event": "burst_enter:3",
+      "caster": "모더니아"
+    },
+    {
+      "time": 43.83333333333213,
+      "event": "burst_enter:3",
+      "caster": "미란다"
+    },
+    {
+      "time": 43.93333333333212,
+      "event": "burst_cast",
+      "caster": "드레이크"
+    },
+    {
+      "time": 44.316666666665434,
+      "event": "full_burst_start",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 44.316666666665434,
+      "event": "full_burst_start",
+      "caster": "앵커 : 이노센트 메이드"
+    },
+    {
+      "time": 44.316666666665434,
+      "event": "full_burst_start",
+      "caster": "드레이크"
+    },
+    {
+      "time": 44.316666666665434,
+      "event": "full_burst_start",
+      "caster": "모더니아"
+    },
+    {
+      "time": 44.316666666665434,
+      "event": "full_burst_start",
+      "caster": "미란다"
+    },
+    {
+      "time": 54.316666666664865,
+      "event": "full_burst_end",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 54.316666666664865,
+      "event": "full_burst_end",
+      "caster": "앵커 : 이노센트 메이드"
+    },
+    {
+      "time": 54.316666666664865,
+      "event": "full_burst_end",
+      "caster": "드레이크"
+    },
+    {
+      "time": 54.316666666664865,
+      "event": "full_burst_end",
+      "caster": "모더니아"
+    },
+    {
+      "time": 54.316666666664865,
+      "event": "full_burst_end",
+      "caster": "미란다"
+    },
+    {
+      "time": 56.849999999998055,
+      "event": "burst_enter:1",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 56.849999999998055,
+      "event": "burst_enter:1",
+      "caster": "앵커 : 이노센트 메이드"
+    },
+    {
+      "time": 56.849999999998055,
+      "event": "burst_enter:1",
+      "caster": "드레이크"
+    },
+    {
+      "time": 56.849999999998055,
+      "event": "burst_enter:1",
+      "caster": "모더니아"
+    },
+    {
+      "time": 56.849999999998055,
+      "event": "burst_enter:1",
+      "caster": "미란다"
+    },
+    {
+      "time": 56.849999999998055,
+      "event": "burst_cast",
+      "caster": "미란다"
+    },
+    {
+      "time": 56.849999999998055,
+      "event": "burst_enter:2",
+      "caster": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 56.849999999998055,
+      "event": "burst_enter:2",
+      "caster": "앵커 : 이노센트 메이드"
+    },
+    {
+      "time": 56.849999999998055,
+      "event": "burst_enter:2",
+      "caster": "드레이크"
+    },
+    {
+      "time": 56.849999999998055,
+      "event": "burst_enter:2",
+      "caster": "모더니아"
+    },
+    {
+      "time": 56.849999999998055,
+      "event": "burst_enter:2",
+      "caster": "미란다"
+    }
+  ],
+  "full_burst_start_times": [
+    4.316666666666657,
+    44.316666666665434
+  ],
+  "next_probe_duration": 86,
+  "next_duration_is_unverified_prediction": true
+}

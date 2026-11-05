@@ -1,0 +1,102 @@
+{
+  "passed": true,
+  "scope": "Integrity and all-byte characterization of the 321 successful entries from the failed v2 capture; its failure remains false",
+  "old_comparison_sha256": "8dfcfb3447e8d90ca3cfe88478c3a94bd780224839cc7aa1c25e035b90f3954e",
+  "new_comparison_sha256": "05ddf7e733b5d752632ba4f0a8a3a8d42de81bae0b2364c8b93080c4364eb787",
+  "old_readback_sha256": "96211940daf4fac9649d290306aaa61996f19cd73bfcd64ffcb61a8c4abd55b7",
+  "new_readback_sha256": "32e21582ecabf2da215db528538270de6ab8ba1845e33da80794edbf934adc88",
+  "successful_reference_entries": 321,
+  "raw_identical_entries": 316,
+  "changed": [
+    {
+      "index": 308,
+      "name": "coordinate-mode-actions/automatic-reload-cover",
+      "changed_words": [
+        {
+          "word": 512176,
+          "before": 44,
+          "after": 42
+        },
+        {
+          "word": 512178,
+          "before": 131,
+          "after": 129
+        }
+      ]
+    },
+    {
+      "index": 314,
+      "name": "coordinate-auto-reload/cover-cancels-phase",
+      "changed_words": [
+        {
+          "word": 512176,
+          "before": 53,
+          "after": 51
+        },
+        {
+          "word": 512178,
+          "before": 159,
+          "after": 157
+        }
+      ]
+    },
+    {
+      "index": 315,
+      "name": "coordinate-auto-reload/cover-then-speed-expiry",
+      "changed_words": [
+        {
+          "word": 512176,
+          "before": 53,
+          "after": 51
+        },
+        {
+          "word": 512178,
+          "before": 161,
+          "after": 159
+        }
+      ]
+    },
+    {
+      "index": 319,
+      "name": "coordinate-auto-reload/zero-listener",
+      "changed_words": [
+        {
+          "word": 512176,
+          "before": 53,
+          "after": 51
+        },
+        {
+          "word": 512178,
+          "before": 142,
+          "after": 140
+        }
+      ]
+    },
+    {
+      "index": 320,
+      "name": "coordinate-auto-reload/zero-duration-cover",
+      "changed_words": [
+        {
+          "word": 512176,
+          "before": 53,
+          "after": 51
+        },
+        {
+          "word": 512178,
+          "before": 161,
+          "after": 159
+        }
+      ]
+    }
+  ],
+  "original_mismatches": [
+    {
+      "index": 321,
+      "name": "coordinate-auto-reload/pending-at-end-without-listener",
+      "reason": "AssertionError: ('coordinate-auto-reload/pending-at-end-without-listener', 0, ['ammo'])"
+    }
+  ],
+  "old_calculation_verified": false,
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

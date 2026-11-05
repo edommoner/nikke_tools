@@ -1,0 +1,62 @@
+[
+  {
+    "pattern": "test_original_owned.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.346995208179578,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 57272
+  },
+  {
+    "pattern": "test_coordinate_packet_history.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.05048012500628829,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 57272
+  },
+  {
+    "pattern": "test_coordinate_original.py",
+    "exit_code": 0,
+    "elapsed_seconds": 11.310862459009513,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 57272
+  },
+  {
+    "pattern": "test_source_reuse.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.04579558316618204,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 57272
+  },
+  {
+    "pattern": "test_portable_ammo_equivalent.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.6724439158570021,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 57272
+  },
+  {
+    "pattern": "test_portable_ammo_equivalent_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.328577707987279,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 57272
+  }
+]

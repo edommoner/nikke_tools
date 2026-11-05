@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "package_id": "b418ed145aa6d3439da69304d2b0229654090ca58ae6a601af664c0e3f9f6c0f",
+  "source_commit": "dbc99d51d1d4411da4a9aa30a75455c3594176ba",
+  "archive_bytes": 13358855,
+  "archive_sha256": "21eb294eb0997e982359b44687277b9fa821e432288f9f43f5b1df530cdef568",
+  "summary_file": "jit-summary-v1.json",
+  "summary_bytes": 3310,
+  "summary_sha256": "043aa50952adc1a62a931e061291c0352f40915e41086a10f52d2415d1f31988",
+  "public_payload": "summary-and-manifest-only",
+  "raw_included": false,
+  "binary_included": false,
+  "logs_included": false,
+  "personal_paths_included": false
+}

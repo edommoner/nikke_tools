@@ -1,3 +1,4 @@
+from detail_gpu import compile_effects
 """Independent HP-to-ATK, fixed reload, forced reload and whole-squad checks."""
 import sys,json,copy,math,hashlib,importlib.util
 from pathlib import Path
@@ -5,8 +6,6 @@ from datetime import datetime,timezone
 from contextlib import contextmanager
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
 from detail_coverage import a,body_for,coverage
-from detail_gpu import run,compile_effects
-from gpu_selector import Cuda
 def load(name,path):
  spec=importlib.util.spec_from_file_location(name,ROOT/path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
 p=load('health_reload_periodic','scripts/verify-periodic-detail.py');oracle=load('health_reload_oracle','scripts/verify-detail.py');modes=load('health_reload_modes','scripts/verify-modes-detail.py')
@@ -29,21 +28,6 @@ def primitives():
   ('fixed-reload-conditional-marker-still-active',[(E('conditional fixed','buff','reload_time_fixed',.27,'all_allies',event='passive',condition=['during_full_burst']),NAMES[0])]),
  ]:yield label,es
 
-def verify_primitives(device,backend):
- out=[]
- for label,effects in primitives():
-  chars=oracle.characters(NAMES);program=oracle.program(chars,effects);bs={n:{'atk':100000+i*1234.567,'hp':1000000+i*345678.9,'def':1000} for i,n in enumerate(NAMES)}
-  script=[[0,0,0,i,0,-1,0,0] for i in range(5)];qi=0
-  for t in [0,.2,.5,.7,1.2]:
-   script.extend([[t,0,7,0,0,-1,0,0],[t,0,3,1,0,-1,0,0]])
-   for who in range(5):script.append([t,2,0,who,-1,qi,0,0]);qi+=1;script.append([t,2,107,who,0,qi,0,0]);qi+=1
-  cpu,totals=oracle.oracle(program,script,[31784,17],bs);gpu=run(device,[program],script,[[31784,17]],[bs],module_backend=backend);errors=[]
-  for qi,(x,y) in enumerate(zip(cpu,gpu['queries'][0])):
-   fields=[0] if qi%2 else [0,1,36]
-   for k in fields:
-    if not math.isclose(x[k],y[k],rel_tol=1e-12,abs_tol=1e-8):errors.append([qi,k,x[k],y[k]])
-  c={'name':label,'passed':not errors and totals==gpu['totals'][0],'errors':errors[:12],'queries':len(cpu),'backend':backend};out.append(c);print(json.dumps(c),flush=True)
- return out
 
 def full_scenarios():
  owner=NAMES[2]
@@ -71,39 +55,3 @@ def observed_reloads():
  CharState._start_reload=start_reload;CharState._finish_reload=finish_reload
  try:yield counts
  finally:CharState._start_reload=start;CharState._finish_reload=finish
-
-def verify(device,backend,include_real=True):
- out=verify_primitives(device,backend)
- for label,effects,seconds in full_scenarios():
-  try:
-   with p.custom_effects(effects),observed_reloads() as observed:c=p.full.compare(device,label,body_for(NAMES,seconds,True),module_backend=backend)
-   c['reload_observations']=observed
-   if label.startswith(('force-','mode-fixed','fixed-reload','zero-fixed','last-fire')):c['passed'] &= observed['starts']>0 and bool(observed['fixed_times'])
-  except (Exception,SystemExit) as e:c={'name':label,'passed':False,'error':str(e)}
-  c['backend']=backend;out.append(c);print(json.dumps(c,ensure_ascii=True),flush=True)
- if include_real:
-  before=json.loads((ROOT/'research/detail-coverage-modes.json').read_text(encoding='utf-8'));was={r['character'] for r in before['results'] if r['supported']}
-  for r in coverage()['results']:
-   if not r['supported'] or r['character'] in was:continue
-   name=r['character'];names=[name]+[n for n in ['리타','크라운','앨리스','모더니아','N102'] if n!=name][:4]
-   try:
-    with observed_reloads() as observed:c=p.full.compare(device,'real-'+name,body_for(names,60,True),module_backend=backend)
-    c['reload_observations']=observed
-   except (Exception,SystemExit) as e:c={'name':name,'passed':False,'error':str(e)}
-   c['backend']=backend;out.append(c);print(json.dumps(c,ensure_ascii=True),flush=True)
-  # A newly accepted favorite variant and level-dependent fixed reload values.
-  for name,stage,level in [('엑시아',3,10),('질',0,1),('질',0,7)]:
-   names=[name]+[n for n in ['리타','크라운','앨리스','모더니아','N102'] if n!=name][:4];body=body_for(names,60,True);body['profile']['chars'][name]['favorite_stage']=stage;body['profile']['chars'][name]['skill_levels']['3']=level
-   try:
-    with observed_reloads() as observed:c=p.full.compare(device,f'real-{name}-favorite{stage}-burst{level}',body,module_backend=backend)
-    c['reload_observations']=observed;c['passed'] &= bool(observed['fixed_times'])
-   except (Exception,SystemExit) as e:c={'name':name,'passed':False,'error':str(e)}
-   c['backend']=backend;out.append(c);print(json.dumps(c,ensure_ascii=True),flush=True)
- return out
-if __name__=='__main__':
- d=Cuda()
- try:cases=verify(d,'native')+verify(d,'ptx')
- finally:d.close()
- files=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','scripts/verify-detail.py','scripts/verify-health-reload-detail.py']
- report={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(c['passed'] for c in cases),'cpu_trace_used_as_gpu_input':False,'scope':'HP-to-ATK, fixed/forced reload primitives and complete squads; static enemy expected full-charge model, not all characters/effects','cases':cases,'source_sha256':{f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files}}
- (ROOT/'research/detail-health-reload-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if report['passed'] else 1)

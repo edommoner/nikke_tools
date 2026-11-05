@@ -1,0 +1,213 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "before_package_id": "7feca20d61e51f9cb6752ba65c1e355e279c2eb792183defb22e2f6f06c2d68d",
+  "after_package_id": "4676cd56eceacc39be767a6bc417e0307cd85307445ea1b1f115b254e3abce1c",
+  "cases": 1505,
+  "raw_bytes": 4734320640,
+  "logical_row_adjustments": [
+    {
+      "case": 1442,
+      "owner": 0,
+      "before": 150642858,
+      "after": 1
+    },
+    {
+      "case": 1443,
+      "owner": 0,
+      "before": 150747258,
+      "after": 1
+    },
+    {
+      "case": 1444,
+      "owner": 0,
+      "before": 150851658,
+      "after": 1
+    },
+    {
+      "case": 1445,
+      "owner": 0,
+      "before": 150956058,
+      "after": 1
+    },
+    {
+      "case": 1447,
+      "owner": 4,
+      "before": 151165370,
+      "after": 1
+    },
+    {
+      "case": 1448,
+      "owner": 0,
+      "before": 151269258,
+      "after": 1
+    },
+    {
+      "case": 1449,
+      "owner": 0,
+      "before": 151373658,
+      "after": 1
+    },
+    {
+      "case": 1450,
+      "owner": 0,
+      "before": 151478058,
+      "after": 1
+    },
+    {
+      "case": 1451,
+      "owner": 0,
+      "before": 151582458,
+      "after": 1
+    },
+    {
+      "case": 1452,
+      "owner": 0,
+      "before": 151686858,
+      "after": 1
+    },
+    {
+      "case": 1453,
+      "owner": 0,
+      "before": 151791258,
+      "after": 1
+    },
+    {
+      "case": 1454,
+      "owner": 0,
+      "before": 151895658,
+      "after": 1
+    },
+    {
+      "case": 1455,
+      "owner": 0,
+      "before": 152000058,
+      "after": 1
+    },
+    {
+      "case": 1456,
+      "owner": 0,
+      "before": 152104458,
+      "after": 1
+    },
+    {
+      "case": 1457,
+      "owner": 0,
+      "before": 152208858,
+      "after": 1
+    },
+    {
+      "case": 1458,
+      "owner": 0,
+      "before": 152313258,
+      "after": 1
+    },
+    {
+      "case": 1460,
+      "owner": 0,
+      "before": 152522058,
+      "after": 1
+    },
+    {
+      "case": 1461,
+      "owner": 0,
+      "before": 152626458,
+      "after": 1
+    },
+    {
+      "case": 1462,
+      "owner": 0,
+      "before": 152730858,
+      "after": 1
+    },
+    {
+      "case": 1464,
+      "owner": 0,
+      "before": 152939658,
+      "after": 1
+    },
+    {
+      "case": 1487,
+      "owner": 0,
+      "before": 155340858,
+      "after": 1
+    },
+    {
+      "case": 1488,
+      "owner": 0,
+      "before": 155445258,
+      "after": 1
+    },
+    {
+      "case": 1489,
+      "owner": 0,
+      "before": 155549658,
+      "after": 1
+    },
+    {
+      "case": 1493,
+      "owner": 0,
+      "before": 155967258,
+      "after": 1
+    },
+    {
+      "case": 1493,
+      "owner": 1,
+      "before": 155967386,
+      "after": 1
+    },
+    {
+      "case": 1495,
+      "owner": 0,
+      "before": 156176058,
+      "after": 1
+    },
+    {
+      "case": 1496,
+      "owner": 0,
+      "before": 156280458,
+      "after": 1
+    },
+    {
+      "case": 1497,
+      "owner": 0,
+      "before": 156384858,
+      "after": 1
+    },
+    {
+      "case": 1498,
+      "owner": 0,
+      "before": 156489258,
+      "after": 1
+    },
+    {
+      "case": 1499,
+      "owner": 0,
+      "before": 156593658,
+      "after": 1
+    },
+    {
+      "case": 1500,
+      "owner": 0,
+      "before": 156698058,
+      "after": 1
+    },
+    {
+      "case": 1502,
+      "owner": 0,
+      "before": 156906858,
+      "after": 1
+    },
+    {
+      "case": 1504,
+      "owner": 0,
+      "before": 157115658,
+      "after": 1
+    }
+  ],
+  "other_raw_bytes_identical": 4734320508,
+  "before_raw_sha256": "c3d6c1eb81e9ed41fb1c59129b5a5581e8c2423f821770b3f847a682533bc128",
+  "after_raw_sha256": "7945d3a282f1779475c5d558a1729fb5f9b340a12e96523cde30440dac471be6",
+  "scope": "Exact source/input/native/raw representation transition only; independent calculation seals remain separate"
+}

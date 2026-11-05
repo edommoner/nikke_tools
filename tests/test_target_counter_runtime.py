@@ -70,15 +70,6 @@ class TargetCounterRuntime(unittest.TestCase):
         publish_impact(bm,Impact(NAMES[2],ActorHandle(0,0,1),0,2,13),.1)
         self.assertEqual(observe(bm),(0,0,2,2))
         self.assertEqual([c.owner for _,c in state(bm).counter_trace],NAMES[:2])
-    def test_compiler_fields_and_forged_counter_fail_before_cuda(self):
-        import detail_gpu as g
-        chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
-        p=g.compile_effects(chars,[(marker(),NAMES[0])]);r=p['effects'][0]
-        self.assertEqual(r[295:304],[2,0,0,1,7,4,0,1,0])
-        for key,value in [(295,0),(296,6),(298,0),(299,0),(300,1),(303,2)]:
-            forged=copy.deepcopy(p);forged['effects'][0][key]=value
-            with self.assertRaises(ValueError):g.run(None,[forged],[[0,2,127,0,-1,0,0,0]],[[0,0]],[{}])
-        with self.assertRaises(ValueError):g.run(None,[p],[[0,0,58,0,0,-1,0,0],[0,2,127,0,-1,0,0,0]],[[0,0]],[{}])
     def test_single_body_model_does_not_admit_unresolved_components(self):
         from detail_coverage import body_for,a
         import detail_gpu as g
@@ -86,7 +77,7 @@ class TargetCounterRuntime(unittest.TestCase):
         b=body_for(['N102','크라운','앨리스','모더니아',owner],8,True)
         b['enemy']['parts']=[dict(name='component',hp=100000,reach=1)]
         for gpu in (False,True):
-            with self.assertRaises((ValueError,g.UnsupportedDetail)):a.evaluate({**b,**({'_compile_gpu_detail':True} if gpu else {})})
+            with self.assertRaises((ValueError,g.UnsupportedDetail)):a.evaluate({**b,**({'_compile_detail':True} if gpu else {})})
     def test_child_exception_preserves_refreshed_epoch_and_restores_context(self):
         e=marker(threshold=1);e['trigger']['timing']=['battle_start','event:target_counter_complete:marker'];e['max_trigger']=2
         bm=manager([e]);bm.notify('battle_start',0,NAMES[0]);original=bm._notify

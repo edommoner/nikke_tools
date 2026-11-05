@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-aoe-shield-metal14-v2",
+  "raw_bytes": 58720256,
+  "raw_sha256": "31a8ae6dc98458e77284e5e47e766e63435521f6d7ca8055d1a35443ce2d2b32",
+  "evidence_sha256": "c6d17dfb434a7a1e85cffac36a09c5856969f5a08422a791bc379117f87da993",
+  "raw_inode": 509200494,
+  "zero_ranges": 156,
+  "zero_range_bytes": 38141952,
+  "allocated_before": 58720256,
+  "allocated_after": 20578304,
+  "allocated_reclaimed": 38141952,
+  "full_hash_verified": true
+}

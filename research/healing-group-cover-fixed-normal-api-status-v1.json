@@ -1,0 +1,771 @@
+{
+  "schema": "healing-group-cover-fixed-normal-api-status-v1",
+  "request_transport_commit": "001e8d0edd551660be22553b22a961238e8a9492",
+  "owner": "836ade72e7dae4aa173038c4836d96e73bc0224d0d936113a8cc3f472a6815af",
+  "source_commit": "394546cd4d370631b36c09cfb41c36f6230a8ec3",
+  "code_review_commit": "0ffd272f",
+  "snapshot_note": "Original manifest source base and immutable payload hashes retained; no relabelling to review commit",
+  "manifest_sha256": "c71366dc05c35d10676f3b00ca73d89ea321c4c006ec737af14adb133d780848",
+  "source": "gpu/product_healing_cover_fixed_group_battle_entry.slang",
+  "scope": "Two declared product conditions: original Anne/Belorta/Soldier plus real groups, finite ADD healing, explicit cover DEF and original active cover buff",
+  "numeric_verification_passed": true,
+  "original_request_documents_unchanged": [
+    {
+      "file": "healing-group-cover-fixed-v1-api-expected.json",
+      "bytes": 1636,
+      "sha256": "c51bd3beebc9c8d120dd323bc965aff2db55ee5ef8dd831b64cf9ca96eea62e0"
+    },
+    {
+      "file": "healing-group-cover-fixed-v1-api-job.json",
+      "bytes": 20330,
+      "sha256": "4e2eab10fb70ba9219807d3bd8da79da2dc58352669bc4b00bc70ba46f8a5e13"
+    },
+    {
+      "file": "healing-group-cover-fixed-v1-o1-plan.json",
+      "bytes": 735,
+      "sha256": "7bf5ebfd4f1743e38225486d52fdd77eae6050b1e36fd44f24143c2afa9fc83a"
+    },
+    {
+      "file": "healing-group-cover-fixed-v1-ptx-plan.json",
+      "bytes": 707,
+      "sha256": "af55b1676c297b4f5b014e2f163056998119d3800e96962a1a899f82d55a5b45"
+    },
+    {
+      "file": "healing-group-cover-fixed-v1-validation-deps.json",
+      "bytes": 407,
+      "sha256": "66fafcb529acf9bb81e071af11b01cb7c7a17f602b776f5ebaed75f36b42584e"
+    },
+    {
+      "file": "healing-group-cover-fixed-v1.zip",
+      "bytes": 12115993,
+      "sha256": "ad0a52a46e32b2be666d426c4c4d55c4e8aedcb165fa166c0c99bd383316e5b0"
+    },
+    {
+      "file": "healing-group-cover-windows-request-v1.json",
+      "bytes": 3476,
+      "sha256": "fa88900b973aabaadb33810f7226f3a128b4ef874d429e880d0f26574dbdf192"
+    }
+  ],
+  "cpu": {
+    "passed": true,
+    "tests": 87,
+    "groups": [
+      {
+        "pattern": "test_portable_detail.py",
+        "exit_code": 0,
+        "elapsed_seconds": 10.855434999801219,
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "exit_code": 0,
+        "elapsed_seconds": 4.29135960014537,
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "exit_code": 0,
+        "elapsed_seconds": 5.426928400062025,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.23258720012381673,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_cover_and_original_group_listeners_share_one_product_input",
+          "test_product_reference_models.ProductReferenceModels.test_healing_cover_and_original_shot_groups_preserve_all_three_consumers"
+        ]
+      }
+    ],
+    "selected_case_ids": {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_cover_and_original_group_listeners_share_one_product_input",
+        "test_product_reference_models.ProductReferenceModels.test_healing_cover_and_original_shot_groups_preserve_all_three_consumers"
+      ]
+    },
+    "owner": "836ade72e7dae4aa173038c4836d96e73bc0224d0d936113a8cc3f472a6815af",
+    "source_commit": "394546cd4d370631b36c09cfb41c36f6230a8ec3",
+    "full148_windows_claimed": false,
+    "unselected_model61_executed": false,
+    "old_source_results_reused": false,
+    "extra_native_preflight_battles": 0,
+    "sdk_calls": 0,
+    "gpu_calls": 0
+  },
+  "sdk_stages": {
+    "unpack": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 18.852281600236893,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 73404416,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "plans": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 21.44746799999848,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 70168576,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "host-tests": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 31.87570449989289,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 146894848,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "generation": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 19.47745310002938,
+      "timeout_seconds": 59.8589999997057,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 575660032,
+      "below_normal": true,
+      "runner_exit_code": 0,
+      "artifact_verified": true,
+      "reported_stage_verified": true,
+      "reported_stage_complete": true,
+      "reported_whole_environment_preservation_verified": false
+    },
+    "compile-ptx": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 38.34731430001557,
+      "timeout_seconds": 179.8289999999106,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 347852800,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 28.423437200021,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 312807424,
+        "below_normal": true
+      }
+    },
+    "module-object": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 34.696771800052375,
+      "timeout_seconds": 179.7960000000894,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 434941952,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 19.661858099978417,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 389799936,
+        "below_normal": true
+      }
+    },
+    "jit-link-object": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "elapsed_seconds": 52.75116280000657,
+      "timeout_seconds": 179.82800000021234,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 238698496,
+      "below_normal": true,
+      "runner_exit_code": 1,
+      "artifact_verified": true,
+      "reported_stage_verified": false,
+      "reported_stage_complete": false,
+      "reported_whole_environment_preservation_verified": false,
+      "inner": {
+        "child_exit_code": 0,
+        "reported_execution_passed": true,
+        "elapsed_seconds": 20.155916000250727,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 119566336,
+        "below_normal": true
+      }
+    }
+  },
+  "artifact": {
+    "ptx": {
+      "key": "824124e1448ab7ab26c9cdd768be855080b5f2d678782cc8887233ea851450b7",
+      "artifact_sha256": "01c221cc230751174c06c601200bed5bf6f3dcb11efc2d20d26d080ab3108933",
+      "artifact_bytes": 10782527
+    },
+    "object_sha256": "e3693316cdffc3797704dc73b5c0bb46356dbbbe8e4cf7e0d98e64948c5e74fc",
+    "linked_image_sha256": "64307574799968a8722612a72bbcb515761e6bd80aa148375bb088f2d3fb09f1",
+    "linked_image_bytes": 5738896,
+    "object_origin_source_bytes_unchanged": true,
+    "object_origin_source_partitioned": false
+  },
+  "paired_cache": {
+    "key": "61678e2e29a3832ef32fcf49c78b95e1c3a3f098ec26740e573271c17cd129a0",
+    "hit": true,
+    "compiler_invocations": 0
+  },
+  "execution_counts": {
+    "paired_generation_runs": 1,
+    "ptx_compile_runs": 1,
+    "o1_object_runs": 1,
+    "pinned_jit_link_runs": 1,
+    "posts": 1,
+    "physical_gpu_dispatches": 1,
+    "physical_cases": 2,
+    "retries": 0,
+    "additional_audit_cpu_battles": 0,
+    "additional_audit_gpu_calls": 0,
+    "unchanged_sdk_smoke_runs": 0,
+    "standard266_runs": 0,
+    "previous_rei_runs": 0,
+    "previous_movement_runs": 0
+  },
+  "normal_api": {
+    "batch_index": 0,
+    "cases": 2,
+    "profile_indices": [
+      0,
+      1
+    ],
+    "passed": true,
+    "job_id": "7babfacf-b5b3-4241-8a64-4c6f77431a39",
+    "parent_capture_id": "batch-e950cd55f7944e8699abb35fe3df1e34",
+    "physical_input_sha256": "3d846641cccb13396086c8c1e7ee46b39a19c0b71b31601e6f69d8a41f55b8b8",
+    "physical_output_sha256": "48d137c6fedf8a0653ba83569505333b3c6e49404d161c8a03e9c7783e741df7",
+    "physical_input_bytes": 960580,
+    "physical_output_bytes": 16391296,
+    "members": [
+      {
+        "profile_index": 0,
+        "label": "fixed-30s",
+        "character": null,
+        "favorite_stage": null,
+        "capture_id": "f1f8c283cc15416893ac959b4a4b44c6",
+        "input_sha256": "a91c853d0451e302edeb4535827dbd84e8dd6dee4b387744b361f6fb73936b63",
+        "output_sha256": "4eded901094fda6a2f9a5bb9be2b2074b8654d1f023e852a3465bfd25d7e8d00",
+        "status": 0,
+        "full_cpu_gpu_api_equal": true,
+        "m5_full_readback_equal": true,
+        "parent_slices_and_static_repack_equal": true
+      },
+      {
+        "profile_index": 1,
+        "label": "fixed-15s-cover-active-top-atk",
+        "character": null,
+        "favorite_stage": null,
+        "capture_id": "3448fd4e8cc24b5eae9838aec4a9b297",
+        "input_sha256": "40c7369e56c8c35ed0fcbc720a72c1a50333743308b8ac3dddb651b449fb0c53",
+        "output_sha256": "e0b4b09b84ac4a3984c7d684ab0fefafb9cc71ea8dba13d64e1b1e7e80e818a2",
+        "status": 0,
+        "full_cpu_gpu_api_equal": true,
+        "m5_full_readback_equal": true,
+        "parent_slices_and_static_repack_equal": true
+      }
+    ],
+    "cuda_api_counts": {
+      "cuInit": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0478348
+      },
+      "cuCtxCreate_v2": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.105979
+      },
+      "cuModuleLoadData": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0051163
+      },
+      "cuLaunchKernel": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0024876,
+        "grid": [
+          2,
+          1,
+          1
+        ],
+        "block": [
+          1,
+          1,
+          1
+        ],
+        "dynamic_shared_bytes": 0
+      },
+      "cuCtxSynchronize": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 3.2078035
+      },
+      "cuMemcpyDtoH_v2": {
+        "entered": 2,
+        "returned": 2,
+        "return_codes": [
+          0,
+          0
+        ],
+        "elapsed_seconds": 0.0018718,
+        "chunk_bytes": [
+          8388608,
+          8002688
+        ],
+        "total_bytes": 16391296
+      },
+      "cuCtxDestroy_v2": {
+        "entered": 1,
+        "returned": 1,
+        "return_codes": [
+          0
+        ],
+        "elapsed_seconds": 0.0379299
+      }
+    },
+    "resource": {
+      "snapshot_count": 8,
+      "observation_complete": false,
+      "inner_job_limit_unknown_count": 8,
+      "inner_job_limits": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "outer_enforced_limit_verified": true,
+      "outer_enforced_job_limit_bytes": 2147483648,
+      "outer_job_peak_bytes": 2005929984,
+      "process_private_peak_bytes": 1951961088,
+      "observed_private_max_bytes": 1951961088,
+      "device_free_min_bytes": 5919211520,
+      "device_free_max_bytes": 7445938176,
+      "device_total_bytes": 8589410304,
+      "memory_query_return_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "non_atomic": true,
+      "runtime": {
+        "input_bytes": 960580,
+        "output_bytes": 16391296,
+        "runtime_stride_bytes": 163584,
+        "runtime_buffer_bytes": 327168,
+        "runtime_element_capacity": 2
+      }
+    },
+    "stages": {
+      "static-preflight": {
+        "child_exit_code": 0,
+        "elapsed_seconds": 13.85697270045057,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "job_records": 1,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 97062912,
+        "below_normal": true
+      },
+      "api-once-v1": {
+        "child_exit_code": 0,
+        "elapsed_seconds": 29.39799589989707,
+        "timeout_seconds": 53,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "job_records": 1,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 2005929984,
+        "below_normal": true
+      },
+      "saved-audit": {
+        "child_exit_code": 0,
+        "elapsed_seconds": 14.179738900158554,
+        "timeout_seconds": 60,
+        "timed_out": false,
+        "cleanup_error": null,
+        "observation_error": null,
+        "missing_processes": 0,
+        "job_records": 1,
+        "pre_gate_verified": true,
+        "post_wait_empty": true,
+        "job_memory_limit_bytes": 2147483648,
+        "job_peak_memory_bytes": 138993664,
+        "below_normal": true
+      }
+    },
+    "http_seconds": 23.949104300234467,
+    "host_dispatch_seconds": 3.217094600200653,
+    "paired_cache_hit": true,
+    "paired_cache_compiler_invocations": 0,
+    "owned_node_stopped": true,
+    "additional_saved_audit_battles": 0,
+    "additional_saved_audit_gpu_calls": 0,
+    "unicode_exclusions": [],
+    "overall_verified": false,
+    "service_preservation_verified": false
+  },
+  "node_saved_audit": {
+    "schema": "coordinate-public-saved-node-roundtrip-audit-v1",
+    "passed": true,
+    "owner": "836ade72e7dae4aa173038c4836d96e73bc0224d0d936113a8cc3f472a6815af",
+    "source_commit": "394546cd4d370631b36c09cfb41c36f6230a8ec3",
+    "cases": [
+      {
+        "index": 0,
+        "variant": null,
+        "label": "fixed-30s",
+        "duration_seconds": 30,
+        "capture_id": "f1f8c283cc15416893ac959b4a4b44c6",
+        "original_document_canonical_sha256": "d9211d477c049e0698bdf17e1bec4da629b7c82b4867d4ac11154d57cde7b8d9",
+        "node_effective_document_canonical_sha256": "d9211d477c049e0698bdf17e1bec4da629b7c82b4867d4ac11154d57cde7b8d9",
+        "product_record_request_sha256": "d9211d477c049e0698bdf17e1bec4da629b7c82b4867d4ac11154d57cde7b8d9",
+        "node_effective_request_hash_matches_record": true,
+        "input_sha256": "a91c853d0451e302edeb4535827dbd84e8dd6dee4b387744b361f6fb73936b63",
+        "output_sha256": "4eded901094fda6a2f9a5bb9be2b2074b8654d1f023e852a3465bfd25d7e8d00",
+        "static_repack_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "m5_full_readback_equal": true,
+        "gpu_status": 0,
+        "full_saved_gpu_cpu_http_and_reprojection_equal": true,
+        "spec_text_compared_without_exclusion": true
+      },
+      {
+        "index": 1,
+        "variant": null,
+        "label": "fixed-15s-cover-active-top-atk",
+        "duration_seconds": 15,
+        "capture_id": "3448fd4e8cc24b5eae9838aec4a9b297",
+        "original_document_canonical_sha256": "0bea609ad3876a9070e5632b5c25a4a90ba04b77bad7901afb344305c9e034c3",
+        "node_effective_document_canonical_sha256": "0bea609ad3876a9070e5632b5c25a4a90ba04b77bad7901afb344305c9e034c3",
+        "product_record_request_sha256": "0bea609ad3876a9070e5632b5c25a4a90ba04b77bad7901afb344305c9e034c3",
+        "node_effective_request_hash_matches_record": true,
+        "input_sha256": "40c7369e56c8c35ed0fcbc720a72c1a50333743308b8ac3dddb651b449fb0c53",
+        "output_sha256": "e0b4b09b84ac4a3984c7d684ab0fefafb9cc71ea8dba13d64e1b1e7e80e818a2",
+        "static_repack_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "m5_full_readback_equal": true,
+        "gpu_status": 0,
+        "full_saved_gpu_cpu_http_and_reprojection_equal": true,
+        "spec_text_compared_without_exclusion": true
+      }
+    ],
+    "node": {
+      "version": "v24.22.1",
+      "operation": "JSON.parse(stdin UTF-8) then JSON.stringify with the configured server Node executable",
+      "operation_code_sha256": "2fd6f3e90f9ac78b31216b705580d15d3d09fdb83507598719f2b9c9cb05e93c",
+      "wire_reconstruction": "Same json.dumps(payload,ensure_ascii=False).encode() as saved HTTP helper; reconstructed bytes, not a new network capture",
+      "http_helper_sha256": "1e4ab8fab4e6800b6c67ba7e742fb987c857da176cc16b0d239975780f4c8e5c",
+      "original_job_file_sha256": "4e2eab10fb70ba9219807d3bd8da79da2dc58352669bc4b00bc70ba46f8a5e13",
+      "roundtrip_input_bytes": 10119,
+      "roundtrip_input_sha256": "80ef42fef79548be9aa611f70590216250bfc93b3e16b24047c442d02622babe",
+      "roundtrip_output_bytes": 9099,
+      "roundtrip_output_sha256": "839292b8116876d8412a779fd5ebc66f43e2a96e061b0575dd933a9b3746bd5a",
+      "stderr_bytes": 0,
+      "process_return_code": 0
+    },
+    "original_and_effective_json_values_equal": true,
+    "representation_type_changes": [],
+    "no_caller_values_or_expected_hashes_changed": true,
+    "comparison": "Strict recursive JSON value equality with exact numbers, bool/type separation and full string/Unicode equality; no tolerance",
+    "unicode_exclusions": [],
+    "excluded_transport_metadata": [
+      "compute",
+      "cache_hit"
+    ],
+    "source_packet_unchanged": true,
+    "saved_audit_uses_actual_node_input_from_start": true,
+    "original_packet_and_old_claims_retained": true,
+    "anchors_unchanged": true,
+    "anchor_count": 8,
+    "parent_input_pre_sha256": "3d846641cccb13396086c8c1e7ee46b39a19c0b71b31601e6f69d8a41f55b8b8",
+    "parent_input_post_sha256": "3d846641cccb13396086c8c1e7ee46b39a19c0b71b31601e6f69d8a41f55b8b8",
+    "parent_output_pre_sha256": "48d137c6fedf8a0653ba83569505333b3c6e49404d161c8a03e9c7783e741df7",
+    "parent_output_post_sha256": "48d137c6fedf8a0653ba83569505333b3c6e49404d161c8a03e9c7783e741df7",
+    "static_preparation_calls": 2,
+    "readback_reprojection_calls": 2,
+    "additional_cpu_battles": 0,
+    "additional_sdk_calls": 0,
+    "additional_posts": 0,
+    "additional_gpu_calls": 0,
+    "raw_input_output_documents_shared": false,
+    "raw_buffers_shared": false,
+    "overall_verified": false,
+    "physical_cases": 2,
+    "source": "gpu/product_healing_cover_fixed_group_battle_entry.slang",
+    "parent_capture_id": "batch-e950cd55f7944e8699abb35fe3df1e34",
+    "parent_input_sha256": "3d846641cccb13396086c8c1e7ee46b39a19c0b71b31601e6f69d8a41f55b8b8",
+    "parent_output_sha256": "48d137c6fedf8a0653ba83569505333b3c6e49404d161c8a03e9c7783e741df7",
+    "physical_input_bytes": 960580,
+    "physical_output_bytes": 16391296,
+    "members": [
+      {
+        "index": 0,
+        "variant": null,
+        "label": "fixed-30s",
+        "duration_seconds": 30,
+        "capture_id": "f1f8c283cc15416893ac959b4a4b44c6",
+        "original_document_canonical_sha256": "d9211d477c049e0698bdf17e1bec4da629b7c82b4867d4ac11154d57cde7b8d9",
+        "node_effective_document_canonical_sha256": "d9211d477c049e0698bdf17e1bec4da629b7c82b4867d4ac11154d57cde7b8d9",
+        "product_record_request_sha256": "d9211d477c049e0698bdf17e1bec4da629b7c82b4867d4ac11154d57cde7b8d9",
+        "node_effective_request_hash_matches_record": true,
+        "input_sha256": "a91c853d0451e302edeb4535827dbd84e8dd6dee4b387744b361f6fb73936b63",
+        "output_sha256": "4eded901094fda6a2f9a5bb9be2b2074b8654d1f023e852a3465bfd25d7e8d00",
+        "static_repack_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "m5_full_readback_equal": true,
+        "gpu_status": 0,
+        "full_saved_gpu_cpu_http_and_reprojection_equal": true,
+        "spec_text_compared_without_exclusion": true,
+        "original_profile_index": 0,
+        "status": 0,
+        "full_cpu_gpu_api_payload_equal": true
+      },
+      {
+        "index": 1,
+        "variant": null,
+        "label": "fixed-15s-cover-active-top-atk",
+        "duration_seconds": 15,
+        "capture_id": "3448fd4e8cc24b5eae9838aec4a9b297",
+        "original_document_canonical_sha256": "0bea609ad3876a9070e5632b5c25a4a90ba04b77bad7901afb344305c9e034c3",
+        "node_effective_document_canonical_sha256": "0bea609ad3876a9070e5632b5c25a4a90ba04b77bad7901afb344305c9e034c3",
+        "product_record_request_sha256": "0bea609ad3876a9070e5632b5c25a4a90ba04b77bad7901afb344305c9e034c3",
+        "node_effective_request_hash_matches_record": true,
+        "input_sha256": "40c7369e56c8c35ed0fcbc720a72c1a50333743308b8ac3dddb651b449fb0c53",
+        "output_sha256": "e0b4b09b84ac4a3984c7d684ab0fefafb9cc71ea8dba13d64e1b1e7e80e818a2",
+        "static_repack_equal": true,
+        "parent_input_slice_equal": true,
+        "parent_output_slice_equal": true,
+        "m5_full_readback_equal": true,
+        "gpu_status": 0,
+        "full_saved_gpu_cpu_http_and_reprojection_equal": true,
+        "spec_text_compared_without_exclusion": true,
+        "original_profile_index": 1,
+        "status": 0,
+        "full_cpu_gpu_api_payload_equal": true
+      }
+    ]
+  },
+  "combined_model": {
+    "conditions": [
+      "Fixed30s original Anne Belorta Soldier baseline",
+      "Fixed15s active original cover buff on top-ATK Drake"
+    ],
+    "standard_profile_delta": 0,
+    "all_original_definitions_retained_test_passed": true,
+    "healing_cover_and_real_shot_group_banks_retained_test_passed": true,
+    "selected_tests_check_fixed_and_accumulate": true,
+    "invalid_unauthored_healing_source_rejection_passed": true,
+    "cover_active_receipts": [
+      {
+        "origin": "gpu",
+        "effective_defense": 2285.7,
+        "quantity": 97714.3,
+        "shared_quantity": 97714.3,
+        "applied": 97714.3,
+        "incoming_hit_cover": 97714.3
+      },
+      {
+        "origin": "cpu",
+        "effective_defense": 2285.7,
+        "quantity": 97714.3,
+        "shared_quantity": 97714.3,
+        "applied": 97714.3,
+        "incoming_hit_cover": 97714.3
+      },
+      {
+        "origin": "http",
+        "effective_defense": 2285.7,
+        "quantity": 97714.3,
+        "shared_quantity": 97714.3,
+        "applied": 97714.3,
+        "incoming_hit_cover": 97714.3
+      }
+    ],
+    "full_reprojection_including_cover_and_unicode_passed": true,
+    "host_composition_sources": [
+      {
+        "file": "app/portable_product_cover.py",
+        "sha256": "9728e7a7748cb8d405434250ab621c5ad94217dc151da5a02ee753fe4513cd89"
+      },
+      {
+        "file": "app/portable_product_healing.py",
+        "sha256": "e8f53b19e4fd4c8a09c3a73cd0b8490eb6009ab0f3e8acb994e205a93ad5914d"
+      }
+    ],
+    "device_positive_statuses": [
+      0,
+      0
+    ]
+  },
+  "readback_policy": {
+    "source": "app/portable_backend.py",
+    "source_sha256": "f13f412e8d58c26b379e31638cab20f2bdefbd19ddf6ac4a9b74956419493b22",
+    "constant_line": 21,
+    "chunk_limit_bytes": 8388608,
+    "actual_chunk_bytes": [
+      8388608,
+      8002688
+    ],
+    "physical_output_bytes": 16391296,
+    "full_m5_sha256": "48d137c6fedf8a0653ba83569505333b3c6e49404d161c8a03e9c7783e741df7",
+    "parent_and_all_member_sha256_matched": true
+  },
+  "preservation": {
+    "prior_protected_files": 47405,
+    "missing": 0,
+    "changed": 0,
+    "old_claims_failures_sources_and_raw_retained": true,
+    "previous_rei_and_movement_results_retained": true,
+    "initial7documents_unchanged": true
+  },
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "no_ssh_or_os_configuration_changed": true,
+  "full148_windows_claimed": false,
+  "remaining61_model_tests_executed": false,
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "raw_buffers_shared": false,
+  "compiler_distributions_shared": false,
+  "settings_or_auth_shared": false
+}

@@ -7,7 +7,7 @@ rows=[]
 for name,b,extra in list(v.fixtures())+list(v.real_fixtures()):
     try:
         with v.s.v.context(name,extra):
-            compiled=v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True});cpu=v.s.v.v.a.evaluate(b)
+            compiled=v.s.v.v.a.evaluate({**b,'_compile_detail':True});cpu=v.s.v.v.a.evaluate(b)
         r=dict(name=name,compiled=True,cpu_usable=True,cpu_total=cpu['total_damage'])
     except Exception as exc:r=dict(name=name,compiled=False,cpu_usable=False,error=repr(exc))
     rows.append(r);print(json.dumps(r,ensure_ascii=True),flush=True)

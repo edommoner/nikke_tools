@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "scope": "Derived local reconstruction from actual M5 bytes plus13 independently reported semantic scalar word differences; exact full SHA equals original Windows saved GPU output; not a new GPU capture",
+  "source_owner": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+  "mac_output_sha256": "657ef8fb9ec63494bd16648f45f43a287cf0b04819448744f72e7675ae278050",
+  "reconstructed_output_sha256": "f0bd1d498d02416f91a44d8baf3cf907f4fa62380754b6ce4250011a5d13f231",
+  "matches_saved_windows_full_sha256": true,
+  "word_count": 786432,
+  "different_words": [
+    {
+      "index": 31,
+      "m5": 1,
+      "cuda": 0
+    },
+    {
+      "index": 3128,
+      "m5": 858993456,
+      "cuda": 0
+    },
+    {
+      "index": 3129,
+      "m5": 1075852083,
+      "cuda": 0
+    },
+    {
+      "index": 3130,
+      "m5": 858993456,
+      "cuda": 0
+    },
+    {
+      "index": 3131,
+      "m5": 1075852083,
+      "cuda": 0
+    },
+    {
+      "index": 3132,
+      "m5": 1,
+      "cuda": 0
+    },
+    {
+      "index": 3133,
+      "m5": 1,
+      "cuda": 0
+    },
+    {
+      "index": 3136,
+      "m5": 1,
+      "cuda": 0
+    },
+    {
+      "index": 5657,
+      "m5": 1,
+      "cuda": 0
+    },
+    {
+      "index": 86024,
+      "m5": 9044163,
+      "cuda": 12779528
+    },
+    {
+      "index": 86025,
+      "m5": 146,
+      "cuda": 9568394
+    },
+    {
+      "index": 512176,
+      "m5": 6644,
+      "cuda": 6640
+    },
+    {
+      "index": 512178,
+      "m5": 6864,
+      "cuda": 6844
+    }
+  ],
+  "native_payload_already_equal": true,
+  "poli_periodic_heal": {
+    "definition_row": 4,
+    "name": "도그 테라피 3",
+    "mac_activations": 1,
+    "cuda_activations": 0,
+    "mac_due": 8.099999999999994,
+    "cuda_due": 0
+  },
+  "source_cause": "CUDA generated remove_named_buff handler compares removalCount to itself instead of its pre-call snapshot; Metal keeps snapshot. Eight common pre-mutation capture sites changed to an outlined scalar snapshot helper.",
+  "corrected_generation_receipt": "corrected-snapshot-generation-v1.json",
+  "local_derived_buffer": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-cuda-standard-batch-v2-20261101/poli3-cuda-reconstructed-readback.bin",
+  "original_windows_raw_imported": false,
+  "extra_gpu_calls": 0,
+  "extra_native_battle_calls": 0
+}

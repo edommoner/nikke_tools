@@ -1,0 +1,92 @@
+{
+  "schema": "entry-plan-milestone-v1",
+  "source_inventory_sha256": "069d1d951ddee5b95784ac7e543594977d93ad757cb958c4b0a4a6a842d4f3ea",
+  "profile_count": 266,
+  "packed_profiles": 254,
+  "blocked_profiles": 12,
+  "operator_families": 11,
+  "largest_family": {
+    "operator": {
+      "kind": "buff",
+      "stat": "received_dmg_split",
+      "category": "effect",
+      "operator": null
+    },
+    "affected_profiles": 4,
+    "profiles": [
+      {
+        "character": "베이",
+        "favorite_stage": 0,
+        "original_definitions_sha256": "76bcbcc315064a95d3755288313a943cd574f0f0e7bf7051823adbb752339072"
+      },
+      {
+        "character": "베이",
+        "favorite_stage": 1,
+        "original_definitions_sha256": "44f4ae9d22cdce4c3bdf50a20e33fac4fb73087284fa98801f442c3001b9adee"
+      },
+      {
+        "character": "베이",
+        "favorite_stage": 2,
+        "original_definitions_sha256": "884b39009deedc8ebbba5094877a3190a7156ab8b4dadc4021def6f66a40a9bb"
+      },
+      {
+        "character": "베이",
+        "favorite_stage": 3,
+        "original_definitions_sha256": "6150cac232888daa736581e6e610b0f871f9add50e346121ff456cc9e39bf606"
+      }
+    ],
+    "targets": [
+      "all_allies",
+      "self_cover"
+    ],
+    "lanes": [
+      "reference_model_gap"
+    ],
+    "scoped_suites": [],
+    "required_extensions": [
+      "cover_break_restoration_and_caster_death",
+      "exact_allocation_and_arithmetic_contract",
+      "existing_incoming_layer_and_callback_order",
+      "original_carrier_and_separate_cover_recipient",
+      "shared_CUDA_Metal_full_original_profile_validation"
+    ],
+    "published_evidence": [
+      {
+        "evidence": "tests/fixtures/bay-published-allocation-v1.json",
+        "evidence_sha256": "7e8a7c3f131da05beba015a557af63fe9e8d88f73b60c39ad2193aed94544ba4",
+        "body_weight_candidate": [
+          8,
+          3
+        ],
+        "cover_weight_candidate": 262,
+        "ratios_are_inferred_from_rounded_tables": true,
+        "exact_cover_weight_verified": false,
+        "native_consumer_implemented": false,
+        "in_game_rules_verified": false,
+        "gpu_supported": false
+      }
+    ],
+    "default_admission_changed": false,
+    "runtime_validation_performed": false
+  },
+  "original_profile_rows_and_input_hashes_unchanged": true,
+  "all_gpu_sources_unchanged": true,
+  "default_admission_changed": false,
+  "bay_exact_cover_weight_verified": false,
+  "gpu_calls": 0,
+  "cpu_battle_calls": 0,
+  "compiler_calls": 0,
+  "full_goal_complete": false,
+  "own_frozen_cli": {
+    "package_id": "f756da395048edb273beca7db27f14360b42488ae2e746845eacc48293ebc299",
+    "payload_files": 3984,
+    "own_cli_and_payload_verified_before_after": true,
+    "profile_preparation_calls": 0,
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "scope": "Saved static inventory plan only; no runtime certification"
+  },
+  "frozen_and_development_plan_bytes_identical": true,
+  "existing_cli_functions_outside_main_ast_identical": true,
+  "stdout_bytes": 5650
+}

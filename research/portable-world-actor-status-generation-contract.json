@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "scope": "Actual full native spawn callback:count pool reads target_chars before deferred drop",
+  "stale_generation_charge_uses": 3,
+  "traces": [
+    {
+      "label": "__enemy__",
+      "carriers": [
+        {
+          "name": "charges",
+          "captured_generation": 1,
+          "current_generation": 1,
+          "current_alive": true
+        }
+      ],
+      "blocked": true
+    },
+    {
+      "label": "__enemy__:wave#1",
+      "carriers": [
+        {
+          "name": "charges",
+          "captured_generation": 1,
+          "current_generation": 1,
+          "current_alive": true
+        }
+      ],
+      "blocked": true
+    },
+    {
+      "label": "__enemy__:wave#2",
+      "carriers": [
+        {
+          "name": "charges",
+          "captured_generation": 1,
+          "current_generation": 1,
+          "current_alive": true
+        }
+      ],
+      "blocked": true
+    },
+    {
+      "label": "__enemy__:wave#3",
+      "carriers": [
+        {
+          "name": "charges",
+          "captured_generation": 1,
+          "current_generation": 1,
+          "current_alive": true
+        }
+      ],
+      "blocked": true
+    },
+    {
+      "label": "__enemy__",
+      "carriers": [
+        {
+          "name": "charges",
+          "captured_generation": 1,
+          "current_generation": 1,
+          "current_alive": true
+        }
+      ],
+      "blocked": true
+    },
+    {
+      "label": "__enemy__:wave#1",
+      "carriers": [
+        {
+          "name": "charges",
+          "captured_generation": 1,
+          "current_generation": 2,
+          "current_alive": true
+        }
+      ],
+      "blocked": true
+    },
+    {
+      "label": "__enemy__:wave#2",
+      "carriers": [
+        {
+          "name": "charges",
+          "captured_generation": 1,
+          "current_generation": 2,
+          "current_alive": true
+        }
+      ],
+      "blocked": true
+    },
+    {
+      "label": "__enemy__:wave#3",
+      "carriers": [
+        {
+          "name": "charges",
+          "captured_generation": 1,
+          "current_generation": 2,
+          "current_alive": true
+        }
+      ],
+      "blocked": true
+    },
+    {
+      "label": "__enemy__",
+      "carriers": [
+        {
+          "name": "charges",
+          "captured_generation": 1,
+          "current_generation": 1,
+          "current_alive": true
+        }
+      ],
+      "blocked": true
+    }
+  ],
+  "ordinary_immunity_uses_generation_aware_has_immune": true,
+  "count_immunity_uses_membership_until_actual_drop": true,
+  "gpu_executions": 0,
+  "cpu_state_used_as_gpu_input": false,
+  "full_goal_complete": false
+}

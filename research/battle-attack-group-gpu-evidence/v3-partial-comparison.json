@@ -1,0 +1,139 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "attack-group-battle/니힐리스타/3s/0adds",
+      "input_sha256": "e11c21c94c02a519ddc37e34ff9a7bc542c077aaec685fdd02d7061221bfe7f1",
+      "output_sha256": "863b18b32772dbaba688de10ddc58f8eeeae49390a4ff7eb854afe35f22009c2",
+      "native_sha256": "196d3862771637b45526e3cf139567e93c25a0cffe5ef322611fdf990f04ed86"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/3s/1adds",
+      "input_sha256": "1e2d814e1b5938580a8b81cfad85ca2a5ae562ce9be3aa0b621a564a3ad941a0",
+      "output_sha256": "18e0636d97e523f6ef1ace77af5fa1fbb90f220b8d9693c19559e89bad342588",
+      "native_sha256": "89f03a11aeef9a3fd27a84cb089a31ae772feca55270e9ee5add9783bf0dfd63"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/3s/3adds",
+      "input_sha256": "7e201a3dc3c5ac8903615dce10082e73777514475ba83dcd21bd33f978347e9d",
+      "output_sha256": "eb23a5248a9a365a3cbe5b77c73053f27f3dc4e5ecb92d37f6b45ee3c70b1830",
+      "native_sha256": "12e65b49c49befc4ec2c24560f02749eb2cc24f2b2860784621a1704b313ac41"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/3s/5adds",
+      "input_sha256": "5cb0c512d745b8ddc82957760463337888cd9c0a6b74147db895afabe148a641",
+      "output_sha256": "2bbfcc00f7af242e1c8ac3670ddae0f3386ea6b435a60350c25423e74b161713",
+      "native_sha256": "9819351b95c33fdc449c72470a49681e5227f05f6bdd515b53e5d50c712b5737"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/break",
+      "input_sha256": "6122b2537354a1bd0a88ea19a2fece3bd3d2100e62ed8768bad8f75c546d8910",
+      "output_sha256": "14385a7cd8e727d3d1d1594b67515e0d3eb2d69bdb9dcda3505f15f592afce4a",
+      "native_sha256": "c1cddd3961939c43309c0691017bebac6bf69ef7cc4e7e1ebb04d7387b57bfa4"
+    },
+    {
+      "name": "attack-group-battle/니힐리스타/reopened-before-child",
+      "input_sha256": "bf98c60aa220a66609718c2652eda024fc948473af019b8077e4b562f4f40149",
+      "output_sha256": "6beb03d1bd865294d82b46f2f89c33ebd07073056e232d2147f3a8d63d0462f0",
+      "native_sha256": "2bf5e10213b522f3ef17a37851762948050cca1cbf1d1d8672fef6de543b0c0a"
+    },
+    {
+      "name": "attack-group-battle/벨로타/3s/0adds",
+      "input_sha256": "72d52631b3bb6e13eb39c4448ba25867c9cc8355d3b414c24ff156ad7978169b",
+      "output_sha256": "484b4e29c2c9d483e1823b74d7825ea6a531e95e477b2c551465609423dcdf95",
+      "native_sha256": "d361dbda960f3dc2e59ca5a74a3a4d776621148637f3ac7b9900d6ba43961935"
+    },
+    {
+      "name": "attack-group-battle/벨로타/3s/1adds",
+      "input_sha256": "7effe66dcb5250e3ebf5234f5528919315aea9b318bbb66d44ee5c3426baf7ea",
+      "output_sha256": "b6319676fe9a58abba060f5671165c4d24dd9974dee9417f4785cbe9b2c4e753",
+      "native_sha256": "3b100e0a7501a782918b5bb5e2aa9b3e79e72df96f6682f31df2861d8cd2ff66"
+    },
+    {
+      "name": "attack-group-battle/벨로타/30s/0adds",
+      "input_sha256": "60fa69f58911beb66d0043d4f0a1cb4648a02e8634388c0e43364512d6d98dc8",
+      "output_sha256": "1aa1a55f029a351739371c20fa99d1f4d2eae02e751f1eb6d53dc76cf0a170ea",
+      "native_sha256": "b8406cba1c2ab63d69823058f85ccdbf946fff844a345358487cd13d7cf86c5b"
+    },
+    {
+      "name": "attack-group-battle/벨로타/30s/1adds",
+      "input_sha256": "5f786c04ff298a6b1f22145c79074c4c5f366b95cd704951e60ae7d13698414c",
+      "output_sha256": "06c6df4a19d022531e3ea92a6c84ec186ff23aff82a5b45397b0cf520035e33b",
+      "native_sha256": "a7fda81e482896d504a12562fc94196367720185bd83d8d02ab9b5b2a05bdd45"
+    },
+    {
+      "name": "attack-group-battle/벨로타/break",
+      "input_sha256": "59444817ca7ecb5fab3cccc2da8f990751b7e1c75f76ad920a413716197a0301",
+      "output_sha256": "8ceb25b96bb9cf2aad082a09aab6ccc4440aa272e5d6880a37730369d543cc36",
+      "native_sha256": "2ebe7750d9b4bb4f3199e628fe947efb25d10d990d0f9f2a4d88f1f744bb07a2"
+    },
+    {
+      "name": "attack-group-battle/declared/누아르",
+      "input_sha256": "df15f4a3bdbbc358585e9349e48c084c07ca6e00b3cda154a77ade7be955939a",
+      "output_sha256": "9e70e85485d49e67c29403eb621ca4f257c6a1d6843a7b7e3f8e58480fdc9df5",
+      "native_sha256": "616af64bb72b3e0dcd60b68512423c333a6279e423af4f643a0de22def907b2f"
+    },
+    {
+      "name": "attack-group-battle/declared/츠바이",
+      "input_sha256": "35b936daab3739fd838a1c9a85ebbec4107cdfd215fcb554b948a1c31591a515",
+      "output_sha256": "e41564b636ede226d7e91adad6b3dbb9bf0717c4568a5c9822ed1f5b593fd4c9",
+      "native_sha256": "2f6d8c0bdbfb8b4446d3c8110d2102ca86324d58783f70ca15e7ba06308e3822"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 4,
+      "name": "attack-group-battle/니힐리스타/30s/0adds",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 5,
+      "name": "attack-group-battle/니힐리스타/30s/1adds",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 6,
+      "name": "attack-group-battle/니힐리스타/30s/3adds",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 7,
+      "name": "attack-group-battle/니힐리스타/30s/5adds",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 12,
+      "name": "attack-group-battle/벨로타/3s/3adds",
+      "reason": "ValueError: {'difference_count': 41, 'first': [{'path': '.body_damage[0]', 'gpu': 455302.0, 'cpu': 455482}, {'path': 'physical_shots[41].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[42].damage', 'gpu': 344932.0, 'cpu': 349913}, {'path': 'physical_shots[43].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[44].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[45].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[46].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[47].damage', 'gpu': 30424.0, 'cpu': 30814}]}"
+    },
+    {
+      "index": 13,
+      "name": "attack-group-battle/벨로타/3s/5adds",
+      "reason": "ValueError: {'difference_count': 41, 'first': [{'path': '.body_damage[0]', 'gpu': 455302.0, 'cpu': 455482}, {'path': 'physical_shots[41].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[42].damage', 'gpu': 344932.0, 'cpu': 349913}, {'path': 'physical_shots[43].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[44].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[45].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[46].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[47].damage', 'gpu': 30424.0, 'cpu': 30814}]}"
+    },
+    {
+      "index": 16,
+      "name": "attack-group-battle/벨로타/30s/3adds",
+      "reason": "ValueError: {'difference_count': 703, 'first': [{'path': '.body_damage[0]', 'gpu': 8891691.0, 'cpu': 8969020}, {'path': 'physical_shots[41].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[42].damage', 'gpu': 344932.0, 'cpu': 349913}, {'path': 'physical_shots[43].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[44].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[45].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[46].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[47].damage', 'gpu': 30424.0, 'cpu': 30814}]}"
+    },
+    {
+      "index": 17,
+      "name": "attack-group-battle/벨로타/30s/5adds",
+      "reason": "ValueError: {'difference_count': 703, 'first': [{'path': '.body_damage[0]', 'gpu': 8891691.0, 'cpu': 8969020}, {'path': 'physical_shots[41].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[42].damage', 'gpu': 344932.0, 'cpu': 349913}, {'path': 'physical_shots[43].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[44].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[45].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[46].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[47].damage', 'gpu': 30424.0, 'cpu': 30814}]}"
+    },
+    {
+      "index": 19,
+      "name": "attack-group-battle/벨로타/reopened-before-child",
+      "reason": "ValueError: {'difference_count': 41, 'first': [{'path': '.body_damage[0]', 'gpu': 455302.0, 'cpu': 455482}, {'path': 'physical_shots[41].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[42].damage', 'gpu': 344932.0, 'cpu': 349913}, {'path': 'physical_shots[43].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[44].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[45].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[46].damage', 'gpu': 30424.0, 'cpu': 30814}, {'path': 'physical_shots[47].damage', 'gpu': 30424.0, 'cpu': 30814}]}"
+    }
+  ],
+  "input_count": 22,
+  "native_oracles": 22,
+  "input_sha256": "90a680f48d57a8699e49f38a66e359bfd6b12889ba120021813ff0e00e2fdbe3",
+  "output_sha256": "f0e337bdbe5763185f7b8f200a9d7c0a4c90e685f0e84f7523a848a3173a488d",
+  "generated_normalized": {
+    "cuda": "8d857c33abff48e45393b06abc5e2c543b915757e26d74133404aa29b57891b5",
+    "metal": "f891c89fb840ed9e512c9da76e7d6b14000b7c56e949e1292d1d923bcfad458a"
+  },
+  "audit_gpu_calls": 0
+}

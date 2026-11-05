@@ -1,0 +1,15 @@
+{
+  "package_id": "8c7e603fd6d345788095123372c55467268aceb364eb0fbfa23a5a9b8d1d9d5a",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/landing-arc-arena-20261027/arc-metal-v1",
+  "child_pid": 8993,
+  "input_count": 140,
+  "native_cases": 131,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 1.1921867500004737,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "37dd79884815b20768d94292e33c812d509b2e894db9becfc18436415217c5c8",
+  "output_sha256": "1206fbcfe9e3ed691214061c4d11155db16a2a773add6412a90e4c5b2ae1ff9d",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}

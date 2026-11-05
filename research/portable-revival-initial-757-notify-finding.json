@@ -1,0 +1,46 @@
+{
+  "package": {
+    "package_id": "3dea70d105dbdea9c180746ce4e54f724b53b1ab92ed1de9107620e577143ba6",
+    "files": 1817,
+    "bytes": 4570040,
+    "archive_sha256": "c2e13e6e03fc409bfd132e4186b50e31bcbd74e1b37c3f1030ded817e866b519",
+    "source_commit": "47cfbd4b7d4af51de77d1369cc5b27f38fdc41de"
+  },
+  "result": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": true,
+    "preservation_verified": null,
+    "passed": true,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": null,
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 709182729899875,
+        "pid": 27449,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792610032931307000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "seal": {
+    "sealed": true,
+    "gpu_calls": 0,
+    "package_id": "3dea70d105dbdea9c180746ce4e54f724b53b1ab92ed1de9107620e577143ba6",
+    "input_count": 757,
+    "golden": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-world-revival-seed-regression-short-expected.json"
+  },
+  "finding": "CPU _reapply_passives existing-carrier branch only invokes the timeline buff log callback; it does not notify event:name. GPU existing-shared branch incorrectly pushed event31. Initial757 lacked a shared-parent named-child listener. Preserve its passing scoped evidence, remove extra notification and add existing/new-parent contrast contracts.",
+  "full_goal_complete": false
+}

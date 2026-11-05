@@ -16,7 +16,7 @@ prior=json.loads(prior_path.read_text(encoding='utf-8'));report=coverage();accep
 assert accepted(report)==accepted(prior)
 for name in sorted(accepted(report)):
     names=[name]+[n for n in ['모더니아','루주','마스트 : 로망틱 메이드','도라','얀'] if n!=name][:4];body=body_for(names)
-    current=a.evaluate({**body,'_compile_gpu_detail':True});previous=old.compile_full(current['prepared'],lambda c:current['base_stats'][c['name']],body,current['policy'],current['requested_policy'])
+    current=a.evaluate({**body,'_compile_detail':True});previous=old.compile_full(current['prepared'],lambda c:current['base_stats'][c['name']],body,current['policy'],current['requested_policy'])
     new=dict(current['program']);oldp=dict(previous['program']);nw=new.pop('world');ow=oldp.pop('world')
     assert new==oldp and nw[:len(ow)]==ow,name
     assert old.weapon_rows(oldp['chars'],previous['base_stats'])==g.weapon_rows(new['chars'],current['base_stats']),name

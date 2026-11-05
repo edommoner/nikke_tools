@@ -1,0 +1,5063 @@
+{
+  "cases": [
+    {
+      "name": "reference-suffix-zero",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-suffix-fraction",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-suffix-negative",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": -2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-gauge-zero",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "hit_count_gauge_ref": "fuel"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-gauge-fraction",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "hit_count_gauge_ref": "fuel"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-gauge-negative",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": -2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "hit_count_gauge_ref": "fuel"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-scaling-zero",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "scaling": "stack_count",
+          "scaling_ref": "fuel"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-scaling-fraction",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "scaling": "stack_count",
+          "scaling_ref": "fuel"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-scaling-negative",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": -2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "scaling": "stack_count",
+          "scaling_ref": "fuel"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-missing-generic-default-one",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-missing-gauge-only-default-zero",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "hit_count_gauge_ref": "fuel"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-named-fallback-False",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "fuel",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_dmg",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "max_stack": 5
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.01,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.02,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.03,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-named-fallback-True",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "fuel",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_dmg",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "max_stack": 5
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "hit_count_gauge_ref": "fuel"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.01,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.02,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.03,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-present-zero-precedes-named-stack",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "fuel",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_dmg",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "max_stack": 5
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-same-key-other-owner-ignored",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 3,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        4,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-first-carrier-not-sum",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "fuel",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_dmg",
+          "fixed_value": 0,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "fuel",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_dmg",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "max_stack": 5
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.01,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.02,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.03,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-parent-count-before-hit-consumption",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource hit_count:strike:1",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_consume",
+          "gauge_id": "fuel",
+          "fixed_value": 1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count:strike:1"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-parent-count-before-hit-refill",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource hit_count:strike:1",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 5,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count:strike:1"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-gauge-reference-overrides-numeric-suffix",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:5",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "hit_count_gauge_ref": "fuel"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-numeric-suffix-overrides-scaling-reference",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:5",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "scaling": "stack_count",
+          "scaling_ref": "fuel"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            5000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-periodic-reads-count-at-each-tick",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 3.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "tick_interval": 0.25,
+          "duration": 1
+        },
+        {
+          "name": "resource on_attack",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_consume",
+          "gauge_id": "fuel",
+          "fixed_value": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.3,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.75,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          1,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            5000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-family-bonus_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "bonus_damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-family-burst_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "burst_damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-family-split_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "split_damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-family-dot_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "dot_damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "tick_interval": 0.25,
+          "duration": 0.5
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-family-auto_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "auto_damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-family-armor_break_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "armor_break_damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-family-armor_break_burst_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "armor_break_burst_damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-family-sequential_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "sequential_damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-family-projectile_attachment_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "projectile_attachment_damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-family-projectile_explosion_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "projectile_explosion_damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-family-pierce_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "pierce_damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-family-core_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 2.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "core_damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-fraction-truncates-before-multiplicity",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 0.99,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-largest-bounded-count",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 256.99,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "summary"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            256000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-large-negative-count-is-empty",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": -1e+30,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    },
+    {
+      "name": "reference-zero-coefficient-does-not-evaluate-overlarge-count",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resource battle_start",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 1e+30,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "strike",
+          "source": "스킬2",
+          "type": "damage",
+          "stat": "damage:fuel",
+          "fixed_value": 0,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "hit_reference": true,
+      "enemy_reference": true
+    }
+  ]
+}

@@ -1,0 +1,508 @@
+{
+  "passed": true,
+  "old_native_dictionaries": 125,
+  "checks": [
+    {
+      "name": "native-overlay-base",
+      "passed": true
+    },
+    {
+      "name": "native-overlay-defense",
+      "passed": true
+    },
+    {
+      "name": "native-overlay-received",
+      "passed": true
+    },
+    {
+      "name": "native-overlay-core",
+      "passed": true
+    },
+    {
+      "name": "native-overlay-range",
+      "passed": true
+    },
+    {
+      "name": "world-and-character-received-insertion-order",
+      "passed": true
+    },
+    {
+      "name": "reversed-declaration-opening-order",
+      "passed": true
+    },
+    {
+      "name": "negative-defense-intermediate",
+      "passed": true
+    },
+    {
+      "name": "core-condition-at-battle-start",
+      "passed": true
+    },
+    {
+      "name": "vanish-unobserved-auto-pauses",
+      "passed": true
+    },
+    {
+      "name": "vanish-observed-auto-blocks",
+      "passed": true
+    },
+    {
+      "name": "vanish-shared-camera-blocks",
+      "passed": true
+    },
+    {
+      "name": "vanish-mid-magazine-forces-reload",
+      "passed": true
+    },
+    {
+      "name": "shield-normal-damage-blocks-but-gauge-gains",
+      "passed": true
+    },
+    {
+      "name": "shield-base-element-passes",
+      "passed": true
+    },
+    {
+      "name": "shield-two-openings-in-declaration-order",
+      "passed": true
+    },
+    {
+      "name": "shield-opening-order-before-declaration",
+      "passed": true
+    },
+    {
+      "name": "vanish-before-both-shields",
+      "passed": true
+    },
+    {
+      "name": "shield-override-\uc218\ub0c9",
+      "passed": true
+    },
+    {
+      "name": "shield-override-\ud48d\uc555",
+      "passed": true
+    },
+    {
+      "name": "shield-override-None",
+      "passed": true
+    },
+    {
+      "name": "shield-named-skill-False",
+      "passed": true
+    },
+    {
+      "name": "shield-named-skill-True",
+      "passed": true
+    },
+    {
+      "name": "vanish-named-skill-False",
+      "passed": true
+    },
+    {
+      "name": "vanish-named-skill-True",
+      "passed": true
+    },
+    {
+      "name": "shield-blocked-packets-do-not-lifesteal",
+      "passed": true
+    },
+    {
+      "name": "vanish-blocked-packets-do-not-lifesteal",
+      "passed": true
+    },
+    {
+      "name": "shield-pellets-and-muzzles-account-each-hit",
+      "passed": true
+    },
+    {
+      "name": "vanish-charge-unobserved",
+      "passed": true
+    },
+    {
+      "name": "vanish-charge-camera",
+      "passed": true
+    },
+    {
+      "name": "vanish-mg-warmup-cools-by-actual-idle",
+      "passed": true
+    },
+    {
+      "name": "shield-normal-weapon-change",
+      "passed": true
+    },
+    {
+      "name": "vanish-normal-weapon-change",
+      "passed": true
+    },
+    {
+      "name": "pending-b3-open",
+      "passed": true
+    },
+    {
+      "name": "pending-b3-shield-at-landing",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count--1e+308",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count--1",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count--0.5",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count--5e-324",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count--0.0",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count-0",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count-0.5",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count-5e-324",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count-0.9999999999999999",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count-1",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count-1.9",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count-2",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count-31.999999999999996",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count-32",
+      "passed": true
+    },
+    {
+      "name": "cleanse-count-1e+308",
+      "passed": true
+    },
+    {
+      "name": "cleanse-default-missing-count",
+      "passed": true
+    },
+    {
+      "name": "cleanse-latest-open-first",
+      "passed": true
+    },
+    {
+      "name": "cleanse-declaration-tie-reverse",
+      "passed": true
+    },
+    {
+      "name": "cleanse-two-synchronous-operations",
+      "passed": true
+    },
+    {
+      "name": "cleanse-before-child-skill-keeps-current-frame",
+      "passed": true
+    },
+    {
+      "name": "cleanse-repeat-generation-reset",
+      "passed": true
+    },
+    {
+      "name": "cleanse-duration-zero-remains-sampled",
+      "passed": true
+    },
+    {
+      "name": "cleanse-ally-target-no-body-self",
+      "passed": true
+    },
+    {
+      "name": "cleanse-ally-target-no-body-all_allies",
+      "passed": true
+    },
+    {
+      "name": "cleanse-ally-target-no-body-['self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self', 'self']",
+      "passed": true
+    },
+    {
+      "name": "cleanse-enemy-selector-boss",
+      "passed": true
+    },
+    {
+      "name": "cleanse-enemy-selector-enemy",
+      "passed": true
+    },
+    {
+      "name": "cleanse-enemy-selector-target",
+      "passed": true
+    },
+    {
+      "name": "cleanse-enemy-selector-enemies_top_atk:1",
+      "passed": true
+    },
+    {
+      "name": "ordinary-enemy-debuff-cleanse-does-not-dispel-world-buffs",
+      "passed": true
+    },
+    {
+      "name": "cleanse32-nodes-1.5",
+      "passed": true
+    },
+    {
+      "name": "cleanse32-nodes-2.5",
+      "passed": true
+    },
+    {
+      "name": "cleanse32-nodes-31.999999999999996",
+      "passed": true
+    },
+    {
+      "name": "cleanse32-nodes-32",
+      "passed": true
+    },
+    {
+      "name": "cleanse-all-irremovable-no-change",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-open-False",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-vanish-False",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-shield-block-False",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-shield-pass-False",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-open-True",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-vanish-True",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-shield-block-True",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-shield-pass-True",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-buff-normal_atk_dmg_pct",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-buff-normal_atk_crit_rate",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-buff-normal_atk_crit_dmg",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-buff-crit_rate",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-buff-atk_pct",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-core-0",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-core-52",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-distance-15",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-distance-30",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-finite-bullet-buff-skips-consumption",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-one-shot-exit-before-landing-vanish",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-pellets-muzzles-vanish",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-charge-vanish",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-one-shot-exit-before-landing-shield",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-pellets-muzzles-shield",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-charge-shield",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-muzzles-only-vanish-False",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-muzzles-only-vanish-True",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-normal-charge-camera-vanish",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-skill-charge-unobserved-vanish",
+      "passed": true
+    },
+    {
+      "name": "weapon-mode-vanish-unobserved-auto-still-pauses",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-no-vanish",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-fixed-0.1",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-fixed-0.2",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-fixed-0.25",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-fixed-1",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-fixed-2.19",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-fixed-2.2",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-fixed-2.3",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-fixed-3",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-remaining-two-boundary-2.2166666666666663",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-remaining-two-boundary-2.216666666666667",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-remaining-two-boundary-2.2166666666666672",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-fixed-release",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-unknown-holds",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-unknown-max-two-seconds",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-unknown-until-after",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-multiple-fixed-latest",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-mixed-unknown-and-long-fixed",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-delayed-vanish",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-repeat-generation",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-unobserved",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-full-latch-survives-speed-expiry",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-weapon-switch-while-holding",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-weapon-switch-snapshot-0.4",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-weapon-switch-snapshot-0.7",
+      "passed": true
+    },
+    {
+      "name": "charge-hold-regular-character-does-not-hold",
+      "passed": true
+    }
+  ],
+  "source_sha256": "e84cfde4f28c237074d7e46812d3d568521744f1f863904c01416ae81410a09f",
+  "gpu_calls": 0
+}

@@ -1,0 +1,21 @@
+uint exclusion_0 = _S7532->inputBase_0 + 48824U + _S7528 * 8U;
+        uint definition_24 = _S7532->carrierDefinition_0[_S7532->orderedRows_0[pass_59]];
+        bool _S7555;
+        if(_S7531)
+        {
+            _S7555 = (kernelContext_628->commands_0[exclusion_0 + definition_24 / 32U] & (1U << (definition_24 % 32U))) != 0U;
+        }
+        else
+        {
+            _S7555 = false;
+        }
+        if(_S7555)
+        {
+            pass_59 = pass_59 + 1U;
+            continue;
+        }
+        thread Definition_0 _S7556 = _S7538;
+        uint _S7557 = Definition_owner_get_0(&_S7556, kernelContext_628);
+        ulong _S7558 = scalarValue_0(_S7527, slot_79, _S7557, kernelContext_628);
+        ulong _S7559 = f64Mul_0(_S7537, f64Add_0(4607182418800017408ULL, f64Div_0(_S7558, 4636737291354636288ULL)));
+        if(!f64Finite_0(_S7559))

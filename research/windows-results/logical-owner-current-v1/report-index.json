@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "owner": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+  "fixed_transport_commit": "23f633327d14dde2673d8e1139431329807734d9",
+  "summary": "Generation, PTX, object, link, original static SHA-scope stop, CPU diagnosis and one 8-second ordinary API validation.",
+  "scope": "Small status JSON only. Host path prefixes replaced with symbolic roots and process IDs omitted. No source packets, request bodies, raw data, PTX, CUBIN, SDK, or personal settings included.",
+  "historical_stops_and_false_environment_judgments_retained": true,
+  "api": {
+    "posts": 1,
+    "kernels": 1,
+    "cpu_payload_matched": true,
+    "m5_raw_matched": true,
+    "input_transport_sha256": "589d8feb1dc9928fcb32ca01c068a95f72bb1ca42244f4efee3db215ee95477e",
+    "input_words_only_sha256": "abeda20f4ad44e7ac1415924d0bba2a80a572070a570767b35084766fc0d5400",
+    "output_sha256": "fef677bccf60ece6493f2fd10641a7b58212ce89d22f5699c5ea3eccced1c794",
+    "whole_environment_verified": false
+  },
+  "files": [
+    {
+      "file": "product-logical-owner-current-generation-status-v1.json",
+      "bytes": 7917,
+      "sha256": "0cf7d8cac0cffaff0d0f0bd13b8a200d388e0c3d02861532f18522bc7f6fa872",
+      "original_local_status_sha256": "497ab1e0f554a9d7599697001728933692c669652373a9598370faae6217134b"
+    },
+    {
+      "file": "product-logical-owner-current-ptx-status-v1.json",
+      "bytes": 11780,
+      "sha256": "addeb8954a756f059a084a2661cac751264cb0792960a2a6ec6b8cd726d37b78",
+      "original_local_status_sha256": "8778d30045ea051ca40c499578f27d30d40988c78e1004136d77ca0fc2db91ef"
+    },
+    {
+      "file": "product-logical-owner-current-object-status-v1.json",
+      "bytes": 4369,
+      "sha256": "5eeb8b01f5b345c84285be521216bb5f6f9746e7e2592fd45cf97653ac5d95c0",
+      "original_local_status_sha256": "afeb4a995c400283bc67110b1e9cbe037f7bba75ee7223302d710c731aaaf0f3"
+    },
+    {
+      "file": "product-logical-owner-current-link-status-v1.json",
+      "bytes": 4535,
+      "sha256": "a235d3079298a94b0737cec2ad3d603e4937b7070fe11f656cdffa418ea1fc0c",
+      "original_local_status_sha256": "307e037769ee74040a8605fdb5a60d70f30e31ae1954f745cc88951a5276d6bd"
+    },
+    {
+      "file": "product-logical-owner-current-api-status-v1.json",
+      "bytes": 4002,
+      "sha256": "7697e6e896375eb1a3dfcbe8923cb6cba61ba066e30e665239cdaf330b1e8e93",
+      "original_local_status_sha256": "bb5aa8deebef9d7740117407fcc7cb70a19f78bfc66cd1d1997f499e885f7d54"
+    },
+    {
+      "file": "product-logical-owner-current-api-status-v2.json",
+      "bytes": 6867,
+      "sha256": "5c3ffad9ca0f0c9aea9e28487b6cdfdfaff733d92eec0a4240a3a3cdded2d52d",
+      "original_local_status_sha256": "a01e7f9c09a4a90345b18a787500e3e587ed22ce83261e69330501ee413e8c9e"
+    },
+    {
+      "file": "sha-scope-diagnostic.json",
+      "bytes": 4821,
+      "sha256": "e3974bf7a5a1e9e48f3bb2fabcb3497461bf9a7c36e46ac425746f3581a6beeb",
+      "original_local_status_sha256": "df029e2649bd5e7dd92effa2ea267dccdf889fb04bede4aa5bb5cf400308bc20"
+    }
+  ]
+}

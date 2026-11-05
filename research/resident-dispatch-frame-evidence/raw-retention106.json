@@ -1,0 +1,13 @@
+{
+  "schema": "resident-frames-full106-raw-retention-v1",
+  "passed": true,
+  "cases": 106,
+  "bytes": 875469264,
+  "raw_sha256": "4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09",
+  "all_original_raw_bytes_preserved": true,
+  "input_words": 115680,
+  "output_words": 2064786,
+  "normalization_or_omissions": false,
+  "GPU_calls": 0,
+  "scope": "Complete old/new readbacks compared chunkwise, including all rejection and scratch words"
+}

@@ -1,0 +1,286 @@
+{
+  "schema": "normal-resident-unpack-observation-diagnosis-v1",
+  "scope": "Read-only saved files and sources; no new process observations",
+  "owner": "e398f26377f9f2234548b8c55eae9c451dfdb85535d0344487cbd099ec772a58",
+  "original_missing_count": 7,
+  "original_gate_passed": false,
+  "preservation_verified": false,
+  "termination_cause": "unknown",
+  "identity_method": {
+    "fields": [
+      "pid",
+      "path.lower()",
+      "creation_filetime_ticks"
+    ],
+    "creation_string_preserved": true,
+    "no_rounding_or_tolerance": true,
+    "parent_pid_not_used_as_identity": true,
+    "comparison_reproduced_exactly": true
+  },
+  "classification_counts": {
+    "complete_missing_identity_records": 7,
+    "missing_same_full_identity_in_after": 0,
+    "missing_same_pid_in_after": 0,
+    "missing_matches_saved_direct_job_child_pid": 0,
+    "missing_matches_saved_job_member_pid": 0,
+    "missing_matches_coordinator_lossless_identity": 0,
+    "confirmed_snapshot_helper_identities": 0,
+    "other_identities_already_existing_before_coordinator": 7,
+    "broader_launcher_helper_relationship_unknown": 7,
+    "termination_cause_unknown": 7
+  },
+  "saved_role_counts": {
+    "unrelated": 5,
+    "service_candidate": 2
+  },
+  "saved_evidence": {
+    "all_missing_predate_coordinator": true,
+    "creation_lead_seconds_min": 1.31076,
+    "creation_lead_seconds_max": 1.828517,
+    "all_missing_predate_direct_job_child": true,
+    "distinct_parent_pid_count": 6,
+    "parent_pid_group_sizes": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "parent_creation_identity_saved": false,
+    "coordinator_identity_preserved_before_after": true,
+    "direct_child_cim_creation_equals_handle_creation": false,
+    "handle_minus_cim_creation_ticks": 6,
+    "creation_difference_not_normalized": true,
+    "pre_gate_fresh_single_child_verified": true,
+    "post_wait_job_empty": true,
+    "pre_gate_before_before_snapshot": true,
+    "before_snapshot_before_post_wait": true,
+    "post_wait_before_after_snapshot": true,
+    "phase_wrapper_pid_consistent": true,
+    "child_exit_code": 0,
+    "final_child_exit_code": 0,
+    "coordinator_saved_terminal_passed": false,
+    "coordinator_exit_code_from_source_and_saved_result": 1,
+    "timed_out": false,
+    "cleanup_error": null,
+    "observation_error": null,
+    "actual_process_exit_times_saved": false,
+    "wait_completed_is_observation_boundary_not_exit_time": true,
+    "same_saved_child_pid_row_role": "validation",
+    "same_saved_child_pid_row_excluded_from_missing": true,
+    "direct_child_lossless_cim_to_handle_join_verified": false,
+    "direct_child_association_limitation": "PID-linked snapshot row only; six-tick creation difference prevents claiming an exact CIM-to-handle identity join."
+  },
+  "source_findings": {
+    "before_snapshot_after_child_spawn_and_job_assignment": true,
+    "start_gate_release_after_before_snapshot": true,
+    "after_snapshot_after_child_wait_and_job_cleanup": true,
+    "known_child_misclassification_observed": false,
+    "possible_other_validation_helpers_without_role_marker_can_enter_monitored_set": true,
+    "reason": "Role exclusion uses command-path markers, not a complete lossless Job ancestry map. Snapshot is after child spawn. This is a general exposure, not proof that the seven records were helpers or exited normally.",
+    "current_snapshot_helper_not_in_retained_process_name_filter": true,
+    "no_declassification_or_guard_change_applied": true
+  },
+  "evidence": {
+    "observation": {
+      "bytes": 88324,
+      "sha256": "5474778c1e15edf75ecf3c4c5fd880799aeb3af6922c84c3302e6d9b6c274ae5",
+      "fields": [
+        "before.processes",
+        "after.processes",
+        "comparison.missing_existing_processes",
+        "observed_unix_ns"
+      ]
+    },
+    "job": {
+      "bytes": 1093,
+      "sha256": "53008908ce423ddd6b9eff0ad13efa8f4e6f7117f1daf66900f6d0519379d7b1",
+      "fields": [
+        "records.pre_gate",
+        "records.post_wait",
+        "child_creation_filetime_ticks",
+        "job_members",
+        "pre_gate_verified"
+      ]
+    },
+    "execution": {
+      "bytes": 1090,
+      "sha256": "116e978517f8910da2abfd003605913ea530f0da072dc7aa6c2a5eb682ba1fdc",
+      "fields": [
+        "child_exit_code",
+        "final_child_exit_code",
+        "wait_completed_unix_ns",
+        "timed_out",
+        "cleanup_error",
+        "observation_error"
+      ]
+    },
+    "command_claim": {
+      "bytes": 715,
+      "sha256": "18314eaa85715957309d50832e9e5d34a45df41bc8131db461c58153be5b6918",
+      "fields": [
+        "argv",
+        "request.cwd"
+      ]
+    },
+    "request": {
+      "bytes": 300,
+      "sha256": "9de36af6bdf04868063dc9395b2cae94597428111fe3a7a6d9d72a4bbcd512b8",
+      "fields": [
+        "argv",
+        "cwd"
+      ]
+    },
+    "coordinator_result": {
+      "bytes": 1193,
+      "sha256": "04e86368e00d57e840bb2ab67385c7baf449b66bc5af2c40e7dcde6017355d77",
+      "fields": [
+        "wrapper_failure",
+        "facts"
+      ]
+    },
+    "phase_journal": {
+      "bytes": 905,
+      "sha256": "32b0702665de685b886d86c9e118a938bc17a14243e58459583e13557d405a29",
+      "fields": [
+        "stage",
+        "state",
+        "wall_time_ns",
+        "pid"
+      ]
+    },
+    "launcher_stdout": {
+      "bytes": 4381,
+      "sha256": "03607993ada68affb1c914584088dac7181001268fd5ebb0287822417897d311",
+      "fields": [
+        "passed",
+        "execution",
+        "comparison"
+      ]
+    }
+  },
+  "source_evidence": {
+    "observer_source": {
+      "bytes": 14082,
+      "sha256": "97d7405ff8771cf413f5e58c14ebea98037afb8a3691417d12e7b21d2d45fdd3",
+      "lines": [
+        [
+          18,
+          43
+        ],
+        [
+          74,
+          75
+        ],
+        [
+          99,
+          108
+        ],
+        [
+          131,
+          143
+        ],
+        [
+          146,
+          183
+        ],
+        [
+          187,
+          215
+        ]
+      ]
+    },
+    "bounded_source": {
+      "bytes": 10282,
+      "sha256": "10ef875f8157d85b44ecc28e868c2cc95330eb9b4c59ad22723840533fa8074c",
+      "lines": [
+        [
+          47,
+          63
+        ],
+        [
+          106,
+          157
+        ]
+      ]
+    },
+    "coordinator_source": {
+      "bytes": 3398,
+      "sha256": "a0717b4ba61f652d6490b639474705e413aed5c3f4c3dca680be5562c97ba279",
+      "lines": [
+        [
+          4,
+          8
+        ],
+        [
+          15,
+          25
+        ],
+        [
+          34,
+          40
+        ]
+      ]
+    },
+    "gated_source": {
+      "bytes": 531,
+      "sha256": "4599eae1239be2ada2c2a99f1bf3066798d665c43ed71eb55d992f26a784205f",
+      "lines": [
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    "launcher_source": {
+      "bytes": 669,
+      "sha256": "b24fdc1220b3c05e45918e39758f75e1b21519675db168db6a9f1259524357c0",
+      "lines": [
+        [
+          12,
+          13
+        ]
+      ]
+    },
+    "unpack_source": {
+      "bytes": 1575,
+      "sha256": "76aa327685d7a85820ff9bc72ad19c6edd0035ebe53ce2e6ffa04a486a0c1e11",
+      "lines": [
+        [
+          13,
+          14
+        ]
+      ]
+    }
+  },
+  "source_packet_pins_verified": {
+    "observer_source": true,
+    "bounded_source": true
+  },
+  "insufficient_saved_materials": [
+    "Missing processes parent creation/executable identities and full ancestry",
+    "Job membership transitions covering all possible outside launcher/helper processes",
+    "Process exit events, exit codes and exact exit timestamps for the seven missing identities",
+    "Full original command lines of the missing records; only classification flags were retained",
+    "Lossless CIM/handle timestamp equivalence for the known child: a six-tick difference remains unnormalized"
+  ],
+  "additional_calls": {
+    "snapshot": 0,
+    "sdk": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0,
+    "os_mutation": 0,
+    "monitor_change": 0
+  },
+  "original_claims_and_failure_retained": true,
+  "old_records_unchanged": true,
+  "old_records_checked": 785,
+  "range_failure_unchanged": true,
+  "evidence_unchanged_during_diagnosis": true
+}

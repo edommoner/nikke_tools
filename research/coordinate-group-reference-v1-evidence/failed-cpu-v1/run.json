@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "package_id": "4c1a5a2a3106d43c6cc166e4bd223559836bbd06ddd34e8323ca97b341f7f049",
+  "backend": "metal",
+  "mode": "cpu-only",
+  "status": "failed",
+  "gpu_retry_count": 0
+}

@@ -56,17 +56,3 @@ def observe():
   if event.startswith('event:state_end:'):events.append([event,t,caster])
   return notify(self,event,t,caster,**kw)
  with patch.object(BuffManager,'_dispatch_instant',instant),patch.object(BuffManager,'notify',event):yield cleanups
-
-def main():
- cases=[]
- for name,effects,seconds in scenarios():
-  body=c.body_for(NAMES,seconds,True)
-  with c.p.custom_effects(effects),observe() as cleanups:result=c.a.evaluate(body)
-  assert cleanups,name
-  case=dict(name=name,input=body,authored_effects=effects,cleanups=cleanups,cpu_total=result['total_damage'],burst_timeline=result['burst_timeline'])
-  cases.append(case)
-  print(json.dumps({'name':name,'total':case['cpu_total'],'cleanups':len(cleanups),'first_before':len(cleanups[0]['before']),'first_after':len(cleanups[0]['after']),'state_end_notifications':sum(len(r['notifications']) for r in cleanups)},ensure_ascii=True),flush=True)
- files=['scripts/audit-debuff-cleanse.py','research/upstream/nikke-calc-master/calculator/buff_manager.py','research/upstream/nikke-calc-master/calculator/timeline.py']
- r=dict(generated_at=datetime.now(timezone.utc).isoformat(),cpu_reference_only=True,cpu_trace_used_as_gpu_input=False,cases=cases,source_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files})
- (ROOT/'research/detail-cleanse-cpu-references.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-if __name__=='__main__':main()

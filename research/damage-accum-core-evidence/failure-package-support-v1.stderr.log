@@ -1,0 +1,20 @@
+.......E..
+======================================================================
+ERROR: test_prior_metal143_source_files_are_exactly_preserved (test_portable_damage_accum_reference.DamageAccumReferenceTests.test_prior_metal143_source_files_are_exactly_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-damage-accum-core-v1/tests/test_portable_damage_accum_reference.py", line 70, in test_prior_metal143_source_files_are_exactly_preserved
+    golden=json.loads((ROOT/'research/portable-world-heal-charge-lifetime-short-expected.json').read_text())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-damage-accum-core-v1/research/portable-world-heal-charge-lifetime-short-expected.json'
+
+----------------------------------------------------------------------
+Ran 10 tests in 10.031s
+
+FAILED (errors=1)

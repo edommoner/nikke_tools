@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-cubin-metal",
+  "raw_bytes": 235929600,
+  "raw_sha256": "0b9264727d9138bf2ca0068d543c4edd00606a0be703ff700ac9a89bdf613856",
+  "evidence_sha256": "67e83d675e080899bb1438cc6a762af8fd0caf4bebbbe4adf8ee0b9668801c0c",
+  "raw_inode": 506566668,
+  "zero_ranges": 551,
+  "zero_range_bytes": 168558592,
+  "allocated_before": 235929600,
+  "allocated_after": 67371008,
+  "allocated_reclaimed": 168558592,
+  "full_hash_verified": true
+}

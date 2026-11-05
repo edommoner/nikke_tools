@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/private/tmp/nikke-sampled-delivery-develop-v1/scripts/nikke_gpu.py", line 2910, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/private/tmp/nikke-sampled-delivery-develop-v1/scripts/nikke_gpu.py", line 2853, in main
+    result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**(dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-sampled-delivery-develop-v1/scripts/nikke_gpu.py", line 1712, in run_capture
+    cpu_test_groups(m,capture,smoke)
+  File "/private/tmp/nikke-sampled-delivery-develop-v1/scripts/nikke_gpu.py", line 1561, in cpu_test_groups
+    completed=subprocess.run(command,cwd=ROOT,capture_output=True,timeout=timeout,env=cpu_test_environment(capture))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['/Users/edo/Documents/ChatGPT/nikke_tools/.venv/bin/python', '/private/tmp/nikke-sampled-delivery-develop-v1/scripts/nikke_gpu.py', '_tests', '--capture', '/private/tmp/nikke-sampled-delivery-metal-v1']' timed out after 60 seconds

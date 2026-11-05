@@ -1,0 +1,426 @@
+{
+  "schema": 1,
+  "scope": "Windows peer summary; Mac has not independently audited raw CUBIN/source captures",
+  "source": "d1594d94eb66ab48f49d84b5d6ff2aeb895bafad",
+  "package_id": "63170f745bab2fa3d428780c6008611b826f3cf09cfac801f12cfb4b8396e505",
+  "files": 2021,
+  "filetable_sha256": "f1cef0584a7a3f023dc4bd6e07169997a7cfc5ea173708c97eab9af4fa8ade56",
+  "cpu": "248成功、失敗・skipなし",
+  "smoke": "既存の1回でJob/native I/O gate成功",
+  "jit_link": {
+    "link_verified": true,
+    "containment_verified": true,
+    "api_version": [
+      12,
+      4
+    ],
+    "api_returns": "9件すべて0、Destroy含む",
+    "error_log": "",
+    "info_log": "",
+    "provider_seconds": 0.24578650016337633,
+    "child_exit_code": 0,
+    "cli_exit_code": 2,
+    "memory_cap_bytes": 2147483648,
+    "job_peak_bytes": 82231296,
+    "post_members": [],
+    "cleanup_error": null,
+    "missing_existing_processes": 0,
+    "output": {
+      "bytes": 3129744,
+      "sha256": "65963e8d699748dae522172449b7ebd5eb5e874eff8bf8d28d4c7be8f41b5ebd",
+      "type": "ET_EXEC",
+      "target": "sm_86",
+      "sections": 710,
+      "program_headers": 4,
+      "SLANG_globalParams_bytes": 48
+    }
+  },
+  "cpu_audit": "1回、link_verified=true",
+  "dll_and_original_object_unchanged": true,
+  "protected_files": "16492件のbytes/SHA不変、過去失敗・claim保持",
+  "parent_environment_preserved": true,
+  "exec": {
+    "smoke_and_link": "require_escalated",
+    "audit": "use_default"
+  },
+  "preservation_verified": false,
+  "service_status": "unverified",
+  "calculation_verified": false,
+  "current_full_battle_verified": false,
+  "nvrtc_ptxas_nvlink_exe_driver_gpu_calls": 0,
+  "retries": 0,
+  "summary_path": "C:/Users/owner/Documents/Codex/nikke-jit-link-d1594d9-diagnostic/safe-summary-final.json",
+  "summary_bytes": 11223,
+  "summary_sha256": "dec419df55a3c2321256c85ab71d678f619bb0edef758668e8d05ffb3aa4de27",
+  "mac_raw_independent_audit": false,
+  "saved_summary_byte_hash_independently_verified": false,
+  "saved_summary_parsed": {
+  "source_commit": "d1594d94eb66ab48f49d84b5d6ff2aeb895bafad",
+  "working_tree_dirty": false,
+  "package": {
+    "package_id": "63170f745bab2fa3d428780c6008611b826f3cf09cfac801f12cfb4b8396e505",
+    "files": 2021,
+    "filetable_sha256": "f1cef0584a7a3f023dc4bd6e07169997a7cfc5ea173708c97eab9af4fa8ade56"
+  },
+  "zip": {
+    "bytes": 5341978,
+    "sha256": "0a54735560b6d2f95feaec36bbaafb609eaa076047dcc5ba5e3f2afb9e0d1132"
+  },
+  "cpu": {
+    "tests": 248,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "group_seconds_sum": 36.56683539832011
+  },
+  "smoke": {
+    "result": {
+      "smoke_verified": true,
+      "gpu_calls": 0,
+      "calculation_verified": false,
+      "preservation_verified": null,
+      "status": "smoke"
+    },
+    "outer": {
+      "attempts": 1,
+      "cli_exit_code": 0,
+      "elapsed_seconds": 58.18295729998499,
+      "timed_out": false,
+      "outer_cleanup_error": null,
+      "below_normal": true,
+      "parent_environment_preserved": true,
+      "protected_files": 16492,
+      "protected_bytes_sha_unchanged": true,
+      "exec_sandbox_permissions": "require_escalated"
+    },
+    "job": {
+      "seconds": 4.682543899863958,
+      "child_pid": 72024,
+      "wrapper_pid": 80100,
+      "child_exit_code": 0,
+      "passed": true,
+      "timed_out": false,
+      "pre_gate_verified": true,
+      "pre_memory_cap_bytes": 2147483648,
+      "post_memory_cap_bytes": 2147483648,
+      "peak_bytes": 40329216,
+      "post_members": [],
+      "inspection_error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "missing_roles": {},
+      "termination_cause": null,
+      "service_before": "unverified",
+      "service_after": "unverified"
+    },
+    "native_inspection": {
+      "child_pid": 89036,
+      "child_ppid": 72024,
+      "parent_observation": "os_process_snapshot",
+      "observed_unix_ns": 1792657986498683400,
+      "wrapper_pid": 72024,
+      "child_creation_filetime_ticks": "134371315864615192",
+      "job_members": [
+        72024,
+        89036
+      ],
+      "job_peak_memory_bytes": 33001472,
+      "job_memory_limit_bytes": 2147483648
+    },
+    "native_launch": {
+      "protocol": "create-suspended-v1",
+      "created_suspended": true,
+      "creation_flags": 16388,
+      "primary_thread_id": 121996,
+      "resume_previous_count": 1
+    },
+    "native_return_code": 0,
+    "output_probe": {
+      "api": "CreateFileW",
+      "close_winerror": null,
+      "closed": true,
+      "created": true,
+      "expected_bytes": 20,
+      "expected_sha256": "96c983487a24dd4ab33bcb22f7d17bd28a8971851b1ab111398ad34139d87314",
+      "failed_operation": null,
+      "flushed": true,
+      "protocol": "native-file-output-v1",
+      "status": "verified",
+      "winerror": null,
+      "written_bytes": 20
+    }
+  },
+  "component": {
+    "archive": {
+      "bytes": 91513391,
+      "sha256": "d8f4086215f482263dbfbe47a3580e88acbcdacbb284f8aa0c21a8fe408e671d"
+    },
+    "members": [
+      {
+        "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-jit-link-d1594d9-diagnostic\\component\\libnvjitlink-windows-x86_64-12.4.127-archive\\LICENSE",
+        "bytes": 63021,
+        "sha256": "e2c71babfd18a8e69542dd7e9ca018f9caa438094001a58e6bc4d8c999bf0d07"
+      },
+      {
+        "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-jit-link-d1594d9-diagnostic\\component\\libnvjitlink-windows-x86_64-12.4.127-archive\\bin\\nvJitLink_120_0.dll",
+        "bytes": 38247424,
+        "sha256": "2da9da786b85c100ba122f931a49c5c1eda83c32e3fa36814c2ef470e45fa9b1"
+      },
+      {
+        "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-jit-link-d1594d9-diagnostic\\component\\libnvjitlink-windows-x86_64-12.4.127-archive\\include\\nvJitLink.h",
+        "bytes": 17018,
+        "sha256": "5c15689136c1da9a25013118c686e38ceb2adeb2ba544c37d274129fab0c7f06"
+      }
+    ],
+    "all_bytes_sha_unchanged": true
+  },
+  "link": {
+    "result": {
+      "mode": "jit-link-object-only",
+      "object_verified": true,
+      "link_verified": true,
+      "passed": false,
+      "containment_verified": true,
+      "preservation_verified": false,
+      "calculation_verified": false,
+      "current_full_battle_verified": false,
+      "kernel_calls": 0,
+      "error": null,
+      "gpu_retry_count": 0
+    },
+    "outer": {
+      "attempts": 1,
+      "cli_exit_code": 2,
+      "elapsed_seconds": 70.11717339977622,
+      "timed_out": false,
+      "outer_cleanup_error": null,
+      "below_normal": true,
+      "parent_environment_preserved": true,
+      "protected_files": 16492,
+      "protected_bytes_sha_unchanged": true,
+      "dll_before": {
+        "bytes": 38247424,
+        "sha256": "2da9da786b85c100ba122f931a49c5c1eda83c32e3fa36814c2ef470e45fa9b1"
+      },
+      "dll_after": {
+        "bytes": 38247424,
+        "sha256": "2da9da786b85c100ba122f931a49c5c1eda83c32e3fa36814c2ef470e45fa9b1"
+      },
+      "original_object_after": {
+        "bytes": 3327472,
+        "sha256": "c92550d36a7bc5892ffcb9f002c297227b34f7184a74827394996c2afe44b79c"
+      },
+      "exec_sandbox_permissions": "require_escalated"
+    },
+    "job": {
+      "seconds": 29.41395410010591,
+      "child_pid": 43204,
+      "wrapper_pid": 120948,
+      "child_exit_code": 0,
+      "passed": true,
+      "timed_out": false,
+      "pre_gate_verified": true,
+      "pre_memory_cap_bytes": 2147483648,
+      "post_memory_cap_bytes": 2147483648,
+      "peak_bytes": 82231296,
+      "post_members": [],
+      "inspection_error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "missing_roles": {},
+      "termination_cause": null,
+      "service_before": "unverified",
+      "service_after": "unverified"
+    },
+    "job_inspections": [
+      {
+        "phase": "before",
+        "inspection": {
+          "child_creation_filetime_ticks": "134371316867025727",
+          "child_pid": 43204,
+          "child_ppid": 120948,
+          "job_members": [
+            43204
+          ],
+          "job_memory_limit_bytes": 2147483648,
+          "job_peak_memory_bytes": 78721024,
+          "observed_unix_ns": 1792658113230982400,
+          "parent_observation": "os_process_snapshot",
+          "wrapper_pid": 43204
+        }
+      },
+      {
+        "phase": "after",
+        "inspection": {
+          "child_creation_filetime_ticks": "134371316867025727",
+          "child_pid": 43204,
+          "child_ppid": 120948,
+          "job_members": [
+            43204
+          ],
+          "job_memory_limit_bytes": 2147483648,
+          "job_peak_memory_bytes": 78721024,
+          "observed_unix_ns": 1792658113320969000,
+          "parent_observation": "os_process_snapshot",
+          "wrapper_pid": 43204
+        }
+      }
+    ],
+    "driver_observations": [
+      {
+        "phase": "before_load",
+        "driver_module_loaded": false
+      },
+      {
+        "phase": "after_load",
+        "driver_module_loaded": false
+      },
+      {
+        "phase": "after_link",
+        "driver_module_loaded": false
+      }
+    ],
+    "library_load": [
+      {
+        "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-jit-link-d1594d9-diagnostic\\component\\libnvjitlink-windows-x86_64-12.4.127-archive\\bin\\nvJitLink_120_0.dll",
+        "stage": "module_jit_link_library_load",
+        "state": "entered",
+        "tool_sha256": "2da9da786b85c100ba122f931a49c5c1eda83c32e3fa36814c2ef470e45fa9b1"
+      },
+      {
+        "stage": "module_jit_link_library_load",
+        "state": "returned"
+      }
+    ],
+    "api_diagnostic": {
+      "events": [
+        {
+          "api": "nvJitLinkVersion",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkCreate_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkAddData_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkComplete_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkGetErrorLogSize_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkGetInfoLogSize_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkGetLinkedCubinSize_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkGetLinkedCubin_12_4",
+          "return_code": 0
+        },
+        {
+          "api": "__nvJitLinkDestroy_12_4",
+          "return_code": 0
+        }
+      ],
+      "error_log": "",
+      "info_log": "",
+      "log_errors": [],
+      "cleanup_error": null,
+      "failure": null,
+      "api_version": [
+        12,
+        4
+      ],
+      "options": [
+        "-arch=sm_86",
+        "-verbose"
+      ],
+      "source_origin_verified": false,
+      "containment_verified": false,
+      "calculation_verified": false,
+      "program_driver_api_calls": 0
+    },
+    "provider_seconds": 0.24578650016337633,
+    "input": {
+      "bytes": 3327472,
+      "sha256": "c92550d36a7bc5892ffcb9f002c297227b34f7184a74827394996c2afe44b79c"
+    },
+    "input_copy_all_bytes_unchanged": true,
+    "output": {
+      "format": "elf64-little",
+      "type": "executable",
+      "machine": "cuda",
+      "cuda_format_version": 124,
+      "target": "sm_86",
+      "sections": 710,
+      "program_headers": 4,
+      "static_bindings": {
+        "portableEvents": {
+          "info": 18,
+          "other": 16,
+          "section": 707,
+          "value": 0,
+          "bytes": 896
+        },
+        "SLANG_globalParams": {
+          "info": 1,
+          "other": 0,
+          "section": 512,
+          "value": 0,
+          "bytes": 48
+        }
+      },
+      "bytes": 3129744,
+      "sha256": "65963e8d699748dae522172449b7ebd5eb5e874eff8bf8d28d4c7be8f41b5ebd"
+    },
+    "stdout": "",
+    "stderr": "info    : 202 bytes gmem, 48 bytes cmem[3]\ninfo    : Function properties for 'portableEvents':\ninfo    : used 214 registers, 17512 stack, 0 bytes smem, 352 bytes cmem[0], 132 bytes cmem[2], 0 bytes lmem\n"
+  },
+  "audit": {
+    "attempts": 1,
+    "exit_code": 2,
+    "elapsed_seconds": 21.73135309992358,
+    "timed_out": false,
+    "parent_environment_preserved": true,
+    "gpu_calls": 0,
+    "exec_sandbox_permissions": "use_default"
+  },
+  "protected_files": {
+    "count": 16492,
+    "all_bytes_sha_unchanged": true,
+    "includes_all_prior_failures_and_claims": true
+  },
+  "new_claim_retained": true,
+  "parent_environment_preserved": true,
+  "calls": {
+    "cpu_smoke": 1,
+    "native_io_probe": 1,
+    "nvjitlink_library_load": 1,
+    "nvjitlink_link": 1,
+    "cpu_audit": 1,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "nvlink_exe": 0,
+    "program_driver_api": 0,
+    "gpu": 0,
+    "retries": 0
+  },
+  "preservation_verified": false,
+  "calculation_verified": false,
+  "current_full_battle_verified": false,
+  "ssh_firewall_protection_sdk_path_changes": false,
+  "raw_artifacts_transferred": false
+},
+  "next": "Current full-entry PTX compile only, fixed separate package; saved commands CUBIN is not admitted to current battle"
+}

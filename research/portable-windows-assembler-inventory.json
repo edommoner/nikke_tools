@@ -1,0 +1,41 @@
+{
+  "cuda_environment": {
+    "CUDA_PATH": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v11.3",
+    "CUDA_PATH_V11_3": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v11.3"
+  },
+  "standard_install_directories": [
+    "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v11.3"
+  ],
+  "where_ptxas": [
+    "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v11.3\\bin\\ptxas.exe"
+  ],
+  "ptxas": {
+    "path": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v11.3\\bin\\ptxas.exe",
+    "sha256": "ed4a5fd3c1ca0b4860b4eccefe7dbf27ffd29a0f277d5ef5cdacbd2de20bcdd4",
+    "version_command": [
+      "--version"
+    ],
+    "timeout_seconds": 5,
+    "timed_out": false,
+    "exit_code": 0,
+    "stdout": "ptxas: NVIDIA (R) Ptx optimizing assembler\nCopyright (c) 2005-2021 NVIDIA Corporation\nBuilt on Sun_Mar_21_19:22:56_Pacific_Daylight_Time_2021\nCuda compilation tools, release 11.3, V11.3.58\nBuild cuda_11.3.r11.3/compiler.29745058_0",
+    "stderr": ""
+  },
+  "nvcuda_file_version_info": {
+    "path": "C:\\Windows\\System32\\nvcuda.dll",
+    "file_version": "32.0.16.1714",
+    "product_version": "32.0.16.1714",
+    "description": "NVIDIA CUDA Driver, Version 617.14",
+    "company": "NVIDIA Corporation"
+  },
+  "execution": {
+    "compilation_calls": 0,
+    "driver_api_calls": 0,
+    "gpu_calls": 0,
+    "nvidia_smi_calls": 0,
+    "downloads_or_installs": 0,
+    "environment_or_checkout_changes": false,
+    "existing_v125_v128_artifacts_modified": false
+  },
+  "source_scope": "Read-only Windows tool inventory from peer final report; no CUDA driver API or compilation"
+}

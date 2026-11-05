@@ -1,0 +1,41 @@
+{
+  "schema": "product-coordinate-add-cuda-import-v1",
+  "transport_result_commit": "9d31ddae8ca0987f93643aef175a4704b26770f5",
+  "owner": "b659740bb186a4acd141c2ca4f698609f991cb24fc581024dc233ffee2395ec9",
+  "raw_report_sha256": "2c4d12db3276c8d1a19d565ab94a82399475a482da4a2c63eb361a07c178dcd8",
+  "local_checks": {
+    "all_transport_payload_hashes": true,
+    "immutable_manifest_and_all_files": true,
+    "gpu_source_closure_files": 271,
+    "gpu_source_closure_canonical_sha256": "19fdd4b3f7479e9309923b3bcc1cccc4a114c4939bdd44742c7ee9d5e10c8478",
+    "original_m5_input_and_output_full_sha": true,
+    "original_metal_api_saved_audit_passed": true,
+    "original_m5_activity_counts_exact": true
+  },
+  "cuda_report_scope": {
+    "ordinary_api_cases": 1,
+    "posts": 1,
+    "physical_gpu_dispatches": 1,
+    "all_cpu_gpu_http_unicode_equal": true,
+    "full_m5_readback_equal": true,
+    "current_monitored_processes_preserved": true,
+    "api_helper_seconds": 24.492781000211835,
+    "gpu_synchronize_seconds": 1.1091074,
+    "api_job_peak_bytes": 2071089152,
+    "saved_audit_passed": true,
+    "additional_battles_or_gpu": 0,
+    "sdk_outer2_inner0_retained": true
+  },
+  "cuda_original_raw_read_on_mac": false,
+  "source_host_raw_and_driver_evidence_transcribed_not_reexecuted": true,
+  "original_m5_raw_read_on_mac": true,
+  "additional_gpu_or_battles_on_mac": 0,
+  "old_ammo_missing3_unknown_retained": true,
+  "standard_profile_delta": 0,
+  "standard_metal_recorded": 263,
+  "standard_cuda_recorded": 263,
+  "total_standard_profiles": 266,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}

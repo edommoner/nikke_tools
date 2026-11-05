@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "groups": [
+    {
+      "pattern": "test_portable_random_cleanse.py",
+      "tests": 4,
+      "skipped": 0,
+      "passed": true,
+      "seconds": 1.9746456670109183
+    },
+    {
+      "pattern": "test_portable_readiness_semantics.py",
+      "tests": 11,
+      "skipped": 0,
+      "passed": true,
+      "seconds": 0.2994445839431137
+    },
+    {
+      "pattern": "test_portable_ally_random_reference.py",
+      "tests": 6,
+      "skipped": 0,
+      "passed": true,
+      "seconds": 1.033414833014831
+    },
+    {
+      "pattern": "test_portable_revive_reference.py",
+      "tests": 5,
+      "skipped": 0,
+      "passed": true,
+      "seconds": 2.6105449999449775
+    }
+  ],
+  "tests": 26,
+  "seconds": 5.918408958008513,
+  "gpu_calls": 0
+}

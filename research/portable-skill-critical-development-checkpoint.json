@@ -1,0 +1,70 @@
+{
+  "full_goal_complete": false,
+  "feature": "trigger_hit_crit plus shared forced-slot admission/condition checks",
+  "shared_cuda_metal_implementation": true,
+  "protected_reference_changed": false,
+  "binary64_integer_pow_and_normalizer_changed": false,
+  "wire_strides_unchanged": true,
+  "metal": {
+    "package_id": "c002f644e310685f620748e1bb77a0bb7eff94733fc602ca110ad4cc599f279d",
+    "inputs": 327,
+    "native_positive": 262,
+    "raw_reject": 65,
+    "calculation_verified": true,
+    "explicit_seal": true,
+    "device": "Apple M5",
+    "gpu_seconds": 7.918082625023089,
+    "library_compile_seconds": 1.0516999959945679,
+    "pipeline_compile_seconds": 9.738539934158325,
+    "bounded_elapsed_seconds": 44.05929975002073,
+    "mismatches": [],
+    "retained_previous_inputs_and_raw_outputs": 287,
+    "retained_inputs_and_raw_from_original_failure": 316,
+    "retention_sets_overlap": true,
+    "original_failures_preserved": true
+  },
+  "cpu": {
+    "tests": 671,
+    "skipped": 1,
+    "passed": true,
+    "log_sha256": "e10b92195b5e0c4fa58c8788812e3075bafaa77d02dd518d81c4fb2d544a7294"
+  },
+  "static_inventory": {
+    "profiles": 191,
+    "total_profiles": 266,
+    "base": 132,
+    "total_base": 203,
+    "categories": 113,
+    "cpu_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "new_real_profiles": [
+    {
+      "character": "율리아",
+      "favorite_stage": 1,
+      "durations": [
+        3,
+        30
+      ]
+    },
+    {
+      "character": "율리아",
+      "favorite_stage": 2,
+      "durations": [
+        3,
+        30
+      ]
+    }
+  ],
+  "cuda": {
+    "windows_runs_this_feature": 0,
+    "new_calculation_verified": false,
+    "cold_compile_failure_preserved": true,
+    "call_graph_source_verified": true,
+    "call_graph_root": "weaponFrameBody_0",
+    "next_candidate": "rawEffectiveCharge shared noinline boundary; numerical and compiler validation pending",
+    "compiler_memory_cause_verified": false
+  },
+  "normal_ui": "CPU",
+  "full_character_verified": 0
+}

@@ -1,0 +1,1497 @@
+{
+  "schema": "product-movement-cover-v1",
+  "implementation_source": "c3ed64afb7c19ecb9c602ebd336b562c537ac00a",
+  "release_source": "70e68113864923eaa3c5281b0d5f20deef1cbb3d",
+  "development_owner": "94524c831b21418e1246a9759654f603ccc1f00fb1ea9e99a5f5417be50c1d70",
+  "release_owner": "de7eae326ff99ab4da1c28b0dca653e01da2c5abbc4ad8d1e6a9bf1d6211b988",
+  "shared_contract": {
+    "input_words": 117500,
+    "movement_prefix_words": 117476,
+    "cover_literal_words": 24,
+    "output_words": 2048912,
+    "movement_output_end": 2032000,
+    "cover_output_start": 2032000,
+    "bank_overlap": false,
+    "existing_executor_reused": true,
+    "original_effect_definitions_preserved": true,
+    "cpu_canonical_changed": false,
+    "numeric_tolerance_changed": false,
+    "normalizer_changed": false,
+    "new_suite_count": 0,
+    "declared_model_not_game_verified": true
+  },
+  "cli": {
+    "cpu_tests": [
+      {
+        "pattern": "test_portable_detail.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.4522909999941476,
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 86603
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.3209482079837471,
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 86603
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.2543923750054091,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 86603
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "exit_code": 0,
+        "elapsed_seconds": 17.12209304200951,
+        "tests": 45,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 86603
+      }
+    ],
+    "run": {
+      "sealed": false,
+      "purpose": "development",
+      "calculation_verified": true,
+      "preservation_verified": null,
+      "passed": true,
+      "containment_verified": true,
+      "transport_verified": true,
+      "comparison_error": null,
+      "first_difference": null,
+      "phase": {
+        "events": 62,
+        "last_event": {
+          "elapsed_seconds": 22.901199541,
+          "monotonic_ns": 452676652028083,
+          "pid": 86628,
+          "stage": "shared_gpu_execute",
+          "state": "returned",
+          "wall_time_ns": 1793484120871659000
+        },
+        "timed_calls": [
+          {
+            "stage": "slang_generation_identity",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.151835708
+          },
+          {
+            "stage": "slang_compiler",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 2.059484375
+          },
+          {
+            "stage": "slang_compiler",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 2.957637333
+          },
+          {
+            "stage": "slang_reflection_plan",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.00236175
+          },
+          {
+            "stage": "slang_scope_snapshot_audit",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.019251542
+          },
+          {
+            "stage": "slang_reflection_plan",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.002269208
+          },
+          {
+            "stage": "slang_layout_assertions",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.009386417
+          },
+          {
+            "stage": "slang_scope_snapshot_audit",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.0175445
+          },
+          {
+            "stage": "slang_generation_validate_pair",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.036888125
+          },
+          {
+            "stage": "slang_generation_identity",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.132058542
+          },
+          {
+            "stage": "slang_generation_atomic",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.001560375
+          },
+          {
+            "stage": "slang_generation_read_entry",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.01684425
+          },
+          {
+            "stage": "slang_reflection_plan",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.002113292
+          },
+          {
+            "stage": "slang_layout_assertions",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.009694375
+          },
+          {
+            "stage": "slang_scope_snapshot_audit",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.017909666
+          },
+          {
+            "stage": "slang_generation_validate_pair",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.037516792
+          },
+          {
+            "stage": "slang_generation_identity",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.132255291
+          },
+          {
+            "stage": "slang_generation_atomic",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.000753708
+          },
+          {
+            "stage": "slang_generation_atomic",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.000242625
+          },
+          {
+            "stage": "slang_generation_atomic",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.000676292
+          },
+          {
+            "stage": "slang_generation_atomic",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.000215625
+          },
+          {
+            "stage": "slang_generation_atomic",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.000159417
+          },
+          {
+            "stage": "slang_build",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 5.673585208
+          },
+          {
+            "stage": "slang_reflection_plan",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.002081625
+          },
+          {
+            "stage": "slang_layout_assertions",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.009442167
+          },
+          {
+            "stage": "slang_scope_snapshot_audit",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.017467416
+          },
+          {
+            "stage": "slang_generation_validate_pair",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.036651333
+          },
+          {
+            "stage": "slang_reflection_plan",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 0.001986417
+          },
+          {
+            "stage": "shared_gpu_execute",
+            "pid": 86628,
+            "state": "returned",
+            "elapsed_seconds": 22.901199541
+          }
+        ],
+        "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retries": 0,
+      "audit_gpu_calls": 0
+    },
+    "independent_gpu_forbidden_receipt": {
+      "package_id": "94524c831b21418e1246a9759654f603ccc1f00fb1ea9e99a5f5417be50c1d70",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-movement-cover-v1-20261101/cli-run-v1",
+      "child_pid": 86663,
+      "input_count": 1,
+      "native_cases": 1,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 2.1066288750153035,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "1ca77fbd33b30a5f5dc7d0153b285ef476a0469892baf5af11ecd7cf1dd09aa4",
+      "output_sha256": "b6a894a43dcd7886063d85c4b231d578658f581e8c6e5856a19405d1f051a957",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "baseline": "research/portable-product-programs-v22-expected.json",
+    "old_registered_members_retained": 19,
+    "registered_fixed": true,
+    "registered_accumulate": false
+  },
+  "normal_api": {
+    "cases": 14,
+    "physical_dispatches": 8,
+    "primary_batch_wall_seconds": 32.8641617919784,
+    "groups": [
+      {
+        "group": "primary",
+        "cases": 8,
+        "compute": [
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "0b602270ae384603913adbbb212a0a99",
+            "device": "Apple M5",
+            "elapsed_ms": 4102.772707992699,
+            "gpu_execution_verified": true,
+            "input_sha256": "1ca77fbd33b30a5f5dc7d0153b285ef476a0469892baf5af11ecd7cf1dd09aa4",
+            "output_sha256": "b6a894a43dcd7886063d85c4b231d578658f581e8c6e5856a19405d1f051a957",
+            "source": "gpu/product_movement_cover_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.8660688333329745,
+            "batch": {
+              "capture_id": "batch-1271ca950a7b4cfdb8ff8299662c946e",
+              "index": 0,
+              "cases": 4,
+              "input_words": 117500,
+              "output_words": 2048912,
+              "input_sha256": "1ca77fbd33b30a5f5dc7d0153b285ef476a0469892baf5af11ecd7cf1dd09aa4",
+              "output_sha256": "b6a894a43dcd7886063d85c4b231d578658f581e8c6e5856a19405d1f051a957",
+              "transport_input_sha256": "6f6e883234ec4294aa55105933f0863eeb15936b76cd359885397798b0df81d1",
+              "transport_output_sha256": "ee58db4919d30d14f4e4ff5da83306771ab2879f76a7e9486bd5a07ebe2bf220",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          },
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "89b88877311442bca5f9aa8d1af3e9f4",
+            "device": "Apple M5",
+            "elapsed_ms": 4861.692792037502,
+            "gpu_execution_verified": true,
+            "input_sha256": "92502605f13d77346066bd6315c5b416fd7c75b6f5a34b251c50358a9855301b",
+            "output_sha256": "d99cb86e31cd2e444859edc7acf8cfbb3e1cfde77e101881558b50277772cecd",
+            "source": "gpu/product_movement_cover_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.8660688333329745,
+            "batch": {
+              "capture_id": "batch-1271ca950a7b4cfdb8ff8299662c946e",
+              "index": 1,
+              "cases": 4,
+              "input_words": 117500,
+              "output_words": 2048912,
+              "input_sha256": "92502605f13d77346066bd6315c5b416fd7c75b6f5a34b251c50358a9855301b",
+              "output_sha256": "d99cb86e31cd2e444859edc7acf8cfbb3e1cfde77e101881558b50277772cecd",
+              "transport_input_sha256": "6f6e883234ec4294aa55105933f0863eeb15936b76cd359885397798b0df81d1",
+              "transport_output_sha256": "ee58db4919d30d14f4e4ff5da83306771ab2879f76a7e9486bd5a07ebe2bf220",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          },
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "b04eaea8cb52446a95409480583c023b",
+            "device": "Apple M5",
+            "elapsed_ms": 5496.03479198413,
+            "gpu_execution_verified": true,
+            "input_sha256": "5918f55ab851aaf167bb4ddbf73cd6ff4a906267325eb380ef30cf5c7594f407",
+            "output_sha256": "e5371d7422ec8816270e94e015d8ab6930863bbfa23546dedd5ff8719f53afd8",
+            "source": "gpu/product_movement_cover_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.8660688333329745,
+            "batch": {
+              "capture_id": "batch-1271ca950a7b4cfdb8ff8299662c946e",
+              "index": 2,
+              "cases": 4,
+              "input_words": 117500,
+              "output_words": 2048912,
+              "input_sha256": "5918f55ab851aaf167bb4ddbf73cd6ff4a906267325eb380ef30cf5c7594f407",
+              "output_sha256": "e5371d7422ec8816270e94e015d8ab6930863bbfa23546dedd5ff8719f53afd8",
+              "transport_input_sha256": "6f6e883234ec4294aa55105933f0863eeb15936b76cd359885397798b0df81d1",
+              "transport_output_sha256": "ee58db4919d30d14f4e4ff5da83306771ab2879f76a7e9486bd5a07ebe2bf220",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          },
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "99754d64d769479a8a076c9d0f2ff169",
+            "device": "Apple M5",
+            "elapsed_ms": 6202.380749979056,
+            "gpu_execution_verified": true,
+            "input_sha256": "ab5fca215aa7e2232e911aaf58c28138681ea738f090510f420be68a9dc20044",
+            "output_sha256": "e5371d7422ec8816270e94e015d8ab6930863bbfa23546dedd5ff8719f53afd8",
+            "source": "gpu/product_movement_cover_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.8660688333329745,
+            "batch": {
+              "capture_id": "batch-1271ca950a7b4cfdb8ff8299662c946e",
+              "index": 3,
+              "cases": 4,
+              "input_words": 117500,
+              "output_words": 2048912,
+              "input_sha256": "ab5fca215aa7e2232e911aaf58c28138681ea738f090510f420be68a9dc20044",
+              "output_sha256": "e5371d7422ec8816270e94e015d8ab6930863bbfa23546dedd5ff8719f53afd8",
+              "transport_input_sha256": "6f6e883234ec4294aa55105933f0863eeb15936b76cd359885397798b0df81d1",
+              "transport_output_sha256": "ee58db4919d30d14f4e4ff5da83306771ab2879f76a7e9486bd5a07ebe2bf220",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          },
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "9d8776d1e0d941eab58be748c19b5c13",
+            "device": "Apple M5",
+            "elapsed_ms": 27918.050667038187,
+            "gpu_execution_verified": true,
+            "input_sha256": "c9e42d53f3fa40277b321c1f9ff032154578cc249b44b4cce1338bdea33b06c0",
+            "output_sha256": "4b1551fd295437fc9aa2b036f357b6ddc0891ec4641e52b5ce68f8acfa93fcfa",
+            "source": "gpu/product_movement_cover_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.9209175416617654,
+            "batch": {
+              "capture_id": "batch-48e43e348a114e659947677994cdda65",
+              "index": 0,
+              "cases": 4,
+              "input_words": 117500,
+              "output_words": 2048912,
+              "input_sha256": "c9e42d53f3fa40277b321c1f9ff032154578cc249b44b4cce1338bdea33b06c0",
+              "output_sha256": "4b1551fd295437fc9aa2b036f357b6ddc0891ec4641e52b5ce68f8acfa93fcfa",
+              "transport_input_sha256": "32e0c0da4a040cd40bcc6ffea26e3ff05a361d40e4d5a5e1fb1d1850063ba65d",
+              "transport_output_sha256": "94be00628b67aadc50c179c0c57fc0b7cbfe0807d80e4ed1bf5817b0a1a97ac8",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          },
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "b43774e11d6e4b029316063f8b92a75f",
+            "device": "Apple M5",
+            "elapsed_ms": 28765.97079099156,
+            "gpu_execution_verified": true,
+            "input_sha256": "56d546734e264739db51500f34ab8fddd2f27471e9aa51b4bf1bcde330a62df7",
+            "output_sha256": "a159b1ef31a5096f9897b7137538a29c45e5e0d9ed1d8f631d9aed6bd62abc30",
+            "source": "gpu/product_movement_cover_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.9209175416617654,
+            "batch": {
+              "capture_id": "batch-48e43e348a114e659947677994cdda65",
+              "index": 1,
+              "cases": 4,
+              "input_words": 117500,
+              "output_words": 2048912,
+              "input_sha256": "56d546734e264739db51500f34ab8fddd2f27471e9aa51b4bf1bcde330a62df7",
+              "output_sha256": "a159b1ef31a5096f9897b7137538a29c45e5e0d9ed1d8f631d9aed6bd62abc30",
+              "transport_input_sha256": "32e0c0da4a040cd40bcc6ffea26e3ff05a361d40e4d5a5e1fb1d1850063ba65d",
+              "transport_output_sha256": "94be00628b67aadc50c179c0c57fc0b7cbfe0807d80e4ed1bf5817b0a1a97ac8",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          },
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "3f679a22f1de42cd94488563d6f0c2c6",
+            "device": "Apple M5",
+            "elapsed_ms": 29423.93995798193,
+            "gpu_execution_verified": true,
+            "input_sha256": "6001982c796d4c71e5bc083d67a16691d91af1adcfd1c588919f370b61096c21",
+            "output_sha256": "c442f88589efe018d320bd44486624ed0f4817e7be848135b944ac68d8e80cb9",
+            "source": "gpu/product_movement_cover_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.9209175416617654,
+            "batch": {
+              "capture_id": "batch-48e43e348a114e659947677994cdda65",
+              "index": 2,
+              "cases": 4,
+              "input_words": 117500,
+              "output_words": 2048912,
+              "input_sha256": "6001982c796d4c71e5bc083d67a16691d91af1adcfd1c588919f370b61096c21",
+              "output_sha256": "c442f88589efe018d320bd44486624ed0f4817e7be848135b944ac68d8e80cb9",
+              "transport_input_sha256": "32e0c0da4a040cd40bcc6ffea26e3ff05a361d40e4d5a5e1fb1d1850063ba65d",
+              "transport_output_sha256": "94be00628b67aadc50c179c0c57fc0b7cbfe0807d80e4ed1bf5817b0a1a97ac8",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          },
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "0242c0c1e1e2448f9812436d7886a4bb",
+            "device": "Apple M5",
+            "elapsed_ms": 30156.187375017907,
+            "gpu_execution_verified": true,
+            "input_sha256": "6220ef3853889defd26f686dd4ea22462ad1a19136cba313123e5d71f35d793c",
+            "output_sha256": "c442f88589efe018d320bd44486624ed0f4817e7be848135b944ac68d8e80cb9",
+            "source": "gpu/product_movement_cover_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.9209175416617654,
+            "batch": {
+              "capture_id": "batch-48e43e348a114e659947677994cdda65",
+              "index": 3,
+              "cases": 4,
+              "input_words": 117500,
+              "output_words": 2048912,
+              "input_sha256": "6220ef3853889defd26f686dd4ea22462ad1a19136cba313123e5d71f35d793c",
+              "output_sha256": "c442f88589efe018d320bd44486624ed0f4817e7be848135b944ac68d8e80cb9",
+              "transport_input_sha256": "32e0c0da4a040cd40bcc6ffea26e3ff05a361d40e4d5a5e1fb1d1850063ba65d",
+              "transport_output_sha256": "94be00628b67aadc50c179c0c57fc0b7cbfe0807d80e4ed1bf5817b0a1a97ac8",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        ],
+        "audit": {
+          "rows": [
+            {
+              "index": 0,
+              "profile": "유니",
+              "variant": "disable-fixed",
+              "capture": "0b602270ae384603913adbbb212a0a99",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "physical_batch_and_exact_member_slices_verified": true,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            },
+            {
+              "index": 1,
+              "profile": "얀",
+              "variant": "force-fixed",
+              "capture": "89b88877311442bca5f9aa8d1af3e9f4",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "physical_batch_and_exact_member_slices_verified": true,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            },
+            {
+              "index": 2,
+              "profile": "유니",
+              "variant": "overlap-disable-fixed",
+              "capture": "b04eaea8cb52446a95409480583c023b",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "physical_batch_and_exact_member_slices_verified": true,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            },
+            {
+              "index": 3,
+              "profile": "유니",
+              "variant": "overlap-force-fixed",
+              "capture": "99754d64d769479a8a076c9d0f2ff169",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "physical_batch_and_exact_member_slices_verified": true,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            },
+            {
+              "index": 4,
+              "profile": "유니",
+              "variant": "disable-accumulate",
+              "capture": "9d8776d1e0d941eab58be748c19b5c13",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "physical_batch_and_exact_member_slices_verified": true,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            },
+            {
+              "index": 5,
+              "profile": "얀",
+              "variant": "force-accumulate",
+              "capture": "b43774e11d6e4b029316063f8b92a75f",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "physical_batch_and_exact_member_slices_verified": true,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            },
+            {
+              "index": 6,
+              "profile": "유니",
+              "variant": "overlap-disable-accumulate",
+              "capture": "3f679a22f1de42cd94488563d6f0c2c6",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "physical_batch_and_exact_member_slices_verified": true,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            },
+            {
+              "index": 7,
+              "profile": "유니",
+              "variant": "overlap-force-accumulate",
+              "capture": "0242c0c1e1e2448f9812436d7886a4bb",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "physical_batch_and_exact_member_slices_verified": true,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            }
+          ],
+          "audited": 8,
+          "native_battle_calls": 0,
+          "gpu_calls": 0
+        }
+      },
+      {
+        "group": "all-cover",
+        "cases": 2,
+        "compute": [
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "53cd118e3c784161839a69d9412f8c4c",
+            "device": "Apple M5",
+            "elapsed_ms": 3561.608708987478,
+            "gpu_execution_verified": true,
+            "input_sha256": "b8b3bc2c3785b7c07c0c8b67005262e125ee547ce8fbc1dbecd5b71319dd5831",
+            "output_sha256": "eb560d30108ecbb9a5d57650c81b7d0ad826909949bac254218c0ae872cf21bf",
+            "source": "gpu/product_movement_cover_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.4842842500074767,
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          },
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "ff7333ea4a9545bc89701adf2d19c09a",
+            "device": "Apple M5",
+            "elapsed_ms": 3528.8815420353785,
+            "gpu_execution_verified": true,
+            "input_sha256": "85c3c095abd8411777e99e25307dac5f4eff478746236770e48a73d3e816e3cb",
+            "output_sha256": "9f7c004d98d414024b960222e060985ca26f02ad45cf7b94f1e6d6a4883c3b48",
+            "source": "gpu/product_movement_cover_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.528125500015449,
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        ],
+        "audit": {
+          "rows": [
+            {
+              "index": 0,
+              "profile": "유니",
+              "favorite_stage": 0,
+              "capture": "53cd118e3c784161839a69d9412f8c4c",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            },
+            {
+              "index": 1,
+              "profile": "유니",
+              "favorite_stage": 0,
+              "capture": "ff7333ea4a9545bc89701adf2d19c09a",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            }
+          ],
+          "audited": 2,
+          "native_battle_calls": 0,
+          "gpu_calls": 0
+        }
+      },
+      {
+        "group": "delayed-incoming",
+        "cases": 2,
+        "compute": [
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "f7701632a032403d842787f0a0f3a90a",
+            "device": "Apple M5",
+            "elapsed_ms": 3464.4107909989543,
+            "gpu_execution_verified": true,
+            "input_sha256": "a9f6c779086907d831ee460c5ba51851b363c63fb9a021c0d17be109886d6cf2",
+            "output_sha256": "91e66dc950d5745bf0788a556f19efe80c9276276583ab993b14b2834605dd96",
+            "source": "gpu/product_movement_cover_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.4668144999886863,
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          },
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "455369264136450caa600e459fc1b3ce",
+            "device": "Apple M5",
+            "elapsed_ms": 3497.5561249884777,
+            "gpu_execution_verified": true,
+            "input_sha256": "bfa8c7fd7c31b7697e65637a9b67dc385c5fa940f9ed09961b4026eb21bb799e",
+            "output_sha256": "9ef92764aa3c693ba9a19d6bc2c6a64386b72a68624521955136e4b497ab8889",
+            "source": "gpu/product_movement_cover_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.507457749976311,
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        ],
+        "audit": {
+          "rows": [
+            {
+              "index": 0,
+              "profile": "유니",
+              "favorite_stage": 0,
+              "capture": "f7701632a032403d842787f0a0f3a90a",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            },
+            {
+              "index": 1,
+              "profile": "유니",
+              "favorite_stage": 0,
+              "capture": "455369264136450caa600e459fc1b3ce",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            }
+          ],
+          "audited": 2,
+          "native_battle_calls": 0,
+          "gpu_calls": 0
+        }
+      },
+      {
+        "group": "targeted-cover",
+        "cases": 2,
+        "compute": [
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "4ea354eb59a748369900dcbe5a4bed0f",
+            "device": "Apple M5",
+            "elapsed_ms": 3463.321082992479,
+            "gpu_execution_verified": true,
+            "input_sha256": "b473b8fef8b190679f19898c41d650fabd80598ee4044c18dbcc8ca3739d5a93",
+            "output_sha256": "7f1fa95fb59e8d593eb4e98cb6c21a0b0ee7377bdbd8dce1ea72d78cc2bc50b1",
+            "source": "gpu/product_movement_cover_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.464393124973867,
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          },
+          {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "0a7fe28d2e70474388ccbae39e0ce366",
+            "device": "Apple M5",
+            "elapsed_ms": 3438.049374963157,
+            "gpu_execution_verified": true,
+            "input_sha256": "71dd121f7056c807f2cbf7a2cca2a76e3ce239cb85bb63e0b274fd5d1f2a4f47",
+            "output_sha256": "531cf5b19f5070491ac2916084dc3c6e0fca0706438772dc6097ff08ae0adb7a",
+            "source": "gpu/product_movement_cover_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.4474515416659415,
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        ],
+        "audit": {
+          "rows": [
+            {
+              "index": 0,
+              "profile": "유니",
+              "favorite_stage": 0,
+              "capture": "4ea354eb59a748369900dcbe5a4bed0f",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            },
+            {
+              "index": 1,
+              "profile": "유니",
+              "favorite_stage": 0,
+              "capture": "0a7fe28d2e70474388ccbae39e0ce366",
+              "backend": "metal_detail",
+              "api_cache_hit": false,
+              "raw_hashes_verified": true,
+              "static_input_exact": true,
+              "current_source_exact": true,
+              "reprojected_raw_matches_cpu_gpu_api": true
+            }
+          ],
+          "audited": 2,
+          "native_battle_calls": 0,
+          "gpu_calls": 0
+        }
+      }
+    ],
+    "active_consumers": [
+      {
+        "index": 0,
+        "variant": "disable-fixed",
+        "frames": 3602,
+        "segments": 3604,
+        "disabled": 1204,
+        "forced": 0,
+        "simultaneous": 0,
+        "position_changes": 2400,
+        "incoming_hits": 0,
+        "cover_receipts": 0,
+        "effective_defense_changes": 0,
+        "total_damage": 100966623,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "0b602270ae384603913adbbb212a0a99",
+          "device": "Apple M5",
+          "elapsed_ms": 4102.772707992699,
+          "gpu_execution_verified": true,
+          "input_sha256": "1ca77fbd33b30a5f5dc7d0153b285ef476a0469892baf5af11ecd7cf1dd09aa4",
+          "output_sha256": "b6a894a43dcd7886063d85c4b231d578658f581e8c6e5856a19405d1f051a957",
+          "source": "gpu/product_movement_cover_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.8660688333329745,
+          "batch": {
+            "capture_id": "batch-1271ca950a7b4cfdb8ff8299662c946e",
+            "index": 0,
+            "cases": 4,
+            "input_words": 117500,
+            "output_words": 2048912,
+            "input_sha256": "1ca77fbd33b30a5f5dc7d0153b285ef476a0469892baf5af11ecd7cf1dd09aa4",
+            "output_sha256": "b6a894a43dcd7886063d85c4b231d578658f581e8c6e5856a19405d1f051a957",
+            "transport_input_sha256": "6f6e883234ec4294aa55105933f0863eeb15936b76cd359885397798b0df81d1",
+            "transport_output_sha256": "ee58db4919d30d14f4e4ff5da83306771ab2879f76a7e9486bd5a07ebe2bf220",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "index": 1,
+        "variant": "force-fixed",
+        "frames": 3602,
+        "segments": 3604,
+        "disabled": 0,
+        "forced": 484,
+        "simultaneous": 0,
+        "position_changes": 3124,
+        "incoming_hits": 0,
+        "cover_receipts": 0,
+        "effective_defense_changes": 0,
+        "total_damage": 85500906,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "89b88877311442bca5f9aa8d1af3e9f4",
+          "device": "Apple M5",
+          "elapsed_ms": 4861.692792037502,
+          "gpu_execution_verified": true,
+          "input_sha256": "92502605f13d77346066bd6315c5b416fd7c75b6f5a34b251c50358a9855301b",
+          "output_sha256": "d99cb86e31cd2e444859edc7acf8cfbb3e1cfde77e101881558b50277772cecd",
+          "source": "gpu/product_movement_cover_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.8660688333329745,
+          "batch": {
+            "capture_id": "batch-1271ca950a7b4cfdb8ff8299662c946e",
+            "index": 1,
+            "cases": 4,
+            "input_words": 117500,
+            "output_words": 2048912,
+            "input_sha256": "92502605f13d77346066bd6315c5b416fd7c75b6f5a34b251c50358a9855301b",
+            "output_sha256": "d99cb86e31cd2e444859edc7acf8cfbb3e1cfde77e101881558b50277772cecd",
+            "transport_input_sha256": "6f6e883234ec4294aa55105933f0863eeb15936b76cd359885397798b0df81d1",
+            "transport_output_sha256": "ee58db4919d30d14f4e4ff5da83306771ab2879f76a7e9486bd5a07ebe2bf220",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "index": 2,
+        "variant": "overlap-disable-fixed",
+        "frames": 3602,
+        "segments": 3608,
+        "disabled": 1208,
+        "forced": 484,
+        "simultaneous": 460,
+        "position_changes": 2380,
+        "incoming_hits": 120,
+        "cover_receipts": 25,
+        "effective_defense_changes": 0,
+        "total_damage": 72020853,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "b04eaea8cb52446a95409480583c023b",
+          "device": "Apple M5",
+          "elapsed_ms": 5496.03479198413,
+          "gpu_execution_verified": true,
+          "input_sha256": "5918f55ab851aaf167bb4ddbf73cd6ff4a906267325eb380ef30cf5c7594f407",
+          "output_sha256": "e5371d7422ec8816270e94e015d8ab6930863bbfa23546dedd5ff8719f53afd8",
+          "source": "gpu/product_movement_cover_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.8660688333329745,
+          "batch": {
+            "capture_id": "batch-1271ca950a7b4cfdb8ff8299662c946e",
+            "index": 2,
+            "cases": 4,
+            "input_words": 117500,
+            "output_words": 2048912,
+            "input_sha256": "5918f55ab851aaf167bb4ddbf73cd6ff4a906267325eb380ef30cf5c7594f407",
+            "output_sha256": "e5371d7422ec8816270e94e015d8ab6930863bbfa23546dedd5ff8719f53afd8",
+            "transport_input_sha256": "6f6e883234ec4294aa55105933f0863eeb15936b76cd359885397798b0df81d1",
+            "transport_output_sha256": "ee58db4919d30d14f4e4ff5da83306771ab2879f76a7e9486bd5a07ebe2bf220",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "index": 3,
+        "variant": "overlap-force-fixed",
+        "frames": 3602,
+        "segments": 3608,
+        "disabled": 1208,
+        "forced": 484,
+        "simultaneous": 460,
+        "position_changes": 2380,
+        "incoming_hits": 120,
+        "cover_receipts": 25,
+        "effective_defense_changes": 0,
+        "total_damage": 72020853,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "99754d64d769479a8a076c9d0f2ff169",
+          "device": "Apple M5",
+          "elapsed_ms": 6202.380749979056,
+          "gpu_execution_verified": true,
+          "input_sha256": "ab5fca215aa7e2232e911aaf58c28138681ea738f090510f420be68a9dc20044",
+          "output_sha256": "e5371d7422ec8816270e94e015d8ab6930863bbfa23546dedd5ff8719f53afd8",
+          "source": "gpu/product_movement_cover_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.8660688333329745,
+          "batch": {
+            "capture_id": "batch-1271ca950a7b4cfdb8ff8299662c946e",
+            "index": 3,
+            "cases": 4,
+            "input_words": 117500,
+            "output_words": 2048912,
+            "input_sha256": "ab5fca215aa7e2232e911aaf58c28138681ea738f090510f420be68a9dc20044",
+            "output_sha256": "e5371d7422ec8816270e94e015d8ab6930863bbfa23546dedd5ff8719f53afd8",
+            "transport_input_sha256": "6f6e883234ec4294aa55105933f0863eeb15936b76cd359885397798b0df81d1",
+            "transport_output_sha256": "ee58db4919d30d14f4e4ff5da83306771ab2879f76a7e9486bd5a07ebe2bf220",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "index": 4,
+        "variant": "disable-accumulate",
+        "frames": 3602,
+        "segments": 3604,
+        "disabled": 1202,
+        "forced": 0,
+        "simultaneous": 0,
+        "position_changes": 2402,
+        "incoming_hits": 0,
+        "cover_receipts": 0,
+        "effective_defense_changes": 0,
+        "total_damage": 105075005,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "9d8776d1e0d941eab58be748c19b5c13",
+          "device": "Apple M5",
+          "elapsed_ms": 27918.050667038187,
+          "gpu_execution_verified": true,
+          "input_sha256": "c9e42d53f3fa40277b321c1f9ff032154578cc249b44b4cce1338bdea33b06c0",
+          "output_sha256": "4b1551fd295437fc9aa2b036f357b6ddc0891ec4641e52b5ce68f8acfa93fcfa",
+          "source": "gpu/product_movement_cover_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.9209175416617654,
+          "batch": {
+            "capture_id": "batch-48e43e348a114e659947677994cdda65",
+            "index": 0,
+            "cases": 4,
+            "input_words": 117500,
+            "output_words": 2048912,
+            "input_sha256": "c9e42d53f3fa40277b321c1f9ff032154578cc249b44b4cce1338bdea33b06c0",
+            "output_sha256": "4b1551fd295437fc9aa2b036f357b6ddc0891ec4641e52b5ce68f8acfa93fcfa",
+            "transport_input_sha256": "32e0c0da4a040cd40bcc6ffea26e3ff05a361d40e4d5a5e1fb1d1850063ba65d",
+            "transport_output_sha256": "94be00628b67aadc50c179c0c57fc0b7cbfe0807d80e4ed1bf5817b0a1a97ac8",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "index": 5,
+        "variant": "force-accumulate",
+        "frames": 3602,
+        "segments": 3604,
+        "disabled": 0,
+        "forced": 484,
+        "simultaneous": 0,
+        "position_changes": 3124,
+        "incoming_hits": 0,
+        "cover_receipts": 0,
+        "effective_defense_changes": 0,
+        "total_damage": 84937306,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "b43774e11d6e4b029316063f8b92a75f",
+          "device": "Apple M5",
+          "elapsed_ms": 28765.97079099156,
+          "gpu_execution_verified": true,
+          "input_sha256": "56d546734e264739db51500f34ab8fddd2f27471e9aa51b4bf1bcde330a62df7",
+          "output_sha256": "a159b1ef31a5096f9897b7137538a29c45e5e0d9ed1d8f631d9aed6bd62abc30",
+          "source": "gpu/product_movement_cover_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.9209175416617654,
+          "batch": {
+            "capture_id": "batch-48e43e348a114e659947677994cdda65",
+            "index": 1,
+            "cases": 4,
+            "input_words": 117500,
+            "output_words": 2048912,
+            "input_sha256": "56d546734e264739db51500f34ab8fddd2f27471e9aa51b4bf1bcde330a62df7",
+            "output_sha256": "a159b1ef31a5096f9897b7137538a29c45e5e0d9ed1d8f631d9aed6bd62abc30",
+            "transport_input_sha256": "32e0c0da4a040cd40bcc6ffea26e3ff05a361d40e4d5a5e1fb1d1850063ba65d",
+            "transport_output_sha256": "94be00628b67aadc50c179c0c57fc0b7cbfe0807d80e4ed1bf5817b0a1a97ac8",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "index": 6,
+        "variant": "overlap-disable-accumulate",
+        "frames": 3602,
+        "segments": 3606,
+        "disabled": 1148,
+        "forced": 484,
+        "simultaneous": 460,
+        "position_changes": 2438,
+        "incoming_hits": 120,
+        "cover_receipts": 25,
+        "effective_defense_changes": 0,
+        "total_damage": 69634887,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "3f679a22f1de42cd94488563d6f0c2c6",
+          "device": "Apple M5",
+          "elapsed_ms": 29423.93995798193,
+          "gpu_execution_verified": true,
+          "input_sha256": "6001982c796d4c71e5bc083d67a16691d91af1adcfd1c588919f370b61096c21",
+          "output_sha256": "c442f88589efe018d320bd44486624ed0f4817e7be848135b944ac68d8e80cb9",
+          "source": "gpu/product_movement_cover_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.9209175416617654,
+          "batch": {
+            "capture_id": "batch-48e43e348a114e659947677994cdda65",
+            "index": 2,
+            "cases": 4,
+            "input_words": 117500,
+            "output_words": 2048912,
+            "input_sha256": "6001982c796d4c71e5bc083d67a16691d91af1adcfd1c588919f370b61096c21",
+            "output_sha256": "c442f88589efe018d320bd44486624ed0f4817e7be848135b944ac68d8e80cb9",
+            "transport_input_sha256": "32e0c0da4a040cd40bcc6ffea26e3ff05a361d40e4d5a5e1fb1d1850063ba65d",
+            "transport_output_sha256": "94be00628b67aadc50c179c0c57fc0b7cbfe0807d80e4ed1bf5817b0a1a97ac8",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      },
+      {
+        "index": 7,
+        "variant": "overlap-force-accumulate",
+        "frames": 3602,
+        "segments": 3606,
+        "disabled": 1148,
+        "forced": 484,
+        "simultaneous": 460,
+        "position_changes": 2438,
+        "incoming_hits": 120,
+        "cover_receipts": 25,
+        "effective_defense_changes": 0,
+        "total_damage": 69634887,
+        "compute": {
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "0242c0c1e1e2448f9812436d7886a4bb",
+          "device": "Apple M5",
+          "elapsed_ms": 30156.187375017907,
+          "gpu_execution_verified": true,
+          "input_sha256": "6220ef3853889defd26f686dd4ea22462ad1a19136cba313123e5d71f35d793c",
+          "output_sha256": "c442f88589efe018d320bd44486624ed0f4817e7be848135b944ac68d8e80cb9",
+          "source": "gpu/product_movement_cover_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 2.9209175416617654,
+          "batch": {
+            "capture_id": "batch-48e43e348a114e659947677994cdda65",
+            "index": 3,
+            "cases": 4,
+            "input_words": 117500,
+            "output_words": 2048912,
+            "input_sha256": "6220ef3853889defd26f686dd4ea22462ad1a19136cba313123e5d71f35d793c",
+            "output_sha256": "c442f88589efe018d320bd44486624ed0f4817e7be848135b944ac68d8e80cb9",
+            "transport_input_sha256": "32e0c0da4a040cd40bcc6ffea26e3ff05a361d40e4d5a5e1fb1d1850063ba65d",
+            "transport_output_sha256": "94be00628b67aadc50c179c0c57fc0b7cbfe0807d80e4ed1bf5817b0a1a97ac8",
+            "input_scope": "single-case framing of this exact physical batch member",
+            "output_scope": "exact readback slice"
+          },
+          "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+          "timing_scope": "shared batch transport; not an individual case duration",
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      }
+    ],
+    "targeted_cover": [
+      {
+        "index": 0,
+        "incoming_hits": 25,
+        "cover_receipts": 7,
+        "effective_cover_defense_changes": 5,
+        "samples": [
+          {
+            "name": "드레이크",
+            "divisor": 1,
+            "time": 10.250000000000089,
+            "attack": 1000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 120,
+            "effective_defense": 274.284,
+            "quantity": 725.716,
+            "shared_quantity": 725.716,
+            "hp_before": 2000000,
+            "applied": 725.716,
+            "hp_after": 1999274.284
+          },
+          {
+            "name": "드레이크",
+            "divisor": 1,
+            "time": 10.750000000000114,
+            "attack": 1000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 120,
+            "effective_defense": 274.284,
+            "quantity": 725.716,
+            "shared_quantity": 725.716,
+            "hp_before": 1999274.284,
+            "applied": 725.716,
+            "hp_after": 1998548.568
+          }
+        ],
+        "actual_control": {
+          "mode": "solo",
+          "camera_mode": "single",
+          "by_char": {
+            "드레이크": 30
+          },
+          "max_concurrent": 1,
+          "overlap_t": 0,
+          "overlaps": [],
+          "preempted": {}
+        }
+      },
+      {
+        "index": 1,
+        "incoming_hits": 25,
+        "cover_receipts": 7,
+        "effective_cover_defense_changes": 5,
+        "samples": [
+          {
+            "name": "드레이크",
+            "divisor": 1,
+            "time": 10.250000000000089,
+            "attack": 1000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 120,
+            "effective_defense": 274.284,
+            "quantity": 725.716,
+            "shared_quantity": 725.716,
+            "hp_before": 2000000,
+            "applied": 725.716,
+            "hp_after": 1999274.284
+          },
+          {
+            "name": "드레이크",
+            "divisor": 1,
+            "time": 10.750000000000114,
+            "attack": 1000,
+            "coefficient": 100,
+            "received_snapshot": 0,
+            "base_defense": 120,
+            "effective_defense": 274.284,
+            "quantity": 725.716,
+            "shared_quantity": 725.716,
+            "hp_before": 1999274.284,
+            "applied": 725.716,
+            "hp_after": 1998548.568
+          }
+        ],
+        "actual_control": {
+          "mode": "solo",
+          "camera_mode": "single",
+          "by_char": {
+            "드레이크": 30
+          },
+          "max_concurrent": 1,
+          "overlap_t": 0,
+          "overlaps": [],
+          "preempted": {}
+        }
+      }
+    ],
+    "separate_cpu_preflight_duration": 11,
+    "initial_assertion_corrections": [
+      "Primary audit passed before a postcheck incorrectly required opposite precedence policies to produce distinct positions. Yan B1 snaps before Yuni B2 disables. No distinct precedence outcome is claimed.",
+      "Four exploratory all-cover/delayed cases matched CPU but did not engage nonzero DEF: solo selects Yuni, outside SOW top3 ATK. Initial cover-break inference incorrect; retained privately with correction.",
+      "Targeted solo Drake proves five nonzero DEF receipts per mode, 120 to 274.284."
+    ]
+  },
+  "historical_preservation": {
+    "standard": {
+      "programs": {
+        "gpu/product_fixed_battle_entry.slang": {
+          "files": 179,
+          "all_bytes_match": true
+        },
+        "gpu/product_fixed_group_battle_entry.slang": {
+          "files": 180,
+          "all_bytes_match": true
+        },
+        "gpu/product_healing_fixed_battle_entry.slang": {
+          "files": 183,
+          "all_bytes_match": true
+        },
+        "gpu/product_fixed_target_battle_entry.slang": {
+          "files": 189,
+          "all_bytes_match": true
+        },
+        "gpu/product_cover_fixed_battle_entry.slang": {
+          "files": 207,
+          "all_bytes_match": true
+        },
+        "gpu/product_ammo_fixed_battle_entry.slang": {
+          "files": 186,
+          "all_bytes_match": true
+        },
+        "gpu/product_weighted_fixed_battle_entry.slang": {
+          "files": 182,
+          "all_bytes_match": true
+        }
+      },
+      "static_input_anchors": 262,
+      "full_standard_profiles": 266,
+      "unchanged_fallbacks": 4,
+      "gpu_calls": 0,
+      "native_battle_calls": 0,
+      "scope": "Exact inputs and GPU source closures bind existing5e1f9c2a calculation captures; no new calculation or owner promotion"
+    },
+    "generation": {
+      "before_source": "5e1f9c2a",
+      "current_source": "c3ed64af",
+      "scope": "Generated bytes only, not new GPU execution or old capture owner promotion",
+      "rows": [
+        {
+          "source": "gpu/product_movement_battle_entry.slang",
+          "generated": {
+            "cuda": {
+              "before_sha256": "74749a2ea84546afa5318d0196868a302b366dfe1d9c6d8044021c75a37e0892",
+              "after_sha256": "74749a2ea84546afa5318d0196868a302b366dfe1d9c6d8044021c75a37e0892",
+              "identical": true
+            },
+            "metal": {
+              "before_sha256": "522f4f970e5c58dc4a47ec42f312b3b372c147461ee0d738e2002c126f7c1129",
+              "after_sha256": "522f4f970e5c58dc4a47ec42f312b3b372c147461ee0d738e2002c126f7c1129",
+              "identical": true
+            }
+          }
+        },
+        {
+          "source": "gpu/product_movement_fixed_battle_entry.slang",
+          "generated": {
+            "cuda": {
+              "before_sha256": "45fb0cd3acc17ea4369a8e61e71249e77d09e8774d8dadb812871eb1bc308a55",
+              "after_sha256": "45fb0cd3acc17ea4369a8e61e71249e77d09e8774d8dadb812871eb1bc308a55",
+              "identical": true
+            },
+            "metal": {
+              "before_sha256": "ea53775ef6cf91c4559625940ef8fd1070705447c3a06eddc31f1f41009cdd01",
+              "after_sha256": "ea53775ef6cf91c4559625940ef8fd1070705447c3a06eddc31f1f41009cdd01",
+              "identical": true
+            }
+          }
+        },
+        {
+          "source": "gpu/product_named_range_fixed_battle_entry.slang",
+          "generated": {
+            "cuda": {
+              "before_sha256": "284a9f6b8143870bc81c91df278c7a179b5d322d258ddf32974d211b5ef82a97",
+              "after_sha256": "284a9f6b8143870bc81c91df278c7a179b5d322d258ddf32974d211b5ef82a97",
+              "identical": true
+            },
+            "metal": {
+              "before_sha256": "df30be9b486bc61058f371d6babd6a7fb2b6b8bb93ae5e6cd729053ccd9e1452",
+              "after_sha256": "df30be9b486bc61058f371d6babd6a7fb2b6b8bb93ae5e6cd729053ccd9e1452",
+              "identical": true
+            }
+          }
+        }
+      ],
+      "gpu_calls": 0,
+      "native_battle_calls": 0,
+      "cuda_sdk_calls": 0
+    },
+    "scope": "Saved input/source retention only, no new standard execution or owner reassignment."
+  },
+  "windows": {
+    "transport_commit": "ad4a4efe400b1862494b7afd0ca2a39ca25c1ac7",
+    "report_commit": "150049a7",
+    "status_file": "research/product-movement-cover-windows-v2.json",
+    "status": "stopped_before_unpack_gate",
+    "sdk_calls": 0,
+    "gpu_calls": 0,
+    "cpu_tests": 0,
+    "archive_bytes_verified": true,
+    "immutable_payload_verified": false,
+    "snapshot_status": "unavailable",
+    "preservation_verified": false,
+    "service_status": "unverified",
+    "retry_count": 0,
+    "saved_diagnosis_requested": true,
+    "diagnosis_report_commit": "f5bda1f8",
+    "cause": "unknown",
+    "diagnostic_loss_fixed": "run-world-bounded now saves finite numeric SnapshotFailure diagnostics separately for before-gate and after-wait failures; original failed capture unchanged",
+    "local_diagnostic_checks": {
+      "passed": 21,
+      "skipped_windows_only_integration": 1,
+      "real_windows_queries": 0,
+      "gpu_calls": 0
+    }
+  },
+  "coverage": {
+    "last_full_actual_source": "5e1f9c2a",
+    "standard_profiles": 266,
+    "metal_profiles": 262,
+    "reasoned_cpu_fallbacks": 4,
+    "new_standard_profiles": 0,
+    "historical_strict_cuda_profiles": 3,
+    "current_source_cuda_profiles": 0,
+    "goal_complete": false
+  },
+  "proof": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-movement-cover-v1-20261101",
+  "all_owned_servers_stopped": true,
+  "user_servers_untouched": true
+}

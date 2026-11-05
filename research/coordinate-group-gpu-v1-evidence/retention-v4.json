@@ -1,0 +1,354 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "old206_input_entries_retained": 206,
+  "old182_native_fingerprints_retained": 182,
+  "old_prefix_bytes_checked": 1080033280,
+  "old_raw_sha256": "2d9a3ceda8e8d811b5adb8cd0adb42b54d5120a335c1b39bc4175b218802def6",
+  "new_logical_prefix_sha256": "b57ea9d0c8cba7048ac8389e7551fbfc047efa0b8fab11028de86a74b76ff395",
+  "all_old_raw_bytes_identical": false,
+  "identical_raw_cases": 151,
+  "changed_cases": 55,
+  "changed_words": 165,
+  "actor_set_region": [
+    227352,
+    243992
+  ],
+  "differences_only_unleased_actor_set_storage": true,
+  "other_regions_retained": true,
+  "outside_actor_sets": [],
+  "changed": [
+    {
+      "index": 0,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 3,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 4,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 5,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 6,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 7,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 8,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 9,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 10,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 11,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 12,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 13,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 14,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 15,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 16,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 27,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 84,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 85,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 86,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 87,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 88,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 89,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 90,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 91,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 92,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 93,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 94,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 95,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 96,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 97,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 98,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 99,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 100,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 101,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 102,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 103,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 104,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 105,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 106,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 107,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 109,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 110,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 120,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 121,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 122,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 123,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 124,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 125,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 126,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 127,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 128,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 129,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 130,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 131,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    },
+    {
+      "index": 132,
+      "changed_words": 3,
+      "first": 227352,
+      "last": 227361
+    }
+  ],
+  "calculation_verified": false,
+  "scope": "CPU byte retention; full native battle/receipt comparison is the independent replay proof"
+}

@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "previous_proof_commit": "24f4f4c227eadb1a921ecc3d7939cb1ca6aec5a5",
+  "profiles": 52,
+  "batches": 13,
+  "all_output_words_unchanged": true,
+  "per_batch_equal": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "scope": "Same 52 body-only real profiles; full raw readback unchanged; not all variants or timing evidence"
+}

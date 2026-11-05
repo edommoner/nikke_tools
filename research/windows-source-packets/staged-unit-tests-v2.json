@@ -1,0 +1,22 @@
+{
+  "schema": "staged-unit-tests-packet-v2",
+  "source_commit": "928836fe",
+  "package_id": "9c825fa5d6e420dbb16b684933bf7a4450af4604bdb9cdc36df23a272c703189",
+  "archive_bytes": 9592470,
+  "archive_sha256": "161f2f1380daee19f7e72a7c0c2e452de20313648f25fe0b7161e37b21a6ed4d",
+  "only_payload_difference_from_v1": [
+    "tests/test_portable_staged_tests.py"
+  ],
+  "Mac_smoke": {
+    "groups": 65,
+    "tests": 630,
+    "skips": 1,
+    "errors": 0
+  },
+  "Mac_windows_required_workspace_proxy_tests": 8,
+  "selected_177_test_files_unchanged": true,
+  "execution_path_and_GPU_and_CPU_and_golden_unchanged": true,
+  "Mac_execution_proof": "research/shared-native-group-evidence/metal-staged-tests-four-v1.json",
+  "Windows_new_stages_executed": false,
+  "full_goal_complete": false
+}

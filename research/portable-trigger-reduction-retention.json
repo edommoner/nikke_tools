@@ -1,0 +1,23 @@
+{
+  "package_id": "113c09c11e3313afdb5b90a4cc22e83db8e26d30b4211bc7fd4a437d092acbcf",
+  "sources": [
+    {
+      "source": "nikke-storage-admission-regression-metal",
+      "retained_inputs": 235,
+      "all_input_words_equal": true,
+      "all_output_words_equal": true,
+      "native_fingerprints_equal": true,
+      "original_failure_preserved": false
+    },
+    {
+      "source": "nikke-trigger-reduction-regression-metal",
+      "retained_inputs": 285,
+      "all_input_words_equal": true,
+      "all_output_words_equal": true,
+      "native_fingerprints_equal": true,
+      "original_failure_preserved": true
+    }
+  ],
+  "gpu_calls": 0,
+  "original_captures_modified": false
+}

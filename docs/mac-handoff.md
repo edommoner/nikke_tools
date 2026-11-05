@@ -1,0 +1,5812 @@
+## 2026-11-03 Lock Onの接続と既存36秒Metal domainをClaudeが受理
+
+[静的経路・保存照合・出所確認](../research/product-lock-consumer-static-v1.json)。元のcharging中periodic activationからdistinct actor lock、発射前snapshot、同一shot tokenでのqueue、frozen-slot着弾、元のdamage／HP処理へ接続。capacityはexact Lock On名へのfresh count query（base5／limit128）で、carrier.stackを対象数にしない。製品providerだけでなくdecoderもBODY／ADD(kind0／5)以外を拒否し、generic coreのPART許容を製品対応へ数えない。missing／stale／dead frozen deliveryはCPU exception／GPU64で閉じ、retargetやsilent dropは実装していない。
+
+既承認mixed-revival候補の保存Metal1caseを再利用。原入力全bytes・GPUclosure・当時の全CPU/GPU/app/data/canonical/server bytesが現worktreeと一致し、既存strict decoderでLockOn全domainが保存CPU＝GPU＝HTTP。取得134、発射snapshot18、解除19、owner quota18中2件で追加10／capacity15の残弾2→1→0、最後capacity5へ戻る。実membershipは最大3体・世代1であり、容量5超え、死・世代変更、空snapshot等の実行実証へ広げない。
+
+比較はcleanな専用runtime-resident（当時HEAD581ffabb）で、dirtyなmain checkoutではない。旧／現publicの差はevaluatorのruntime Git HEADだけで、生成元sim.pyは同SHA。repoラベルがJgaram/nikke-calcでもcommitがenclosing tool HEADを指す既知のprovenance不備を明記し、upstream同一性はsource hashesで確認。旧ref-file bytesは未保存なので旧SHAを捏造しない。同一runのjob/capture・CPU payload SHAは元のcommit済み結果へ結合した。全public bit一致とは称さない。追加CPU戦闘／GPU／Windows0、計算source変更0。次はgauge_charge_enabledのnamed markerと参照・非interceptを静的確認する。
+
+## 2026-11-03 effect_range_pct／effect_target_count_addの静的接続を受理
+
+[定義・query・選択・wire・未実証範囲](../research/product-named-selection-consumers-static-v1.json)。原Reiの500%／+1は、原Asuka:WILLEが持つ同名damageへ作用するdeclared named range経路へ接続。ephemeral queryはexact stat／target_effectでcarrierを絞り、既存native readerを局所cloneしglobal mapは変更しない。空stubで確認したのはreader bindingの解決だけで、集計や選択の実行検証ではない。count93／range94を明示使用し、「numeric ID非依存」という前の仮定は撤回。HeavyArmsのcount+10も93で、exact TARGET_NAMEとrecipient／lifetime等の共通条件で効果先を区別する。row26／27は0-based compiled definition、wire ruleはdamage row+1。
+
+rangeはfactor1+total/100と宣言base radius、countはexact integralなbase+sumを検査し、超過／端数はclampや丸めでなく拒否。nearbyはprimary中心とstable edge-distance順、通常はcanonical logical順をgeometryでfilterし、actor generationを凍結。既存接触境界1e-9はCPU／GPUの同じbinary64定数で、許容差変更0。named系proof32件ではcurrent source一致0、標準Rei251のBODY-only carrier保存や別Lock On結果は空間選択実証へ流用しない。Claudeは記録4点の補足後に静的L3のみ受理。現行live選択、9秒失効の厳密境界とcast→landing中失効等は未検証。追加CPU戦闘／GPU／Windows0、計算source変更0。次はLock On。
+
+## 2026-11-03 received_dmg_splitの静的L3と保存算術probeを確認
+
+[加重配分の接続・単位・配線・証拠境界](../research/product-weighted-consumer-static-v1.json)。Bayのall_allies／self_cover状態2つから、明示したcaster／other／cover相対重みを使う。均等配分や百分率ではなく、ゲーム比率は未確定。struck ownerのDEF／receivedで計算したquantityを、live対象の順序付き重み和で割ってから掛け、bodyを元の保護・HP処理へ、独立caster coverを最後に渡す。下流で失効・down・cover超過があっても再配分せず、端数補正やshareの1point floorなし。binary64逐次和の厳密保存は保証しない。wireはkind4/stat0の元marker identityと16word bankで、重みword4/6/8、source row+1はword10/11。
+
+現source closureと現在builderの全1192入力が一致する既存Metal算術probeを再利用し、既存strict comparatorで正常1179／拒否13の全出力ワードが一致。戦闘receiptではない。weighted名の保存45件では現source一致のlive戦闘receiptが見つからず、Claudeは静的L3のみ合格、条件5のlive証拠不足を別の残件として保持した。入力+infは入口拒否（CPU ValueError／GPU64）で、結果overflow16と混同しない。既存13件に+inf amountの専用caseはないため、coverageを捏造しない。追加CPU戦闘／GPU／Windows0、計算source変更0。weighted＋独立cover DEF／typedの未接続は全目標の残件で、拒否が安全なだけでは完成に数えない。次はeffect_range_pct／effect_target_count_addを1単位で静的確認する。
+
+## 2026-11-03 cover_def_pctの単位・配線と保存Metal非ゼロ5件が合格
+
+[L3接続・wire・保存非ゼロreceipt](../research/product-cover-def-consumer-static-v1.json)。実経路はreference_models.cover_defenseのcontextからchecked native cover landingへ接続され、CATALOGではない。原Soldier O.W.の128.57は百分率のまま保持し、base*(1+pct/100)で1回だけ換算。0〜100への新たな制限やpct clampは加えない。live recipientの値を既存stack規則で加算し、body DEFから独立した基礎cover DEFを使う。wireはowner基礎値をLE binary64、kind0・単純stat93／合成96として衝突を拒否し、共通Slangの同じ演算順へ渡す。
+
+現在source closureと全input wordsが一致する既存typed-lock-accumulate case8 cover-disabled16を、全batch SHA検査後に既存decoderで読んだ。非ゼロ5receiptがあり、例はtime10.5・base1000・pct128.57→DEF2285.7・damage97714.3。全5件について現在pure CPU式とraw由来GPU値をstruct.packによるbinary64ビット比較で確認した。直近HTTP36秒12sceneの非ゼロ0件はpositiveに数えない。ClaudeはL3と既存CLI5件のみ合格、任意stack／refresh／合成とゲーム仕様一致は残件。追加CPU戦闘／GPU／Windows0、計算source変更0。次はreceived_dmg_split。weightedとeven sharingを区別し、divisor>1だけで別statの証拠を流用しない。
+
+## 2026-11-03 target_hit_counterのL3静的接続をClaudeが受理
+
+[登録・spec・wire・consumerと歴史証拠](../research/product-target-counter-consumer-static-v1.json)。actual CATALOG prepare／impactとwireが同じspecification実関数を参照し、effect.target_counter.threshold→CounterSpec→carrier UIDのresource→impact.creditの加算とmin clamp→完了まで連結。単位はbinary64命中creditで、整数の命中回数やscalar buff値ではない。wireは16word policyの相対word4..5へLE binary64、GPUは同じword4のloadから比較する。既存M5記録にcredit0.75とthreshold完了credit2.5、現builder／spec／wireの2.5が保持される。旧CPU2componentのSHAは一致するがGPU closureは49ファイル差があり、数値は歴史証拠だけとして扱う。
+
+ClaudeはL3静的接続のみ合格。current-source通常API／原キャラの非ゼロparity、端数境界・routing・lifecycleはL4残件を保持。追加CPU戦闘／GPU／Windows0、計算source変更0。次はcover_def_pctの単位・実consumer・wire・保存済み非ゼロMetal証拠の静的監査。既存値へ新しい範囲制約を加えず、実装が持つ規約を確認する。
+
+## 2026-11-03 Rapiのnamed stack接続と保存Metalカウンターを確認
+
+Claude指定の既存decoder検査で、原Rapi:Red Hoodのbuff_stack_add(type=buff)はharmfulな名前付き「유탄」carrierで、scaling_refから爆発係数へ読み、remove_named_buffで除去するL3接続だと確認。通常の百分率factor5やinstant型stack操作ではない。[定義・保存結果・差分・L4引き継ぎ](../research/product-buff-stack-carrier-consumer-v1.json)。標準profile5の受入済みMetal captureはcurrent closure／全input bytes／全readback SHAが一致。既存source contract成功、GPUカウンターは付与50／爆発6／除去6、最終carrierはstack0・inactive。これらは観測事実としてClaudeが受理し、stack数や時系列遷移の代用にはしない。
+
+保存形式はtrace total170に対してretained0、skill count0。各爆発時点のstack・係数・即時除去・異なるstack値の感度はこのcaptureでは証明不能で、L4残件を保持。旧CPU公開結果と現在再投影のevaluator差分は旧値／現値ごと記録し、除外や期待値変更なし。旧native dataclassも保存されておらず、比較前提を満たせないCPU再計算はしなかった。追加CPU／GPU／Windows0、計算ソース変更0。将来は既存sceneから異なるstack値を含むものを選び、170以上のskill履歴と爆発時stackを保存し、同一sourceのCPU1回＋GPU1回を全nativeで比較する条件を引き継ぐ。今回は実行しない。
+
+## 2026-11-03 原Asuka/Anchorの対象別補正を通常Metal APIで実証
+
+Claude方針の8秒・shield前面／projectile前面2条件を1batchで検証し、fresh CPU・全公開結果・独立保存監査が一致、Claude最終チェック合格。[入力2件・全SHA・範囲・失敗記録](../research/product-typed-modifier-consumers-v1.json)。Asukaのshield601.01%はkind3命中84／0件、Anchorのprojectile25.6%はkind2命中12／12件で事前固定件数と一致。各条件196 scalarのowner／time／kind／damageがGPU packet全件と一致し、正の保持者命中は実crit固定の補正なし反実仮想と全件で異なる。CPU観測有無の全native／公開SHAも一致。入力axisは種別2／3、値は別のdefinition VALUEとして検査。最終snapshot25.6／0はAnchorの最終shotだけの証拠で、Asuka途中のsnapshotとは呼ばない。
+
+既存ctwSnapshot→ctwSampleAmount→damageFromFactorsを利用、計算コード・正本・effect定義・golden・normalizerの変更0。CPU開始7／完了6（初版observerの乱数消費assert停止1を保持）、Metal1dispatch・2入力、監査追加battle/GPU0。実行と監査は約7秒、専用Node群終了。Windows接続含め0、CUDA未検証。原2名のbattle_start/self条件だけの受理で、他の供給者・条件・任意合成は残る。次はbuff_stack_add type=buffの既存consumer／保存証拠を静的に確認し、既証明なら再測定せずClaudeに次候補を選んでもらう。
+
+## 2026-11-03 CPU consumer台帳の静的中間成果をClaudeが受理
+
+[有限台帳](../research/product-cpu-consumer-inventory-v1.json)でbuff stat 117キーを一意に整理。getter/query/field候補98、実処理での消費6（numeric4・state書込み1・接続数1）、既存H結合1、具体的なL3引継ぎ先を持つ未解決12。起動時のatk_copy追加を反映し、実効projectionは65ではなく66件。98候補や静的消費をGPU対応件数へ加算しない。dynamic71 site・field候補67は保持し、全行GPU未認定。buff_max_stack_addの過去H到達性は外部rewrite全体を再証明しておらず、現AST残存だけに限定した。計算コード・正本・golden・比較除外の変更0、追加CPU戦闘/GPU/Windows0。
+
+次はClaude指定のtyped_targets（projectile_dmg_pct／shield_dmg_pct）。既存登録から実効reader、factor5項までを追い、通常Metal製品経路の不足条件を1件に絞る。全効果・任意合成の完了ではない。Windowsは明示再開まで確認・依頼しない。
+
+## 2026-11-03 混合場面の実ダウン・復活を通常Metal APIで確認
+
+Claudeが選んだ36秒typed／Lock On／敵回復／手動遮蔽の混合1構成と対照が合格。元MirandaをRapunzelへ1名変更し、元Soldier O.W.が2.75秒down→3.833333秒に元B1の81.67%（1994253.9948HP）で復帰→4.75秒に再down。遮蔽HP2800を保持し、GPUの既存revival traceのowner／時刻／HPとboss履歴がCPU観測と完全一致。対照はdownのみ。[要求2件・全SHA・範囲・失敗保持](../research/product-mixed-revival-v1.json)。
+
+CPU観測有無4実行の全native／公開payloadが一致。通常HTTP Metal2条件・2dispatchとfresh CPU2も完全一致、追加battleなしの独立保存監査2成功。Metal実行と監査は計15.27秒。新standard profile加算0、標準266の計算／packer／decoderは不変で再実行せず、受入済みCUDA専用host guard以外の全ソース一致を確認。共有コード／数値規約／正本／golden変更0、Windows接続を含め0。
+
+初期fixtureの不成立2件・静的owner参照ミス・保存ログのoutcome/detail読み違いを保持。原HP・CPUログや期待値を書き換えず、最後の読取りミスは保存結果だけで解消した。実行はb3141d77のclean runtime-residentで、メインcheckoutの未commit storage作業は使っていないことも記録。CUDAと、他の混合構成での復活は未検証。次はClaude方針のCPU由来handler有限残件台帳。Windowsは明示再開まで確認・依頼しない。以下は過去記録。
+
+## ユーザー指示：Windows再開の明示までMac開発を継続
+
+現在のゴールと優先順位は[current-gpu-goal.md](current-gpu-goal.md)を参照。Windowsの接続確認・status取得・依頼・復旧質問・監視は行わない。準備済みCUDA1要求と固定consumerを保持し、Macの未対応範囲をClaude方針／Codex実装／Claudeチェックで進める。過去の「接続復旧待ち／復旧後に実行」という記述は自動再開の指示ではない。
+
+## 2026-11-02 Claudeが現行Metal標準266 profileを合格判定
+
+製品APIの例外処理／CPU二重評価を4155099dで修正しClaude再レビューaccept。製品73検査・strict source ledger7・既存ammo8を確認、正本・Slang・成功時decode・goldenは不変。続く標準180秒・期待値・seed0・core50・BODY1の203キャラ／266profile-stageもClaudeの最終チェックaccept。[全件・元失敗・受入記録](../research/product-standard266-claude-accept-v1.json)／[役割と次単位](claude-led-development.md)。
+
+元条件HTTP258成功と、owned caffeinate -iを用いた別条件8成功を選定した266件で、original266成功ではない。全成功CPU一致・独立保存監査・過去全raw一致、cache0。総40dispatch／274case、CPU完了ファイル既知271／元完了不明3。元timeout8とhistorical3の限定を保持し、evaluator stamp差を除外・期待値更新で隠していない。optional監査anchor=falseは別raw照合で補い、元要求は変更しなかった。
+
+次はClaude方針の保存CUBIN typed-lock-healing36秒1要求（cuda_shared_detail）。CUDA／Metalのstrict全rawとfresh CPU一致、追加compile0、2GiB／180秒／BelowNormal／一回のみを要求。Windows接続未確認の間は依頼しない。CUDA266を無条件実行せず、CPU由来coverageとsource-family代表deltaへ進む。旧outer exit2／環境保全falseを維持、全特殊効果・任意場面・現source全CUDAは未完了。以下は過去記録。
+
+## 2026-11-02 Windows単発CUBIN失敗を保存し、計画と実行の引数を固定
+
+owner30e9e40c…でgeneration成功、CUBIN O1 cache miss後のcompile1回はNVRTC6で停止。28.411秒、全体72.396秒、生成cache hitでSlang再実行0。ptxas Memory allocation failureとllcのsplit-compile未認識を両方保持。plan外の`--split-compile=2`を既存Windows runnerが追加していた。外側Job peakは2GiB＋499712byteで未解決、成功や制約内へ昇格しない。CUBIN無し、module／GPU／battle／fallback／retry0。[Windows全statusとmanifest](../research/windows-results/standard-current-fixed-v1/report-manifest.json)。18034byteの元statusをSHA7e77fea4…で独立取込済み。
+
+共通CLIへ`compile --compile-plan PATH --compile-plan-sha256 HEX`を接続し、既存packet stageも2field requestを転送する。planのSHA／owner／kind／level／予算／現在options不一致はcapture／claim／SDK前に停止。親run metadataとchild環境にoption/thread数を固定し、childもSDK前に検査、post auditはreceiptと固定値を照合。不変packet3ec090d8…で134検査成功、差分はCLI2とtest2だけ、計算／shader／CPU／wire／golden全byte不変。[計画binding検証](../research/product-compile-plan-binding-v1.json)、[使い方](portable-compile-plan.md)。旧fixtureは親runをchild後に生成していたため、新しい事前検査に合わせ、正規順序で親runを先に作るよう修正した。
+
+NVRTC12.4公式文書にはsplit-compileが存在するため、versionだけで未認識エラーを説明しない。次のWindowsSDKはまだ依頼せず、保存compiler/DLLとメモリ事実を確認する。Miranda標準30秒1requestの静的fixtureもinput本体SHA81e3b76d…／count付き転送b534ebb2…／Metal全raw9c72bd03…を別々に準備したが、CUDAの実行許可／計算証明ではない。現在標準Metal266profile／203キャラ、現sourceCUDA0profile。以下は過去記録。
+
+## 2026-11-02 現在版の標準固定4ケースをsealed化しWindowsコンパイルを準備
+
+現在の固定4ケースを実M5／独立sealで確認。Miranda標準30秒、Yuni／Yan標準30秒、Rapi:Red Hood180秒の元4編成で、旧入力／native／全readbackが全byte一致。v76はfixed4のsource hashだけを実証済み現行へ更新し、他43memberはそのまま履歴保持。最終sealed owner30e9e40c…、現在標準Metal266profile／203キャラの計算source／decoder／CPUは同一、現source CUDA0profileは維持。[実証と境界](../research/product-standard-current-fixed-v1.json)。
+
+元development packetのCPU192を通過。最終packetはgolden参照と対応する厳密inverse台帳だけが差分で、registry13＋台帳7を新実行し、同一172を再利用。release-v1は新基準JSONの未登録による梱包漏れをvalidation-depsで拒否し、元を保持。基準を共有対象へ登録したrelease-v2で全file／依存／compile-planが成功。最終差分検査の旧baseline JSON残存という誤った前提も、v75→v76の厳密な置換検査へ訂正した。数値・許容差・正本・shader変更0。
+
+生成CUDA2,745,490byteの標準kernelを、共通CLIの直接CUBIN O1へ送る計画。PTX→object→linkの複数SDK工程を成功時に省ける。sealed source ZIP12,303,978byte、SHA113f9c1f…を共有対象へ作成。個人設定・raw・生成PTX／CUBIN・SDK0。packet自身のCUBIN O1／2GiB／60秒planはpassed。Windows依頼はpaired generation／cache-probe／miss時compile1回だけ、外180秒、BelowNormal、直前RAM4GiBを1回計測し不足なら再計測なしで停止。失敗時PTX／object／linkへ自動切替せず、GPU依頼0。将来の通常Miranda30秒1requestはartifact/input/resourceの別gate後に行う。以下は過去記録。
+
+## 2026-11-02 CUDAのメモリ増加を切り分ける既存観測器を拡張
+
+共通CLIの`module-check --observe-cuda-resources`を既存cache-only PTX／2GiB／60秒／BelowNormal Jobへ接続。context・module・function・属性照会・cleanup前後を観測し、cuFuncGetAttribute0..6からlocal bytes/thread等を取得する。追加kernel／battle buffer／SDK compile0、default追加query0。値の欠落／エラーをunknownのまま残し、属性照会のlazy-loading影響も前後snapshotへ分離する。[実装と全108CPU検査](../research/product-cuda-resource-observer-v2.json)、[共通CLIの使い方と限界](portable-cuda-memory-observation.md)。
+
+不変packet16412376…のCPU108検査が成功。観測器25／module26／phase8／prepared監査15／prepared実行8／runner13／registry13。module正例でも計算成功・環境保全を主張せず、request/runtime食違い・属性欠落・境界欠落・偽値を拒否。最初のpacketにはphase検査が同梱されておらずNO TESTS RANで停止し、SMOKEへ既存検査を登録した新packetを作成。新packetではpsのsandbox拒否を保持し、所有child終了確認を許可された同一CPU検査だけ再実行して成功。GPU再試行なし。
+
+前packetの2806記録と比較し、変更は観測器・phase wrapper・CLI・関連test2の5fileだけ。新同梱は既存phase test1file、全GPU source／数値／wire／入力compiler／decoder／CPU43file／goldenは不変。現在の標準計算資格Metal266profile／203キャラ、CUDA現在0profileは前証拠を維持。Windowsの保存artifact/cache/packet読取は完了し、PTX59dc4f2b…／object18240abc…／linked CUBIN479a2f7f…と元ownerを照合。新RAM／driver／module／SDK／GPU0。5,518byteのinventory JSONはpeer出力で確認した範囲で、Macへの原文取込は未実施。既存module-checkはPTX-only JITで、成功時の保存linked CUBINと異なるproviderなので、その観測結果を同一と扱わない。関数属性はまだ実Windows未測定で、1.6GiB増加の原因未確定。以下は過去記録。
+
+## 2026-11-02 現在版で標準266profileを全件再認定（GPU再実行0）
+
+commit311709a9／sealed owner5751e24c…で標準BODY1体・固定期待値・seed0・core50・180秒の266profile／203キャラがMetal／CPU／HTTP一致。元の実M5captureについて、現在の入力全byte、全raw SHA、decoderによる全公開payloadを再監査した。[全profileと9系統の生成SHA](../research/product-standard-current-source-v2.json)。追加battle／GPU0。標準の限定条件の認定で、全特殊効果分岐・任意場面・現source CUDAの完了ではない。
+
+9系統のsource差はportable_schemaのtyped-cover条件分岐1か所だけ。既存Slang build／paired reflection／cache guardを使いCUDAとMetalを再生成し、18生成物すべてが元実行の生成SHAと完全一致した。normalizer自体を使う必要もなく、変更0。CUDA backend／生成器／layout consumer／scope auditorは全byte同一、Swiftは出力幅2362296／2962232の許可節以外全byte同一、旧幅と最大サイズは維持。CPU正本43fileもbyte同一。入力・全readback・batch親とmember全slice・CPU／GPU／HTTP全fieldを既存保存auditorで比較し、未確定source一致を偽装せず、旧／新source closureと生成物一致を別々に検査した。
+
+現在版の標準実績はMetal266profile／203キャラ、CUDA0profile。以前の固定23f63332のCUDA1限定条件は別出所として保持。typed単独とLock On＋被弾・独立DEFの宣言30条件も既存の別証拠を保持。次は未対応のtyped敵回復／弾倉／配分と、Windows launch時メモリ増加の観測不足を進める。以下は過去記録。
+
+## 2026-11-02 typed＋Lock On＋独立遮蔽を共通製品経路へ接続
+
+元のHeavy Arms／Soldier O.W.編成で、固定／蓄積×8／16秒、実周期遮蔽DEF、貫通、遮蔽破壊、DEF0の12条件と、充電中stunの対照ペア・遮蔽無効6条件を通常APIで確認。計18が実M5／CPU／HTTP全payload一致、4dispatch、cache0。stunは最後のLock On射撃を15.383333333333677→15.50000000000035へ遅らせ、取得回数64は維持する既存CPU規約と一致。遮蔽無効ではreceipt9→5。全員戦闘不能の強攻撃も比較し、未知の敵予約先死亡規則は追加していない。新inventory profile加算0。[全出所と18条件](../research/product-typed-lock-cover-v1.json)。
+
+standaloneで使った既存cover compiler／共通被弾runtime／decoderをLock Onにも接続。input123732→123756、output2945320→2962232word、追加CDF bankは2945320から。既存Lock初期化の消去終端2558208と全移動・quota・team履歴の後ろなので、時計やHPの複製／初期化関数の増設は不要。stat96を既存count93／radius94／DoT95と分離し、敵デバフ定義のcaster5所有を厳密検査。旧／新Metalのcompiled resident strideは共に168728byte。CPU正本43file・pinned・数値規約・許容差・normalizer変更0、新suite／shader entry／layout file0。
+
+CLI蓄積9＋固定6が実Metal・独立seal成功。蓄積へ充電中stun16秒・遮蔽無効16秒を恒久回帰として追加し、直前7件のinput／native／全rawは完全一致、追加2件のinput／全raw SHAも通常APIの元実行と一致。旧蓄積6の元入力prefix／native／全raw prefixは完全一致し、追加CDF領域はmagic1語＋ゼロだけ。v75は蓄積更新と固定typed-lock初登録で44member、他42は履歴保持。最終CPU192の同一172を再利用しregistry13＋台帳7を新実行。実readbackのmarker／未使用末尾／standalone番地alias故障3件を拒否。初期集計の件数ラベル誤りは元receiptを保持して訂正済み。最終packetでは計算／decoder／transportの全byte一致を確認し、通常API31件を保存rawから再投影した。追加battle／GPU0。
+
+既存standalone遮蔽12と通常Miranda固定30秒1件は、GPU全依存ソースと入力の完全一致、Swiftが出力幅2962232を許可する1節以外全byte同一、旧幅と最大サイズ不変、CPU reference実行関数も全byte同一を確認し、保存rawを再投影。追加battle／GPU0。現在sourceの通常標準1profile＋宣言条件30件という範囲で、標準266／203キャラの前版7e793c51実績を現在全件へ昇格しない。次は厳密な生成CUDA／MSL同一性が成立するsourceを優先して、保存入力／rawから全266の再認定を進める。UI http://127.0.0.1:4327/#single は更新済み、設定／session変更0。
+
+Windowsは保存ファイルのCPU調査だけを依頼・取得し、新driver／SDK／GPU／RAM観測0。旧固定23f63332のcuMemAllocは494932／9381536／163576byte、launch前後でdevice freeが1631584256byte減、process private／Job peakは1681010688byte増。cuFuncGetAttributeとcontext/module前後値はnot_recordedで、PTXの.local宣言だけから実GPU予約量を断定しない。[保存診断](../research/windows-results/logical-owner-current-v1/product-logical-owner-saved-memory-diagnostic-v1.json)。既存backendは既にbounded file readbackを使うため、output増分をそのままhost RAM増分と見なさない。次の短いCUDA確認前に既存observer／module情報を確認し、2GiB上限や失敗停止を緩めず、盲目的な再実行はしない。frozen CUDA1条件と現source CUDA0を分ける。
+
+ディスク不足に対し、完了済みの新2captureと旧3captureへ既存sparsify-rawを使用。新分112787456byte、旧分2215325696byteのゼロ領域を未割当化し、元の全SHA・長さ・inode・証拠アンカーを前後確認。raw削除0、元source／artifacts書換え0、再計算0。残件はtyped ADD自攻撃・弾倉・回復・配分、attachment、未知配送、全profile再認定と現在CUDA。以下は過去記録。
+
+## 2026-11-02 typed＋独立遮蔽DEF・実被弾を通常APIで接続
+
+元全定義のPrim／Soldier O.W.編成で、固定／蓄積×8秒・16秒、周期DEF増加、貫通、遮蔽破壊、DEF0の12通常API条件が実M5／CPU／HTTP全payload一致。実オウルウィンドは10秒に発火し、10.5秒のPrim遮蔽DEF1000→2285.7、attack100000に対する量97714.3を確認。貫通はcoverを無視するモデルではなく、同じhitで遮蔽と本人へ両方ダメージを与える既存CPU規約と一致。新inventory profile加算0。[条件と全出所](../research/product-typed-cover-v1.json)。
+
+既存coverパッカー／compiler policy／共通被弾関数／receipt decoderを再利用し、単独typed入力へ24語・出力へ16912語だけ追加。全旧番地を保持し、cover stat96をcount93／radius94／DoT95と分離。定義・数値・HP・時計の複製なし。未指定baseは利用不可の明示headerで、BODY DEFから推測せず、必要時には理由付きfallbackする。typed＋Lock Onのwireは維持し、そのcover合成は明示拒否のまま。新suite／shader entry／layout file0、CPU正本43file・pinned・許容差・normalizer変更0。
+
+CLI蓄積10＋固定6が実Metalと独立seal成功。v74は蓄積更新と固定typedの初登録で43member、他41は履歴として保持。旧蓄積9の元入力prefix／native／全raw prefixは完全一致、追加outputはmagic1語＋ゼロだけ。固定6は旧登録基準が存在しなかったため旧raw同一を主張しない。最終CPU192検査は同一172を再利用しregistry13＋台帳7を新実行。保存12再投影とmarker／未使用末尾／旧番地aliasの故障3件を追加battle／GPU0で確認。
+
+共通header変更後の通常BODYは元Miranda固定30秒1件がMetal／CPU一致し、旧全readback SHAも完全一致。標準266／203キャラの実績は前commit7e793c51の履歴として保持する。今回sourceの全266再認定を主張せず、matrixに現在1profile＋typed12条件と出所を明記した。UI http://127.0.0.1:4327/#single は修正版HTTP200、設定／session変更0。
+
+Windows固定23f63332の小JSON8個47,396byteをGitHubから取得しmanifest全SHA、元M5入力本体／count付き転送／全raw SHAを照合。8秒1条件が実kernel1回、freshCPU全payload差0、compiler/JIT再実行0、Job23.24秒／peak2145529856byte（2GiB内、余裕1953792byte）、欠落0。環境全体は未確認falseのまま。Windows rawをMacへ移した独立全raw監査ではなくpeerの全raw SHAとMac自身の全rawを照合した範囲で、現typed cover版のCUDA実績へ昇格しない。[取込記録](../research/product-logical-owner-windows-import-v1.json)。追加Windows実行0。
+
+API storage-checkの停止は予備1GiBの二重計上。親子raw238661088byte＋CLI予備1073741824byteを一度ずつ数え、同じ12条件で成功。CLI helpにもrequiredが予備を含まないことを明記した。既存sparsify-rawで完了7captureのゼロ領域386662400byteを未割当化し、全元rawのSHA・長さ・inode・証拠アンカーを前後確認。raw削除0、再計算0。残件はtyped＋Lock On cover、ADD自攻撃／敵回復／配分、未知配送、現sourceCUDAと最終全profile確認。以下は過去記録。
+
+## 2026-11-02 typed対象と敵の直接攻撃・デバフ・DoTを共通製品経路へ接続
+
+元の全定義を残した単独typedの固定／蓄積×通常・貫通・random:1／seed42・slot:3・同時多段・バースト後と、強い攻撃の計14通常API条件が実M5／CPU／HTTP全payload一致。物理dispatch4、cache0。元12の再実行なしでHP減少を確認する2条件を追加し、強攻撃は55件の全被弾履歴と合計2296509.6HPダメージ（固定例）がCPUと一致。[全条件・出所](../research/product-typed-incoming-v1.json)。新profile加算0で、標準266profile／203キャラとは別の追加条件。
+
+入口の一律attack拒否を外して既存共通worldへ接続し、敵デバフ／DoTは既存boss_debuff_effects／pack_boss_debuffsを再利用。CPUから受け渡すのはliteral定義だけで、敵caster5の対象・時刻・寿命はGPUが実行する。coordinate compilerは元全定義の完全性に加え、追加行が明示された敵定義と完全対応してowner5を保つことを検査。既存target modifier packerも敵行のaxis混入を拒否する。shader／数値本体／buffer寸法・CPU正本・pinned・許容差・normalizer変更0。
+
+既存CLI typed9が実Metal＋GPU禁止の独立seal成功。旧8の全input／native／全rawとGPU全依存ソースは完全一致。v73はこのmemberだけを更新し他41は保持。CPU191検査、最終は同一171＋成功済registry13を再利用、台帳負例7だけ新実行。最終packetで新14、既存手動24、標準266を保存rawから再投影し、追加battle／GPU0。UI http://127.0.0.1:4327/#single は修正版HTTP200、設定／session変更0。入力random構文、テストimport漏れ、登録後の台帳不整合は全てdevice前／CPU-only失敗として保持。
+
+Windowsは別の固定23f63332の生成・PTX・object・link成果物が成立。8秒1条件のstatic停止はMacがwords用SHAを件数ヘッダー付きtransportへ指定した範囲ミスで、両hostが元word差0を確認。words SHA abeda20f…／transport SHA589d8feb…を別々に保存し、元停止を残して未実行APIの初回処理だけを依頼した。新typed incoming版のCUDA確認とは分け、環境保全falseは維持する。typed＋独立DEF／手動遮蔽の被弾、ADD自攻撃・敵回復・weighted、LockOnとの被弾合成・予約先死亡、全特殊効果・任意場面と現sourceCUDAは未完了。以下は過去記録。
+
+## 2026-11-02 手動遮蔽とtyped／Lock Onを共通実行器へ接続
+
+元の全キャラ定義を保持したtyped単独／Lock On併用、固定／蓄積、早期・バースト中・全員遮蔽・移動ADD・近傍移動の通常API24条件が実M5／CPU／HTTP一致。成功済み単独12条件は保存結果を再利用し、変更したLock On側12条件だけを新実行。最終固定packetでも全24と標準BODY180秒266profile／203キャラを保存rawから再投影し、追加battle／GPU0。CPU190検査、既存CLI typed8＋typed-lock6の実Metal／独立seal成功。[出所・条件・失敗保持](../research/product-typed-manual-posture-v1.json)。
+
+既存手動制御の時計・イベント・状態を再利用し、fixed loweringへ明示consumer capability、typed shaderへ既存ログ定義を接続。Lock Onの初期6条件は初期化がposture bankを消去し、decoderも移設前番地を読んだため拒否。physical arena初期化後・戦闘前に既存initializerを呼び、正しいSHIFTを読み、旧番地の有効markerが不正な現番地を隠せない負例を追加。元失敗raw／claimは保持。新suite／shader entry／layout／buffer増加0、CPU正本・pinned・許容差・生成normalizer変更0。
+
+v72は実証したtyped-accumulate8とtyped-lock-accumulate6だけを更新し、他40memberは履歴として保持。旧typed7は診断marker6語だけ、旧LockOn6はpostureの-1初期値・marker16語だけが変わり、その他全raw／元input／nativeはbyte一致。UI http://127.0.0.1:4327/#single は修正版HTTP200、個人設定／session変更0。
+
+Windowsは別の固定23f63332／owner4c1bcd5a…を使用。空き確保後のRAM gateが通り、生成／PTX／object成果物まで検証済み。新手動遮蔽版のCUDA数値一致は未確認で、コンパイル成功をGPU計算成功と扱わない。低優先度2GiB・SDK60秒／外180秒、段階ごとに新RAM1回、失敗時の再試行なし。予約先死亡LockOn、typedと敵攻撃・回復等の合成、任意場面と全特殊効果の最終目標は未完了。以下は過去記録。
+
+## 2026-11-02 ADD所有の飛翔体・HPシールドを通常typed経路へ接続
+
+元のキャラ定義を保持した単独typed／Lock On併用の2系統・5編成順で、固定／蓄積、projectile／HP shield混在、所有者退場、第2世代、typed再出現、移動ADD、元Primとの合成、有限HP破壊を確認。通常APIの36条件中34が実M5／CPU／HTTP一致。残2は予約先が着弾前に死亡するLock Onで、CPUの宣言規約require-live-frozen-slot-v1もstatus4を未確定として拒否するため成功へ含めない。失敗・元claim・rawを保持。[全出所・34条件・残件](../research/product-logical-owner-v1.json)。標準BODY180秒の266profile／203キャラは43CPUfile・入力全byte・全GPU依存sourceが不変で、現登録packetから全raw再投影も一致。追加戦闘／GPU0、新しい元inventory profileの加算0。
+
+reference_models.typed_targets.actor_policyへ既存logical-owned-current-fields-v1を接続。ownerはBODYの[0,0,1]か設定済みADDの[5,identity,generation]を明示し、存在しないidentityはdevice前に拒否。世代はliteralのまま、退場や再出現でBODY／新世代へ付け替えない。共有のowner consumerを単独・Lock Onと混在kindへ接続し、製品のskill履歴gateのみflag3を受理する。入力123732、出力2345384／2945320wordは不変。新suite／shader entry／layout file／Runtime領域0、CPU正本・pinned・数値式・許容差・生成normalizer変更0。
+
+元Primの通常hit_countによるDEF効果は、この標本ではcanonical BODYを保持する。宣言ownerを理由に通常効果をADDへ転送していないことをCPU追加観測2と最終GPU recipientで確認した。typed event contextに伴うADD field投影が発動したとは主張しない。移動ADDの条件もtyped形状が所有者へ追従するattachmentの証明ではない。この2点とLock On死亡配送、incoming／回復／独立cover／配分との合成は残件。
+
+既存CLI typed-accumulateへ元編成の混在1件をappendして7件、typed-lock-accumulateは旧6件のまま実Metal＋独立seal成功。旧12件のinput・native・全rawは完全一致。v71はこの2memberのみ更新し他40基準は履歴のまま保持。最終206検査は同一169を再利用、registry13／台帳7／private owner11／arena6を新実行。既存arena guardの古い表記は、private8word／2048行を保つ厳密な条件分岐へ更新し、capacity／stride／offsetの故障3件を拒否。最終34条件と既存266の保存監査は追加戦闘／GPU0。
+
+UI http://127.0.0.1:4327/#single は修正版でHTTP200、設定／session変更0。Windowsはユーザーの空き確保後に1回だけCPU観測し16728104960byte（15.58GiB）を確認。旧resident stopと旧coordinate-lock SDKの出所は保持し、別sourceのartifactを流用しない。現Metal証明のsealed7件を含むsource ZIPとPTX-only planを用意した。計算は後続の新1条件へ限定する予定で、この段落は新SDK／CUDA計算成功を主張しない。生成＋PTXはSDK child60秒・Job2GiB・BelowNormal・合計180秒、実工程直前のRAM gateで不足なら再計測せず停止する。個人設定・raw・PTX／CUBIN・SDK配布物は共有source ZIPに含めない。以下は過去記録。
+
+## 2026-11-02 標準266profileの通常180秒がMetal／CPU一致
+
+通常APIの固定・期待値・seed0・core50・宣言なしBODY1体で、元266profile／データ内203キャラの180秒計算が全Metal／CPU／HTTP一致。最終登録sourceでも保存rawから266件を再投影し追加battle／GPU0。選択した実行出所は39dispatch、最後の修正では入力全byte・GPU全依存ソース・CPU正本43fileを検査して258件を再利用、残7＋依存変更cover1の8件だけを新実行。API cache0／最終CPU fallback0。[全profile・出所・限界](../research/product-standard-long180-v1.json)。
+
+長時間のグループ履歴は既存compact codecへ接続し、元Belorta89／Nihilister120groupの全owner・identity・epoch・packet数・時刻・targets・通知数が独立CPU観測と一致。旧64件の重複prefixもbyte一致。Velvetは166秒付近でresource通知15124上限へ達していたため、長いplain ammoだけを入力version2／出力2064786wordにし、既存番地を保ったowned tailへ19222通知まで保存する。追加bufferは131144byte。元180秒の16500通知が順序・時刻・値まで全一致。30秒以下とcover／group／target／healing／self-destruct合成の既存layoutは維持。共通hostは入力版と出力幅、batch全memberの版一致をdevice前に検査。shaderも先頭の確定strideを使い不一致を拒否する。
+
+CLIでcold事前生成2回のあとwarm読込0回のreceiptが保存されると、元のcompiler journalと不一致になる既存監査問題も修正。最終receiptと全journal receiptのidentity／artifactを各々検証し、実compilerの全entered／returned組を照合する。元失敗captureは変更せず、修正auditorで保存出力を独立CPU照合しGPU再実行0。新cold→warm正例と欠落／偽receipt負例を含む13検査成功。生成code normalizerは変更0。
+
+既存group CLI3caseは実Metal＋独立seal成功。ammo短1caseのinput・全raw・nativeは旧版と完全一致し、修正した保存監査で現sourceと生成hashを確認。v69はgroup、v70はammo-fixedだけを更新し、他member基準は履歴のまま保持。最終release-v2はCPU188検査のうち同一168を再利用、registry13／台帳7を新実行、generation13も新実行（計201）。PTX／CUBIN O1 planは成功、compiler／GPU0。旧失敗・claim・raw・未登録goldenのrelease-v1は保持。新suite／shader entry／layout file0、CPU正本・pinned・数値規約・許容差変更0。
+
+UI http://127.0.0.1:4327/#single を修正版で再起動しHTTP200を確認、個人設定・session変更0。物理shotの内部診断は従来2048行と明示省略counterを保持し、全内部履歴を無省略で保存したとは主張しない。全射撃の実行と最終製品結果は照合済み。より長い時間、任意の敵構成、ADD所有typed attachment、全特殊効果分岐、現在版CUDAは未完了。Windowsは保存coordinate-lock v2 object／link成功を再確認しただけで新依頼・compile・GPU・RAM計測0。inner0／outer2／環境保全falseと既存resident RAM停止を保持する。以下は過去記録。
+
+## 2026-11-02 通常攻撃式スキルのコア規約を修正
+
+標準180秒の最初の8件は7一致、ラピ：レッドフードだけ本人のダメージが6785266不足してCPUへ戻った。射撃7609回・全skill170件はCPUと同じ、保存された先頭2048射撃も全一致。45／60秒は一致、90秒以降で差。既存full traceで85.383秒作成の「부착형 유탄 4」がGPU4940401／CPU6859023と特定。CPUの通常攻撃式スキルはcore_px>0ならis_core=True、core_prob指定なし。GPUは武器散布の確率を使っていたため、MGが冷えたタイミングのスキルで差が出た。効果／CPU／数値規約を変えず、共通normalDamageCoreを非座標の通常攻撃式スキルだけへ適用。physical武器と座標skillの既存確率契約は維持。[出所・境界・回帰](../research/product-normal-skill-core-v1.json)。
+
+既存fixed programへ元編成・元全定義のRapi180秒をappendし、4case実M5＋独立seal成功。元3のnative SHA・全raw prefixはbyte一致、regression入力は元の失敗API入力とbyte一致。v68はfixedだけ更新、他41基準は履歴として保持。開発packetだけは選択memberのappendを許し、旧全case prefixの入力SHAは厳密検査。sealed packetは全42memberの件数・入力全SHAを厳密検査し、検査skip0。CPU185、最終は同一165検査を再利用＋registry13／台帳7を新実行。PTX／CUBIN O1 plan成功はcompiler/GPU0。
+
+通常APIの元Rapi180秒で固定／蓄積×core0／50の4条件が全CPU／GPU／HTTP一致。固定core50は進行中の標準matrix結果を再利用、残3は新実行・保存監査済み。修正版full90の全90着弾で定義・作成／着弾時刻・amount／share・対象がCPUと一致。CPU180秒の元traceを再利用し追加native戦闘なし。元不一致・duration probes・診断後処理失敗とreadback復旧も保持。
+
+全266profileの180秒matrixはproduct-standard180-run-v2-20261102/api-v1で直列実行中。停止／切断時は保存job/statusを取得し、既存jobを再送しない。この段落は完了266件を主張しない。CUDAの新規実行0、既存RAM停止を維持。全特殊効果・任意場面・現source全CUDA対応は未完了。以下は過去記録。
+
+## 2026-11-02 通常BODY Lock OnをUI既定180秒へ延長
+
+元Heavy Arms編成の無宣言・期待値・180秒を通常APIから固定／蓄積で実M5計算し、全CPU／GPU／HTTP一致。標準profile加算0、既存1profileの追加2条件。各条件でLock On取得668、射撃93、対象数履歴4407、packet1150、端数処理13224、team6612、skill674を全件保存。Lock On／対象数の全行とtyped状態は既存singleton CPU observer、端数／teamの全行・最終team状態も既存native observer／readerで順序・値一致。追加診断はCPU6戦闘、GPU再実行0。保存監査2と最終登録への再投影2も追加battle／GPU0。[出所と全件SHA](../research/product-plain-lock-long180-v1.json)。
+
+既存original lock layoutに製品専用continuationを追加し、従来1310720wordの全領域は番地・内容を保持、追加出力は2032000word。入力109536wordは不変。pulse1024／packet2048／quota8192／fraction16384／team16384／shot128／skill2048／fate2048。snapshot・時刻・履歴は共通macroで先頭を旧番地、追加のみowned tailへ。単独plain Lock Onだけに有効、cover／coordinate／typedの既存出力と容量は変更しない。全行・未使用prefix／tail／範囲外を検査し、切捨て・数値maskなし。
+
+途中run-v2は拡張先と共通P_OUTPUT_WORDSの不一致でバッチ2件目status64。保存rawのpacket stores／loadsから特定してschemaを統一。run-v4の30秒は成功したが180秒はframe2062でskill128件を超えstatus8／理由付きCPU fallback。既存2048件skill page decoderとfate continuationへ接続したv6で成功。旧claim／raw／CPU前失敗・未使用packetを保全。最終v67はlock-fixed2／lock-accumulate1だけ実Metal＋独立seal、旧3のnative SHAと旧readback全prefixは完全一致、追加語は全0。他40基準は履歴のまま保持。CPU185検査／member、最終登録は計算・test byte一致により165検査を再利用しregistry13＋台帳負例7を新実行。最終ownerはrelease-v2のmanifest、PTX／CUBIN O1 planはcompiler/GPU0。
+
+新suite／shader entry／module／layout file0、CUDA／Metalで同じ計算・定義・testを使用。CPU正本・pinned・数値規約・許容差変更0。UI http://127.0.0.1:4327/#single は修正版で再起動し、設定／sessionは変更していない。標準266/203キャラの30秒実績は前commit d874cbdbの履歴として維持し、この新sourceの全件実績とは扱わない。現在sourceの製品検証はHeavy Arms1profile・180秒2条件。次は全profileの長時間と他consumer合成を優先する。新CUDA・任意場面・全特殊効果は未完了、Windows新依頼／compile／GPU／RAM計測0、既存RAM停止と環境保全falseを維持。以下は過去記録。
+
+## 2026-11-02 標準266/266を通常Metal APIでCPUと照合
+
+標準30秒・固定・期待値・seed0・無宣言の266profile（データ内203キャラ）を現在の同一runtimeでfresh実M5計算し、全CPU／GPU／HTTP一致。39 POST／39物理dispatch、API cache0。旧263の入力全byteとreadback全SHAは不変、Heavy Armsの旧宣言付きreadbackも同一。最終登録後の保存監査266も成功、追加battle／GPU0。[全件記録](../research/product-current-standard-v5.json)／[新3件と範囲](../research/product-default-body-v1.json)。
+
+残っていたYuni／Yan／Snow White Heavy Armsは、未作成の敵・座標・部位がないBODY1体だけを証明して既存共通実行器へ接続。Yuni／Yanは動くADDがないため元の名前・trigger・durationを持つcarrierを既存命令へ落とす。Heavy Armsは元のLock On定義を厳密検査し唯一のBODY候補を既存lock本体で処理する。座標・速度・距離の規則を選ばず、定義行を省略しない。明示座標モデルを自動追加すると期待値モードが変わるため使わず、元CPU fallback3件とcompute/cache_hit以外の全payloadが完全一致、expected=Trueと無宣言応答を保持。ADDが将来出現するpattern、idleを含む作成済みscript、座標・部位・部位破壊条件はこの特例へ入れず既存の理由付きfallbackを維持。
+
+追加の蓄積3条件も通常APIで全一致。これは標準profile数へ加算しない。既存CLI fixed／lock-fixedを3／2caseへ拡張し実Metal＋独立seal成功、v66はこの2baselineのみ更新、他40不変。最終CPU184検査とnative3の事前検査が成功。蓄積CLIは独立登録済みの元case数を維持し、追加の蓄積3は通常APIで検証。既存packet testで登録済み42programのcase数と入力SHAも検査し、基準との不整合を防止。最終owner2ce78005…、proof product-default-body-run-v3-20261102/release4-v1。PTX／CUBIN O1 plan成功はcompiler/GPU0。旧unsupported負例を直す前のv1/v2はGPU前失敗として保持。新suite／shader entry／監査器0、CPU正本・pinned・数値規約・許容差変更0。
+
+UIは現在worktreeから http://127.0.0.1:4327/#single で起動。設定／sessionは変更していない。標準BODY30秒の266成功は全特殊効果・任意場面の完成ではない。次は長時間（UI既定180秒）と容量、敵攻撃／回復／cover／ADD所有typed合成を優先。新3の現在CUDAは未検証、歴史CUDA263を現在全件へ昇格しない。Windowsの保存coordinate-lock v2 object/link成功を読み取りで再確認したがinner0／outer2／環境保全falseとresident RAM停止を維持。新Windows実行・compile・GPU・RAM計測0。以下は過去記録。
+
+## 2026-11-02 通常30秒：移動・物理着弾・射撃対象数の履歴容量を解消
+
+元の30秒・ADD3体でCPU実測すると、移動frame5403／segment5400、物理着弾standalone2484／Lock On2094。旧4096／2048上限を両方超えていた。既存movement schemaのcapacity8192を再利用し、物理履歴は4096へ。最初2048件は旧番地、追加分だけmovement終端後のtailへ置き、連結した全件の同じSHAと未使用／overflow scratchの0を検査。input123732は不変、standalone output2345384／typed Lock On2945320。新suite／監査器／shader entry／module／layout file0、CPU正本・pinned・数値規約・許容差変更0。
+
+初版Metalの旧5件は成功、新30秒は終了直前status64。保存rawで対象数履歴count2048、開始済み射撃2049、最後の着弾1件不足を確認し、既存targetCountShotBeforeの上限と一致した。対象数の前後履歴も4096へ拡張。関連team通知は8192へ拡張し、元の2048quota／4096teamは旧番地、追加だけ別のowned tailへ保存。元のstrict readerへ全行を渡し、旧prefix一致・全行値・未使用領域を検査。元失敗／claim／rawはproduct-typed-long-run-v1-20261102へ保持。修正版v2は全CPU事前検査と独立sealを新実行し、GPU retry扱いの再送はしていない。
+
+2基本編成、固定／蓄積×通常移動・再出現・強制移動優先の30秒12条件が通常APIの実M5／CPU／HTTPで全一致。全12でframe5403、segmentも旧4096超え。物理旧2048超え8条件、quota旧2048超え4条件、nearby発動8／非発動4、再出現4条件はgeneration4／12birth。物理dispatch8、保存監査12と最終コード再投影12は追加battle/GPU0、owned Node群終了。新original inventory profile加算0。standaloneの既存fraction/team診断省略counterはrawとreportへ明記し、無省略へ読み替えない。今回の公開physical／movement／Lock On quotaは全件保存し、Lock Onのfraction/team診断省略は0。
+
+既存typed-accumulate／typed-lock-accumulate各6caseの実Metal＋GPU禁止独立seal成功。v65はこの2programだけ更新、他40基準は保持。各旧5のnative SHAと全入力は完全同一。旧readbackの数値は全てbit一致で、差は明示capacity field2048→4096とmovement segment番地移動。旧全segmentは新番地へbyte一致、追加領域0、数値maskなし。最終owner1d5a81cd…、proof product-typed-long-run-v2-20261102、report research/product-typed-long30-v1.json。PTX／CUBIN O1 plan成功はcompiler/GPU0。
+
+最終登録はgolden pointerとその厳密なinverse台帳だけを変更。計算・全test・pinned・transportが実行ownerとbyte一致することを検査し、元ownerのCPU182事前検査を再利用、台帳負例7は新実行。最終登録のためだけに同じ戦闘や全testを再計算していない。元のfresh native6と独立seal6の出所は保持。
+
+残件：より長時間／多対象では明示capacityを超え得る。敵攻撃／弾倉／回復／cover／ADD所有typed attachment合成、全特殊効果分岐、現在全profile source再認定、CUDAは未完了。次は標準266の残3について、元CPUとBODY-only宣言結果を保存分から比較し、有効なゲーム規則を選ばず接続できる空対象条件があるか調べる。距離・移動規則を勝手に既定化しない。標準263/266＋宣言3はmatrix v4の歴史を維持。Windows新依頼／compile／GPU／RAM計測0、既存RAM停止・環境保全falseも保持。以下は過去記録。
+
+## 2026-11-02 Typed＋移動＋nearby＋Lock Onを同じ実行器へ接続
+
+既存enemy_movement宣言をtyped_targets／任意lock_onと併用可能にした。coordとlogical_geometryは順序まで完全一致必須。CPUはmovement runtimeを先に設置し、typedの1つのgeometryへattach、nearbyへ同じ現在frameのgeometry providerを渡す。GPUは既存movement1796wordをtyped/nearby prefix後へ追加、input123732。standalone出力2165136／Lock On2691344、移動bankはそれぞれ旧出力終端2032000／2558208から始まり、末尾512wordは0必須。未宣言時はbank全0・履歴全0で、架空の速度0モデルを作らない。primaryと候補の両方で既存enemyMovementPositionを読む。新suite／監査器／shader entry0、合成adapter1／生成layout1、CPU正本・pinned・数値規約・許容差は変更0。
+
+Elegg＋Yuniを含むstandalone／Heavy Arms Lock On併用の2基本編成、固定／蓄積×移動・停止・強制移動との同時発動・再出現、追加で逆優先順位4を通常APIから実M5検証。計20条件が全CPU/GPU/HTTP一致、全20で実座標変化、nearby発動6／非発動14を分離。発動castのaimが同時刻のmovement frame座標と一致。移動停止優先の同時区間はbefore=after、強制移動優先は強制区間after=[0,0]、実変位も確認。再出現4条件はgeneration3／計9birth、毎世代の初期座標リセットを確認。物理dispatch8、保存監査20と最終release再投影20は追加battle/GPU0、owned Node群終了。新たなoriginal inventory profileの加算0、distinct squad orderは6。
+
+既存typed-accumulate／typed-lock-accumulate各5caseを実MetalとGPU禁止独立sealで検証。v64は両programだけ更新、他40基準を保持。各旧4caseのnative SHA・入力全prefix・旧readback全prefixは完全一致し、追加input/outputは全0。生値maskなし。最終owner e49c4ba9…、CPU180／native5／deps／PTX・CUBIN O1 policy plan成功（planはcompiler/GPU0）。proof product-typed-movement-run-v3-20261102、report research/product-typed-movement-v1.json。
+
+保持した失敗：scout-v1はschema generator未同期、scout-v2はLock On側logical bank109968とstandalone側115680の差でCPU前停止。run-v1はMetal出力幅未登録でdevice前停止。run-v2はSwift guard変更の既存source inverse監査未登録でCPU停止。厳密なbefore/afterを既存ledgerへ追加し負例7検査を通したv3でGPU実行。standalone ZIP初回は親dir不足で未作成、別standalone-v2へ保存。旧claim／失敗は保全、制限・normalizerは緩和していない。
+
+残件を優先：今回の製品実証は12秒・ADD3体。履歴frame／segment各4096は30秒・3体では不足し得るため、次は既存容量設計を再利用して通常30秒の不足を解消する（履歴切捨て禁止）。typed bindingはBODY所有のまま、privateのADD所有moving attachmentは製品未接続。敵攻撃／弾倉／回復／独立cover等の合成、全特殊効果分岐、現在source全profile再認定、CUDAも未完了。標準263/266＋宣言3は前段matrix v4の履歴、今回source全件実績へ昇格しない。Windows新依頼／compile／GPU／RAM計測0、RAM停止と過去環境保全falseを保持。以下のtyped＋movement未接続はBODY所有typed＋移動ADDについて今回解消。
+
+## 2026-11-02 Nearby＋Lock Onを同じtyped worldへ接続
+
+既存typed-lock経路に、混在迎撃とnearby consumerを接続。新suite／shader entry／監査器0。入力121936、出力2558208word。BODY所有の飛翔体／HPシールドが混在可能で、typed_targetsとlock_onのbindingは同じ順序・内容を必須にする。元Heavy Armsのall_projectilesはkind2だけを選択し、全対象kind3なら空集合を保持。近傍選択は既存の明示primary-center-edge-v1、実ゲームの距離規則は未検証。移動との合成は引き続き拒否。
+
+元Elegg＋Heavy Armsの90定義を保った1編成を、固定／蓄積×混在／全飛翔体／全HPシールドの6条件で通常APIから実M5検証。全CPU/GPU/HTTP一致、全6で近傍castとLock Onが発動。近傍castは固定5／蓄積4、Lock Onは全条件5。飛翔体スキルreceiptは各modeで1／2／0件、HPシールド誤選択0。物理dispatch2、保存監査6と最終コード再投影6は追加battle/GPU0、owned Node群は終了。新distinct profile数0、今回の合成確認は編成1・条件6。
+
+CLI実Metal4とGPU禁止独立seal4、最終CPU178／native4／deps成功。v63はtyped-lock-accumulateだけ更新、他41基準を維持。旧3のnative SHAと入力121392word prefixは同一。全raw差は空NRB headerのmagic/version2wordだけ、数値maskなし。最終owner8c595b51…、proof product-nearby-lock-run-v1-20261102、report research/product-typed-nearby-lock-v1.json。PTX／CUBIN O1 policy plan成功はcompiler/GPU0。最初のPTX planはCUBIN専用level誤指定で拒否され、別v2へ修正し失敗を保持。
+
+初scoutはCPU ASTのpending条件合成不足でGPU前停止。exact route数1を維持し、named-rangeとLock On両pending条件を接続。通常API初回は検証リクエストのMetal指定漏れでCPU6のみ、元記録を保持してapi-v2で明示Metal6を検証。結果復元のGPU再実行はしていない。
+
+Windows接続復旧後は既存statusだけ確認。過去coordinate-lock v2のobject／link成果物検証成功を再確認したが、外側終了2／環境保全falseは維持。resident版はRAM不足停止のまま、新SDK／GPU／RAM計測0。接続復旧をRAM改善とは扱わない。ユーザーからRAM改善の連絡があるまでは新Windows実行を依頼しない。
+
+標準263/266と宣言3のmatrix v4は前段sourceの証拠として保持。今回source全profile再認定はしていない。全特殊効果分岐・typed＋movement／incoming等の他consumer合成・現在合成のCUDAは未完了。以下は過去記録で、typed nearby＋Lock Onを未接続とする記述は今回解消。
+
+## 2026-11-02 Matrix v4: 標準263の厳密再利用＋宣言3のfresh Metal
+
+コードe1980755／immutable owner c51b3d43…へ戻って標準266を既存static deltaで再pack。263入力が旧owner5f88…のinput全byteと一致し、8kernelのsource依存closureも完全同一。新typed/nearbyの変更は標準経路の計算sourceへ入っていなかった。CPU正本／pinned data43file、無宣言時のreference_execution early-exit AST、全266の宣言なしも再確認。現在checkoutとpacketのruntime1469file全byte一致を確認した。
+
+既存saved auditorを新しい出力先で使い、元API263結果とrawを現在のprepare／compile／decoderへ再投影。input・source・parent/member・raw・CPU/GPU/HTTP/Unicodeが全263一致。元captureはimmutableのまま参照し、API結果もbyte一致。新GPU0／CPU戦闘0／HTTP投入0、保存実行reuse263。これは新しい263実行ではない。標準対応263/266（200キャラ）を現在計算sourceとして確認できたが、全特殊効果分岐の証明ではない。
+
+未指定88Yuni／111Yan／210Heavyは同じ静的理由付きfallbackを保持。原profile・編成・装備・skill level・30秒・seedを変えず、従来と同じBODY-only/empty ADD domainの宣言3を通常APIへfresh投入し、1POST／2physical Metal／独立CPU3が全一致。input／readbackの全byteも旧宣言3と同一。保存監査3は追加battle/GPU0、owned Node群は終了。標準263と宣言3の観測union266profile／203キャラであり、未指定の標準対応266にはしない。宣言3だけで実移動やtyped迎撃を実証したとも扱わない。
+
+新suite／監査器／数値変更／実装変更0。research/product-current-standard-v4.jsonに263行と出所、product-current-declared-three-v2.jsonにfresh3と原定義69/71/91保持を記録。product-current-matrix-v1.jsonは旧履歴を保全してv4とlatest report pointerを追加。proof product-current-standard-v4-20261102、実行rootはproduct-typed-nearby-run-v2-20261102/release-v1/packet。保存GPUの原execution owner5f88…と現在runtime owner c51…を混同しない。元の38GPU転送は過去実行であり、今回263の新GPU数へ加算しない。
+
+CUDA標準263は歴史的証拠のままで現在source全件再確認は未完了、今回Windows依頼0／RAM再計測0。次は未接続consumer合成（typed nearby＋Lock On等）と特殊効果分岐を進め、必要な短いCUDA差分は外部RAM改善後に行う。標準matrixを毎回再実行せず、入力・source・CPU依存が一致する間は今回の厳密な保存監査を再利用する。以下は過去記録。
+
+## 2026-11-02 Nearby: 元Eleggの主対象＋近傍と混在迎撃を製品接続
+
+`reference_models.typed_targets.nearby_rules` を任意の明示フィールドとして接続。既存named-rangeのCPU adapter／literal packer／Slang／履歴readerを再利用し、selection=`primary-center-edge-v1` だけで元 `target_and_nearby:N` を主対象＋近傍N体へ対応させた。base_count=N+1の完全一致が必須。主対象は半径外でも含み、主対象中心から候補の形状端までを共通binary64で測り、近い順・同距離はcanonical ADD出現／BODY順。新しいゲーム距離基準は採用せず、宣言モデルの未検証表示を付ける。未宣言の元8条件は現在も静的に同じ理由で拒否する。
+
+既存typed input121392の後へ既存NRB544wordを隣接追加し121936、出力2032000は不変。履歴は旧未使用のdisjoint領域1867648〜1884048を検査して使い、32word／512cast容量は不変。castの旧reserved22〜29には選択順のkind/ID/generationをSHA256記録し、CPUと照合する。hashだけで対象を推測したりGPU側でCPU状態を使ったりしない。新suite／shader entry／監査器0、生成layout1。大きな作業配列を増やさず、取得済みactor setの一時kind/ID欄を距離ソートに使って復元し、既存frozen queue／ActorPool／split着弾へ渡す。CPU正本・pinned・数値演算・許容差変更0。
+
+実M5 CLI4case＋GPU禁止独立seal4case成功。元Elegg70定義と混在迎撃を使う通常APIは1profile・17条件が全CPU/GPU/HTTP一致。半径0、入替、2／3recipient、上限、死亡、再出現、BODY-onlyを確認。実nearby castあり14条件、なし3条件を分離。fixed再出現はgeneration2のordered SHAを実確認。蓄積の再出現2条件と死亡1条件は元のnamed triggerが発動せず0件であり、positive proofへ加算しない。追加1件の意図名activeは実結果inactiveのまま保存し、再実行していない。同じN102爆風ではHP shield166232／projectile265406がCPUと一致し、元Eleggのprojectile倍率も省略していない。
+
+旧3caseのnative SHAと入力121392word prefixは完全同一。raw差は新empty NRB headerのmagic/version2wordだけ（1867648,1867649）で、rawをmaskせず全比較。v62はtyped-accumulateだけ更新し他41基準を保持。保存17監査と最終コードへの全再投影17は追加battle/GPU0、2つのowned Node群は終了。現standalone named-range scoutはprojectile buff未接続でGPU前拒否されており、効果削除ではなくtyped modifier axesと合成して解消した。初版packetの追加legacy5テストでpending tuple互換性を検出し、split所有を新tupleへ格納して旧3要素を保護。旧失敗を残したv2を実GPU検証した。
+
+最終owner c51b3d43…はown177／native4／deps／PTX・CUBIN O1 plan成功（compiler/GPU0）。既存named-range5／wire5も成功。source/dependency model-checkは成功だが全面対応ではない。proof `product-typed-nearby-run-v2-20261102`、report `research/product-typed-nearby-v1.json`。今回Metal1profile17条件（positive14／inactive3）、new distinct0、CUDA0。旧標準263/266＋明示3はowner5f88…の歴史的scopeを維持し、現source全profile再認定へ読み替えない。WindowsのRAM不足・旧missing・claimは保全、追加SDK／GPU／RAM測定依頼0。
+
+残件：typed nearby＋Lock Onは明示拒否。次はこの共通consumer合成か、全profileのまとめた現source再確認を進める。typed＋movementも現normalizeで拒否する。将来moving nearbyを接続する際、primaryと候補の両方で既存live position helperを使うこと（現在のnearbyはstatic colliderでの実証）。未宣言距離・ゲーム一致、他特殊効果の全分岐、現在CUDAは未完了。以下は過去記録。
+
+## 2026-11-02 Mixed typed weapons: 飛翔体とHPシールドの同時存在
+
+既存typedの同種制限を、明示BODY所有・weapon-onlyだけで拡張。新suite／shader entry／監査器／wire拡張なし。geometry kind=0はこのconsumerだけの混在タグで、GPUは実際の2種bindingを要求する。通常private skill geometryは従来のmixed拒否を維持。着弾／counter通知／serialized receiptはbindingの実kindを使う。混在時の10word/pelletへ2種の額を先に固定し、親ダメージは既存整数sumで合算。旧単一種の8word配置・2048履歴・128対象・1024pelletは不変。scratch終端163952<次bank170976を検査。CPU正本／pinned／数値演算／許容差変更0。
+
+実M5 CLI3caseとGPU禁止独立seal3case成功。旧v60の先頭2caseはinput／全output／native anchorが完全同一。v61はtyped-accumulateだけ更新、他41基準は保持。通常APIは元Prim／Asukaの2profile・16条件で全CPU/GPU/HTTP一致。前方対象が破壊された後の別種命中、同じ爆風packetで両種、ADD併用、再生成を確認した。Asukaの元shield倍率も残し、self packetは飛翔体53474／次のHP shield374857など、実種別の数値がCPUと一致。sourceや入力にCPUのdamage/stateは渡さない。
+
+Eleggの8条件はGPU未対応でCPUへ戻し、元effect `쇼트 2`／split_damage／`target_and_nearby:2` と理由をAPIに保持。最初の静的準備はこの理由でGPU前停止として保持した。後続24件ではadmit16と理由付きfallback8を同時に確認し、効果を削除・条件を緩和して通していない。API wall39.065s、物理dispatch4は単発観測で性能比較ではない。保存24監査と最終sourceへのGPU16再投影／fallback8再拒否は追加battle/GPU0、owned Node群は終了。
+
+最終owner95d6cea0…はown176／native3／deps／PTX・CUBIN O1 plan成功（compiler/GPU0）。source/dependency model-check成功だが全効果対応の証明ではない。proof `product-mixed-typed-v1-20261102`、report `research/product-mixed-typed-v1.json`。今回Metal2profile・16条件、new distinct0、CUDA0。旧owner5f88…の標準263/266＋明示3は歴史的scopeを保持し、現source全件再認定へ読み替えない。WindowsのRAM停止・旧missing・claimは保全、追加SDK／GPU／RAM計測依頼0。
+
+次の優先項目はEleggの `target_and_nearby:2`。`portable_enemy_specs.lower_single_body_nearby` は明示coordを拒否するため、そのままではBODY-onlyでもtyped経路に使えない。CPUの実際のcurrent targetとBODY所有policy／canonical actor registryを調べ、座標を消して旧guardを通すだけの変更はしない。ADDありの近傍距離・順序を推測せず、必要なら既存の明示geometry consumerへ接続する。他の所有者・合成・全profile／CUDA再確認も未完了。以下は過去記録。
+
+## 2026-11-02 Lock Onなしの武器迎撃＋ADDを通常製品へ接続
+
+前段の拒否条件を解消し、既存typed-accumulate／typed-fixedに完全logical input bankを追加。入力115680→121392、出力2032000は不変。新suite／shader entry／ダミーLock On／監査器なし。同じlogical geometry／typed world／group deliveryを使い、全configured ADDとcollider集合を一致させる。元の全定義を維持し、未接続typed skill／incomingを省略してadmitしない。CPU正本／pinned／数値演算／許容差は変更0。
+
+実M5 CLI2case＋GPU禁止独立seal2case成功、v60へtyped-accumulateのみ更新し他41基準を保持。旧先頭native fingerprintと旧入力115680wordの全prefixは不変。旧全readbackとの差はactor setのcount／bitset／generationの3word（227352,227353,227361）。logical direct BODY deliveryでは旧capture集合を作らないため旧1が0になった。rawをmaskせず両方保存し、新全出力を独立照合。CPU／製品payload差は0。
+
+通常APIは元Prim編成1profile、両mode×飛翔体・HP shield×前後／死亡／ADD＋typed同時再生成と従来条件2、計18条件が全CPU/GPU/HTTP一致。物理dispatch4、API wall34.361sは単発観測。再生成ではraw ADD generation>1とtyped state generation3を確認、前後で迎撃件数が変わり、低HP ADDは死亡。保存audit18と最終releaseへの再投影18は追加battle/GPU0、owned Node群は終了。
+
+初版packetはCPU完了後、GPU開始前のレビューで複数caseのstride未更新を発見して保全。v2へstrideとschema guardを修正して実行し、旧packet／claimは再利用しなかった。保存audit初版の補助JSONはNodeのUTF8 chunk連結で韓国語を破損しprebattle停止。実送信requestと元JSONは一致し、補助ファイルをBuffer.concatで再生成した別v2で保存監査だけを完了。元のAPI／raw／補助失敗は不変。
+
+最終owner34309fa6…はown175／native2／deps／PTX・CUBIN O1 plan成功（compiler/GPU0）。最終sourceの保存18再投影成功。source/dependency model-checkも成功だが全special-effect完成ではない。今回Metalは既存1profileの18条件、new distinct0、CUDA0。標準263/266＋明示3は旧owner5f88…の実証を保持し、新source全profile再認定へ読み替えない。次は未接続consumer合成と特殊効果分岐を進める。WindowsのRAM不足停止を保全し、SDK／GPU／RAMの追加依頼0。
+
+proofは `product-standalone-typed-add-v2-20261102`、reportは `research/product-standalone-typed-add-v1.json`。共有はコード／テスト／小JSONだけで、個人設定・raw・PTX・SDKを含めない。以下の過去記録の「単独typed＋ADDは未接続」はこの変更で解消済み。
+
+## 2026-11-02 残3profileの宣言付き条件も現在Metalの通常APIで確認
+
+標準未指定88Yuni/111Yan/210Heavyは、original squad/profile/stat/equipment/skill level/seed/30秒を保持し、既存宣言consumerで追加1POST/2physicalM5/38.200秒。Yuni/YanはBODY-only・empty ADD domainを明示したenemy_movement（69/71原定義保持）、HeavyはBODY-first/frozen generation・typed binding無しのlock_on（91原定義保持）。元effectを削除せず全binding source indexを確認。新source/suite/監査器/数値変更0、全GPU/CPU/HTTP/Unicode一致、宣言warning表示、保存監査3は追加battle/GPU0、owned Node gone。
+
+現在sourceで通常製品GPU戦闘を確認した元profileの和集合はMetal266/266・203キャラ。ただし標準モデル未指定は263/266のまま、残3の自動モデル選択/default対応は追加していない。BODY-only movementは実ADD移動を発生させた証明ではなく、BODY-only Lock Onも飛翔物迎撃の証明ではない（後者は別typedLock8条件で実証）。全effect定義保持・profile実行を、全条件分岐/全特殊効果/任意consumer合成の完了へ昇格しない。CUDAは従来標準263/266、current新sourceはRAM gate停止でGPU0、メモリ削減は未証明。research/product-current-declared-three-v1.json参照。全goal未完了。以下は履歴。
+
+## 2026-11-02 標準263profileを現在sourceの通常Metal APIで全件再確認
+
+既存static delta runnerで元266標準30秒/モデル指定無しを再packし、GPU対応済み263入力は全て旧inputと完全同一。8kernelのsource graphは旧から差があり、strict source-exact reuse0件だったため、旧263をcurrent実績に付け替えず、既存run-api-batches.pyを8件ずつ逐次実行した。明示モデル不足88Yuni/111Yan/210Heavyの3件は静的reasonを保持し、fallback CPUを再計算しない。新suite/監査器/数値変更0。
+
+owner5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622の通常/api/jobsで263件（200キャラ）全て実Metal/独立CPU/HTTP/Unicode一致。38POST/38physical GPU、cache hit0、旧263全readback SHAも完全同一。既存saved auditorで全263のsource/input/parent-member/raw/CPU/GPU/HTTP再投影を成功、追加battle/GPU0、owned Node group gone。現在checkoutとimmutable runtime1468file全byte一致、canonical CPU/pinned data43fileも旧と同一。静的成功だけから件数加算していない。
+
+標準Metal current263/266（今回fresh263、旧GPU実行reuse0）・CUDA従来263/266（current全CUDA再認定なし）。全goal未完了、declaredモデル別historical各266とは区別。research/product-current-standard-v3.jsonへ全profile結果、product-current-matrix-v1.jsonへ旧履歴を残したv3を追加。proofs/product-current-standard-v3-20261102。以下は履歴。
+
+## 2026-11-02 typed Lock On蓄積のFrame32一時配列を既存resident codecへ移設
+
+前turnは通常Metal8条件接続でprogress。今回は保存Windows診断のcuLaunchKernel前後private増加1,680,879,616Bを受け、生成CUDAを既存compiler-statsで監査。Runtime本体は既にresource上、蓄積dispatchにFrame32局所配列とactorStateEventへ渡す配列copyの2宣言が残っていた。元のdispatch_frame_storage codec32段×32wordをtyped_lock entryにも有効化し、新規suite/監査器/数値式0。生成CUDAではFrame32配列宣言2→0、M5実runtime stride164632→168728（case当たりglobal4096B追加）。CUDA source textは2,831,867→3,375,380Bへ増えた。これは字句上の宣言とreflection比較であり、compiled CUDA stack/local量やWindows実RAM削減・高速化の証明ではない。fixedは元からresident frame。
+
+固定candidate自身172検査・native2・依存成功、既存frame codec4 controlsで全32slot/IEEE bit/符号付ゼロ/NaN payload/境界を確認。M5実2casesは旧CLI input/全raw/全native hash完全同一、GPU0.506秒・fresh独立seal成功。通常APIも同じ旧8入力を1POST/2physicalM5/20.519秒で実行し、全CPU/GPU/HTTP/Unicode一致、旧8case全input/full raw SHAを完全保持。キャッシュ状態が異なるため旧51.466秒との速度比較をしない。8保存監査/最終release再投影は追加battle/GPU0、owned Node group gone。
+
+v58は全42programの数値アンカーを保持しtyped-lock-accumulateのsource/generated hashだけ更新。最終owner5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622、自身172CPU/2native/依存/PTX・O1計画成功。元GPU-only native期待値再利用は、strict ledgerに対応するCPU hash literalも変わるためbyte同一条件を満たさず、規則を緩めず通常fresh2caseを使用。scopeは元Heavy1profileの条件保持で新profile加算0、標準Metal直近263/266・CUDA従来263/266（current全matrix再認定なし）。Windows削減と現composite CUDAは未実証、旧missing7/上限超過/失敗を保持。次は同じ新sourceの生存/破壊4秒2caseだけを従来の低優先度・2GiB・RAM4GiB・180秒上限・最初異常停止で1回検証する準備。旧sourceの再試行や上限拡大はしない。research/product-typed-lock-resident-v1.json参照。Windows要求はf7eff205で13file/12,251,346Bを共有、manifest69555f5b…/全Git blob照合済み。Macの実管理helperへrequest/selector/owner/AST caseIDを渡してselected11成功、未選択161はWindows実行しない。実APIのaccumulate生存/破壊memberのinput本体とfull rawは実独立CLI physical2と完全同一、parent期待値も実M5 original captureそのもの。新turn01a1986e-0d3d-7a43-8dc1-25e9f048f4daがactive/inProgressとread_threadで確認済み、まだCUDA実行/メモリ結果未取得。同handle status/exportのみ、run再送禁止。research/product-typed-lock-resident-cuda-request-v1.json参照。Windows terminal status bbcba8d7を取得（19,091B/SHAd1ed30f2…/Git blob照合）。selected11/依存/計画成功後、SDK前RAM一度だけの実測1,438,969,856B<4,294,967,296Bで停止。SDK/生成/NVRTC/ptxas/link/API/GPU/保存監査/再測定0、SDK claim無し。新モデルのCUDA成功・Windowsメモリ削減へ加算しない。旧missing7/上限超過/unknownを保持。ユーザーへ空きRAM確保状況をasyncで確認中、Macは独立に進める。全goal未完了。以下は履歴。
+
+## 2026-11-02 武器迎撃＋元Lock Onを同一共通世界の通常Metal APIへ接続
+
+前turnのCPU単一worldとfallbackを基準として、既存coordinate-lockへtyped武器/aim/owner/modifierを接続。新しい数値式・CPU正本/pinned変更0、新suite/監査器0。同じSlangをCUDA/Metalへ生成する薄い2entryと、既存product-detail内2programを追加（registry82）。input121392、output2558208。元Heavy91定義を保持。元typed DFS153568..170976、武器全2048packet170976..220224、aim220224..220768、別pellet/generation/通知scratch220768..229104、残tail229104..262144はzero要求。typed攻撃128・全skill2048・Lock31snapshot等は削減しない。武器とスキルが同じ敵HPを更新する。
+
+P1はDF macro不足でSlangコンパイル停止、GPU dispatchなし。P2実M5は両case status0、GPU0.517秒、破壊case完全一致、生存はpublic notice fieldだけ不足。breakなら既存世界と同じhandle/owner/time、非breakならnullを返すようdecoderのみ修正。GPU source/input/native指紋不変のP3で既存CLI replay、追加GPU0で2case完全一致・fresh独立seal。旧P1/P2失敗/capture/期待値は不変、v57へtyped-lock-accumulate2caseを登録、旧41member完全保持。fixedは通常API実証済みだがCLI独立baseline未登録。
+
+通常/api/jobs 1POSTで8条件＝両mode×生存/武器破壊/設定HP境界/30秒、2physicalM5・51.466秒、全CPU/GPU/HTTP/Unicode一致。30秒は実1178weapon packet。accumulateのHP境界では元all_projectilesが2対象を破壊し非null notice2、fixed同容量条件のnoticeは0なのでfixedのスキル破壊実証と主張しない。最初の追加assertは両modeにnotice2を要求していたため停止し、実保存結果に基づく範囲を診断記録へ明示。比較値・raw・実行を変えず、8保存監査と最終release8再投影成功。10改ざん（予約領域/weapon amount/aim/typed slot・identity・超過took/全skill未使用末尾/物理trace参照/切断wire）を拒否。いずれも追加battle/GPU0、product decodeの研究observer import禁止、owned Node group gone。
+
+最終release owner7e83b9101a304bbd20fb34732fbf5c67a1167e22e8566363487dcda72c3b404a、自身172CPU検査・native期待値2・依存・PTX/O1計画成功。P3からの差はGOLDEN pointer/strict ledger SHA/receipt identity・量の追加拒否だけ、全GPU/入力/元計算不変を検査。独立seal producerと最終decoder再投影の範囲を区別する。以前のtyped武器単独16保存出力も現在decoderで再投影し、計算全field完全保持。evaluatorのVCS stampは旧168561d6と新a657409bで異なると明記し、数値差とは分類しない。
+
+元Heavy1profileの追加8条件で新profile加算0。標準Metal直近263/266、CUDA従来263/266、明示モデル別historical各266/266は不変、current全matrix再認定なし。現typed武器＋Lock OnのCUDAは未実証。旧Windows missing7と記録Job peak超過を保持し、Windowsは保存resource timeline診断だけ依頼、追加SDK/GPU/APIなし。宣言shape/aim/owner/順序をゲーム確認済み仕様へ昇格しない。残件は同時ADD/cover/ammo/healing/weighted、現在source全profile再認定とbounded CUDA。research/product-typed-lock-v1.json参照。Windows保存resource診断1bfe3a3eも取得し、31,194B/SHA76914f79…/Git blobを照合。8sampleではcuLaunchKernel before/afterでprivate peak416,358,400→2,097,238,016B（+1,680,879,616B）、sample Job peak最大2,126,282,752B。最終outer2,149,621,760Bの上限超過時刻・原因はunknown。新query/sample/SDK/GPU/API0、欠損7/上限超過/旧stop不変。今後のCUDAはこのlaunch付近の作業領域とdriver確保を保存ソースから検討してから必要最小差分だけ依頼する。全goal未完了。以下は履歴。
+
+## 2026-11-02 typed武器＋Lock OnのCPU共有世界と通常API fallbackを接続
+
+前turnは保存CUDA2条件の計算一致とmissing7/記録Job peak超過の証拠取得でprogress。今回は次の未接続組合せのnative基準を実装。従来のproduct_typed_modelとproduct_lock_modelを別々にネストすると同じ敵に2つのDestructibleWorldを作るため、前者のactiveな内部runtimeを後者へ渡し、生成前・binding順/容量/owner/label全一致を要求。受け渡しはrequest fieldではなく内部contextだけ。新規の数値式やCPU正本/pinned変更なし。normalizeはtyped_targets＋lock_onのみ新たに許可し、非projectile/順序/容量の不一致を戦闘前に拒否する。
+
+元Heavyの固定/accumulate×生存1e8/破壊1HPの4条件で世界生成1回、武器171/12packet、生存時の元all_projectilesスキル1回、Lock On16pulse/2shotを確認。武器とLock Onの最終typed HPは同一で、武器を含む世界のHPは従来Lock単独より低い。破壊時は武器が敵を壊し、後続の元飛翔体スキル対象0になる。異常終了のalias/RNG復元も検査。既存test_product_reference_models.pyを拡張、85成功。最初の非projectile負例失敗はnative-tests-v1.logへ保持し、normalize guard修正後v2成功。
+
+immutable package ed76941de354effdc33f1dfd53882c96ebad11a866e86281ce60414877e02e7b自身の既存4群172検査・元coordinate-lock30/56秒CPU期待値2件成功。GPU呼出0。新suite/監査器0、registry80/v56不変。compact packetのmodel-checkは古いIMPL-STATUS.mdを含まず読込で停止したログを保持し、full worktreeで既存model-check静的成功（GPU/battle0）。歴史ledgerは追加app sourceの全SHAだけ更新、normalizer/pinned ledgerを緩めない。
+
+通常/api/jobsへ1POSTで4条件を投入し、全てbackend=cpu、gpu_execution_verified=false、未接続shared GPU consumerの具体的理由を表示。世界HP一致/破壊結果を検査、input/readback作成0、owned Node group gone。CPU fallbackをGPU成功と数えない。research/product-typed-lock-native-v1.json、proofs/product-typed-lock-v1-20261102参照。
+
+次は既存coordinate-lockのarenaへtyped武器/aim/owner consumerを接続する。武器pellet scratchは従来skill DFS領域の再利用のため、この組合せでは別領域へ置き、同期子スキルが親のpellet snapshotを壊さないことが必要。元128typed attack/2048skill/2048weapon packet/全Lock On履歴は削らない。元Heavy1profileのCPU条件追加のみ、今回新GPU profile0。標準Metal直近263/266、CUDA従来263/266（current全matrix再認定なし）。Windows再依頼0、以前のmissing7とJob peak超過は未解決。全goal未完了。以下は履歴。
+
+## 2026-11-02 Windows保存結果取得：2条件の計算一致、監視とメモリは未解決
+
+復旧後は保存結果だけ取得。輸送6d2a7356のstatus-v2と匿名identity診断をGit blob/全SHA照合してresearchへ保存。新source ec80ecb2の4秒×生存/破壊2条件を1POST/1CUDAで実行済み。Mac実保存parent/inputと全member rawを再hashし、CUDA報告と全一致（parent20,465,664B、SHA f2f12a7f…）。CPU/GPU/HTTP/Unicodeも一致、非zero batch index1の相対trace参照を確認。GPU dispatch0.661秒、HTTP18.935秒。元Heavy1profileの条件追加で、profile加算0、全matrix再認定なし。
+
+終了後監視はmissing7で停止し、Windows保存監査未実行。匿名の保存snapshot照合でも同PID＋有効creationのafter行0、同PID行0、旧healing missing7とのidentity共通0。path表記差の根拠なし、原因・所属unknown、旧stop/環境falseを保持。記録Job peak2,149,621,760Bは設定2,147,483,648Bを2,138,112B上回り、原因・上限遵守は未解決。owned Node gone/Job empty/live0だが、全実行成功へ昇格しない。追加query/SDK/GPU/API/監査再実行0。research/product-coordinate-lock-cuda-import-v2.json参照。
+
+既存CLI model-checkの履歴照合は、新Swift outputWords2558208の正確な1hunkを最新BOSS inverse ledgerへ登録して修復。除去後の全bytesは旧baseline88cda975のSwift SHA ef526047…と一致し、旧pinned ledger/normalizer変更なし。model-check静的成功、cover wire7・weighted source7検査成功（input上限改ざん拒否を追加）。数値source/GPU変更0、現immutable packet不変。この静的成功を計算証拠へ昇格しない。次の未接続はtyped武器迎撃とLock Onの同時世界、cover/ammo/healing/weightedとの合成。全goal未完了。以下は履歴。
+
+## 2026-11-02 内部trace参照を相対化、実M5複数ケースと画面取込を確認
+
+Windows e53f5bf6の元56秒1POST/1CUDAは、全CPU/GPU/HTTP/Unicode・input・219skill/2typed attacks/6receipts/214pulses/29shotsが一致したが、全rawゲートで停止した。status da4ea9d2（43,171B/SHA c6eebb66…）と診断dc957eff（8,832B/SHA eefde000…）をMac取得。M5は物理6cases/index5、CUDAは単独0で、DFscratchのtrace参照word2186642だけがM5の絶対位置14827648とCUDA2036608で違っていた。M5のその既知1wordだけを診断上case-relativeへ変えるとCUDA全SHA b3d42775…へ一致し、Windows側の逆候補も元M5全SHA33650b1e…へ一致。全10,232,832Bの他全word差なし。元raw/期待値/stopを変更せず、保存診断のみ、追加SDK/GPU/battle0。旧full-raw失敗は保持し、新sourceのCUDA成功へ付け替えない。research/product-coordinate-lock-cuda-diagnostic-import-v1.json参照。
+
+修正は新coordinate-lock共通entryの3macro。captureではtrace参照をlogical result内offsetとして保存し、receipt/completeの実dereferenceでだけphysical output baseを加える。全数値scratch/履歴は残し、除外・mask・zero化で差を隠さない。decoderはpointer/identity/countの対応とlogical範囲を要求し、旧physical addressを拒否。readonly LockViewを大きなlistへ展開せず元typed readerへ渡し、coordinate prefixもmemoryviewで共有して不要コピーを減らした。数値式・CPU正本/pinned変更0。
+
+既存CLI coordinate-lockの同一programへ56秒caseを追加し、元30秒caseを先頭に完全保持。P4は1物理M5で2casesを実行し、native2/独立seal成功。元先頭のinput/full output/native entryは完全同一、2番目56秒の実full outputは保存CUDA b3d42775…と完全同一。v56は旧41member中coordinate-lock-accumulateを更新し、他40全保持。fixedはAPI成功・独立CLI未登録。registry80/suite追加0。
+
+修正版の通常API-v2は両mode×30/56秒4条件を1POST/2physicalM5/36.303秒、API-v3は生存/破壊の各4秒2条件を1POST/1physicalM5/3.054秒で全CPU/GPU/HTTP一致。両方でbatch index1を実行。旧API-v1の該当4rawと新実GPU rawの全word比較も既知trace参照以外全一致、元raw不変。保存監査と最終再投影6は追加battle/GPU0、source/input/全raw/全payload一致、研究observer import禁止でもdecode成功、owned Node group absent。新physical address負例も拒否。元API14は旧source実証として保持、現在sourceで新実証した条件は6/元Heavy1profile、新profile加算0。
+
+最終release-v2 owner ec80ecb25850c479feaf676d0cf6d3f9b43d708daaeb4ffd1e76da78d8c52013、自身169CPU/依存/PTX/O1計画成功。標準Metal直近263/266・CUDA従来263/266、明示モデル別historical各266/266、current全matrix再認定なし。web/enemy-model.mjsのtyped_targets取込名漏れも修正済み、部隊JSON保存・再読込・requestまで11画面model検査成功。frontend変更は計算protocolと独立、現在packetには取込修正も含む。
+
+次のWindows差分はsource修正後の4秒×生存/破壊2条件を1POST/1CUDAだけで確認する候補。必要なのは非zero batch indexを含む相対参照確認。前の56秒API job peak2,136,633,344Bと2GiB capを保持し、既存BelowNormal/RAM4GiB/Job/時間/逐次/最初異常停止を維持する。旧停止の再送はしない。sourceを新たに渡す場合は、Macの実管理helperへrequest/selectorを与えるID/owner/SHA照合から実施。全goal未完了。以下は履歴。
+
+修正版Windows差分を輸送ad8df482で共有（13file/12,236,958B、manifest SHA145ac56c…、Git全blob照合）。selectedはsource同一のshort-live/short-broken各4s、2conditions/元Heavy1profile、1POST/1CUDA physical2。case ordinalはprepare-api.pyの契約どおり[0,1]、元profile数とは区別。期待raw20,465,664Bは実M5 parentそのもの、3chunks[8388608,8388608,3688448]。CLI seal2case(30/56s)とselected normal API2case(4/4s)の証拠範囲も分けた。共有前のordinal候補はtransport-v2-before-case-index-checkに保存し、corrected request/selectorの実管理helper選択11を再成功。旧stop/期待値は不変、新source初回のみ、他158/標準266はWindows未実行。新turn01a19826-c47d-7672-a360-c58e8168ef05がactive/inProgressと開始commentaryをread_threadで確認。新CUDA結果未取得。以後は同handleのstatus/exportのみ、run再送しない。research/product-coordinate-lock-cuda-request-v2.json参照。
+
+## 2026-11-02 座標＋Lock On／元飛翔体スキルを通常Metal14条件で接続
+
+前turnは非座標Heavy Armsの製品decoder修正までprogress。今回は通常reference_models.coordinate＋lock_onを同じRuntimeへ接続。既存の座標/論理ADD入力115680wordを全保持し、元typed descriptor5136wordを追加。出力は完全な座標＋2048skill履歴2032000wordの後ろへ、元typed/lock arena786432..1310720をSHIFT1245568で一括移設し、fate継続1920wordを追加。OUTPUT2558208、input120816。typed attack128/skill2048/lock shot31等の容量を削らない。両modeの2薄entry、元Slang/効果/CPU adapter/strict readerを再利用、新suite/監査器/式0、CPU正本4file/pinned/数値規約変更0。Swift/Python wireとschema生成器も同時登録。
+
+元Heavy91定義とequipment全保持。静的scout1はshader出力branchとgenerator差でpre-device拒否、双方修正。CLI registryの明示set更新も数値変更なし。P1実M5 status16は共通typed継続に座標のsampled係数frame初期化がなく、元の共有begin hookを使用するよう修正。P2 status64はtyped着弾後の記録用BODY proposalが普通の座標cast無しでqueue storeへ入っていたため、checked typed sourceだけ座標snapshotをclear/skipし、元proposal/fate/通常skill履歴は保持。P1/P2/P3の全inputとnative指紋は完全同一、旧claim/raw/失敗を保持。P3実M5＋GPU禁止独立seal成功。
+
+通常API14条件＝両mode×BODY-only/projectiles/broken/not-born/renewal/two-adds/long56、1POST/3physicalM5/48.867秒、全CPU/GPU/HTTP一致。破壊/未出現/再出現/有限ADD/56秒を確認し、long56は実219skill rowsで元128を超えた全履歴を保持。保存監査14と最終release再投影14は追加battle/GPU0、parent/member slice/全raw/input/current Slang/全payload一致、専用Node group absent。typed reserved4領域/未使用fate末尾/係数binary/source/Lock owner/完全skillページ末尾の9改ざんもstrict readerで拒否。
+
+最終owner8abb7645fcf14ca911a1ddfa5abf36c6a74f010f68f35531525c1c66e8deb0d4、自身169CPU/依存/PTX/O1計画成功。GPU後のapp差はGOLDEN pointer/strict ledger SHA/未所有bankの追加拒否だけ。v55へcoordinate-lock-accumulate1member追加、旧40全保持、fixedは通常API成功・独立CLI未登録。research/product-coordinate-lock-v1.json、proofs/product-coordinate-lock-v1-20261102参照。
+
+新profile加算0、元Heavy1profileの追加14条件。標準Metal263/266・CUDA従来263/266、明示モデル別historical各266/266は不変、current全matrix再認定ではない。新coordinate Lock OnのCUDAはまだ未検証。Windows旧healing missing7 unknown/停止は保持し、同処理は再依頼していない。最新read_threadでは同chat idle/診断terminalを確認。次の候補は同じ新kernelのlong56-accumulate1条件だけで、元M5のfull219skill/2typed attacks/6receipts/214pulses/29shotsを比較する。未接続はtyped武器の形状による迎撃とLock Onの同時世界、cover/ammo/healing/weightedとの合成。declared modelをゲーム仕様へ昇格しない。全goal未完了。以下は履歴。
+
+Windows差分を輸送e53f5bf6で共有（13file/12,224,661B、全Git blob再hash）。元long56-accumulate1条件だけ、output10,232,832Bは既存8MiBの[8,388,608,1,844,224]2chunk。最終ownerとMac169/選択11、実管理helperによるrequest↔selector/ID/SHA/owner照合を確認し、他158/標準266はWindows再実行しない。コードreview30f58203、snapshot元commitは3d8913b6＋dirty snapshotなのでowner/各SHAで実byteを拘束する。元healing stopを再実行せず、fresh sourceの初回だけ。BelowNormal/2GiB/RAM4GiB/SDK60s/API53s/audit60s/outer180s/逐次/最初異常停止を維持。同chat新turn01a197f0-9b28-7b20-a773-b6538830fcebがinProgress/activeとread_threadで確認。CUDA結果はまだ未取得、以後はこのhandleのstatus/exportだけを取得しrunを再送しない。research/product-coordinate-lock-cuda-request-v1.json参照。
+
+画面の宣言JSON入口を追加確認し、既存web/enemy-model.mjsの名前whitelistにtyped_targetsが無いことを発見した。APIのみ受付済みだった飛翔体/HPシールドを画面でも取込可能にし、部隊JSON書出し→取込→request投影・label・mutable state分離まで既存enemy.test.mjsの11検査を成功。1MB/finite JSON/未接続名拒否/編成・育成override禁止は保持。CRLF元形式も保持して改行認識付きdiff check成功。このfrontend-only変更で追加GPU/battle0、CUDAへ渡した固定core/packetは変更しない。
+
+## 2026-11-02 Heavy Arms飛翔体スキルの製品読取器を分離、通常Metal4条件
+
+前turnはtyped武器16条件までprogress。今回は実original all_projectilesを調査し、該当はHeavy Armsの元burst_cast skill1定義と確認。既存Lock On製品経路にはこのskillを処理する共通typed frameがあるので、同じ計算本体を再利用。portable_world_result.read_typed_battleのskill分岐に研究用roster observer importが残っていたため、portable_product_locksから元effect/owner/skill_levelsだけで求めた静的係数を渡し、既存の完全なsource/係数binary照合を維持した。sampled係数がある場合は研究moduleをimportしない。新shader/式/suite/program/監査器0、CPU正本4file/pinned/数値規約変更0。
+
+共通decoderに研究module不在の実skill receipt正例と係数不一致負例を追加。開発不変packet自身168CPU/依存成功。元30秒Lock On1caseの実M5/独立seal成功、新旧のinput/full output/全native entryは完全同一。ソース出所だけ更新したv54へlock-accumulateを登録し、他39memberを全byte保持。旧v53 golden/失敗claimを上書きしない。新golden未追跡のrelease-v3はpayload欠落でpreflight前停止、追跡後のrelease-v4が通常package/自身168CPU/依存/PTX/O1計画を全成功。最終ownerはresearch/product-lock-skill-import-v1.json参照。release-v1旧source closure拒否・release-v2のdevelopment compile-plan拒否も保持、SDK/GPUの再試行はしていない。
+
+元Heavy Armsの両mode×three-projectiles/broken-projectiles30s、通常HTTP1POST/2physicalM5/9.774秒、全CPU/GPU/HTTP一致。各1skill attack×3receipts、生存残量各99,709,612・破壊時0を確認。元定義/equipment保持、元のdeclared Lock On規約のままでゲーム距離検証と区別。保存監査4と最終release再投影4は追加battle/GPU0、元snapshot/member slices/全raw/source/input/全payload一致、研究observer2moduleのimportを禁止した状態でもdecode成功。owned Node group absent。
+
+通常製品の新profile加算0、元Heavy1profileの追加4条件。直近標準Metal263/266・CUDA従来263/266、明示モデル別の元historical各266/266、current全CUDA再認定なし。Windows追加依頼/SDK/GPU0、前のmissing7 unknown/stopを保持。
+
+座標typed武器と元typed skillの同時実行は未接続。旧privateではskill receipt128×1040と通常skill履歴が同じ領域、武器scratchとtyped DFSも同じ領域を使うため、route guardだけを開いてはいけない。Heavyには元Lock On consumerも必要で、正本のlock定義を削ってtyped単独へ入れることはしない。次は全履歴/128attack容量を保持する領域分離と、座標Lock On・typed skillの共通接続を進める。新機能ごとのsuite追加は不要。全goal未完了。以下は履歴。
+
+## 2026-11-02 飛翔体・HPシールドの通常Metal16条件、Windows保存結果の取得
+
+共通GPU開発スキルと既存CLI/監査器を再利用。公開reference_models.typed_targetsを追加し、既存coordinate sampling・typed actor/aim/BODY owner・武器receipt実行器を通常製品APIへ接続。CUDA/Metal共通Slangを使う2薄entry、全original効果定義保持、canonical CPU4file/pinned/数値規約変更0。混在kind、hit shield、non-BODY owner、typed skill all_projectiles/typed_point、incoming等との合成は明示未対応を維持。宣言モデルをゲーム実証へ昇格しない。
+
+P2自身166CPU・fresh native1/実M5/独立seal成功、v53は旧39基準を全保持しtyped-accumulate1memberだけ追加、registry78。fixedは通常API成功・独立CLI基準未登録。API初回16条件は実GPU終了後の共通typed decoderが研究用skill moduleを不要にimportしてCPU fallback。旧raw/失敗を保持し、importを実skill分岐内へ移動、研究module不在の回帰検査を追加。保存16rawを凍結releaseで完全再投影して元CPU/HTTP全payload一致、追加battle/GPU0。workspace投影でevaluator出所だけ違った記録も保持、field無視せず凍結環境の同一出所で再照合した。
+
+修正後API-v2は1POST/2physicalM5/10.921秒、両mode×8条件の全CPU/GPU/HTTP一致。67packetのshield/projectile、有限shield44packet・残量0、再出現38packet・generation2、未出現0packet、Sakura full burst904packet/139shots、Rei157packet/112shots、Marciana散弾11packet/30shots。元snapshot/input/全readback/member slice/current source/全payloadの既存保存監査16成功、追加battle/GPU0、owned Node group absent。新2moduleをserver cache fingerprintにも追加。最終release-v3 owner25ded066e0e331bb135fcdf9bc6498eb9b48bc50cf812f5cdf76097d071dcb01、自身167CPU/依存/PTX/O1計画成功。API-v2との差はserver.mjs改行形式だけで計算/decoder/input/source不変。research/product-typed-targets-v1.json、proofs/product-typed-v1-20261102参照。
+
+ユーザー接続復旧後Windows同chat terminal/idleを確認。既存healingの保存stop85ea5598とmissing7診断7df65cf9をGitHubから取得し、34,750B/SHA023cf9c6…と22,198B/SHAf4511f12…を照合。選択11/paired/PTX/O1 object/link/静的input一致は成功したが、static-preflight外側でmissing7、API/RAM-before-API/GPU/audit0で停止。保存7root/実Job79/Node所有5/phaseとの照合でも所属確定0・原因unknown、旧stop/outerfalse保持。新観測/PIDquery/計算/再依頼0。research/product-coordinate-healing-cuda-stop-import-v1.json参照。Windowsへの追加runは送っていない。次はこの観測停止の扱いを解決し、typedの短いCUDA差分と未接続typed skill consumerを優先。標準Metal263/266・CUDA従来263/266、新標準profile加算0・現全CUDA再認定なし。全goal未完了。以下は履歴。
+
+## 2026-11-01 座標＋敵回復の通常Metal12条件、座標ADDのCUDA成功
+
+前turnはcoordinate ADD Metal12とrequest修正版の開始でprogress。今回は通常coordinateへ既存のfinite ADD healing consumerを接続。完全coordinate prefix115680＋元4368word healing descriptor、既存予約suffix内の元healing outputのみを厳密decoderで所有検査し座標結果へ統合。二重healing decodeなし。2薄entryで同じSlang Runtime/効果定義を使用、元shader/式/CPU正本4file/pinned/suite/監査器変更0。ADD攻撃や他consumer bankとの未接続合成は明示拒否を保持。
+
+P1は旧の「coordinate+healingは未対応」という負例error-category assertionでCPU前確認失敗、GPU0。初回workspace patchが一致しなかった履歴ごと保持。空のhealing宣言は元schemaのexplicit source不足として拒否されるべきなので、assertの文字列だけをそのerrorへ修正。数値/許容差変更0。P2自身164CPU/fresh native1/実M5/別GPU禁止独立seal成功、v52へcoordinate-healing-accumulate1memberのみ追加し旧38全保持。fixedは通常API成功・CLI独立基準未登録で--develop。
+
+通常HTTP1POST/実3physicalM5、両mode×level10/level1/capped/dead/renewal/fractional-deathの12条件（各56s/renewal36s）が全CPU/GPU/HTTP/Unicode一致。各8receipts/4sources、実倍率0.2106999999999999と0.5659000000000001を1.0との時間変化込みで消費。回復上限/死者未回復/再出現generation1→2/一部死亡を確認。静的事前/既存保存監査12/最終release全12再投影は追加battle/GPU0、owned Node group absent。元rawのheader/receipt/未使用healing/未所有tail/unfinished coordinate headerの10負例も拒否、元raw/claim不変。
+
+最終owner fa22d9b5406ceb73bd8fcf0924267d37835796471ccf4fa60219868ead76c47d、自身164CPU/依存/PTX/O1計画成功。GPU後の計算scope差はGOLDEN pointer/strict ledger SHAだけ。research/product-coordinate-healing-v1.json、proof .portable-recovery/proofs/product-coordinate-healing-v1-20261101。新合成CUDA実機未検証、標準profile加算0、Metal/CUDA従来各263/266は据置。宣言healing/colliderをゲーム検証へ昇格しない。全goal未完了。
+
+Windows coordinate ADDの修正版turn01a19787はterminal/idle確認、結果9d31ddae product-coordinate-add-windows-status-v2.json（35,312B/SHA2c4d12db…）を取得。6s1POST/1実CUDAが全CPU/GPU/HTTP/Unicodeと元M5全readback SHA一致。公式metadataのADDshot6/retirement2/incoming30、driver全7API各ret0、sync約1.1秒/HTTP19.640秒/API Job24.493秒・peak2,071,089,152B<2GiB。選択12成功（全162とは区別）、保存監査battle/GPU0・missing/timeout/query/cleanup0。MacでownerB659の全manifest/輸送/271 closure/元M5 CLI・API全rawを再hashして一致、CUDA raw自体Mac未取得と区別。import research/product-coordinate-add-cuda-import-v1.json。旧v1 ID不一致停止/weighted成功/ammo missing3・SDK outer2-inner0/wholefalseを保持、再実行0。新証拠は元12条件中spaced-accumulate1件だけ。前のADD12/weighted6も今回releaseへ完全input/GPU source/原raw/全CPU-GPU-HTTP payloadを再投影し一致、追加battle/GPU0。新healing30s1条件を輸送9bca1b7dで共有（13file/12,205,623B、全12payload/ZIPのGit blob SHA再計算）。テストIDは実source ASTから解決し同一selectorからrequestへ投影、実管理verify-host-tests.pyにprogram/selector/packetを渡す照合込みで選択11成功、全164/他153とは区別。Windows同chatで新turn01a1979d-b6f7-7c50-ac03-69fa1bd2cdb9 inProgressと開始commentary確認。CUDA新結果未取得、同handleのstatus/exportだけを次に取得しrun再送しない。research/product-coordinate-healing-cuda-request-v1.json。次の実装調査は、未接続のtyped projectile/shieldを通常製品worldへ結ぶ経路を優先し、既存private実行器/専用CPU adapterと元数値規約を再利用する。canonical CPUの未実装returnやpinnedは変更しない。以下は履歴。
+
+## 配分＋座標の通常CUDA成功を取込、座標ADD差分1件を依頼
+
+Windows turn01a1976cはread_threadでterminal/idle確認。結果5b5dec83のproduct-coordinate-weighted-windows-status-v1.json（27,718B、SHA445fefa8…）を取得。accumulate30s1POST/1実CUDAが全CPU/GPU/HTTP/Unicode一致、元M5全input/readback SHAも一致。実driver全7API各entered/returned1/ret0、sync3.448秒/HTTP23.508秒/API Job28.506秒・peak2,130,137,088B<2GiB。5対象×14groups/通知14/配分snapshot6/cover6。保存監査追加battle/GPU0、今回全stage missing/timeout/query/cleanup0・Nodegone/Jobempty/live0。選択89成功、SDK artifact成功・元source無分割、outer2/inner0/stagefalse/advisory unknown/service・whole・overallfalseは保持。旧ammo4/残3/監査の再実行0。
+
+Macで輸送全payload、最終ownerEEの全manifest、267 GPU closure canonical9fa75b91…、元M5 API memberと独立CLIの全rawを再hashして一致。CUDA raw自体はMac未取得と区別。research/product-coordinate-weighted-cuda-import-v1.json参照。新CUDA証拠は6合成中1条件だけ、全6/fixedのCUDA実機へ広げない。標準profile追加0、従来Metal/CUDA各263/266は不変。
+
+前turn完了後、今回の座標ADD同一kernelのaccumulate6s1件だけを輸送816710fbで共有（12file/12,201,716B、Git blob全11payload/ZIPのSHAを確認）。owner b659740b、元M5 spaced case全input/readbackを固定。自身Mac162＋選択12/依存/PTX/O1計画成功。Windowsは関連12だけ、他150/標準266を再実行しない。元group/Job/2GiB/RAM4GiB/API53s/各SDK60s/outer180s/最初異常停止を保持。初回requestはselector修正後のselected_case_idsを更新し忘れ、Windows turn01a19783で実行前拒否。報告a71a0718の全execution_counts0・13,623B/SHA96c57989…を取得・保持。guard/selector/packet変更0。修正版92656de5は正しいselectorからrequestのIDリストを再投影した3小fileのみ、元ZIP/job/expected/plans全byte不変。今度はMacでも実管理verify-host-tests.pyに修正版program/selector/packetを渡し、全identity/リスト/SHA/12件の一致込みで成功（追加battle/SDK/GPU0）。旧root/停止を変更せずfresh rootの初回検証として共有、read_threadで新turn01a19787-9e92-7023-8a9f-3fba6ff76bb7 inProgressと開始commentaryを確認。CUDA新結果は未取得、次は同handleのstatus/exportだけ。research/product-coordinate-add-cuda-request-v1.json。全goal未完了。以下は履歴。
+
+## 2026-11-01 座標＋召喚敵の射撃・最終退場を通常Metalへ接続
+
+前turnのweighted＋coordinateはMetal6条件・Windows1条件依頼までprogress。今回は通常coordinateの召喚敵射撃が未接続だったため、既存ADD lower/attachを完全coordinate prefix115680へ接続。同じSlang coordinate executor/ADD cursor/最終射撃退場を使う薄い2entryのみ。式/元shader/CPU正本4file/pinned/suite/監査器変更0。inputは既存784word descriptorを末尾へ、outputは既存予約suffix内の元ADB/ASD bank。decodeは両magic/source map/世代/退場と元world kind5・時刻の同一性/未使用領域を検証してから、その正確な領域だけ所有させる。他reservedは拒否を保持。
+
+新不変P1自身162unit/fresh native1/実M5/独立GPU禁止seal成功。root追加テストの初回1failureは正規化済みshape defaultとraw requestの比較だったため、既存normalize契約への比較へ修正、数値本体/期待値変更0。旧log保持。coordinate-add-accumulateをv51へ1member追加、旧37member全保持。fixedは通常API成功・独立CLI基準未登録で--develop。
+
+通常HTTP1POST/実3physicalM5（scheduler fixed6＋accumulate2＋4）で12条件が全CPU/GPU/HTTP/Unicode一致。両modeの6s、alive/spaced/coincident/renewal/hp-before-shot/time-close。射撃50/6/6/4/0/0、退場0/2/2/4/0/0を両modeで確認、incomingは各shot×5、renewalは実generation1と2。静的前確認/保存監査12/最終release全12再投影は追加battle/GPU0、owned Node group absent。元rawへheader/reserved/retirement tailを1wordだけ壊した6負例もdecoderで拒否、元raw/成功claim不変。追加activity assertionがphysical2回と仮定して停止した記録を保持し、実scheduler3回へ活動数だけ訂正。数値/ソース/期待値を変えずGPU再実行0。
+
+最終release owner b659740bb186a4acd141c2ca4f698609f991cb24fc581024dc233ffee2395ec9、自身162CPU/依存/PTX/O1計画成功。GPU後の計算scope差はGOLDEN pointer/strict ledger SHAのみ。research/product-coordinate-add-v1.json、proof .portable-recovery/proofs/product-coordinate-add-v1-20261101。標準profile追加0、Metal/CUDA従来各263/266、明示条件別original各266/266は据置。新coordinate ADD CUDA実機は未検証。weighted/cover/ammo/healing bankとの同時合成とtyped projectile/shieldの通常製品world等は残件。
+
+既存Windows turn01a1976c-8066-7c00-b650-74a00fbee5c3は引き続きlive。これは前turnのweighted＋coordinate30s1条件だけ。read_threadで選択89/paired/PTX/O1 object通過、固定link中という進捗を確認。PTX outer2/inner0・stagefalseは元のまま保持、成果物受理と環境保存を区別。新coordinate ADDはまだWindowsへ依頼していない。次は同handleのstatus/exportだけを取得し、run再送しない。次のADD用は既存CLIで関連12件（元ADD2/packet1/source7/新coordinate2）へ絞り、Mac上の最終packet自身で成功。全162ではなく選択成功を明記し、Windowsの元67全件や無関係modelを再実行しない。全登録groupに少なくとも1件の厳密IDを要求する元guardは保持。draftのclass名漏れは旧selection/logへ拒否として保持し、実class確認後の別captureで成功。前のweighted6入力/raw/GPU source/全CPU・GPU・HTTP返却値も現releaseへbattle/GPU0で再投影一致。以下は履歴。
+
+## 2026-11-01 配分＋座標・実多対象を通常Metalへ接続
+
+前turnは保存CUDA4条件の取得/監査missing3切分けでprogress、Windows原因unknown停止は保持。今回の通常製品missingはweighted＋coordinate/native多対象。既存座標entryに既にあるweighted hookと同じSlang Runtimeを使い、配分compilerがcoordinate prefix115680/2032000を完全保持して既存weighted16word/receipt bankを連結。backendで両bankの隣接/strideを検査。薄いentry2本のみ、式/CPU正本4file/pinned/元shader/suite/監査器変更0。model envelopeをcoordinate/weightedで分離して元結果形式へmerge。coordinate+weighted+independent cover DEFは未契約として拒否のまま。
+
+元Bay/Belorta/Miranda/Dora/Drakeの全定義を保持、明示finite ADD4/colliderでBODY含む5対象を実命中。最初の座標PART pattern案は通常scalar入力検証で拒否、制限/CPUを変えず既存ADD規約へ変更。ADD colliderのcanonical __enemy__: label漏れもGPU前に検出・修正、旧log保持。P1packageは新shader未trackedで拒否、stage後P2へ。P2自身160CPU/新native1/実M5/別GPU禁止独立sealが成功。14groupsすべて5対象、元Belorta multi_hit:4通知14が実発火。旧単BODYの通知0と区別する。
+
+通常HTTP1POST/2physicalM5で両mode×active30s/late-expire30s/inactive3sの6条件が全CPU/GPU/HTTP/Unicode一致。通知は14/3/1を両mode、late-expireで実対象1↔5、配分snapshot6/6/0、active cover実消費。静的事前確認は追加CPU battle0、元独立API比較は維持。既存保存監査6と最終releaseの全6raw再投影も追加battle/GPU0で成功、owned Node group absent。
+
+v50へ独立seal済みcoordinate-weighted-accumulate member1だけ追加、旧36member全byte保持。fixedは通常API実証済み・独立CLI baseline未登録なので--develop。最初release-v1はbaseline未trackedのためCPU開始前拒否、stage後fresh release-v2で自身160CPU/依存/PTX/O1計画成功。最終owner ee61a02993e6dc49fb5a5a0351fb40f944a6ce6002c06a319450f1ffaf71dd48、GPU後計算scope差はGOLDEN pointer/strict ledger SHAだけ。proof: .portable-recovery/proofs/product-coordinate-weighted-v1-20261101。構造化record research/product-coordinate-weighted-v1.json。
+
+標準Metal/CUDA従来記録各263/266、明示条件別original各266/266は据置、今回は合成6条件で標準profile加算0。新合成CUDA実機未確認、実機の配分比/colliderは宣言モデルで検証済みゲーム仕様へ昇格しない。全効果/任意合成/全goal未完了。同一kernelのaccumulate30sの1条件だけを輸送f41d96f3で共有（12file/12,200,233B、全11payloadのGit object bytes/SHAを再計算）。最終packet自身の選択89も成功、全件unit/native/GPUと区別。Windows同chatへ既存helper/共通CLI/89選択/Job/2GiB/API53s/RAM4GiBの新規1POST/1GPUだけを依頼し、read_threadでlive turn01a1976c-8066-7c00-b650-74a00fbee5c3 inProgress・新規受付commentaryを確認。GPU結果は未取得。research/product-coordinate-weighted-cuda-request-v1.json参照。次は同handleのstatus/exportだけを読む。元ammo残3/実行済4/停止監査を再送しない。以下は履歴。
+
+## 2026-11-01 保存imageから通常CUDA4条件が全数値一致、監査観測で停止
+
+helper cfe8467fを輸送3e1a0e4bで共有し、旧EF packet/SDK rootをread-onlyにしたfresh API rootから開始。最初はhost hold ef45926bで準備前停止、GPU/SDK/CPU0。保存情報で先の接続設定はterminal/owned process absent/DISM終了、SSH成功false、CBS/WU restart flagsの由来unknownと確認。0eb398d0で「flagだけではGPU不能と断定しない、ホスト全体未確認として保持、既存RAM/Job/source/観測/時間を計算のgateにする」と条件を明確化。OS/SSH/flag変更や再起動なし、旧holdは変更せず新rootへ進んだ。
+
+Windows live turn01a1973f-fd38-71e3-bca9-3d865028f2d9をread_threadで確認。**最初の4ケース(0..3)が2POST/2CUDA dispatchで成功、全CPU/GPU/HTTP/Unicodeと全M5 raw SHA一致。** 保存Node往復/再投影の数値も4件成功、追加battle/GPU0。最初2件は監査stage全gate通過。次2件のCPU-only saved auditはinner exit0/projection passedだが、outer observationでpre-existing missing3を検出してstage=false、progress未作成。affiliation/cause unknownのまま停止、残4/5/6は未実行。失敗監査や4件GPU/APIの再試行を依頼していない。current Jobは全stageでpre/post2GiB/BelowNormal/empty/live0成立、missing3の原因をメモリ/ユーザー操作等と推定しない。whole/service/overallfalse・advisory inner limits16件unknown・旧wrong-main/outer2-inner0/host flagsを保持。
+
+source image ae3f641e…/5,710,096Bを既存admissionで各1回検査、8.78/8.29秒、compiler calls0、paired f47…cachehit/compiler0。GPU cuInit/context/module/launch/sync/readback/destroy全ret0、各grid2、readback8MiB+8,002,688B=16,391,296B。GPU sync4.708/2.785秒、API Job36.149/31.849秒、peak2,072,891,392/2,082,377,728B<2GiB。CPU91/Slang/NVRTC/ptxas/link/diagnostic probe/newunpackは再実行0。SDK metadata/claim/old stop/manifest2783 filesは全byte不変。新sdk_program_root設定がWindowsの実環境で動作した。
+
+保存報告7713f7a0を取得し、Macで元M5の全4member/全2physical input/output hash、元caller/expected、localEF manifest、215file closure digest110f2b03…を再計算して一致。CUDA原raw自体はMac未取得と区別。research/product-sdk-reference-cuda-import-v1.jsonとraw small report2件参照。数値一致4、全監査stage通過2、残3という範囲を保持。標準profile追加0、Metal/CUDA各263/266の従来記録は不変。全7完了/全効果/全goalは未完了。
+
+保存ログ限定診断4dd7157eを取得・SHA検証。Job22件のchild/creation identity、wrapper、Node、phase記録に欠落3件をowned/observer-ownedと断定する根拠なし。親子関係だけでは所属を確定しない。原因unknown・旧停止・数値4件成功/全監査2件成功を保持。新観測/PID照会/RAM/SDK/CPU battle/GPU/監査retry/guard変更すべて0。research/ammo-shared-seven-saved-image-missing3-diagnostic-v1.json参照。接続はread_threadで復旧確認済み。Macの次の未対応はweighted＋coordinate/native多対象callback等。以下は履歴。
+
+## 2026-11-01 保存SDK参照rootと新API captureを分離
+
+管理prepare-apiへsdk-paths.jsonのoptional sdk_program_rootを追加。絶対path/非包含root/exact owner・source commit・source・input-output stride/同一immutable packetを要求し、既存static/check-apiがpacket.parentを使うのでその親もSに一致させる。未指定は旧同一root動作。旧SDK5metadata＋旧parent stopのSHAを前後で検査し新captureのsdk-source-reference.jsonへ保存、元stop/claim/旧SDKは書換0。実image/source/claim/phaseのadmissionは既存product機構のまま、Job/RAM/SDK/API/保存監査11helperのsource変更0。
+
+root/source差・packet差・祖先/子孫・相対path・未リンク・target既存stop等を既存CLI検査で確認、57件成功。元7caller/expectedと元ownerEFの完全unpack packetを使ったdata-only integrationも2/2/2/1すべて一致。2790file（packet＋fixture SDK metadata/旧stop）の全byte保持。fixtureは実SDK image/claim/Jobを持たずadmission未実行、SDK/POST/GPU0。元/v1testはMac /varと/private/varの表記差だけで失敗したため、実装は変えずassertをresolve、失敗log保持。research/product-sdk-reference-v1.json。新しい計算やMetal再実行は不要、標準profile数不変。
+
+Windowsの同chatはread-only後続turn01a19711の中で直接ユーザーから接続/SSH設定の別依頼を受けている様子がread_threadで見えた。こちらからSSH設定の指示は出していない。次は修正helperを共有し、直接ユーザー依頼が完了してから保存EF imageの未実行7ケースだけを継続する。old wrong-main stop/outer2-inner0/wholefalse/claimをそのまま、既存EF packetとold SDK sourceを参照するfresh rootを設定。CPU91/SDKを再実行しない。新しい前SDK probeで旧失敗を上書きせず、正しい保存imageの既存admissionから始める。元CUDA request-v2のcaller・全input/output hashは不変。以下は履歴。
+
+## Windows読取後続のlive handle
+
+read_threadで新しいread-only turn01a19711-c6cc-7930-8de0-1fc24ebb743aがinProgressを確認。SDK/API/CPU/RAMはこの後続で実行していない。既存product admissionは正しいPTX/object/link/claimを再検査しwrong-main診断自体を参照しないが、prepare-apiは「SDK metadataの参照元root」と「新API captureの作成root」を同じprogramへ固定している、というpeer所見を取得。次は保存されたconfig/source調査JSONを同packet branchから取得し、既存prepareへ明示したread-only SDK参照rootを渡す最小の汎用引数をレビューする。旧stop削除・旧成功/falseの付替え・SDK/CPU再実行・新per-feature runnerは不要。まだ保存調査の最終importと実装は未完了。再送しない。以下は履歴。
+
+## 2026-11-01 配分＋実射撃groupの通常Metal12条件
+
+新しい計算式/CPU正本/pinned/suite/監査器を追加せず、元WeightedIncoming/actual-shot groupの同じSlang Runtimeと三phaseを接続。入力は元effect/marker row/AGS1 descriptor/literal weightsのみ。weighted compileは完全なplain/group prefixを検査し、groupは104408まで、weighted bank115680以降に分離。新2選択weighted-accumulate-group/weighted-fixed-group、registry70。薄いgroup entryの三phaseは元weighted entryと同じで、reserved paddingの開始だけ104408へ変える。元plain shader全byte不変。kind/owner/stride/全definition保持と未指定weightsの拒否を検査した。
+
+初回group開発packet-v1で旧登録名enum testが新2件を列挙せずGPU前停止。enumだけ修正したP2は--native-baseline-packageの厳密SHA条件に拒否され、緩めず全log/旧packet保持。P3は通常--developで新規native1を生成。P3自身159unit/fresh前確認/実M5/別GPU禁止独立sealが成功。新member1だけv49へ追加、既存35member全保持。固定groupは通常HTTP成功・CLI独立基準未登録で--developを使う。
+
+通常HTTP1POST/4physicalM5で12条件、Bay4段階×両mode30秒、break/reburst65秒×両mode、inactive3秒×両modeが全CPU/GPU/HTTP一致。事前CPU12と既存保存監査12成功。全groupは実生成1/14/32個・解放済み、配分snapshot0/6/10件。**単一BODYでは各group1対象なので元Belorta multi_hit:4は未発動、notifications0。** 追加監査が「通知>0」と誤って仮定して停止したことをgroup-activity-assumption-rejected.jsonへ保持。数学や期待値は変更せず、元CPUと同じ未成立条件と分かる範囲で記録。active多対象callbackを今回の成功へ加算しない。次の重要項目はweighted＋coordinate等のnative多対象接続。
+
+未所有padding104408のraw1word変更は別実M5でstatus64/戦闘前拒否、元成功claim不変。最終sealed release owner8c419554は自身159CPU/依存/PTX/O1計画成功、実GPU後のコード差はGOLDEN pointerと厳密ledger SHAだけ。現decoder/compileで全12保存raw/input/source/CPU/GPU/HTTPを追加battle/GPU0で再投影成功、専用Node group消滅。research/product-weighted-group-v1.json。CUDA新合成0、標準Metal263/266・CUDA記録263/266/明示別各266は従来source横断記録のまま、標準profile加算0。全効果/全合成/全goal未完了。
+
+Windows v2は**接続断と断定しない**。wait_threadsのみhost unavailable、list_threadsはavailable/active、read_threadが成功しturn01a196f7を確認。今後progressが必要ならread_thread最新1turnを取得し、出力はstatus/最後のcommentary/command完了だけ抽出する（丸ごとの長いtool履歴を表示しない）。保存0a66abc9の920行JSONをGitHub経由で取得し、全輸送file SHA・local ownerEFのmanifest SHAとselected91/各stage情報を照合。選択91、paired生成、PTX、O1 object、pinned link成功とのpeer保存報告。ただしdiagnostic cache-probeだけentry='main'でactual='portableEvents'と違い、旧のexact-entry pre-SDK probe条件は未成立。正しいSDKsource/imageとの違いはentry1項目のみと報告。POST/GPU/保存audit0で停止、wrong probeと旧stopを保持。SDK outer exit2/inner0/overallfalseとadvisory未確認も付け替えない。
+
+取込元research/ammo-shared-seven-normal-api-status-v2.json、request-v2にも開始確認と停止import追記。保存image ae3f641e…/5,710,096B、PTX/objectの元byteはMac未読。SDKを作り直さず、既存saved-image admissionで正しいsource/provenanceを再検査して未実行APIだけを別fresh captureへ進める設定経路の**読取調査だけ**を同chatへ依頼済み。run/CPU/SDK/GPU再依頼0、stop/claim削除/guard変更は禁止。次はこのread-only source/config調査の保存JSONを取得する。重複コンパイルはしない。以下は履歴。
+
+## 共通Windows差分v2の送信受付・開始未確認
+
+共通CLI/既存3helperを実装commit2639cd00として共有済み。新owner ef65b5d117ef345292af8de7d9414623d4d50b15d3474995c89c67d4a3bc8168、最終P3 archive12,148,119B/SHA41747b61…を輸送ea7a0446へ14fileで共有。自身のdeps/PTX/O1計画成功、全7caller/static input/source graph/v48期待値不変、追加battle/GPU0。Macで管理CPU helper91=7.65秒/従来full158=30.06秒、ID負例と全7分割prepareが成功したownerである。
+
+同じWindows chatへv2要求を1回送信し、send APIはthreadIdを返して受付。ただし直後wait_threadsはhost unavailableで、新turn/live handle/実行開始は未確認。前cursor46は旧turnの記録でv2の実行証拠ではない。次は同chatのstatus/exportか既存packet branchの保存ammo-shared-seven-normal-api-status-v2.jsonを確認するだけ。runを再送しない。旧v1のhelper-contract stopと全claimを保持し、新ownerでは未実行7ケース/CPU91だけ、Job/2GiB/RAM4GiB/時間/優先度/逐次/異常停止を維持。新Metal12条件や標準266はWindows再実行しない。全request/送信範囲/開始未確認はresearch/product-ammo-shared-cuda-request-v2.json。全goal未完了。以下は履歴。
+
+## 2026-11-01 共通unit CLI選択と既存Windows3helperを汎用化
+
+前ターンのMetal12条件は完了済み、今回はWindows7ケースの実行前stopを解消する準備を実装。既存unit-checkへ--selection FILE/--selection-sha256を追加。owner/全登録group順/ID順/件数を固定し、既存run_groups/selected_coverage/依存検査/freshCPU child/timeoutを再利用。選択成功でも全件unit/native/GPUはfalse。元JSONbyteと正規化入力、全ID、group logを保持する。P1の選択91はtests pathが戻るためsibling fixture import2件で失敗、旧packet/capture/logを保持。run_groups中だけ標準discoveryと同じtests pathを置きfinally復元する修正後、P2で91/158と未知IDのtest前拒否が成功した。
+
+Windowsの停止保存ef4dbe4bと読取export534f5601はGitHubで取得済み。元14helperのUTF8 byte/全SHAを検証してresearch/product-windows-helper-source-v1.jsonへ保存。source3役のみscripts/windows-productへ管理対象化。verify-host-testsはpacketの選択unit CLIへ委譲、check-sdkはprogramの件数/選択SHAを検査。既存gate関数ASTは完全同一。prepare-apiは各batchのjob/expectedの4filename/SHA項目にも対応し、従来global job形式も保持。partial/SHA差/停止/未リンク/再準備はcapture前拒否。他11helperのJob/RAM/SDK/API/保存監査sourceは不変で、新per-feature suite/監査器は追加0。
+
+最終owner99a4c4cbのP2はCLIのみ、中央helperを含む最終packet-v3のownerはresearch/product-unit-selection-v1.json参照。P3は自身の管理verify-host-testsをMacで実際に呼び91成功（67/11/7/6、全件未実施表示）。従来unit入口158も成功。rootの選択/path16、CLI+Windows prepare55、packet source7成功。実際の元7callerを2/2/2/1へ準備し、全caller byte・全元expected fields・親input/output hashを保持。SDK/キャッシュ/Job画像は明示したdata-only fixtureであり、Windows/GPUのadmissionや実行証拠には使わない。実SDK/POST/GPU0。全runtime1458fileは最終P3と完全一致。元のMetal実績/標準profile数は変化0。
+
+同Windows chatへの接続は最後のcursor46/turn01a196d4 active以降利用不可、末尾pollも失敗でterminalとは断定していない。新runは依頼していない。次は新コード/selectorと最終P3を共有し、未実行7ケースだけをfresh RAM/Job/source/時間gateで検証する。旧8dfの停止root/claimを再開・削除せず、新ownerで準備。source_commitは3cb7bda7のdirty snapshot、owner/file SHAをidentityにする。4caller/期待値の数値hashは旧packetと同じ、owner/source_commitの結合だけ新packetへ明示し、case/source graph一致を静的確認する。new model test1をWindowsで選ばないため、P3のmodel未選択は67（旧8dfでは66）と記録する。source/current全CUDA再認定、全効果合成、全goalは未完了。以下は履歴。
+
+## 2026-11-01 対象modifier＋非攻撃ADD＋敵回復を通常Metalへ接続
+
+新しい計算式/Shader/suite/監査器は追加していない。portable_product_add_attack.lowerは元のtarget modifierがある有限summon世界も既存ADD prefixへ保持し、既にlower済みのflagでは再変換しない。portable_product_healingはtarget carrierがある場合、既存のdisjointなammo/target/ADD/healing runtimeへ渡す。非攻撃世界の空magazineだけを許し、incomingは明示enemy_ammo容量が無ければ拒否。元definition/axis/ActorPool/回復bank/遮蔽を保持し、CPU正本4file/pinnedは不変。
+
+owner5d2daf21の不変packet自身158unitと、CPU前確認12条件が成功。通常HTTP1POST/12physical実M5で、回復ありtarget/group×fixed/accumulate×cover有無8件と、回復なしfiniteADD target/group×両mode4件が全CPU/GPU/HTTP一致。回復あり8件は26秒、25秒のAnn倍率減少と実回復gainを実際に消費。全12rawのSHA/元input/current source/再投影を既存監査で確認し、追加battle/GPU0、専用Node group消滅。旧v48登録7件は全input/source graph不変を静的確認、golden/native fingerprintは変更0。既存基準7件のGPUは繰り返していない。
+
+最初のpacket-v1/unit-v1は6failureでGPU前停止として保持。4件は二重lowerで既存prefixに再ADD tailを足した問題、2件は旧の非攻撃summon拒否の期待。二重変換を修正し、後者は定義/axis/world/ActorPoolが保存される正例へ変更。has_parts/coord/unknown fields等の負例は保持。CPU前確認はcanonical/固定data/全CPU adapter同一を確認し修正版へ12件再利用、通常APIの独立CPU照合は維持。新実績は合成12条件で、標準profile加算0。標準Metal263/266・CUDA記録263/266、明示モデル別記録両266/266は従来source横断実績のまま、今回current全matrix再認定はしていない。research/product-healing-target-v1.json参照。
+
+Windowsの前依頼は実行前helper契約差で停止した。ef4dbe4bの保存ammo-shared-seven-normal-api-status-v1.jsonをGitHub経由で取得し、輸送14file全SHAと各stage count0をMac照合。own unpack/CPU/SDK/GPU/APIは0。CPU wrapperの件数87固定とprepare-apiの単一program.api_job/api_expectedが、91件+4batch指定を扱えないためで、数値/GPU不一致ではない。旧停止を成功へ付け替えない。既存helper sourceと固定argument/guardを読むだけの追加調査を同chatへ送信済みで、helper変更・run再送は依頼していない。最後の確認cursor46/turn01a196d4 active後、接続取得は一時利用不可。次は同handleまたは既存GitHub packet branchの保存exportだけを取得し、再実行しない。受理だけだった前記録はresearch/product-ammo-shared-cuda-request-v1.jsonへ停止importを追記済み。次のCUDA作業は汎用引数対応を既存guardを保ってレビューすることであり、新suiteや新per-feature runnerを増やさない。全goal未完了。以下は履歴。
+
+## 2026-11-01 共通弾倉・自爆・対象modifier・敵回復7入力のCUDA差分を依頼
+
+ユーザーの接続復旧後、Windows同chatがidleでHeavy成功a55c10b4だったことを確認。元Heavyのobject/link/APIを再送せず、既に取り込み済み成功を保持した。新しい差分は実M5/独立seal済みowner8dfc8849の既存ammo-cover-fixed-group全7件。元5件＋回復2件のinput/全readback/source graph/全definitionを静的に再照合し、追加CPU battle/GPU0。新suite/監査器/数値変更0。既存immutable ZIPとown deps/PTX/O1計画、4batchの元caller/期待hashを輸送commit4569a8c2へ共有（15file、約12.2MB、raw/個人設定なし）。source_commit455b7883はdirty snapshotの元commitであり、ownerと全file SHAをidentityにし、後続review c70c37cd/404859a3との一致と区別する。
+
+Windowsへ同じ共通kernelの2/2/2/1逐次API、最大4POST/4GPU、CPU91のみ（Mac157、model残66はWindows未実行）を1回依頼。SDK/CPU/audit60秒・API53秒・outer180秒・2GiB・BelowNormal・freshJob/startgate、SDK前と各API直前の空きRAM4GiB、最初の異常で停止。exact cacheが全origin gate一致なら再利用、不在ならpaired生成/PTX/O1 object/pinned linkを初回各1回だけ。別Heavy image流用/再試行/claim削除/観測緩和なし。各batch終端/Node消滅/empty/live0後だけ次へ。元全7のfull parent/member raw hashと全CPU/GPU/HTTP/Unicode、既存Node往復と保存再投影を比較する。
+
+受理確認turn01a196d4-16ea-79b1-b86a-e0174ab3f51d、cursor20f61e43-c193-4c3d-95b9-55e58cc5d5d8:41、active。受信後のhash/既存helper確認に着手とのcommentaryを取得。まだCUDA計算結果未取得、coverage加算0。次は同handleのstatus/exportのみを確認し、接続断でrunを再送しない。小保存結果ammo-shared-seven-normal-api-status-v1.jsonを同packet branchへ共有する依頼済み。source/proof/制限の全値はresearch/product-ammo-shared-cuda-request-v1.json。標準Metal263/266・CUDA従来263/266、明示モデル別両266/266は不変、current全CUDA再認定/全効果合成/全goalは未完了。旧失敗/unknown/service・whole・overallfalseは保持。以下は履歴。
+
+## 2026-11-01 標準全266を現行snapshotへ差分再確認、260再利用＋実M5追加3
+
+前ターンは回復＋弾倉接続でprogress。今回は元の標準266（固定30秒・declared model無し・全effect保持）を、最新release owner8dfc8849へ静的再pack。対応済み263の全inputが旧owner836ade72の保存inputと完全同一、変更0。260はGPU include graphも全SHA同一、43のCPU正本/互換/固定calculator/runner/data fileとno-model早期return ASTも一致。Metal実行関数群ASTは不変（backend差はvalidate_composed_strideの追加受付だけ）、Swift/生成/cache/normalizer/phase6file全byte一致、現8source全strideも受付確認。
+
+既存保存監査を再利用し、260の全member/parent input/readback SHA・物理slice・GPU実行receipt・現source/input・現decoder再投影と旧CPU/GPU/HTTP全payloadを再検査して成功。追加CPU battle/GPU0。raw sourceが変わった元Ann67/Soldier O.W.159/Velvet168だけを、元caller全値のまま通常API1POST/3physicalGPUでfresh native比較。全GPU/CPU/HTTP一致に加え、旧全readback SHAまで完全不変。3件保存監査も追加battle/GPU0、専用Node group消滅。
+
+現行snapshotの標準Metal263/266（200/203キャラ）を保存実GPU再利用260＋fresh3で確認した。263件fresh実行とは記録しない。未指定Yuni88/Yan111/Heavy Arms210の3件は現compilerの同じ明示モデル不足fallbackを保持、今回はfallback CPU battleを再計算していない。current runtimeのapp/gpu/data/scripts/web/upstream/server1455fileはreview commit c70c37cdと全byte一致。旧レポートを上書きせずresearch/product-current-matrix-v1.jsonへcurrent_standard_revalidation_v2を追加、原本proofs/product-current-standard-v2-20261101。標準CUDA263は従来source横断実績、現全matrix CUDA再認定ではない。
+
+Windowsは長く停止していた保存Heavy元30秒条件について新しいRAM/preflightだけを依頼し、両RAM gateが通過して初回API1件を実行・保存監査成功との報告を受領。SDK/CPU87再実行0。監査起動は一度「APIまだ実行中の可能性」で自動審査拒否されたが、API終端/Node終了/Job empty/live0の読取証拠で同じ保存監査が承認され、並列なしで完了。保存small JSON a55c10b4/24,051byte/SHA0456b7cd…をMac取得し、元job/owner/過去5reportのSHA、全CUDA driver ret0/単一5,242,880byte readback、M5原本input/output hash・caller canonical hashと91定義/110pulses/15shotsを照合済み。Windowsのoriginal rawはMac未取得と区別する。importはresearch/product-heavy-original-success-import-v1.json。元明示Lock On条件のCUDA1件を加算し、明示モデル別条件を含む元profile実績は両GPU266/266になった（source横断実績、現全source/任意合成ではない）。標準未指定263/266は不変。API helper27.794秒/host dispatch3.312秒/peak1,918,627,840byte、SDK/CPU87再実行0。RAM最初8,499,298,304/直前7,904,854,016byte。新stage missing0/Job正常でもadvisory inner limit8件unknown/観測不完全・旧SDKouterfalse/元PTX未admit/旧停止/service/whole/overallfalseを全保持。Windows現在idle・追加依頼なし。次のCUDA候補は、Macで確定した現owner8dfc8849のammo-cover-fixed-group7入力（旧5＋回復2）を同じ既存helperで2件以下ずつに分けた短い通常API差分。全7件の元M5期待値を保持し、case削減や新suiteはしない。以前の2件batch peak約2.006GBという実測があるため、入力数を増やす前に2GiBの余裕を検討する。元Heavy imageは別kernel/ownerなので流用不可、source配布前に既存packet自身のcompile-plan/depsと保存M5 anchorを再使用して準備する。新runはfreshRAM gateと既存時間/Job/priority/逐次/初回異常停止を維持する。全goal未完了。以下は履歴。
+
+## 2026-11-01 敵回復＋弾倉を同じ製品Runtimeへ接続、Metal24条件一致
+
+前ターンは対象別carrierと弾倉接続でprogress。今回はAnn敵回復＋Velvet弾倉を既存plain/group/target/cover/self-destructの同じclock/ActorPool/イベントへ接続。新suite/program/監査器0、registry68のまま。回復bankをprefix空き111312..115680、outputを既存自爆記録後1968368..2001184へ置き、input/output stride不変。schemaは既存wireから生成・空間を厳密検査。回復ありresource cap4096、回復なし旧15124維持。旧先頭4100通知を含む旧5entry全input/output/native hash不変。
+
+初回packageはCPU native期待生成で停止、独立CPU adapterのHealingFrameとAmmoFrameが同じboss.begin_frame/return resultを別々に変換して衝突。既存AmmoFrameが厳密に既知のhealing呼出しだけを受け、instanceの一時begin wrapper経由で元frame1回→弾倉capture→回復を消費するよう接続。AST2frame/1attack/1result件数・args・同じmanager/boss/t/enemy・once条件と全alias復元を保持。CPU正本4file/upstream/算術/許容差変更0。失敗log原本保持、GPU前停止だった。
+
+既存ammo-cover-fixed-groupは旧5件先頭を保持し、回復通常15秒/同時刻自爆6秒の2件追加。own157CPU（67/11/7/72）、7件fresh native/実M5/独立GPU禁止seal成功。v48は同memberだけ更新、旧5entry全hashと他34member全保持。direct私的自爆source監査が新CPU拡張の厳密inverseを通らず拒否したため、既存boss_source_preimagesのSHA/hunk完全復元を先に適用。変異テストはその正しいstageへ注入し対象file名の拒否まで確認、private7成功、既存healing model12も成功。新normalizer/除外/期待値緩和0。
+
+通常APIは5構成（plain/group/target/group+cover/group+target+cover）×固定/蓄積×通常/自爆の20条件全CPU/GPU/HTTP一致。追加のCPU scout15秒ではAnn敵回復減少未発動だったので原本保持、56秒scoutで25秒時点の減少が有効と確認し、26秒のレベル1/10×両mode4条件を追加。倍率0.5659000000000001/0.2106999999999999の実消費と正の回復が全Metal/CPU一致。scout3battleはGPU入力へ使わず、前の20条件GPU再実行0。合計distinct24/2POST/12physicalbatch（通常20の8件chunk境界による分離を含む）。各親/member全raw/input/source/全payload保存監査24成功、追加battle/GPU0、全2専用Node group消滅。回復magicだけ欠けた別raw入力1件はstatus64、実戦/CPU0、元成功claim不変。
+
+最終release owner8dfc884939c455362952ce1dea4137658e2d9e4b43f7000063ba83faebebf86b自身157CPU/deps/PTX60/O1計画成功。全24保存結果を同releaseから再pack/reprojectしsource/input/raw/全CPU/GPU/HTTP一致、追加battle/GPU0。元packet-v2との差はGOLDEN47→48・ledgerSHA・歴史source専用audit入口だけで計算変更なし、選択CLI source closureも完全一致。記録writerがphysicalbatchを10と仮定した初回assertは保存24件の実IDから12へ訂正、計算/入力/出力変更0。小記録research/product-ammo-healing-v1.json、原本proofs/product-ammo-healing-v1-20261101。
+
+Windowsは旧RAM2.09GiB停止のterminal後idle、追加依頼0。現合成CUDA実機は未確認。標準Metal/CUDA累積263/266、宣言別Metal266/CUDA265のまま、標準追加0・全goal未完了。残りはcoordinate/movement/lock/weightedなど他consumer合成、実typed projectile/shield世界、未指定ゲーム規則と必要な短いCUDA差分。以下は履歴。
+
+## 2026-11-01 敵弾倉＋対象別補正＋同時命中/遮蔽/自爆の通常API16条件Metal一致
+
+前ターンは自爆＋弾倉接続でprogress。今ターンは元のprojectile_dmg_pct/shield_dmg_pct carrierを、BODY/PART/ADD世界の敵弾倉と合成。単独は既存target prefix110112を保持する薄い4選択（registry68）、groupは既存ammo-groupへdescriptor104408..104672をそのまま接続し、新group-target alias0。全axis/元effects/ADD payload/弾倉/遮蔽/自爆bank保持、残りpaddingを全検査。既存validProductGroupTargetAxesの完全な関数をproduct_group_target_axes.slangへ移して共有し、旧group-targetのstride/schema検査も同関数を検査する。CPU正本4file/upstream・数値式・許容差変更0、新suite/監査器0。
+
+既存ammo-cover-fixed-groupは旧3件先頭を保持し、modifier carrier通常15秒/同時刻自爆6秒2件を追加。5件がfresh native/実M5/独立GPU禁止sealで一致。v47は当該memberだけ更新、旧3entryのinput/output/native全hashと他34memberを保持。新単独target4memberはAPI Metal成功・独立CLI基準未登録。own155CPU（67/11/7/70）成功。
+
+初回API16は単独target遮蔽なし4件がSlang入口二重/未定義でGPU前にCPU fallback。他12件は実M5/CPU/HTTP一致。元compiler error/CPU fallback/claims/rawを保持し、gpu/product_ammo_target_battle_entry.slangのみに既存PORTABLE_PRODUCT_ADD_EXECUTORを足して共通子入口を抑制。既に成功した12sourceのclosure/input/rawは全byte同一でGPUを繰り返さず、新sourceの元4caller値だけ追加APIで全一致。各保存監査は初回16（12GPU/4CPU）＋修正4を実施、追加battle/GPU0。成功distinct16、2POST/8physicalGPUbatch。全2専用Node group消滅。誤ったaxis4の別入力1件も同M5 sourceでstatus64、実戦/CPU0・元成功claim不変。negativeはprofile成功へ加算しない。
+
+最終release-v2 owner36cd5e9e60ac2f4789a8c98a68ee67d591f759fc0dec63692d9e1bc81cb677c4自身155CPU/deps/PTX60/O1計画成功。全16保存source/input/raw/全CPU/GPU/HTTPの最終release再投影も追加battle/GPU0で一致。旧packet-v1との差はGOLDEN46→47・ledgerSHAと新bare targetの入口所有flagだけ。選択CLIの5件source closureも完全同一。原本proofs/product-ammo-target-v1-20261101、小記録research/product-ammo-target-v1.json。
+
+今回typed target0であり、飛翔物/シールド実体にmodifierを適用するゲーム仕様の全受付ではない。Windowsは旧RAM2.09GiB停止後idle・追加依頼0、現合成CUDA実機未確認。標準Metal/CUDA累積263/266、宣言別Metal266/CUDA265のまま、標準追加0・全goal未完了。次は敵回復と弾倉などのconsumer合成、実typed targetの製品接続、未指定ゲーム規則を優先。Windows差分は他作業へ影響しない短い単位へまとめる。以下は履歴。
+
+## 2026-11-01 敵弾倉と自爆の最終キューを通常API接続、Metal16条件一致
+
+前ターンは敵弾倉/group/遮蔽合成の実装・実M5/CPU8一致でprogress。今ターンは残っていた自爆付き敵弾倉を、既存ADD retirement・enemyAmmoRetiredQueue・同じ世界時計/ActorPoolへ接続した。新suite/program/監査器0。自爆の最終frameで実際にキューに入った同世代shotのみ弾倉を消費。HP死亡/時間終了はleaseなし、空弾倉/再装填中はquery/RNG/damageなし。declared CPU adapterは既存self_destruct_enemy_ammoへ接続し、CPU正本4file/upstream・数値規則・許容差は不変。
+
+退場記録は既存portable_enemy_ammo_self_destruct_wireの分離領域を使い、literal ADD rowを読む同じ入力内の条件で有効化。自爆ありは既存final-queue resource cap4096、自爆なしは旧15124を維持。ASD初期化/noticeも自爆なしでは触れず、旧30秒group/coverケースは実4100resource通知を持つが全input/output/native hashが以前と完全一致。unused tail/retirement全row/通知配信数/WS death/同世代map/queued shot indicesを厳密検査し、capacity超過は切捨てずfallback。
+
+既存ammo-cover-fixed-groupのCLIは旧30秒ケース先頭を保持してcoincident/reload-final6秒2件を追加。実M5/fresh native/独立GPU禁止sealで3件成功。v46は当該既存memberだけ更新、旧先頭entryのinput/output/native全hashと他34member全保持。registry64のまま、configurationの同program inputs/nativeだけ3。own154CPU（67/11/7/69）＋既存private自爆7検査成功。新負例のerrorメッセージをnative validatorの実hits拒否へ訂正した事前失敗と、API準備のengine_worker初期化順の事前失敗はtool transcriptへ保持、GPU/API job起動なし。
+
+通常API1POST/4physicalbatchで16条件（plain固定8/蓄積4、group+cover両mode各2）全CPU/GPU/HTTP/Unicode一致。即時/間隔/同時刻/空弾倉/再装填中最終/世代更新/HP死亡/時間終了を含む。coincidentは2退場/6最終queue、renewalはgeneration1/2の4退場、HP/時間終了は退場leaseとattempt0。全親/member raw/input/source/全payload保存監査16成功、追加battle/GPU0、専用Node group消滅。最終release owner5774450341c168cc9043e8481df7a290b6e52c56b5f585e6ebec62f66ecfb626自身154CPU/deps/PTX60/O1計画成功。同releaseからも16件を全再pack/reproject一致、追加battle/GPU0。元不変packet-v1とのapp/gpu/data差はGOLDEN45→46とledgerSHAの管理2fileだけ。
+
+小記録research/product-ammo-retirement-v1.json、原本proofs/product-ammo-retirement-v1-20261101。Windowsは旧RAM2.09GiB停止のterminalのまま追加依頼0、新sourceCUDA実機は未確認。標準Metal/CUDA累積263/266、宣言別Metal266/CUDA265を維持、標準追加0・全goal未完了。次はtarget modifierや他consumerとの弾倉合成を既存executorへ接続する。Windowsの短い検証はRAMが確保できる時に保存Heavy imageまたは必要な新source差分だけへまとめる。以下は履歴。
+
+## 2026-11-01 敵弾倉＋実射撃group＋遮蔽を通常APIへ接続、M5全8条件一致
+
+WindowsはRAM2.09GiBで停止したterminalのまま、追加依頼0。Macで次の未対応consumer合成を進めた。Velvet＋Belortaの元81定義（遮蔽はSoldier O.W.入り79定義）を全保持し、敵弾倉/ADD攻撃と実射撃groupを同じ時計・ActorPoolへ接続。group descriptor104400..104408をzero paddingから区別し、残りpaddingを全検査。遮蔽併用も同じprefixを使い、ammo end2032000/cover start2032000の独立領域を保持。算術・効果式・CPU正本4file/upstream・許容差変更0。新suite0、既存product-detailの薄い選択4本。
+
+最初の実M5自体は成功、host結果変換が遮蔽付き全長をADD固定長readerへ渡しInvalid product ADD source receipt。CPU/GPUraw/source/input/失敗/claimを保持。cover read_resultで全tail検査後、ADD readerへ元の完全ammo prefixだけ渡すhost修正で解決。同じGPU source/input/output全byteを既存CLI replayで厳密再利用、fresh native比較・独立GPU禁止seal成功（追加GPU0）。input0a040630…/output36b2aafa…。own151 CPU（67/11/7/66）成功。初回未tracked入口の梱包停止、呼出し旧archive名の展開前停止、registry60→64検査前停止も原本保持。
+
+不変packet-v4の通常API1POST/4physicalGPUbatchで、固定/実蓄積×15/30秒×遮蔽有無の8条件全CPU/GPU/HTTP/Unicode一致。全条件の実group・非ゼロ減弾・敵攻撃64attempt・reload4receipt、遮蔽側の実landingを確認。保存親/member全raw/input/sourceとpayload再投影監査8成功、追加battle/GPU0、専用Node group消滅。v45はammo-cover-fixed-groupだけ追加し旧34member全保持。他3新入口はAPI成功・独立CLI基準未登録。最終release ownerb2bcd854369ba2b307d6ad7a55a4e25a593405b595296df751c79b06aad142e6自身151CPU/deps/PTX60秒/O1計画成功。最終releaseでも全8保存raw/input/source/全payload再投影一致、追加battle/GPU0。packet-v4とのapp/gpu/data差はGOLDEN44→45とledgerSHAだけ。小記録research/product-ammo-group-v1.json、原本proofs/product-ammo-group-v1-20261101。
+
+新合成CUDAは未確認。標準Metal/CUDA累積263/266、宣言別Metal266/CUDA265のまま、標準追加0。自爆付き敵弾倉、target modifier/他consumer合成、未指定ゲームモデル・全特殊効果・任意合成は未完了。WindowsのRAM待ちだけにせず、次はこれらの既存consumer接続を優先。全goal未完了。以下は履歴。
+
+## 2026-11-01 保存object/link取得、APIはRAM admissionで未開始
+
+Heavy元30秒の保存継続報告2本（3484abbf/17899a50、11,418/6,160byte）を取得し、相互SHA、元owner/manifest/request/job/expected、PTX/imageの横断identityをMac照合した。PTXの再コンパイル0、初回object5,642,480byte/9ef5e297…とlink image5,269,840byte/c92e26e4…はinner0/19.292・22.347秒、outer2/35.861・55.425秒。missing0/2GiB/prepost/empty/cleanup正常でもouter環境falseは保持し、旧PTX outer missing7/未admitを成功へ変更しない。raw binary/Job receiptはMac未import、保存small summaryの整合確認と区別する。
+
+API helperへ絶対Program pathを渡した呼出し誤りはworker前停止として原本保持。相対pathの読取確認は同configを指し、prepared jobは元と全byte同一。expected文書はprepare-api既存schema/期間metadata追加でSHAが異なるが、元case/物理期待値は保持とWindows報告。補正後もRAM2,589,614,080byte（約2.41GiB）<4GiB開始条件で停止。static/Node/API/POST/GPUは全0、claim削除/SDK再実行0。次の読取status656c42e3は18:46:40 JSTのRAM4,584,529,920byte（約4.27GiB）と成果物/claim無を確認。O1 plan原UTF8/SHAをMacで再検証し、Windows own CLIが保存したCRLF761byteと配布LF735byteはJSON完全一致・26改行だけが相違と確定（計算sourceの正規化や変更は無い）。その後、開始直前にRAM等全guard再確認する条件で未実行static/API/保存監査1条件のみを明示依頼した。SDK/CPU87再実行0、最初の拒否で停止。開始直前の別RAM測定は2,239,844,352byte（約2.09GiB）へ低下し、4GiB gateで即停止とWindows報告。static/API/POST/GPUは引き続き0、再測定ループ0。停止小JSON eac57e36/3,799byte/SHA b91e397d…をMac取得照合済み。RAM先行0.392秒/peak50,405,376byte/own Job正常。RAM拒否後のartifact/live再guardは未実行（先の4.27GiB時確認とは区別）。Windows idle、追加依頼なし。research/product-heavy-original-continuation-import-v1.json参照。
+
+Macでは現在の標準263成功profileが使う8種類のGPU include graphを保存owner836ade72と全byte照合、全266をbattle/GPU禁止で現行prepare/packし、263の全input.binが保存実M5入力と一致、未指定3fallback保持。2.608秒、追加CPU battle/GPU0。既存検証を再利用できるidentityの証拠でありfresh current CPU/GPU/HTTPやCUDA現行全matrixとはしない。research/product-current-matrix-v1.jsonのlater_current_static_reuse_audit参照。
+
+BODY-only範囲/移動/遮蔽8成功条件は既存web/enemy-model.mjsの実normalize/apply経路から実API入力へ再packし、呼出し値と全GPU input SHAが一致。browserクリック検査とは区別し追加battle/GPU0。研究小記録へ追記。標準Metal/CUDA累積263/266、宣言別Metal266/CUDA265、全goal未完了。以下は履歴。
+
+## 2026-11-01 保存PTXの読取validatorは診断options不一致、元recipeで再確認中
+
+Windowsの既存partition_object_origin(module_object=True)は、保存producer自身の出所/内側Job/source/生成・PTX cacheを読む範囲を持つ。初回のGPU/SDK禁止診断ではinner audit_compile_captureがCompiler options mismatchで拒否。保存--split-compile=2に対し診断childは既定1だった。PTX破損の証拠ではなく、artifact単体の受理は未確認。内側containment=true/preservation=falseを元判定のまま区別し、outer missing7停止と未admitを変更しない。
+
+元recipe/receiptのoptions全配列を照合し、診断childに限りNIKKE_CUDA_SPLIT_COMPILE=2を渡す読み取り再検証を依頼済み（task01a19663、最新cursor20f61e43…:9）。全配列が一致する場合だけ既存validatorを呼び、他差分/SDK要求なら停止。OS/永続設定/guard/source/期待値変更0、compile/object/link/API/GPUと後続自動再開は不可。元不一致診断も保持。Windows chat診断の要約と根拠SHAはresearch/product-heavy-original-process-diagnosis-v1.json、raw診断receiptはMac未importなので独立検証済みと記録しない。コード共有d5b28a46はBODY-only範囲・移動・遮蔽8条件成功済み。全goal未完了。以下は履歴。
+
+## 2026-11-01 BODYのみの名前付き範囲・移動・遮蔽を接続、通常API8条件Metal一致
+
+reference_models.named_rangeを明示BODY形状＋logical_geometry:[]でも受付し、移動モデルのactors:[]との合成とcover_defense併用まで同じ共通Slang/actor/clock/queueへ接続。BODY位置や半径をゲーム値として補完しない。configured ADDが未出現でも1体あればgeometry必須。hostはGPU compile前、専用native adapterはbattle前、実M5 raw負例はstatus64で拒否。privateモデルのempty既定拒否は維持。原定義・range/count buff・Yuni5秒/Yan2秒carrierは全保持。
+
+初回のBODY範囲外2条件はCPUと差が出た。元CPU着弾のhas_summons条件が専用named rangeの凍結空集合をBODY-only世界で使っていなかった。許可済み専用CPU adapterへchecked AST BoolOp1箇所のhookを追加し、当該pending packetだけ既存native routeへ渡す。canonical CPU4file/upstream/算術/許容差変更0。旧CPU失敗/HTTP/全GPUraw/source/inputは保持。修正後のfresh CPU6条件が同じ保存GPU全結果に一致（追加GPU0）。成功済み範囲内4条件のGPUは繰返さず、範囲外2条件だけ修正APIを実行して全CPU/GPU/HTTP一致。
+
+結果は範囲単独・移動範囲の固定/蓄積とBODY内外6条件、さらにBODY-only三者合成（移動/範囲/遮蔽）の固定/蓄積15秒2条件、合計8成功条件。各54cast、内側BODY position1/外側0、ADD count0。三者合成は実cover receipt7/6を含め全payload一致。全8を最終releaseでGPU/raw input/source hash再検査・全CPU/GPU/HTTP/decoder再投影し追加battle/GPU0、計算code/data1,425file一致（GOLDEN pathとledger SHAだけ管理差）。全専用Node group消滅。
+
+既存named-range-fixedは元ADD3入力で150 CPU/fresh native/実M5/独立seal成功。CPU adapter修正後はGPUコード・入力・既定native fingerprintが同一なので、既存CLI replayで同じM5 rawを厳密再利用しfresh独立seal成功、追加GPU0。既存movement-range-cover-fixedのADDあり三者基準も150 CPU/実M5/fresh native/独立seal成功。v44はこの既存2memberのsource/generatedだけ更新し旧input/output/native entries全保持、他32member不変。新program/suite0。最終release owner1e148d24も150 CPU-only/deps/PTX/O1計画成功。実蓄積CLI独立基準は未登録、API成功と分離する。
+
+古いnamed-range source監査の直接呼出しが後続ADD/Ammo逆変換を通らない既存不具合も修正した。既存の厳密inverse chainへ接続しprivate13検査成功、原文・SHA・改変負例を保持。normalizer変更/新しい除外0。初回テストの検査phase誤り、旧13検査failure、非登録movement-range-fixed選択の実行前停止も原本に保持。小記録research/product-empty-range-v1.json、原本proofs/product-empty-range-v1-20261101。新合成CUDAは未実証。標準Metal/CUDA累積263/266、宣言別条件Metal266/CUDA265のまま、新標準追加0。全特殊効果/任意合成は未完了。
+
+## 2026-11-01 Heavy Arms CUDAは外側監視で停止、artifact未admitを保持
+
+停止原本38a8397c（12,014byte/SHA14b398db…）をMac取得照合。owna0d3ea37/archivee0f96938…/元7資料/CPU87元ID/paired生成を確認。PTX自体は内側child0/31.404秒/約300MBで生成成功だが、外側42.721秒/約334MBでは既存process7（unrelated5/service candidate2）の欠落を観測し停止。終了原因unknown、内側missing0。両Jobの2GiB/prepost/empty/cleanup/query0は保持するが、artifact_admitted_for_next_stage=false・bounded_execution_verified=false等の元判定を成功へ変えない。object/link/POST/API/GPU/retry0、旧50,494fileと失敗・claimを保持。service/whole/overallfalse、coverage加算0。research/product-heavy-original-stop-import-v1.json参照。
+
+保存資料のみのWindows読取診断も完了報告。実所属は7全件unknown（Job/coordinator/Codex/otherへの確証0）、2件のみ相互親子を生成時刻付きで追えたがrootまでの親がsnapshotにない。全7件はouter beforeには存在しinner before（約8.046秒後）には不在で、正確な終了時刻・原因はunknown。両自己Jobはpre各1/post0・2GiB/query/cleanup正常。静的にcleanupは自身のJob/Popen handleを対象とし保存外部PIDの終了命令は見つからないが、実原因の証拠とはしない。RAM/commit圧の記録なし。CPU0.175秒/peak12,210,176byte、追加snapshot/SDK/API/GPU0。原snapshotは未importなのでこの診断はchat summaryとして区別する。research/product-heavy-original-process-diagnosis-v1.json参照。
+
+既存immutable CLIの保存PTX origin validatorを、GPU/SDK禁止の読み取りだけで呼べるか追加確認中。受理/拒否とscopeの区別だけを調べ、元outer停止/未admitを書き換えず、後続実行はしない。以下の依頼範囲を維持する：欠落7の確実なJob/parent系譜、保存RAM/commit圧があれば数値、自己Job以外の終了命令の有無を調べる。外部process名/path/commandline/raw snapshotは共有せず、無ければunknown。SDK/GPU再実行・artifact代替・OS/コード変更・自動継続は依頼していない。次はこの診断を取得し、global観測とown Job制御を混同せず未admit PTXの扱いを判断する。未指定ゲーム規則・consumer合成も残る。全goal未完了。以下は履歴。
+
+## 2026-11-01 Heavy Arms元30秒のCUDA配布を準備、旧数値基準は全保持
+
+既存lock-fixed programの現行不変packet自身148 CPU/fresh native/実M5/GPU禁止独立seal成功。元30秒の通常API input9337f726…/全output76fd63c5…とCLI自身のinput/readback全byteも完全同一。v43はlock-fixedのsource/生成identityだけを更新し、旧input/output/native entriesと他33memberは全保持。新program/suite追加0。最終release ownera0d3ea37/archivee0f96938…も148 CPU-only/deps/PTX60秒/O1計画成功。
+
+既存保存CUDA imageはcover付き別入口・別history配置のため流用しなかった。今回の元Heavy Arms210/favorite0/固定30秒＋既存Lock On宣言だけの1条件を、通常API1POST/1GPU・全5,242,880byte単一chunkで確認する資料を準備済み。元全91定義/110pulses/15shotsを保持。Windows対象CPU87（67/11/7＋元lock2ID）、他model61と全266は再実行しない。まだWindows結果は未取得。関連記録research/product-heavy-original-cuda-v1.json。全goal未完了。以下は履歴。
+
+## 2026-11-01 現行runtimeで標準全266を再確認、Metal263一致・未指定3fallback
+
+9f156b5bのruntimeとapp/gpu/data/scripts/計算reader/upstreamの2,053fileが全byte一致する不変owner836ade72で、元標準266リクエスト（固定30秒・モデル未指定・効果削除なし）を通常APIへ16件ずつ投入。全263 Metal（200/203キャラ）がfreshCPU/HTTP全payloadと、保存済み全readback SHAに完全一致。元262＋元Rei1のanchorを実入力SHA一致で保持。残3はYuni88/Yan111/Heavy Arms210の明示モデル未指定理由でCPUfallback、error/数値差/cachehit0。24POST/38physical GPU、serial API-job待ち合計421.189秒（CPU/GPU/poll込み、別stageへ分解していない）。全266保存raw/input/source/親member slice/CPU/GPU/HTTP再投影監査も追加battle/GPU0。専用Node全process group消滅、実行中source不変、親/member raw＋1GiBreserve計3,040,502,904byteを実行前budget確認。Metalはこの現行snapshotの263件、CUDA263件は既録source横断であり現行全matrix CUDA未実行。
+
+static adapterのv1は旧CPUfallbackのinput.binを要求して停止、v2は旧結果がsource別実行順なのにlist位置でprofileを参照し、旧anchorも継承していた。GPU/battle0の時点で検出し無効原本を保持。v3は明示indexで参照しanchorを再構築して262旧input完全一致、Reiは独立旧実M5 input87978e6b…一致を確認して補完。数値期待値は変更0。この事前処理失敗を製品計算の差や成功へ混ぜない。原本proofs/product-current-matrix-v1-20261101、小記録research/product-current-matrix-v1.json。
+
+別条件として元の未対応3profileへ既存宣言モデルを明示した。Yuni/Yanは元30秒body＋明示idle/ADD0モデルのinput787f537c…/9b518090…・全GPU sourceが過去実M5/CPU/HTTP成功原本と完全一致。現runtimeで再pack・全payload再投影一致、追加CPU/GPU0、fresh再実行とは記録しない。Heavy Armsは元30秒の他caller fieldを全て保持し、BODY優先/ADD出現順・live frozen delivery・typed[]を明示して通常API1件をfresh実M5/CPU/HTTP比較し成功。全91定義、110pulses/15shots、input9337f726…/output76fd63c5…、保存単独監査追加battle/GPU0。専用Node消滅。モデルを明示した別条件を含めた元profileのMetal成功実績は266/266、CUDAは265/266まで（Heavy Armsのこの元30秒条件が未確認）。標準未指定263/266は置換しない。BODY免疫・ゲーム距離規則を推定せず、任意合成・全特殊効果条件は未完了。research/product-configured-missing-v1.json参照。
+
+依頼済み3者合成CUDAも91495e00の27,414byte/SHA5e4db092…を取得しMac照合済み。owner836ade72/7資料/archivead0a52a4…/CPU87元ID、M5親16,391,296byte＋2member全input/output SHA、8MiB chunks、全driver ret0、全CPU/GPU/HTTP/Unicode再投影、実coverDEF2285.7/applied97714.3を確認。同期3.208秒/HTTP23.949秒、追加計算0。旧47,405file・SDK外側2/内側0・8advisory null/観測不完全・service/whole/overallfalse保持。API peak2,005,929,984byteで2GiB以内だが余裕は小さいため、Windowsの入力batchを増やさない。research/product-healing-group-cover-cuda-import-v1.json参照。Windowsはterminalで追加依頼なし。
+
+次はHeavy Armsの元30秒宣言条件の必要最小CUDA（保存artifactの厳密再利用を先に調べる）、未指定ゲーム規則・未接続consumer合成。全goal未完了。以下は履歴。
+
+## 2026-11-01 新3者合成のCUDA差分2条件だけを依頼
+
+共有001e8d0eの7資料12,143,284byte、sealed owner836ade72/archivead0a52a4…から既存Windowsチャットへ初回差分を依頼済み。固定30秒baseline＋固定15秒の元Drake coverbuff発動中の2条件だけ、1POST/1GPU最大。親16,391,296byteとmember全M5 SHA、実8MiB chunks[8388608,8002688]、全CPU/GPU/HTTP/Unicode比較を要求。Mac保存全raw/source/inputをrelease自身で戦闘/GPU0再pack照合済み。
+
+対象CPU87件は既存67/11/7と新3者合成＋改訂した既存cover-groupの元ID2件だけ、他model61はWindows未実行と記録する。各SDK60秒/API53秒/outer180秒/2GiB/BelowNormal/freshJob gate/serial・全artifact/cache/Job/観測gate・初回異常停止retry0を維持。Rei/移動/全266再実行なし。結果原本は未取得、新合成CUDA未認定、標準CUDA/Metal263/266据置き。全goal未完了。以下は履歴。
+
+## 2026-11-01 敵回復＋実射撃グループ＋遮蔽DEFの通常API6条件をMetal接続
+
+Ann/Belorta/Soldier O.W./Dora/Drakeの元定義を保持し、従来拒否していた回復＋実射撃group＋coverを既存の単一scheduler/actor poolへ接続。input120072/output2048912、回復end2032000と遮蔽start2032000は完全分離、groupの104400..104408 descriptorを予約paddingへ誤認しない。固定入口は既存のFIXED_COORDINATE制御フラグも共有する。計算本体/効果式/CPU正本4file/upstream/許容差変更0、新suite0。
+
+開発packet-v6自身の148 CPU（67/11/7/63）・fresh native・実M5・GPU禁止独立seal成功。初回GPU status64は固定入口の制御flag不足で、修正後は同じinput SHAa91c853d…のまま全CPU一致。失敗/claims/旧sourceを保持。厳密native期待再利用はledger anchor変更で拒否されたため、そのgateを緩めず通常のfresh契約を作った。v42はhealing-cover-fixed-groupだけ追加し旧33基準不変。製品familyのfixed/accumulate-group2選択肢を追加、実蓄積CLI独立baselineは未登録。release-v1自身も148 CPU-only/deps/PTX60秒/O1計画成功、追加GPU0。
+
+同一不変packet通常APIは固定/実蓄積×15/30秒4条件と、固定15秒の元coverbuff対象Drake/対象外Soldier対照2条件、合計6で全GPU/CPU/HTTP/Unicode一致。2POST/3physicalbatch。実射撃group14/8、実回復receipt4/2を確認。元coverbuff発動後Drake DEF2285.7/applied97714.3、対象外Soldier DEF1000/applied99000を同じbase1000から再現。保存raw/source/static input/全payload再投影6も追加battle/GPU0。対照runnerの4件固定assert失敗は原本保持し、既存保存監査を単独実行して2件全一致。専用Nodeの両process group消滅確認済み。小記録research/product-healing-group-cover-v1.json。
+
+別件Windowsの移動3条件はb2565d3dの34,451byte/SHA479af6d7…を取得照合。own0e164a20/archive01a1c5ec…/7資料/CPU86元ID、M5親・各member全input/readback SHAを再計算、24,384,000byteと8MiB chunks、全driver ret0/CPU/GPU/HTTP/Node再投影一致を確認。1POST/1GPU/retry0、同期3.243秒/HTTP25.921秒。旧44,309file、SDK外側2/内側0、8advisory nullとservice/whole/overallfalse保持。宣言Yuni/Yan ADD0＋旧ADD2基準なので標準追加0、CUDA/Metal累積263/266据置き。research/product-empty-movement-cuda-import-v1.json参照。
+
+次は新3者合成の短いCUDA、未指定標準Yuni/Yan/Heavy Arms3profile、任意合成・最終current-source matrix。全goal未完了。以下は履歴。
+
+## 2026-11-01 Rei CUDA原本を照合、空ADDの明示移動モデルをMetal検証
+
+Windows原本9dd93644の23,411byte/SHA5f24cc6f…を取得し、owner2dc37ccb/sourcee3f0ada5、共有7資料/archive214d6771…、Mac保存input87978e6b…/全readback571dfde4…3,145,728byteを照合。元Rei251/favorite0/固定30秒の1POST/1GPU/retry0、全CPU/GPU/HTTP/Unicode再投影一致、対象CPU86件（他model60未実行）、8MiB上限内の単一chunk/driver ret0を確認。同期2.017秒/HTTP15.412秒、追加計算0。旧41,238file、SDK外側exit2/内側0、8件limit=null/観測不完全とservice/whole/overall falseは保持。累積標準CUDA/Metalとも263/266、同一最新sourceで全件を再認定した意味ではない。research/product-named-carriers-cuda-import-v1.json参照。
+
+既存reference_models.enemy_movementを、明示的にADD0体のBODY固定世界へ拡張。元Yuniの移動禁止5秒/Yanの強制移動2秒carrier・全definitionを保持する。モデル指定なしの既定挙動やゲームのBODY移動耐性は推定しない。future spawnを含むconfigured ADDが1体でもあれば全geometry/motionを必須とし、host/nativeと実M5 raw負例status64で拒否。privateモデルのempty拒否は維持。座標を有効にするenemy.patternsのnative検査をGPU割当前へ移した。
+
+own v3 packet0e164a20の147 CPU検査とprivate8件成功。先行v1実M5/fresh native/GPU禁止独立sealのmovement-fixedは旧入力・readback・native entriesと完全同一。v41はこのmemberのsource/生成identityだけを実証済みへ更新し他32基準不変。v1→v3は1,422のcode/data保持と厳密なhost admission追加・golden path/ledgerのみを照合した。通常APIはYuni固定/蓄積2件の保存成功を再利用し、required idle patternを明示したYan固定/蓄積2件はv3で新規実M5/CPU/HTTP全一致。全4保存再投影も追加battle/GPU0。Yan runnerのbatch metadata仮定による後処理失敗は原本保持し、単独captureの全raw/source/input/全payload監査で解決した。専用Node消滅確認済み。
+
+最初のYan欠落patternエラーとv2新golden未同梱による実行前停止も保持。新suite0、保護CPU4file/upstream変更0、数値/許容差変更0。ADD0の宣言条件なので標準追加0、残る未指定Yuni/Yan/Heavy Arms3profileと任意合成・最終matrixは未完了。新移動sourceのCUDAは未実証。原本proofs/product-empty-movement-v1-20261101、小記録research/product-empty-movement-v1.json。以下は履歴。
+
+## 2026-11-01 座標の補足原本も照合、元Rei1条件だけのCUDAを依頼
+
+座標の補足原本30065fd3/4,765byte/SHA916c206c…もMacで照合。送信済みbackend自身のhash/固定8MiBと全DToH相対offset0/8,388,608/16,777,216・byte列・ret0・親input/readbackの前後SHA、60秒2GiB gate/empty/missing0を確認。追加SDK/POST/GPU/CPU戦闘0。元16MiB宣言不一致/v2失敗/全環境falseは保持しており、数値期待値を変更した意味ではない。
+
+元Reiの標準profile251/favorite0固定30秒だけのsealed owner2dc37ccb/sourcee3f0ada5・archive214d6771…はown deps/PTX/O1計画成功。Macの元標準M5 input87978e6b…/全output571dfde4…（3,145,728bytes）と静的再pack全一致、戦闘/GPU0。共有6d2e4c24の7資料12,122,041bytesから既存Windowsチャットへ1POST/1GPU/各元上限の初回検証を依頼済み。前の座標作業はterminal、追加GPU重複なし。
+
+Windows CPUは変更範囲86件（detail67/packet11/履歴7とnew named-carriersモデル1元ID）だけを既存selected_casesで実行する。旧sourceの85件を新sourceへ流用せず、他model60件を実行したとも記録しない。Mac全146成功と実4条件・raw負例は既存根拠。CPU/SDKchild60秒/APIhelper53秒/outer180秒/2GiB/BelowNormal/freshJob gate/serial・artifact/paired/cache/M5/全CPU比較を維持し、初回差で停止。8MiB分割列は実source定数から導出した単一3,145,728byte、保存監査はNode実輸送JSONを使用。追加原本は未取得なので標準CUDA262/266据置き、Metal263/266、全goal未完了。以下は履歴。
+
+## 2026-11-01 公開座標CUDA3条件の原本をMac照合、実転送8MiBを確認
+
+原本c273f6adのv2 JSON31,543bytes/SHA686b6d65…を取得し、own a077d3b3/source170cf08d/archive/manifest/paired生成基準と照合。Mac保存M5の3個input/readback全hashと合成親hashを再計算して全一致。元85+新59の144検査、11段階の予算/2GiB/prepost gate/empty/missing0/query/cleanupを確認。1POST/1GPU/retry0、3thread各1、全driver ret0。CUDA同期2.527秒、host dispatch2.534秒、HTTP18.786秒。SDK外側3exit2/falseと対応inner0/artifact成功を分けて保持、旧保存監査失敗とNode実輸送での全payload/Unicode一致も分離。追加battle/GPU0でMac監査した。
+
+元依頼の分割列[16,777,216,7,606,784]はMacで依頼を構成した際の誤りだった。送信済みmanifestが固定したbackend SHAe2aa8b18…はREADBACK_CHUNK_BYTES=8*1024*1024であり、実DToH列[8,388,608,8,388,608,7,606,784]とstream receipt・総bytes24,384,000・全SHAがその規約に一致。元依頼/不一致falseは書換えず、実source一致と別結果へ記録。数値期待値・許容差・raw・計算回数を変更しない。Windowsの補足saved-only照合も依頼済み、追加SDK/POST/GPUは不要。
+
+公開座標のこの3条件はCUDA/Metal計算一致を確認したが、標準profile追加0。Rei別sourceのMetal263/266、旧source横断CUDA262/266は据置き。内側advisory8件limit=null/観測完全性falseとservice/whole/overallfalseも保持、旧38,123file/claimsは不変。原本とsmall監査はresearch/coordinate-public-fixed-normal-api-status-v2.json・product-coordinate-cuda-import-v2.json。次は新Rei carrierの短いCUDA検証と残3profile/合成。全goal未完了。以下は履歴。
+
+## 2026-11-01 元Rei標準profileをMetalへ接続、記録済みsource横断263/266
+
+元Reiのeffect_target_count_add/effect_range_pctを削除せず、値・9秒寿命・marked-allied宛先・target_effect名を保持する共通numeric carrierへ接続。通常の全definitionからtarget_effect名が存在しないことをhostとGPU両方で検査する。名前が一致するconsumerがあれば既存の宣言named_rangeを要求してCPU切替し、幾何や距離を推定しない。対象不成立という推測で元効果を除外する変更ではなく、元carrierを通常の寿命・宛先処理で実行する。
+
+不変owner ca0291a0/sourcef1117d2b+snapshot自身の146 CPU/fresh native/実M5固定30秒/GPU禁止fresh独立seal成功。v40へnamed-carriers-fixedだけ追加し旧32基準不変。実蓄積CLI独立基準は未登録だが通常API成功。ホスト負例に加え、raw1wordだけを有効な同名consumerへ変える実M5負例がstatus64で戦闘前拒否（別claim/原本保持、native0、通常profileへ数えない）。最初のmodel検査で既存Lock Onの切替理由を覆ったため、受付優先を修正して61件成功、期待値/効果/数値の変更なし。
+
+通常APIで元Reiの固定/実蓄積×15/30秒4条件、1POST/2physical batch、20.397秒、実M5/freshCPU/HTTP全payload一致・既存保存監査4成功（追加battle/GPU0）。専用Node全process group消滅。元catalogueの251/Rei/favorite0の固定30秒リクエストは全canonical JSON bytesも一致。したがって記録済みsourceを通じた標準Metalは263/266（200/203キャラ）、残りYuni/Yan/Heavy Armsの3件。CUDAは262/266据置き、新source/全263を同一最新ownerで再認定した意味ではない。
+
+共通program_phases/event_runtime/target-countのguarded追加により、旧32memberのraw source identityは必要に応じ不一致になる。旧baseline/生成期待値を自動更新せず、frontierも登録済み基準と現在source一致を分離する。CPU正本4file/pinned upstream変更0、新suite0。原本proofs/product-named-carriers-v1-20261101、small記録[product-named-carriers-v1](../research/product-named-carriers-v1.json)。次はWindows結果原本の照合、新carrierの短いCUDA、残3profileと未接続合成。全goal未完了。
+
+Windows standalone座標別owner a077d3b3は元85+新59全144成功後、初回API3条件が全M5 hash/CPU/GPU/HTTP一致と報告。保存監査はNode JSON往復入力の型表記を使って再投影3件成功、比較除外/追加GPU/POST/CPU戦闘なしと報告しているが、最終原本importはまだ。これを新carrierや標準CUDAの追加へ数えない。旧timeout・保存監査失敗は保持。以下は履歴。
+
+## 2026-11-01 座標・遮蔽を同じ共通実行器へ接続、通常API4条件Metal全一致
+
+明示reference_models.coordinateとcover_defense、および手動遮蔽を、既存座標・actor・burst・遮蔽consumerへ接続。両bankはinput115680+24/output2032000+16912の完全分離を検査。新2入口は既存共通本体をincludeし、完了後の遮蔽snapshot scratchだけを所有入口でclear。既存のGPU本体・数値/許容差/CPU正本4fileは変更0。他の未接続モデル合成は拒否を維持。
+
+不変packet-v2自身145 CPU/fresh native/実M5固定30秒/GPU禁止fresh独立seal成功、v39へcoordinate-cover-fixedだけ追加し旧31member不変。実蓄積のCLI独立基準は未登録だが通常API成功。最初のv1は結果control/control_detail差で停止、遮蔽所有者metadataの不足を訂正した。旧入力・全readbackは新v2と全bytes完全一致（input58d82004…/output732176ca…）、保存再投影+freshCPU全一致もGPU0で確認。旧failure/claim/logは保持。
+
+同packetの通常APIでMarciana BODYと元Belorta ADD3体×固定/実蓄積4条件、1POST/2physical batch、27.033秒、実M5/freshCPU/HTTP全payload完全一致。各条件に遮蔽receipt2件・明示DEF100・applied900を確認。既存保存監査4成功（追加battle/GPU0）、専用Node全process group消滅。最初の保存監査ではPythonのliteral2.0とNodeがworkerへ渡すJSON整数2のspec表示だけが異なったため、元要求を保存したまま実際と同じNode JSON.parse/stringify輸送を入力へ適用。数値/raw/payload/比較対象や許容差は変更せず全項目一致。変換・hashを記録。
+
+Windowsの別件standalone座標は停止原本5957642f/14,989byte/SHA6aba6623…を取得照合。成功85receipt、全stageの2GiB/gate/empty/missing0/query/cleanup、SDK/POST/GPU0を確認。旧source不変性と85完了を再利用し、未完了の元model59件だけを別の同じ60秒childで処理する継続d9a09996を依頼。同144件合算の再実行・上限延長はなし。全144件の成功時だけ元未実行SDK/API3条件を初実行し、異常なら再び停止。結果原本はまだ未取得でCUDA加算0。
+
+原本proofs/product-coordinate-cover-v1-20261101、small記録[product-coordinate-cover-v1](../research/product-coordinate-cover-v1.json)。標準Metal/CUDA262/266据置き、旧sourceを新sourceへ付替えない。次はWindows保存結果の照合、残合成・未指定4profile、実蓄積/遮蔽CLI基準。全goal未完了。以下は履歴。
+
+## 2026-11-01 Windowsの座標host検査が合算60秒で停止、CUDA未実行
+
+同turn01a195b7のhost-testsが60秒上限に達した。保存進捗の報告はdetail67/製品11/履歴7の完了85件成功、最後のmodel59群は完了receiptなし。後続Slang/PTX/object/link/POST/GPUは0、再試行0。停止後Job empty/missing0/cleanup正常はWindows報告段階で、最終小JSON原本のimport/独立照合は未実施。これをCUDA不一致や成功へ読み替えない。追加の実行指示は送らず、保存結果共有のみ依頼した。
+
+既存portable_staged_tests.planで同packet a077d3b3を4ファイルの独立群へ分ける計画をCPU/GPU/claim作成0で用意（release-v1/existing-file-split-plan.json）。既存case_planでも59元IDを欠落/重複なしの3件群へ分割可能なことを静的確認（23群）。まず原本timing/進捗から合算と単一群のどちらが遅いか確認し、必要最小の分割を選ぶ。上限延長・成功値の書換え・旧claim削除で進めない。Mac実蓄積v38/通常API8条件は成功のまま、標準Metal/CUDA262/266据置き。全goal未完了。以下は履歴。
+
+## 2026-11-01 座標実蓄積をCLI独立基準へ登録、限定CUDA3条件を依頼
+
+source170cf08dの実蓄積不変packet自身で144 CPU/fresh native/実M5/GPU禁止fresh独立seal成功。v38へcoordinate-accumulateのみ追加、旧30基準不変。固定/実蓄積とも同じproduct-detail CLIから通常のsealed配布を使える。CLI監査・基準登録を標準profile追加認定へ数えない。
+
+固定sealed配布owner a077d3b3/source170cf08d・ZIP SHA00b679aa…のown deps/PTX60秒2GiB/O1計画が成功。保存Metal8条件から固定BODY30秒・ADD3体30秒・1体射程外3秒の3条件だけをGPU/CPU戦闘禁止で静的再pack、元input全bytes保持。共有commit aab7e49aの7資料（12,134,486bytes）からWindows既存チャットへ1POST/1GPU・各child60秒/API53秒/outer180秒/2GiB/serial/BelowNormal/fresh Job gateを依頼した。旧標準266の再実行なし。親output24,384,000bytesの全SHA・各memberと分割転送を照合対象とする。結果原本の取得・Mac独立照合はまだで、CUDA成功へ加算しない。
+
+既存model-checkは新しいpublic_coordinate_productでreference_models.coordinateの限定公開・2programの登録済みshader source一致・記録済みMetal API8条件を表示する。保存原本の再監査ではないと明示し、unrestricted public/全キャラ/未接続合成のfalseを保持。source改変負例を含むfrontier8、履歴7、製品11成功。最初のfrontier試行は同時変更したgolden selectorの厳密台帳が未更新として拒否、台帳更新後に成功（戦闘/GPU追加0）。旧private証拠を現sourceへ付替えていない。
+
+原本proofs/product-coordinate-public-v1-20261101/accumulate-v1とrelease-v1、既存small記録product-coordinate-public-v1.json。Metal/CUDAの標準履歴は262/266据置き。全goal未完了。以下は履歴。
+
+## 2026-11-01 宣言した座標・乱数を通常APIの共通実行器へ接続
+
+`reference_models.coordinate`に既存common binary64/MT19937 point samplerを公開。明示auto_aimとlogical_geometryを入力にし、BODYのみは明示空配列、ADDは全対象のcolliderを必須にする。旧private wireの空配列拒否は維持し、新product入口だけ限定許可。CPU正本4file変更0。固定/実蓄積は同じ実行器と既存制御・バースト・元全効果を使用し、CPU戦闘状態/予定表を入力にしない。モデル併用と手動遮蔽の未接続組合せは拒否。
+
+不変packet-v2自身の144 CPU検査/fresh native/実M5固定30秒/GPU禁止fresh独立seal成功。v37へcoordinate-fixedだけ追加し旧29member不変。実蓄積のCLI独立基準は未登録。最初のv1は制御v6に対するfixed-coordinate指定不足でstatus64を返し停止、claim/raw/log保持。既存movement固定wrapperと同じ指定を加えた新packetだけを実行し、期待値/数値/許容差を変更していない。
+
+同packet自身の通常APIでBODYのseed2301/2302×固定/実蓄積4条件、元BelortaのADD3体/1体射程外×固定/実蓄積4条件、計8条件が実M5/freshCPU/API全payload完全一致。2POST/4physical batch、全8保存raw/source/static repack/再投影監査成功、監査追加battle/GPU0。専用Nodeの全プロセス群消滅を確認、ユーザー4317/4327不操作。旧標準profile数の増加ではない。旧source横断のMetal/CUDA262/266を新sourceへ付替えない。新coordinate sourceのCUDA未実行、Windowsはidleで追加依頼0。
+
+原本proofs/product-coordinate-public-v1-20261101、small記録[product-coordinate-public-v1](../research/product-coordinate-public-v1.json)。次はこのsealed固定入口の必要最小CUDA差分と実蓄積CLI独立基準、未指定4profile/未接続合成。全goal未完了。以下は履歴。
+
+## 2026-11-01 Velvetの共通時計欠落を実CUDAで解消、記録済みsource横断262/266
+
+修正版の原本5cdf2f1be31dc98f3f2b0e359044e6c1951d3f55（18,449bytes/SHA41443046…）を取得。自身のsealed ZIP/owner d337ffbd/source325a3994・元要求・M5独立sealと照合。元input1bcd913d…と全8,128,000byteのreadbackc79d2a07…が完全一致、CUDA/freshCPU/API全payloadとUnicode全一致。旧誤書込みword784はM5 zero指紋へ戻り、root word160528もM5 literal32指紋へ復元、製品clock guardを通過した。新PTXの独立actorPoolsCleared b32 call1、wsBegin前のlocal初期化4store/旧ActorBits零化なしを検査。共有noinline1関数修正が両backend実機で成立、期待値/効果/数値/許容差変更0。
+
+Windowsは1POST/1GPU/retry0、cuInit/context/load/launch/sync/DToH/destroy全ret0、launch1/thread1/readback8128000byte1chunk。GPU dispatch3.795秒/HTTP17.309秒、14段階観測の上限/prepost2GiB/gate/empty/missing0をMacで確認。最大Job peak1,986,584,576bytes。SDK外側3exit2/falseを保持し対応inner0・artifact trueと区別、内部advisory8件limit=null/完全性false、service/whole/overallfalseは不変。旧失敗source/capture/claimsと32,199file保持、旧261件再実行0。任意verify_detail省略に対する準備器assertの訂正はAPI領域/claim/POST/GPUすべて0の時点だけ、元body全fields/hashは不変で必須CPU全比較を維持した。
+
+記録済みsourceを横断した最後の通常製品確認はMetal262/266、厳密CUDA262/266。最新source325a3994でのCUDAは元Velvet1profileだけ、他261を当sourceへ再認定しない。未指定4profile（Yuni/Yan/Heavy Arms/Rei）、公開座標sampling/RNG受付と未接続合成、最終source全profile確認は残件。既存model-check --summaryもCPUのみ更新し5 canonical consumers不足とprivate既実装/公開未接続を区別、ゴール未完了を維持。Windows turn01a19588はterminal/idle、追加実行未依頼。
+
+原本proofs/product-ammo-world-clock-binding-v1-20261101/noinline-v2のWindows JSON/mac-import-audit、research/ammo-noinline-normal-api-status-v1.json・product-ammo-noinline-cuda-import-v1.jsonに元bytes/SHAと照合を保持。統合記録product-ammo-schedule-noinline-v1.json。次は未対応入力の製品受付/残合成を優先し、既存CLI/監査器で差分を検証。今回Windows全turn841.541秒中、29 shell commandは合計260.255秒、command外区間581.286秒（原因を単独断定しない）。後続は既存coordinatorの成立済み段階をserialスクリプトで連結し、個別の予算/観測/保存/停止gateを維持しつつ段階ごとのchat往復を減らす。
+
+## 2026-11-01 Velvet時計欠落のPTX局所領域aliasを特定、共通noinline修正のMetal/API成功
+
+保存word原本87b1ec01/SHA62abffca…とPTX抜粋5eeb4d73/SHA02ed7bf7…を取得。15word差のうちCUDA word784の指紋がroot-start literal32と一致、元rootはword160528。差159744は世界時計出力base。PTX worldFrameBeginは16byte localへ時計input/output/count/errorを正しく格納後、インラインactorPoolsClearedのActorBits零初期化が同じlocal0/4/8/12をzero化し、そのpointerをwsBeginへ渡す。条件input+90536は実入力でWHP1非zeroなのでzero化分岐に入る規約。共有源は正しいaddress設定、NVRTC12.4保存PTXでlive時計とActorBitsのlocal共有を確認。新CUDA実機で修正成立するかは未確認。
+
+共有world_actor_pools.slangのactorPoolsClearedだけ[noinline]にし、双方backendでcallee scratchを隔離。数値/効果/イベント/CPU正本/許容差/比較器変更0。先の26caller明示out変更候補はMetal/独立seal/API2条件まで成功したが、PTXで原因を局所化したため元コードへ戻し、不変proofを保持、CUDA未依頼。選択候補noinline-v2はown141 CPU/fresh native/実M5/独立seal成功。旧ammo-fixed input1bcd913d…/全readbackc79d2a07…/native entries完全不変、生成CUDAの__noinline__も確認。v36では当memberのsource/generatedだけ再認定し他28基準不変、厳密88cda inverse/SHA同時更新。
+
+同packet自身の通常APIは固定静止敵/実蓄積・実弾倉攻撃敵×15/30秒の4条件、1POST/2physical batchで全M5/freshCPU/HTTP一致、wall22.421秒。保存親/member/raw/source/静的再pack/全payload監査4成功、追加battle/GPU0。専用Node/群消滅、ユーザー4317/4327不操作。原本proofs/product-ammo-world-clock-binding-v1-20261101/noinline-v2、small research/product-ammo-schedule-noinline-v1.json。製品件数は最後Metal262/266、厳密CUDA261/266のまま。source325a3994のsealed ownerd337ffbd…（12,087,661bytes）のown PTX/O1 60秒2GiB計画/deps成功。元Velvet1要求を自身でbattle/GPU禁止再packし元input/full M5期待保持。輸送8b64705bの7file/12,108,145bytesを共有、Windows turn01a19588へ元1入力だけを1回依頼済み（cursor601で起動確認）。変更host78 unitだけ事前、immutable/source/paired/PTX出所/独立callee境界成立時だけO1/JIT/1API、53秒/2GiB/outer180秒・retry0。旧141/native/model56/不変SDK27重複を避け、GPU後freshCPU/全payload/raw/保存監査は維持。新結果未取得。旧失敗/claim/false保全を保持し、新CUDA成立前に262へ増やさない。他memberの旧source認定を新sourceへ付替えず必要な現source再認定を後続に残す。全goal未完了。
+
+## 2026-11-01 標準CUDA261/266を原本照合、Velvetの時計readback欠落を検出
+
+Windows同turn01a1954fはterminal。原本cdf5cdde9bb43fbc19c9437e15e9a0a5adcb3a6dの3JSONを公表SHAと照合し保存。全17profileの元ID/育成/input/元M5 output、6owner/archive/paired正規化基準、8親batchのbyte/hash/launch/chunk、79段階の予算/Job pre/post/empty/missing0をMacで確認。16件は全CPU/GPU/APIと元M5全raw一致し、標準CUDA厳密261/266（最後のMetal262/266）。Windows payloadだけなら17件一致だがVelvet1件を厳密認定へ含めない。6programのsource7d4000f4/dae26058、各ownerを現rootへ付替えない。
+
+18 SDK外側exit2/reported falseを保持。対応するSDK内側は全exit0、artifact出所と計算は成立するが各program/service/whole/overallfalseは変更しない。8POST/8GPU/retry0、最大Job peak2,024,624,128bytes、Node8/8停止。旧13,792file/stop/claimを保持。計算一致と環境全体の認定を区別する。
+
+最後ammo-fixed/Velvet（標準168）はGPU status0・CUDA/freshCPU/API全応答一致だがinput1bcd913d…に対するCUDA readback65e21f9b…が元M5c79d2a07…と不一致で停止。再実行0。保存readbackの497ブロック中494一致、byte開始0/638976/851968の3ブロック差。CUDAの638976..655360は全zero、元M5には世界時計のmandatory root-start word160528と履歴12非zeroがある。単なる表示差と断定せず、rootcause未確定。small原本/指紋で再計算なしに調査する。
+
+製品decodeへ共通時計完了の検査を追加。入力からliteral node数だけmetadataへ保持し、保存出力の有界履歴数/root-start [32,0,0,0]/全node終了を要求。静止ボスでも欠落をUnsupportedPortableにし既存CPUfallbackへ渡す。GPU/効果/数値/期待値/許容差/CPU正本変更0。最初はheader履歴数をnode数と誤解した候補が既存保存Metalで拒否され、GPU前に訂正。合成テストは明示的synthetic root-startを持つwireへ更新、GPU証拠にしない。製品11/detail67/履歴7成功。全266をbattle/GPU禁止で静的再packし262 input全bytes保持、全262保存M5が新guardに成功、既存4fallback保持。これは保存再投影/ホストguardの検査で新owner GPU認定ではない。根本の共通実行器修正は未完了。
+
+原本proofs/product-ammo-world-clock-diagnosis-v1-20261101、small記録research/product-standard-special-import-v1.jsonとproduct-world-clock-readback-guard-v1.json、Windows原本/差分もresearchへ元bytes保持。次は保存fingerprintを細分化してVelvetの欠落・差分を共通ソースの具体箇所へ特定する。Windowsはidle、追加SDK/GPU/POST未依頼。敵回復group両modeのsealed配布（固定8931c837/source79d67a55、実蓄積bf25448d/source98198a7b）とown PTX/O1 60秒2GiB計画/deps/元M5全input/readback保持した4静的API入力は準備済みだが、この既存差分を先に扱う。全goal未完了、4default/公開sampling/未接続合成を保持。以下は履歴。
+
+## 2026-11-01 敵回復＋射撃グループの実蓄積もCLI独立基準へ登録
+
+source b0a11fe9の不変owner09e860ab2f4027aadbe40b7a14de0543b62bf58c3a53594c173d500488d8a359自身でown140 CPU/fresh native/実M5実蓄積30秒/GPU禁止fresh独立seal成功。元通常APIのinput/output全bytes一致。v35へ実蓄積groupだけ追加し旧28基準完全保持、厳密88cda inverse/SHA同時更新・履歴7/製品10成功。新標準profile/GPU CUDA加算0。原本proofs/product-healing-group-v1-20261101/accumulate-v1、small記録は既存research/product-healing-group-v1.jsonへ統合。固定release8931c837はsource79d67a55のまま保持し付替えない。
+
+Windows既存17件は同turn01a1954f/cursor584で16件保存監査一致、最後ammo-fixedのO1成功後リンクを継続。再依頼0・最終原本未取得、確認済み標準CUDA245/266据置き。未指定4件は移動/距離/対象範囲の規約不足を保持し、Reiの対象不成立という推定で元効果を取り除かない。次は17件原本の照合と、この共通敵回復group両modeの少量CUDA照合。以下は履歴。
+
+## 2026-11-01 敵回復＋実射撃グループを製品APIへ接続、4条件Metal全一致
+
+既存敵回復製品adapterのplain限定を、チェック済みactual-shot group prefix104408wordにも拡張。既存group executorを同じ時計/actor poolへ含め、enemy-healing bank115680..120048と出力1867648..2032000を保持。入力の104408..115680だけzero必須とし、groupの元8wordを消さない。固定/実蓄積wrapperは同じ共通Slang本体、数値/効果/CPU正本4file/許容差/normalizer変更0。target/ADD-attack、coverも含む三者合成は明示拒否を保持。
+
+Ann＋Belorta＋Miranda＋Dolla＋Drakeの元74効果を全保持して静的pack、owned fieldsとCPU戦闘なしを既存model testへ追加。既存モデル56/製品10/履歴7成功。不変owner e73b0caa7156418adab7a4a170e51b0fc955af0bea456cb87be48f92eabac187自身のown140 CPU/fresh native/実M5固定30秒/GPU禁止fresh独立seal成功。input e257a4e9…、全readback2fbe22ce…。v34へ固定groupだけ追加し旧27基準完全保持、厳密88cda inverse/SHA同時更新・登録後履歴7/製品10成功。実蓄積は通常API成功だがCLI独立基準未登録。
+
+同じpacket自身の通常APIで固定/実蓄積×15/30秒の4条件、1POST/2physical batch×2件を実行。Metal/freshCPU/HTTP全payload・Unicode完全一致、wall21.368秒。15秒2回復receipt/30秒4receipt、両30秒で元Annの実倍率0.2106999999999999も一致。既存親member/hash/全raw/source/静的repack/製品再投影監査4成功（追加battle/GPU0）。専用Node/プロセス群消滅確認、ユーザー4317/4327不操作。旧標準Ann inputと生成CUDA/MSL全raw bytes保持もCPUのみ確認。新suite/恒久監査器追加0。
+
+原本proofs/product-healing-group-v1-20261101、small研究記録research/product-healing-group-v1.json。source79d67a55のsealed releaseもrelease-v1へ準備、own PTX/O1 60秒2GiB計画・deps成功。Windows未依頼。最初のローカルtest2件の不備とimport path失敗を記録、GPU前の修正のみ。新標準profile0/CUDA実行0。標準実績は最後のMetal262/266（5e1）、Mac原本照合済みCUDA245/266（00ed）のまま。Windows同turnは追加15/17一致報告、残cover/ammoを継続中・最終原本未取得。別ownerへ認定を付替えない。全goal未完了、default4/公開sampling/未接続合成を保持。以下は履歴。
+
+## 2026-11-01 接続復旧確認、3モデル実蓄積を独立sealしてCLI v33へ登録
+
+Windowsの同turn 01a1954fは応答・処理継続を確認。追加17入力のうち11入力が元M5 full readback一致との報告、残default-weighted/default-cover/ammoを継続中。再送/retry0。最終原本未取得のため標準CUDA確認済み245/266は増やさない。cursor573時点でweighted自身のpaired生成/計画成立、PTX段階。結果待ちを失敗扱いしない。
+
+Macは既存movement-range-cover-accumulateをsource e1dc4ff3の不変packet自身でown139 CPU・fresh native・実M5・GPU禁止fresh独立seal。owner be7fcedb05ed9116fe0342d3c106dddd8af6864ae78d00d982cffba7675c61ca、input fd658bcf…／全readback 6d87e80b…は先の通常API実蓄積30秒と全bytes一致。新数値実装/効果変更0。v33に当1memberだけ追加し旧26member完全保持。厳密88cda inverse/SHA更新、履歴7/製品10成功。登録基準27、宣言program50は別の数。新標準profile/CUDA実行0。service/whole/overallの成功認定ではない。
+
+原本proofs/product-movement-range-cover-v1-20261101/accumulate-v1（packet/metal/独立seal）、小記録research/product-movement-range-cover-accumulate-registration-v1.json。次は既存Windows17件の保存原本を取得・照合し、最初の不成立時は保存停止。全goal未完了、default4と他の未接続合成を保持する。以下は履歴。
+
+## 2026-11-01 標準CUDA245/266の全原本照合完了、別6imageの17件を依頼
+
+Windows237件の最終原本a41b1ba1（77,750bytes/SHA90c8b698…）を取得し、全237profileのID/名前/育成段階/input/元M5 full readback、全30親のhash/byte/chunk/launch、90段階のmetricとenforced gate、driver総数をMacで照合。source00ed／owner032bbb76の標準fixedは先の8件と合わせ245/266。各30秒、30 POST/30GPU/retry0、SDK/事前battle/追加保存監査battle0。最大Job peak1,501,020,160bytes、90段階すべてpre/post2GiB・gate・empty・missing0、専用Node30/30停止。内部advisory240件のlimit=null/完全性false、service/whole/overallfalse、旧9451file/v1停止/claimを保持。未確認を成功へ付替えない。
+
+輸送de8cee1eの37file（72,603,089bytes、個人設定/raw/compiler本体なし）を共有し、既存chatへ残標準別17件だけを依頼。fixed-group2、fixed-target2→6、healing1、default-weighted1→3、default-cover1、ammo1の6image/最大8batch。各sealed ZIP/own PTX-O1計画/deps/元M5 API期待を同梱し、28 execution/audit/server/保護CPU/test filesが直近S4と全6でbyte一致を確認。6owner/sourceは元7d4000f4/dae26058のまま保持し、今rootへ付替えない。全17入力は自身のpacketで正しいshared selectorと静的input/full M5 raw保持を確認済み。
+
+各programは自身のfresh root/CLI/cwdでpaired生成1→PTX1→成立時O1 object1→成立時JIT1→provider admission時だけ通常API。既存coordinator/helpers/auditorsを再利用、own136/native事前/不変27guardを重複実行しない。各CLIの全immutable gateとGPU後fresh CPU全payload比較は保持。SDKchild60秒/2GiB/BelowNormal/freshJob、API53秒、静的/保存監査60秒、各outer180秒・直列。各小batch全計算/保存/Job/メモリ成立後だけ次へ。最初の差分/fallback/missing/query不全/timeout/cleanup/obs等で保存停止、retry0。正確なreadback chunk長/全ret0を要求し、partial観測falseを維持する。
+
+標準Metal最後262/266（5e1）、標準CUDA245/266（00ed）。残17のCUDA結果は未取得、4fallbackと新movement/range/cover合成は今回Windows未依頼。新合成は下記4条件の実Metal/CPU/API一致・独立seal・既存7program生成raw全bytes保持を確認済み。全goal未完了。次は依頼済み17件の同turn結果を取得し、失敗なら共通修正、成立なら残未接続/仕様条件へ進む。
+
+原本proofs/product-cuda-standard-current-v4-20261101/standard-remaining-fixed-normal-api-status-v2.json、小記録research/product-standard-current-source-v1.jsonと同名原本。旧停止結果は別v1のまま保持。以下は履歴。
+
+## 2026-11-01 移動＋範囲／対象数＋遮蔽DEFを通常APIで合成、4条件のMetal全CPU一致
+
+前turnはCUDA8確認と残237のv2再開・他6入口のsealed準備で進捗。今回は個別または2モデルでしか使えなかった既存movement/named-range/cover consumersを、同じActorPool/時計/イベントへ接続した。CPU正本4file・効果数値・binary64/pow・normalizer・許容差は変更0。geometry一致と5人のcover base明示を要求し、未指定ゲーム仕様を推定しない。既存CLIのproduct-detail/data registryへ2programを追加、新suite/恒久tool0。
+
+元movement/range input118020の後へcover24wordを追加して118044。元output2165136内の未使用tailへcover bank2147744..2164656を配置し、最後480wordはzero必須。既存2モデルの入力・frame/segment/cast bank・数値処理は不変。count93/range94/cover96を明示分離し、各bank/予約領域/descriptorを完全検査する。初期clearでcover headerを消さない順序とsnapshotの最終clearを共通Slangへ接続。CUDA/MSL paired生成成功。
+
+不変development owner5347744a…の最初のpreflightは既存件数テスト48に対して50programでGPU前停止。新2件を厳密に追加したtest-only refreshで非test・数値基準全bytesを保持したowneredeaa2b1…へ移行し、元失敗/claimを保持。own139 CPU・fresh native・実M5代表30秒・GPU禁止fresh独立seal成功。fixed30 inputb98e9490…/readback68235655…を保存し、実APIの同要求でも全bytes一致。最初の未追跡GPUwrapperに対する梱包拒否も保持し、レビュー済みファイルをgit追跡後に梱包した。
+
+同じ不変packet-v2自身の通常APIへ固定/実蓄積×15/30秒の4要求を1POST、2physical batch×2件で実行。実M5/freshCPU/HTTPの全項目・Unicode込み完全一致、wall31.502秒。30秒のmovement5403frame/range54cast、cover固定7receipt/実蓄積6receipt・incoming25hit。独立cover DEF上昇も実受領し、元効果を破棄しない。既存の保存parent/member slice・全raw/source・静的再pack・全payload監査4件成功（追加battle/GPU0）。専用Nodeとプロセス群は全終了確認、ユーザー4317/4327不操作。
+
+v32は独立sealしたmovement-range-cover-fixedだけを追加、旧25member全保持。実蓄積は実API証拠あり・CLI基準未登録でdevelopが必要。厳密88cda source inverse/SHAを同時更新しhistory7/製品10成功。標準7入口は生成CUDA/MSLのraw全bytesが保存Metal基準と一致。全266のCPU戦闘/GPU禁止再packでも262入力全bytes同一・4fallback理由同一。これは既存動作保持の静的証拠で旧GPU ownerを付替えない。新標準profile/CUDA実機加算0、全goal未完了。
+
+原本proofs/product-movement-range-cover-v1-20261101、runtime sourceはpacket-v2/metal-v2、通常4件api-v1、small記録research/product-movement-range-cover-v1.json。標準Metal最後262/266（5e1）、Mac原本照合済みCUDA8/266（00ed）。Windowsは同じ237件v2turnを継続し、直近216/237保存監査完了の報告、原本共有はまだ未取得。次は同turnの全結果取得・照合後、準備済み別6image/17profileへ必要な短いCUDA検証を進める。新3モデルのWindowsは未依頼。以下は履歴。
+
+## 2026-11-01 残237の実行先指定をGPU前に訂正、他5入口も現Metal/独立seal完了
+
+前turnのCUDA8確認後、残237のv1要求は最初の静的検査で停止（POST/GPU0・新完了0）。Mac作成の245入力表に旧CUDA指定cuda_detailが残っていた入力準備ミス。確認済みfirst-eight/two/sixは元からcuda_shared_detailで、成功8件に影響なし。旧停止原本7bbb4920（3,177bytes/SHAda116f3f…）・claim/旧9408fileを保持し、検査をlegacy受入れへ緩和しない。
+
+body.compute_backendだけをcuda_shared_detailへ直したv2を、同じsealed owner032bbb76自身でsimulate/GPU禁止のまま全245再packし、全計算input/全M5期待値保持を確認。表v2は1,932,289bytes/SHA4bff4e66…、輸送b282b575で共有・既存chatへ新fresh v2 captureで依頼済み。旧v1reportを上書きしない別report名とSHAも要求へ固定。残237/30batch・最初8件全成立後だけ継続、各53秒/2GiB/BelowNormal/freshJob/outer180秒・retry0・同image/cache・全payload/raw/親slice/Job gateは不変。static source/input成功をAPI route成功と混同した元準備を訂正。現在の標準実績はMetal262/266（5e1）・CUDA8/266（00ed）のまま、v2追加結果未取得。
+
+独立してMacでは既存fixed-target/healing-fixed/default-weighted-fixed/default-cover-fixed/ammo-fixedの5入口をsourceb179からそれぞれ不変development packetで用意。各own136 CPU・fresh native・実M5代表30秒・GPU禁止fresh独立sealに成功。代表Asuka/Ann/Bay/Soldier O.W./Velvetはいずれも最後の通常M5のinputと全raw bytes一致。旧登録がある配分/遮蔽/弾倉3memberはinput/output/native entries全保持、共通snapshot修正後のsource/generatedだけを独立再認定。target/healingの2memberは新規登録。v31へ一括し旧20member不変、history7/製品10成功。数値/効果本体/CPU正本/normalizer変更0。これら5入口も先のfixed-groupも、新通常profile/CUDA加算0で、Windowsは既存237件を優先し未依頼。
+
+原本proofs/product-cuda-standard-other-current-v1-20261101の5個別capture/seal/progress、小記録research/product-standard-other-current-source-v1.json。既存fixed-group sealed releaseはowner1a29d920／source7d4000f4で保持し、未送信の共通CUDA要求2件も正しいselectorで再pack、two-group-api-job-v2.json/expected-v2を準備済み（input/全M5期待不変）。source7dのreleaseを新rootへ付替えない。
+
+全goal未完了。他5入口もsourcedae26058からsealed releaseを準備済み（5ownerは小記録参照）。各own PTX/O1 60秒/2GiB計画・deps成功、各sealed packet自身で残15要求を正しいcuda_shared_detail指定・simulate/GPU禁止で再packし、元全input/最後の通常M5全raw期待値保持を確認。これも新GPU/CPU戦闘0、Windows未依頼。次はv2既存237件turnの同じ保存結果を取得し、成立後に必要な短い別image検証へ進む。旧停止/claimは解除しない。以下は履歴。
+
+## 2026-11-01 現標準CUDA8/266へ進展、残237を同image・最大8件ずつ依頼
+
+前turnは標準CUDA2件の製品確認と全245の静的保持で進捗。今回a9e6942cの保存原本standard-next-six-normal-api-status-v1.json（24,582bytes/SHA8f2328fd…）を取得・照合。Neon/Anis/NeonBlueOcean/AnisSparklingSummer/RapiRedHood/NeonVisionEyeの30秒6件がPOST1・physicalGPU1/retry0でfresh CPU/GPU/APIの全項目と元M5各全readback一致、親18,874,368bytes/SHA d0505a18…も一致。全source/親member入出力slice/静的再packも保存監査成功。現source00ed・owner032bbb76の標準CUDAは計8/266。Metal最終全件262/266（5e1）、別source歴史CUDA3をcurrentへ付替えない。
+
+同CUBIN/pairedcacheを再利用してSDK/事前battle0、GPU3.073秒/HTTP23.389秒/API outer27.509秒。外側Job peak1,478,283,264bytes（約1.38GiB）、全enforced Job pre/post2GiB・gate・empty・missing0、専用Node停止。内部resource8件のlimit=null/観測完全性falseとservice/whole/overallfalseを保持。旧9281fileも全bytes保持。18MiB readbackは既存8MiB+8MiB+2MiBの3転送で全ret0。報告器の「DtoH1回」仮定だけが保存段階で止まり、実際の長さ・全returnを記録して解消。計算・監査の緩和/再GPU0。
+
+輸送ddeed4beの既存request1fileを共有し、残237の同fixedだけを30batch（最大8、最後5）へ依頼済み。各親input/output hashと転送chunk長を元M5 rawからCPUだけで計算し、既存static table245を使用。最初8件の全計算/保存/Job実測を確認してから続け、以後もbatchごと停止条件を適用。APIhelper53秒/2GiB/BelowNormal/freshJob+gate、静的・監査60秒、各outer180秒以内・直列。whole30を1長時間outerに入れない。旧8件再実行/追加SDK/native事前/全testなし、GPU後fresh CPU比較は維持。全CPU/GPU/API/M5・親slice/source/hashを要求し、差分/fallback/missing/観測不全/timeout等で保存停止、retry0。別program17件と4fallbackは今回未依頼。残237結果は未取得。
+
+Macでは既存fixed-group（標準Belorta/Nihilisterの2件用）をsourcee078から不変development owner2a519d52…で用意。own136 CPU・fresh native・実M5代表30秒・GPU禁止fresh独立sealに成功。代表Belortaは旧通常M5のinput4a8cbfd2…と全readback f7d44e60…が元bytesと一致。新GPU/効果/数値/比較器0。未登録だったfixed-groupを独立seal後v30へ追加、旧22member全保持。GOLDEN pathの厳密な88cda履歴inverse/SHAも同時更新し、既存履歴7/製品10成功。これはCLI準備で新通常API profile/CUDA加算0、sealed release owner1a29d920…／source7d4000f4（archive12,069,087bytes/SHA1de3803b…）とown PTX/O1 60秒/2GiB計画・depsも成功。元Belorta/Nihilisterの2要求を自身でsimulate/GPU禁止静的再packし全input/元M5 rawを保持。Windowsは残237の既存turnを優先し、当groupは未依頼。
+
+原本proofs/product-cuda-standard-current-v4-20261101、product-cuda-standard-group-current-v1-20261101。小記録research/product-standard-current-source-v1.json、product-standard-group-current-source-v1.jsonと標準status原本3file。全goalは未完了。次は既存237件turnを再送せず追跡し、groupのsealed release準備と他入口へ進む。以下は履歴。
+
+## 2026-11-01 現標準CUDA2/266を通常batch APIで確認、同imageの6件へ拡大
+
+Windows保存結果ff6674d0のSDK10,636bytes/SHA9fe13143…、通常API18,536bytes/SHA17aefb7b…を取得・照合。不変owner032bbb76…／source00ed1f52の標準Poli3/D0を30秒・POST1/physicalGPU1/retry0で実RTX3070Ti確認。両member status0、fresh CPU/GPU/HTTP全項目一致・Unicode除外0。元M5各全readbackと親6,291,456bytes/SHA6c7d8eb0…も一致。静的再pack/親member入出力slice/source/全payload保存監査も成功、追加battle/GPU0。旧Poli3の13word差分は現programで再現しなかった。ただし複数の既存修正を含むsource変更なので、元13wordの特定原因を断定せず旧失敗を保持する。
+
+生成CUDA/MSLはM5の独立sealと一致。PTXはexact raw code/options/compiler/headerによる既存cache hit、旧failed objectは再利用せず新O1 object/JIT image5357328bytes/SHA0a25fdc0…を生成。通常APIはSDK0、GPU2.385秒/HTTP21.171秒/outer25.421秒。全enforced wrapperのpre/post Job制限2GiB・gate・終了後empty・missing0を確認、専用Node停止。外側Job peak1,459,347,456bytes（約1.36GiB）。一方、内部resource snapshot8件のJob limitはnullで観測完全性falseを保持し、外側の実制限と混同しない。SDK inner0/outer2、service unverified・whole/overallfalseと旧4772file/claimは保持。数値一致と環境保全を分ける。
+
+同じsealed packet自身で標準fixed245要求をsimulate/GPU禁止で再packし、元M5通常APIの入力/期待全readback SHAを全保持。新CPU戦闘/GPU0。全245を将来32physical batch（最初2、次6、以後最大8）へ静的分割し、最大readback25,165,824bytesを算出。これは入力準備で、残243件のCUDA実績や将来容量の認定ではない。現Metal全件は262/266（source5e1）、現標準CUDAは2/266（source00ed）、歴史別source厳格CUDA3は付替えず別記。未指定Yuni/Yan/HeavyArms/Reiの4profile、残合成/自由条件/公開サンプリングが残り全goal未完了。
+
+輸送6a73c880の6file（約2MB、個人設定/rawなし）を共有し、既存chatへ次のNeon/Anis/NeonBlueOcean/AnisSparklingSummer/RapiRedHood/NeonVisionEyeの6件だけを通常API POST/GPU最大1で依頼済み。同owner・同image・paired cache fc8e5d0e…を再利用、追加Slang/NVRTC/PTXAS/JIT/全CPUテスト/native事前0。GPU後fresh CPU比較は保持。元M5 rawから親expected d0505a18…も確認済み。既存helper/保存監査のfixture/path/countだけを変え、APIhelper53秒/2GiB/BelowNormal/freshJob+gate、各outer180秒・直列。全member/source/親slice/raw/CPU/APIを照合し、異常時保存停止・retry0。内部null/falseとservice/wholefalseを保持。残237件/全266は今回未依頼。次6件結果は未取得。
+
+直近の別declared Lock On＋遮蔽回帰もowner9975／sourcecbee4f07でCPU全payload/M5全8,195,648bytes一致を確認済み（84d9f15d、research/product-lock-token-snapshot-v1.json）。標準profileへ加算しない。既存model-checkもGPU/CPU戦闘0で実行、公開RNG/座標と5canonical stat consumerの残範囲を再確認した。私的実装の不在と読み替えない。
+
+原本proofs/product-cuda-standard-current-v4-20261101、小記録research/product-standard-current-source-v1.jsonと共有status2file。次は既存6件turnの保存結果を取得し、数値/実測とenforced gateに従って拡大または共通source原因修正へ進む。以下は履歴。
+
+## 2026-11-01 実CUDA診断でtoken消失を特定、共通snapshot修正と再発防止をMetal実証
+
+前turnはPTX/objectの出所成立とreadback診断CLI統合で進捗。今回はf8b0773cのlink status6269bytes/SHA118fa13c…を取得し、同objectのCUBIN4a142dde…（5198416bytes）・9API全ret0/Destroy0・driver未ロード・内外missing0/Job2GiB/emptyを照合。元と全項目同じ30秒bodyをpacket自身でsimulate/GPU禁止で再packしinput07c3e787…一致。新source bd19の通常APIをPOST/GPU各1回。実RTX3070Ti dispatch0.328秒・全driverret0だがstatus64でCPU切替。helper21.268秒/outer25.368秒・peak1930674176bytes・missing0・専用Node停止/Jobempty。二次FileNotFound0、追加生成/SDK/link0。serviceunverified/preservationfalse保持。
+
+f6c1a966の原本status8260bytes/SHA8182a797…、saved diff2931bytes/SHAb60cfd46…を取得。元readback87ccd984…保持、143block差分、rawsamples0。既存readerの同じhash検査からsite9001/row8/packet1/hit1/hits5/depth2/epoch1/token0/shotcount1/tail6/cursor2を取得。新規標準profile0。rootとWindowsの生成物は既存strict normalizerで一致しており、実CUDA側の最初のLock On packet読出しでtoken消失していた。
+
+生成CUDAのlockPacketLoadは、uint value=results[token]をpointerとして保持し、同slotを0へclearした後にpointerをdereferenceしてreturnしていた。生成Metalは先にuintへ退避する。2485f1e1で既存actor scopeと同じnoinline scalar snapshotを共通Slangへ接続し、CUDA/Metal両方をread→clear→saved scalar returnへ固定。計算値/順序/CPU正本/normalizer/許容差の変更0。既存scope監査を共通化し、新生成とcache読込み両方で元の誤生成・pointer戻し・clear後snapshot・noinline削除・書込みreader・定数readerを拒否。新tool/suite0。scope14/lock5/cache13/product10/歴史7検査成功。
+
+元と修正後の実際の生成CUDA関数本体をCPUで実行し、2case×packet0/1/2047×token0/1/31の18条件で旧版の非zero12件消失を再現、修正版は全値保持・clear・両隣guard一致。範囲外2条件も変更なし。これはhost上の生成関数検査であり、修正後の実CUDA戦闘証明は未完。元の誤生成関数もproofへ保存、全失敗/capture/claimを保持。
+
+不変development ownere14078ac…（source2485f1e1）自身の136CPU/fresh native/実M5 30秒が全製品payload一致、別fresh GPU禁止独立seal成功。元input438244bytes/SHA07c3e787…とreadback8195648bytes/SHA772355d4…が全bytes同一。v28はこのlock-cover-fixedだけを登録、旧21member全保持・期待値変更0。Metal最終全件262/266（source5e1）、CUDA歴史厳格3/266・現source0、新標準加算0、全goal未完了。
+
+原本proofs/product-lock-token-snapshot-v1-20261101、小記録research/product-lock-token-snapshot-v1.json。元診断原本proofs/product-lock-packet-failure-v1-20261101を保持。最終sealed修正版owner9975b5dc…（sourcecbee4f07、archive14500742bytes/SHA50e290e8…）自身のPTX/O1各60秒/2GiB計画・depsが成功。輸送149cf794の7fileを共有済み。own packetのscope14はforbid_gpu、cache13は既存fake compilerでbuild境界を調べ実device/DLLを禁止する方式で全27成功。全buildを一律禁止した最初のharnessはfake buildまで止めて失敗し、GPU0のままharnessを適正化、検査をskip/期待値変更せず再確認した。17 platform/SDK/保護CPU fileは旧ownerとbyte一致、生成監査consumer3fileは意図した変更。Windowsへ新rootの短いCPU27→paired生成→PTX→同PTX object O1→同object JIT link→既存providerがadmitした場合だけ元30秒通常API POST/GPU最大1→自身のreader保存照合、を条件付きで続ける依頼を送信済み。各SDKchild60秒/2GiB/BelowNormal/freshJob・各stageouter180秒、APIhelper53秒、全own136/native事前再計算なし。生成cache keyは新receiptから取得、旧d480を流用しない。修正版Windows結果は未取得。次は同turnの保存回帰結果を取得する。再送ではなく特定した誤生成の修正回帰であり、token失敗が解消しても全goal完了へ一般化しない。以下は履歴。
+
+## 2026-11-01 Lock On失敗の共通診断を既存16語へ追加、正常Metal全bytes保持
+
+前turnは保存CUDAの3skill全項目がM5と一致し、Lock On stored5/loaded0まで切り分けた。今回は6fd7fd4dで新suite/tool/入力flagを追加せず、既存projectile診断領域786416..786432へ最初のpacket失敗site/receipt/queueを保存する。対象はPORTABLE_PRODUCT_COVER_LOCKだけ。既存error64とCPU fallbackを保持し、正常計算/出力は変更しない。元Windows失敗と原claim/rawを全保持、原因修正の証明ではない。
+
+site9001..9006はtoken/hit/snapshot/trace/queue address/occupied token/non-lock token、9010/9011/9012はenqueue妥当性/queue容量/decode妥当性。16語はmagic/site/row/packet/hit/hits/depth/epoch/token/shotcount/when2語/tail/cursor/detail/status。共通SlangからCUDA/MSL生成/反射成功。関数本体そのものをhost上で実行し、9siteの全16語・signed zero生bits・両隣guard・最初の失敗保持・既存error時の誤site生成なしを確認（shader実行証明とは別）。既存製品10/packet5/歴史7成功。
+
+不変development ownerbc62435c…自身の136CPU/fresh native/実M530秒とfresh独立GPU禁止seal成功。元入力SHA07c3e787…と全2048912語出力SHA772355d4…が元Lock On＋遮蔽の保存結果と全bytes同一。標準245profileのfixed入口も生成CUDA/MSLがS/metal-v1とraw全bytes同一、再戦闘/GPU0。v27は独立sealしたlock-cover-fixedだけを登録し、旧21member/旧期待値/normalizer/数値を保持。新標準profile0、Metal最終全件262/266（source5e1）、CUDA歴史厳格3/266・現source0、全goal未完了。
+
+原本proofs/product-lock-packet-failure-v1-20261101、小記録research/product-lock-packet-first-failure-v1.json。 続くturnで既存readback-compareへ同じhash再検査中の16語診断読取りを接続。新command0、非整列case境界/未知・admission marker/不一致status/元hash変更拒否を含む18検査成功。実M5保存全block一致・失敗診断空を追加GPU/native0で確認。今後のCUDA原本も同じ照合器でsiteを取得でき、手作業の別往復を減らす。診断は停止箇所の観測を増やすもので、元status64が解消したとは扱わない。最終sealed owner aef09ee5…（source bd19f2bf、archive14,498,389bytes/SHA91a8a052…）自身のPTX/O1各60秒・2GiB計画と依存検査が成功。SDK/Job/保護CPU18fileが実Windows検証済み旧ownerとbyte一致。輸送8fb760c0の6fileを共有し、Windows既存chatへpaired生成1組→PTX1回→成立時だけ同PTXのobject O1を1回のコンパイル専用依頼を送信済み。30c868ffの保存status9548bytes/SHAfd7bbb45…を取得・原本照合し、owner/paired generatedがM5と一致。PTX9779062bytes/SHA541740a3…、object5574448bytes/SHA1b08d0c6…、compiler/object/containment検証成立、内外missing0・Job2GiB・終了後empty。NVRTC15.049秒、PTXouter37.803秒、PTXAS8.511秒・objectouter36.712秒。serviceunverifiedによるexit2/overallfalse/preservationfalseを保持し、失敗を成功へ変更しない。自身の既存CLI gateを通じ同objectのjit-link-objectを1回だけ続ける依頼を送信済み、SDKchild60秒/2GiB/BelowNormal・outer180秒。追加Slang/NVRTC/PTXAS/CPU全件/native/driver/GPU/HTTP0。f8b0773cの保存link status6269bytes/SHA118fa13c…を取得してowner/object/API/Jobを照合、既存nvJitLink9call全ret0・Destroy0・driver未ロード・内外missing0/Job2GiB/empty。CUBIN5198416bytes/SHA4a142dde…、内23.888秒/外59.264秒、serviceunverified/overallfalse保持。元と同じAPI body全項目をpacket自身でsimulate/GPU禁止のまま再packし、入力07c3e787…一致。輸送e900cce3にbody/expectations/既存reader同一コピー計3fileを共有。readerはpacketを上書きせず別toolrootでSHA d921b979…を検査して使う。既存chatへ新sourceの通常API POST1/GPU最大1を依頼済み。保存imageとpaired cacheだけ使用し追加Slang/NVRTC/PTXAS/link0、helper53秒/2GiB/BelowNormal/freshJob・outer180秒、専用serverのみfinally停止。失敗時の二次gpu-payload欠落を避け元error/statusとreader診断を保存する。API結果は未取得、chat active/送信済みは実子handleや成功の証拠ではない。次は同turnの保存API結果を取得し、siteまたは全payload一致に従い共通sourceの修正/範囲拡大へ進める。コンパイル専用はdocs/portable-compile-plan.mdの既存規約どおり全CPU戦闘を再実行せず、GPU後の製品fresh CPU比較は保持する。以下は履歴。
+
+## 2026-11-01 Windows保存結果を回収：SDK/link成立、実CUDAは74frameでstatus64
+
+接続復旧後、既存transportの48277546/d4271a8f/c9e8b702/fb6757ef保存結果を取得し、原本bytes/SHAを照合した。owner72638887（source2d1e4833）のown136分割14群・fresh native・cleanup8・fake linker15は成功。paired Slang1組、NVRTC1、PTXAS O1 1、nvJitLink1でobject070c3789…/CUBIN d8bfd9f7…を生成。全SDK/link段階missing0・Job2GiB・終了後empty。serviceunverifiedのためpreservationfalse/outer exit2/overallfalseは保持。コンパイル成立を環境保全成功へ昇格しない。
+
+GPU source/計算を保持し、Node UTF-8修正2ファイルだけを適用した別host c7600d3f／owner17d2c94dを使用。1088計算関連fileとgoldenは全bytes同一。v3準備時のWindowsパスSyntaxErrorはPOST/GPU前0で停止、元停止保持。JSONパス＋Python7本AST/PS構文を確認したv4で通常API POST1・実RTX3070Ti dispatch1を実施。保存CUBINを使用しSlang/NVRTC/PTXAS/link再実行0、driver各呼出しret0、dispatch0.314秒。ただしShared battle status64でCPUへ切替、製品全payload比較は未完了。検証helperのgpu-payload.json欠落は二次失敗で、主因ではない。韓国語を含むHTTP bodyは保持。
+
+入力SHA07c3e787…はM5と同一。実CUDA readback fbdafa26…は期待772355d4…と不一致。接続復旧後のfile-only既存readback-compare/resource-summaryで、2001block中142相違/1859同一、typed/PF/cover/skill magic有効、frames74・trace_total3・queries0を確認。初期化前停止ではなく途中実行であるが、停止コード64の発生箇所/原因はunknown。admission markerは元M5にもなくstage不明。raw前後SHA同一、追加GPU/POST/driver/SDK/native0。23e65e77の既存decode_prefixによる保存3skillも取得しSHA確認。元M5全168件を既存decode_pagesで読み、先頭3件（row78/78/7）の全8 semantic項目と完全一致。3件目created1.2000000000000006/landed1.2166666666666672、recipients[0,1,2]。LP_HEADはstored5/loaded0、PF/cover headerはmagic以外0。最初のLock On enqueue/drain/callback周辺を次に確認するが、発生行やstack破損を断定しない。追加GPU/native0。同GPUの再送/時間短縮/期待値変更なし。
+
+API Job peak1,929,351,168bytesは上限2GiBに近い。保存launch前後ではprocess private 390,545,408→1,869,824,000bytes、device free 7,437,549,568→6,028,263,424bytes。増加はlaunch境界で観測されたが、stackサイズ/枯渇/status64の原因とは未確認。ただしGPU時間の保存観測8件ではJob limitがnullで観測不完全、メモリ枯渇を断定しない。制限は増やさず、次の独立したstandard検証が可能になった場合は初回batch2件を計画。新規current標準CUDA実績0、旧厳格3/266とMetal最終source5e1の262/266を保持。全goal未完了。
+
+独立準備として既存standard fixed入口（245profileが共用）のcurrent sourceをM5でown136/fresh native/実計算/別fresh独立seal・保存監査。旧fixedのinput/output/native/generatedは全bytes同一、source closureだけv26へ登録。他21member全保持、歴史7/登録10成功。root0faccfc0のrelease owner6b87a316…は自身のPTX/O1 compile-plan各60秒/2GiBとvalidation-deps成功、Windows SDK/GPU未依頼。準備を245件の実行実績へ加算しない。
+
+小記録research/product-lock-cover-cuda-product-v1.json。原本proofs/product-cuda-product-api-v3-20261101、standard準備proofs/product-cuda-standard-current-v3-20261101。古い停止・claim・raw・SDK成果を全保持。次は保存partial eventを照合して原因を限定し、根拠のある修正後だけ新sourceをMetal/CUDA共通に検証する。以下は履歴。
+
+## 2026-11-01 移動＋名前付き範囲を通常APIで合成、30秒全履歴とUTF-8製品応答を実証
+
+前turnは分割packetの共有とWindows依頼で進捗。今回は62b53a3cで、別々にしか使えなかった既存movement/named-range consumerを同じActorPool/frame/イベント実行器へ接続した。明示した両モデルのcoord/geometryが完全に同じ場合だけ認め、86元効果を全保持。新suite/恒久監査ツール0、CPU正本/pinned/数値/normalizer/許容差変更0。CPU側も同じgeometry contextを1度だけ設置し、move/named rangeの全モデル結果を別々に保持する。
+
+最初の既存15秒4要求は、disableのみ2件一致、Yan force併用2件がCPU切替。movement履歴は全一致、CPUの範囲adapterだけが静止colliderを読んでいた。2d1e4833で同じmanager/boss/時刻のlive movement geometryを読むproviderへ接続し、元の宣言モデル外では従来どおり静的geometryを使用。元input/readback全bytes保持のまま4件全CPU/実M5一致。元root文脈で保存GPUとfresh CPUを比べた診断はevaluator出所だけ異なったので、比較除外せず不変packetの同文脈へ戻してAPI確認した。
+
+30秒3ADDでは元4096履歴枠を超えるため、bd6a6300で新合成だけ8192frame/segmentへ拡張。input118020は不変、既に共通wire登録済みのoutput2165136を使用し、movement終端2131344へnamed-range bankを隣接、終端2147744以後はzero必須。旧単独レイアウト/計算本体保持。生成CUDA/MSL/reflect両mode成功。初期一般化の変数名衝突は元のdecoder回帰が検出して修正、GPU前に拒否。
+
+共通schemaの条件追加で旧sealed source closureは拒否されたため、旧goldenを書き換えず新development owner58745113…のown136/fresh native/実M5＋GPU禁止fresh独立sealを実行。lock-cover-fixedの元input/output/native/generated値は全て同一。v25はこの既存memberのsource closureだけ更新し、他21memberは全保持・歴史扱い。新movement-rangeのprogram/baseline登録は追加0。登録path変更の歴史台帳漏れはv4のCPU gateで拒否/GPU0、3466cb4dで既存台帳へ元88cdaの全bytesとの差を追加。元停止/claim保持。
+
+拡張後の15/30秒8要求は内部GPU/CPUが全一致したが、保存監査が最後のHTTP応答spec.textの韓国語1文字破損を検出。Pythonの原本は正常でNodeのchunkごとのUTF-8復号が原因。35004855で両workerのstdout/stderrに共通setEncodingを適用、1byteずつ割った日韓文/絵文字/複数JSON応答の回帰を含むNode24成功。比較除外や元応答の修正0。
+
+最終sealed ownerはproofs/product-movement-range-v1-20261101/v5/packet（source3466cb4d）。自身の136CPU/fresh native事前検査成功後、同じ15/30秒8要求を通常APIへ各1回。実M5/CPU/HTTPの全項目が一致、2physical dispatch×4件、wall23.341秒。30秒は移動5403frame/最大5412segment、範囲cast54件。全input/readbackはv3と全bytes同一。既存の親batch/member slice/raw/source/静的再pack/全payload独立監査8件成功（追加GPU/native0）。v3で4097番目のframe/segmentを含む56破損も拒否し、旧15秒の全製品payload保持。
+
+標準266をCPU戦闘/GPUなしで再packし262入力全bytes同一・4fallback同一。7標準入口のCUDA/MSL生成もsource5e1保存分と全bytes同一。旧Metal実行ownerを現ownerへ付替えない。標準Metal最終262/266、CUDA歴史厳格3/266・現source0、新標準profile0。今回Yuni/Yan/Rei等の宣言合成は実製品の限定対応で、未指定位置/半径/Lock配送のゲーム仕様を推定した意味ではない。全goal未完了。
+
+Windowsは9eed2127でcleanup8の偽POSIX2失敗を取得。Windows signalにSIGKILLがなく、実Jobではなくfake cleanupだけの不備。2d1e4833でlocal signal proxyとfake引数assertへ修正し、ae05d799の新不変owner72638887…で全8件成功/skip0、missing0/実測2GiB/終了後empty。旧missing14/unknown等と旧失敗全保持。続く未実行fake linker15/own136分割14群/fresh nativeも成功のcommentaryを確認したが、最終保存statusとSDK結果は未取得。同run再送なし、リンク/driver/GPU/HTTP未依頼。staged claimは将来GPU予約で実GPU証明ではない。
+
+小記録research/product-movement-range-v1.json、product-lock-cover-cuda-staged-v1.json。原本proofs/product-movement-range-v1-20261101のv1(直下)/v2/v3/v4/v5を全保持。最終監査v5/saved-audit-progress.json、node-fix-full-retention-v5.json。Mac専用server74979/80139/5031/27378は全停止exit130、ユーザー4317/4327不操作。次はWindows同turn保存結果の取得→gate成立時だけ既存link/通常CUDA API、未指定4profile/残合成/現在sourceの標準製品確認。以下は履歴。
+
+## 2026-11-01 Lock On＋遮蔽の共通CUDA準備を既存分割CLIへ移行
+
+前turnは保存結果再確認のみで実装進展なし。現在root765628df/sourceの不変owner08735412…、archive14,490,867bytes/SHA7760c5cc…を輸送3e0895c3で共有。packet自身のPTX/O1 CUBIN compile-planが各60秒/2GiBで成功、SDK/GPU/claim0。依存検査成功、既存case_planの13群/own133（reference49を5件ずつ）でID欠落/重複0。テスト発見は実行証明ではない。新suite/常設launcher追加0、制限延長0。
+
+Windows既存chatへ新Lock On計算sourceの実行を1回依頼。先のmovement v3再試行ではない。packet自身の分割preflight-plan/test/nativeを使い、実WindowsJob8＋fake device-linker15は独立CPU段階、元全検査/期待値/原本監査を保持。全gate後だけPTX1回→同PTXのobject O1を1回、今回はlink/driver/context/GPU/HTTP0。各child60秒/outer180秒/BelowNormal/fresh Job/gate/2GiB、観測missing/unknown/cleanup/query不完全なら停止。serviceunverifiedを成功へ昇格しない。旧missing14/原因unknown/全claim保持。
+
+送信応答とchat activeは確認したが実子handle/結果はまだ未確認。実コンパイル/CUDA一致/新profileへ加算しない。小記録research/product-lock-cover-cuda-staged-v1.json、原本proofs/product-lock-cover-cuda-v1-20261101。標準Metal最終262/266（source5e1）、CUDA歴史厳格3/266・現source0、全goal未完了。次は同turn保存結果を取得し、成功条件が揃った場合だけ既存linkと通常APIへ接続する。以下は履歴。
+
+## 2026-11-01 Lock On・typed対象・遮蔽の製品合成と全履歴の保持
+
+前turnはWindows停止の切り分け/実行器修正で進捗。今回はce18f302でHeavyarmsの元Lock On/shot quota/typed landingとSOWの独立cover DEF/手動遮蔽を同じ既存実行器へ接続。元lock prefix109536語＋cover24語、input109560/output2048912。count93とcover96を分離、固定は既存version6 literal control。未指定距離/配送を推定せず、明示lock_on＋cover_defenseだけを合成。全元効果保持、CPU正本/数値/normalizer/新suite変更0。
+
+初回owner634a3d76…は132CPU/fresh native後、元30秒がstatus8で停止。world skill trace128件・次129件目で容量に達したため。入力/期待値/時間を変えず、bcc58da5で既存ページ方式の全履歴2048件を未使用1310720..1402880へ、packet fateの残1920語を1402880..1404800へ保持。cover始端2032000とのgapもzero検査。元prefix/旧容量を変更せず新合成だけで拡張。初回raw/claim/失敗保持、履歴削除や短時間化で回避0。
+
+修正ownerfa9315c8…自身の133CPU/fresh native/実M5/fresh GPU禁止seal成功。元入力SHA/native SHAは初回と同じ。不変packetの通常HTTP APIで、召喚敵2体/手動遮蔽/敵攻撃、さらにtyped projectile1体を加えた各固定/実蓄積の4条件が全M5/CPU製品payload一致。2物理dispatch、wall25.086秒。実履歴168〜169件を全保持、Lockpulse104/shot14/quota1323、typed追加2条件はtyped attack1/receipt1。全条件incoming25/cover8/非ゼロDEF6、Heavyarms DEF100→228.57を確認。これは宣言モデル実証で、距離など実ゲーム規則の確認ではない。
+
+保存監査で、旧skill/typedデコーダが検証entry全体を動的importしCWDに依存する問題も発見。4e2c710bで既存関数本体をAST同一のままapp/portable_skill_history.decode_prefix・portable_world_result.read_typed_battleへ抽出し、製品と旧検証を同じ関数へ統一。保存4件の旧packet全フィールド監査と、新3デコーダだけを元の不変計算/出所文脈へ差し替えた全フィールド監査が成功（追加GPU/native0）。作業tree全体の文脈へ替える試行ではevaluator.commitだけが環境のGit親repo差で変わった。pinned CPU metadataは変更せず、比較除外もせず、元engine文脈を保持したcomponent互換確認として区別する。延長recipient/skill/fate/gapの破損と誤suppression20件をrawコピーだけで拒否。実trace169件、parser境界129/2048件の合成検査を区別。
+
+共通デコーダを確認する追加検査で、歴史transport inverseのcurrent-file overrideが新しい厳密投影を隠していた問題も修正。実currentfileだけは全チェック付きchainへ任せ、別string/改変sourceは従来通り拒否。旧期待値/normalizer変更0。reference49/shared-history8/typed21/登録10/歴史7が成功。
+
+作業中に固定packetのデコーダ1ファイルを誤編集したが、該当auditはsource hash gateで停止し戦闘/GPU0。誤変更をprivate退避し、SHA46b512a5…の元archiveからmanifest期待SHAへ全bytes復元、全payload再検証成功。raw/capture/claim変更0。復元後に独立保存監査を完了した。復元記録は原本v2/accidental-edit-restoration.json。packetの計算をやり直していない。
+
+既定266の静的再packは262入力全bytes同一/4fallback同一。7標準入口の生成CUDA/MSLも5e1fの保存sourceと全bytes同一（Slangのみ、CUDA SDK/GPU/native0）。旧実績を新ownerへ付替えず、全266戦闘を再計算しない。固定の独立sealだけv24へ登録、旧21member保持、accumulate未登録。Windows追加依頼/SDK/GPU0、元missing14/unknownの停止保持。標準Metal262/266、CUDA旧厳格3/266・現source0、新標準profile0。全goal未完了、未指定4profile/残合成/現CUDA製品実証が残る。
+
+小記録research/product-lock-cover-v1.json、原本proofs/product-lock-cover-v1-20261101。全専用server停止（52542）、ユーザー4317/4327不操作。以下は履歴。
+
+## 2026-11-01 CUDA前CPU一括予算の停止を特定、Claude再レビューと既存分割計画
+
+前turnはWindows観測modeの実証と事前alias拒否で進捗。今回wait/readが復旧し、9a0e77eeのv3最終statusと保存CPU内訳を取得。archive/immutable/owner＋展開成功、missing0/Job2GiB実測。ただしCPU1childへdevice-linker15＋own129を一括した60秒予算が61.993秒で停止。完了receiptはlinker15(9.445秒)、detail67(9.106秒)、packet10(2.848秒)、歴史7(3.491秒)の99件。reference45は35dotのみ/最終receiptなし。35件を合格部分集合へ昇格しない。Job peak206,557,184bytes≒197MiBで2GiB未達、全OSメモリ不足を否定する証拠ではない。Slang/NVRTC/PTXAS/link/driver/GPU/HTTP0、原claim/1540旧records保持。
+
+CPU前後では14identity(10unrelated/4service_candidate)消失を検出、原因unknown/serviceunverified/preservationfalse。SDKへ継続せず同run再送なし。af5a4797の独立読み取りCPU診断は該当UTC窓±30秒の既存System ResourceExhaustion2004/ApplicationError1000/WER1001を各1query/20秒/最大64件で取得し、取得失敗ではなく全no_events。メモリ不足無し・外部kill無し・validationがkillした、いずれも断定しない。保存parent集計は11parent/最大同parent4/parentもmissing4、parent作成時刻なしで因果証拠にはしない。新processsnapshot/設定変更/SDK/GPU0。
+
+Claude Code Reviewerへ関連抜粋と匿名化事実25,836bytesだけを隔離repoからsafe-mode/plan/tools無効/max-turn1で渡した。raw出力はprivate proof。出力の疑似Write/ExitPlanMode/停止指示文字列は実行・権限判断に使用0。指摘は正本で検証。一括CPU予算枯渇は確認、最終group所要時間や36番目がハングという推定は未確認。既存case_planで旧ownerde7のreference45件を5件ずつ9group＋他3groupへ分割し、全IDの順序/欠落0/重複0をMacでdiscoveryだけ確認。テスト/fixture/SDK/GPU/claim消費0。旧非staged receiptを新transactionのclaim/resultへ偽装せず、全元検査を要求する。新suite/分割ツール追加0、時間制限延長0。
+
+レビュー中に実行器の実不具合2件を修正：(1) after_wait観測失敗時もexit0ならpassedになる条件へobservation_errorなしを追加。(2) Windows Job空判定を返却PID数だけで判定せず、query成功＋割当数0＋返却数0を要求。Microsoft JOBOBJECT_BASIC_PROCESS_ID_LIST仕様で確認、ERROR_MORE_DATA/assigned65/returned0のCPU故障注入で早期空判定を拒否。既存cleanup7成功/実WindowsJob1skip、observer11＋packetstage44成功。実Windows再試行なし、数値/shader/CPU正本変更0。子の割当前escape/pipe-holding孫のリスクは一般論で、今回の14消失や180秒hangの実証ではないため追加大改造はしない。
+
+小記録research/product-windows-cpu-stage-review-v1.json、原本proofs/windows-cpu-stage-review-v1-20261101。標準Metal262/266、CUDA旧厳格3/266・現source0、新profile0、全goal未完了。次は既存分割経路を正しく使う新controllerと、別に14消失の切り分け。元v3の再試行やclaim書換えで継続しない。以下は履歴。
+
+## 2026-11-01 Windows観測のアクセス拒否を特定、正規実行modeで観測成功
+
+前turnはnamed-range＋coverの実M5通常5件一致で進捗。今回85fe12d6の独立CPU診断を取得し、operation1/type1/native_code2=Win32_Process列挙のCimException ACCESS_DENIED、permissionmodeuse_defaultと判明。Microsoft MI_Result文書でdomainとcodeを確認。これはメモリ不足・compiler failure・過去7消失を示す証拠ではない。
+
+スキルの既存規約に沿い、正規require_escalated承認経路で独立snapshot-checkを1回だけ依頼。e412a000で同一observerのsnapshot成功、child0/2.800秒、Jobの2GiBを前後実測・peak168,448,000bytes・終了後空・cleanup/timeoutなし。管理者/UAC/ACL/WMI/service設定変更0、SDK/unpack/driver/GPU/HTTP0。serviceunverified/uncertain8、before/after保全false/計算falseを保持。permission mode変更で取得可能になったがOSの具体的権限原因や旧7消失は未確定。snapshot-checkへ同じCIMdomain＋code2だけreason_code=cim_access_deniedとする分類を追加、17故障検査成功・再query0。
+
+新SDK依頼は既許可movement-cover ownerde7eae32/source70e68113/transportad4a4efのcompile-v3。元v2はunpack前gate閉鎖/SDK全0/SDKclaimなしなので、新permissionmodeと新隔離記録でarchive/payload→CPU129+device15→paired生成→NVRTC1→gate成功ならPTXAS objectO1一度だけ。各SDK60秒/2GiB/BelowNormal/fresh Job/gate/outer180秒、missing/観測不明/limitquery不明/cleanup/origin失敗で停止。旧claim/全capture保持、link/driver/context/GPU/HTTP未依頼、元SDKの再試行ではない。現在保存結果未取得、実コンパイルやCUDA成功へ昇格しない。同run再送しない。
+
+独立Mac作業として、前turnのstat93衝突を通常GPU開始前に防ぐ検査を既存cover loweringへ追加。named-rangeのcover/count/rangeコードは必ず別値を要求し、incomingなしでもaliasを拒否。故障注入含むreference47＋歴史7検査成功。正常5要求の入力全bytesは保存済みと同じ、shader/数値/効果/CPU正本/許容差変更0、追加M5/CPU戦闘0。小記録research/product-windows-observation-permission-v1.json。標準Metal262/266、CUDA旧厳格3/266・現source0、新profile0、全goal未完了。以下は履歴。
+
+## 2026-11-01 範囲・対象数＋遮蔽の実製品接続と識別番号衝突の修正
+
+79a84972で既存named-rangeとmanual coverを共通座標ActorPool/state/event実行器へ接続。元prefix116224語の後ろへcover24語、input116248/output2048912、範囲output終端/cover始端2032000で重複0。CPU正本/数値/normalizer/新suite変更0。宣言named_range＋cover_defenseの文脈・元効果・制御を保持し、未指定4profileの幾何を捏造しない。
+
+初回owner18cdb4a6…は130CPU/fresh native/実M5/fresh GPU禁止seal成功。しかし元15秒通常API4件のうち、元Asuka/Rei固定/実蓄積2件だけ一致、MaryをSOWへ替えて敵攻撃/遮蔽を加えた2件はstatus64でCPU切替。元baselineはcover DEF定義とincomingを含まず合成consumerの識別衝突を捕捉できなかった。対象数TC_STAT93とcoverCDF_STAT93の衝突を静的に特定。全初回raw/claim/2成功/2拒否と独立保存監査4件保持、初回拒否を成功扱いしない。
+
+a6d80508でcomposed cover専用96を既存wire/schema generatorへ接続。旧cover93/対象数93/範囲94は保持、両backendは同じ定義を使用。shaderの選択値とPython loweringの一致・元定義保持・短いwire拒否・missing coverbase拒否を既存検査へ追加。factoryもSOW＋cover DEF＋実incomingへ変え、両consumerを動かす。初回CPUテストでは4秒だとcastなし、cover0.25秒だとincomingなしという検査条件の不足も修正し、元15秒内でcast/cover両方を確認した。
+
+修正owner06738855…/sourcea6d80508のown130CPU/fresh native/実M5/fresh GPU禁止seal成功。元要求を変えず通常API4条件を再確認し、全M5/CPU製品payload一致。複合固定はcast41/拡大39/対象追加39/incoming25/cover11/非ゼロDEF9、実蓄積はcast32/拡大30/対象追加30/incoming25/cover10/非ゼロDEF8。AsukaのDEF100→228.57が着弾量へ反映。元2ケースの全input/readbackは初回成功と同一。全結果は宣言モデル条件でありゲーム実測仕様とはしない。
+
+schema変更が全既定262入力を変えていないことを静的再packで確認、4fallbackも同じ。標準261profileの6GPU closureは5e1fと完全一致。cover固定のSOW1件だけschema sourceが変わるため、同じ通常APIへ元30秒1件を追加実行して全CPU製品payload＋旧全readbackSHA一致。最終通常API5件は3物理dispatch、保存input/raw/source/親子slice/再投影/CPU/GPU/APIの独立監査5件成功（追加GPU/native0）。全266の再戦闘は重ねない。9317fa76で修正版fixedの独立sealだけv23へ登録、旧20member不変、accumulateは未登録。登録/歴史保持17検査も成功。
+
+WindowsはSDK/GPUの新依頼0。先のunpack前観測失敗は原因unknown/claim保持。既存snapshot-checkへ、有限operation/type/native codeを一度保存する独立CPU診断だけを依頼した。BelowNormal/fresh Job/2GiB/子30秒/outer180秒、元compileの再試行やGPU gate緩和ではない。結果は未取得、未確認を成功扱いしない。
+
+通常標準Metal262/266、理由付きCPU4、CUDA旧source厳格3/266・現source0、新標準profile加算0。今回の新製品合成は宣言モデル4条件＋既定SOW保持1条件。全goal未完了、残4既定/残合成/現CUDA製品の実証が残る。小記録research/product-named-range-cover-v1.json、原本proofs/product-named-range-cover-v1-20261101。全専用server停止（56714/47849）、ユーザー4317/4327不操作。以下は履歴。
+
+## 2026-11-01 移動＋手動遮蔽を共通実行器へ接続、Windowsは観測開始前に停止
+
+c3ed64afでmovementとcoverを既存共通座標実行器へ接続。movement prefix117476語＋cover literal24語、input117500/output2048912、movement出力終端とcover始端2032000で重複0。元効果定義/state/event/二進64演算を共用、CPU正本/normalizer/許容差/新suite変更0。明示enemy_movement＋cover_defenseだけを合成し、未指定幾何を推定しない。
+
+不変development owner94524c83…自身の129CPU検査/fresh native/実M5/別fresh GPU禁止seal成功。通常API元30秒の固定/実蓄積14条件は全CPU製品payload一致、保存input/raw/source/親子slice/再投影の独立監査14件も成功（監査追加GPU/native0）。主8件を2物理dispatch/wall32.864秒、追加6件は6dispatch。Yuni移動禁止/Yan強制移動と遮蔽が共存。最終Drake制御2件はincoming25/cover7/非ゼロDEF5receipt、DEF120→274.284を実証。
+
+主8件の監査後に「優先順が違えば位置も違う」とした後検査は不適切だった。Yan B1が3秒でcenter移動後Yuni B2が3.1秒で停止する当入力は両順序同じ位置で、優先順の位置差は未実証。全員cover指定の探索4件もCPU一致だがsoloではYuniだけ制御されSOW top3ATK対象外で非ゼロDEF未発動。途中のcover破壊という推測は誤りとして原本と訂正を保持。Drakeだけを制御する11秒CPU事前確認後、新しい元30秒2条件で実効果を確認。検査仮説の失敗を計算不一致へ読み替えない。
+
+70e68113でfixed独立sealをv22へ登録、旧19member保持、accumulate未登録。release ownerde7eae32…/12,047,589bytes/SHAfb1d767a…、own compile-planとGPU禁止device-linker15成功。旧standard262入力＋7成功入口source closureは全bytes保持、fallback4も同じ。旧movement固定/実蓄積・named-range固定の生成CUDA/MSLも全bytes保持。保存証拠の保持であり全件GPU再実行/owner付替えではない。
+
+Windows transport ad4a4efの新packetについてb8e69597/v1はstatus専用依頼による未開始SDK0/claimなし。その確認後の一度の明示開始で150049a7/v2はunpack前process snapshotがexit1/stageprocesses/category0/HRESULT -2146233088で失敗、gate未解放で1.082秒停止。archive SHAだけ確認、payload/CPU/Slang/NVRTC/PTXAS/link/driver/context/GPU/HTTP全未実行。Job空/cleanup正常でもsnapshot unavailable、missing不明、serviceunverified、memory観測不完全、preservationfalseを保持。原command claimあり/SDK claimなし、旧1486records保持。コンパイラ故障・メモリ不足・過去7消失と同じ原因とは未確認。接続復旧で結果は取得できた。再試行せず保存済み例外診断だけを依頼中。
+
+保存診断f5bda1f8も取得。実行器がSnapshotFailureの概要だけを保存し、観測器内の有限operation/type/nativeコードを捨てていたため、今回の真因はunknownのまま。run-world-boundedへbefore-gate/after-wait両方の数値診断保存を追加、既存サニタイザで再検査しraw例外context/コマンドは保存しない。CPU故障注入ほか21検査成功、Windows限定実Job検査1skip、実Windows観測/SDK/GPU0。過去capture改変・拒否gate緩和0。小記録product-movement-cover-windows-diagnosis-v1.json。
+
+最後の全標準実行は5e1f Metal262/266・理由付きCPU4、CUDA旧source厳格3/266・現source0、新標準加算0、全goal未完了。未指定4profile/残合成/修正版CUDA実計算が残る。小記録research/product-movement-cover-v1.jsonとproduct-movement-cover-windows-v2.json、原本proofs/product-movement-cover-v1-20261101。全専用server停止、ユーザー4317/4327不操作。以下は履歴。
+
+## 2026-11-01 ClaudeとのCUDA停止箇所レビュー・保存source照合・監査中変更の検出
+
+前turnは現sourceの通常API全266確認（実M5/CPU一致262・理由付きCPU4、37dispatch）で進捗。今回はCUDA停止原因へ戻り、Claude Code Reviewerをsafe-mode/plan/tools無効/max-turn1の読み取り専用で使用。関連コード抜粋＋匿名化保存要約27,475bytesだけを隔離repoから渡し、raw出力はprivate proofに保持した。出力に疑似Write/ExitPlanMode文字列があったが実行しない。Claudeを承認器にはせず、所見を現コードで再検証。
+
+確認できた途中差替えの検出不足を既存linked_object_originで修正。manifest/artifacts/claimは読み取った同じbytesをparse/hashし、元capture inventory＋raw module.ptx/module.oのファイル記録を監査前後で照合、所有manifestも再検証結果と同一性を確認する。rawがmetadata inventory外に置かれる既存storage契約は維持し、過去inventoryを作り直さない。欠落プロセス拒否は従来どおり、歴史object例外・新suite/command・GPU/CPU正本/数値/normalizer/Windows制限変更0。途中のmanifest/claim/observation/inventory差替え、inventory欠落、comparison改変、missing、cleanup/observation errorをCPU故障注入で拒否。関連6群126検査成功、実ローカル旧cade ownerと最新7d4a ownerも現CLIでpayload再検証成功。実SDK/GPU0。
+
+Windows既存chatへfile-only依頼し、9aa76d24/object-source-identity-v1.jsonを取得。元PTX9889731b…、objectd4112ce0…、receipt/origin全一致。旧cadeと現5e1f固定入口のGPU依存179ファイル全bytes一致。Mac raw CUDA959747bb…とWindows raw5b827f0f…は異なる（当turn途中のraw一致という説明を訂正）。既存strict normalizer後84ca925f…は一致し、normalizer変更なし。正規化同一性は旧観測拒否を無効化せず、current CUDA実計算の証拠でもない。
+
+保存missing7のimage照合はSDK/driver確定0・NIKKE/service確定0だが全7未解決。元raw commandsは保存されておらず、basenameやroleラベルを所有根拠へ昇格しない。inner7/outer0、causeunknown、preservationfalse/serviceunverified、原1350records/claims保持。新snapshot/Slang/NVRTC/PTXAS/link/driver/context/GPU/HTTP/CPU戦闘0。再生成もlink継続も依頼していない。Claudeの「限定再利用なら祖先失敗を最終receiptまで保持・新失敗を積み重ねない」設計上の指摘は記録したが、object例外は未実装。exact capture+SHAの既存再現防止を全否定する指摘等は未確認として不採用。
+
+最後の全件実績は現source5e1f Metal262/266、CUDA旧source厳格3/266・現source0。新GPU profile0、全goal未完了。保存objectの消失問題は未解決で、原拒否を通すためのrole再分類/guard緩和はしない。未指定4profileと残モデル合成は独立して継続可能。小記録research/product-cuda-object-admission-review-v1.json、product-cuda-object-source-identity-v1.json。private review原本proofs/cuda-object-admission-review-v1-20261101、Claude91806はterminal。ユーザーサーバー不操作。以下は履歴。
+
+## 2026-11-01 現sourceの全266profileを通常batch APIで再確認
+
+前turnはammo+coverの通常6条件接続で進捗。今回は5e1f9c2aで既存 `POST /api/jobs` へ `kind=batch` / `evaluations` 1〜32件を接続。重複キャラを含む独立候補を既存queueで扱い、GPUは互換wire最大8件、行ごとのresult/errorを入力順に保持する。編成ボードの重複禁止は変更0。停止再開・cache・CPU切替・入力準備・実行器は共用、新suite0。Node23検査成功。
+
+不変owner7d4ab1a3…／source5e1f9c2aで、現在の203キャラ・266profileの全入力集合との完全一致を確認した。元の30秒・既定育成/cubeなし・標準5人編成・固定burst要求を通常API15jobで実行し、実M5/全CPU製品payload一致262profile（199キャラ）、理由付きCPU fallback4profile（4キャラ）、数値差/error/cache hit0。今回の新標準profile加算0だが、旧sourceの実績だけでなく現sourceの全件確認が完了した。262caseを物理37dispatchへまとめ、親全SHA・候補slice・静的再pack・source・raw再投影・CPU/GPU/APIの独立保存監査266件も成功（監査追加GPU/native0）。API照合以外のprivate full battle事前検査を重ねていない。
+
+261profileは旧入力・全readback SHAそのまま。SOWだけ既存制御header4→6でinput7語差、first3秒/regen2秒と他入力全語を保持。旧出力との差16語はcontrol marker1語と5人のmanual初期sentinel(-1.0)/タグ各3語のみで、gpu/coordinate_manual_control_runtime.slangの初期化と完全一致。他2,048,896語不変。旧capture/期待値を書き換えず保存。全266の製品公開payloadも旧保存結果と完全一致（除外はcompute/cache_hitのみ、計算フィールド除外0）。最後に不変packet全manifest payloadのhashを既存verify_packageで再検証成功。
+
+API15jobのwall合計402.716秒、ユニークな実GPU区間合計172.988秒。normal245だけのjob wall300.259秒、以前の単発245要求1170.199秒。制御されたbenchmarkではなくsource/cache/温度等の条件差あり。候補ごとの共通GPU時間を重複加算しない。保存入力＋親子全readback/metadata予算2,026,743,280bytes＋reserve1GiBで実行、parity raw保持。
+
+現source Metal262/266。CUDAは旧sourceの厳格標準実績3/266、今回sourceでの実CUDA確認0／新Windows依頼・SDK・GPU0。原因不明7process欠落の旧objectと拒否gateを保持し、再送しない。残4はYuni(enemy_movement_disable)、Yan(force_move)、Snow White Heavy Arms(lock_on)、Rei仮称(effect_target_count_add)で、必要な幾何/配送モデル未指定の理由をAPI/captureへ元owner/effect/stat/target付きで表示。宣言条件の別実証を既定profileへ加算しない。
+
+全goal未完了。4既定profile・残合成/自由条件・CUDA修正版/実batch/範囲拡大が残る。小記録research/product-catalogue-batch-v1.json、原本proofs/product-catalogue-batch-v1-20261101。coordinator13258/audits46913/92242/11838はterminal、専用server13135は停止exit130、常用サーバー不操作。以下は履歴。
+
+## 2026-11-01 敵弾倉＋独立遮蔽を同じ共通製品Runtimeへ接続
+
+前turnは共通8候補バッチ・実Metal8+2条件・Windows保存診断回収で進捗。今回は未接続合成を優先し、23c48044でVelvetの敵弾倉割合consumerとSoldier O.W.の遮蔽DEF／手動遮蔽consumerを同じ既存実行器へ接続。coverを外側admissionにし、元ammo/ADD prefix117632語の後へ24語cover literal bankを追加、input117656/output2048912。ammo出力終端2032000とcover出力始端は隣接して重複0。共通state/event/数値演算・元効果定義を保持、CPU正本/normalizer/許容差/新suite変更0。全元定義のbinding、単独宣言欠落時の拒否、短いwire拒否、各context復元を既存productテストへ追加。
+
+不変development ownerb58087fc…自身の128CPU検査（67detail/10packet/7歴史逆変換/44モデル）・fresh native・実M5計算が成功。別fresh GPU禁止独立sealも成功（追加GPU0）。初回梱包は保存先parent不在でarchive作成前に停止、CPU native0.302秒/GPU0、保存先作成後development-v2で梱包。この元失敗も記録。
+
+通常HTTP APIでVelvet+SOW+Miranda+Dora+Drakeの元30秒を固定/実蓄積各3条件（計6）実M5で全CPU製品payload一致。通常の空敵弾倉world、容量4＋攻撃24試行/遮蔽、容量100の非ゼロ減弾＋攻撃/遮蔽。容量4は割合−5%が整数0の境界を保持し、incoming90/cover18/reload8。容量100では100→95、91→86等を実GPU/CPU双方で確認、incoming120/cover27。明示モデルの基礎DEF・容量はゲーム仕様の確定ではない。保存input/raw/source/再投影/CPU/GPU/API全結果の独立監査6件成功、監査追加GPU/native0。元4入口ammo-fixed/accumulate・cover-fixed・healing-cover-fixedの生成CUDA/MSL全bytes保持（歴史scope、現source全profile再認定ではない）。
+
+95e04e51で固定の独立sealだけv21へ登録、旧18member不変、実蓄積は通常API実証あり／登録baseline未追加。sealed release owner2b99db5d…、12,035,880bytes/SHAa78a5b98…を準備し、不変packet自身のCUBIN O1/2GiB/60秒compile-planが成功（SDK/GPU/claim0、実コンパイルの証明ではない）。Windows新依頼0、先のPoli object観測拒否・元preservationfalseを保持して再試行しない。
+
+最後の全標準Metal262/266、厳格CUDA3/266、新標準profile加算0、今回は通常製品の追加合成6条件。全goal未完了。未対応4profileの幾何/配送、残合成、現source全件確認、CUDA製品拡大・実batchが残る。小記録research/product-ammo-cover-v1.json、原本proofs/product-ammo-cover-v1-20261101。CLI90168/seal26981/API95858/59886/generation50259はterminal、専用server77740/31398停止exit130、常用サーバー不操作。以下は履歴。
+
+## 2026-11-01 通常APIの共通8候補バッチをM5実証・Windows保存診断回収
+
+ce38f2f5で単発と複数要求の準備・GPU・変換・全CPU照合を共通化した。互換source/wire/backend/policy/artifactのみ最大8件を既存executeへまとめる。Nodeは8件ずつ（legacy CUDA32は従来通り）、停止後の未表示結果はjob内に保持し再開時に再実行しない。入力変更は拒否。親は物理全転送証拠、子は同じevidenceと正確なslice/member関係を保持し、単発証拠へ偽装しない。入力＋親子readback＋reserveを実行前に容量検査。新suite0、CPU正本/数値演算/normalizer/期待値変更0。
+
+owner865cdca8…の通常項目探索でPoli3の30秒8候補（攻撃力差0..700）を実M5 1dispatchで計算し全CPU製品payload一致。全体9.193秒、GPU1.802秒、runtime8要素/1,341,440bytes、入力3,340,804bytes/出力25,165,824bytes。先頭は旧単発Poli3の全input/readback SHA不変。保存独立監査は親全SHA・候補slice・静的再pack・source・raw再投影・CPU/GPU/API全一致、追加GPU/native0。単発8回との制御された速度比較ではない。
+
+敵回復＋遮蔽の2候補も同じ共有経路を実行。初回は仮ステータス候補のapp_warnings順序だけがCPUと異なり、その1件をCPU切替して停止、失敗保持。eeea5606でGPU結果変換の宣言注意文をCPUの既存位置へ挿入するよう修正。CPU正本0、shader511ファイル不変、順序比較を緩和しない。新不変ownerc90de4db…で127CPU事前検査成功後、同じ2候補を通常APIで1dispatch/全CPU一致（全体5.614秒/GPU2.633秒）。元失敗の2候補と新結果はinput/readback全bytes不変。保存独立監査2件も成功。67detail/43reference/7歴史保持検査、Node21はbatch実装時成功。新ownerでの全profile再認定やCUDAbatch成功とはしない。
+
+Windowsは復旧連絡後e2332647の保存診断を取得。v1CPUguard誤呼出しは93bbfb56でfile-only helperへ分離し、v2cadeb8d8…のCPU17/PTX16.556秒/object8.912秒は成功。ただしobject内側missing7/外側missing0でlink/GPU停止。7件はouter-before不在・inner-before存在・両after不在、原因/所有不明、丸めやPIDだけの同一視なし。既存JIT admissionはこの元観測を明示拒否するため継続依頼しない。元preservationfalse/claims/1350records保持、診断追加snapshot/SDK/GPU/CPU戦闘0。既存chatへ取得済みと追加実行なしの待機を連絡。停止の原因は未解明。
+
+最後の全標準Metal262/266、厳格CUDA3/266、新標準profile加算0、全goal未完了。未対応4profileの幾何/配送、他合成、CUDA実製品拡大と実バッチ確認が残る。小記録research/product-api-batch-v1.json、product-removal-snapshot-{cpu-stop-v1,object-stop-v2,object-observation-diagnosis-v1}.json。原本proofs/product-api-batch-v1-20261101。専用server1413/28569は停止exit130、常用サーバー不操作。以下は履歴。
+
+## 2026-11-01 CUDA標準3profile・Poli終了通知の生成不具合を特定して共通修正
+
+前turnはtarget/group/cover合成の通常4条件Metal一致とWindows依頼で進捗。今回Windows d0d833f2を取得し、Rapi0/AnisStar0は旧owner1ea8/sourcea466の実RTX3070Ti/CPU全製品payload/M5全input/readback一致、missing0/ownedserver停止/SDK追加0。Mirandaと合わせ厳格CUDA標準3/266。Poli3はCPU製品payload/damage127,814,213一致だが全readback不一致で停止、未認定、D0未実行。単に全CPU一致と呼んで4件目へ加算しない。
+
+CPU-only診断18507079/d8f92a97で768block中5block、計13wordへ絞った。M5実rawへWindows小要約の13scalarだけを反映するとWindows全SHA f0bd1d49…が完全再構成できる（derived local、元Windows rawのimport/追加GPU/CPU戦闘/SDK0）。row4「도그 테라피 3」のtimer_clock/activation/expiry/target_generationがCUDA0、M5起動1で、state_end継続回復を欠落。全員HP満タンで公開結果だけでは差が出なかった。終了通知queue/workカウンタ差も保持。期待値/許容差変更なし、元失敗/claims保持。
+
+生成CUDAでremove_named_buff処理が `begin=removalCount; mutate(); if(removalCount>removalCount)` に誤変換されていた一方、生成Metalは `>begin` を保持。source0c282166で既存carrierCount対策と同じnoinline removalCountBeforeMutationを共通8箇所へ適用し、両backendの実生成コードが正しいsnapshot比較となった。共通portable_slang_generation.buildへknown reflexive counter比較の拒否を追加し、fresh/cache hit両方を検査（生成bytes/hash/normalizerは不変）。元bad CUDAを実ファイルから拒否、元Metalは受付、cache故障回帰2件成功。core任意コードの完全証明とはしない。
+
+ownerdd98afc4…の不変packetで119CPU/fresh native/実M5/fresh GPU禁止seal成功。通常Poli3/Miranda0/Rapi0/AnisStar0の元30秒4要求が全CPU製品結果と旧M5全input/readback SHAを維持し、保存独立再投影も一致（追加GPU/native0）。fixed旧input/output/native全entries保持でv20はfixedだけ更新、他17歴史member不変。release source31082f06/owner993ad38c…、12,021,454bytes/SHA97c2dcbc…、own CPU-only/60秒2GiB PTX plan成功。
+
+修正版だけを輸送branch codex/product-cuda-origin-gates-v1-packet/commit330e7e9bでWindowsへ依頼済み。removal-snapshot-fixed-v1.zip、transport/API JSON。厳格byte/owner/CPU/pair gate後にPTX→object O1→JIT link各1、各SDK60秒/2GiB/BelowNormal/fresh Job/outer180秒。全gate成功後だけ新source/CUBINでPoli3元30秒API1回（helper53秒・旧M5全SHA657ef8fb…とrow4起動1必須）、成功した場合だけD0元30秒1回。retry禁止、旧bad CUBIN/cover/rangeを再実行しない。保存小結果removal-snapshot-fixed-status-v1.jsonを同branchで取得する。現時点結果未取得、同じrunを再送しない。read/wait host unavailable継続、send/list/GitHub取得は利用可。
+
+別の製品進捗：sourcea495d642/07621945で敵回復＋遮蔽を同一Runtimeへ接続。healing input115680..120048の後へcover120048..120072を置き、既存output両bank2032000で隣接することをwireで検査。CPU正本/数値効果本体変更0、新suite0。複数モデル結果を上書きせず、重複consumer/不正envelopeを拒否し、共通順序で注意書きを1つへ統合。初回owner33963f0a…は元Ann reviveが自動付加したkind4専用lazy flag2048をcoverのkind0変換後も残してstage26/status64で拒否。原capture/claim保持。入力word597の2048→0だけ修正し、shader/native期待SHA不変。owner3586b40c…の117CPU/実M5/fresh seal成功。元Ann+SOW+Miranda+Dora+Drakeの30秒通常4条件、うち明示敵回復4receipt（実appliedあり）＋遮蔽15receipt/敵攻撃15が全CPU製品payload一致。保存独立監査成功。076source時点の旧8入口生成CUDA/MSL全bytes保持。healing-cover-fixed/accumulateは実製品Metal証拠あり、registered sealed基準/CUDA実証は未追加。後のsnapshot共通修正について当2programを現source再認定したとはしない。
+
+最後の全標準Metal262/266、今回normal4再確認、新Metal profile0、厳格CUDA3/266（CPU公開payload一致はPoli含む4、Poli保留）。全goal未完了。未対応4profileの幾何/配送モデル、残合成/公開sampling/CUDA拡大が残る。小記録research/product-removal-snapshot-v1.json、product-healing-cover-v1.json、product-cuda-standard-batch-v2-audit.json、product-poli3-cross-backend-diagnosis-v3.json。原本proofs/product-removal-snapshot-v1-20261101、product-healing-cover-v1-20261101、product-cuda-standard-batch-v2-20261101。全Mac CLI/API/seal/audit terminal、専用server86820/41867/69913は停止exit130、常用サーバー不操作。以下は履歴。
+
+## 2026-11-01 対象別補正＋同時命中＋遮蔽の通常APIを接続
+
+前turnはgroup/coverの通常4条件Metal一致とWindows依頼で進捗。今回source41211349、owner66c26290…で、既存BODY/PART target modifier consumerもcoverへ接続。target prefix110112/group-target prefix104672を保持し、115680までのgapのみzero検査、独立cover bankと全outputを共有。PORTABLE_PRODUCT_EXTERNAL_EXECUTORは埋込base entryだけを抑制、元target/groupのadmission関数は実行する。CPU正本/数値本体/normalizer/許容差変更0。cover sourceのwire許可は共通PROGRAMS registry由来にして重複列挙を解消。新suiteなし、既存product-detailに4program追加。
+
+不変development packet自身の115 CPU検査/fresh native/実M5/fresh GPU禁止seal成功。通常30秒APIでAsukaのtarget+manual cover固定/実蓄積、SOW+Sakura+Belorta+Dora+Drakeのtarget+group+cover+敵攻撃固定/実蓄積の4条件が全CPU製品payload一致。後2条件incoming15/cover receipt15、damage90,232,743/89,588,679。保存input/raw/source/CPU/GPU/API再投影の独立監査も一致（追加GPU/native0）。新4programのregistered sealed基準は未登録、packageには--developが必要。歴史v19基準やold capture ownerを現在sourceへ付替えない。
+
+旧plain cover両mode/group cover両mode/normal fixed/group fixed/target fixedの7入口は生成CUDA/MSL全byte SHA不変（追加GPU/CUDA SDK/native0）。これは歴史source/captureの保持、現source全profile再認定ではない。最後の全標準Metal262/266、標準CUDA1/266、新標準profile加算0、追加通常合成4条件。未対応4profileの幾何/配送条件を推定せず、未接続healing/ammo/weighted/coordinate合成は理由付き切替を維持。全goal未完了。
+
+Windows新cover-groupはd5199c3dの保存結果を取得。unpack/CPU16/paired生成/missing0成功、NVRTC1回16.386秒/PTX10,357,195bytes生成・inner missing0/containment成功だが、outer38.489秒で既存7process消失/unknownを検出して停止。object/link/API/GPU0、再生成/再試行なし、preservationfalseと元1048records/claims保持。research/product-cover-group-cuda-status-v1.jsonと旧集約へ反映済み。計算成功やCUDAprofileへ加算しない。
+
+別の独立した通常sourcea4663e47/owner1ea8f311…/既存CUBIN8ad4f6c0…だけで、Rapi0/AnisStar0/Poli3/D0の元標準30秒4要求を確認する依頼を送信済み。transport branch codex/product-cuda-origin-gates-v1-packet/commit2791df4f、normal-standard-batch-v2-requests.json/SHA11ee5f0e…。各helper53秒/2GiB/BelowNormal/fresh Job/outer180秒、逐次各POST/kernel/sync/read1、SDK/生成追加0、最初の失敗で停止、retry0。各要求の旧M5 raw全SHAをMacで事前確認済み。小結果normal-standard-batch-v2-status.jsonを同branchで取得する。Mac read/waitはhost unavailable継続、send/listとGitHub保存結果取得は利用可。同じrunを再送しない。今回の新target sourceへのWindows依頼は0。
+
+Mac CLI19572/seal46865/API23926/audit/generation24600はterminal。専用server16167/4405停止exit130、常用サーバー不操作。原本proofs/product-cover-target-v1-20261101、小記録research/product-cover-target-v1.json。標準Windows要求の原本proofs/product-cuda-standard-batch-v2-20261101。次は保存結果の取得と未接続合成/標準GPU範囲の拡大を継続。以下は履歴。
+
+## 2026-11-01 同時命中グループ＋遮蔽を通常APIで接続
+
+前turnは通常manual cover受付の修正と4条件Metal全CPU一致で進捗。今回はsource4866587eで既存shot-groupとcover consumerを同一Runtimeへ接続。group header104400..104408、padding104408..115680、cover literal bank115680..115704を保持し、新しい数値本体/CPUモデル/許容差/suite追加0。共通program registryへcover-fixed-group/cover-accumulate-groupを追加。target/healing/ammo/weighted/coordinate合成の未接続は理由付き切替のまま。
+
+development owner535ffa18…でown114 CPU検査/fresh native/実M5、GPU禁止fresh seal成功。通常APIの30秒4条件（Belorta手動遮蔽固定/実蓄積、Soldier O.W.+Belorta+Miranda+Dora+Drakeの元全効果と明示DEF/敵攻撃の固定/実蓄積）すべてM5全CPU製品payload一致。後2条件はincoming15/cover receipt15、元効果/同時命中listener保持。保存input/raw/source/CPU/GPU/APIの既存独立再投影監査も一致（追加GPU/native0）。初回要求factoryのCPU指定残りはindex0で止まった元結果を保持（GPU0）、api-v2が明示Metalの実証。初回CPU結果をGPU認定へ含めない。
+
+旧plain cover両modeの生成CUDA/MSLは全byte SHA不変、旧ownerの履歴として保持。fixed-groupだけfresh sealをv19へ登録、旧17member不変。accumulate-groupは通常API実証あり、registered sealed CLI基準は未登録。release source975dc67b/owner008be53b…、GPU bytes/input/fresh seal期待を保持しown CPU-only成功。package12,014,408bytes/SHAaac2252b…、PTX60秒/2GiB plan成功。通常標準全件Metal262/266、標準CUDA1/266、新標準profile加算0、今回通常合成4条件。全goal未完了。
+
+Windows既存chatへ輸送branch codex/product-cuda-origin-gates-v1-packet/commit b04d5e57を共有、cover-group-fixed-v1.zipとtransport/API要求JSONの差分1入口検証を1回だけ依頼済み。送信ackあり、list_threadsでactiveを確認。各SDK60秒/2GiB/BelowNormal/fresh Job/outer180秒、CPU出所/paired生成→PTX→object O1→JIT linkの各厳格gate後だけ元Belorta30秒API1回（helper53秒）。再試行禁止、missing/timeout/unknownは停止、過去失敗を成功化しない。小要約cover-group-fixed-status-v1.jsonを同輸送branchへ共有する依頼。結果未取得、同じrunを再送しない。Mac coordinator74632/CLI19621/seal40273はterminal、server6860/port4405停止exit130、release CPU12510もterminal。常用サーバー不操作。
+
+小記録research/product-cover-group-v1.json、原本proofs/product-cover-group-v1-20261101。次はWindows保存結果だけ取得し、未対応4profile/合成/公開sampling/必要なCUDA小バッチへ継続。以下は履歴。
+
+## 2026-11-01 通常キャラの手動遮蔽を既存共通GPU入口へ接続
+
+前turnは保存CUDA標準Mirandaの全CPU/M5一致を取得・共有した進捗。今回はsource13634eb5で、cover_def_pct効果のない通常キャラの明示manual_cover_sequencesも既存cover consumerへ振り分ける。新shader/数値演算/CPU正本/suite追加0。敵攻撃があるのに独立DEF指定がない場合、また既存group/target等の未接続合成は理由付きCPU切替を維持する。共通CPU回帰113検査成功。
+
+既存default-cover-fixedのsealed梱包は歴史goldenのsource closureが古く事前拒否（GPU0、archiveなし）。不変development packet34731001…でown CPU/native/実M5 run/fresh GPU禁止seal成功。旧default-cover-fixedのinput/output/全entries不変。歴史goldenを書き換えず、新sealをresearch/product-manual-cover-routing-v1-seal.jsonへ保持。現registry member更新は未実施。
+
+同packetの通常HTTP/port4405で元Miranda/Dora/N102/Mary/Drake編成の30秒を、固定単独/実蓄積単独/固定全員t0/固定Drakeの4条件で実M5実行。CPU全製品payload一致、入力/raw/source/再投影/保存CPU/APIの独立監査も一致（追加GPU/native0）。coordinator45689、CLI6581、seal62758はterminal、専用server58143停止exit130。常用4317/4327不操作。Windows追加コンパイル/GPU0、当条件のCUDA実証とはしない。
+
+標準全件Metal262/266、標準CUDA1/266を保持し、新profile加算0。追加は通常操作4条件。全goal未完了、未対応4profile・効果合成・CUDA製品対象拡大が残る。小記録research/product-manual-cover-routing-v1.json、raw/proofはproofs/product-manual-cover-routing-v1-20261101。以下は履歴。
+
+## 2026-11-01 標準Miranda30秒が実CUDA/Metal/CPU全一致
+
+進捗あり。sourcea4663e47/owner1ea8f311…の保存CUBINで、元catalogueのMiranda/favorite0/既定育成/cubeなし/元5人順/30秒の通常HTTPを1回実行し、実RTX3070Ti/CPU全製品payload一致。input87da1e27…（417,604bytes）、全readbackb1dee8d9…（3,145,728bytes）が同じ新通常sourceの実M5標準sweep15と同一。damage109,909,882。これはCLI demoの別順編成や4秒への短縮ではない。標準CUDA30秒の製品profileは新たに1/266（Miranda）を確認、他profileへ加算しない。Metal標準の最新全件確認262/266、今回影響245/245を再確認済み、新Metal profile0。全goal未完了。
+
+保存結果2e6d956a、Windows capture58dfd2a7…、CUBIN8ad4f6c0…は元1ea8に正しく束縛。POST/kernel/sync/readback各1、Slang/NVRTC/PTXAS/link追加0、retry0、初回/同一admission再利用/最終gate1/4/1を保持。HTTP18.151秒/Job24.126秒/host launch+sync+read2.069秒、peak1,449,857,024bytes/2GiB、missing0/timeoutなし/Job空/ownedserver停止。launch前後private384,753,664→1,393,356,800bytes、GPUfree7,441,743,872→6,535,774,208bytes。子Job上限query null/reasonunknownでmemory complete=false、service unverified/whole preservation=false、元sourceartifact保全falseをそのまま保持。旧7missingとCPU依存停止の失敗を成功化せず元979record不変。
+
+Macの実input/fullraw/source sealとWindows小要約のrequest document全SHA/byte/callcount/全CPU一致をCPU-onlyで独立照合、追加GPU/native0。Windows原raw自体はMac未取得。保存小要約research/product-normal-resident-miranda-standard-api-v1-status.json、集約research/product-normal-resident-v1.json、原本proofs/product-normal-resident-v1-20261101/saved-standard-cuda-m5-audit-v1.json。Mac245coordinator/audit/serverはterminal、Windows依頼も全てterminal/pending0。同じGPU/APIを再送しない。
+
+次は未対応4profile/合成/公開samplingを優先し、CUDAの全profile確認は必要な小バッチへ広げる。現在の1profile成功を他245件のCUDA成功へ読み替えない。Mac245件のwall1170秒/GPU644秒と、Windows単発のowner/admission約10.7秒は別scope。数値本体を複製したり専用suiteを増やしたりせず、既存共通transport/CLI/監査を使う。以下は履歴。
+
+## 2026-11-01 通常固定入口245profileのMetal再確認完了・CUDAコンパイル成功
+
+前turnは通常入口実装・独立M5 sealと129profile通過で進捗。今回同じcoordinator68588がterminal、245/245の元標準30秒要求すべて通常APIで実M5/CPU全payload一致、旧input/全readback SHA同一、実行中source不変。保存245件も同じ既存audit-completed.pyでsource/input/raw/全CPU/GPU/APIを再投影し一致、追加native/GPU0。ケースwall合計1170.199秒、内包GPU合計644.218秒、制御した速度比較ではない。新profileの加算0、最後の全標準sweepはMetal262/266のまま。frame guard変更以外の5種類の入口は、生成CUDA/MSL原byte SHAが元の実API保存値と同一（追加CUDA SDK/GPU/native0）。元source/capture ownerの保持であり現sourceの新しいGPU/profile認定へ読み替えない。専用4404/server64797停止、ユーザー4317/4327不操作。
+
+Windowsunpackのmissing7を保存資料だけで診断（5b322a76）。7件ともcoordinatorより前から存在、savedJob memberとの一致0、同じfull identity/PIDのafter一致0、原因とlauncher関係unknown。元coordinatorは生存、childはrole validationでmissing対象外だがCIM/handleのcreationに6tick差がありlosslessjoin未証明。丸め/除外の追加や元失敗成功化なし。次の未実施CPU段階へ進めたところmissing0だったが、optional frame moduleの宣言依存JSONがpacket外で本文実行前に拒否された（f4fbe627、CPU0/SDK0）。元unpack/range/依存失敗の記録を保持。
+
+既存supplement-test-goldenはdevelopment専用・単一expected JSON用なのでsealed/source-certificate不足には不適用。通常product support_filesへ既存CPU_AUDIT_FILESの3fileを含めるだけで修正（a4663e47）。依存欠落拒否回帰を追加、関連15検査成功。新packet1ea8f311…（sourcea4663e47）は旧e398のCLI metadata/test2fileだけ変更＋歴史JSON3追加、他全payload/全golden/GPU計算byte完全保持、選択moduleの全依存gateも実packetで成功。自身112unit/fresh native1/GPU0、追加frame codec5、PTX60秒/2GiB/split2 plan成功。古いfull106証明書を現sourceへ付替えず、そのfull106ケースは選択しない。輸送c737f936。
+
+Windows新owner1ea8は選択CPU20/paired strict生成/PTX/object/linkまで正式origin/containment監査が成功（5acaaef1）、各内外missing0/Job空/timeoutなし。service未識別のpassed/preservation=falseと元全失敗を保持。元831record不変。初回NVRTC16.750秒/PTX10,031,597bytes、PTXAS9.160秒、jit native0.208秒、各1回、後段生成cache必須hit。linked CUBIN5,348,880bytes/SHA8ad4f6c0…、entry254regs/stack13,288bytes/lmem0、dispatch stack1,920bytes/spill180/180。静的compiler指標でGPU/実memory認定ではない。元801record等から段階的増加を保持し再実行0。
+
+次の標準Miranda profile0・30秒は元catalogue要求JSON normal-resident-miranda-standard-api-v1.json（CLI demoと編成順が異なる）を通常HTTPで1回だけ依頼済み。M5同要求はsweep15でinput87da1e27…/readbackb1dee8d9…のCPU全payload一致。新owner1ea8の上記保存CUBINだけをadmit、freshCPU全応答・同rawSHAを比較、生成/NVRTC/PTXAS/link0、helper53秒/2GiB/outer180/低優先度/ownedserver停止/既存resource samplingを維持。結果normal-resident-miranda-standard-api-v1-status.jsonを既存輸送branchへ共有依頼。現時点標準CUDA30秒の新認定0、まだ結果待ち。新GPU依頼を再送せず保存結果を取得する。コンパイルstageだけで計算成功へ数えない。
+
+Macのbatch/audit/serverはterminal。Windowsは上のAPI1回だけpending。全goal未完了。残4profileの未指定モデル・未対応合成/公開sampling等を維持。source/code/test/保存小要約はresearch/product-normal-resident-v1.jsonと同prefix記録、原本proofs/product-normal-resident-v1-20261101。以下は履歴。
+
+## 2026-11-01 通常固定入口のresident frameを実M5で接続・標準再確認中
+
+進捗あり。通常fixed入口へ既存resident frameを適用。最初のv1は歴史source登録不足をCPU監査で拒否（GPU claim/実GPU0）、v2はcomposed専用のpreprocessor guardでSlang生成時拒否（claim保持/Swift・実GPU0）。原packet/全失敗/claim保持。修正版cb4f4c1dはresidentかつcomposed、または明示normal fixed/product/reloadのbuffer所有条件を要求する同じcodecを使う。異なるoutput strideのADD攻撃は既存配列方式を維持。guard/schema generator一致、既存bit/境界/全32slot/initializer5検査とsource history/packet14検査成功。CPU正本・数値演算・normalizer/tolerance変更0。
+
+v3 owner8d0ecabc…（cb4f4c1d）で自身111unit/fresh native1/M5/fresh GPU禁止seal成功。旧fixedのinput/output/全entriesを保持、v18でfixedだけ更新し他16memberは歴史のまま保持（現source再認定とはしない）。異なる30秒/4秒を単一dispatch2caseとして実M5で実行し、それぞれの全raw byteが元の照合済み保存値と一致。second caseの現CPU全payloadも独立で1回照合、追加GPU0。two-case本実行中のnative0と後段native1を区別する。Runtime stride167680byte（frame4096byte）。過去のCPU expectation引継ぎ自体はCLIで成功したが、history/codecを修正した最終版はnative契約を0.218秒で再固定し、input/native SHA保持を確認。元期待値の数値追従なし。
+
+sealed source7de4a2f0/ownere398f263…、自身111unit/fresh native1/GPU0、PTX60秒/2GiB/split2 plan成功。輸送192fe653 normal-resident-fixed-v1.zip約12MBを共有、a8c750cbで標準Miranda30秒の元編成/育成/要求JSONだけ追加。標準245profileが当入口へ影響するため、同じ元30秒要求を16件ずつ通常HTTPで逐次実行中。現在115/245が実M5/CPU全応答・旧input/全readback SHA一致、保存監査93件もsource/input/raw/全CPU/GPU/API再投影一致（追加native/GPU0）。標準Miranda（sweep15、元catalogue profile0）も通過、input87da1e27…/readbackb1dee8d9…、後続CUDAはCLI demo順ではなくこの元要求を使う。
+
+Mac coordinator session68588、server64797/port4404はliveとして開始済み、完了を見て同じhandleを確認し、再送しない。proof root product-normal-resident-v1-20261101、progress.json/current.json/各resultに回収情報。完了時のsaved auditは同じaudit-completed.pyを再実行すれば既存監査行の次からCPU-onlyで継続する。sourceはrelease-packetで不変、API処理中はpacketを編集しない。ユーザー4317/4327不操作。
+
+WindowsはZIP/allfile/owner検査とunpack自体が成功したが、元外側観測missing7/unknownで停止（85a88fe2）。CPU19/paired generation/NVRTC/PTXAS/link/driver/GPU/HTTPすべて0、jobempty/timeoutなし、preservation=false、元785record不変。展開を再送せず、保存before/after/Job graph/creation identityとsourceだけのCPU診断を依頼済み。raw process名/PID/私用パスはWindows保持、分類数と根拠の小要約 normal-resident-unpack-observation-diagnosis-v1.jsonを同じ輸送branchへ共有する依頼で、後続SDKは禁止中。元range missing7も不変。この停止を全goalのblockedとはしない。CUDA標準30秒profile新認定0、既存ユニ宣言4秒の最適化実証と区別。
+
+最後の全標準Metal sweepは262/266。今回は影響入口の再認定中で新profile加算0、全goal未完了。他入口も共通frame guardのraw sourceは変わるため、古いgolden/CUBIN ownerを現sourceへ黙って付替えない。次は245完了と保存監査、Windows診断結果を確認し、適切な未実施工程だけへ進む。小記録research/product-normal-resident-v1.json、保存Windows要約research/product-normal-resident-fixed-compile-status-v1.json。以下は履歴。
+
+## 2026-11-01 resident frameでCUDA実メモリ低下・手動遮蔽UIを接続
+
+前turnはAPI固定遮蔽の実装・5条件Metal/CPU一致で進捗。今回はWindowsの保存結果をGitHub経由で取得、movementだけ同じ4秒通常APIを1回実行して実RTX3070Ti/CPU全payload一致、全readback SHA b1c1e77e…はM5保存8,128,000bytesと同一。新source ownerbc57f0d3…、capture26d72a73…、CUBIN c5216731…（6,816,912bytes）。damage15,425,927、burstI3/II3.1/III3.2/full3.583。新生成/NVRTC/PTXAS/link0、POST/kernel/sync/readback各1、retry0。初回/再利用/最終全file gate1/4/1保持、Job23.699秒/HTTP17.990秒、missing0/timeoutなし/Job空/ownedserver停止。元713record不変。Windows原rawはMac未取得、peer summaryとMac実rawの独立照合である。
+
+その前のCPU origin再監査は10.193秒成功、object/linkも正式origin/containment成功で各内外missing0。dispatch stack9912→1984、linked entry22848→14936bytes、registers254のまま。1回のJob peakは2,139,754,496→1,535,086,592bytes（差-604,667,904）、2GiBまで約612MBの余裕。launch前後private398,893,056→1,474,740,224bytes、GPUfree7,435,452,416→6,409,945,088bytes。背景負荷未統制なので一般性能保証/原因内訳確定ではない。子Job上限field null/reasonunknownでmemory observation complete=false、service unverified/whole preservation=falseを保持。rangeは元PTX内外missing7/unknownで停止、再実行0/新range GPU0。
+
+取得commit6eafb33b（object/link）/63695b05（API）、元小要約をresearch/product-resident-frames-movement-{object,api}-status-v1.jsonへbyte保存。wait/readは引き続きunavailableでもlist/send/GitHubは成功した。Windows依頼は全てterminal/pending0。保存結果の転送だけで新SDK/GPUを回さない。標準30秒全profileのCUDA認定0のまま、今回ユニ宣言4秒の既存条件への最適化保持実証1編成。Metal標準最新全件262/266、新standard加算0。次はこの既存frame領域方式を通常product entryへ適用してheadroomを確保し、通常profileの短い差分CUDAへ進む。全goal未完了。
+
+通常画面の詳細条件JSONがmanual_cover_sequencesを受け付け、5人以内/1〜8操作/有限0〜180秒/時刻順/coverのみを検査する（53369dc2）。reference_modelsと一緒に保存、部隊/敵scopeへ隔離。score/battle両キーに操作列を含め、時刻変更で旧結果を無効化。UI結果に手動遮蔽も表示。source Node54、その後「foreign ownerはstate変更前に拒否」の1callを追加し実setDeclaredScenarioをVMで検査した最終55が成功。CPU正本/GPU数値/normalizer/tolerance変更0。
+
+不変UI owner655c1ec6…（53369dc2）を専用4403で実IAB確認。203人の架空expanded demoから元Soldier O.W./Dora/Drake/N102/Maryを画面で組み、30秒固定/5人の遮蔽操作/敵攻撃をJSON適用し通常ボタンで計算。実M5/CPU全payload一致、damage85,703,861、capturee41d6ac5…、元98定義/遮蔽receipt5。取り込み時と変更後の2応答に対し保存GPU capture1。source/input/fullraw/全CPU/GPUの再投影と画面compute/base_stats/表示合計の保存監査を追加native/GPU0で確認。bodyは同一不変demo producerと画面条件から再構成し、全input byte一致を要求した。保存session downloadは反復せず、sessionはNode roundtripだけ。scratch監査v1のreserved keyword構文誤りはGPU/native前で停止し原file保持、v2成功。画面でaction shoot拒否と時刻のみ変更時の「再計算が必要」を確認。後追加のstate前guardだけはブラウザーpacketに含まれず、唯一のapp.js deltaをbyte検査し最終Node55で検査、他UI/計算file全byte同一。Screenshot research/product-fixed-cover-ui-v1.png。専用4403/テストtabは停止、ユーザー4317/4327不操作。詳細research/product-fixed-cover-v1.json。以下は履歴。
+
+## 2026-11-01 固定周期と手動遮蔽を通常製品APIへ接続
+
+進捗あり。固定burstと手動coverの接続拒否を解消し、既存coordinate header6/固定ready/遮蔽consumerを再利用した（9cb703a1）。新suite・計算本体・CPU正本・数値・normalizer・tolerance変更0。cover-fixedを既存product familyのdata variantへ追加。manual時だけ既存cover consumer内でlowerを許可し、automatic/tapも同じcanonical headerへ変換する。tap mask/cover triggerと予約語を検査、CPU時計/姿勢/履歴を入力しない。固定時刻の最初のtestは未対応request keyを使い3.0となったが、prepared configへ設定する既存方式に修正し、runtime変更なし。元失敗をproofへ保持。
+
+通常HTTPで元Soldier O.W.のphases/pierce/broken/shared-shield30秒4条件と元default攻撃なし30秒1条件を実Apple M5/CPU全製品payload一致。共有シールドは元の別編成。保存source/input/raw全SHA・全CPU/GPU/API再投影も追加native/GPU0で5件一致。explicit cover basesは宣言モデル、実ゲーム規則認定ではない。UI操作の今回追加実証は0。既存defaultのnative hash67ddacc5…は保持、control header6と初期化tailでinput/output raw hashは意図して変更。entry全体にはinput/output hashも含まれるため最初の全entry同一assertは過大、native hashだけの比較へ限定して事実を記録し、計算を合わせ直していない。
+
+各開発packet自身110unit/fresh native1/M5/fresh GPU禁止seal成功。後追加のmalformed header4変種test1件と登録14検査成功。v17はcover-fixed追加/default-cover-fixed再実証のみ、他15member全内容を保持。source eabd96c6のsealed releaseはmanual7b6579a2…/defaultb8046f7b…、各自身111unit/fresh native1/GPU0、PTX60秒/2GiB/split2 plan成功。新cover sourceのWindows compile/GPU依頼0。専用4402停止、4317/4327操作なし。標準全件の最新Metal262/266、今回新profile0、Soldier O.W.の製品条件拡張。全goal未完了。
+
+resident-frame Windows結果はwait/read unavailableでもlist/send成功だったため、既存GitHub輸送へ保存小要約を共有して取得した。213100b8 resident-frames-ptx-status-v1.json、Mac byte保存research/product-resident-frames-ptx-status-v1.json。両PTXはcompiler/containment true、NVRTC各1、22.778/23.504秒、outer44.639/46.271秒、PTX13,133,645/13,201,797bytes。movement内外missing0、range内外missing7/原因unknownで停止、passed/preservation=falseとclaim保持。object/link/driver/GPU/HTTPはその時点0、原506record保持。新CUDA製品profile0、物理memory改善未証明。
+
+movementのみ既存assembly_originのCPU再監査と外側missing0が通れば、未実施module-object→正式監査→jit-link-object各1回を条件付き依頼済み（既存60秒/2GiB/outer180/低優先度）。rangeは再実行しない。SDK/driver/GPU増加なしで失敗gateを保持し、stageのpassed=falseを計算不一致と混同しない。結果は同じ輸送branchのresident-frames-movement-object-status-v1.jsonで受け取る。wait/read取得だけが不安定なら結果GitHubを確認し、同じ実行を再送しない。次はmovement link後stackを旧22848bytesと比較し、正式成功後だけ同じ4秒APIの実memoryを測る。大きなWindows総当たりはしない。proofs/product-fixed-cover-v1-20261101、research/product-fixed-cover-v1.json。以下は履歴。
+
+## 2026-11-01 固定移動・範囲で既存resident dispatch frameを接続
+
+前turnはWindows保存結果取得とMetal11条件の全byte保持監査で進捗。共通GPU本文は新規実行器を作らず、既存PORTABLE_RESIDENT_FRAME_STACKをfixed movement/rangeのwrapper2個だけで有効化した（fc92b5fd）。他programのsource closureは変更なし。各32frameを既存Runtimeの4096byte bankへ移す。Runtime stride163584→167680byte。数値/CPU正本/normalizer/tolerance不変。配列の境界・全bit保存の既存5検査成功。
+
+各packet自身109unit/fresh native1/実M5とfresh GPU禁止独立seal成功。以前のinput/output/native entries全一致、通常API9条件と同じ短4秒2条件も実M5/CPU全製品payload一致。保存source/input/raw/全payload監査11件と、以前の全input/readback byte比較も追加native/GPU0で一致。v16は実sealの2memberだけ更新し歴史14member全内容を保持、現source全14認定とはしない。登録とledger14検査成功。専用4401停止済み。
+
+sealed release source24a36a11、movement ownerbc57f0d3…/range954a9cd1…、各自身109unit/fresh native1/GPU0。NIKKE_CUDA_SPLIT_COMPILE=2のPTX60秒/2GiB plan成功。誤った--split-count CLI指定はargparseでclaim/SDK前に拒否、成功v2 planと以前のsingle-thread v1 planを両方保持。輸送31d99419のresident-frames ZIP2個/metadataを既存codex/product-cuda-origin-gates-v1-packetへ共有、Windows turn01a19317-e8b7-7af3-9f3a-2c53836fd58bがactive（既読cursor末尾442）。paired生成と初回PTX各1回だけ依頼済み、object/link/driver/GPU未依頼。成功したら既存正式origin/containmentを確認して短いobject/link、その保存stackを比較後、同じ4秒APIの実メモリを測る。旧claim/失敗を再試行しない。メモリ削減はまだ未証明。
+
+標準profile最新全件Metal262/266、今回新standard profile0、新CUDA0。宣言条件11の最適化保持をprofile数へ加算しない。model-check CPU-onlyも残consumer5/公開sampling・混合条件・全原定義の未対応を再確認、全goal未完了。小記録research/product-resident-frames-v1.json、proofs/product-resident-frames-v1-20261101。以下は履歴。
+
+## 2026-11-01 通常画面の宣言モデル入力とCUDA短条件2編成が一致
+
+部隊別のreference_modelsと任意のenemy.patternsを通常「詳細条件」からJSONで適用できる。7つの接続済みモデル名/有限JSON/1MBと敵行動の基本形だけを画面で検査し、mechanicsは既存Python consumerが最終検査する。育成/編成/時間/敵DEFはJSONで上書き不可。部隊/敵画面scopeで分離し、preset変更で解除、モデルを変えたらscore/reference条件キーも変わる。owner固定モデルのおすすめ探索は理由付きで止め、黙ってモデルを捨てない。実ゲーム未確認の宣言であることを結果欄にも常時表示する。
+
+不変UI owner32b59686…（361488eb）の実IAB画面から旧v3合成セッションを取り込み、ユニ30秒のモデルを入力して計算。実Apple M5/CPU全応答一致、damage100,837,867、input3ff51c00…/readback0cd3194c…が前API実証と同一。比較2応答は同入力のためcacheを再利用し実GPU captureは91429935…の1回。元69定義を保持、保存全source/input/raw/CPU/GPU/画面応答再投影も追加native/GPU0で一致。部隊2へのモデル漏れなし、育成上書きJSON拒否、宣言解除で古いスコア無効化を画面で確認した。標準profileの件数は増やさず既存ユニ条件へのUI経路追加とする。
+
+画面検証でpretty保存12,660,935byteが既存12MiB取り込み上限を超える不具合を発見。e7b8dc93では全field/履歴を保持するcompact JSON4,148,606byteへ変更、解析後全JSON一致。明示的な「編成・戦闘条件だけ保存」も追加（履歴省略は利用者の選択のみ、宣言/育成/編成を保持）。合成ユニ設定のみ8,491byte、別の5人demoの実ボタン出力8,242byteを確認。上限引上げ/自動データ削除0。full source Node51件成功、packet選択Node24件成功とUI依存7fileの全byte一致を区別する。final full UI owner47afa2da…（e7b8dc93）、計算本体はf6cab742と同一。
+
+Windowsは新移動/範囲sourceのPTX・object・link各1回と正式origin/containment監査が成功。各stage missing0/Job空/timeout0、service unverifiedなのでpassed/preservation=falseを保持。補助イベント名の誤りと修正前range開始の手順誤りは記録保持、正式監査成功と区別。元claim/PTX/CUBIN不変、追加SDKの再実行0。
+
+その保存CUBINを使い通常HTTPでmovement-fixed4秒（ユニ編成）とnamed-range-fixed4秒（アスカWILLE＋レイ仮称編成）を各1回、実RTX3070Ti/CPU全製品payload一致。両input/全readback SHAも同条件のM5保存結果と完全同一。damage15,425,927/10,291,281、burst I3.0/II3.1/III3.2/full3.583秒。runtime f6cab742 owner d4cbc49d…、artifact ownerは各元d4/7ba。GPU/API各2、追加生成/compile/PTXAS/link0、各POST/kernel/sync/readback/destroy1、retries0。Windows rawはMac未取得、peer terminalとMac実raw独立監査の照合である。
+
+CUDA jobは34.2148秒/peak2,139,754,496byteと26.0937秒/peak2,110,984,192byte、共にmissing0/Job空/server停止/timeout0。前者は2GiB制限まで7,729,152byte（約7.4MiB）しかなく、大きなGPU実行は依頼しない。launch前後にprivate約399MB→2,080MB/399MB→2,050MB、GPU空き約7.44GB→5.83GB/5.82GB。8点query成功でも子Job上限fieldがnull/reason unknownなのでcomplete=false、外側2GiB確認と区別し、原因は未認定。既存PTXASログのstack/register/spill保存値だけをCPUで読む依頼を送信済み（新driver/GPU/SDK0）。
+
+read_threadがhost unavailableでもlist_threadsは同host idle、wait_threads(timeoutMs0)は正しい完了を取得できた。本文取得失敗をPC切断や実行停止と断定しない。今後はcompact waitを第一選択にし、同依頼を再送しない。最新既読cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:439、API terminal turn01a192f2-1ae8-7240-848e-67127e917547。保存resourceログ読取もterminal（turn01a192fd-9165-7ed0-807e-c314fe827115、最新既読cursor末尾:440）、Windows pending0。PTXASのrelocatable entryでは24regs/stack0だが、最終link entryは両方254regs、stack22,848/22,920bytes、lmem0。元PTXAS関数stack上位はdispatch9,912、quantityTotals4,344、burstFrame2,792、tick2,712、consumeBulletBuffs2,152bytes。JIT保存optionsはarch/verboseだけ、stack制御記録なし。新SDK/driver/GPU/HTTP/snapshot0。これで物理メモリ増大の原因を確定せず、次は既存dispatch/quantityTotalsの一時配列・呼出しframeを調べる。IABのfile chooser/setFilesが約5,329秒、download path取得が約191/547秒の操作待ちを生じたが、実Metalは準備実行4.54秒/GPU2.987秒。今後のファイル内容検査は元ファイル/共通serializerのCPU読取を優先し、ブラウザーのファイル操作を反復しない。
+
+専用4399/4400とテストタブは停止、4317/4327は操作なし。標準全件の最後のMetal確認は262/266、今回標準30秒profile追加0/CUDA標準30秒認定0。CUDAの宣言短条件2編成を全profileや全効果対応へ加算しない。既存normal/fixed画像を新しいraw source ownerへ再束縛しておらず、旧runtime03の短条件1profileの証拠も別scopeのまま。全goal未完了。次は実launchの近傍メモリを保存情報から絞り、通常未指定4profileとモデル合成の対応を進める。小記録research/product-declared-ui-v1.json/既存product-coordinate-fixed-v1.json、画像research/product-declared-ui-result-v1.jpg。以下は履歴。
+
+## 2026-11-01 宣言移動・範囲の固定バーストを通常APIへ接続
+
+元ユニ/ヤンの30秒5条件と元アスカWILLE＋レイ仮称の15秒4条件を、通常HTTP APIの固定周期で実M5/CPU全製品payload一致。蓄積回帰2条件も一致、計11。移動禁止/強制/再出現/重複優先、元範囲500%・対象数・遅延出現/退場を保持。宣言モデルの3編成への方式追加であり、標準profileを262→265とは数えない。標準266の最新全件確認はsource1cbe45ccのMetal262/理由付きCPU4のままで、今回の全件再実行ではない。未指定モデルを補完せず、手動遮蔽/モデル合成の未対応も維持する。
+
+既存portable_product_fixed.lower/attachを再利用し、座標controlのtap mask/cover tagとmagicを保持するversion6にfirst/regenの有限binary64だけを追加。CPU時刻表・位置履歴を入力しない。同じ固定ready Runtime/元移動・範囲実行器を呼ぶentry2個を同一PROGRAMSへ追加し、suiteは追加0。GPU数値演算/CPU正本/pinned/normalizer/tolerance変更0。packet自身109検査、移動/範囲それぞれ共通CLI実Metal＋fresh GPU禁止seal成功。v15へ独立sealの2memberだけ追加し、旧v14の14member全内容を保持（現source全14再認定とはしない）。
+
+保存11件も全source/input/readback SHA・静的再packing・全CPU/GPU/API応答を追加戦闘/GPU0で再投影し一致。途中のheader4/5単純変換案（1f52b510、packet910ad7c0…）はrequired coordinate control初期化を欠きGPU status64で拒否、全claim/raw/失敗を保持して不採用。最終は最初に11条件一致したversion6（実装bef1b205と復元0023cab3）と同じ計算bytes。専用4397/4398は停止、4317/4327は操作なし。
+
+既存normal accumulate/fixedの生成CUDA/MSLは、旧runtime03の生成物とraw byte/既存strict正規化とも完全一致を別CPU生成確認した。ただし共有Slang source rawは変わるため、旧CUBIN ownerを最新sourceへ付替えず、現在の厳密guardを維持する。Windowsの新GPU/APIは依頼しておらず、SDK実行結果はまだ取得していない。CUDA製品実証1profile（蓄積1秒/固定4秒）は前の凍結runtime03の範囲、今回の座標固定モデルのCUDAは未確認。次は新entryの短い差分CUDA確認と、通常画面での明示モデル受付/未確認の合成条件。全goal未完了。登録後source f6cab742のsealed releaseはmovement d4cbc49d…/range7ba7ee42…、各packet自身109unit/fresh native1/GPU0、PTX60秒/2GiB/split2 plan成功。輸送a637dd9dで2ZIP（各約12MB）を既存codex/product-cuda-origin-gates-v1-packetへ共有。Windowsへ差分unit4→paired生成/初回PTX各1回だけ依頼済み。object/link/driver/GPU/APIは依頼なし、送信toolは受理したが、直後のread_threadはhost一時unavailableで実行開始/turn ID未確認。停止/未実行と断定せず同じchatをpollし再送しない。Mac側の通常画面・モデル合成は進められるためgoal全体はblockedではない。小記録research/product-coordinate-fixed-v1.json、原本proofs/product-coordinate-fixed-v1-20261031。以下は履歴。
+
+## 2026-10-31 現ソースの固定バースト4秒が実CUDA/Metal/CPU一致
+
+最適化runtime03e166bc…＋fixed owner0f199f45…の保存CUBINで通常/api/jobsを1回。capture0db9676e96ba4ca0bf9cbb0766b37188、全readback SHA b41ac3b6…、damage16,415,516、burst I3.0/II3.1/III3.2/full3.583秒が保存M5と一致し、全CPU製品payloadも一致。通常HTTP14.2125秒、launch+sync+readback0.3737秒（純device時間ではない）。owner3.9604/admission4.8290/warm generation1.4510/CUBIN read0.0254秒、gate初回1/再利用4/最終1。compile/JIT0、GPU/同期/読戻し各1、再送0。profileは同じ1件の方式追加であって2profileとしない。標準fixed30秒/全編成のCUDA完了ではない。
+
+Job peak1,989,357,568bytes、post empty/missing0、サービス未識別/保全falseを保持。メモリ観測8点は採取、計算process private概数385→1,932MB/GPU空き7.44→5.99GBだが、子からのJob情報取得不足により観測完全性false、外側2GiB確認と区別。原因未認定。保存journal境界値の最小CPU読取も完了、追加driver/GPU/HTTP0、専用server停止/Job19.392秒/Windows pending0。子Job query自体は全8点available=trueだが上限field不足で観測完全性false、reasonはunknown。3明示allocationの合計3,726,916bytesに対しlaunch前後でprocess private385,286,144→1,931,808,768bytes、GPU free7,441,743,872→5,988,417,536bytes。入力bufferだけでは説明できない増加区間を確認したが、context/module/stack等の原因内訳や正確peakは未認定。元失敗/claims/観測不変。Windows raw/個人identityはWindows保持、Macはpeer小要約と自己保存M5を照合している。
+
+共通CLI model-check --summaryもCPU-onlyで成功。残canonical consumerはeffect_range_pct/effect_target_count_add/enemy_movement_disable/force_move/lock_on。宣言モデル実装済みの証拠と、通常入口で未指定の座標/数値方針、public sampling RNG、未確認mixed scenes、元定義全体の受付を区別する。private sampled battle/skill/parentの旧sealは現sourceと一致せず、現実行成功へ付替えない。次の実装優先は通常入口の残モデル/合成、Windows全profile総当たりの追加ではない。全goalは未完了。詳細research/product-cubin-admission-gate-v1.json。以下は経過。
+
+## 2026-10-31 同一admission検証を共通化し通常APIでCUDA/Metal全readback一致
+
+実装d2b0163e。共通CLIのpackage byte検証を同一CPU admission内だけ再利用し、初回全byte・manifest全byte一致・GPU直前の最終全byte検査を必須にした。別owner/artifactと独立post auditは毎回検査、request間cacheなし。古いsealed ownerのgoldenは、そのSHA固定source内の単一literalをASTで読む（旧コード実行/別baseline探索なし）。数値本体・入力・期待値・normalizer・Job/時間上限は変更なし。Mac関連145検査、実file改変/manifest変更/復旧を含むartifact37検査とWindows同37検査に成功。
+
+新sealed runtime03e166bc…（d2b0163e、全2729file/11,933,809bytes、自身の108unit/fresh native1/GPU0）を通常APIで使用。Windowsの保存CUBIN admissionは初回1/再利用4/最終1となり、CPU計測ではowner6.604秒＋admission10.181秒、全17.571秒。以前45.111秒のadmissionと計測時負荷が異なるため制御された速度比較とはしない。元linkのmissing7/原因unknown/保全falseを維持する。
+
+通常/api/jobsの蓄積1秒が実RTX3070Tiで成功し、CPU全製品payload一致。現CUDA確認は1profile/元編成/蓄積1秒だけ、fixed30秒は0。全input SHA e26cf2bb…と全readback SHA647c3081…は同runtimeの実M5と完全一致。Windows Job40.930秒/peak1,984,475,136bytes/missing0/timeoutなし/empty、実launch+sync0.203秒（純device時間ではない）。service未識別/保全falseと元link履歴は保持。新compile0、GPU1回。Mac保存2条件のsource/input/raw/全CPU/GPU/API再投影も追加native/GPU0で一致した。Windows原rawのMac独立読取ではなく、Windows peer成功報告とMac保存監査の照合である。
+
+次のfixed4秒は実M5/CPU全payload一致、damage16,415,516、burst I3.0/II3.1/III3.2/full3.583秒を準備済み。GPU条件追加であってMetal262profileへ重複加算しない。Windowsのfixed ZIPは照合済みだが、未展開targetをbootstrap importに使うlauncher誤りでJob/claim/展開/生成/compile前に停止した。失敗logを保持し、既存展開済みbootstrapとtargetを分離する新launcherだけを依頼済み。修正launcherで展開44.812秒・strict paired生成19.296秒、初回fixed PTX生成も成功（9,869,786bytes/SHA a200432f…、NVRTC17.788秒、SDK child32.164秒、outer44.686秒）。内外missing0/Job empty/timeoutなし、compiler_verified/containment=true、service unverifiedによりpassed/preservation=falseは不変。保存PTXからobjectとlink各1回も個別監査/containment成功（object outer33.112秒/child18.585秒、link outer51.875秒/child20.389秒）。いずれも内外missing0/Job empty、service未確認によりpassed/preservation=falseは保持。fixed CUBIN5,297,488bytes/SHA a89d2845…。最適化runtime03の通常API fixed4秒だけを1回依頼済み、既存メモリ観測を同runへ付与し追加kernelなし。結果待ちは再送しない。30秒GPU/上限増量/OS変更は依頼なし。小記録research/product-cubin-admission-gate-v1.json。全目標は未完了。以下は履歴。
+
+## 2026-10-31 現共通GPU sourceで全266製品profileを確認：Metal262一致／CPU4
+
+前turnは実装・実証の進捗、今回も全件の実製品確認とWindows native成果により進捗。goalは未完了でactive。既存通常HTTP API／独立worker／保存監査を再利用し、新suite・数値演算・tolerance変更0。旧と完全同じ266要求（30秒・固定周期・既定育成・cubeなし・元の5人編成）をfrozen owner09555bf0…（source1cbe45cc）から逐次実行、16件区切りでsourceを検査。266すべてのprofile/favorite-stageラベルと実bodyの対応も検査した。
+
+262profileが実Apple M5／CPU全製品payload一致、4profileはGPU前の理由付きCPU fallback。数値差・API error・API cache hit0。残4はYuni、Yan、Snow White Heavy Arms、Rei（가칭）。必要な移動/範囲/Lock Onモデル未指定を明示し、効果を捨てて通していない。過去255から解消した7profileはAnn1、Soldier O.W.1、Velvet1、Bay favorite0〜3。宣言モデルの別条件を標準profileへ重複加算しない。全特殊効果/編成/設定の完成ではない。
+
+保存266件を同じ既存prepare/decodeから再投影し、全input byte、source/raw SHA、全CPU/GPU/API計算fieldを照合。追加native/GPU0、実行中source不変、全共有GPU sourceは現worktreeとも完全一致。case wall合計1306.1秒（入れ子区間を加算した性能比較ではない）。専用4390停止、4317/4327は操作なし。小記録research/target-count-query-evidence/product-current-catalogue-v2.json。原本proofs/product-current-catalogue-v2-20261031、全266保存audit完了、実行session66732／server10618はterminal。
+
+標準fixed programもc8bdd418のowner118b0caf…で全108unit/fresh native1/M5/独立GPU禁止seal成功。旧fixedのinput/output/native entriesを完全保持し、source/generatedだけ現行へ更新したv14（全14member、他13完全保持）。新製品profileには数えない。sealed release0f199f45…（7eb7ed83）は自身の108unit/fresh native1／GPU0、PTX60秒/2GiB/threads2 plan成功。ZIP11,930,103bytes/SHA739850b6…を既存transport branch commit0e742ddaへnormal-fixed-current-v1.zipとして共有済み。Windowsでこのfixed ownerの実行は未依頼。詳細research/product-fixed-current-v1.json。
+
+Windows source owner7a396439…の保存PTXから未実施objectとlinkを各1回完了。object_verified/containment=true、child30.022秒・outer54.653秒・missing0。link_verified/containment=true、child31.876秒・outer81.097秒だが内外missing7／原因unknown。両stage/passed/preservation=falseは不変。CUBIN5,289,488bytes／SHA0ae79be4…は既存historical_link_observationへ元観測SHAとlossless7個体を束縛し、CPU admission45.111秒で成功。個人process情報・rawはWindows保持。これ自体はCUDA計算成功ではない。
+
+通常HTTP APIのaccumulate1秒を1回だけ依頼・実送信したが、helper53秒（server起動直前起点）で停止。Job自体は58.690秒／timeout=false／empty／missing0、元link保全false/missing7/unknownを保持。capture96428a0b78984e05a0f274ba0f64e7feはinput SHA e26cf2…一致、fresh admission/cache hit完了、result/evidence/readbackなし。保存phaseではproduct_cubin_owner8.420秒＋admission36.666秒、その後Slang warm build3.413秒、最後cuda_linked_artifact entered未returned。driver init/context/launch/sync/readbackは未記録で、未記録だけから実行0と断定せず、新CUDA製品profileは0。旧9a6系の短い3profile成功を現sourceの実証へ付け替えない。
+
+**次の安全な作業は製品CUBIN admission内の同一package再検証の重複削減。** 元file/source/artifact/Job/観測・独立post audit・変更拒否を残し、既存module-objectの同一gate再利用設計を参考にCPU故障注入で検査する。初回owner検証とsaved_linked_admission→audit_jit_link→linked_object_origin→audit_partition_object→assembly_originで同じownerを反復hashしている。単なるhelper53→延長、上限増量、古いclaimの再利用で回避しない。現在の一般API deadline120は変更なし、Windows native child60／2GiB維持。最適化をMacで検査し、必要な短いWindows CPU計測後にだけ新しい製品GPU実証を検討する。fixed ZIPは用意済みだが、この未実施コードを先にWindowsで追加compileしない。
+
+Windowsの今回API/保存phase診断はterminal。最後はturn01a19210-7984-7e73-b581-db87b14322f1／idle、未実行依頼なし。wait_threadsがhost unavailableでもlist/read_threadから保存terminalを取得できたので、接続失敗だけで再依頼しない。原object/link/APIの失敗・全claim・各summaryを保持。新集約research/product-cuda-offline-chain-v1.json。CUDA標準fixed30秒の製品確認は現時点0、全目標未完了。
+
+## 2026-10-31 宣言Lock Onの固定バーストを通常製品へ接続
+
+最終sealed releaseは1cbe45ccのowner09555bf0…で、packet自身の全108検査＋fresh native1／GPU0成功。PTX60秒/2GiB/threads2のcompile-planも成功し、SDK/claim追加0。
+
+実装3ddcaa6c。既存固定バーストのliteral headerをapp/portable_product_fixed.pyへ抽出し、通常製品とLock On製品が同じlower/attachを使用する。GPUは既存PORTABLE_PRODUCT_FIXED_BURST macroで同じlock/typed実行器を呼ぶ。新数値演算・suite・pinned変更0。25元効果と全91bindingを保持、CPU状態・時刻表をGPU入力へ渡さない。固定＋手動遮蔽は理由付きCPU fallbackのまま。
+
+通常HTTPで宣言モデルHeavy Arms 1profileの固定30秒5条件（BODY、ADD3、弾体3、弾体破壊、owner3番目）が実M5・CPU全応答一致。蓄積30秒1条件も全一致し、前の保存input/readback SHAと完全一致。宣言なし／固定＋手動遮蔽の2負例はGPU前にfallback。これは既定profile追加ではなく、既に実証した宣言1profileへ固定方式5条件を追加したもの。CUDA製品profile追加0、全キャラ完成ではない。
+
+owner5c03cce6…自身の108unit＋fresh native1＋実M5／全payload比較が成功。別fresh GPU禁止sealも成功。v12の13memberを全保持したv13へlock-fixedだけ追加（計14member、program登録29）。旧13の現source全件実GPU再認定ではない。API6保存rawもsource/input/readback hashと全CPU/GPU/API payloadを追加native/GPU0で検査。最初の独立API-envelope診断はserverが追加するcache_hit/照合metadataを見落とし停止したが、raw decoded/CPU/GPU値は同一。元失敗を保持し、既存serverの正確なenvelopeを含めたv2監査が成功、GPU再実行0。専用4388は停止、4317/4327未操作。詳細research/product-lock-fixed-v1.json。
+
+Windows追加SDK/GPU0。保存候補10のうち一回のCIMで同identity8を確認、2不在（原因unknown）。8は実scriptの相対起動で、保存workspace/rootは一致するが所属未確定。base Pythonのpsutil未導入を確認後、公式PyPI byte/SHA固定psutil7.0.0を新private targetのみへ導入（2.66秒）し、cwd診断1.30秒で8読取成功／拒否0。ただし元workspace0/検証root0/その他8、現在のscript解決4件は既知SHA不一致、4件はfileなし。現在cwdが起動時cwdとは確定できず、所属・サービス維持の未確認を保持する。global Python／OS／サービス変更0、旧proof変更0。
+
+既存assembly_originはpassedと別にcompiler_verified/containment/厳密artifact出所を検査する。次は旧owner7a396439…の保存済み検証PTXから**未実施module-object O1だけ**を標準wrapperで1回依頼済み。旧stage/passed/preservation=falseを変えず、同source/bytes/key・内外missing0・観測エラーなし・object claim未消費をまず厳密検査し、旧gateが許可する場合だけ実行。child60秒/2GiB、outer180秒、BelowNormal/Job/start gate/全観測を維持。compile/generation再実行・JITlink/driver/GPU/API0。今回の目的は個別object/containment証拠の取得で、サービス維持や全pipeline合格への昇格ではない。既存chat最新既読cursor435、turn01a191ee-8413-7771-9872-c993dc61aad4の診断はterminal。新module-object依頼の同chatをpollし再送しない。未確定仕様の調査とCUDA観測問題を、他の製品対応を止める理由にしない。
+
+## 2026-10-31 compile-onlyの重複preflightを除き実NVRTCへ到達
+
+source1f2608d9／sealed owner7a396439…／transport69dfe62c。共通CLIの実compile-only childが戦闘テスト・native戦闘・GPU claimを呼ばない回帰検査を追加し、compiler/object/link/Jobの関連113検査が成功。実行gate・数値・source normalizer・60秒/2GiB上限は変更なし。run/staged-runの全登録検査と製品APIのGPU後fresh CPU全field照合は維持する。
+
+normal current owner fce3bfec…自身の107unit＋fresh native1＋実M5＋独立sealが成功。既存v12 accumulate goldenの全内容が完全同一で、新profile追加には数えない。最終7a packetとの差はcompile制御テスト1ファイルだけで、計算payload全byte保持。最終packet自身のPTX compile-planも成功。最終packetで107を再実行したという主張ではない。
+
+Windows peer報告：展開43.322秒、generation27.902秒、NVRTC child52.678秒／peak297,791,488bytesでreturn0、compiler_verified=true。外側64.989秒／peak332,902,400bytes、timeoutなし、Job empty、missing0。ただしservice unverified／preservation=falseで標準CLI exit2、stage_verified=false。object/JITlink/driver/context/GPU/API0、再試行0。これはMacがraw artifactを独立監査した結果ではなく、小さいpeer最終報告。原保存summary6,436bytes／SHA4e65e4b7…、GitHub結果pushなし。詳細research/product-cuda-compile-only-v1.json。
+
+全目標は未完了。今回メモリ上限到達ではなくサービス識別未確認で停止した。停止判定を緩めず、同Windows chatへ今回の保存観測と識別コードだけのCPU診断を依頼済み。再snapshot／SDK／GPU／サービス設定変更は依頼なし。保存資料診断も終了（cursor422／idle）：前後・外側/SDK内ともservice_candidate10個体がworkspace/listener/識別済み親へ結び付かず、nikke_service_pids空／service_status unverified。observation_error/comparison_errorはnull、権限拒否や識別情報欠落の記録なし。候補の実所属・対象サービス非稼働・条件不一致のいずれかは未確定。次はこの所属確認に必要な最小観測を設計し、SDK再実行やgate緩和で回避しない。未確定のHeavy Arms距離規則や旧missing7/14原因を確定へ置き換えない。
+
+## 2026-10-31 Heavy Armsの宣言Lock Onを通常製品へ接続
+
+最終追補：c0530f71のsealed owner a96b8d80…自身で全107unit／fresh native1／CPU-onlyが成功。独立sealとgolden全内容が同一で、追加GPU0。旧監査の否定テストもpacket自身で成功。専用4386を停止し、ユーザー4317／4327は未操作。
+
+通常HTTP→実Apple M5→既存形式の結果変換→CPU全field照合で、Heavy Armsの宣言モデル1profile・蓄積30秒6条件が成功した。BODYのみ、ADD3、弾体3、弾体破壊、手動遮蔽、owner3番目を同じGPUソース80695dd3／固定owner6408bcb6…で検査。元25効果＋装備を含む91定義を全bindingし、架空の弾体・武器metadata・CPU状態・計算済み対象をGPUへ渡さない。宣言なし／fixedはGPU前に理由付きCPU fallbackを確認。未確定のBODY優先・ADD出現順／生存凍結配送モデルであり、ゲーム距離順位や再対象化の認定ではない。
+
+既存NamedGenerationLocks／typed_battle／original-lock-compositionを再利用。CPUはcheckedな実queue境界へ接続し、global profilerを使わない。弾体0件はproduct専用macroのみ受付、旧typed entryは非空制約を維持。共通CUDA/Metal入口・入力・readback decoder・テストを共有する。新suiteなし、product-detailのlock-accumulate member。全107unit／fresh native1／M5 CLI／独立GPU禁止seal成功。API6保存rawもsource/input/SHA/全payloadを追加native/GPU0で監査済み。
+
+worker import2境界、-1期限sentinel誤拒否、遮蔽control履歴未接続の旧失敗は保持。最後は共通GPUログを移設CMC bankへ接続し、control/control_detailも全一致した。v12期待基準はv11のLock On input/output/nativeを保ちsource/generatedだけ実証済み現行へ更新。v10実数12memberすべてを保持しLock On追加で13記録。他12memberの現source認定ではない。過去記録の「他24基準」はprogram登録数との混同を訂正した。
+
+現CUDAの追加profileは0、Windows追加依頼も0。missing7／保全未確認は前段のまま。defaultの宣言なしHeavy Arms、fixed、他consumerとの合成、全profileの現source確認が残る。次は単一BODYに限って未確定距離規則が結果を変えないdefault接続を検討し、既存guardを保った短いCUDA compile-only工程も整理する。詳細docs/portable-heavyarms-lock-selection.md、research/product-lock-v1.json。全目標は未完了で継続する。
+
+## 2026-10-31 v3全100検査完了、PTX計画後の観測で停止
+
+Windows owner20391ee2…の全12群100件が終了後観測まで成功し、元IDの欠落・重複・余剰0。 テスト本文計89.092秒／段階全体計434.130秒、最大peak186,101,760bytes（177.48MiB）で2GiB上限未達。fresh native1／SDK模擬54／validation依存も成功した。前回27件群のtimeoutは、元のfixture・assertion・60秒上限を保ったID分割で通過した。重い群のテスト本文は20.821秒／16.927秒だった。
+
+PTX policy計画自体は60秒／2GiB／threads2で成功したが、その終了後観測がmissing7を記録し、標準wrapperが停止した（計画16.073秒、timeoutなし、peak66,789,376bytes、Job empty、snapshot/cleanup errorなし）。消失原因はunknown／サービス未確認／preservation=false。generation・実SDK・driver・GPU・APIは0、compiler/object/link claim未消費、CPU/GPU予約claimは保持。旧missing7/14とは別の今回の観測であり、因果を推測しない。
+
+小summary42,731bytes＋manifestをreport commit79783eedから取得し、元サイズ・SHAをMacで照合した。raw／個人process詳細は未取得。保存記録だけの追加分析（report9a5f9d28）も取得しサイズ/SHA照合済み。7個体はbeforeに存在しafterに同PIDなし、検証Job/member/child/wrapperおよび直接親との重なり0、全CPU群missing0、最後のmissing0は依存検査。snapshot例外記録はないが、filtered観測で全祖先や終了イベント・元CIM stdout/exit情報を保持していないため、原因はunknownのまま。新しいsnapshot・CPUテスト・compile等の再実行は依頼0。Windows既存chatはcursor417でidle、未実行の新依頼なし。現在のCUDA製品認定は増えていない。次の製品consumerはHeavy Armsの宣言Lock On／元全効果接続で、全profile現source認定・fixed・複数consumer合成も未完了。
+
+## 2026-10-31 Windows事前検査を元テストID単位で段階化
+
+v2 owner ebb2bfce…は先頭3群73検査を完了したが、最後の27検査の群が60秒枠を超えて停止した。62.625秒（cleanup含む）／peak185,352,192bytes、missing0／Job empty、service未確認／preservation=false。15進捗dotは完了receiptがないため認定件数へ加えない。fresh native／generation／SDK／driver／GPU／APIは0。小結果をreport commit2dfd8eb4から取得しbyte/SHA照合済み。失敗・全claimは保持。
+
+共通CLIに登録ファイル内の元unittest ID分割を追加した。`preflight-plan --test-group-size 1 --split-test-pattern test_product_reference_models.py --test-case-group-size 3`で元100件を12群へ分ける。テスト本文・fixture・数値・上限を変えず、計画を再発見した全IDと照合し、実行receiptと独立取り込みで欠落・重複・順序変更・不完全件数を拒否する。未完了群があればnative/GPUへ進めない。従来のファイル単位経路は維持。新suiteなし。
+
+source79455c6dのsealed owner20391ee2…（transport4b34547a／normal-origin-gates-v3.zip）は、Macで実際のguard付きpacket wrapperによる全100件／12群＋fresh native1を完了。関連runner／Job／SDK／source回帰109も成功。v2に対してpayload変更は共通runner／CLI／テスト6ファイルだけで、GPU全byteとgoldenは完全同一。追加Metal／CUDA dispatch・新製品profileは0。PTX計画60秒／2GiB／threads2が成功。Windows既存chatへ新ownerで1回だけ依頼済みで、結果未認定。全CPU前提成功後だけPTX→objectO1→JITlink各60秒／native合計180秒。driver／GPU／APIは今回依頼0。旧v1/v2/2195の再試行はしない。
+
+## 2026-10-31 Windows事前検査のguard内cache fixtureを修正
+
+transport abf46f5f／owner59160ddb…は標準観測付き展開とpreflight-planを通過したが、最初の登録59件で58成功／1失敗となり停止。約34.915秒・peak133,365,760bytes、missing0／Job empty、service未確認／preservation=false。残3群・fresh native・generation・SDK/driver/GPU/APIは0。旧2195の失敗／claimを保持。小summary＋manifestを既存report branchから取得しbyte/SHAを照合済み、original rawはMac未読。
+
+Macでもfreshプロセスで同じforbid_gpu→test import順を使い、同じcache miss assertion失敗を再現した。原因は本物のcache前段へ到達する前に、import時にcapturedされた外側stop関数がテストへ渡ること。fixture内だけを検証済みsourceの独立namespaceから実transport／generation前段へ接続し、偽SDK・失敗するgenerator/DLL/driver境界を維持。外側CPU guard／production code／数値／許容差／期待文字列assertionは変更0。guard有無×generation/cubinの4条件を検査し、guard下59全件が成功。新suite0。
+
+これはunit fixture修正で、CUDA実コンパイルや製品profileの進捗には数えない。失敗owner／全claimを残し、新しいsealed packageの既存group経路で全100件を再確認してから、未実行のWindows工程を新ownerで1回だけ進める。旧テストを同じclaimで再試行しない。
+
+## 2026-10-31 CUDA module-objectの同一gate内検証重複を解消
+
+最終追補：f029d109のcompact normal owner 59160ddb81ae…（2724file／11910901bytes）は、packet自身のown100＋fresh native1／CPU-only、PTX60秒2GiB compile-planが成功。packet内SDK模擬202も成功。開発ownerの実M5／独立sealとは別の最終登録確認。Windows SDK／GPU／通常APIの追加profileは0。次はこのsealed ownerを既存Windows chatへ共有する段階で、新PTXのcold compileが必要になる（旧Mac計算コードと異なるため、旧PTXcache必須hitは依頼しない）。旧2195のclaimを再使用しない。
+
+CLIのmodule-objectが同じsealed producer自身を処理する場合、親でverify_package済みの直後と子でverify_package済みの直後に、assembly_originが同じ全file検証を再実行していた。fresh mと同一root・同一manifestに限りその2重複だけを省き、全file検証は親1／子1／独立post1の計3回を維持する（外側wrapperは別）。foreign/historical producerは既存全検証のまま。引数は内部呼出し専用でrequest/CLIで再利用tokenを受け付けず、metadata/stat cacheや過去receiptの代用ではない。PTX producerの全artifact／Job／生成数値baseline監査は不変。post auditorはfast pathを使わず全package再検査する。実行後改変も拒否する。
+
+既存compiler18群202テスト成功。親/子dispatchの実flag、同rootで1回のfresh検証、別root/manifest変化/実行後変化の拒否、post audit維持を回帰検査。PTXAS O1/fmad、60秒/2GiB、Job/pre/post観測、排他claim、旧失敗の扱いは不変。preparation journalにoriginとpost auditの実測区間を追加し、既存厳密phases列は変えない。GPU/数値code変更0、実SDK/GPU/新Metal/CUDA製品profile0。Windowsでの短縮は未測定。
+
+旧owner2195のptxas15.021秒／outer62.406秒、object未admit、missing14原因不明／preservation=falseを保持する。修正は旧claimの再実行許可ではない。続いてd73ca08dのnormal開発ownerf3deae04…を固定し、own100unit／202 SDK模擬／fresh native1／実M5／GPU禁止独立sealが成功。旧accumulateのinput/output/native entriesは全一致だが、Mac生成CUDA/MSLは旧2195と異なりreflection2fileだけ一致した。旧PTXcache再利用はadmitしない。旧v9を保持したv10でaccumulateのsource/generated identityだけを実証済み現行版へ更新し、他24memberは不変。次は最終sealed current ownerでWindows preflight後、新コードの短いcompileを1回だけ計画する。証跡research/product-cuda-origin-gates-v1.json。
+
+## 2026-10-31 製品の名前付き範囲・対象数を接続
+
+最終追補：3b02411aからsealed最終packet becf355f4ef9…を作り、packet自身の100unit／fresh native1／CPU-onlyが成功（追加GPU0）。Windows既存chatはcursor354のidleを確認し、追加SDK／GPUは依頼していない。次はClaudeレビューで優先されたCUDA製品compileの未admit／外側timeoutについて、既存gateを保ち準備・観測重複を減らす実装を検討する。旧object・失敗receipt・missing14原因不明／preservation=falseは保持し、同条件再試行はしない。Heavy Arms／fixed／全合成も引き続き未完了。
+
+Rei variant（레이 (가칭)）とAsuka WILLEを含む1編成の宣言モデルを通常APIへ接続した。既存NamedRangeBattle・range/count reader・凍結queue・ActorPoolを共通CUDA/Metal入口から再利用し、元の＋500%／＋1を実cast生成時に読む。基礎半径・BODY/ADD形状はliteral宣言で、CPUの選択結果・capacity・damage・予定時刻をGPU入力にしない。ユニ／ヤンとproduct_coordinate_modelの座標・group・sampling contextを共有し、数値provider／pinned upstreamは変更0。単独CPU workerと例外復元も検査する。
+
+通常HTTP→実M5のexpanded／small-base-control／late-spawn／retirementの4条件が全CPU payload一致。各54cast中52で500%／capacity3を読み、半径対照と退場で実選択数が変わった。保存raw再投影4もnative／GPU追加0。publicはcast全数量・BODY位置・ADD数を返し、private observerの候補距離／landing観測全体を返したとは主張しない。元private比較器・期待値は保持する。共有helper化後の旧移動5条件もinput全byte／GPU source／raw SHA／計算応答を保存結果から照合し、VCS evaluator stampだけを別記した。これは新GPU証明への読み替えではない。
+
+共通CLI既存product-detailにnamed-range-accumulateを登録し、新suite0。通常APIの成功をCLI独立seal／CUDA成功に数えない。root100unit／server10成功。ff01f9e9の固定ownerfa0f3c01…自身の100unit／fresh native1／M5実計算と、別fresh GPU禁止の独立sealが成功。旧v8の全24golden entryを保持したv9へnamed-range-accumulateだけ追加。専用4384停止、ユーザー4317／4327未操作、Windows追加依頼0。default形状・fixed・複数consumer・Heavy Arms・全catalog現source／CUDAは未完了。静的モデル監査の不足5statは広い未完了scopeとして保持する。証跡はresearch/product-named-range-v1.json。全目標を継続する。
+
+## 2026-10-31 通常製品のユニ／ヤン宣言移動を接続
+
+最終追補：b9600178からsealed packet8bb61a3d…を作り、packet自身の96unit／fresh native1／CPU-onlyが成功（GPU追加0）。実装と小証跡は既存codex/runtime-residentへ共有。独立sealのMetal実証とは別の最終登録確認である。
+
+許可済みCPU拡張として既存EnemyMovement・LogicalGeometry・attack-group adapterと共通sample/geometry数値providerを再利用した。pinned upstream／数値式／許容差は変更しない。`reference_models.enemy_movement` は `coord`、`logical_geometry`、`motion` の3宣言が必須。元duration carrierと実ADD世代を共通Slangで消費し、CPUの位置・世代・軌跡・予定表をGPU入力にしない。CPU応答はsampledであることを `expected=false` と警告に明示する。単独CPU workerでもproviderをchecked rewrite前に解決し、終了・例外時にalias／乱数stateを復元する。
+
+通常HTTP→実M5のユニ停止／ヤン強制移動／世代更新／重複2優先規則の計2profile・5条件でCPU全応答一致。各3602frame、3598〜3608segmentを保存rawから全再投影し、追加native／GPU0で一致。readerはactor・世代・連続区間・有限量・予約word・最終state・未使用tailを検査し、既存4096上限を超えれば切り捨てず拒否する。初版wire登録漏れのGPU前拒否、起動前送信失敗、単独CPU import失敗を保持。ユニ先頭の成功と残4件はhost preload修正前後の別source snapshotとして区別する。集約は `research/product-enemy-movement-v1.json`。
+
+共通CLIの既存product-detailへmovement-accumulateを登録（新suite0）。通常API5条件に加え、a20cde3aの固定owner715db434…自身の96unit／fresh native1／実M5計算と別fresh GPU禁止sealが成功。旧v7を保持したv8へmovement-accumulateだけ追加。元25programの登録期待値は変更しない。unit96＋server10成功。専用4384を停止、ユーザー4317／4327未操作、Windows追加依頼0。ゲームの位置・範囲・移動優先は未確定の宣言で、既定固定profileの未対応数を減らさない。fixed移動、複数consumer、Heavy Arms、Rei、全catalog現source／CUDAの確認は未完了。全目標を維持する。
+
+# 2026-10-31 serial NVRTCはtimeoutのまま保持、bounded2-thread候補を追加
+
+Windows a37 own70は54.037秒で全成功、保存14file/owner/complete/Job直GetProcessTimesのpre/post一致を追加read-only監査で確認。外側missing7（Python/node）は検証系列へ帰属できずunknown/preservation=falseを保持。CIMの3tick差を同じprecisionの完全一致とはしない。再unitなしでdeps/PTXplanを各1回通し、generation標準Job/snapshotを明示許可してofficial stage成功（24.437秒/peak541,224,960bytes、指定CUDA/MSL指紋一致）。
+
+新serial key26e5657bは未消費確認後PTX1回だけを試し、外側60秒timeout（後始末込み62.325秒/peak224,788,480bytes）。NVRTC entered1回/戻りなし/PTXなし/最終result・artifactsなし、内側postも未完了。object/link/driver/GPU/API0。native監督67.315秒/peak254,193,664bytes、今回missing/観測操作/cleanup error0、外側と監督Jobsは閉鎖。旧claim/失敗を保持し、SDK再実行・timeout延長なし。
+
+保存同時計ではouter stage呼出→NVRTC entered27.281秒（child verify8.550秒、Slang build/cache3.461秒は包含）、呼出基準60秒との差32.719秒。実タイマー開始未記録なので真のdeadline残秒/NVRTC本体elapsedはunknown。ロード名nvrtc64_120_0.dll/builtins64_124.dll、既存隔離SDK metadata12.4.127であり、実nvrtcVersionは旧試行で未測定。既知inventoryには他はsystem11.3だけ。広い検索・SDKロードによる診断なし。
+
+NVIDIA NVRTC12.4資料のsplit-compileを根拠に、NIKKE_CUDA_SPLIT_COMPILE=2という独立した並列最適化候補を追加。既定1のargv/key不変、0/3以上は禁止、cold開始前の版APIで12.4..12.xだけを許可。cache hit/required missではDLL/版APIをロードしない。compile-planが全compiler_optionsを記録し、cacheも既存のexact optionsを含むkeyで分離する。数値規約/fmad=false/GPU source/Metal基準/60秒2GiB BelowNormalは不変。source ledgerはbackendの厳密な旧88cda preimageを維持した。15 artifact/12 cache/14 compile CLI/16 compiler-diagnostic、CLI/diagnosticのthreads2設定も全成功。Windowsでの並列化成功・高速化・CUDA計算一致はまだ未確認。serial26eへの再試行ではなく、最大2workerの具体的仮説として新optionの未消費keyへ1回だけ検証する。失敗時にthreads4やtimeout延長で追わない。以下は履歴。
+
+# 2026-10-31 通常HTTPの武器運用5profile/12条件が実Metal・CPU一致
+
+source46d972efの通常HTTP/APIで、元Snow White/Red Hood/Modernia/Snow White Innocent Days各30秒×fixed/accumulateの8条件をweapon_mode_swap=trueで実M5 Metal確認。加えて既存manual-swap real-roster factoryのCinderella Crystal Waveをfixed/accumulate×ON/OFF4条件で確認。全12がCPU全製品payload一致、API cache hit/error/fallback/mismatch0。全raw/input/source/既存decoder再投影監査も追加native/GPU0。原本product-weapon-mode-current-v1-20261031とproduct-weapon-mode-ready-v1-20261031。後者のcaptureは前者のcaptures rootにある。専用server4383を終了、通常4317/4327に変更なし。
+
+同一Cinderella accumulate ON bodyを既存native observer/contractで追加CPU1回だけ観測し、ready16.483333秒1件、実mode後のsquad_ammo_consume_as8件/各40、物理射撃1425を確認。保存GPUの全5人shot合計も1425。ON/OFFでprimary射撃1353→698、全damageも変化し、両方ともCPU一致。単にflagを受付した証明ではない。他4profileのうちInnocent Daysはweapon_change宣言なしの対照であり、実mode発火profileに加算しない。5件は既存catalogue profileで、歴史255に足して260とはしない。小記録research/product-weapon-mode-v1.json。以下は履歴。
+
+# 2026-10-31 compact v2はMac全70成功、Windowsの既存turnを観測する
+
+現source5f0af26cから既存CLI --compactでsealed owner a37b8330f6e95a24dd2d2c36e47ae8552c2196ef215f9c2049c71fb5dcec6b8cを作成。全2698file/11,847,063bytes/ZIP SHAbb6c4f86…。ac35の全4187fileとの検査で、新規payload0、保持内容の変更はtests/test_weighted_source_contract.pyだけ、未選択Python1489file省略。GPU全payload/CPU計算コード/golden全体は完全一致。旧unit失敗は保持。Mac packet自身のunit3群70件、deps、PTX60秒2GiB compile-plan、sealed generation必須cache hitが全成功、追加native戦闘/GPU0。原本product-current-reload-cuda-v1-20261031/compact-packet-v2とcompact-retention-v2.json。
+
+既存輸送branch codex/product-current-parts-v1-packetの14089febにZIPとmetadata2fileを共有。Mac検証済み2要求は同branch既存reload-clock-api-requests.jsonを使う。Windows既存chatへ新compactのfresh展開→own70/deps/plan/generation→成功時のみPTX/O1 object/JIT link各1回を依頼済み。各stage60秒/2GiB/BelowNormal/fresh Job、native pipeline180秒、失敗停止、旧claim再実行/上限延長0。GPU/module-load/APIは依頼していない。turn01a19034-0493-74e2-b084-3356fdace839、cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:311でactiveを確認。次はこの既存turnをwait_threadsで観測し、再送しない。host/thread/afterCursorはproof windows-compact-v2-pending.jsonに保存。成功結果やCUDA計算を先取りしない。全目標未完了。以下は履歴。
+
+# 2026-10-31 WindowsのCPU事前検査timeout、計算前の梱包/fixture IOを改善
+
+sealed owner ac35d841…（43069e74、全4187file/14,279,975bytes）を既存transport e33a67c7で共有。Mac packet own70/deps/PTX60秒2GiB plan/sealed paired cache hit成功。MacでWindows用のNoah accumulate6秒（修正DoT1tick）と紅蓮：ブラックシャドウ accumulate50秒（実取消42.8秒）を追加実Metal/CPU全payload一致、保存監査もnative/GPU追加0。原本product-current-reload-cuda-api-v1-20261031。
+
+WindowsはZIP/fresh展開成功後、ownunit外側60秒timeoutで停止。完了2群63件/失敗error skip0、weighted群は開始してstderrに1dotだが未完了。記録62.713秒/peak201,781,248byte、missing/観測/cleanup error0、全Job閉鎖。worker package検証完了は外側開始後31.18秒（worker verify14.504秒、before観測2.366秒、その後起動等14.269秒の内訳unknown）。完了群elapsed23.205/2.808秒で、内側unittest18.720/2.680秒は重複するため合算しない。deps/plan/generation/compile/object/link/driver/GPU/HTTPはいずれも0、新owner native claims未消費。保存JSON/log読取のみで診断、元失敗/claimsを保持。Macによる原Windowsファイル独立監査ではない。
+
+次は既存compact梱包で無関係なPython payloadを省き、同じ全70検査/fixture/GPU source/数値goldenを残す。WeightedSourceContractの2負例testも、各改変の前後で実full source監査を行い、fixture treeを再利用して毎回元bytesへfinally復旧するよう改善した。12種の同じ改変拒否を維持し、実一時FS測定で2testのtree作成12→2、write呼出708→140、書込UTF8/bytes合計9,647,309→2,591,583bytes。7test全成功。これはMacでのIO量測定で、Windows実時間改善は未測定。古いpacket/failed unit-v1は編集しない。新unitが通るまでWindowsへcompileを依頼しない。既存native/GPU claimの再実行/timeout延長は行わない。全goal未完了。以下は履歴。
+
+# 2026-10-31 現CPU時計/リロード接続のnormal共通CLIを独立seal
+
+source f7cb388b63d01c8238f29d8bef3a1076bb9e7149のproduct-detail/accumulateを既存CLIのdevelopment packet838deec2…で固定。exact payload再利用で展開し、packet自身のgeneration必須cache hit/追加Slang0、通常runのCPU前検査3群70件と実M5 Metal30秒1入力が成功。packet自身のfresh GPU-forbidden子processによる独立sealも成功（追加GPU0、receipt SHA1d3971d8…）。旧accumulate goldenのentries/input_sha256/output_sha256は完全同一で、真に変わったsource_sha256/generated_normalizedだけを新独立sealから登録。旧全tableをproofへ保存、fixed/add-accumulateの登録は変更せず、各current認定とはしない。通常HTTP1profile/7条件とは別のCLI1入力でありprofile数へ加算しない。現normal CUDA検証に進む正当な新基準で、旧compile/link失敗claimの再実行ではない。proof product-current-reload-cuda-v1-20261031、小記録product-reload-cancel-v1.jsonのcli_seal。以下は履歴。
+
+# 2026-10-31 元キャラ運用のリロード取消を通常製品へ接続
+
+紅蓮：ブラックシャドウのshooting_policy=characterは元CharStateのreload.cancel_on_full=trueを持つが、製品compilerがreload全体を拒否し、静的武器producerもそのフラグを渡していなかった。既存normalize_static_weaponからreload_cancel_on_fullを既存WEAPON_QUANTITY+3へ渡し、操作compilerはcancel_on_fullというboolean単独のreload宣言だけを受け付ける。cover/aim/時刻指定reload/burstなどの未接続指定は引き続き拒否。既存shared applyAmmoInstantの取消を再利用し、新GPU計算/時計/Runtime fieldなし。CPU正本/pinned/Slang/数値規約/normalizer/旧golden不変。新2 Python sourceの厳密な88cda975 preimageを既存履歴ledgerへ追加し、古い現行認定とは区別した。
+
+通常HTTP APIの実M5 Metalで同profileの30秒fixed/accumulate×auto/character4条件、実取消が起きるfixed50秒の育成境界1条件、計5 HTTP条件がCPU全製品payload一致。追加の製品Python API50秒×2モードも一致、ただしそのcharge30%設定では取消自体は発生せず、原本を保持した。charge60%/max_ammo_pct0という既存育成patchで41.766667秒のnative取消を事前確認し、その同一要求をHTTPへ渡した。GPUの41.216667秒reload開始/43.216667秒予定と、取消後に誤ったfull_reload完了を発火しない履歴を確認し、保存全payloadは独立CPU観測のものとも完全一致。これは仮育成境界でありゲーム内で可能な育成や全設定対応とはしない。全7のinput/raw/source/既存decoder再投影監査は追加native/GPU0。API captureは専用server4382のproduct-reload-cancel-v1-20261031/capturesへ保存、active-v1の1件も同rootにある。
+
+今回の通常製品確認はMetal1 primary profile/7条件（うちHTTP5）、CUDA0。歴史255へ重複加算しない。全catalogue/全条件の現source再認定ではない。明示cover入力の試作は、現在の製品APIにその指定がないと分かり全編集を戻し、GPU実行なし。56 product/7 source/7 packet/52 CLI unit成功。小記録research/product-reload-cancel-v1.json。次はDoT時計修正も含む現sourceの共通CLI独立sealと必要な短いCUDA確認。Windowsの旧link timeout/claims/不明サービスは保持し、旧CUBINを新sourceへ流用しない。11 reference model gap/全目標は未完了。以下は履歴。
+
+# 2026-10-31 許可済み敵DoT時計修正、CPU/共通SlangとM5の12条件
+
+ユーザーが「DoT時計に限定したCPU修正を許可」と明示。既存reference_rewriteを使うboss_dot_clock_compatを最後のreference layerへ追加し、_boss_dotsの時計削除条件だけを「carrierがliveに存在しない場合」に制限した。生存中の予定を保持するため、持続5秒/間隔3秒が121tickに再登録される欠陥を1tickへ修正。元ASTの条件・削除先・elseを検査し、不一致は起動前に拒否。pinned upstream33ファイル、ダメージ式/数値規約/normalizerは不変。engine_worker/detail_gpu/engine_compatにも変更なし。共通Slangの同じ削除条件へ!liveを追加し、CUDA/Metalで別時計を作らない。旧121tick証跡と旧goldenは保持し、現行成功へ付け替えない。
+
+通常製品Python APIの実Apple M5 Metalで12条件がCPU全payload一致、error/fallback/mismatch0。NoahのBODY/ADD各4条件は固定周期で持続内の予定保持・長い間隔・期限ちょうど・無敵による再付与遮断を確認。最初のNoah refresh要求は第2tickを意図したが、無敵が2回目の付与を防ぐため、その意図の検証としては不十分だった。原要求/結果を保持し、MirandaのBODY/ADD×固定/蓄積4条件で3.5秒/7.5秒の実際の再付与リセットを確認。HTTPジョブ再検証ではない。全12のraw/input/source SHA・静的input再生成・既存decoderのCPU/GPU/API全field再投影を追加native/GPU0で監査。原本product-dot-clock-correction-v1-20261031とproduct-dot-clock-refresh-v1-20261031、小記録research/product-dot-clock-correction-v1.json。unitはportable_detail55、weighted_source_contract7、product_detail_packet7、portable_gpu_cli52が成功。
+
+直前の44c81f24ではADD付随14デバフ/DoTを共通carrierへ接続し、新25 HTTP条件と旧16 ADD rawの実GPU保持、旧255 catalogueの静的保持、新add-accumulate独立sealを実施済み。ただし今回の時計修正でソースが変わったため、これらを現コードの全条件認定へ加算しない。旧数値goldenの書換えなし。現コードCLIの独立再sealと短いCUDA実機確認は未完了。全キャラ/全効果の目標も未完了、11 canonical model gapは範囲外でそのまま。
+
+Windowsの直前sealed owner4b19cd58はPTX/object成功後、link API約0.047秒でCUBINを保存したが外側60秒deadlineで終了し、最終監査ファイル未生成のため全体false/GPU0。全Job終了、missing0、サービス未識別preservation=falseを維持。消費claimの再実行/timeout延長なし。成功inner+外側timeout専用の既存recovery方式をJIT linkにも厳密適用できるかは未実装であり、保存CUBINを現コードの実行に流用しない。今回Windowsへ追加依頼0。通常4317/4327サーバー変更なし。以下は履歴。
+
+# 2026-10-31 召喚敵射撃・最終射撃後の退場を通常API全8経路へ接続
+
+実装36229a5191ed138bf21382db22446dab6804dfcc。元summon.attack/attack_at/self_destructの宣言を、既存ADD wire・実actor generation/alive/born・nextWorldAddAttack・共通incoming・最終射撃退場へ渡す。新しいダメージ式/時計/CPU予定表は追加しない。表示名は元summon.name#ordinal、実際の発射元はGPUのslot/generation mapから復元し、node不一致や不正sourceを拒否。BODY/ADD混在順、退場後もqueue済みの最終射撃、再出現の世代を保持。
+
+実M5の通常HTTP APIで5主役（Miranda/Belorta/Asuka/Sakura/Nihilister）・16条件がCPU全製品応答一致。通常30秒の実蓄積/固定×normal/group/target/group-target8条件、Nihilister6条件（生存/HP撃破/再出現/BODY混在/random2/slot2,4貫通）、BODY DoTとの併用2条件。全16で実ADD被弾があり、合計1,400被弾、error/fallback/mismatch/cache hit0。全保存raw/source SHA・静的input全byte・既存decoder再投影も一致。実装commit後の再照合では元evaluator stampを保持し、現在stampだけを実Gitへ照合、他全計算field一致。追加battle/GPU0。最初の3秒8条件の原本も保持、現ソース証明は最終16を使う。proof product-add-final-api-v1-20261031、小記録product-add-v1.json。
+
+正例＋不正8入力を1Metal batchで検査。正例の全readbackが通常API原本と完全一致。不正magic/actor数/召喚数/退場flag/負delay/NaN interval/target slots/非zero paddingは全status64。CPU戦闘0。共通Runtime field追加0、resident stride163576/固定163584byte不変。入力116464word/出力2032000word（8,128,000byte/case）は既存ADD/退場wireを再利用し、通常prefixと未使用paddingをGPUで検査。履歴2048/対象query1024/32node/128actorの有限上限は残す。
+
+既存255profile/30秒fixedの保持もCPU/GPU追加0で監査。247件はGPU source closure同一、target8件は生成CUDA/MSLの全byteとRuntime reflectionが同一。全255の現静的input全byte・保存raw SHA・現decoder全計算fieldが元CPU/GPU/APIへ一致、fallback11理由も不変。元のGit metadataを現stampへ偽装せず別管理。全266のGPU再実行ではなく保存証拠の保持検査であり、新5主役を255へ重複加算しない。
+
+共通CLI product-detailへadd-accumulate/add-fixedと各-group/-target/-group-targetの8programを追加。旧8programの入力/登録は保持。36229a51の開発packet79cd3913…/ZIP14,275,662byteを既存CLIで作成・exact payload再利用で展開し、packet自身のCLIで3群63検査成功、GPU0。新8programは独立seal未完了で、通常のregistered-golden経路は明示拒否を維持。API実証をCLI sealと読み替えず、再実行して形式だけの証拠を増やさない。
+
+製品49/packet7/履歴7/数量4/CLI52/HTTP14検査は成功。広い旧typed検査151/154成功、private ADD5/6・退場7/8。残5件は古いsourceをcurrentと比較する証明/リテラル検査で、変更前2a48138fを別ディレクトリへ展開した静的source照合でも未一致を確認。旧監査で未接続だった厳密なquantity-visited/full-burst inverseを既存retained-source経路へ接続し、過去input/raw/hash/許容差/normalizerは変更なし。旧legacy weaponの現生成CU/MSLは古いidentity記録とは異なるため、旧証明のcurrent_source_shaを書換えて成功にしない。初期33失敗・24失敗・22失敗・最終3失敗のlogと旧原本を保持。旧監査を全greenとは主張しない。
+
+Windowsへの新依頼0、現実装CUDA実機0。前のDoT link外側missing1/原因unknown/全体falseは維持、再compile/link/GPUなし。専用4377/4378/4379は終了し、通常4317/4327変更なし。canonical CPU/pinned/数値規約不変、全目標未完了。
+
+次はADD攻撃付随デバフを、既存外部owner5の型付き定義・共通carrier/DoT時計へ接続する。現在はProduct ADD attack debuffs are not connectedで明示CPU切替。宣言を無視して受付しない。11 canonical model gap、敵弾薬/追加typed・座標製品経路、新CLI独立seal、CUDA/旧current証明の更新も残る。以下は履歴。
+
+# 2026-10-31 現DoTソースの通常API全266profile再検証、Metal255一致・CPU11
+
+固定source463d70761a61ca14904e5bb5b55308d7f855f661・cleanのまま、従来とbyte同一の全266要求を通常HTTP APIへ逐次投入。標準30秒・固定周期で255profileが実Apple M5 MetalとCPU全製品payload一致、11profileは理由付きCPU切替。エラー/不一致/API cache hit0。全266保存captureの静的input全byte再生成、source/raw SHA、既存decoderの全CPU/GPU/API再投影も一致。保存監査の追加CPU戦闘/GPU0、全実行中source不変を確認。専用4376停止、通常4317/4327変更なし。小記録product-dot-current-catalogue-v1.json、原本product-dot-current-catalogue-v1-20261031。
+
+これは現sourceでの固定30秒catalogue条件の確認であり、全特殊効果/全条件の認定ではない。DoT限定9主役/23条件とは別範囲。残11はAnn/Yuni/Yan/Soldier O.W./Velvet/Snow White Heavy Arms/Bay4段階/Rei。CPU consumerが欠けた条件をGPUで無効果受付しない。全工程合計1197.371秒、Metal case中央値3.882427秒、GPU区間中央値1.982267秒。入れ子区間を合算せず、CPU個別時間は未測定。
+
+同sourceのDoT CUDA sealed owner e4307f8f…を既存transport fd0dacbbで共有。MacはMiranda複数時計の保存実行を静的再準備・再投影で再利用し、Moran accumulate2.5秒だけ新API実行、全CPU応答一致。Mirandaの旧evaluator commit/dirtyを現在のGit値へ偽装せず、原CPU/GPU/API完全一致と、実Git値に対応する現再投影の計算全field一致を分けて記録した。新Moranは現source全field一致。専用4375終了。
+
+Windowsはown61/skip0、deps/compile-plan/sealed paired生成成功。PTX NVRTC20.427736秒、object/O1 ptxas8.715133秒、link API0.040114秒でartifact生成。ただしlink外側の観測でmissing1、内側0/supervisor0、原因unknown。総監視140.534秒・timeout0・cleanup/観測操作error0・全Job終了。サービス未識別preservation=falseと全体falseを維持。保存記録だけの調査ではpath空のpython.exeでpipeline所有を立証できず、既存historical bindingも空path/外側capture不適合で拒否。内側成功で外側失敗を隠さず、再link/compile/GPUを行わない。現DoT sourceのCUDA製品実行0。原本はWindowsに残るpeer報告で、Macが原Windows captureを独立監査したとはしない。小記録product-boss-dot-current-cuda-v1.json。
+
+旧7JSONの共有はMac側の具体的許可を伝達したが、Windows自動承認レビューがWindows側chatの直接許可を要求して未共有。再push/代替経路/再計算なし。現boss-dotの観測失敗とは別件。
+
+次のCPU変更不要な実製品gapとして、元ニヒリスター6秒/実蓄積/召喚敵射撃の全原定義を静的準備（CPU戦闘/GPU0）し、通常compilerの「Summon attack/self-destruct requires its declared world consumer」を再現した。既存world_add_attack_battle_runtimeの実actor generation/alive/bornと射撃cursor・共通incoming処理を製品入力へ接続する。独立した計算器や新suiteを既定解にせず、元source identity・BODY/ADD順・有限履歴・CPU比較を保つ。canonical CPU/pinned/数値規約/strict normalizerは本turn変更0、全目標未完了。以下は履歴。
+
+# 2026-10-31 敵DoTを通常製品へ接続、Metal9profile/23条件がCPU全一致
+
+実装a76c0f31。元attack/debuffのdotをtyped stat95・外部enemy owner5として共通Slangへ接続。CPUの受け手/戦闘/発動予定表を入力にせず、既存の対象選択と個別carrier、免疫/解除/stack/期限を再利用する。別UID時計512件で再付与の位相・期限ちょうどの最終tick・早期解除・carrier slot再利用を扱い、HPのみへ適用する。shield/cover/decoy・received_hit・被弾集計を通さず、無敵/既存不屈と死亡処理を接続。HP低下の子イベント（回復/最大HP増加）が完了してからhp_afterを記録する。
+
+通常HTTP APIの最終19条件と保護4条件が実M5 Metal・CPU全製品payload一致、fallback/error/cache hit0。実蓄積/固定周期×normal/group/target/group-target、再付与/stack、bound解放、subframe複数tick、minimum1、fatal、Mika解除/解除不可、Noah無敵、Biscuit回復、Moran最大HP増加、Kilo shieldとライdecoyの迂回、Makima発動済み不屈、同名別Dot時計と既存scalar同名保持を含む。主役profileはMiranda/Belorta/Asuka/Mika Snow Buddy/Noah/Moran/Kilo/ライ/Makimaの9。BiscuitはNoah編成内の原スキル発動確認で主役数へ重複加算しない。現source全catalogue266/標準30秒の再認定ではない。
+
+全23保存input/raw SHA・既存decoder再投影がCPU/GPU/API全一致、追加battle/GPU0。最後のhost-only修正（overlay変換でDot down kind8を除外、同file source逆変換pin更新）後も、変更2hostだけ・GPU閉包全byte同一・静的input全byte同一・全23再投影一致を検査した。追加GPUやCPU戦闘は0。GPU9入力1batchも正例が通常API全raw一致、不正owner/型/数値8件がstatus64。共通CPU77群858検査、失敗/error0、既存skip1。
+
+初期失敗を保持：v1はd.intervalが一般周期へ登録され、外部casterを味方dispatchへ渡すため最初のtickでstatus64。typed DoTは一般timerから分離した。stat93はprivate cover-defense/target-countと衝突するため95へ専用化。Moran HP閾値caseはhp_after1項目だけ不一致を再現し、子処理後snapshotへ修正、失敗原本とGPU追加0の再投影を保存。Noah/Biscuitの最初のfixtureは未所持Dollaを含みCPU準備で拒否、所持済み元memberへ訂正した。CPU正本/pinned/許容差/strict normalizerは不変。元の時計欠陥（Noah持続5/interval3で121tick）も現CPU規約として完全一致を維持し、許可なく修正しない。
+
+通常No-Dot30秒の実蓄積/固定周期も不変packetで実Metal→fresh独立seal成功。旧input/全output/全entry/native指紋をassert完全保持し、program基準はsource/generatedだけ更新。旧保存captureやgoldenは変更せず、新packet payloadは一致ファイルをhardlink再利用。source履歴19fileを完全SHA・正確hunkで逆変換し、旧product baseline復元済みの場合も別の固定ledgerが認める全file SHAだけを受理する。旧歴史数値を現source証明に流用しない。
+
+normal resident strideは138992→163576bytes（+24584/1case）。DoT未使用時は時計走査をしない。時計512・全incoming履歴2048・drain作業上限は明示CPU切替で、無制限対応とはしない。詳細proofはproduct-boss-dot-final-v1-20261031/product-boss-dot-protection-v1-20261031、小記録product-boss-dot-v1.json。専用4370..4374を終了、通常4317/4327変更なし。
+
+新DoT sourceのCUDA実機確認0。旧bb1f338bのCUDA1profile/2条件、旧9a6のCUDA3、旧4e86のMetal255/266は歴史として分離。今回Windows追加実行0。次は現在のclean sealed packetを準備し、同じaccumulate programのDoT複数時計とHP閾値を短くCUDA確認する（Moran fixed2.5秒をaccumulateへ変えるなら先にMacで同入力確認）。既知11 canonical model gapも残り、全目標未完了。以下は履歴。
+
+# 2026-10-31 新共通デバフの通常CUDA製品2条件がMetal全raw一致、現ソースMetal6/CUDA1profile
+
+実装source bb1f338b93e51b176b8197f52f5320005bef5c2d不変。元Mirandaの実蓄積1.5秒で、攻撃付随と独立詠唱のatk_pctデバフ各1条件を通常HTTP APIからM5 Metal/RTX3070Ti CUDAで実行。いずれもCPU全製品payload一致、fallback/cache hit/差分0。attack input ce298eab…→readback8384a7e7…、cast input24c119ee…→readbackf32e585a…で、Windows報告の全raw SHAがMac原本に両方一致。Windows内でもCPU戦闘禁止の静的input全byte再生成・元decoder再投影が保存GPU/CPU/API全一致。Windows原本は未転送で、peer報告とMac原本のhash照合を区別する。小記録product-boss-current-cuda-v1.json。
+
+sealed owner c772f39a1befb756662f3c249a8930789b9aea695592f6f3cee09f13396482e1、source-only ZIP11825560bytes/SHAe65d8c20…を既存codex/product-current-parts-v1-packetの1910000aへ共有。CPU正本/pinned不変、旧9a6との差はGPU閉包6files。Mac/Windows own59、deps/PTX計画/paired sealed生成成功。新key45559923…でPTX1回成功：NVRTC20.044984秒、内30.651/外39.785秒、peak224243712/258715648bytes。PTX9550885bytes/SHA50abd238…。
+
+旧controllerの消費済みmodule/link stageを再実行せずCPU-onlyで停止。その後、実際に変わったPTXを固定した今回owner自身がpolicy適合・両claim未消費と確認し、それぞれ1回だけ生成。object/O1 ptxas8.477522秒、内23.014/外43.032秒、peak348205056/394510336bytes、object5468784bytes/SHA4827e290…。jit-link API0.043257秒、内19.380/外47.783秒、peak112103424/232644608bytes、CUBIN SHA2da7e174…。両外時間合計90.815秒、段階間込み115.110秒で180秒以内。旧claimを新ownerで迂回再試行したものではない。
+
+この保存CUBINだけを既存providerで専用通常serverへ接続。2件の全工程58.493/60.720秒、合計119.213秒、段階間込み132.291秒で180秒以内。最大peak2012217344/2013388800bytesで2GiB上限内。新GPU2/CPU照合2、静的準備・保存監査の追加battle/GPU0、API時Slang/NVRTC/ptxas/link0。全Job/専用server終了、missing/cleanup/観測error0。全段階のサービス未識別preservation=false/外側falseを保持し、計算成功と環境全保全を混同しない。内外時間や入れ子stageは合算してGPU時間にしない。旧保存7JSONの共有拒否は別件のまま。
+
+Macではさらに元Rapunzel Pure Grace/Kilo/ライ/Mirandaの共有shield/個人shield/decoy/自然reload-coverの4通常API条件が実Metal/CPU全一致。各ケースに保護層吸収かつHP0が2件ずつあり、空の保護条件比較ではない。保存4件再投影も一致、追加battle/GPU0。小記録product-boss-protection-v1.json。現sourceの主役profile集合はMiranda/Belorta/Asuka/Rapunzel Pure Grace/Kilo/ライのMetal6、CUDAはMiranda1（2条件）。旧4e86の全266 sweep中255や旧9a6のCUDA3を現source件数へ足さない。標準30秒/fixed/group/targetのCUDAは未認定。
+
+今回runtime/CPU/数値期待値/normalizerは変更0、既存856 CPU全群の無用な再実行はしない。保護CPUのDoT時計修正許可は未回答なので不変。次は現行CPUの観測規約（既知の時計欠陥を含む）を明示したDoT接続を進められる。修正許可があればCPU/GPUの規約を同時に改訂する。11 canonical model gapも残り、全目標未完了。専用Mac4368/4369も終了、通常4317/4327に変更なし。以下は履歴。
+
+# 2026-10-31 敵の独立デバフ詠唱を8製品経路へ接続、DoT正本の時計欠陥を再現
+
+実装161a8229。kind=debuffの元cast descriptorを、攻撃付随と同じowner5外部敵・型付き定義・対象選択・免疫/解除へ渡す。共通incoming executorのopcode33は、対象ごとに順次付与して次へ進む。HP/保護層計算・被弾通知・受けたダメージ/回数は発生させない。入力のCPU戦闘/予定表は0、保護CPU/pinned/strict normalizer/数値規約は不変。
+
+通常APIの実蓄積/固定周期×normal/group/target/group-targetの8条件（atk_pct、6秒）が実M5 MetalとCPU全製品応答一致。主役はMiranda/Belorta/Asukaの3profile。初回の対象別4条件はホストのplain-body kind制約でCPU切替となり保存、debuffが対象poolを変えないことを既存registryで確認する受付へ修正後、その4条件だけを再実行した。成功済みnormal/group4件は再実行せず、現GPU閉包/静的input全byte/保存raw再投影が現コードでもCPU/GPU/API全一致することを監査。全8件の被ダメージ/被弾回数0もrawから確認、追加battle/GPU0。
+
+通常normal30秒も2モードを不変packetで実Metal実行・fresh独立seal。旧入力/全出力/全entry/native指紋完全保持をassertし、登録はsource/generatedのみ更新。共通CPU77群856検査成功/既存skip1。proof product-boss-cast-v1-20261031とproduct-boss-cast-target-v2-20261031、小記録product-boss-cast-v1.json。専用4367終了、通常4317/4327変更なし。現在sourceのCUDA実機0、旧9a6の3profileは履歴。全catalogue旧255/266を今回の現source認定へ読み替えない。
+
+次のDoT移植の正本境界5件を、既存test_portable_detail内でnative比較：期限tick包含・再付与前tick/stack・同frameのpattern解放優先・subframe複数tick・無敵中HP0/被弾通知0。重要：現CPU _boss_dotsはnext_t>expiresでliveなscheduleも削除し、次frameで再作成する。元Noah/attack0.5/DoT持続5秒・間隔3秒で、3.5..5.5の121tickを再現。本来の説明文の1tickとは異なる。canonical変更なしでこの欠陥を明示再現し、live中は最終next_tを保持する1条件の未適用patchをproofへ保存。CPU時計に限る変更許可をユーザーへ確認中（未回答）。許可なくpinned/CPUを変更しない。DoTは未接続CPU切替のまま。独立した未対応実装は継続できる。
+
+11 canonical model gapも不変、全目標未完了。以下は履歴。
+
+# 2026-10-31 敵攻撃付随デバフ14種を共通製品実行器へ接続
+
+実装117ba4e2（初版d69fd0a7）。元CPUの実在consumerを保ち、敵攻撃でHP損失があり生存した通知対象へ、received_hitより前に14種の非DoTデバフを順に適用する。owner5の外部敵を型付きdescriptorで限定し、既存carrierの免疫・解除・stack・期限とpattern-bound解放へ接続。同名別定義は併合しない。GPUへCPU戦闘結果・受け手予定表は渡さず、CPU正本/pinned/数値規約/strict normalizerは不変。
+
+通常HTTP APIの固定周期21条件と、実蓄積/固定周期×normal/group/target/group-targetの8条件が実M5 Metal計算・CPU全製品payload一致。主役5profile（Miranda/Noah/Mika Snow Buddy/Belorta/Asuka）における条件追加であり、全catalogueの対応数追加ではない。保存全29件の静的入力再生成・source/raw SHA・既存decoder再投影も一致、保存監査の追加battle/GPU0。旧v2のstun admission status64は保存し、native値ONEへの限定修正後、同一21request全件成功。GPU型付き拒否8件＋正例1件も1dispatchで確認。CPU77群850検査成功/既存skip1。
+
+既存normal30秒の実蓄積・固定周期もそれぞれ不変packetで実Metal実行→fresh独立seal成功。旧入力/全出力/各entry/native指紋を完全保持したことをassertして、program登録はsource/generatedのみ更新。proof product-boss-debuff-v3-20261031とproduct-boss-debuff-composition-v1-20261031、小記録product-boss-debuff-v1.json。専用4366サーバー終了、通常4317/4327は変更なし。
+
+現在の新sourceでCUDA実機確認0。旧9a6c3aa7のCUDA3profileは履歴として分離。Windowsへ今回追加compile/GPU依頼はなし。旧保存7JSONの共有はMacユーザー具体的許可を伝えてもWindows自動承認レビューが別chat経由を拒否し未共有、再計算なし。boss DoTは明示CPU切替のまま、canonical model gap11profileも不変。shield/cover/decoy/免疫回数の全分岐実証とは主張しない。次はboss DoTのnative時計/上書き/解除順の接続と不足分岐確認。全目標未完了。以下は履歴。
+
+# 2026-10-31 共通入力2件のMetal/CUDA全readback一致、CUDA製品3profileへ
+
+実装source9a6c3aa7は不変。元current-api-requestsのAlice(index1)を2秒、Rapunzel Pure Grace(index4)を3秒へ短縮し、通常HTTP APIのMetalとCUDAで同じ2条件を確認。元の射撃操作はAlice tap/毎秒3.6・release0.03、Rapunzel sequence hold until2.2のまま。両者の主役damageも正で、空の比較ではない。各backendとも全CPU製品payload一致、静的input全byte再生成・raw再投影一致。保存監査の追加battle/GPU0。
+
+Alice input4fd919d6ab6aa6c5a6879ea9196385c81d5d16f79454cdd741639d15c5cba119→readback60679df9b3607dee62c722106f663adef5968ed8a34283c5343f9979edbfcc99、Rapunzel input41dda5eefe0550a31fe648697d9af008fa493caff8565460459ae9cad6af4891→readback8ecca5a63ef6d879ce8b543622830291ce3fa53e1fd00f821a758af6074abd15。CUDAの全readback SHAがMac原本と両方完全一致。Windows原本はMacへ転送せず、Windows内保存監査はpeer報告として区別する。
+
+新Slang/NVRTC/ptxas/link/SDK installは0。Windowsは保存owner2a3053da…/CUBIN ad057e8b…を再利用、逐次fresh Job/BelowNormal/2GiB、実消費合計122.04秒、Job間を含む観測区間143.56秒で要求180秒以内。新GPU2/照合CPU2、missing/cleanup0、全Job終了。サービス未識別preservation=false、旧失敗claims/旧7JSON公開ブロックは保持。Mac専用port4362も終了。proof product-current-controls-parity-v1-20261031、小記録research/target-count-query-evidence/product-current-controls-parity-v1.json。
+
+現在のCUDA製品確認は3profile：Miranda1秒/Alice2秒/Rapunzel3秒。標準30秒/fixed/group/targetは0。全条件完成とは主張しない。Metalの直前全266 sweepは4e861325で255成功/11理由付きCPU切替、現sourceの追加2条件も成功。実装・保護CPU・pinned dataは変更なし。全目標active。
+
+保存phaseのCPU-only集計ではCUBIN admissionがAlice24.925461/Rapunzel25.084262秒、owner監査4.741722/5.127276秒。GPU同期APIは0.235823/0.319218秒、worker全体32.381/33.182秒。入れ子stageは合算せず、純GPU時間と読み替えない。API内prepare/CPU battle/比較個別時間はunknown。GPU再実行なしで、今後の効率化対象はadmission内部の重複検査と特定できた。検査削除・所有不明cacheの流用はしない。
+
+既存CLI model-checkも現sourceで成功（source/dependency監査のみ、battle/GPU0）。旧全sweepからのsource差はapp/portable_weighted_incoming_source_contract.pyとgpu/counter_landing_runtime.slangだけで、CPU正本/pinned calculator/dataは全て不変。残11の欠けたcanonical consumerをGPU whitelistで無効果受付しない。public samplingのscoped GPU gapは報告されるが、engine_worker.py:305は現在expected=True固定で、既存製品のsampled CPU入口があるという意味ではない。
+
+次の実装対象として、CPU変更不要の実在GPU gapを確認した。app/portable_world_attack_specs.py:9が敵attack.debuffsを拒否する一方、pinned timeline.py:5372はspec.debuffs && to_hp && !fell && notify_hitのときapply_boss_effectをreceived_hitより前に実行する。HP損失正例と、shield/cover/decoy/invincible/down/even-sharingの抑止、免疫/解除順を既存incoming/carrierへ接続し、test_portable_world_enemy_attack.py/test_portable_detail.pyと通常APIで検証する方針。今回はconsumer確認までで未実装。残11の新CPU契約許可待ちと区別し、別の小suiteを増やす既定解にはしない。Windows cursor246/idle、追加GPU依頼なし。以下は履歴。
+
+# 2026-10-31 現ソースの通常APIでCUDA1profile・1秒の全製品応答一致
+
+実装source9a6c3aa7a52361b40f44963b21f60afe3a9a9969、sealed owner2a3053da8b227707f5c32af35e03f1555c429af48c2c0d0a04d7d91bbde14a15。source-only ZIP11814211byte/SHAce3fd5c8b4dff20ab018ff5b24ca12e7a87fdd914ce68e280ad234eeb0add91aを既存codex/product-current-parts-v1-packetのd4b6f789e9cd05b9d97f9ab392f1d35018351b4cへ共有。旧66edecとの差は全6files/GPU closure1file、旧失敗claims/cacheは不変。Windows own49/skip0・deps・PTX2GiB60秒plan・paired sealed生成一致が成功。
+
+新keyでPTX生成は1回成功。NVRTC entered→returned(code0)20.158秒、compile内30.859/外40.203秒、peak内223174656/外257343488byte。旧timeoutの再試行ではなく、共通部位呼出し境界とCPU監査最適化を含む新生成source。両変更の単独寄与は分離測定していない。保存PTX9504650byte/SHA7bcd3dc7e9003378c8936cfd530b4812f0bab3a40925de986c302cc6a699b78c。
+
+同PTXから既存module-object/O1を1回：ptxas8.366秒、内21.307/外39.164秒、peak内348213248/外394067968byte。object5444976byte/SHA8d173bfc22dddbd4f25da5eca028a6ba8dd46a24751bbd1808c9a6701fc70deb。その保存objectだけを既存jit-link-objectで1回：link API約0.040秒、内約17.28/外43.47秒、peak内112545792/外237961216byte。CUBIN5066448byte/SHAad057e8bb7daa9244875671792b2aacf697a256f6056726ad4c5592f52b77cba。whole-program直接assembleの再試行やSDK再installはない。
+
+このcurrent imageを元PTX→object→linkの既存admissionで通常server.mjsへ接続し、通常/api/jobsのMiranda・実蓄積1秒を1件だけRTX3070Tiで実CUDA実行。全CPU製品payload一致/相違0/CPUfallbackなし。input SHAe26cf2bbb65dd20fc1b03780b24d38729a3c783b41913f1971284ca45b29c0d8、readback SHA647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f。launch/sync/readback return0。host dispatch0.238034秒、同期API0.231532秒で純GPU時間ではない。内約41.11秒/peak1982312448byte、外約45.96秒/peak2000576512byte。生成はexact cache hit、新Slang/NVRTC/ptxas/linkは0。専用server停止・保護25files不変、Job後空。
+
+Windows内の保存監査も完了：CPU戦闘禁止のprepare/compile_productで静的input全byte再生成、raw SHAとsource/cache/image来歴検査、既存decode_payloadでraw再投影→保存GPU/CPU/API全payload一致（compute/cache_hitのみ除外）。追加CPU戦闘/SDK/driver/GPU/compileは全0。初回は監査invocationの過剰な子process禁止が元decoderのgit rev-parse HEADを拒否し停止、原失敗を保存。修正版は固定の元読取Gitだけ許可、実exit128/commit・dirty nullのままで一致し、元decoder/期待値の変更なし。
+
+全stageのmissing/cleanup/観測エラー0、compiler/object/link/containmentと、サービス未識別によるpreservation=false/outer passed=falseは区別して保持する。旧missing7/原因unknownや旧7JSON公開の承認拒否も別件で保持。今回のraw/PTX/object/CUBINは外部送信していない。小記録product-parts-call-boundary-v1.jsonはWindows peer報告で、MacのWindows原本独立監査とは区別する。Windows cursor239/idle、live Jobなし。
+
+coverage：直前4e861325の全266 sweepはMetal255/理由付きCPU11。現候補9a6c3aa7は通常API5主役・7条件とCLI蓄積/固定の保持を確認した段階で、現sourceの全266再実行とは主張しない。現CUDAはMiranda1profile・1秒のみ、標準30秒0/fixed0/group0/target0。歴史CUDA1profileを足して2とは数えない。残11 reference-model gap、CPU契約拡張/Claude要約送信の具体的許可未確認は継続。全目標は未完了。
+
+次のWindows検証は保存current imageを再利用し、約2GBの実行時peakと工程別時間を基に必要な短い差分だけ選ぶ。長時間sceneや大規模batchへ自動拡張しない。通常workerはupstream alias変異を避ける1評価1fresh processで、既存execute_batchesへ単純に束ねるとこの保護を失うため、未検証のbatch化で回避しない。以下は履歴。
+
+# 2026-10-31 製品部位packetの共通呼出し境界を固定
+
+共通gpu/counter_landing_runtime.slangのdeliverCounterPartsだけをPORTABLE_PRODUCT_OUTLINED_HELPERS下でnoinlineへ変更。新しい複数命中内呼出しから、部位/割り込みのループを各shot callerへ展開させない仮説。保存normal生成CUDA/MSLとの全byte差は属性1箇所だけ、関数本体/計算順/容量/CPU正本/normalizerは不変。実NVRTC時間改善は未測定であり、静的call graphをcompiler memory原因と読み替えない。
+
+通常HTTP APIへ元の部位/部分charge/複数命中/対象補正条件8要求を投入、7件が実M5・CPU全製品payload一致、1件は同一要求のAPI cache応答。主役5種類の条件拡張であり、新catalogue profile追加ではない。入力全byte静的再生成・readback SHA/元raw全byteと一致・raw再投影の独立照合成功、照合追加GPU/CPU戦闘0。専用4361サーバー終了。固定group条件は今回未実行で、蓄積group/normal/targetと固定normal/targetを含む。
+
+既存CLI product-detail accumulate/fixedをそれぞれ不変開発packet→明示paired generation→run→fresh独立seal。旧input/output/entries（CPU指紋を含む）完全一致をassertしてprogram tableのsource/generated識別情報のみ更新。古いnative baselineは依存差で正しく拒否し、guardを緩めず元1ケースずつ再準備した。旧期待値/失敗は外部proofに保持。77群846 CPU tests成功（既存skip1）。旧cover goldenとの厳密歴史閉包は、候補sourceの全SHAと旧SHAを固定した単一属性inverseで保持。改変source/属性/算術を拒否する負例も成功。これは生成物normalizerの除外ではなく履歴source復元だけ。
+
+proof product-parts-boundary-v1-20261031、小記録research/target-count-query-evidence/product-parts-call-boundary-v1.json。現候補を全266件再実行したとは主張しない。直前4e861325の全266件は255 Metal/11理由付きCPU切替。現在の通常CUDA製品計算は0、歴史1profile1秒とは分離。次は新source sealed packetのown検査/compile-plan後に短いWindows PTXを1回だけ確認する。旧da433e0b…のclaim/compile-claimedは保持し、同一source/keyの再試行をしない。以下は履歴。
+
+# 2026-10-31 現sourceの通常固定API全266profileを再実証
+
+source 4e8613257b766bd934e68dfe25c89749906cc683を凍結し、通常HTTP /api/jobs経路を固定周期・30秒・元catalogueの標準成長/キューブなし編成で全266profile（基本/宝もの段階）実行。255件が実M5 Metal計算とCPU全製品応答一致、既知11件が理由付きCPU切替。API error/数値差分/cache hitはいずれも0、capture266件。normal fixed245/group fixed2/target fixed8で、group-targetはこの標準編成では0。過去255件の再認定であり、新規profile追加ではない。全設定・全発動分岐・ゲーム実機一致の証明とは区別する。
+
+保存全266件の独立照合を完了。正例はCPU戦闘を禁止して静的入力全byteを再生成し、凍結source/raw入力/readback SHAとGPU実行証拠を検査、既存decoderでrawを再投影して保存GPU/CPU/API全製品payloadを照合した（実行metadata/cache_hitのみ除外）。独立照合の追加CPU戦闘/GPUは0。最終source再hashも一致。既存proof product-fixed-current-api-v1-20261031と小記録research/target-count-query-evidence/product-current-fixed-api-sweep-v1.jsonを保持し、rawは共有しない。専用port4360サーバーを終了、ユーザーの4317/4327には変更なし。
+
+profile処理時間の合計1227.705秒、中央値3.882秒、最大21.670秒。Metal実行区間の合計671.555秒、中央値1.966秒。これらは入れ子であり合算しない。事前storage budgetは2GB＋1GiB reserveで成功。
+
+同sourceの共通scope auditor最適化は検査を省かず、Mac中央値0.159546→0.018180秒（約8.8倍）。WindowsのCPU専用比較はaudit＋resident appends中央値0.898809→0.042336秒（約21倍）、全結果/20関数抽出tuple一致。77群845 CPU tests成功。Windows測定はpeer報告で、Mac側のWindows原本独立監査とは区別する。詳細はgenerated-scope-scan-optimization-v1.json。CPU正本/GPU source/数値期待値/strict normalizerは不変。
+
+最適化後のsealed owner b8bc4cb06c82913bbc56a99987a736a86da7c66d9b3624566358bdf449e9853bはローカル準備のみ。own48/deps/compile-plan成功、明示generation2回のCUDA/MSL/両reflection全byteが既存Metal生成証拠一致。Windowsへ未送信・追加compile/GPUなし。同一生成CUDAの旧NVRTC timeout claim/compile-claimedは保持し、新owner/cacheで同じ失敗keyを迂回再試行しない。
+
+現sourceのCUDA製品計算認定は0。歴史CUDAの実蓄積1profile・1秒、fixed0と区別する。残11profile（Ann/Yuni/Yan/Soldier O.W./Velvet/Snow White Heavy Arms/Bay4段階/Rei）は引き続きreference model gapで、先頭拒否だけのwhitelistは行わない。CPU契約拡張と新Claude要約送信の具体的許可は未確認、既存拒否を維持。Windows旧7JSONの公開は別件の状態確認中で、再計算なし。全キャラ・全特殊効果の目標は未完了。以下は履歴。
+
+# 2026-10-31 Windows改行fixtureを解消、現sourceのcold PTXは60秒timeoutで停止
+
+current source da7a4c35033865322846a844f432e45f64cb201c、現normal shaderは852c1192と同じ。old ec成功PTXと現shaderはevent_runtime/attack_group_runtimeの2閉包差分があり、生成指紋も異なるため流用しない。Macの新sealed owner1b668b9f…をcodex/product-current-parts-v1-packet ac8d678eで共有した。転送側の旧branch定数でCPU取得失敗→訂正版で取得成功。その後transportの『2件』を全GPUと解釈した追加gateで停止。外部transport JSONをddc614d3で訂正：旧ec基準で全payload12件/GPU5件/選択normal closure2件、追加削除0。ZIPは不変。旧失敗/claimsを保持。
+
+Windows1bの48testは47成功/1error。test_exact_later_product_inverse_keeps_original_ledger_and_old_sourcesが履歴preimageをPath.write_textで戻すとLF→CRLFとなり厳密added-source SHAに拒否されるfixture不具合だった。MacでPath.write_textのnewlineをCRLFにして同じ失敗を再現。da7a4c35でテストだけwrite_bytes(UTF-8)＋生byte assertへ修正。通常5/CRLF模擬5が成功。production SHA validator/ledger/CPU正本/GPU source/normalizer/数値期待値は不変。
+
+sealed修正版66edec5d576025c2c76dc70de61bc73b41f3a0a57e06f1fb3184d9e5f819f0f4（2686files、ZIP11813016bytes/SHA900b1331cb6fbcfdf9b07160fba8a14f5464b1622e2b01ddc9fe76800eaf685c）を同branch commit701ddf50990434953e134b623286366127277c1eへ共有。旧1bとの差は指定テスト1fileのみ、他全bytes/golden全体一致。Mac ownunit48/deps/PTX2GiB60plan成功。Windows root C:/Users/owner/Documents/Codex/nikke-product-current-parts-fixture-v2/packetでも48成功/skip0、deps/plan/paired generation成功。strict CUDAfe2a3e…/MSLffbb74…が現Metal基準一致。SDK/依存の再installなし。
+
+現sourceの初回NVRTC PTXは内側60秒でtimeout。NVRTC enteredだけ、正常return/PTXなし。内62.563秒/外77.532秒（観測含む）、peak内196964352/外230236160bytes、missing0/観測cleanupinspection0/Jobpost空。child作成→NVRTC entered16.7680502秒、pre-gate→entered16.7158141秒、entered→終了後Job観測43.2838683秒。wall clock同士で算出、exact Job終了/NVRTC実行時間は不明。returned child verify_package7.984510、slang_build4.365102、pair validation1.562319/1.085596、scope audit1.163056/.637747秒。入れ子なので合算しない。2GiB不足の根拠はない。既存保存option一覧はC++17/compute_86/fmad=false、当該実呼出しargvの保存はなく-O/dopt/ptxas optionは一覧になし。上限延長/同sourceのowner/cache替え再試行なし。ptxas/link/driver/GPU0、GPU profile追加0、失敗とclaimを保持して停止した。
+
+Windows chat cursor185/idle。最後の依頼は保存timingのread-only確認のみで完了、追加Job/SDKロード/公開なし。小記録research/target-count-query-evidence/product-current-parts-windows-check-v2.jsonはpeer statusで、MacのWindows原本独立監査ではない。生詳細はWindows保持。旧7JSON/e9802daaの直接許可待ちは別件で継続、迂回取得なし。
+
+次は既存compile observerが同一生成pairをvalidate_pairで再検査する約1〜2秒と、child package検証約8秒の切り分け。観測コードresearch/portable_phase_audit.py:observe(build wrapper)がgenerator内検査後にaudit_receiptで同じpairのsemantic auditを実行していることを現codeで確認したが、まだ最適化やWindows再実行はしていない。検査を削除したりcapを増やさず、byte一致時の同一process内再利用とfresh独立監査の境界を設計/故障注入する候補。profile数を増やす実装の代用にしない。
+
+通常API候補5件（Miranda30秒/Alice8秒/Milk20秒/Ada8秒/Rapunzel PureGrace8秒、全accumulate）を元公開factoryから静的prepareしnormal入口とinput SHA確認、GPU/native0。同branch52b342d239af47b5f5fe4767dd8a6d6a3ce5c09bのcurrent-api-requests.json/current-api-plan.jsonへ共有。ユーザーsessionは含まない。未実行であり、実行時はMiranda先行、成功/予算評価後だけ追加を検討。normal/fixed CUDA認定は増えていない。
+
+Claude要約2673byteの送信とCPU契約拡張は人間の返答待ち、実施しない。歴史Metal255＋別編成1、CUDA旧蓄積1profile1秒・fixed0、全目標active。以下は履歴。
+
+# 2026-10-31 残11profileを現sourceで再分類、Claude方向性レビューは具体的送信許可待ち
+
+current source4fa35b70。既存CLI model-check --summaryを新規proof product-current-model-check-20261031.jsonへ実行し成功、GPU/native0。これはsource/dependency監査でGPU対応証明ではない。さらに残11profileを現catalogueから静的prepare/compileし、全件の元effect identity/rejectionを確認。既存reference_readinessで全11がreference_model_gap、単なるGPU lowering gapではないことを再確認した。proof product-remaining-profiles-current-20261031.json。無効果whitelistや許容差変更でprofile数を増やさない。既存255profileの条件拡張だけではこの11件は解消しないため、次は既存consumer有無の確認とCPU/製品契約の実装範囲判断が必要。
+
+Claudeへ上記方向性を相談しようとしたが、正常な自動承認レビューが「内部の製品coverage/未対応効果/CUDA状況/実装方針をAnthropicへ送る具体的payloadと送信先への明示許可がない」と実行前に拒否。送信/Claude起動/再試行/迂回なし。正確に同じ2673byteのpromptをproof product-direction-review-20261031/prompt.txtへローカル保存、SHA74cb6f2f8c9fd9d54755546ab066c3faa68d5fbc402154a70dba55575bc490d3。request.json/local-findings.txtも保存。要約だけ・コード/設定/認証/rawなし・ツール無効・plan・session無保存・90秒上限で1回の予定。直接許可待ちで未実施、Claudeの結論とは主張しない。Windows7JSONの直接許可待ちも別件で継続。追加GPU/compile0、profile数はMetal255/CUDA旧1・fixed0のまま。以下は履歴。
+
+# 2026-10-31 対象別補正carrier＋元部位＋boss行動を製品4条件へ接続
+
+source83480d91740d4c96fb948e94407143787b923664。product_body_worldは元pattern/registryでBODYとPARTだけを認め、typed targetのない通常/複数命中両入口が元partsを保持する。projectile/shield補正carrierの元値・順序・triggerは保持し、部位用の係数として加算しない。typed binding tableが空の場合だけGPU初期化もBODY/PART universeを検査する。実typed targetのあるprivate入口は従来のBODY1体制約、召喚/interrupt/shield等の未接続製品合成は拒否を維持。CPU正本/効果/数値期待値/strict normalizerは変更なし。
+
+通常API v1 source55cdbdc9でSakura/Belorta/Miranda/Dolla/Drakeの複数命中＋対象別補正＋部位2個＋armor/core/volleyが固定/蓄積2/2実M5・CPU全payload一致。Asuka/Liter/Modernia/RedHood/Nagaの通常射撃2件はさらに残っていたinitializeDestructibleBattleのBODY1体検査でGPUstatus64、元記録を保持。修正版83480d91のv2は元失敗とinput全byte同一で、固定/蓄積2/2実M5・CPU全payload一致。v1成功groupのsource closureは83480d91でも全SHA完全同一で再実行不要。各raw SHA/API/CPU全payload/source凍結を独立照合。proof product-modifier-parts-api-v1-20261031/同v2、saved-audit.json。専用port4358/4359は終了済み。4条件は2既存編成の条件拡張で新distinct profile増加0。
+
+v1全共通77群842test失敗0/error0・既存Windows-only skip1。最終initializer修正後は影響する製品/packet/歴史sourceの3群48test再確認、失敗0。旧product ledgerは不変、完全新file SHA一致時だけ元destructible weapon/battle/group-target sourceへ厳密逆変換し旧preimageを検証。現在の数値同等性を歴史監査で代用しない。
+
+部位なし通常Miranda30秒の蓄積/固定はGPU source closure自体が前回852c1192と全SHA同じ。paired生成cacheも両方hit/コンパイラ0、CUDA/MSLのstrict生成指紋も同一。新development packetを各1つ梱包し、同じinput/native期待指紋を確認。保存readback/input全SHAと現静的入力全byteを一致確認し、既存verify-product-detail.compareで現在のCPU全製品payloadへ再投影して一致。追加GPU0/コンパイラ0、元独立seal保持、golden/table更新0。proof product-modifier-parts-regression-v1-20261031/saved-replay.json。これは新GPU dispatchではなく、同一計算結果の再利用。新development ownersd61225a9…/ac410709…はGPU未実行・未sealで配布しない。6group/target family memberの登録sealは引き続き未完。
+
+Windows保存7JSON44002bytes/commit e9802daa…の共有は既存chat cursor148/idle、直接のWindowsユーザー許可待ちで変化なし。追加compile/GPU/再送0。歴史255Metal profile＋別編成1、CUDA旧蓄積1profile1秒・fixed0、全11未対応と全条件/編成/現CUDAを含むgoal active。集約research/target-count-query-evidence/product-modifier-parts-composition-v1.json。以下は履歴。
+
+# 2026-10-31 部位結果を製品へ接続、部分チャージとmulti-hitを共通GPUで修正
+
+作業source852c1192（df147c91で製品部位projection、852c1192で計算修正）。通常APIのauthored-live-partsを既存pool registryへ接続し、GPUの直接/extra bankと破壊logから既存parts_state形式へ変換する。部位名は元入力とslot/node identityを一致検査、GPUが返したdamage/hits/破壊時刻だけを使用。CPU戦闘の状態や予定は入力しない。通常API v1では4件中2一致、Alice部分チャージ部位の数値差とBelorta group status64を不変保存。v2は元requests/全input byteを保持し4/4実M5 Metal・CPU全製品payload一致。旧CPU保存のある3件もevaluator VCS stampだけ除き元CPU全payloadと同一。APIのcompute/cache_hit以外の製品結果、raw input/readback SHAとsource凍結を独立照合。proof product-parts-api-v1-20261031とproduct-parts-api-v2-20261031、各saved-audit.json。専用port4356/4357は終了済み。
+
+修正は共通Slang2箇所。COUNTER_DAMAGE/COUNTER_SHOTの部位・interrupt snapshotも本体同様PARTIAL_IS_FULLでH_CHARGEを決める。native product groupのみにPART actorを許可し、BODY pelletのcounter/lifesteal/accumulateの後で既存deliverCounterPartsを呼ぶ。部位をmulti_hitの別の論理敵として数えない。authored all-logical-enemiesは拡張しない。CPU正本/効果/strict normalizer/過去数値fixtureは変更していない。歴史監査は完全source SHA一致時だけ元event/groupへ厳密逆変換し旧preimageを検証、現在の数値同等性の代用ではない。
+
+現共通77群842test失敗0/error0、既存Windows-only skip1。部位なし通常Miranda30秒の蓄積/固定も既存CLIの独立development packet自身でM5実行・全CPU製品payload一致、fresh独立seal成功（追加GPU0）。proof product-parts-regression-v1-20261031、owners2cb091d2…/c4fdb0f0…。旧input/output/entries数値は全一致、登録tableはsource/generated metadataだけ更新。蓄積の最初の必須生成cache検査はGPU前missで停止、失敗/未消費claim状態を保持。明示paired generation2 calls後、必須生成hitで新Metalパイプラインを構築し初回GPU実行した。fixedは生成/pipelineとも既存hit。これをGPU retryやcache hitの偽装にしない。6group/target membersの独立sealは引き続き未実施。
+
+Windows current-controls PTX（source4bfd6841、owner ec485865…）のNVRTCは成功済み40.781秒、9507518bytes/SHA682a1430…、GPU未実行。保存7JSON44002bytes/commit e9802daa67bb30e4ae017d4afa5a7088592d0195の共有は、人間がMacで正確なpayloadを許可した後もWindows自動承認レビューが「委任内の引用は直接のユーザー許可と確認できない」と拒否。Windows既存chatへの直接許可待ちで、計算再実行/迂回共有はしていない。元7missing/unknown/保全falseとservice未確認は保持。今回の新GPU source852とは別で、旧PTXを現sourceと偽装しない。
+
+通常製品profile確認数は歴史Metal255＋別編成1、CUDA旧蓄積1profile1秒・fixed0。今回4部位条件は3既存profileでdistinct増加0、全255の現source再sweepではない。残11profile・全条件/編成・現CUDAを含むgoal active。小さな集約記録research/target-count-query-evidence/product-parts-composition-v1.json。次は未対応の製品条件拡張と必要な現CUDA短時間検証。以下は履歴。
+
+# 2026-10-31 操作修正版の新CUDA PTX準備を1回だけ依頼（旧監査の再試行ではない）
+
+実Metal/API6正例・GPU拒否10・通常auto2独立seal後、source4bfd6841f1588270abab173a100af27dc0f080a6の新sealed accumulate packetを作成/展開。owner ec48586564408635a2d29ee6ceaea29ea7e38c6ec04b3a6d2998127a5e0d26e3/2686files/ZIP11809314bytes/SHAf547939240e0602e4d98c9357afc4266788b950cc26fced09620c7ce0d2cc866。新packet自身unit47/3group・deps・PTX compile-plan2048MiB/60秒passed、GPU/native追加0。旧99のaccum goldenと全input/output/entry数値指紋は同じ、実shader差分はgpu/world_charge_control_runtime.slangの1ファイル（judgement/実操作履歴/v5）。同じ失敗sourceのowner入替ではない。source-only ZIP＋transport.jsonだけをcodex/product-controls-current-v1-packet commit a02112dd11b9b2a7f1636a8199d51e4773fcc3edへ共有。runtime-residentは4bfd6841まで共有済み。
+
+Windows既存chatへ、新root C:/Users/owner/Documents/Codex/nikke-product-controls-current-v1で転送/旧bootstrap展開→自身identity/deps/新47test/plan→paired generation1回→新cold PTX compile-only1回を依頼した。Slangは既存SDKを使い、新goldenとstrict normalized一致が必須。compileは生成cache必須hit/追加Slang禁止、今回は本当の新計算code/cold keyのためchild内CUDA_CACHE_REQUIRED=0を明示しNVRTC PTXだけを許可する。新dedicated cacheは新source出所を記録するためで、旧claim解除/偽entry/同一source再試行には使わない。全stage BelowNormal/fresh Job2GiB/inner60秒/outer180秒、gate/観測/cleanup維持。旧745/794証跡・timeout/claims・7missing/unknown/保全falseは不変。ptxas/link/driver/GPU/native戦闘はまだ依頼していない。失敗なら保存して停止し、上限延長やowner/cache変更で再試行しない。
+
+現在turn01a18e9c-060f-7110-8dfd-608bfbb8b0f8、cursor145/activeを確認済み。送信済みなので同依頼を再送せずterminalを確認する。小結果共有先codex/product-controls-current-v1-ptx-report、PTX/CUDA/MSL本体/SDK/全snapshot/個人情報はWindows保持。これが成功してもCUDA計算成功ではなく、後続image準備と短い通常API実行が必要。通常APIの確認範囲は過去Metal255profile＋別編成1、CUDA旧蓄積1profile1秒・現fixed0のまま。今回の新条件は4profileで6操作シナリオ、distinct profile増加0で、全255の現source再sweepではない。残11profile・typed/parts・全条件・現CUDA対応を含むgoal active。以下は履歴。
+
+# 2026-10-31 Milk数値・操作表示・固定tapを共通製品経路で解消、6実API正例と通常回帰2例一致
+
+現計算source42f2f5c0e97f707a3d2bc2cbb9e6ee4f6fe52984。実製品のキャラ別射撃を接続した後の不一致を原因別に修正した。数値期待値/CPU正本/strict normalizerは変更していない。コードはa750c24c（既存judgement補正をproductへ）→f6716723（GPU operator intervals）→42f2f5c0（固定+tap合成）。新suite/certificate/監査toolは追加せず既存product family/CLI/API/testを使用。
+
+1) shared world_charge_control_runtimeで、既存original-forced-reload入口に限られていた『予定judgement shotのフルチャージ昇格』『実発射時だけlast-full履歴更新』をproductにも適用。元Milk20秒の入力全byte・元CPU計算全payload（VCS stampだけ除外）を旧失敗と一致確認。source a750の実Metalではダメージ/全burst時刻差が解消し、残りcontrol/control_detailだけになった。proof product-tap-judgement-api-v1-20261031/capture d86fd295…、旧数値失敗は不変。
+
+2) GPUの実charge開始/hold-until-close/操作所有者変更でkind2=open/kind3=closeを既存220件control traceへ記録。state+20を現在rowに使い、Runtime stride/入力stride/出力容量増加なし。productだけ有効、クリック宣言がある時だけhead+13=PCL1を立てるため通常autoの旧出力は不変。時刻/所有権/判断をCPUから供給しない。元CharState constructorからmode/producerの文字列ラベルだけmetadataへ保存。decoderはraw GPU区間を検証し、canonical SimLog.control_occupancy/control_summaryで既存製品形式へ変換する。区間容量/marker/owner/row/時刻/順序/閉じ方/preempt countを検証。同一ラベルの隣接切替は元_open_ctrlと同じ連続区間へ戻し、残ったopenは元writer同様に要求durationで閉じる。
+
+source f671の通常APIではAlice蓄積8秒・Milk蓄積20秒・Ada固定8秒・Rapunzel Pure Grace固定8秒の4/4がM5実Metal/CPU全製品payload一致。以前のtap2件fallbackを解消。proof product-character-controls-api-v2-20261031、全raw SHA/API/GPU/CPU/source凍結を独立照合。v5追加後の現source42でもaccumulate生成CUDA/MSLの全byteがf671と同一、元2入力全byteも一致し、保存readbackの全製品payloadを再投影して一致（VCS stampだけ除外）、GPU/native追加0。これは保存結果再利用で新API dispatchではない。
+
+3) fixedのv4はそのまま保持。元control v2のtap maskを固定first/regenと共存させるv5だけ追加。固定literal秒は既存+6..9、tap maskは元+5から新+10へ保持、reservedは+11..15=0。v4は従来+10..15=0。GPUでもmaskと実click owner一致、version/magic/reserved/有限非負秒を検査する。固定Alice8秒/Milk20秒の2/2通常APIがM5実Metal、control/control_detail/ダメージ/全時刻を含むCPU全payload一致。GPU0.539979/1.242489秒。proof product-fixed-tap-api-v1-20261031。元固定tapの事前fallback記録も保持。raw不正10（mask欠落/範囲外/owner違い/version/magic/reserved2/NaN/負秒/v4へtap偽装）は同じshaderを1batchでGPU実行し全status64、GPU0.040470秒。
+
+共通77group/841test失敗0/error0、旧Windows-only skip1。製品35＋program packet7＋source history5。合成前入力/全操作wire/元policyの保持、区間破損拒否を既存testへ追加した。過去product ledger/全数値fixtureを維持し、完全な現file SHA一致時だけ観測hookとv5差分を元charge source aa8df459…へ厳密逆変換して旧auditを通す。これは歴史preimageで、現数値同等の代用ではない。
+
+通常autoの蓄積/固定Miranda30秒も現source42の既存CLI development compact packet自身で実M5・全CPU製品payload一致、fresh独立GPU禁止seal成功。proof product-control-regression-v1-20261031。GPU1.751835/1.757896秒。旧input/output/全entry数値指紋は完全同一：accum291fd865…/bc19e132…、fixedb534ebb2…/9c72bd03…。登録tableのsource_sha256/generated_normalizedだけ独立sealした新sourceへ更新し、数値期待値を変えていない。旧table原bytesはproof/prior-program-goldens.jsonとGit履歴に保持。両source-baseline current=true、packet7test成功。sealed ownerの新規配布はこの更新commit以後に作成する。6group/target membersの新sealは未実施、全profileの現source再sweepではない。
+
+Windows旧99b83f3f…のbinding付きread-only再利用監査は60秒timeout、62.368秒（後観測込）/peak82497536bytes、receipt/proof未作成・stderr空・内部の最後の処理unknown。メモリ不足の根拠はなく、上限延長/同じrun再試行はしない。元794証跡/claims/binding/7missing/unknown/保全falseを維持、新missing0/Jobpost空/観測cleanupinspection0。unit71成功、追加Slang/NVRTC/link/driver/GPU/native0。保存5JSON12987bytes branch codex/product-reuse-history-cli-v1-report commit988453d1e21fd50581d80429a17c8ede04ab428dを取得、manifest SHA91fe1874859a56fd707d80496ec95cee7628c30f186c0b7616c0c6895a77e156/全blob SHA/bytes/見えるowner・binding・失敗scopeをMac照合。最初のcoordinatorはjsonlを除外して停止、実manifestに従って取得を訂正。raw/全chainの独立Mac監査とは主張しない。proof product-reuse-history-cli-v1-import-20261031/mac-audit.json。
+
+Windows chatはcursor144/idle、pendingなし。旧32/189/99 ownerは現source42とは計算codeが変わったため、旧CUBINを現codeと偽装しない。次の必要なCUDAは現sourceの新sealed owner/compile-planから最短PTX生成・compileを1回だけ、2GiB/BelowNormal/child60秒/外180秒で検討する。旧timeout/claimsは保持し、source/生成codeが本当に変更されたことを束縛して新ownerを使う。旧監査の同一run反復を既定手段にしない。通常API履歴の確認数はMetal255profile＋別編成1、CUDA旧蓄積1profile1秒・現fixed0、distinct profile増加0。今回6APIは既存profileの操作条件拡張であり、新sourceで全255を再実行したとの意味ではない。残11profile・全typed/parts/全編成/設定・現CUDAを含むgoalはactive。今回の共有要約research/target-count-query-evidence/product-control-composition-v1.json。以下は履歴。
+
+# 2026-10-31 修正版immutable ownerを共有、Windowsの歴史binding付き再利用監査が開始
+
+監査修正版source032cc081のsealed accumulate packet owner99b83f3f6015c41be839bfb83e572606a823a14657869144fcf214cb2745b33c/2686files/ZIP11806179bytes/SHA8879682c5fd6495952bf90fbc311012844cd6f7e16bf4a207d45274467b306fbを既存CLIで作成・展開。packet自身unit45、linked27＋stage44の計71CPU成功。payload-audit.jsonで旧717 ownerとの全file集合/golden/GPU全bytes一致、差はapp/portable_detail.py・scripts2・tests3の計6テキストだけ。追加Slang/native/GPU0。source-only ZIP＋小transport JSONをcodex/product-reuse-history-cli-v1-packet commit61eeb50359168a7be288c8f09f9dc312fdbd8a80へ共有済み。runtime-residentも032cc081まで共有済み。
+
+Windows既存chatへ新root C:/Users/owner/Documents/Codex/nikke-product-reuse-history-cli-v1の転送/旧bootstrap展開→自身identity/deps→変更対象linked27/stage44のCPUだけ→audit-linked-reuse1回を依頼した。旧717 ownerの成功保存compile-ptx-v1/proofをcurrent producerとして使い、新しいcompile復元/Slang生成/GPU/nativeは依頼していない。旧HTTP descriptorから元historical_link_observationをJSONfileへ完全コピーし、新requestの同名キーにその絶対pathを指定。旧object/link/PTX/CUBIN/claims/7missing/unknown/falseとservice未確認を維持する。新ownerはreceiver、producerは717のままで全golden/sourceが一致することを監査する。失敗なら迂回しない。2GiB/BelowNormal/fresh Job/child60秒/外180秒を維持。結果の小JSON共有先codex/product-reuse-history-cli-v1-report、raw/compiled/SDK/全snapshotはWindows保持。
+
+現在turn01a18e82-ed2b-74c1-860b-ab5574ec00d4、cursor141/activeを確認済み。依頼は送信済みなので再送せず、同chatのterminal結果を確認する。製品操作のtap/control表示差・Milk数値差・fixed tap制約は下節の失敗を保持して未解決。新通常API profile数増加0、Metal255/CUDA旧蓄積1profile1秒・fixed0、全goal active。以下は履歴。
+
+# 2026-10-31 現PTX cache復元成功、再利用CLIの歴史binding受け渡しを修正・キャラ操作2ケース製品一致
+
+Windows owner717693a3…の準備→generation→file-only probeが完了。生成CUDA2274611bytes/SHA6279783dd04eb7d3951554d5b1b75927bc7abb0b8a6042ededf73ea93ced1c74は旧成功runと全byte同一。完全compiler identity/key65ed1224ec9d6e0d49795d01bf9c29f408bceec00a6962d399521ed9e34e1686が旧と一致、PTX9486097bytes/SHA00350ea2611630e7da191701a00d2f16d731d92e4371a9495d39defe91c1aa55のcache hit。unit44/skip0、自身deps/plan成功。tests観測込51.912秒、generation31.490秒、probe12.677秒。旧source/SDK/cache/claims不変。
+
+次に現ownerのcompile-ptxをNIKKE_CUDA_CACHE_REQUIRED=1/生成required=1で1回だけ実行、保存PTXから現producer receipt復元に成功。追加Slang/NVRTC/compiler DLL load/ptxas/link/driver/GPU/native戦闘0。child16.907秒/outer30.175秒。compiler_verified/containment true、missing0/Jobpost空/観測cleanupinspection0。service未識別なのでpreservation/outerpassed=false・外exit2を保持。旧745証跡・歴史7missing/原因unknown/falseは不変。
+
+linked-reuse監査は元history bindingを受け渡せない入口schemaで停止。省略監査・reuse receipt作成なし。7JSON51094bytesをbranch codex/product-accumulate-current-v1-cache-report commit3678fbabf254523c441fcfef2482e8cfdd4838f9からMacへ取得、manifest SHA56a89c9495ba2bbf646a526341a76f0aca5405750c5dab3f01aa0dcf0e61e14d/全公開blob SHA/bytes、immutable Mac owner/golden/source/normalized、生成CUDA/PTX指紋、required flags、scope/旧falseを照合。privatepathは伏せられたprojectionで、rawPTX/全snapshot/元完全identityはWindows保持。Mac完全独立chain監査とは主張しない。proof product-accumulate-current-v1-cache-import-20261031/mac-audit.json。
+
+commit62c65634で既存linked-reuse-auditに--historical-link-observation JSONfileを追加、関数requestでは元descriptorと同じ厳密binding dictを受理。既存validate_history_binding→saved_linked_admission→retained_link_environmentへそのまま渡す。wrapper audit-linked-reuseのoptional file path/child引数/直接helperでも保持する。元観測SHA/全identityの完全一致、creation FILETIMEの文字列、preservationfalse/unknown/service未確認、CUBIN/PTX/compile source guardは全て維持。allow-missing等は追加しない。元4pathだけの受付も互換維持。CLI/stageの正例・悪いbinding拒否・生history改変なしを既存テストへ追加、linked27/stage44、共通77group/839test失敗0/error0・旧Windows-only skip1成功。最初のstageテストは親stageディレクトリfixture不足で停止して訂正、製品codeの迂回なし。GPU/CPU正本/strict normalizer/数値golden変更0。
+
+並行した製品操作接続：commitca4e5094でevaluateの手動操作一律拒否を除き、元static controlsを既存world compilerへ渡す。compile_world/normalize_static_controlsの未接続cover/reload/aim/burst・capacity等の拒否は保持。proof product-character-controls-api-v1-20261031、通常API5要求terminal。Ada固定8秒とRapunzel Pure Grace固定8秒はM5/GPU0.600539/0.689918秒・CPU全製品payload一致。Alice蓄積8秒は実GPUダメージ一致だがcontrol/control_detail差で正しくCPUfallback。Milk Blooming Bunny蓄積20秒は実GPUダメージ/一部burst時刻/control出力差でCPUfallback。固定Alice tapは既存v4制約でGPU前fallback。全raw入出力SHA・API/GPU/CPU payload・source凍結を独立照合し失敗を不変保持。CPUを正解として返し、許容差拡大/効果無視/期待値変更なし。専用port4352のみ終了済み。共通CPU837はAPI後成功、その後CLI修正込み839成功。
+
+未修正：product decoderのcontrol/control_detailには実GPUの操作区間logが必要。arbiter owner履歴だけから全区間を推定しない。Milkの数値差候補はpartialCaptureChargeのlast-full記録補正がPORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD限定でproductに入っていないこと。ただし因果は未実証で断定せず、元失敗raw保持。今回shaderを変更していない。固定v4/control v2tap header合成も未接続。単に対応済みへ分類しない。
+
+Windows turn01a18e7b-9825-7680-b7e6-8c308386da9bはcursor140/idle、pendingなし。次は62c65634以後のimmutable accumulate ownerを作って、保存producer717693a3と旧CUBIN/object/linkを使い、修正したaudit-linked-reuseだけを短く検証する。追加compile/generation/GPUをしない。元binding JSONfileをdescriptorから厳密にコピーして渡し、歴史保全falseを保持。通った後で初めて短い通常CUDA/APIを検討。通常API確認はMetal255profile＋追加編成1、CUDA旧蓄積1profile1秒・fixed0、distinct profile増加0。残11profile・typed/parts/手動/全条件・現CUDAを含む目標はactive。以下は履歴。
+
+# 2026-10-31 現accumulate製品ownerを独立seal、Windows保存PTX適合確認を依頼
+
+source189e692fccfa921a3166645432fcd2aca2d422db。既存product familyのaccumulateを現sourceで明示登録した。GPU/効果/CPU正本/normalizerの変更なし。proof product-accumulate-current-v1-20261031。source63f0c17bからdevelopment compact owner4d0b0d5a…を作成・展開し、packet自身CLIで元Miranda30秒1入力のM5実Metal1.748018秒・全CPU製品payload一致。必須paired生成/Metal pipeline cache hit、CPU44成功。packet自身sealがfresh独立GPU禁止監査で成功、GPU再実行0、seal-audit SHAd71e73b85209c9fff18e855348b64acc903cf8e162afa241932fbd90f57ff716。
+
+新goldenを既存research/portable-product-programs-v1-expected.jsonのaccumulateキーへ追加（commit189e692f）。既存fixedキー/全旧goldenは不変。旧2c ownerとinput291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18/outputbc19e1324c7f293c24367148ec8d050a506d3779ba283983641f2f53d3fb01fc・生成normalized・entryの全数値指紋が同一。entriesの差はnameだけ（旧product/miranda-stage0-30s→現product/accumulate-30s）、raw source closureはguard追加で変わっている。旧ownerへ現sourceを偽装しない。
+
+登録後sealed compact owner717693a3c56becfa5c67ed9414fc1bbae7edb5ec49802264131bce25b97ebcf6/2686files/ZIP11804897bytes/SHA d4bec3d2af64e9915184a8cc60e96e5bad80a563500359bde022a605353d2e1aを作成・展開。自身unit3group/44・validation-deps・PTX compile-plan2GiB/60秒が成功。新native/GPU実行はせず既存基準を用いたsealed packet生成。ZIP内SDK/compiled/raw/個人設定なし。source-only ZIPとtransport.jsonだけをcodex/product-accumulate-current-v1-packet commit306ae4ccfc1f515fc619d44bb4ebca436d25e454へ共有。runtime-residentも189e692fまで共有済み。
+
+Mac現生成CUDA2197432bytes/SHA b15db0ae8649f0977bbdd318b368a71d52ecd5a1f10b07ed2503ae7e6c1a66cdが旧成功時生成物と全byte同一と確認した。これはWindowsの完全compiler/cache/PTX同一性や現CUDA計算の証明ではない。旧fixed compile timeout・失敗claim・歴史7missing/原因unknown/保全falseを不変保持。
+
+Windows既存chatへ、新root C:/Users/owner/Documents/Codex/nikke-product-accumulate-current-v1の準備、自身CPU44/plan→既存stage generation1回→旧成功CUDAと全byte比較→file-only PTX cache-probeを依頼した。BelowNormal/fresh Job2GiB/child60秒/外180秒。新NVRTC/ptxas/link/driver/GPU/native戦闘は禁止。cache miss/identity差なら停止しclaim解除やfallbackcompileを行わない。旧成功PTX9486097bytes/SHA00350ea2611630e7da191701a00d2f16d731d92e4371a9495d39defe91c1aa55と既存cacheを候補にする。検証済みbootstrap-v3を転送展開だけに使い、展開後は新packet自身CLIを使用する。通常4,682入力等の再実行は依頼していない。
+
+現在Windows turn01a18e74-7d81-7c21-a5f1-9e2accdad591、cursor132/activeを確認済み。端末結果は未取得、再送しない。次は同chatの状態/保存結果を取得する。適合した場合だけNIKKE_CUDA_CACHE_REQUIRED=1を維持した既存compile-ptx（cacheからの現producer復元）と既存linked-reuse-auditを検討する。旧・現の実PTX全bytes/完全compiler identity/keyの一致が必須で、normalizer同一だけで再利用しない。両方が通る前にGPUを依頼しない。
+
+今回の追加MetalはCLIの現owner実証で、新規通常製品profile数は0。通常APIでの範囲はMetal255profile＋追加編成1、CUDA旧蓄積1profile1秒・現fixed0のまま。残11profile/typed world/parts/手動/全設定・全編成とCUDA本体を含む全目標はactive。詳細小要約research/target-count-query-evidence/product-accumulate-current-v1.json。以下は履歴。
+
+# 2026-10-31 製品対象補正＋ボス処理を合成、固定/蓄積の通常Metal API4ケース一致
+
+source db519d180f54a431b62bd79186d2266025b9b83c。app/portable_destructible_roster_input.pyの一律patterns拒否を、canonical validate＋compile_registryによるBODY-only検査へ置換。idle/attack/buff/coreだけを受理、actor count1/kind BODYを確認する。shieldはactor poolに現れなくても独立遮断。parts/interrupt/summon/coordinate/has_parts/implicit part-breakは拒否維持。通常target補正とnative group-target補正が同じ検査を使い、元スクリプトを既存共通world compilerへそのまま渡す。型別補正の定義・軸・値・効果を保持し、BODYの通常ダメージへ転用しない。GPU shader・保護CPU・normalizer・数値golden変更0。CLI/suite/certificate追加0。
+
+proof product-modifier-boss-api-v2-20261031。8秒、Asuka通常targetとSakura/Belorta/Miranda/Dolla/Drake group-target編成を固定周期/ゲージ蓄積それぞれの通常POST /api/jobsで確認。全4がApple M5実Metal・cache hitなし。GPU0.419194/0.405595/0.414873/0.403514秒、通常API全体約2.32〜2.35秒。各boss履歴6件・incoming15件。source全hash不変、input/readback SHAをevidence/capture/APIへ独立照合、compute/cache_hitだけを除くGPU/CPU/API全payload一致。saved-audit.json原本はpersistent proofs、共有要約はresearch/target-count-query-evidence/product-modifier-boss-api-v2.json。元CPU戦闘結果をGPU入力へ供給していない。
+
+共通CPU77group/836test、failure0/error0、既存Windows-only skip1。製品32testは実API前にも成功。追加正例は両source familyの元graph byte/全定義/metadata保持、負例は召喚/盾/部位を拒否。初回テストfixtureのbuff spec形式誤りはcanonical validatorで検出し、既存実API v2の元スクリプト形式へ訂正。API初回product-modifier-boss-api-v1はNIKKE_PYTHON未指定の起動ミスでシステム旧Pythonを選び、全4がimport時停止・capture/GPU0。原失敗を保持し、venvを明示したv2で初めてGPU実行した。専用port4351のみ終了済み。
+
+通常製品Metal255profile＋追加編成1、CUDA旧蓄積1profile1秒/現在fixed0という範囲は変わらず。今回4は既存profileの敵条件合成で、distinct profile増加0。残11profile・全parts/座標/手動・全設定/編成とCUDA共通製品対応は未完。未対応statの単なる許可/consumer無視はしない。Anneの敵heal_received_pct等は既存宣言モデルとCPU確認済み規約を区別する。Windows追加依頼/compile/GPU0、旧timeout/claimsを不変保持。次は通常製品のliteral coordinate/typed targetと既存canonical original compilerの接続、または現accumulate artifactの厳密再利用適合確認を優先し、歴史証明の反復で止まらない。以下は履歴。
+
+# 2026-10-31 通常製品APIにボス行動・被弾履歴を接続、Metal4ケース一致
+
+source04a6daa7d7df4f2c34409e42ab3ed819c8a4d936。共通world readback projectionをapp/portable_world_result.pyへ抽出し、既存world verifierと製品decoderで共有。製品入力は元boss宣言を既存canonical validatorで正規化し、literal node ID/kindだけをmetadataに保持。CPU予定表・戦闘状態はGPU入力へ渡さない。通常武器とnative group武器が同じboss compilerを使う。敵parts・summon攻撃・手動制御等は引き続き明示fallback。CUDA/Metal shader・保護CPU・strict normalizer・既存数値goldenは変更していない。
+
+proof product-boss-api-v2-20261031。通常POST /api/jobsで固定周期5秒の4要求：Miranda idle、装甲/core変更＋全員への被弾15件、burst前致死被弾1件、Belorta native group＋被弾15件。全4がApple M5実Metal、cache hitなし、GPU区間0.333/0.266/0.219/0.240秒。保存input/readback SHAをcapture/evidence/APIと独立照合し、compute/cache_hit metadataだけを除くGPU/CPU/API全payload完全一致。sources.json全file不変。saved-audit.jsonにcapture ID/raw SHAを保持。これは4シナリオの製品接続確認で、新規profile数や全boss挙動の完全対応へ外挿しない。CUDA追加実行0、fixed CUDA0のまま。専用port4350 serverのみ終了済み。
+
+初回4秒v1は実GPU3件のapp_warnings差分で正しくCPUfallback、group1件は静的拒否。失敗captureを不変保持。修正後の旧raw再利用はv1-saved-replay.jsonで入力/生成物/全計算結果一致、GPU追加0。その後、5秒への延長とgroup新規admissionを実API v2で検証した。保存集計の初回は省略可能incoming_hitsキー参照で停止、getで訂正し元計算結果は変更なし。
+
+共通CPUは既存SMOKE_TESTS＋product registryの77group/835tests、failures0/errors0、既存Windows-only skip1。proof common-cpu-v2/summary.json。最初の独自coordinatorは外側forbid_gpuが模擬backend APIまで遮断しfile_transportで停止したためcommon-cpuへ失敗を保持。既存CLI _testsと同じrun_groups境界に訂正して全成功。期待値/テストを弱めた変更はない。
+
+Windows接続確認返信を受け、既存chatをread-only snapshotで確認。cursor128/idle、保存compact CPU5JSONの共有完了・Mac照合済みでpendingなし。再送/再計算なし。Metal既存255profile＋追加編成1、CUDA旧蓄積1profile1秒という範囲は変わらない。残11profile・固定CUDA・parts/manual/全編成・設定は未完。次は既存効果consumerと製品wireの接続を優先し、単なるstat許可や診断の反復で対応数を増やさない。以下は履歴。
+
+# 2026-10-31 compact CPU共有をMac照合完了、Windows idle・次は未対応の製品接続へ
+
+Windows branch codex/product-fixed-compact-v4-cpu-report commit85ebe165b890da230b15a96672a402c947bf52d0の5JSON/45679bytesを取得。manifest SHAe24679ff6f75d5f03841c20fb5de1eafe0aa084c3318c6c5bcc49c9f9c88f3e3、profile JSON SHA48649ec006fdb4b59f2676dfcb4c685b3f952033077d2f6c2af6175c1bb8d611/11667bytes。proof product-fixed-compact-v4-cpu-import-v1-20261031。全blob byte/SHA、owner/source2685、公開projection roots/summary、golden compactJSON SHA0ac9a6fc…、入出力期待SHAと元376fixtureをMac immutable v4へ照合成功。unit3group/39/失敗error/skip0、PTX plan、旧claims/歴史falseも整合。元Windows preparation SHA6bd904ab…への参照を保持したが、共有物は個人情報を除いたprojectionで原本JSONの同一byte認定ではない。omitted一覧は共有省略されていたため、coordinatorの初回全metadata比較は停止し、実際に公開されたkeys/rootsだけを完全照合して成功。原本Job/全snapshot/pstatsはWindows保持、Macの完全な独立containment証明ではない。
+
+1回のprofileはverify wall8.469662秒/process CPU18.296875秒。cProfile.Profile() timer/timeunit未指定、worker側設定なし・収録範囲未確定。関数の内部時間>累積時間4行など整合しない値があり、time attribution=falseを保持。top30の割合からI/O/CPU/lock待ち等の原因を断定せず、最適化/次compile判断に使わない。Python3.12.14は同じbase executableから事後取得した情報でprofile時pinではない。profile再実行なし。旧verify10.650秒とprofile8.470秒も速度改善として比較しない。Mac自身同v4の単発profile wall0.352秒/CPU0.204秒も記録したが、Macは逐次、Windowsは4readerで直接比較できない。
+
+実測ではfile削減だけで大幅な時間改善は示せていない。Windows unprofiled verify10.650135秒（旧11.224898との差約0.575秒）、unpack36.576秒（前full33.916秒より短縮せず）。単発/時点差で原因や率を断定しない。コンパイル/driver/GPU/CPU戦闘/全smoke再実行0。全stage missing0/観測cleanupinspection0/postJobempty、service未識別、歴史7missing/原因unknown/false・旧timeout/claim不変。Windows chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:128/idle、pendingなし。計測のための同じprofile/compile再実行は行わない。
+
+次は性能監査を増やし続けず、Macで残11profileの効果/敵worldを共通製品実行器へ接続する作業を優先する。読取で確認済み：Anneのall_enemies heal_received_pctは既存world_enemy_healing_entry/consumerに実装済みだが、通常productのstat admission/入力wire/actor worldに未接続。単に許可statへ追加してconsumerを無視しない。Cover/weighted等も既存full-world wireが通常productの104400系と違い、EHL/CDFなど拡張bankのBASEが重なるため、macroを全て有効化するだけで合成しない。元リクエストのliteral状態をloweringし、既存履歴/消費器を保って製品結果へ接続する。新しい小suite/数値証明書/監査toolを既定手段にせず、今回の共通product family/CLI/39test/74smokeを再利用する。Windowsは必要な実装差分ができてから短い検証だけ。Metal255/CUDA旧蓄積1profile1秒・固定0で増加なし、全goal未完。以下は履歴。
+
+# 2026-10-31 Windows compact CPU39成功、verify短縮は小幅・標準CPU profile依頼
+
+Windowsv4 owner54ba…自身CLI/2685files/fixed/sealed/projection検証、元goldenと376fixture完全一致、unit39/skip0、depsとPTX plan成功。compile claim未作成、Slang/NVRTC/ptxas/JIT/driver/GPU0。現missing0/観測cleanupinspection0/postJobempty、service未識別、旧506証跡/旧timeout/claims/歴史7missing・原因unknown・falseは不変。peer結果JSON SHA6bd904ab0ad781fc7c5f349d93345a0ff05f7a119205faaa88896a7d7fafeecc。まだMac独立import前。
+
+verify_package呼出自体10.650秒、観測込み15.900秒。旧compile child保存11.224898秒との差は約-0.575秒、単発/異なる時点のCPU測定で、NVRTC成功や大幅改善の根拠にしない。同条件NVRTCを再依頼していない。Windows chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:123完了後、同じv4 packetを使う標準cProfileのverify1回だけを依頼済み。BelowNormal/2GiB/child60・外180を維持、wall/process CPU/top30（packet相対名/stdlibbasename）を取得し、検証の時間が実CPUかfile/source path処理かを診断する。profileは速度比較に使わず、I/Oとホスト競合も証拠なく断定しない。追加native/GPU/compiler/テスト再実行は禁止。
+
+既存preparation JSON＋縮約stage時刻/結果＋CPUprofile summary/top30/manifestだけをcodex/product-fixed-compact-v4-cpu-reportへ共有することも依頼済み。pstats原本/個人path/PID/token/全snapshot/SDK/generated CUDA/compiled binaryはWindows保持。現taskの状態・保存結果だけを確認し、再送しない。code/記録は102802c2までorigin/runtime-residentへpush済み。全goal未完、Metal255/CUDA旧1profile1秒・固定0から増加なし。以下は履歴。
+
+# 2026-10-31 compact修正版v4の全CPU成功、旧bootstrap再利用実証・Windows CPU測定依頼
+
+前節の不整合を修正し、計算本体/CPU正本/既存数値golden/strict normalizerを変えず全共通smokeまで成功した。既存weighted source inverseの前に製品familyの完全な歴史逆変換を接続。新しい数値証明書やsuite/監査toolは作らず、既存source-historyデータ方式を使う。tests/fixtures/portable-product-source-delta.jsonのSHA9187d38559f8e40c2735afb95892f8cba4174b8a1ccf01b0d9d4bb0873894d38、製品導入前168f1bbf65957a85ba48a58699e585f74aa5ad91の13file完全preimageをGit原bytesへ独立照合、追加12sourceもSHA束縛。過去fixture/古いexpectedは全て不変。これは過去ソースを復元する監査だけで、現fixed製品を旧数値と同じと主張しない。route/guard/type/fixed f64Add→f64Sub/ledger/helper改変を拒否する5testを製品共通CPU registryへ追加（旧cover goldenをdata依存として宣言）。Weapon phase8も正しい本体照合まで進んで全成功。
+
+v3自身smokeは49group/553testでsnapshot最小環境testが停止。現source全体を古いsnapshot epochのtestへそのままコピーしていたfixture構築不備だった。既存combined audit内で『scalar逆変換直前の検証済み入力ビュー』を分離し、最小testはその元current SHAを固定値へ照合してから4fileだけをコピーする。元baseline/current hash/負例は維持。producer全smoke74groups/792test/失敗0/error0、既存Win-only skip1、11.537秒。GPU/compiler0。v1失敗/未実行v2/v3失敗は全部不変保持。
+
+source a7cf715d0a6735097a2c6185464e6d11eddeda3dの最終compact v4を通常package→unpackで作成。owner54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044、2685files、ZIP11797293bytes/SHA41f53eb946163eb1ed9c14e6732ed012efdb22116f7817ae3f458b1495f81acd。proof product-fixed-compact-v4-20261031/package自身CLI/cwdで製品39test/skip0＋fresh native1、全smoke74groups/792test（Win-only1skip）が成功。全retained bytesを監査、旧full4172から1489の未選択research/test Pythonだけを除去し、履歴監査fixture/既存cover goldenの2dataを追加。全GPU/app/scripts/data/fixture/upstreamを保持、旧golden/input b534ebb2…/output9c72bd03…完全一致。変更10memberはCLI/auditor/test/進捗recordだけ。新profile/GPU/compiler成功の追加ではない。
+
+同packet自身PTX compile-plan2048MiB/60秒passed・claim未作成。既存旧6c7 bootstrap10fileを原SHAで取り出し、新compact ZIPの全unpackをMacで実行して成功（0.506秒）。旧Windows bootstrap-v3を検証して転送専用で再利用でき、新bootstrapを推測で作らない。展開後は必ず新packet自身CLIを使う。新ZIP＋小transport JSONだけをcodex/product-fixed-compact-v4-packet commit85309164240319bcdca15f84b48f3be340d4ed74へ共有済み。全member SHA再検査、個人設定/raw/compiled binary/SDKなし。
+
+Windows既存chatへ新root C:/Users/owner/Documents/Codex/nikke-product-fixed-compact-v4でCPU-onlyの転送/旧bootstrapunpack/own verify実時間/validation-deps --out/own unit39/PTX planだけを依頼済み。各BelowNormal/2GiB/child60秒・外180秒、失敗なら保持して停止。Macの全792smokeをWindowsで再実行する依頼ではない。Slang/NVRTC/ptxas/JIT/driver/GPU禁止、旧eda compile/cb609 cacheclaimを不変保持。単に新ownerへ作り替えて同じNVRTCを再試行しない。まず新verifyのCPU時間を旧compile内11.225秒と比較する。Windows時間改善と次compileの可否は未確認。現在のtaskを再送せず状態観測する。
+
+全goal未完、製品profile数はMetal255（固定/蓄積とも）＋別編成1、CUDA旧蓄積1profile1秒/固定0で増加なし。残11profile・boss/parts/manual等の接続を継続する。以下は履歴。
+
+# 2026-10-31 製品compactを既存CLIへ接続、CPU34成功・共通smokeに既存source監査不整合
+
+前turnは実証と保存timeout診断が進んだprogress。今回はWindows再実行なし。既存selected-suite-python-v1をproduct-detail familyにも明示対応し、新suite/CLI追加なし。app/portable_package_projection.pyの歴史owner fresh childに未定義product_configurationがあった。既存historical test4中2errorを再現し、不要な外部registry importを除去、marker付きはverified owner自身のsuite_config、markerなしは元SUITESを使うよう修正。resolverなしmarkerを拒否する。fresh-process負例含むhistorical6、projection/real projection合わせ19、product packet7、CLI52成功。source/GPU/数値golden/normalizer変更0。
+
+code commit8c261f065a765da9fe16be14e7dc189de671dd01。自身のpackage --suite product-detail --product-program fixed --compactでsealed owner2c849fc475e6a39f404e1cde2b7d84407851796a64aca44c36404902ec85ec5a、2682files/ZIP11769822bytes/SHA6553ff70b813034078a28252809cc42963c26f4b67e568973eb2fc2d7c94b222を作成/展開。proof product-fixed-compact-v1-20261031/package自身CLI/cwdのCPU-onlyで製品34test成功・native1一致、input b534ebb2…は旧full/30秒M5実証と同一。全golden/source/input/output期待値は旧eda ownerと完全同じ。payload-audit.jsonで旧4172から1490の未選択research/test Pythonだけを除去、全GPU/app/scripts/data/web/fixture/pinned upstreamと全selected/smoke rootsを保持し、全retained byteを検査。retained差分はprojection実装/2testと既存進捗evidence JSONのみ。最初のcoordinatorはevidence JSONの更新を列挙していなかったため停止、実diffを確認して明示列挙後に監査成功。計算入力には差なし。
+
+**共通smokeは未成功。** 同packetのrun --smoke --cpu-onlyは7group/111testを試行し、test_portable_weapon_phases.pyの1件が『Unreviewed weighted source: app/portable_backend.py』で停止。残りの全smoke groupは未実行。既定Windows専用skip1を除去/追加していない。producer checkoutと旧full sealed eda packetの同8testでも同じ失敗を独立再現したのでcompact脱落ではなく既存source-contract chainの不整合。失敗ログ/packetは不変保持。weighted ledgerが現backend/event_runtime/world_actor_fieldsと一致せず、武器statements監査まで到達できない。次はこの既存監査の歴史preimageと製品拡張の関係を修正し、元fixtures/normalizer/数値goldenを都合で書き換えず共通smoke全体を通す。test除外や単なる新期待hashで隠さない。
+
+軽量packetはWindowsへ未共有/未転送/compile未依頼、GPU/compiler追加0、時間改善未測定。旧Windowscompile owner/claimを変更しない。ファイル数削減でNVRTC完了が保証されるとは扱わない。Windows chat cursor120/idle、pendingなし。Metal固定255profile＋編成1/CUDA旧蓄積1profile1秒・固定0を維持。全goal未完。以下は履歴。
+
+# 2026-10-31 timeout保存JSONをMac照合、Windows idle・追加実行なし
+
+WindowsのCPU-only保存診断と共有完了。branch codex/product-fixed-ptx-timeout-v1-report、commit9f422b0e9738c49c18a7ab70f8fc213790fbbb23、11JSON/JSONL計37263bytes、manifest SHAd09e6345e5af7a87079c3a93925a526acba6cbaa2f17a7fb4448dde49d424d37。proof product-fixed-ptx-timeout-import-v1-20261031へgit blob原bytesで取得、全SHA/サイズ・ownerとimmutable sealed goldenを照合成功。新/旧CUDA strict normalizedはMac保存生成物でも独立一致。Windows raw source/binary/全snapshotは輸送していない。sanitized projectionの整合検査であり原本Job/process全体のMac独立認定ではない。mac-audit.jsonと既存product-admission-v1.jsonへ記録。
+
+今回のchild作成→NVRTC enteredは19.439秒（Job gate基準19.379秒）：package verify11.224898秒、cache build3.820473秒、追加pair照合1.386738秒、library load0.036599秒等。entered→postJob確認40.629410秒、正常returnなし。最初はinner60秒timeout、正確なtimeout-trigger時刻markerがないためunknown。旧成功はgate→NVRTC14.391613秒＋実NVRTC23.481338秒return、今回前処理は4.987461秒増。options/SDK/header一致、CUDA sourceは旧2274611→新2275219bytes、数値規約/コードは異なるため旧成功をfixedへ転用しない。複数前処理も遅くなったが、ホスト負荷/コンパイラ特性など原因の特定はできない。peak196788224bytesは2GiB未到達、メモリ不足と断定しない。
+
+Windows chatはcursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:120/idle。実行/保存共有のpendingなし、追加GPU/compiler0。同条件compile再試行やcap拡大をしない。次は共通CLI内の開始前cost（full owner byte検証/paired validation）の重複と観測境界を調べ、検査を維持した具体的なオーケストレーション改善の可否を先に判断する。単に新ownerを作り同じ失敗を繰り返さない。元claim/失敗/生成成功は不変。Metal255profile/fixed255＋編成1、CUDA旧蓄積1profile1秒/fixed0、11profileとboss/parts/manual等の製品接続は未完。以下は履歴。
+
+# 2026-10-31 Windows fixed準備/生成成功、PTXはchild60秒timeout・再実行禁止
+
+同一sealed v2 owner eda7660a/source6c7d0235のWindows準備は成功。4172file/source/golden自身検証、依存確認、CPU unit34/skip0、PTX plan2048MiB/60秒成功。peer準備JSON SHAdea0850f176cf2c4feccb70008c093e3480e78a512f75eea85a7c37a66df9009。転送11.233/bootstrap-v3 gate5.448/unpack33.916/verify16.806/deps17.138/unit43.328/plan16.807秒（観測込み）。bootstrap前2失敗とdeps初回--out不足も保存。取得済みZIPからの訂正でmake_package/計算なし。
+
+既存run-gpu-packet generationを必要1回実行、CUDA/Metal両targetのsealed fixed strict normalized基準一致。33.118秒/peak542425088bytes、Slang2call（各target1）。続くcompile-ptxも同CLI/inner60秒/2GiBで必要1回、generation必須cache hit・追加Slang0。NVRTC entered1/正常return0、内側62.535秒（60秒制限後の観測込み）、外側79.374秒、peak内196788224/外234991616bytes。PTX未生成/compilerfalse/containmenttrue、claim/失敗/partial保持。全stage現missing0/観測・cleanup・inspection0/postJobempty、service未識別、歴史7missing/原因unknown/falseと旧433証跡不変。GPU/driver/ptxas/JIT0。固定CUDA実行は依然0。peakは2GiBに未到達だがtimeout原因を特定した意味ではない。
+
+peer結果JSON SHA6b303cbde81347d8fae9b7175a6a8fec6afbbe0c2db4ddd429446c6f1e8d3771。原本root C:/Users/owner/Documents/Codex/nikke-product-fixed-sealed-v2、generation-v1、compile-ptx-v1、phase compile-ptx-v1/proof/phases.jsonl。Windows chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:115完了後、保存logだけのCPU診断＋小JSON branch codex/product-fixed-ptx-timeout-v1-report共有を依頼済み。追加compile/GPU0。再実行・別rootで同条件再試行・cap拡大をしない。まずchild開始→検証/cache→NVRTC enteredまでとentered後timeout区間を分離し、旧正常NVRTC23.481秒とのargv/SDK/生成source差を保存logで比較。全child60秒をNVRTC60秒と混同しない。JSONのMac独立importはまだ未実施。
+
+Macの4秒fixed通常API実証とsource codeは前節どおり。GitHub runtime-residentは7515c5ecまでpush済み（今回のWindows記録は次commit予定）。全goal未完。以下は履歴。
+
+# 2026-10-31 fixed sealed v2のCPU/plan・4秒通常API成功、Windows CPU準備中
+
+sealed v2はsource6c7d023579857f46e1aeedaa1013306eb156973a、owner eda7660a7c04aebe23b220d51110466d46580c668425c4594c5944182cacb68c、4172files、ZIP14199812/SHA c64d5465c749158ab031a94e40ff1aef29951137b0447623cb5021f712a62b69。proof product-program-fixed-sealed-v2-20261031の自身CLI/cwdでCPU-only成功・GPU0、PTX compile-plan2048MiB/60秒成功・claim未消費。旧v1も不変保持。code6c7までorigin/runtime-residentへpush済み。全memberの原bytes/SHAを再検査したZIPと小さなtransport.jsonだけをcodex/product-fixed-sealed-packet-v2 commit808cd5e23db7038f060b3bf17a3b395b17795ffaへ送信。個人設定/raw/SDK/compiled binaryなし。
+
+Windows既存chatへ転送→展開→verify/deps/CPU→PTX planだけを依頼し、受信・転送SHA照合まで確認。各fresh BelowNormal/2GiB/child60秒/outer180秒、今taskのGPU/Slang/NVRTC/ptxas/JIT0。source ZIPを使いWindows make_packageを再実行しない。最初のbootstrapはportable_readback_blocks不足、次のトップレベルASTだけの7file案もmain()内portable_reference不足で--help停止。どちらもunpack未到達/packet未作成/GPU・compile0の失敗を保持。Macで10fileの最小構成を固定ZIPから実際に作り、--help→全4172fileのunpack成功（0.763554秒）まで検証した。完全一覧は既存product-admission-v1.jsonのsealed_packet_v2.bootstrap_preparationへ記録。Windowsへ保存ZIP＋別bootstrap-v3で準備続行を依頼済み。chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:86、次回は同じtask状態を観測する。新compile/GPUをまだ依頼していない。同じtaskを再送せず結果を観測する。
+
+次のfixed CUDA用の比較シーンを通常APIで実証。proof product-fixed-short-api-v1-20261031、元Miranda fixtureをduration4/fixedへ変更した1要求。M5 GPU0.2747307499521412秒、総API2.346秒、cachefalse、全CPU/GPU/API payload一致（compute/cache_hit metadataのみ除外）、input a1ce5abf5d87e41efb58acb93a384e5f07cab71b53735b77b6c2c19b25e7b6d5 / output b41ac3b6face46f5e396b6547696db67eacda1726a085c6676dbf9c0f256a4ceのraw全量SHA照合。burstは3.0/3.1/3.2秒、FB開始3.583秒まで確認。capture70732803b9da4b21bdda0f8f12fd2647。最初の監査coordinatorはAPIだけのcache_hitを除外せず拒否、field差分を確認後compute/cache_hitの既存metadata規約で再監査成功。計算差分なし。専用port4349の所有PID96236をcwd/port確認後停止、session14054 exit143。GPU/元CPU/normalizer変更0。
+
+製品coverageはMetal固定255profile＋追加編成1のまま（今回同Mirandaの短sceneを別profileへ加算しない）、CUDA旧蓄積1profile1秒/fixed0。次はWindows CPU準備結果を確認し、必要なpaired generation→PTX→既存module-object/JITを別工程の短い1回ずつで行う。単独CUBIN/O1のメモリ失敗を再実行しない。実CUDA初回はこの4秒sceneを使い、30秒へ無測定で外挿しない。全goal未完。以下は履歴。
+
+# 2026-10-31 fixed sealed packet CPU/plan成功、Windows転送前のunpack改善
+
+固定基準を登録した843497d6のsealed packet2723bdd836cb2e72cc2033aae0c68de5719141c51054f7d14155b13185c2be60（4172files/ZIP14199142、SHA20dbaec9…）を通常package/unpackで作成。自身CLIのrun --cpu-onlyが成功、GPU追加0。自身compile-plan PTX/2048MiB/60秒もpassed、compile claim未消費。proof product-program-fixed-sealed-v1-20261031。dev2b0の実Metal/独立sealと、このsealed CPU検査を区別し、保存packetを変更しない。
+
+前回Windowsのunpack51.807秒のうち検証は逐次file readだったため、unpackのsource/destination check_recordsにも既存のparallel=os.name=='nt'を適用する小修正を行った。全byte/SHA/regular-file検査は維持し、4-readerは従来verify_packageと同じ。130fileのWindows platform proxyで実parallel検査と転送後改変拒否を確認し、既存CLI52件成功。Windows実時間の改善は未計測。次はこの非計算変更をcommitし、fixed sealed packetを新規に梱包してCPU/planを確認、Mac ZIPを輸送する。Windowsでmake_packageを再実行しない。旧packet/claim/失敗は不変保持。
+
+Windowsへ新compile/GPU依頼はまだ送っていない。次はfresh sealed ownerのPTX→既存module-object/JIT-linkだけを必要な短いbounded stageで検証する。通常APIの最初のfixed sceneは4秒程度なら既定3秒のburst開始まで検証できるが、未計測のCUDA時間/TDRへ外挿せず、上限/OS設定を変えない。先にMac同sceneの実Metal・CPU全payload/入出力SHAを得る。旧CUDA1秒と30秒全profileは別scope。全goal未完。以下は履歴。
+
+# 2026-10-31 fixedの既存CLI実Metal/独立seal完了、sealed packet作成へ
+
+共通program selector実装をff851f89にcommit。そのcodeのproduct-detail --product-program fixed --developを既存package/unpackで作成した。dev owner2b0e8496fdf172040ec8b3ba1c8d3ab837e06322ecc342564e97432f25c6bc6b、4172files/ZIP14189101bytes、source ff851f899dd656a406eeb5e815054804cce7c6f1。proof product-program-fixed-v1-20261031/packageの**自身CLI/cwd**でrun、actual M5 GPU1.749520秒・full CPU比較成功、input b534ebb2…/output9c72bd03…は通常API保存rawと同一。CPU unit34（product27+packet7）/native1成功、paired generation/Metal PSO必須cache hit、child実行3.180秒exit0。source/coordinator変更0。
+
+同packet自身の既存sealでfresh GPU-forbidden child95226・1.616762秒・native1比較、GPU追加0。independent receipt SHA3e7b63ba82cd46295991eee89e5d2d5cb0a86271373caa33f654b256271cfb99。固定したdev packetとrun-v1は不変保持。実証したgoldenだけをresearch/portable-product-programs-v1-expected.jsonのfixed entryへ登録した。他7memberは未sealでsealed梱包を拒否する。旧v1/v2/v3数値golden/normalizerは変更しない。次はこの登録と小さなinventory補正をcommitし、同じ既存CLIでfixedのsealed packetを作成/CPU検査/compile-planへ進む。
+
+producerのsource-baseline --all-registeredも、seal済みproduct program memberをprogram別rowへ含め、legacy suite名数とprogram数を分離した。current/stale検出の追加CPU検査を含む13件成功。packetのimmutable controllerはこのproducer編集の影響を受けない。全program markerなしのlegacy設定は維持。GPU/入力/CPU正本の計算変更0。
+
+Windows JSON共有・Mac照合は完了、旧functions cell789は取消済み、chat cursor80/idle。新GPU/compiler作業は未依頼。既存source2cの1秒CUDA1profileと今回fixed CLI実証を混ぜない。次の必要CUDAはfresh sealed ownerのPTX→既存module-object/JIT-link経路を使い、単独CUBIN/O1のメモリ失敗を再実行しない。最初は短いsceneで、既存resource observationを有効にできる。全goal未完、Metal各mode255profile/CUDA旧1秒1profile/fixed0。以下は履歴。
+
+# 2026-10-31 製品CLIのprogram選択を実装、固定programのimmutable実証へ
+
+新しいsuiteを作らず`package --suite product-detail --product-program fixed|accumulate[-group|-target|-group-target]`で8入口を選ぶ。共通data/portable-product-programs.jsonをPython/Nodeが読む。manifestのproduct_programをpackage ID、既存static input factory、wire、source、基準entryへ束縛。選択kernelのliteral include closureをpacket自身rootから再計算し、selectorだけ変えてrekeyしたpacketも拒否。legacy marker無しは元設定/基準のまま。未sealのmemberはsealed packageを拒否。新基準table research/portable-product-programs-v1-expected.jsonは現在emptyで、数値を捏造していない。
+
+既存run/compile/module/link/prepared/staged/partitioned/auditのconfig lookupを共通resolverへ通した。program adapterは元fixture/既存profile factoryから入力を作り、CPU予定表なし。8memberのstatic preparation/wire/CPU未実行、legacy互換、table無し拒否、rekeyによるmode差替え拒否を検査。CPU期待hash再利用も同programを要求し、違うmodeはnative計算/packing前に拒否する。Fixedの既存CLI CPU基準を実際に生成し、入力SHA b534ebb2…が既存通常API30秒と一致した（CPU基準1件約0.203秒）。
+
+CPU controls: CLI51/product27/packet7、既存共通config関連16群119成功。additional73中1件がsandbox ps読取EPERM、phase-audit8を通常権限で再検査して全成功、残りは成功。linked26（portable read含む）とNode24成功。開発時のfixture compute/keyword無し互換、Mac /var->/private resolve、portable helper signature訂正の失敗はtool logへ保持。計算/保護CPU/normalizer/GPU source変更0。source baselineの新program用12検査も成功。次はこのコードをcommitし、不変fixed development packetを既存package/unpack/run/sealで実証する。packet自身のCLI/cwdを使い、実行中にimmutable controllerを書き換えない。
+
+Windowsの旧2cの1秒API JSON8files/330346bytesをbranch codex/product-cuda-short-api-v1-report commit efadc71c4d643baae4277510bcd33a2fe65fcbe4から取得、元summary410e185c…/manifestd35968af…と全member byte/SHA一致。MacでCPU/GPU/API全payload、旧immutable d120 owner source、保存CUBIN receipt key、歴史false/7個体、実launch/sync/全量readback順序と既存full trace/stream auditorを照合し成功。Mac同sceneの実raw SHAとも一致。JSON Windows pathをnative検査が拒否したためdata-only portable=Trueを追加したが、実行時既定/native path guardは維持。Windows raw/binary/全telemetryは輸送しない。追加GPU/CPU戦闘0。record product-retained-link-environment-v1.jsonへ集約。
+
+functions cell789の旧共有依頼はユーザー再接続確認後に待機を取消し、readonly statusで未受領と確認してから保存JSON共有だけを依頼した。新依頼は完了、chat cursor80/idle。再実行/追加GPU/compile依頼0、Windowsへ新作業は未依頼。Job peak1989414912bytesはowned global allocations417604+3145728+138992bytesだけで原因を特定できず、保存memory snapshotなし/原因unknown。次の必要CUDA検証時は既存NIKKE_CUDA_RESOURCE_OBSERVATION=1を使える。
+
+製品実証数はMetal実蓄積255（旧版）/fixed255＋追加編成1、CUDA実蓄積1profile1秒（旧2c）/fixed0のまま。CLI program selector/生成一致をprofile成功へ加算しない。残11/parts/manual/全設定・編成も未完。以下は履歴。
+
+# 2026-10-31 固定周期の通常API全profile完了：Metal255一致、CUDA固定0
+
+proof product-fixed-api-v1-20261031/catalogueの全267要求がterminal exit0。catalog266中Metal255、既知CPUfallback11、追加Sakura+Belorta編成1も全CPU製品応答一致。cache hit0、unique GPUcapture256、shader内訳fixed normal245/group2/target8/group-target1。保存GPU/CPU/API全field（compute/cache metadata以外）とinput/readback全raw SHAを独立照合し全一致。source snapshotはsweep/保存監査終了まで不変。driver57499・監査99927ともexit0、専用port4348のserver PID91312/session81105は所有cwd確認後SIGTERM、terminal143。ソース凍結解除。詳細既存product-admission-v1.jsonのfixed_product_readinessへ集約。rawはlocal proof保持、GitHubへ送らない。
+
+今回の実装はcommon combatの初回ready時刻・FB終了後regen・ready判定だけをcompile flagで切り替える。入力control header v4/magic0x46424731、first秒6..7/max literal member regen8..9、予約10..15=0。有限0..180秒、ソフトbinary64共通、5人の各regenもmetadataへ保持。元prepared/全効果/元policyを変更せず、既存static compilerへ渡すcopyだけをaccumulate validationへ下げてからfixed headerへlowering。CPU予定表/状態なし。4 fixed wrapperは同じCUDA/Metal計算本体を使用。fixed timelineはCPUどおりcamera/gauge-full記録を作らず、burst本体履歴は全保持。元Miranda30秒の実GPU1.747399秒・全CPU一致も保存。
+
+実Metalのheader負例7件（旧version/magic/reserved/NaN/negative/over-limit/Inf）と旧accumulate入口が新headerを拒否する1件も全status64。既存accumulate4入口は旧全API captureの生成物raw SHAから参照を確定し、現sourceを既存Slangで再生成、CUDA/MSLの既存strict normalized hashが全4対同一。normalizer/数値golden変更0。初回生成確認coordinatorのforbid_gpuがSlang自体を止めた失敗logも保持し、v2はdriver/GPU/NVRTCだけを禁止。単なる生成一致を製品GPU profile成功へ加算しない。
+
+sweep後の変更は失敗診断だけ：portable_runtime.compile_programのvalidate_effectでUnsupportedPortableへowner/effect/stat/targetを付け、portable_detailのCPUfallback APIとresult.jsonへ残す。message/categoryや有効なinput lowering/計算は変えない。元11失敗bodyをstatic preparation/compileだけで再確認し、unsupported-context.jsonへ効果を分類（CPU戦闘/GPU0）。product27/runtime23/packet3検査成功。初版追加テストがcompute_backend指定を欠いた失敗は訂正済み。web表示も準備を含む時間と実Metal GPU区間/CUDA launch-sync-readback区間を分け、node --check成功。web変更は計算source凍結の対象外でAPI入力/計算を変えていない。
+
+この節の実装と検証記録を作業ブランチへまとめて共有する。**次は既存product CLIへfixed/各kernel variantのownerと基準を統合し、featureごとの新suiteを増やさず、source guardを維持して固定パッケージを作る。** 旧product-detail sealed goldenのraw source closureはstale。生成同一だからと旧ownerのsource guardを外したりgolden数値を更新しない。必要な現source Metal実証/既存sealで扱い、保存済みCPU/input/code/dataが一致する部分は再利用する。CUDAは旧2cの実蓄積1profile1秒のみ成功、今回fixed0・各group/target画像も未準備。新CUDAはMetal側を固めた必要な短い検証だけ。既存NIKKE_CUDA_RESOURCE_OBSERVATION=1のoptional observerなら次の必要runでowned process/Job/deviceのメモリsnapshotを取れる（今回旧runはflag0、peak内訳unknown、再実行なし）。
+
+Windows保存JSON共有依頼functions cell789は長時間未応答、直近read-only status cursor78/idleのまま。再送せず同handleをpoll、追加GPU/compile0。ユーザーへ接続/チャットが応答可能か確認するasync質問を出したが未回答。接続喪失と断定しない。全goalは未完：Metal実蓄積255（前版）、fixed255（今回）、CUDA実蓄積1秒1（旧2c）、fixed0。残11profile・parts/manual・全設定/編成も継続。以下は履歴。
+
+# 2026-10-31 固定周期バーストを製品Metalへ接続、全profile通常API確認中（ソース凍結）
+
+現在の作業はsource commit526ece72からの未commit変更。app/portable_detail.pyでfixedの元static入力をコピーし、既存accumulate静的compilerを再利用後、control headerをstrict v4へlowering。初回時刻と5人のliteral burst_regen_time最大値だけをpack（CPU予定表/状態なし）、元prepared/効果/policyを保持。共通combat_runtimeの初期時刻・FB終了後regen・ready判定だけをPORTABLE_PRODUCT_FIXED_BURSTで変更し、4つのproduct_fixed_* wrapperが同じCUDA/Metal本体を使用。gauge加算/射撃/効果は共通のまま。header magic/reserved/f64 finite/0..180秒をshaderでも検査。product結果のfixed timelineはCPUどおりcamera/gauge-full記録を含めず、実burst履歴は残す。保護CPU/normalizer/数値golden変更0。CUDAのfixed画像は未作成でCPUfallback。
+
+元Miranda30秒の通常APIでM5実GPU1.747399秒/CPU全製品payload一致、capture eca654b3b073484b87058642f3a84c65、input b534ebb2…/output9c72bd03…。product CPU26件成功（delay負例、入力非変更、headerだけの変更、timeline変換）。既存accumulate4入口は旧全API captureの生成物raw SHAと照合した元live pairから再生成し、CUDA/MSLの既存strict normalized hashが全4対同一。初版確認coordinatorはforbid_gpuがSlang build自体を止めたためGPU/生成前に停止、v2ではdriver/GPU/NVRTCだけを止めて既存buildを使用。元失敗log保持、normalizer/期待値の変更なし。proof product-fixed-api-v1-20261031/accumulate-generation-retention.json。
+
+現在、同proofのcatalogue/run-api-batches.pyで既存267要求（catalog266profile+追加編成1）をburst_gauge_mode=fixedだけ変更し、通常APIへ16件ずつ順次実行中。driver exec session57499、server session81105・port4348。capture rootはproof直下captures（smokeと共用）、catalogue/progress.jsonと各job/result/16件chunkを確認する。現snapshot 98件中Metal一致96、既知CPUfallback2、cache hit0。最新進捗は必ずlive handle/progressと照合。driverを再起動/再送しない。観測timeout時もcurrent.jsonの同job IDをpollしてから回収する。
+
+**全sweepがterminalになるまでapp/gpu/data/upstreamを編集せず、commitも待つこと。** sources.jsonの全hash凍結中。docs/research小記録は可。全完了後、保存GPU/CPU全payload/raw SHA、fallback理由、cache/capture数を集計して記録し、この専用serverだけを止める。現在codeは未commitなのでgit statusの変更を他作業と誤認して消さない。source closureのraw SHAは変わったため旧sealed product CLI goldenはstale、未再認定。旧accumulate生成同一の証拠を旧ownerのraw-source guardを緩める代わりに使わない。固定/各variantのowner構成を既存product CLIへ統合するのは今後、featureごとの新suiteを既定にしない。
+
+Windowsは旧2cの実蓄積1秒/1profile成功済み、今回fixed CUDA0。保存JSON共有依頼functions cell789は未応答で同handleをpoll中、read-only thread statusはcursor78/idle。再送/GPU/compile依頼はしない。接続喪失と断定しない。全goal未完、残11profile・parts/manual/全設定・編成も継続。以下は履歴。
+
+# 2026-10-31 通常HTTP/APIでCUDA1秒・1profile成功、保存JSON取得待ち
+
+不変source2c684f88/d1206d3f…の通常POST /api/jobsを1回送信し、Miranda元fixtureのduration1秒だけで実CUDA→全CPU製品payload一致、差分0。cache_hit=false、入出力SHAはMac同sceneのe26cf2bb…/647c3081…と一致。CUBIN5051088bytes/SHAb4d35f76…、provider saved-module-jit-cubin、receipt key2287019be22f0cbf292b5d5ebe074d89e0a8e068a5947e538ec0e205fd837f69。required paired generation hit、compiler追加0、画像read完了後CUDA初期化→launch/sync/全量readback各1回正常。peer保存要約SHA410e185c5a6322da08bee2e93bbe31e43c2d5d4a5ea3642718a8e0a0b2b63531、rawはWindows保持でMac独立監査は未完。
+
+owner7.033秒/admission30.452秒/generation読取検査2.099秒/image read0.026秒、host_dispatch0.292813秒（純GPU秒でない）、全工程50.500秒。Job peak1989414912bytesは2GiB上限まで約151MiBしか余裕がなく、時点/owned processの内訳はunknown。追加実行せず保存時刻/メモリ観測の有無だけ調査依頼。30秒や全profileへ外挿せず、OS/TDR/上限変更なし。新missing/obs/cleanup/inspection/Job残存0、service未識別false。旧238証跡不変。歴史7消失/原因unknown/保全falseと前回coordinator観測unknownを別保持。
+
+展開後自身CLIの意味検証は8.637秒成功。その後の独自coordinatorはsubprocess禁止/全体forbid_gpuとpidなし手作り時刻行が原因でCPU検査/観測保存に失敗し、新missing unknownとして保持。既存CLI unit-checkの正規親子境界＋linked unittestへ訂正してCPU50件成功/skip0、fresh新missing0/Jobpost空/obs/cleanup0。unit全26.093秒（tests6.417+0.095）、linked全6.647秒（tests1.190）。新suite/証明器を作らず既存境界を使う。
+
+現head571ef82bの診断修正はMac product23/linked25/packet3成功、Windows2cはその修正前。GPU/数値/prepare/compile/decoderは不変。製品対応報告はMetal前版255profile、現在host変更後の実API同1profile、CUDA1profileの短い1秒だけ。group/target saved-CUBINと30秒/全CUDAprofile、残11profile、固定ゲージ、parts/manual/全設定・編成は未完。
+
+Windowsへ成功runのAPI response/capture result/evidence/cpu/gpu payload/phases/小summary/manifestだけをcodex/product-cuda-short-api-v1-reportへ共有する依頼を送信中。raw .bin/CUBIN/PTX/object/SDK/個人設定/環境変数/全processsnapshotは送らない。送信APIが応答待ちのfunctions cell789なので再送せず同handleをpollすること。直前完了chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:78、host/threadは下履歴どおり。新GPU/コンパイルは依頼しない。以下は履歴。
+
+# 2026-10-31 メモリ再確認、Windows梱包timeoutを保持して既存Mac packet輸送へ
+
+Macは20秒間3観測ともswap使用/I/O0。Claude再reviewも現Mac RAM不足を主因とする証拠なし。Windows単独ptxasの約2GiB失敗は履歴として保持し、同PTXのobject/link成功outer peak393.9/228.8MiBと区別する。保存時刻の読取でobject/linkのouter69.560/93.725秒、主要処理10.411/0.261秒を確認。gateからoriginまで19.701/30.419秒あるがstartup/import/audit混在のため個別原因はunknown、転送時間やsnapshot単体時間へ断定しない。
+
+Windows2c684f88のmake_packageはchild60秒timeout、outer65.842秒。ZIP/manifest/内部phase0、内部の最後の処理とnative再計算有無unknown。新missing/obs/cleanup/Job残存0、旧148証跡一致、compiler/GPU0。旧失敗を保持し再作成しない。Macで既検査済みの同一d1206d3f…/4166files/ZIP14185428bytesをsource-only transport branch codex/product-retained-history-packet-v1、commit127e07d153aacce761df378a23674ec358755bf0へ共有。ZIP SHA78e1e629af4b48a5a32cf04744b1be0c0ea725858d95945a934809b3501451df。Windowsへ取得→既存CLI unpack/verifyだけ依頼中、CPU50/admission/GPUは未依頼。新missing0と既定予算を維持し、結果確認前に次へ進まない。
+
+Claude指摘のcaller由来KeyError/TypeError/ImportErrorをaudit metadata不備に変換する診断不具合を修正。provider内で元exceptionの型/instanceを保持し、製品層はCPUfallbackのresult.jsonへerror_typeと元messageを保存する。実行/metadata負例とimport状態復元を含むproduct23/linked25/packet3成功。GPU/保護CPU/入力/decoder/数値golden不変。Windows固定packet2cは今回診断修正前と明記し、成功経路の計算互換をGPU実証の代わりにしない。
+
+製品実証数は前版Metal255profile、現host変更後の実APIは同1profile（1秒/30秒）、CUDA0のまま。残11profile、固定ゲージ、parts/manual/全編成・設定は未完。以下は履歴。
+
+# 2026-10-31 特定の過去link失敗を保持するbinding、短い実機確認の準備
+
+既定のmissing拒否とPTX/object/current Jobの拒否は維持。requestのhistorical_link_observationだけ、同じlink captureの絶対path・元observation.json全raw SHA・全missing PID/path/FILETIMEの完全一致・disposition=retained-failureを要求する。観測比較自体も元before/afterから再計算。FILETIMEはdecimal文字列で精度保持。false/unknownとサービス識別状態をreceipt identityへ保持し、API成功/CPU切替にも引き継ぐ。source/header/image/比較/containment緩和0。admit前はsaved_cubin_admission=not_admitted、image/phase/transport一致後だけverified。汎用allow-missingなし、元claim/観測変更なし。詳細は同じgpu-development-cli.mdの節。
+
+Claude reviewのmulti-identity集合・subset/superset/order/case/duplicate/extra-key、履歴除去＋key再計算の再audit拒否、unverified serviceをtrueへ変更不可、descriptor→実CLI admission→read_verified→phase→API応答のmockドライバー経路を追加した。linked25/product22/Node24/packet3成功、GPU/数値/保護CPU変更0。Node configuredは形状/pathのヒントで、raw identityの最終権限はPython。実Windows未検証で、この変更だけをGPU成功へ数えない。
+
+Mac通常APIの元Miranda bodyをduration1秒だけにしてM5実GPU/CPU全製品応答一致を確認。GPU0.102305秒、input SHA e26cf2bbb65dd20fc1b03780b24d38729a3c783b41913f1971284ca45b29c0d8、output SHA647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f。proof product-short-api-v1-20261031。4342 server PID89087は停止済み、driver88232はexit0。新suite/数値goldenは作らない。Windowsも同じfixtureのbody.duration=1/compute_backend=cuda_shared_detailで最初の要求を予定し、30秒/全profileと加算しない。
+
+次は固定commit/packageのCPU-only source/admission/image readをWindowsで1回だけ行う。既存b3b0/a50のCUBINとobservation/claim/producer/toolを保持し、history bindingを元rawからPython helperで作る。生成cacheは古いb3b0のrequired hit（4consumerもGPU sourceも不変）を使い、Slang/NVRTC/object/link/driver/GPUはCPU段階で0。fresh Job/直前と後の全process snapshot、2GiB/BelowNormal/child60s/outer180sを維持し、新欠落があればGPUへ進めない。receiptのhistorical falseと今回のmissing/service識別を別に報告する。CPU段階の結果確認前にGPUは依頼しない。以下は履歴。
+
+# 2026-10-31 通常APIの保存CUBIN接続を実装、実CUDAは未実行
+
+app/portable_product_artifact.pyから現runtimeの既存CLI verify_package/saved_linked_providerを再利用。環境変数NIKKE_SHARED_CUDA_ARTIFACTSの明示JSONでnormal製品source→sealed owner/link requestを選ぶ。現在GPU source closureと全owner payload/golden・元PTX/object/link/header/imageを照合し、live NVRTC禁止、生成cache必須。従来cache方式は既定のまま。保存image要求はNode応答cacheを使わず毎回監査。Node/Python設定schemaをnormal入口1種類へ揃えた。group/targetのsaved imageは未対応CPU切替。共通verify_phasesを既存CLIから抽出してAPIにも使い、既存observeで実境界を記録、禁止compile試行も記録/拒否。owner/admission成功失敗の時間を記録しdeadline延長0。入出力準備/decoder/計算/GPU/保護CPU/数値golden変更0。
+
+Claude2回レビューの構造例外CPUfallback・実provider経由のmissing/改変owner/依存不足・phase不正・receipt不一致・forbidden compile・sys.path復元を反映。製品21、linked24、Node24、packet3検査成功（CUDA正例はmock）。固定packet product-saved-image-owner-v2-20261031自身の登録21+3検査とMiranda30秒M5/GPU1.762904秒、CPU全製品応答/元v3全input/output SHA一致、generation/PSO必須cache hit。後続の差分は失敗時CUDA admission timingとGPU側path復元の追加assertのみ、Metal/計算不変。初期通常API smoke1もM5/GPU1.749985秒・全CPU一致。小証跡product-saved-image-route-v1.json。前版全profile Metal255と区別し、今回host変更の実APIは同1profile。
+
+Windowsの既存object/linkは今回PTX9486097byte全体を改変せず成功。object5427952byte/SHA6192b0f8…、ptxas10.339秒・inner peak363225088、outer412999680。CUBIN5051088byte/SHAb4d35f76…、JIT API0.060171秒/9return0・inner peak116449280、outer239943680。新stageの時間/上限/残存/cleanup/観測APIエラーは正常だが、JIT区間で同じ新7個体が消失しpreservation=false。元setup7とは別。計算/driver/context0、再コンパイル/再リンク/再試行0、source/tool等44証跡不変。小要約11954bytes/SHA0c8f8f53…をpeer証跡として既存product-cuda-cubin-preparation-v1.jsonへ保存。rawのMac独立監査ではない。
+
+2群の消失processはCodex CUA Node/Blender MCP/uv/Pythonの同じ実行ファイル・role構成で、各0.364/0.186秒内起動。直近stage開始と同時刻ではなく、保存Job所属に不在。commandline/親creation/終了event/継続所属は無く原因不明。元分類を変えずmissing guardは維持し、生成CUBINを使ったGPUは依頼していない。WindowsはCPU/compiler/GPU新stage停止・idle。約1.9秒のOS log読取はApplication/System/Security/Sysmon全てUnauthorizedAccessExceptionで内容unknown、既知3log rootでも場所不明。OS/ACL/監査/サービス変更・昇格・再試行0。原因を確定する新記録は無い。chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:52。接続切れではないため復旧依頼や再実行を送らない。
+
+追加Claude方針レビューでは歴史的環境失敗とartifact integrityの分離は可能との案。もし進める場合も、特定capture/observation SHA/元missing identitiesへ束縛した明示履歴、falseを含むreceipt identity、fresh新Jobの欠落0・サービス識別状態・計算一致を別に扱う必要がある。これは未実装の設計案で、汎用allow-missingや数値/source/containment監査緩和はしない。まず依頼済み読取結果を確認する。将来の最初のCUDA GPU要求も短い1秒sceneからで30秒/全profileと数えず、TDR等OS設定は変更しない。
+
+実CUDA product0、残11/固定ゲージ/parts/manual/全設定・編成は未完。全goalはactiveのまま。main checkoutのユーザー作業へ触れない。以下は履歴。
+
+# 2026-10-30 分割後の通常API全profile完了：Metal255一致/CUDA0
+
+proof product-admission-api-full-v1-20261030の全267要求が終了0。catalog266中Metal255＋追加modifier/multi-hit編成1は全CPU製品応答一致。11は前版と同理由のCPU fallback、数値差/APIerror0、API cache hit0/実capture256。保存input/readback全SHAと元255全SHAを監査し、保存GPU/CPU payload全fieldも一致。元CPU戦闘をGPU入力に使ったものは0。shader内訳normal245/group2/target8/group-target1。app/GPU/data/upstreamは全sweep中hash不変。CLI/tests/docsのcommitだけ変わり、evaluator VCS stampは各live CPUと完全一致したまま原記録に保持。既存product-admission-v1.jsonへ追記。driver79680は終端exit0、監査29540もexit0、4338検証server PID83834は停止済み。ソース凍結解除。
+
+Windowsの同source b3b0 ownerはPTX9486097bytes/SHA00350ea2…をNVRTC23.481秒で生成、inner peak225882112bytes。単独ptxas/O1は14.824秒・0xFFFFFFFF・Memory allocation failure。inner peak2105057280/outer2147934208、設定2GiB。info0行で関数原因は不明。CUBIN/driver/context/GPU0、再試行0。新stageの欠落/残存/cleanup/観測error/timeout0、service保全未確認。元setup7件消失の原因不明/保全失敗は別保持。小要約9797bytes/SHA29e47959…をpeer報告として既存product-cuda-cubin-preparation-v1.jsonへ保存。rawのMac独立監査ではない。分割のメモリ改善は未証明で、さらに分割を重ねない。
+
+次は既存module-object→成功時のみnvJitLinkを今回の元PTX全byteへ使う。c472510aのnew product owner a50b80f7…/4165filesはMac packet自身のPTX plan・module10/linked24が成功し、old b3b0との全golden完全一致。Windowsへ固定c472のcode共有済み、module/linkを各必要な1回だけ依頼済み、GPU未依頼。Windows新setupは欠落0、既存app変更/削除0・公開Node/metadata追加5fileだけで元Git bytes同一、GPU/data/golden同一。現在CPU34検査の実行中。Windows chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:44、thread01a140bc-5f3b-7661-b720-50c945596eaa、host remote-control:env_e_6ac12920046c8331afb50b0234aeba48。再送せず同じturn状態を確認する。
+
+未完：製品APIのsaved-CUBIN provider接続、CUDA製品実行、残11profile/固定ゲージ/parts/manual/全設定・全編成。既存の監査/リンクartifactをNVRTC cacheとして偽装せず、明示providerと正確なsource/header/artifact/chainで接続する。全目標は未完了。以下は履歴。
+
+# 2026-10-30 製品packetの通常UI/API起動と保存object受付を準備
+
+product-detailの既存support_filesへ公開Node入口・app4mjs・web9資産・package.json・公開fingerprint2件・既存Node4テストを追加。旧packetにはserver.mjs等が無く、Windowsで通常APIを起動できない欠落を解消する。compiled binary/SDK/個人設定は含めない。隔離owner5bdcb68d…/4165filesでNode22検査、UI3資産の全byte一致、通常APIのMiranda30秒M5実GPU・全CPU応答一致を確認。golden全体・app/GPU/dataは旧b3b0と同一、既存payloadで変更したのはCLIだけ。最初のsandbox Node検査はlisten EPERMで1失敗、元ログ保持後に通常権限で全22成功。小証跡product-http-owner-v1.json。
+
+Claudeの追加レビューで、既存module-object/JIT-linkが別の大きいmoving-group PTXで低メモリ成功していた証跡を再確認した。現在product源への適合/実CUDAは未確認。次の手段は追加source分割より既存object/link再利用を優先する。ただしassembly_origin/saved_linked_admissionのgpu/world_限定guardがproduct_battle_entryを拒否していたため、登録済み(product-detail,gpu/product_battle_entry.slang)の正確な1組だけを追加許可。world guardと全source/golden/PTX/Job監査は保持。既存module10/linked24検査成功、未登録suite/別productsourceを拒否。製品APIのsaved-CUBIN provider接続は未実装で、通常cache経路へ偽のNVRTC artifactとして登録しない。
+
+705bfd23のWindows packet b3b0…/4144filesは作成・展開・全manifest同一を確認。しかしsetup前後に既存7processが消失し原因不明、setup保全失敗を保持。compiler/GPU前に停止した。全7個体は今回owned childより約33分前から存在し、今回の一時process誤検出とする証拠は無い。owned Jobはpost空、cleanup/inspection error無し。未実行の次generationは新しいfresh Job/直前全process snapshotで監視し、元setup失敗を成功へ書き換えず進めるよう依頼済み。新stageで欠落があれば次へ進めない。再setup/package/既存claim再実行はしない。
+
+Macの全267要求通常API sweepはproof product-admission-api-full-v1-20261030で実行中。driver exec session79680、server exec session10542、port4338。app/GPU/data/upstreamを凍結中で、これらの変更禁止。CLI/tests/docsだけ変更した。完了/実process handleを確認するまで再送しない。4339の隔離HTTPowner確認serverは終了済み。以下は履歴。
+
+# 2026-10-30 定義検査の共通4分割：通常API1件・元数値と拒否結果を保持
+
+前回の4-helper版は通常API全267要求を完了。catalog266中Metal255、既知CPU fallback11、追加group+target編成1が全CPU応答一致。cache hit0/実capture256、旧catalog255のinput/output全SHA保持。小証跡product-outline-v1.jsonに保存済み。これは今回の定義検査分割前のsource認定である。
+
+4-helper版のWindows CUBIN/O1もMemory allocation failure。NVRTC42.920秒、inner peak2111377408/outer2148343808bytes、設定2GiB。PTX前段は約215MiBで成功し、standalone ptxasも失敗するため、GPU実行時VRAMではなくhost assemblerメモリ圧迫が有力。上限との厳密な因果・関数別原因は未確定。既存product-cuda-cubin-preparation-v1.jsonへ追加失敗要約を保持。上限増量や同じ失敗の再実行はしていない。
+
+admitDefinitionsの元連続検査本文をliteral一致の4fragmentへ分割。製品macro有効時は4つのnoinline bool helperを通す。元outer breakはdo(false)+completedで呼出元へ伝え、inner loop breakとerror後の処理順序を保持。s.errorだけで早期終了する方式には変えない。legacyは同じ4fragmentをinline includeし、同一compiler identityでCUDA/MSL/reflection全4artifactが旧版と完全同一。旧141実GPU証拠のsourceは付け替えない。
+
+不変development owner b586d0f7…のMiranda30秒はApple M5/GPU1.784057秒、全CPU製品応答一致、fresh独立seal成功。v3 goldenはsource/generated metadataのみ変更し、v2と全input/output/native entries同一。通常API別ポート4337でも実GPU1.766998秒・全体2.976507秒、全CPU応答一致、同じ全raw SHA。検証serverは停止済み。4種類の不正rawを分割前後各1回M5へ渡し、全status64、全12582912bytes一致、CPU戦闘0。製品15/packet3/weapon7成功。小証跡product-admission-v1.json。
+
+今回の分割sourceの製品確認はMetal1 profile/CUDA0。前版255を今回の全profile再実証と数えない。最大生成関数は130220→74760bytes、全CUDAは0.285%増加し、実compiler memory削減は未測定。新suite/監査tool追加なし、保護CPU/数値/元golden変更なし。Claudeは再認証後にレビュー取得。host ptxas圧迫と関数別原因未確定を支持。timeout61.219秒はafter_wait観測を含み、実compilerの60秒超過は未証明。follow-upでtimeout違反の断定を撤回。4不正入力は分割前後の別package間比較で、両input/output/生成hashとbaseline ownerを明記。assembler verboseは既存。追加時間延長案は採用せず既存制限を維持。次はレビュー確認後、固定sealed sourceのcompile-plan→Windows2GiB/child60s/outer180sのCUBIN1回だけで実メモリを測る。以下は履歴。
+
+# 2026-10-30 製品helper4関数を共通outline：元の数値fingerprint保持
+
+PORTABLE_PRODUCT_OUTLINED_HELPERSを製品3入口へ追加（group-targetはgroup入口から継承）。weaponFrame/captureFocusAims/actorFieldsDefinitionValid/initializeTargetCountersの定義だけ条件付きnoinlineとし、CUDA/Metal共通、計算/検査本文/入出力/CPU正本は変更0。生成CUDA差分は4個の__noinline__だけ、Metalも同じ4属性だけ。通常経路のsquadFrame inline closure内にこの2大helperが残らないことを既存cuda_statisticsで確認した。実ptxasピーク削減はまだ未確認。
+
+不変development owner897b1b99…でM5実GPU1.749775秒、全CPU製品応答一致、元v1 sealedのinput/output全byte SHAと全native entriesがそのまま一致。独立sealも成功。v2 goldenはsource/生成metadataのみ更新し、v1は保持。製品15/packet3/武器7/compile CLI13成功。旧武器shield入口は同一Slang/compiler identityのCUDA/MSL/reflection全4artifactが完全同一なので、元141件GPU結果を追加GPU0で再利用。既存保持検査はこの厳密なprogram identityも検査し、旧GPU captureのsourceを現sourceへ付け替えない。小証跡product-outline-v1.json。
+
+現outlineコードの通常API全profile回帰はこれからで、以前のMetal255を現outlineの再実証件数へ数えない。旧profile/input/CPU期待値は保持。Windowsの旧sourceはMemory allocation failureで停止済み。次はこの変更ソースの新sealed packet自身のcompile-planを通し、同じ2GiB/child60s/outer180sで必要なCUBIN1回だけを準備する。数値/効果の省略・上限拡大・同一失敗の再試行はしない。以下は履歴。
+
+# 2026-10-30 対象倍率＋multi-hitの実編成を通常APIでMetal確認
+
+CUDA続報：同じownerのfresh rootでPTX8.4/sm86（9416812bytes、SHA bd33a2a7…）の前段が成功。NVRTC24.968秒、inner peak225636352bytes、Slang再生成0。保存PTXを既存standalone ptxas12.4.131で別Jobに渡したが、16.082秒で同じMemory allocation failure、CUBINなし。旧失敗/producer21file不変、追加GPU/driver/context0。現在Windowsは停止済みで新規compile依頼なし。
+
+既存ptx-statsのCPU解析8.459秒が成功。entryから260定義全到達、未解決/外部/間接/cycle0。最大PTXはsquadFrame17488行/仮想register宣言12054、admitDefinitions15456行/10362。宣言量から物理メモリ原因を断定しない。Mac CUDAは881関数/259 noinline。f64Add/Mul/Divは既にnoinlineで、この3演算のinline説は撤回。squadFrame内のcaptureFocusAims/weaponFrameなど、まだinline可能な共有helper境界が候補。本文計算/検査を省略しない共通定義側の変更を検討する。Slang小probeでは定義前後のprototypeにnoinlineを付けても生成CUDAに反映されず、struct forward宣言は競合した。共通ソースを避けるその方式は採用しない。実装変更はまだしていない。proof product-compiler-outline-design-v1-20261030とproduct-detail-owner-v1-20261030/cuda-squad-calls.json、peer小要約はproduct-cuda-cubin-preparation-v1.json。
+
+元Sakura/Belorta/Miranda/Dora/Drakeの30秒編成を共通group実行器へ接続し、通常/api/jobsで全CPU製品応答一致。target modifierは既存kind4 carrier・元quantity/lifetime/nameを保持し、256axis表をgroup suffixへ別保持。GPU側もBODY1体・axis型/予約領域を検査し、typed対象なしを確認してから命令を実行する。typedゲームモデルや攻撃倍率をbody倍率へ代用しない。modifier自身がmulti_hit listenerの組合せ、追加actor/typed/partsは未対応のまま理由付き拒否。
+
+最終product-group-target-v2-20261030は生成/PSO cache必須hitでGPU1.772668秒・全体2.746664秒、CPU全応答一致。初回cold v1は63.288秒で保存。入力/出力は両回同一。v1の不正raw7件はM5で全status64、CPU戦闘0。既存3shader closure不変、旧255要求の再packing input SHA全一致（CPU戦闘/GPU0）。製品確認済みprofileはMetal255/CUDA0を維持し、追加実編成の確認と区別する。15製品＋3packet検査成功、normal packet入力も既存sealed SHAを保持。小証跡product-group-target-v1.json。保護CPU/効果定義/数値/期待値変更0、新suite/監査toolなし。
+
+Windowsの同じnormal製品owner75dfb57bは43依存/4135file/normalized CUDA-MSL一致を確認。CUBIN/O1はinner54.236秒（NVRTC38.332秒/code6）でptxas Memory allocation failure。CUBINなし/GPU・driver0。inner peak2111741952、outer2148143104は設定2GiBを659456bytes上回った記録があり、Job上限との因果は未確定。失敗claim保持、同じCUBIN再試行/上限拡大なし。既存compile-ptxとstandalone assemblyを別Jobにする候補へ進み、PTX前段のみをfresh ownerで1回依頼済み。pipelineの新実行handleを取得し、観測切れだけで再送しない。小証跡product-cuda-cubin-preparation-v1.json。全目標は未完了。
+
+# 2026-10-30 製品用コンパイル所有者：既存CLIへ接続、Metal独立監査済み
+
+sealed ownerはsource dd86042e、package ID75dfb57b…、4135files。Windowsの新adapter3検査も成功したが、初回package作成は固定契約docs/GAMEPLAY.md不足で停止（compiler/GPU0）。42依存一覧はhost import用で、既存make_packageがportable-mode-session-contract経由で加える文書1件を含まなかった。実sealed manifestから全43 upstream依存をproduct-detail-compile-preparation-v1.jsonへ抽出し直した。元Windowsの同文書SHA9640ef2a…も一致しているとのpeer報告。固定43件を揃えた同じsourceからpackage ID一致を確認してから、既存generation→compile-cubin-o1へ進める。初回失敗と未消費claimを保持する。
+
+research/verify-product-detail.pyを既存package/run/sealへ接続したproduct-detailは、元製品fixtureのMiranda stage0・30秒をprepare/compile_product/decode_payloadのまま扱う。通常body entryのみ、group/target ownerは未接続。新しい効果/数値モデルや監査toolは追加しない。元CUBIN/O1を既存compile-planと制限Jobで準備するための所有者。元CPUと全payload（evaluator含む）を比較し、永続native fingerprintのみunpack時に変わるVCS stampを除く。数値/警告/履歴は保持。
+
+不変development packet f653d0c7…でM5実GPU1.747467秒、PSO cache hit、全CPU応答一致。既存sealのfresh GPU禁止child1.643221秒で独立監査成功。新adapterの欠落nullable field拒否修正後も、元packetとapp/GPU/data/upstream計1005fileのSHA一致、同じinput/output/native SHAを確認して保存readbackを全製品比較した（追加GPU0）。小証跡product-detail-owner-v1.json。新3テストとcompile CLI13成功。通常APIの確認済みprofileはMetal255/CUDA0を維持し、この同一profileのpacket実行を加算しない。
+
+Windowsは42固定依存の全SHAがコピー前後/実行後一致し、未実行14件が成功。前回41と合計55成功（CUDA成功unitはmock）。今回BelowNormal/fresh Job/2GiB、peak130932736bytes、outer11.510秒、残存/cleanup/観測error0、サービス維持は未確認。raw原本はWindowsのみ、GitHub報告のauto-review拒否後はpeer要約で取得し、独立raw監査と区別する。compiler/GPU0。以下の初回依存不足は保持。
+
+# 2026-10-30 Windowsホスト回帰：41成功／製品14は依存不足で未実行
+
+b0e04163をWindowsの隔離Git checkoutへ展開した初回CPU回帰では、生成cache13/compile cache12/Node16の41成功。製品14はgitignoreされたresearch/upstream/nikke-calc-masterが無くrunner importで停止し、未実行。GPU/Slang/NVRTC/PTXAS0、失敗capture保持。依頼時に固定依存を同梱する手順が不足していた。成功41を再実行せず、既存CLI make_packageと同じ公開42ファイル（6,827,637bytes）の選択・SHAをproduct-upstream-dependency-files-v1.jsonへ記録。既存Windows固定依存と全byte照合してから不足14のみ別captureで確認する。上流・保護CPU・sys.pathは変更しない。
+
+追加Claude相談はOAuth expiredで開始前に停止。以前取得したdiffレビューの反映は下記の通り維持。認証失敗をレビュー完了に数えない。
+
+# 2026-10-30 共通CUDA製品経路を接続：実CUDAは未実証
+
+通常UI/APIにcuda_shared_detailを追加し、Metalと同じprepare/compile_product/decode_payloadおよびGPU読戻し後の全CPU応答比較へ接続した。legacy cuda_detailは保持。Windowsの通常要求は絶対ディレクトリのpaired生成cacheとCUBIN/O1 cacheを必須とし、miss時のcold compileは禁止、理由付きCPU fallback。CUDAのhost_dispatch_secondsを純GPU時間へ読み替えない。hardware受付はlegacy probeに依存せずcache設定を確認し、実行可否は要求ごとに検証する。
+
+最終コードの通常API2要求を保存。Miranda30秒はM5実GPU1.750341秒、全CPU応答一致、旧入力/出力SHAと一致。Macの共通CUDA要求はGPU前にOS理由付きCPUへfallback。計算3関数と全3shader closureは変更なしで、既存Metal255 profileの証拠を保持する。CUDA製品実証0。capture_idとrequest SHAにより返却結果と保存captureを結ぶ。small report shared-cuda-product-route-v1.json、proof shared-cuda-product-v2-20261030。
+
+製品14・queue/server16・生成cache13・compile cache12の55検査成功。CUDA成功unitはmockであり実GPU証拠ではない。実backendの必須cache missではgenerator/compiler DLL/driver呼出0を検査した。Claudeレビューのcache guard・不正metadata・directory/legacy probe指摘を反映。次は固定commitをWindowsでCPU-only回帰し、適切なimmutable ownerと既存compile-plan/Job制限で必要なCUBINを準備して短い製品GPU要求を確認する。旧packetのsource差替えやコンパイラidentityの付替えは禁止。全体目標は未完了。
+
+# 2026-10-30 現行ソースの全266製品API確認：Metal255一致／CPU11
+
+固定c5d9402cの通常/api/jobsで全266 favorite-stage profileを16件単位で確認完了。標準育成・cubeなし・30秒・本体のみの条件でMetal255はCPU全製品応答一致、11はGPU前に理由付きCPU fallback。数値差0/API error0。app/GPU/依存データの全sweep中変更なし。8件は同一入力・同一ソースの既存API cache再利用、新GPUリクエスト247。共通CUDA製品検証は0。小証跡product-profile-progress-v5.json、persistent proof product-profile-sweep-v2-20261030。driver68794はexit0で終了済み。source凍結のための編集禁止は解除済み。
+
+保存255 captureのinput/readbackハッシュを確認し、同じ入力を再packingして全SHA一致。元API応答のCPU payloadと一致するcaptureだけをsource/input/output/CPU payloadで結び、既存decode_payloadで全255を完全再生。元実行のevaluator stampを保持したarchive replayで、数値・期待値の修正はない（GPU0/CPU戦闘0）。旧timestamp/provenanceの8件は元API cacheの8件に対応。出力SHA単独やsource/input/outputだけでは別profile/provenanceの同じrawを選べるため、製品応答を再生するときはCPU payload identityも確認する。
+
+旧source固定テストの代替として、既存destructible-weapon-shield全141入力と順序・各input SHAを一切変えず、現共有kernelでM5を1回実行。全591,396,864byte・各141 output SHAが元sealed goldenと完全一致。GPU0.0757065秒/初回PSO42.895811秒、CPU戦闘0。旧golden/source証明は変更0。test_destructible_weapon_shieldの固定source同一性assertを、現在の実測source closure＋全旧input/output保持receiptの確認へ切替え、関連7＋製品10テスト成功。新suite/監査tool/逆投影ledgerは追加しない。旧全suiteの現在source再認定をした意味ではない。proof product-legacy-retention-v1-20261030、receiptは同じv5 reportのlegacy_typed_retention。
+
+残11の元効果も既存validatorで特定：Anne=敵heal_received_pct、Yuni=enemy_movement_disable、Yan=force_move、Soldier O.W.=cover_def_pct、Velvet=敵ammo_charge_pct、Heavy Arms=lock_on/effect_target_count_add/all_projectiles、Bay4段階=received_dmg_split（body/cover）、Rei仮称=effect_target_count_add/effect_range_pct。推測モデルで元CPUとの一致を装わない。
+
+追加gap：実5人Sakura/Belorta/Miranda/Dora/Drakeでmodifier＋multi_hitの組合せが現wireで拒否されることを静的確認（CPU戦闘/GPU0）。全266の単体profile通過は全編成・全分岐の対応ではない。固定ゲージ、boss/parts履歴、手動操作も未接続。
+
+Windows接続を確認し、既知cache2箇所の小metadata4件＋巨大3 recordの末尾64KiBずつを確認依頼。現3生成CUDA SHAに一致するCUBIN/O1候補0。巨大3はPTXでsourceも不一致。完全なPC走査／artifact integrity確認ではない。最初のpeer読取で巨大1行を読んだ逸脱を記録し、その後metadata/末尾だけに限定。GPU・NVRTC/PTXAS/Slang compile・再build0。接続はidleで有効。GPU実行依頼はまだ送っていない。
+
+次の優先：cuda_shared_detailを同じcompile_product/decode_payload/CPU照合へ接続し、legacy CUDAを保つ。通常リクエストはCUBIN/O1 cacheとpaired生成の必須hitに限定し、missならcold compileせずCPU fallback。CUDA transportのhost_dispatch_secondsをgpu_secondsと誤表示しない。新CUBINが必要なら既存CLI compile-plan/Job/2GiB/child60s/outer180sで必要分だけを一度準備し、暖機済みの短いGPU確認へ進む。無理に旧packetのsourceを差し替えない。
+
+固定モードはCPU正本2編成を調査済み。first=3s、full終了後の各char.burst_regen_time(default2s)、camera/gauge満充logの抑制が差分。proof product-fixed-burst-design-v1-20261030にCPU基準とfindingsのみ（未実装）。weapon mechanics22..27は使用済み。新policyには既存partial/manual版と衝突しない明示wire版が必要。既存accumulateのpaired生成byteが変わらないことを確かめて証拠を再利用し、不要な全CPU再計算を避ける。全目標はactive。以下は履歴。
+
+# 2026-10-30 対象別carrier＋単一本体nearbyを製品接続、残11profile
+
+通常/api/jobsの元8profile（Sakura/Anchor/Clay/Asuka/Rei/Mari/Misato/Elegg）が、同一現sourceでM5実GPU・CPU全製品応答一致。target_modifier_carriersを既存axis表/kind4 carrierへ保ち、数値・名前・条件・寿命を消さない。typed対象0を証明した本体世界だけ既存body経路を使い、吸血/貫通をtyped専用制約で拒否しない。typed世界のゲーム規則は未確定のまま。Eleggのtarget_and_nearbyは既存の単一BODY証明を共通化し、追加actor/座標/partsは拒否。元effectsを変更せず、元selectorをmetadataに保持する。キャラallowlistなし、新suiteなし、保護CPU/数値式/期待値/許容差変更0。
+
+最終product-target-modifiers-v3-20261030でAPI8/8、同一製品shaderの既存宣言モデル正例4＋raw不正6が一致。GPU対照0.053758秒。初版6/7（Asukaのtyped専用lifesteal拒否）と初期compile_bindingsの非空契約拒否は失敗として保持。Claude diff-onlyレビューを取得し、body抑止predicate統一・空slot予約領域検査・axis判定共通化を反映。stale bank説はentryがtail全clearするため未確認、未知enemyキーは既存共通allowlistが拒否、generic定義検査も共通admissionに残る。rawレビューはローカルのみ。
+
+静的255/266（CPU戦闘/GPUなし）。履歴を通じた製品Metal成功255/266、現sourceで新規確認は8件。11残件はAnne、Yuni、Yan、Soldier O.W.、Velvet、Heavy Arms、Bay4段階、Rei仮称。標準30秒/cubeなし以外の分岐、現source全266回帰、固定ゲージ/ボス・parts履歴/手動操作/製品CUDAは未完了。関連CPU単体は24成功、旧source固定テスト1件はworld_team_runtime変更を拒否して失敗（旧証明を現在へ昇格させない）。GPU効果の数値差とは分け、残課題として保持する。
+
+小証跡product-target-modifiers-metal-v1.json。前回product-profile-repair-v4.jsonのgroup source出所も訂正：出力SHAのみの照合が同一readbackの旧sourceを選んでいた。実capture2800e5ed…のsource/input/output三点一致で結び直した。旧版はcommit ea73f4f5に保持、数値・raw・expected変更0/GPU再実行0。以後は出力SHA単独でsource証拠を選ばない。
+
+次は凍結した現sourceで通常API全266を小batch回帰し、Metal/CUDA別の製品件数を更新する。Windowsは現在0依頼。必要な短い差分だけで、巨大compiler診断や旧source固定証明の鎖を個別に増やさない。以下は履歴。
+
+# 2026-10-30 製品経路の8件を修正、残19件
+
+最初の全266profile API sweepはMetal全製品レスポンス一致239、CPU fallback27。証拠product-profile-progress-v3.json。入力／モデル不足19、GPU拒否5、数値＋警告差1、警告差のみ2だった。今回、元BuffManager構築時の注意書きを静的に捕捉して製品応答へ渡し、既存SOURCE_OPSのbuffer scopeとSHIELD_HEAL条件を両製品wrapperへ接続。共通team条件受付へback_row/not_self_caused_healを予約引数0検査付きで登録。Mastの通常周期damageはstack_countをhit-count参照に保ち、DOT係数stackフラグと区別した。CPU正本4・効果定義・許容差・expected変更0、新suite0。
+
+repair-v1の5成功、v2のRouge/Baekhak成功、v3のMastとRouge前列0／後列1,3がCPU全一致。最終repair-v4は同一現行sourceのまま元失敗8＋Miranda／Belortaの10profileが通常/api/jobs→M5→全CPU応答一致。非group／multi-hitの両sourceを確認し、API既存cacheも利用。関連75 CPU unit成功。小証跡product-profile-repair-v4.jsonに現source/generated/input/outputと応答hashを保存した。raw／旧失敗はpersistent proofsに保持、Windows追加依頼0。
+
+重要：履歴を通じた成功は247/266だが、現行sourceの確認は10profileだけ。239件の旧成功を現sourceへ自動昇格しない。元266の現source全件回帰は未実施。残19件は元入力／モデル不足で、固定ゲージ・boss/parts履歴・手動操作・製品CUDAも未完了。次は既存typed modifier consumerを通常製品へ接続する（projectile_dmg_pct3件／shield_dmg_pct4件）。単にstatを0や無効buffへ書き換えず、対象別axisとcarrier状態を保持し、元の有効対象の数値も検証する。修正をまとめてから266件の現source回帰と必要な短いWindows確認を行う。共有team sourceの変更があるため旧suite/source certificateはhistoricalのまま。詳細docs/portable-product-battle.md。以下は履歴。
+
+# 2026-10-30 通常製品APIで26/266 profileがMetal・CPU全一致
+
+次の16件は15成功、ベロータがmulti_hit:4のlowering未接続でGPU前にCPU fallback。portable_detail.compile_productで実effectのmulti_hit要件を検出し、既存portable_battle_attack_group_input.compile_battle(routing=native)を使用するよう接続。group用resident wrapperは既存world_attack_group_entryのincludeだけ。非groupの25件は元product_battle_entry/入力/数値/出力を変更せず、全26の現在compilerの入力SHAを保存結果と再照合した。キャラ名allowlist/効果書換え/条件無視/新suite/共通計算本体変更0。
+
+ベロータ30秒も通常/api/jobsでMetal/全製品レスポンスCPU一致。これにより標準育成・cubeなし・30秒の26/266profile（favorite段階別）が製品Metalで一致、現共通CUDA0、未検査240。証拠product-profile-progress-v2.json。初回のmulti_hit拒否は元API応答/rawと区別して保持。新group GPU sourceの初回compileを含め63.32秒、GPU1.781秒。既検査25件はGPU再実行なし。専用CLI/証明書は追加せず、次は残240を同じ製品APIで16件単位に確認する。proof root product-profile-sweep-v1-20261030に未実行planを保存。全設定/全特殊条件の認定ではなく、全目標はactive。以下は履歴。
+
+# 2026-10-30 単一製品入口で10/266 profileの30秒応答がGPU/CPU一致
+
+最初の製品共通入口は10profile中8成功、ラピ：レッドフード/アニス：スターがadmission64でCPU fallback。前者のstat92など既存連鎖ハンドラーが入口で無効だった。新gpu/product_battle_entry.slangはresident＋既存world_projectile_chain_entryのincludeだけで、単一製品入口へfull-burst/named/stack/chain等を統合。計算本体・効果定義・guardは変更せずapp/portable_detail.pyのSOURCEを切替。新しいsuite/certificateは作らない。
+
+新ソースの通常/api/jobsで失敗2件がMetal/全製品レスポンスCPU一致、続けて旧成功8件も保持確認。全8のinput/readback SHAまで旧結果と同一。現在は元default-growth/no-cube・30秒の10profile/266で製品Metal全レスポンス一致（favorite別）。現CUDA0、未検査256。これは全設定/全特殊条件の認定ではない。Rapi初回の冷pipelineを含む53.48秒、その後は約3〜6秒/件、GPU約1.26〜3.15秒。旧2拒否/rawを保持し、同ソースの失敗を再送していない。新ソースの保持再実行は実計算source変更に伴うもの。証拠research/target-count-query-evidence/product-profile-progress-v1.json、元API応答はproof rootのproduct-profile-batch-v1..v4-20261030。
+
+MacでCUDAが使えない旨だけが出る旧hardware文言を、Metal選択可能な説明へ修正。CPU fallbackのunsupportedは既存UIの理由配列を使用。fixtureの製品evaluator.commitは実行時に変わるので、回帰では既存sim.evaluator()の現在値を使い、歴史fixtureを上書きしない。実APIでは全keyをそのまま比較し、計算値/警告等の除外なし。追加GPU suiteなし、Windows依頼なし、保護4ファイル不変。次は同じ製品APIで未検査profileを小batchで進め、固定周期/boss・parts履歴/手動操作等の製品側gapも解消する。ユーザーの4317は変更せず確認用4327のみ稼働。以下は履歴。
+
+# 2026-10-30 通常製品API→共通Metal→製品レスポンスが初めて全一致
+
+app/portable_detail.pyとfresh workerを追加し、既存evaluation-queue/serverの通常/api/jobs（board）と画面のMetal詳細＋CPU照合へ接続。元engine_workerのstatic hookでRunを捕捉、育成/武器/seed/敵/設定と全71効果を保持してcompile_projectile_battle→既存world_projectile_resident_entryを実行。CPU戦闘はGPU readback後の照合だけ。元sim.payloadと既存decodeを利用し、製品レスポンスの全key/値を比較する。保護4ファイル・Slang・数値規約変更0、新suite0。
+
+M5で元ミランダ/ドラー/N102/メアリー/ドレイクの30秒1リクエストがmetal_detailとして成功、GPU1.756293秒/初回pipeline7.405801秒/全体14.553142秒。部隊・各member・burst・基礎stat・spec/control/warnings等、compute以外の製品レスポンス全体がCPUと完全一致。通常APIの同一要求はcache_hitで戻り追加GPU/CPU戦闘0。固定周期はGPU前にCPUへ戻り、既存UI形式の理由配列を返す。実GPU1回、通常API成功1ケースであり266profile sweep成功数は0。証拠research/target-count-query-evidence/product-metal-api-v1.json、元request/readback/CPU/GPU応答はpersistent proof rootのproduct-metal-api-v1-20261030に保持。
+
+対象は現時点でexpected/ゲージ実蓄積・共通compilerが受理する静止boss/自動操作。profile名の固定allowlistは使わず、各requestの全準備/validatorとCPU照合で確認する。固定周期・製品boss/parts履歴・手動操作の結果変換は明示CPU fallback。GPU差分はCPU結果を返しGPU成功と表示しない。MacのMetal選択肢は有効だが既定CPUは維持。旧CUDA詳細と選択workerは維持、現在の共通CUDA製品経路は未接続。
+
+Python product4/legacy service4/Web42検査成功。Webの初回sandbox待受EPERMは保持し、通常権限の同じテストで全件成功。初回testのunittest.run属性衝突はテストだけ修正。再確認のためのGPU再実行/最終CPU全sweep/新certificateは作らない。4327はworktree確認用（4317ユーザー既存serverへ影響なし）。一時server再起動後に完了済みGPU要求を再送せずCPU fallbackのみ確認した。通常UIのMetal option有効化もブラウザで確認。次は同じ製品APIへ元profileを小batchで通し、失敗原因を直す。全目標はactive。以下は履歴。
+
+# 2026-10-30 Claude Codeとの2回の相談による進め方の修正
+
+ユーザーから「進まない原因をClaudeと相談」の依頼。Claude Codeをplan/Read/Grep/Glob限定で2回実行し、所見をコードで再検証。主因は、新共通GPUのprivate suiteでの成功が通常製品APIへ接続されないこと、suite/certificate/inventory整備の自己増殖、CPU戦闘の繰り返し。時点9b67799eでregistry693（compiler専用312/cache-only43、動的alias含む）、10/18以降1005commit。693個の独立エンジンという意味ではない。app/evaluation-queue.mjs:4はcpu/cuda_detailだけ。server→gpu_service→detail_gpuのlegacy CUDA実績は存在する。portable-events APIは外部刺激用で自律戦闘の製品接続ではない。
+
+weighted21はGPU5.70秒にCPU事前164.98秒・独立監査213.12秒・登録後CPU162.90秒。以後、登録直後の同じnative再実行を既定作業にしない。既存immutable packetの完全input/native期待と依存code/データ/observerの一致を検査して再利用し、fresh独立監査を偽装・省略しない。oracle cacheを定義SHAだけで作るClaude初案は不採用。
+
+次の優先順位：
+1. 通常評価body1件→既存engine_worker.evaluate(_portable_static_inputs=True)→既存共通wire/Metal実行→製品形式decoder→CPUとの同一レスポンス照合を縦に接続する。CPU正本と同じ規約で既存実証がある編成を選ぶ。ベイの未確定比率を初回製品接続やcanonicalへ昇格しない。入力準備が全くないというClaude所見は訂正し、既存static hookを再利用する。保護4ファイルは維持。
+2. 同じ製品経路へ元profileを小batchで通し、不一致を原因別に修正する。247（owned）/254（typed）は静的packingで、全profileの実行/既定採用を保証しない。受理はprofile名の固定allowlistではなく設定・敵・duration・seed・policyを含む機能契約で判定し、未対応は理由付きCPU fallback。
+3. 同じ入力と計算sourceの必要な差分だけをWindowsで短くCUDA照合する。全profile一括依頼・保存PTX解析を計算証明の代用にしない。
+
+進捗指標は通常APIでGPU実行・CPU一致を確認したprofile数（favorite別266分母、CUDA/Metal別）、fallback理由、wall timeと再計算回数。suite数や検査数をGPU対応の増加と扱わない。新しい監査CLI/証明書/小suiteの追加を先行させない。追加途中のweighted-death専用GPU入口は配布前に登録を取り下げ、CPU契約2例と失敗記録は保持。元weighted-battleの回帰へまとめるのは上記縦断接続を妨げない段階で行う。GPU実行0。全目標は継続中。
+
+直前の入口比較では元定義・入力指紋が同じ247編成中78が拡張kind guardで拒否解消、19はpacking失敗。これはtyped入口254との回帰差ではない。compare-inventoryの追加はここで止め、これ以上分類整備だけを作業の中心にしない。Claude生出力はローカルproof rootのclaude-progress-review-v1/v2-20261030.txtに保持（公開成果物へ未収録）。以下は履歴。
+
+# 2026-10-30 Windows保存PTX診断の共有を取得
+
+Windowsでユーザーが直接許可した保存2ファイルをGitHubのcodex/moving-visited-ptx-v2-report（a266d342）から取得。11,725/598byteと事前SHAが完全一致。Mac保存のf7337532…packetとpackage ID/primary Slang/paired normalized CUDA・Metal sourceを照合。追加Windows依頼/compile/GPU0。
+
+報告上NVRTC成功38.115789秒、cache照合hit。quantityTotalsの宣言localは5192→4200byte、仮想register2206→2238、271関数。ただしraw PTXは今回の共有対象に含まれず、Macで統計を再計算した証拠ではない。GPU/物理資源/計算の検証0。statistics/cache_checkの2stageは2GiB Job上限が欠け、全体・環境保持はfalseのまま。既に修正済みの共通診断wrapperへ結果を混同せず、元失敗を保持。保存summary/manifestとMac受領receiptは research/target-count-query-evidence/windows-moving-visited-ptx-v2/ 。共有待ちは解消し、再実行は不要。以下は履歴。
+
+# 2026-10-30 ベイ共通戦闘21入力をM5で独立seal
+
+固定9bd06aad/package ef200b58…の全21入力（元8戦闘/拒否13）がMetal成功。GPU5.703300秒、冷pipeline59.370762秒、CPU事前164.984342秒。別fresh GPU禁止child6群の全件独立監査213.119448秒。元4段階/破壊/ビスケット復活/reburst/未発動/破壊cover条件付き元自己回復2回を全状態比較。元carrier行IDと既存incoming mode22/23/20・cover消費helperを共用し、Runtime138992byteで増分0。通常weighted-battleとCUBIN/O1・cache/paired生成必須版へ登録。途中の監査敵lifesteal干渉・空cover membership・条件admission列挙漏れの失敗を保存し、正本/normalizer/許容差変更0。
+
+詳細は[偏差分配](portable-bay-allocation.md)、証拠weighted-battle-metal-v1.json。現CUDA/正確なゲーム重み/均等版併存/owner死亡復活GPU合成/全目標は未達、canonical/defaultは閉じたまま。Windows保存診断2ファイルは既存chatで具体的な人間の共有許可が自動審査に確認されず未送信。ユーザーへWindowsチャットでの直接許可を依頼済み、再検証は依頼しない。最終登録72bb438e/package87a58874…自身の9群47検査と全21入力/8nativeのCPU事前照合162.897815秒も成功。元開発packetの全input/native/Slang指紋を保持、CUBIN/O1・2GiB・60秒compile-plan成功（compiler/GPU0）。全体model-checkはupstream文書を持つrootで成功、suite packet内はその文書を省くため対象外。記録weighted-battle-final-cli-v2.json。以下は履歴。
+
+# 2026-10-30 ベイ元4段階のnative被弾・独立coverへ接続
+
+weighted-incoming-commonをCPU7戦闘で検証。元69/74/75/76定義4段階30秒＋破壊/再burst65秒＋元ビスケット復活/再burst65秒＋未発動3秒透明対照。全定義/owner/順序を実登録と照合。元carrierの寿命と独立self_coverを読み、元被弾loop・保護/HP・同じcover mutation helperへ接続、別clock/HPなし。実破壊2/復活1、均等版併存等はpolicy未確定で拒否。検査期待の誤り（回復で破壊coverが復活する）を正本変更せず訂正し、失敗を保持。7戦闘CPU2.932594秒/packing・GPU0。数値Metal1192と戦闘CPU7を分類で分離。次はこの同じ7戦闘を既存GPU incoming frameへ接続し、Metal全状態比較。self_coverの独立recipient/owner down時のcarrier寿命をbody maskへ潰さない。保護4ファイル変更0、Windows新依頼0、実CUDA/公開GPU/全目標未達。最終固定b1eb43e8/package c76e94bd…自身で4群17検査と1192数値入力のCPU事前確認、reference7戦闘も成功し、保存済み全input/native/trace/contract指紋と完全一致。CUBIN/O1・2GiB・60秒compile-plan policyとmodel-checkも成功（実compiler/GPU0）。最終記録weighted-battle-final-cli-v1.json。詳細portable-bay-allocation.md、証拠weighted-incoming-battle-cpu-v1.json。
+
+# 2026-10-30 最優先ベイの重み付き共通数値処理をM5でseal
+
+entry-planは偏差分配4段階が最優先と再確認。固定689814a1/package59e9a503…でweighted-incoming全1192入力（native1179/拒否13）がM5成功、GPU0.000569958秒、独立GPU禁止監査0.386646秒。別明示重み/全31生存mask/5caster/独立cover/最大量/極小量を検査。元sandboxのdevice不可はclaim前停止で保持、成功GPU1/Windows依頼0。通常CLIとCUBIN/O1 cache-onlyを登録し、分類には限定数値証拠だけ追加。canonical拒否/実CUDA/元4段階戦闘/実機定数は未達。最終512578f3/package d1acfcb4…自身の2群8検査/1192入力CPU事前確認とCUBIN/O1・2GiB・60秒compile-plan policy成功（compiler/GPU0）、分類回帰41検査成功。保護4ファイルは5720d178から同一。Windows既存chatのstatus確認はhost unavailableで、run依頼0。最終記録weighted-incoming-final-cli-v1.json。次はdocs/portable-bay-allocation.mdの元carrier・独立cover・既存incoming frameの接続。新probeだけを重ねず、元all_allies/self_coverの寿命・被弾/破壊/復活通知へ進む。
+
+# 2026-10-30 最終CLI接続確認とLock On調査判断
+
+固定2f59295f/package6b960aef…の通常CLIは6群39検査と全13入力/6nativeのCPU事前検査に成功（116.819362秒、GPU0）。同packetのcompile-planはCUBIN/O1・2GiB・60秒policy成功、実compiler/claim/GPU0。記録 `research/target-count-query-evidence/cover-defense-modifiers-final-cli-v1.json`。Metal計算成功は下記の別proof、実CUDAは未確認。公開情報再照合でもLock On距離式は未確定。実機提供を待たず他の未対応を優先し、同一スキル文の再検索は終了する。
+
+# 2026-10-30 共通received補償和を旧4＋Noah2の全13でM5独立seal
+
+固定a6b99c55/package2873d961…が全13（6native/拒否7）成功。GPU2.522692秒/冷PSO61.843307秒/CPU事前116.050422秒、別fresh GPU禁止child独立監査139.948001秒、親oracle利用なし。同じ監査からcompiler source-only証明書も作成。既存共通addSumを全incoming receiverの累計に使用し、Runtimeにcorrection5個（＋40byte→138992byte）。Frame/wire/個々HP減算・通知は不変。
+
+旧4戦闘＋Noah元69定義2戦闘、全83cover receipt/270被弾を全比較。Noah元prob:10は各3発動、−8% snapshot22件、係数33.33/100/137.5/250とDEF上昇の重複を検証。前の9入力はJackal累計だけ1ULP差で失敗し、全raw/claim/失敗を保持。許容誤差/元CPU/normalizer変更0。新source成功GPU1/同claim retry0。
+
+共有readback-retainを2032000/2048912wordへ拡張し、幅一覧を単一CASE_SHAPESへ共通化、16検査成功。保存済み旧11入力の全input/native/output指紋と90,152,128byteが新13で同一（追加GPU0）。`cover-defense-battle`と`cover-defense-modifiers`は同じ全13/6nativeへ登録。両cache-only版はCUBIN/O1・compile cache・paired generation必須。旧v1証明書を残し、main compiler aliasはv2へ切替。現CUDA/CUBIN hitは未検証、Windows新依頼0。
+
+新分類は専用Metalの非ゼロreceived/変動係数/補償和の検証済み範囲を表示し、canonical SCOPED_INERTと公開GPU受付falseを維持する。全キャラ/全目標は未達。これ以上同じSOW/Noahの小例だけを重ねず、次はentry-planの優先未対応へ戻る。cover復活等の合成/基礎DEFレベル曲線/現CUDAも未完了として保持。
+
+証拠: research/target-count-query-evidence/cover-defense-modifiers-metal-v1.json、cover-defense-received-sum-failure-v1.json、cover-defense-readback-retention-v1.json。以下は履歴。
+
+# 2026-10-30 Noah倍率の追加検証から共通received sumの差分を修正中
+
+追加Noah/SOW元69定義の2ケースは、原prob:10を変えず実3発動、−8% snapshot各11/16件、係数33.33/137.5/250をCPU確認。受動観測を除く全nativeのcanonical JSON指紋は観測offと同一。直接tuple対JSON list比較の診断失敗は保持し、既存canonical digestで照合した。
+
+固定d7f4e000/package9ca192a3…は必須生成/Metal PSO cache hit（Slang0、PSO0.002931秒、GPU2.505108秒）。貫通ケース成功、非貫通はJackal累計received_damageだけ1ULP不一致。全per-hit HPと32cover receiptsは正確。元native observerの`sum`対GPU逐次加算が原因で、実HP term列・既存共通addSumで再現した。失敗/raw/claimを保持しGPU再実行0。
+
+現在は全incomingの共通累計へaddSumを接続した。Runtimeにcorrection5個（＋40byte）、Frame/wire/個別HP減算は不変。新sourceのM5/CUDAは未認定、旧sourceのproofを昇格しない。開発suite cover-defense-modifiersは旧4＋新2の6nativeと拒否7、全13。旧11 inputはそのまま保持。旧Goldens/証明書の元sourceはportable_received_sum_source_contractで厳密に投影する。次は新sourceを固定packageにし、全13のM5/独立sealを実行する。先行normal suiteのcurrent sourceは再認定待ち。保護CPU/normalizer変更0、Windows依頼0。全目標は未達。
+
+以下は履歴。
+
+# 2026-10-30 遮蔽物DEFの既存GPU保護層接続をM5独立seal
+
+修正版23dec48a/package3ed9914b…で全11（元戦闘4/拒否7）成功、GPU2.477718秒/冷PSO61.963661秒、CPU事前73.244085秒。別fresh GPU禁止childの全11独立sealも88.794047秒、親oracle利用なし。元69/69/69/67定義、実被弾76行/cover減算51件、全戦闘/物理/typed/2,048行skill bankを比較した。Runtime138952byte/元履歴容量を保持し、入力115704/出力2048912word。CUDA/Metalは同じSlangのincoming/分配/シールド/cover phaseを使い、CPUの動的状態を入力しない。
+
+初回d7565091…はsnapshotをcommandsから読む誤りで攻撃/係数0・cover量1となり4不一致。全raw/claim/失敗を保持し、既存results readerのprotectionNumberへ修正した別packageだけを実行した。成功GPU1/失敗GPU1/同claim retry0。新しいownership preflightは入力読取を基礎DEFの2箇所に限定し、3つの誤読取の故障注入をCPU準備前に拒否する。
+
+`cover-defense-battle`を通常sealed、`cover-defense-battle-cache-only`を同じ計算のCUBIN/O1/compile cache/paired生成必須で登録。current-source certificateは同じ完了済みfresh監査/全SHAに結び付けたpure直列化のみ、追加native/GPU0。source-onlyであり実CUDA証拠ではない。修正後の旧entry別生成も従来strict CUDA ea6efec5…/Metal 1a6baa15…を保持。旧GPU再実行0、Windows新依頼0。
+
+公開/defaultは閉じたまま。分類はcanonical SCOPED_INERT、先行数値Metal572、専用CPU、今回の専用Metal戦闘を分離する。全キャラ/全目標は未達。今回GPUの受ける倍率は全0・係数は全100であり、次は元Noah等の非ゼロ被ダメージ倍率を持つ実編成と変動係数、遮蔽物復活の合成を優先する。追加caseは可能なら同entryのgeneration/PSO必須cacheで進め、旧11結果と元効果を保持。 静的確認ではSOW/Noah/Drake/Jackal/Maryは元69定義で、Noah元row12はreceived_hit_count:1・prob:10で全員received_dmg_pct -8%/10秒。確率を書換えず、実発火と非ゼロsnapshotを必須witnessにする。受動primingを入れる場合も元32 node上限を保持。実CUDAは現接続の保存状態確認とcompile-plan後の必要な短い検証だけ。
+
+最終登録f81f1c96の通常package cf3013a3…自身で5群27検査＋全11/4nativeのCPU事前照合73.945042秒、CUBIN/O1・2GiB・60秒compile-planも成功。追加GPU/Windows/compile/claim0、M5の全golden/sourceを保持。最終bridge記録 `research/target-count-query-evidence/cover-defense-battle-final-cli-bridge-v1.json`。
+
+[契約と実測](portable-cover-defense-battle.md)、証跡 `research/target-count-query-evidence/cover-defense-battle-metal-v1.json`。以下は履歴。
+
+# 2026-10-30 遮蔽物DEFを元の保護層へ接続するCPU契約4件
+
+共通CLI `reference --suite cover-defense-common` が4ケース成功（66.454624秒、GPU/packing0）。通常元69定義／混成67定義を保持し、実被弾15/15/13/33行・遮蔽物減算15/15/5/16件。独立した5基礎DEF、元received単一照会snapshot、元分配人数、シールドcallback後のlive倍率読取を既存simulateの厳密なAST接続で実行。元の時計/HP bank/通知器は再実装しない。被弾13は実死亡後の省略、33は元3人分配であり、15固定の初版検査失敗を保持して修正した。専用CPUモデルでありcanonical/default/game認定ではない。
+
+新9検査に数量/分配/破壊/順序/alias復元/故障注入を含む。保存4caseを強化した最終validatorでも再監査。元full referenceのsource hashはその実行時を保持し、後の分類/validator更新へ出所を付け替えない。保存fixtureは必要部分だけ、全native/trace/inputの指紋と元のfull記録はproof rootに保持。GPUソース/旧golden/保護CPU4ファイル変更0、Windows新依頼0。分類は専用CPU接続と先行Metal数値572入力を別欄で表示し、既定未対応を維持する。
+
+次は5基礎DEFの共通wireと、incoming frameのattack/coefficient/received/divisor snapshotを既存protection event3へ接続し、同じ共通binary64でMetal戦闘比較・独立sealを行う。現GPU戦闘接続/現CUDA/基礎DEFレベル曲線/全目標は未達。[契約](portable-cover-defense-battle.md)、保存fixture `tests/fixtures/cover-defense-battle-cpu-v1.json`。以下は履歴。
+
+# 2026-10-30 歴史逆変換を共通化、保存物診断を共通2GiB Jobへ接続
+
+portable_quantity_visited_source_contract.historical_hashesへ旧Frame/mixed証明書の数量逆変換を共通化。固定d04e5689…へ5hunk全byteを復元し、helper/source改変・依存欠落・baseline変更・演算式改変を拒否する。旧証明書を使う現source実行は引き続き拒否。最初の診断packet9f1661…のMac unit失敗は保存し、修正版f7337532…は21群232件とPTX plan成功、a2a87eb4で共有した。GPU計算sourceは前回Metal sealから不変。
+
+保存物専用のptx-stats/cache-check stageをrun-gpu-packetへ追加。既存監査器を同じfresh Job/2GiB/BelowNormal/gate/終了直後観測へ通す。readonly CPU経路も独自wrapperで上限を省略できないようにした。current packetのowner検査、厳密cache hit、PTX receipt/graph hash、CPU-only counterを維持し、compiler/calculationを認定しない。関連105/固定de42d2db…22群238検査成功。新stageの実Windows確認は未実施。詳細portable-packet-file-diagnostics.md、記録research/portable-packet-file-diagnostics-v1.json。
+
+Windowsの保存結果はまだMacへ取得できていない。共有の自動承認拒否に対して既存の人間の包括許可を示した再確認を依頼したが、接続が利用できず結果不明。元のPTX検証やCPU診断を再送せず、既存チャットの保存状態・共有審査結果の取得だけを行う。復旧確認はユーザーへasync質問済み。次は保存結果の全byte/SHA照合を完了してからCUDA物理資源/実計算へ進む。全目標は未達。以下は履歴。
+
+# 2026-10-30 quantityTotalsの訪問管理を共通bitsetへ縮小、Metal3種類を独立seal
+
+QuantityVisitedは256uintのseenを8uintへ置換（ソース上1024→32byte）。values/flags/order配列、初出順、フィルター、binary64加算・丸め、時計は不変。共通helperをCUDA/Metalへ生成。5hunk逆変換で旧quantity全文SHA d04e5689…を復元し、旧max-ammo baseline/normalizerを保持した。実PTX local／物理stack削減は未測定。
+
+quantity-visited16（境界9/拒否7）/max-ammo-visited28（native20）/moving-visited15（native3）がM5成功し、全3を別fresh GPU禁止監査でseal。GPU .000414/.051732/2.227792秒、独立監査 .409858/2.438136/84.360426秒。max-ammoとmovingの旧全input/output/native指紋を保持し、moving全129908160byteのSHA3765a8c5…も同一。world2種に同じfresh golden由来source-only証明書、moving-visited-cache-onlyも登録。旧Frame証明書は厳密な歴史projectionで検査するが現source証明にはしない。新規実行にはvisited suiteを使用し、他の古いsource sealを昇格させない。
+
+最終76検査、sealed moving packet fb2c7719…自身8群42検査成功（ZIP13669201byte/SHA98610c75…）。実GPU source不変の最終登録後にGPU再実行0。初版dd282090はmutating不足でGPU前停止、4d98341eは拒否domain誤分類でGPU後比較失敗。共通拒否経路へ修正したa6b39ff1の出力と4d98全rawは同一だが元失敗は保持。今回成功GPU3/比較失敗GPU1/GPU前失敗1/同claim retry0。Windows追加依頼0、既存チャットidle。記録research/portable-quantity-visited-metal-v1.json、詳細portable-quantity-visited.md。次は短いWindows PTX比較でquantityTotals5192byteの変化を測る。CUDA起動成功／全キャラ／全目標は未達。以下は履歴。
+
+# 2026-10-30 Windows新PTX比較完了、公開残件と限定実装の分類を分離
+
+固定3fc64fb2/compiler-full--moving-framesはWindows20群227件、paired生成29.770秒、PTX単独NVRTC1回39.477秒（内側55.185/60秒）成功。compile生成cache必須hit/Slang0。新PTX5fc6b522…は271関数／未解決等0。dispatch local9784→1848byte、virtual regs12572→13654。quantityTotals5192/tick2584は不変、PTX全体は112453byte増。物理stack/register・速度・起動error2の解消を認定しない。次はquantityTotals visited-group scratch削減、first-seen順と全binary64演算順を維持し、共通テスト/Metal後に短いPTX比較。
+
+driver/kernel/native/ptxas/object/link0、全Job終了空/欠落0/error0、元139file不変。ただしNIKKEサービス未識別でpreservation false→compile CLI exit2→外側stage false→wrapper1を保持。保存結果の読取だけで理由を確認、再実行0。公開summary9499byte/manifest739byteを固定report eeb36b45…からSHA全照合し、CUDA/MSL strict正規化hashがMac独立seal基準と一致。Macでraw PTXを読んだ認定ではない。記録research/portable-moving-frames-ptx-peer-v1.json。
+
+model-checkの依存表にprivate sampling/skill/parentのsuite・proof存在・現source一致を明示し、公開受付の残件と分離。mixed-world残件のscopeも限定。約3KBのCLI要約へ投影し、分類20/CLI51検査成功。5canonical不足／公開GPU false／全キャラ0は不変。記録research/portable-coordinate-gap-scope-classification-v1.json。コード共有d8bde117。Windows既存チャットはidle、cursor77f087d6-874c-42d4-a6aa-311d94ff8aa6:30、未処理依頼なし。全目標は未達。以下は履歴。
+
+# 2026-10-30 moving-groupへ共通resident Frameを接続、Metal全15を独立seal
+
+moving-framesは既存moving entryをincludeしてPORTABLE_RESIDENT_FRAME_STACKを有効化するだけ。既存277 GPU source／戦闘時計／全15 input/native契約／全出力比較は保持。固定3c72494eでM5実GPU1回2.233823秒／cold PSO63.780806秒。129,908,160byte全部が旧moving-groupのSHA3765a8c5…と一致。別fresh GPU禁止監査が全15/native3を84.244527秒でseal。CUDA/Metal反射はstride143048、Frame4096byte at138952、3資源／CUDA引数48byteで一致した。
+
+sealed／cache-only入口、新goldenと同じfresh監査golden由来source-only証明書を登録。最終package dada18f3…（ZIP13,632,538byte/SHAa8a4c567…）自身7群40テストとCLI51テスト成功。旧全106証明書には変更前HEADの11GPU sourceとの不一致があり保持する。新15で旧106を認定しない。backendのexact inverse hunk追加は旧baselineを保持、汎用Frameテスト6件を再利用した。旧失敗packet945ddf7d…と全rawは保存。
+
+PTX compile-planはsealed packet自身で2GiB／60秒／ptxas level無しのpolicy成功。180秒とPTXへのlevel指定を拒否した元planも保存。Windows追加依頼0／GPU再実行0。次は新sourceの短いWindows PTX生成と資源比較（既存CLIとbounded stage、旧消費済みclaimは再送しない）。CUDA物理stack削減／return2解消／実CUDA計算は未確認。quantityTotals5192byteは次の改善候補。証跡research/portable-moving-resident-frames-metal-v1.json、詳細portable-resident-dispatch-frames.md。全キャラ／全目標は未達。以下は履歴。
+
+# 2026-10-30 Windows CPU53とhost ABI確認、保存PTXから改善箇所を特定
+
+固定378bf9a0/package164a2455のWindows5群53件が成功。新host-memoryは実自分・親・Job上限2GiBの読取と親handle解放を確認。保存journal要約は元launch戻り値2を保持し、未記録のallocation byte／launch形状／失敗時memoryをunknownとした。実device samplingは未実証。各段階終了後Job空、元136file不変、新GPU claim無し。
+
+同じsourceの既存ptx-stats --callgraphで、保存PTXとreceipt／CUBINの一致、271定義の完全な直接到達graphを確認。local宣言上位はdispatch9784／quantityTotals5192／tick2584byte。未解決・間接・外部call／cycle0。ただし物理register／peak stackやCUDA return2の原因を確定しない。元136＋cache証跡5file不変。Windows GPU／driver／compile／native battle追加0。
+
+公開summary/manifest計4fileの外部SHA・bytes・数値・失敗境界をMacで照合した。checkpointはresearch/portable-prepared-memory-and-ptx-peer-v1.json。次は既存resident Frame保存をmoving-group全15/native3/reject12へ接続してMetal実証し、新sourceの資源を測る。距離モデル調査は同じスキル文の再探索を終了し、独立GPU対応を進める。CUDA計算／環境保全／全キャラ／目標は未達。以下は履歴。
+
+# 2026-10-30 メモリ観測CLIを追加、最終claim検査を保って重複1回削減
+
+host-memoryは自分と実parentのPrivateUsage/working set/別の過去peak、および既存Job ABIによるlimit/peakを読むWindows CPU専用CLI。任意PID指定/全process列挙/CUDA driver呼出しは無い。cuda-resource-summaryは外部SHAで固定した保存phaseからallocation要求byte・launch形状/戻り値・保存memory snapshotをまとめ、旧未記録値はunknown、最終append切断はincompleteとする。途中の破損/変わったSHA/偽のbool数値等を拒否する。いずれも計算認定false。
+
+prepared-run --observe-cuda-resourcesとgpu-prepared requestのobserve_cuda_resources="1"だけが、既存current CUDA contextのcuMemGetInfoとown/parent host状態をallocation/launchの前後で取得する。デフォルト追加query0。native引数・戻り値/例外・buffers・計算は不変。flagをrun/env/runtimeへ束縛し、post監査はrequested/recorded/completeを分ける。数値は非atomicな時点観測で、空きVRAMの全量を確保できるという保証や原因判定にしない。実device samplingはまだ未実証。
+
+親の直前verify_package1回は、同じ全source/manifestを再検査してから所有を記録する元claimへ集約した。最終byte検査そのものは残し、認証直後のsource改変もclaim前に止める回帰検査を追加。実時間の改善は未測定で、前の7.594秒をそのまま新しい短縮量として主張しない。
+
+固定164a2455…自身82群861検査成功（Windows cleanup1skip）、payload/全golden/501計算・保護CPU・pinned source record保持。17 memory/observer合成検査、親13/子8/stage7/phase8を含むWindows候補5群53件はloaderで実数確認。実CLIの合成ログ正常/誤SHA/Mac host gateも成功。既存phase cleanupのps読取はsandbox拒否を維持して許可されたCPU環境で検査し、スキップしていない。source ZIP13,538,017byte/SHAc42185aa…、記録research/portable-prepared-memory-observation-v1.json。
+
+次はWindowsで新CPU CLIの実host ABIと保存済み失敗ログだけを確認する。GPU/driver/context/module/compile/native battleを再実行しない。消費済みba760483のclaim/失敗と原136fileは保持。実CUDA計算/全キャラ/目標は未達。以下は履歴。
+
+# 2026-10-30 保存binaryのCPU資源診断、link後のREG/stackを固定
+
+WindowsのCPU診断は4.959秒/exit0、既存cuobjdump resource1回0.115秒と保存linkログがREG254/STACK24,960byte/LOCAL0/SHARED0で一致した。object entry単体REG24/stack/spill0とは別であり、前者を実CUBINの値として扱う。PTX entryのlocal depot宣言無しも呼出先stack無しの証拠にはしない。既存CUBIN0f140174…/PTXe6d83bf9…/CUDAf2d15deb…へ一致、原136file不変、追加GPU/driver/compiler/native/test0。Job終了空/欠落/観測cleanup error0、service/環境false。
+
+保存phaseはallocation成功3回とlaunch return2/context destroy0を持つが、allocation要求byte数・launch形状の実値と失敗時VRAMは未記録でunknown。原因はGPU資源とJob内host圧迫を未切分け。次は共通CLIにこの不足観測を追加し、Job上限を上げたりゲームを止めたりする前提にせず、計測できるメモリ計画を作る。同じ消費済み試行を再実行しない。
+
+公開ca9142e6…の小summary5328byte/manifest504byteだけを元bytes/SHAと同一binaryの既知anchorへ照合。Macは原rawの独立監査ではない。親のverify_packageが5回・合計50.308秒、子のown source検査7.778秒だったため、失敗したGPUの演算時間を待ち時間の主因としない。重複検査の削減は元の完全bytes/所有/claim境界を保持して設計する。記録research/portable-prepared-resource-peer-v1.json。Windowsはidle、実CUDA計算/全キャラ/目標は未完了。以下は履歴。
+
+# 2026-10-30 修正版は実launchへ到達、CUDA error2で停止・再実行禁止
+
+Windows固定ba760483…は全4017file/指定3群の実数34検査（依頼42はMacのwildcard集計誤りで訂正）成功。必須paired生成cache hit/Slang0/NVRTC0、元snapshot/追補/完全認証成功後に元の一度だけのGPU claimを消費した。module load/メモリ確保は成功し、cuLaunchKernel1回がreturn2で停止。GPU子18.019秒/外側113.163秒、ともにexit1/timeout無し。context破棄成功、readback無し、native post未実行、計算false。GPU呼出し0とはせずgpu_calls nullと実launch attempt1を分離する。
+
+Job設定2,147,483,648byte、子peak2,088,165,376/外側peak2,185,158,656byteは別観測値として保持。Job残存/既存process欠落/観測cleanup error0、元84file（79＋v1証拠5）不変、service/環境false。claim/失敗/captureを保持して同じstageやGPUを再送しない。公開61846f04…のsummary3986byte/manifest553byteだけ元bytes/SHA・packet/base snapshot/certへ照合した。Macは元Windows rawを独立監査していない。research/portable-prepared-parent-peer-v2.json。
+
+NVIDIA公式のerror2はmemory/resources確保失敗。VRAM/local/stackとJob内host memory圧迫は未切分けで、ゲーム利用等を原因と断定しない。保存phase/ptxas log/同じPTX・CUBINのresourceを読むCPU-only診断を1回依頼済み。導入済みcuobjdumpがあればresource表示だけを使い、compile/driver/device query/GPU再実行はしない。数値が無ければunknownとする。4群のfresh native監査はreadbackが無いので実行しない。全キャラ/全特殊効果/目標は未完了。以下は履歴。
+
+# 2026-10-30 v1は実GPU前で停止、専用cache guardを保持して修正
+
+Windows8d72e81e…は完全4016file/指定30合成検査35.008秒/CPU Job smoke4.408秒が成功。gpu-preparedは11.391秒/exit1でrequired_generation_snapshotのcache readerを外側forbid_gpuが先に置換して停止。cache missではなくlaunch false/GPU0、元/新GPU execution claim/future capture無し。元79file不変、全stage gate/終了空/欠落0/観測cleanup error0、service/環境false。旧wrapper stage claimと失敗を保持。公開75351026…の小summary3814byte/manifest553byteだけ元bytes/SHAと既存anchorへ照合した。原rawのMac独立監査ではない。
+
+修正はrequired_generation_snapshotをその関数自身のfile-only guardで呼び、その後の認証/claimを従来forbid_gpuで囲む。専用guardのcompiler/subprocess/native library/execute禁止は変更しない。元readerを保存する前に外側guardで破壊しない。実paired cache hitを親から読む回帰検査を追加し、compiler追加0で到達することを確認。
+
+後続の共通native監査へ外部SHA付きcase-groups計画を接続。moving-groupは全15入力を[[0],[1],[2],[3..14]]の4群へ分け、重いnative3を個別に、拒否12をまとめる。比較/全raw/入力準備は省略せず、15 singleton群による準備の重複を減らす。順序/欠落/重複/bool/幅超過/異なる計画の集計を拒否し、既存uniform指定は保持。実fresh子＋既存aggregatorの全比較で検査。
+
+固定ba760483…自身80群831制御検査成功（Windows限定cleanup1skip）、payload/全golden/501計算・保護CPU・pinned source保持。既存bounded/observer/Job ABI recordも8d72e81e…と同一。実CLIは計画SHA不一致をsource/native IO前に拒否。source ZIP13,528,926byte/SHA5433639c…、記録research/portable-prepared-parent-v2.json。旧試行のGPUは未消費なので、新sourceの修正版だけを次に確認する。実CUDA/full post/全キャラ/目標は未完了。以下は履歴。
+
+# 2026-10-30 GPU親処理と共通bounded stageを接続、実Windows前
+
+prepared-runは必須paired生成cache hit/全byte CUDA・CUBIN一致/保存容量/元CPU準備認証の後だけappend-only claimを消費する。GPU子60秒/Job2GiB/BelowNormal/gate/終了直後観測は既存run_jobを再利用。親はnative battleを実行せず、成功時もsnapshot-gpu-pending-native-audit/calculation falseとして既存saved-battle-audit/audit-native-group/aggregate-native-groupsへ渡す。停止・partial claimは保持しretry不可。元run/staged-runのadmissionは不変。
+
+共通run-gpu-packetへgpu-preparedを追加。外部snapshot/cert SHAと元準備/ローカルbinding/SDK/cache/必要時header descriptorを正確なrequestへ固定し、外側180秒/内側60秒/2GiBを維持。元129秒準備やcompileを繰り返さない。service未知の保全falseと部分計算falseを成功へ読み替えない。
+
+固定8d72e81e…自身で72群749制御＋8群76 admission検査成功（Windows専用cleanup1skip）。実認証/claim/子/共有trace/Job parserの合成確認、失敗注入、実launch adapterのcommand/env/observer接続、stage schemaを検査。Mac実CLI負例は出力/claim無しで拒否。全golden/501計算・保護CPU・pinned source record保持。CLIはrun_job/mainだけ変更。source ZIP13,526,711byte/SHA46834653…、小記録research/portable-prepared-parent-v1.json。
+
+次はWindowsの固定archive/短いCPU検査/Job smoke後、元未消費GPU試行を1回だけ確認する。full build/native再準備/compileは行わない。新実GPUとfresh native postは未実証で、全キャラ/特殊効果/目標も未達。以下は履歴。
+
+# 2026-10-30 ヘッダー追補付きWindows認証成功、共通CLIのpost比較を接続
+
+Windows固定49d90bfb…はヘッダー追補14.607秒/authority-check38.871秒が各1回成功。両方2GiB/BelowNormal/gate/終了空/欠落0、元79file不変、GPU claim/future capture無し、追加native/test/compiler/driver/GPU0。1header/44,459byteの追補とauthorityはWindowsローカルに保持する。公開328d4c28…の集計summary3089byte/manifest598byteだけMacで元bytes/SHA・元packet/base snapshot/certificateへ照合した。service未知による保全/overall falseは継続。原rawのMac独立監査ではない。拒否済みSDK path/nonce入り診断2fileは未公開。
+
+新portable_prepared_auditを既存CLIのaudited_battle_comparison_groupへ接続し、saved-battle-audit/元audit-native-group stage/元aggregate-native-groupsを再利用する。claim三重mirror、元証拠、60秒/2GiB/ordered trace/正確なcommand/直後観測、paired生成cache hit/reflection、exact input/CUDA/CUBINを検査。部分native比較の全raw/row/strict normalizerは元compare_readbackのまま。link provenanceだけを凍結Handoffへ限定adapterし、監査前後のsource/capture/所有情報を再検査する。子は比較用input.binを元snapshotから排他的に保存する。
+
+固定e9186899…で14群217制御検査成功、新監査15件を含む。全golden/501計算・保護CPU・pinned source record不変。CLIは分割dispatch関数以外の全関数AST不変。合成Job/transportによる検査で、実GPU/post実証ではない。小記録research/portable-prepared-native-post-v1.json。
+
+次はpublic parentのcache/storage preflight・元準備認証・一度だけのclaim・60秒GPU子を接続し、既存bounded native群で完全独立post監査する。Windowsはidle、実GPU未消費。全キャラ/特殊効果/default受付/目標は未完了。以下は履歴。
+
+# 2026-10-30 実snapshotでヘッダー未収録を検出、追補byte経路と子protocolを実装
+
+Windows80c928f3…のauthority-checkは27.839秒/exit1でSDK headerのfrozen source absentとなり、CUBIN/input最終reader検査前に停止。Job2GiB/peak108,838,912byte/BelowNormal/gate/終了空・欠落0、元75file不変、authority/元とconsumerのGPU claim/future capture未作成、prepare/native/test/compile/GPU再実行0。公開済みff5ae130…のsanitized summary2415byte/manifest650byteのみ元bytes/SHAで取得。SDK絶対path/nonceを含む別診断2ファイルは自動承認レビューが具体的公開許可不足で拒否し、未公開・未取込のまま。保存manifest診断によるheader原文/同名/SHA/blob未収録の報告を修正根拠とし、原失敗を保持する。
+
+新materialize-headersは元snapshot/certificateを変更せず、元receiptで期待されたSHAと一致するSDK headerだけを別archiveへ固定する。基底snapshot/cert SHAとexact missing header mapを束縛し、通常Handoffでもう一度全入力/CUBIN/出所を検査する。SDK資料はローカル保持で、元129秒準備/native/compile/GPUを繰り返さない。今後のprepareは既存read_verifiedでactual CUDA/header/CUBINをread set内で読む。authority/claim/内部childは追補archiveのSHAも保持・再検査する。
+
+内部_prepared_childは元/consumer/authorityの3 claim mirror、外部claim SHA、host/source anchors/run bindingを検査し、2GiB kill-on-close Jobとstart gateで1回だけ共有executeを呼ぶ。既存file transport・SDK生成cache必須・saved CUBIN callback・native trace/stream verifierを再利用し、dispatch完了もcalculation false。再呼出しは既存journalへ追記する前に拒否。public GPU runnerと完全独立post監査は未接続、実GPUは未実行。
+
+固定49d90bfb…自身で関連119検査（materials7/admission62/child7/stage43）と全69群719制御検査成功、Windows限定1skip。元CLI main以外全AST・全golden・455計算record/payload保持。実CLI負例は不完全storage archiveとMacでのCUDA childを拒否、claim無し。小記録research/portable-prepared-header-materials-v1.json、配布source ZIP13,509,867byte/SHA1059d613…はSDK/rawを含まない。次はWindows保存snapshotに追補を作りCPU認証だけを検証する。全キャラ/目標は未完了。以下は履歴。
+
+# 2026-10-30 Windowsの完全CPU準備が成功、50.7MB snapshotを固定
+
+前回printのJob制限/終了が確認済みだったため、その保全不合格を保持したまま、未実行だったcad4086f…のCPU準備だけを初めて1回実行した。既存保存staged15入力/native3とlink全chain/PTX実bytesを監査し、準備123.391秒/全stage129.006秒・exit0/timeout無しで成功。2GiB/peak290,951,168byte/BelowNormal/gate/終了空、欠落0/観測cleanup error無し。元69file不変、元GPU claim/future capture未作成、native/test/compile/driver/GPU/retry0。旧smokeのmissing1不合格は変更しない。service未知の保全/overall falseも維持する。
+
+read set28,103＋証明書1＝28,104 inventory、unique blob4,210、snapshot50,729,955byte/SHA face629b215828058612b8bfdbbb29724ff20b8f4f9f7290f89721b76524a07f、certificate SHA72c08944af969905c76f7b514261912e87f4c0d612f826b17ed65fda29936e41。Windowsローカルnikke-prepared-admission-v1/prepare-v1/proofに保持。固定94624fdf…の小summary3337byte/manifest656byteだけ取得し、元bytes/SHA、local固定packetのmanifest/wrapper SHA、typed件数、既知input/CUBIN/receiptへ一致確認。Macはpeer summary照合までで原snapshotの独立監査ではない。research/portable-admission-preparation-peer-v2.json。
+
+Windowsはidle。次はこの実snapshotを新reader/authority経路で検証し、元の未消費試行だけを新GPU子protocol/共有execute/独立post監査へ接続する。実行所有claimはまだ作っておらず、CPU準備成功を60秒GPU子や計算成功の証明へ昇格しない。全キャラ/目標は未完了。以下は履歴。
+
+# 2026-10-30 元準備の認証と一度だけのclaim APIを実装
+
+authority-checkは元Windows hostの成功済みCPU準備を既存wrapper recipe/Job/比較器で認証する。完全packet/全golden、command/base Python、子PID journal完了、2GiB/gate/終了空、欠落0/終了直後観測、元予約/transaction/nonce/外部snapshot/cert SHAを検査する。検査前後のmetadata保持も必須。サービス未知は保全falseのまま、CLIはpassive authority.jsonだけを作る。
+
+ライブラリclaim APIは同じ認証呼出しからの一回限りhandleだけを受け、claim直前にconsumer全source/証拠/snapshot/hostを再検査する。元transaction・consumerへsnapshot-prepared-v1の新規所有記録を束縛する。書込み途中の失敗はpartialを保持しhandleを再利用しない。JSONのsuccess flagをhandleへ変換しない。実GPU runner/claim用CLIはまだ公開せず、元の実試行には触れていない。
+
+固定80c928f3…自身で関連105検査（authority13を含むadmission62＋既存stage43）と全69群719制御検査成功、Windows限定1skip。全golden/455計算record/元CLI main以外全ASTとpayload保持。元の共通Job/観測parserで合成fixtureを検査し、実WindowsやGPUと扱わない。実CLIのMac負例はexit1/authority出力・claim無し。小記録research/portable-admission-authority-cli-v1.json、package/rawはlocalだけ。
+
+Windows追加依頼0、前回smoke停止後の実試行を変更していない。本番準備/authority/claim/GPUは未証明。次は認証＋所有handleを新しいGPU子protocolから共有executeへ接続し、元の60秒/2GiB/gateを維持して完全独立post監査へ接続する。全キャラ/目標は未完了。以下は履歴。
+
+# 2026-10-30 固定snapshotの検証読取と共有実行器用adapterを実装
+
+Handoff/handoff-checkは外部archive/certificate SHA、元owner/準備controller/実行consumerの別ID、read-set全digest、完全source record/全golden、元transaction/nonce/host/input全row、CUDA原文/headerと既存static CUBIN検査を接続した。元Windows pathは開かずsnapshot bytesだけで検査する。既存compile callbackへ1回だけCUBINを渡すadapterを追加し、異なる生成CUDA・compiler fallback・二度目/無供給・途中失敗の成功化を拒否する。共有execute本体/transport/生成/効果/数値は不変。
+
+固定dde31e0c…自身92関連検査（handoff16を含むadmission49＋既存stage43）と全69群719制御検査が成功（Windows限定1skip）、終了後payload/全golden/455計算record/元CLI main以外全AST保持。元ファイル削除後・Windows origin on Mac・共有execute＋CPU transport doubleを検査し、合成結果をGPU実証へ昇格しない。実CLI負例は既存storage-only archiveを証明書不足でexit1・成功出力無し・claim無しで拒否。小記録research/portable-admission-handoff-cli-v1.json、package/rawはlocalだけ。
+
+Windowsは前回smoke停止のままidleで、今回の依頼/GPU0。次は完全準備と外部SHAを元の未消費試行の認証claimへ束縛し、新GPU子protocolから同じ実行器を呼び、完全な独立post監査へ接続する。reader成功は実行許可ではなく、実source-host snapshot/60秒子予算/計算一致は未証明。全キャラ/目標は未完了。以下は履歴。
+
+# 2026-10-30 Windows短いCPU Jobは完了、保全不成立で本準備前に停止
+
+cad4086f…のZIP/展開ID一致後、CPU printをfresh Jobで1回実行。4.956秒/exit0/10秒枠、BelowNormal/開始gate/終了空、peak7,835,648byte/2GiB、観測cleanup/inspection error無し。ただし無関係roleの既存process1件が前後で消失し原因unknown、service未識別。保全/overall false、smoke全体不合格で指示どおりprepare-admissionへ進まなかった。native/test/compile/driver/GPU/retry0、元69file不変、元GPU execution claim/future capture未作成、snapshot/certificate無し。Windowsはidleで未実行の準備を再送していない。
+
+固定8bcc71cb…の小summary2120byteとmanifest589byteを元bytes/SHAで取り込み、local固定packetのmanifest SHA、typed件数と全scopeを照合した。Macはpeer summary照合まででWindows原Job/観測の独立監査ではない。小記録`research/portable-admission-prepared-stage-peer-v1.json`。旧smoke/元claim/失敗は保持する。Mac側で認証されたhandoff/consumerと独立post監査への接続を続け、Windowsを自動再実行しない。全キャラ/目標は未完了。以下は履歴。
+
+# 2026-10-30 共通bounded CPU準備stageを接続、Windows実証前
+
+prepare-admissionを既存run-gpu-packetへ接続し、正確な7field request、owner外部ID、元CPU transactionとlink/current producer対を固定。元の180秒/2GiB/BelowNormal/gate/即時観測を使い、GPU execution claimを作らない。親は証明書SHA、binding、元staged/nativeとlinked receipt、snapshot記録を照合し、GPU/compiler/native/driver非0やexecution/calculation trueを拒否。service未知を保全成功にしない。
+
+固定cad4086f…自身76検査と全69群719制御検査が成功（Windows限定cleanup1件はMac対象外）、payload/全golden/455計算関連record保持。前版6cc80648…の実bounded負例は認証後のmissing transactionでexit1・0.739秒、失敗/専用stage claim保持、元GPU0。配布packetはresearch/windows-source-packets/prepared-admission-stage-v1.zip、13,482,329byte/SHA1548e7cf…、小記録research/portable-admission-prepared-stage-v1.json。
+
+Windowsは既存保存証拠でCPU準備1回だけを次に依頼する。新しいnative/GPU/compileや元失敗の再実行は行わず、short CPU Job smoke成功後に元owner1e54383d…の未消費GPU試行からsnapshotを作る。実準備成功、認証claim/GPU consumer/独立post監査と102秒問題の解消はまだ未証明。全キャラ/目標は未完了。以下は履歴。
+
+# 2026-10-30 完全なCPU監査からsnapshotを作る共通CLIを接続
+
+`prepare-admission`は外部expected owner ID/全sourceを検査して元CLIを読み込み、元staged admitとsaved_linked_admissionをGPU禁止内でそのまま呼ぶ。同suite/全golden、cached helper同一bytes、元input receipt/実CUBIN size/SHA、全observed package closure、未消費execution claim/future captureを検査。完全receiptとread-set digestを証明書へ束縛し、既存freezeで全sourceを再検査したsnapshotを新規出力する。失敗/partialは保持し、実行所有やcaptureは作らない。準備成功もexecution_admitted/calculation false。
+
+固定3eb93038…自身で関連29検査（準備protocol12＋readset8＋snapshot9）と既存69群719制御検査が失敗/error0（Windows限定cleanup1件はMac対象外）、終了後payloadも一致。実元owner1e54383d…の認証/import後、未存在transactionで止まるCLI負例とfailure保持も確認。元CLIのmain以外全関数AST、全golden、GPU/backend/generator/保護CPU記録は保持。小記録`research/portable-admission-prepare-cli-v1.json`。合成protocolテストはWindowsの元証拠による意味監査成功ではない。
+
+次は準備CLIを共通bounded Windows stageへ接続して既存証拠で1回CPU検証し、そのsnapshotを認証済みclaim・共通GPU consumer・独立post監査へ接続する。60/180秒・2GiB/低優先度/gateは維持、旧claim/失敗を消さず再実行しない。Windows依頼/GPU0、102秒の準備問題はGPU段階での実測まで未解消、全キャラ/目標は未完了。以下は履歴。
+
+# 2026-10-30 監査の実read setを記録、固定owner全sourceを照合
+
+`portable_admission_readset.ReadSet`は元CPU監査のPath bytes/textと既存streaming digestをそのまま実行し、消費したsize/SHA/pathだけを記録する。再読の変更・digest中の改変・captureの重複/再利用を拒否し、並列recordと例外時のreader復元を検査。元text encoding/errors/newlineを保持する。package closureは認証済みmanifestの全file記録を別検査し、任意open/subprocessを網羅したとは扱わない。native値/contextのcacheや意味監査の成功flagは作らない。
+
+専用8+snapshot9の17検査成功。固定1e54383d…の実verify_packageと全check_recordsが元3,995file＋manifestの3,996記録へ一致し、既存snapshotへの受け渡し・作成前の改変拒否も検査。元の計算/保護CPU/GPU/golden/claimは変更0。研究小記録`research/portable-admission-readset-check-v1.json`。Windows依頼/GPU実行0。
+
+次はこのread-setを元の完全なstaged/link admissionへ適用して、監査結果・owner・transaction・input/artifactへ束縛した証明書とinventoryを発行する。その後にsnapshot/一度だけのclaim/共通GPU consumer/独立post監査を接続する。現在はまだGPU受付・CUDA計算証明ではなく、102秒の準備問題は未解消。全キャラ/目標は未完了。以下は履歴。
+
+# 2026-10-30 監査済み受け渡しの固定バイトストレージを共通CLIへ実装
+
+admission-snapshot/checkをCPU専用で実装。全sourceを重複分も読んでsize/SHA検査し、content address blobをZIP保存する。受信側は外部anchor SHAで全archiveを検査し、選択payloadを展開後にもsize/SHA照合、reader終了時に全archive再検査。元Windows pathを受信Macで開かずopaque origin IDとして扱う。安全な相対path/正規manifest/完全member一覧/サイズ上限、symlink/改変/部分失敗保持を実装。metadata viewはコピーで内部bindingを変更できない。
+
+固定633dcbb5…自身9検査＋全69群719制御検査に成功。2つの実immutable source package＋実入力7.39MB＋既存Metal archive9.91MBをCLIで往復。全7,997 sourceを4,000 blob/18,586,316byteへ保存し全byte一致。M5ストレージ検査+選択input/artifact readは0.083秒、CLI作成2.482秒/CLI検査0.209秒。これは合成transaction bindingによるストレージ試験だけで、Windowsの全admission/GPU起動時間ではない。元パッケージpayload/golden/全GPU/backend/generator/保護CPUを保持。
+
+admission_verified/calculation_verifiedはfalse固定、GPU/compiler/native0。意味監査済みinventory生成・準備owner/transaction/claimの認証・実GPU consumer・完全な独立post監査への接続は未実装。Windowsはidleのまま、GPU execution claim未消費を保持。次は[受け渡しの接続要件](portable-prepared-admission.md)に従って、ストレージを既存監査と実行器へ接続する。小記録research/portable-admission-snapshot-cli-v1.json、raw/archiveは永続local proofのみ。目標は未完了。以下は履歴。
+
+# 2026-10-29 起動前監査が101.644秒、60秒GPU子へは起動せず
+
+固定1e54383d…のread-only CPU計測が全15入力/native3の最終staged admissionと保存link admissionに成功。verify6.893秒、staged34.451秒、link67.181秒、入力read/hash0.012秒、合計B+C+D101.644秒、post verify8.597秒。外側123.338秒/exit0/peak109,580,288byte・2GiB/低優先度/gate/post空/欠落0/観測cleanup error無し。全57監視ファイルは不変、GPU execution claim未消費・future capture未作成、GPU/compiler/native/test再実行0。service不明の保全/overall falseを維持する。
+
+固定a138fa6c…の小summary2445byte/manifest444byteを元bytes/SHAで取得し、input SHA/15/native3、元exact PTX reuse receipt key、既存bounded source SHAを照合。staged final admissionはここで初めて成功したが、GPU子予算は失敗であり計算成功ではない。`research/portable-admission-budget-peer-v1.json`。
+
+次は[監査済み受け渡しの実装要件](portable-prepared-admission.md)。全CPU準備・immutableなartifact/input/proof snapshot・GPU子・独立post監査を明示的に分離し、計算本体を共有したまま子側の繰返し監査負担を減らす。上限延長・監査省略・古いnative値cache・既存106用witness pin緩和で解決しない。新経路は未実装、Windowsはidle、GPU/CUDA計算/全キャラ/目標は未完了。旧失敗/claims/rawを保持する。以下は履歴。
+
+# 2026-10-29 Windows全4 CPU群が成功、GPU前の監査時間を計測依頼
+
+固定1e54383d…の残りnative1/2/3が各1回成功。全15入力（実戦3/拒否12）の群証拠が揃った。native1は112.897秒（参照53.727/静的15.797）、native2は110.275秒（参照52.624/静的15.515）、拒否群は56.770秒（静的15.529）。全Job2GiB/低優先度/gate/exit0/post空/欠落0/観測cleanup error無し。旧smoke/resume/native0の再実行、GPU/compile/native値cache/claims変更0。
+
+固定a4349293…のsummary5354byte/manifest473byteを元bytes/SHAで取得。実戦0/1/2の全input/native指紋をsealed goldenへ一致確認し、元のGPU outputというfieldの誤称はnative_sha256へ明示訂正。件数もJSON整数で再報告し、旧summaryは保持。Macの原raw独立監査ではない。`research/portable-reviewed-controls-complete-tail-peer-v1.json`。全群完了と最終admissionは別であり、原all_native_preflight_verified=falseを保持する。
+
+次のWindowsはimmutable packet外の小診断scriptから既存run_bounded/observe_job/observerを使い、2GiB/低優先度/gate/外180秒のread-only CPU計測1回のみ。packet自身verify_package、staged admit、保存link admission、入力read/hashをそれぞれ測る。GPU/native/Slang/compile0、GPU execution claim未消費・future GPU capture未作成・元claim不変を前後確認する。元の全監査を省略せず、60秒GPU子予算へ準備負担が収まるか調べる。GPUはまだ依頼せず、計算/保全/overall/目標は未完了。以下は履歴。
+
+# 2026-10-29 Windowsの全制御gate・継続監査・単独native0が成功
+
+Windows固定1e54383d…がsmoke69群719検査（142.286秒）、resume監査（62.572秒）、単独native0（116.391秒、計算55.088秒/静的入力15.846秒）で成功。全Job2GiB/BelowNormal/gate、exit0/post空/欠落0、観測cleanup error無し。全4群計画は[0]/[1]/[2]/[3..14]、元test31の証拠を保持し、旧timeout/partialを成功へ昇格しない。GPU/driver/Slang/NVRTC/native値cache/retry0、サービス未識別の保全/overall falseも維持。
+
+固定9a27a9de…のsummary4017byte/manifest594byteを元bytes/SHAで取得し、case0のinputとnative指紋を元sealed goldenへ一致確認。peer field `native_case_0_output_sha256`はnative SHAでありGPU出力SHAではない（異なる値であることも検査）。smoke_control_testsはJSON float719.0として保持し、typed整数証明へ黙って変換しない。次のreportへ名称/型の訂正を依頼した。Macは小peer監査までで、Windows原rawの独立監査ではない。小記録`research/portable-reviewed-controls-first-native-peer-v1.json`。
+
+同じcapsule/transactionで未実行tail1/2/3だけを各180秒以内・順番に依頼済み。GPUは未依頼。全CPU成功後も、staged admissionと保存link再監査のCPU所要時間を調べてから、60秒GPU子予算へ収まるか判断する。現在の116秒stageを60秒GPU予算の証明には使わない。元captures/claimsを保持し、計算一致/全キャラ/目標は未完了。以下は履歴。
+
+# 2026-10-29 明示修正profile付き継続カプセルを固定
+
+`continuation-package --repair-controls`は、SHA固定ledgerで既知owner835c8dbd…の制御監査/テスト3ファイルと追加2ファイルだけを受け付ける。元3ファイルの完全なコピーも新capsuleのresearch/control-repair-originalsへ保存し、lineageで旧ownerと照合する。任意のテスト変更を許可せず、元の全golden・GPU/native/transport/計算bytesは保持する。旧75ea…smoke失敗/元native timeout/claimsを削除・再送しない。
+
+固定1e54383d…自身で実base lineage・旧controlコピー・関連97検査、全69群719制御検査と終了後payload一致が成功。native/Slang/GPU0。3979元ファイルは全bytes不変、3修正controlの元bytesも別保存。配布ZIP/bytes/SHA/schemaは`research/portable-continuation-reviewed-controls-v1.json`。次はWindows新rootでCPU Job smoke→resume監査→成功時のみ単独native0。reject budgetは12、計画4群、上限180秒/2GiB/低優先度/gateを維持する。Windowsの実resume/CUDA計算は未確認。以下は履歴。
+
+# 2026-10-29 全制御gateで見つかった3件を修正、固定719検査成功
+
+Windows75ea07e1…のsmokeは偽SDKにslangc.exeが無く、cache gate前のValueErrorで失敗。24群283件中282成功/1error、57.317秒/timeoutなし、2GiB/gate/終了空/欠落0/観測cleanup errorなし。resume/native/GPU/compile0、旧失敗とclaimを保持。固定9578c258…の小summary/manifestを元bytes/SHAで回収した。再送はしていない。
+
+Macで同packetの全制御gateを検査すると、generation extraction監査にも2件の古い前提が残っていた。fd15fec6のappend audit3行を、全source SHAと8ca7c8ddの元sourceへ一致する明示inverseで復元してから元AST期待へ比較する。元の期待fixtureは書き換えない。またresident arcの完全なcurrent sourceが外側inverseから届いた場合だけ、同じcurrent文字列/hashとbaseline hashを検査して復元する。新しいlogical/movement inverseを二重適用しない。compiler flags/timeout/append audit変更を拒否する故障注入も追加。
+
+偽SDKはslangc/slangc.exeを用意し、ローカルOS proxyで両方を実際に通してgate到達・native/test/Job/claim0を検査する。実OS/Metal device gateを広くmockして回避しない。計算本体・backend・Slang generator・保護CPU4ファイル・strict normalizer・全goldenは不変。
+
+修正済み固定866522e7…自身で全69制御群719検査が成功（CPU-only smoke、native/実Slang/GPU0）、終了後payloadも一致。関連8+10検査も成功。修正3既存ファイル/2追加ファイルの元・現byte/SHAを`tests/fixtures/portable-control-fixture-repairs-v1.json`へ明示。小記録`research/portable-control-fixture-repairs-v1.json`。次はこの明示修正を新continuation capsuleへ取り込み、元計算/入力/golden/旧失敗を保持したまま全制御gateを確認する。現75ea…のsmokeを再送したり、テストを外してresumeへ進まない。Windowsは現在idle、GPU未実行。以下は履歴。
+
+# 2026-10-29 通常ownerの同一未実行GPU用継続とnative予算を修正
+
+既存continuation-packageは、通常payload内に元からあるhelper/testを「追加済み」として拒否した（初回失敗logを保持）。通常owner用schemaを追加し、元3controller＋2continuation helperのみ更新、元の全テストを含む他の全bytes/goldenを保持し、制御テスト1ファイルだけ追加する。compact旧経路、計算/監査関数・fresh nativeループ・入力/transport ASTの保持は変更しない。
+
+preflight-resumeの任意`--reject-group-size`を共通wrapperにも接続。元native所属に従い実戦は1件ずつ、拒否は連続したまとまりに分ける。旧15入力はnative[0]/[1]/[2]＋拒否[3..14]の4群（全件・順序・指紋保持）、通常の1件分割15群を避ける。群計画とbudgetはtransactionへ束縛し、各stageとGPU直前に再検査。元のタイムアウト/partial returnsを成功へ昇格せず、元テスト31件の同一試行証拠を保持する。
+
+開発/固定75ea07e1…自身各95検査、実base835c8dbd…とのlineageと前後payload保持が成功。packet/bytes/SHA/未完了は`research/portable-continuation-tail-budget-v1.json`。次のWindowsは新capsuleのCPU-only Job smoke→fresh resumeの実監査→成功時だけ最初の単独native群。GPU/compile/上限増加/旧群再送は0。以下は履歴。
+
+# 2026-10-29 移動停止・強制移動・グループの元72定義を同時Metal検証
+
+`moving-overlap`はユニ/ヤン/ドレイク/ニヒリスター/メアリーの元全72定義・実武器/育成/seed/30秒を保持し、同じmoving-typed/group entryへ接続した。新shader/時計/handler/ダメージ式/計算済み位置入力は0。実際に停止と強制移動が重なる区間を持つ2つの明示優先順で、typed付属物・物理命中・multi_hit通知・元子攻撃着弾まで既存全比較を行う。ゲーム規則への昇格ではない。
+
+固定1056fb2f…のM5実GPU1回で全14入力（実戦2/拒否12）成功。GPU2.286507秒、pipeline0.003019秒、fresh CPU48.771816秒、unit32。generation/PSO必須hit、Slang0/retry0。fresh GPU禁止7群の独立seal91.457493秒成功、親native再利用/GPU0。旧current-group生成CUDA/MSL全bytes、旧拒否12入力/native指紋、既存GPU payload/保護CPU4ファイルを全保持した。raw/元失敗/claims/独立ログを永続proofへ保持。
+
+通常sealed suiteへ登録し、両operatorの分類へ限定`current_overlap_validation`を追加。開発分類42検査、固定sealed1e2e50a3…自身7群33検査、model-check成功。公開受付/元拒否/ゲーム規則/全キャラは維持。詳細[元複合編成](portable-moving-overlap.md)、小記録`research/portable-moving-overlap-cli-v1.json`。
+
+Windowsの旧group15は固定835c8dbd…でplanと全テスト3群31件が成功。native-group0（実戦3件を含む入力0–4）は外180秒でtimeout、183.465秒で終了しGPU0。native1/2へ進まず原proof/claimを保持する。保存ログと正式peer要約を取得してから、既存の同一未実行GPU用continuationでnative群を1入力ずつへ分割できるか検査する。再送/上限増加/再コンパイルはしない。これは新overlap14のCUDA証明でもない。以下は履歴。
+
+# 2026-10-29 Windows実byte再利用監査成功、通常/段階実行へ出所対を接続
+
+Windows固定24870e4d…の読み取り監査が76.435秒/exit0で成功。旧・現PTX13,556,055byteの全bytesと完全compiler identity/keyが一致し、既存CUBIN6,918,480byteを保存したまま現producerへ束縛できた。原claim変更/compiler/Slang/NVRTC/ptxas/link/driver/GPU/native/retry0。2GiB/BelowNormal/gate/終了空/欠落0、サービス保全不明は環境保全/overall false。固定93d6556d…のsummary3330byte/manifest615byteを元CRLF/SHAで取得。Mac原本chain独立監査ではない。
+
+通常runとstaged-run、共通wrapperの両linked stageへ任意のcurrent producer対を接続し、起動前・子provider・実行後監査で同じ4-path requestを使う。freshテスト/native、transaction/claim/Job、live compiler排他は維持。開発126/固定835c8dbd…自身126検査と前後payload検査が成功。記録は`research/portable-exact-ptx-execution-pair-v1.json`。[CLI](portable-saved-linked-stage.md)。次は新固定packetでfresh staged preflight、成功後だけ短いCUDA1回とfresh独立比較。実CUDA計算/default/UI/全キャラ/目標は未完了。以下は履歴。
+
+# 2026-10-29 旧CUBINと現PTXの実byte再利用監査を接続
+
+新CLI `linked-reuse-audit`/共通bounded stage `audit-linked-reuse`を実装。旧object/JIT/PTXの全chainと、現sealed world producer/compile claim/Jobを別々に再監査し、実PTXの全byte・size/SHA/version/target・完全compiler identity/keyを要求する。現native全goldenとreceiver全goldenの一致も必須。旧source/link identityを保持し、追加receiptに旧/現producerを分ける。normalizedだけやhashだけの比較へ緩めず、GPU/compile/battle/fallback/原claim変更0。
+
+開発209/固定24870e4d…自身209検査、前後payload検査が成功。Windowsでは2GiB/BelowNormal/gate/外180秒の読み取り監査1回だけを次に行う。packet/SHA/未完了は`research/portable-exact-ptx-linked-reuse-v1.json`。[監査CLI](portable-saved-linked-stage.md)。現CLIのrun/staged-runはまだcurrent producer pairをfresh transactionへ渡さないため、その接続・現CUDA実行/独立比較は未完了。default/UI/全キャラ/目標は未達。以下は履歴。
+
+# 2026-10-29 現sourceでPTX cache再利用成功、移動停止の分類を更新
+
+Windows固定54c70a1d…で現sourceのpaired generation25.772秒/Slang2回を準備。元生成物の実byte/normalized pairへ一致し、共通bounded PTX probeがhit（auditor0.142秒/外10.511秒）。cache/generation必須の現PTX producerも成功、内14.315秒/外25.969秒・Slang/NVRTC0。元PTX13,556,055byte/SHA e6d83bf9…/compile key ded5292f…を再利用した。全Job/gate/低優先度/2GiB/終了0/欠落0/timeout・観測cleanup error無し。service不明は保全/overall false、compile exit2/wrapper1。GPU/battle/ptxas/object/link/retry0。report固定dee9d4f2…を原bytes/SHAで取り込み、Macは小peer照合まで。`research/portable-moving-group-current-cache-peer-v2.json`。
+
+分類にはユニの移動停止だけ`moving-group-current`の現Metal再認定を別字段で追加し、ヤンforce_moveを昇格させない。全266profile行・元定義/入力hash/拒否理由・GPU source・11系統の順位/profile/targetを保存reportと完全一致へ照合。254 packing/12失敗、canonical欠落5/default/全キャラ0は維持。開発74テストとmodel-check成功。初回固定packetは監査文書不足17error、次は旧期待JSON不足1errorで停止し、元失敗を保持。現suiteへIMPL-STATUS.mdと旧enemy-movement goldenを宣言した新b793cf12…自身で74全成功・前後payload一致。期待値/監査/テストを削っていない。`research/portable-current-movement-stop-classification-v1.json`。
+
+次は保存object/CUBINと現producerの**実PTX bytes/全compiler identity**を監査して、再生成せず使う明示的受付を実装する。元artifact/source/claimは保存し、normalizedだけの一致やold sourceの再ラベルは禁止。現CUDA戦闘/全キャラは未完了。[cacheの範囲](portable-moving-group-cuda.md)。以下は履歴。
+
+# 2026-10-29 PTXファイル点検を共通bounded packetへ接続
+
+`probe-ptx-cache`は既存file-only cache-probeを全payload検査後に呼び、既存Windows Job/gate/BelowNormal/2GiB/外側180秒を再利用する。3 absolute pathの厳密request、専用stage claim、result/artifacts/観測を保持。missは有効なsnapshotでありhitとは別字段。Slang/NVRTC/driver/GPU/native battleや内側compiler Jobを起動せず、compiler/cache claimも変更しない。forged calculation/compile/GPU/cubin receiptとbool-as-int、request混同を拒否する4検査を追加。開発/固定packet自身201検査・前後payload/PTX plan/validation-deps成功。数値/GPU/旧CLI/golden変更0。
+
+現sourceのsealed packet54c70a1d…、配布ZIP/bytes/SHA/境界は`research/portable-bounded-ptx-cache-probe-v1.json`。次のWindowsはpaired generation1回→共通bounded file-only PTX probe。元保存PTX cacheへexact hitの場合だけcache必須/NVRTC fallback禁止で現producer1回を作る。元76fbe7c3…の生成物を現sourceの成功へ再ラベルしない。object/link/GPU/native全件はこの依頼に含めない。[点検CLI](portable-cache-preflight.md)。以下は履歴。
+
+# 2026-10-29 移動groupのJIT-link成功・現sourceのMetal再認定
+
+Windows固定b418ed14…が元bb28af2e…の保存objectを再生成せずJIT-link成功。API0.058635秒、CUBIN6,918,480byte/SHA0f140174…、sm86/portableEvents/params48B、API9件全ret0/Destroy成功/log空。inner28.217秒/peak126,640,128byte、outer72.833秒/peak232,325,120byte、両Job2GiB/gate/低優先度/終了0/欠落0/timeout・観測cleanup error無し。nvcuda3観測未ロード、compile/GPU/battle/retry0。service未識別の保全/overall false、旧source/current equivalence falseを保持。小要約とmanifestを固定4003d701…から元CRLF/SHAで回収、Mac原本監査ではない。`research/portable-moving-group-jit-peer-v1.json`。
+
+共通saved-linked受付は、sealed controllerと実sealed world producerを別々に監査・束縛する経路を追加。元producer全goldenと実行側全goldenの完全一致、source/generated/CUDA/header、producer manifest・controller receipt・object内producerを要求。従来full compiler経路・default/UIは保持。開発/固定3443f8bf…各125検査が成功、実Windows admissionは未確認。[受付](portable-saved-linked-stage.md)。
+
+現GPU sourceを含む小entryも新規M5実GPU1回/全15成功、GPU2.281339秒、CPU69.944秒、generation必須hit/Slang0。Swift consumer変更で旧cacheを拒否し、新pipeline60.518秒。fresh GPU禁止8群の独立seal121.880秒成功、親native再利用/追加GPU0。旧input/output/entries/normalized pairを完全保持し、closureのみ2変更/1追加。元v1登録を監査用に保持し、`moving-group-current`/同cache-onlyを追加した。固定fa991605…自身185検査/前後payload/PTX plan成功。`research/portable-moving-group-current-metal-v2.json`。[現小entry](portable-moving-group.md)。
+
+次は現sourceのWindows file-only PTX cache triageを先に行う。旧sourceのPTX/object/CUBINを現source成功へ再ラベルしない。現CUDA計算・実ゲーム空間規則/default/全キャラ/目標は未達。Windows全nativeを1stageへ詰めず、既存bounded groupの条件を保持する。rawと旧失敗/claimsは保存。以下は履歴。
+
+# 2026-10-29 移動groupのWindows module-object生成に成功
+
+新固定bb28af2e…でCPU55成功後、保存旧76fbe7c3…のPTX全13,556,055byteを分割/改変せずobject生成1回。ptxas14.446秒/code0、relocatable7,493,872byte/SHA2780dc69…、inner35.150秒/peak502,321,152byte・outer63.253秒/peak554,463,232byte。2GiB/低優先度/gate/Job後0/欠落0/観測cleanup error無し/timeout無しの報告。service未識別はpreservation/overall false、exit2/wrapper1を保持。Slang/NVRTC/driver/GPU/battle/JIT-link/直接CUBIN/retry0。
+
+report固定7d1fd21f…の小JSON2個を元bytes/SHAで取り込み、元source packet・保存PTX識別へ一致。object/全Job原本はWindowsに保持し、Mac独立原本監査ではない。旧source由来のobject成功であり、現source/CUBIN/計算/default/全キャラは未認定。`research/portable-moving-group-module-peer-v1.json`。後段のsealed object owner→診断link接続も開発/固定b418ed14…各122検査済み、Windowsへは未依頼・追加packetはMac保持。次は保存objectからJIT-link、runtime admissionのsource/owner接続は別途必要。[経路と範囲](portable-module-object.md)。以下は履歴。
+
+# 2026-10-29 保存sealed戦闘PTXを既存module-objectへ接続
+
+Windows読み取りで保存PTX8.4/sm86/SHA・元producer compiler/containment・固定ptxas19,582,976byte/SHAを確認、追加compile/native tool/GPU0。過去のwhole-program直接assembly失敗とmodule-object成功を踏まえ、新しい直接assemble wrapperは増やさず、既存module-objectを使う。
+
+共通CLIのassembly_origin/partition_object_originだけを変更し、独立sealed world battleの保存producerを専用の明示分岐で検証する。元ファイル/正本/生成物/cache/phase/Jobの監査を保持し、元compiler-only歴史検証・直接assembleの同golden条件は変更しない。新originはhistorical_sealed_battle_source=true/current_battle_equivalence_verified=false。旧compiler経路とsealed経路、不完全/非world/development・source mode混同の拒否を含む開発120/固定packet自身120検査が成功、payload前後一致。数値/GPU/golden/保護CPU変更0。
+
+固定bb28af2e…のsource packet/出所は`research/portable-module-sealed-producer-v1.json`。現module-objectのWindows実行は未確認、JIT-linkのsealed owner接続・現CUDA計算/default/全キャラ/目標は未完了。[経路](portable-module-object.md)。以下は履歴。
+
+# 2026-10-29 同じ移動group sourceのPTX単独生成がWindowsで成功
+
+元固定76fbe7c3…の別PTX工程は成功。Windows小要約＋manifestを固定edc2c550…から取得し、元bytes/SHA/package ID・前回paired raw生成/hash/cache key・M5 sealed normalized生成との一致をMacで確認。PTX13,556,055byte（e6d83bf9…）、NVRTC1回35.541秒/code0、generation必須hit/Slang0。inner51.799秒/peak289,640,448byte、outer65.379秒/peak324,009,984byte、両方timeoutなし・2GiB/低優先度/gate/Job終了0/欠落0/観測cleanup error無しの報告。サービス未識別は保全false/overall false、外child exit2/wrapper exit1を保持する。
+
+PTX/全Job原本はWindowsに保持し、Macの独立原本監査ではない。ptxas/driver/GPU/native/旧CUBIN再試行0。これでNVRTC frontendからPTXまでを分離できたが、別assemblerのメモリ改善・CUBIN/現在のCUDA計算・全目標は未証明。次は保存PTX8.4/sm86と固定assemblerの読み取り検査から進む。証跡`research/portable-moving-group-ptx-checkpoint-v1.json`、[共通経路と境界](portable-moving-group-cuda.md)。以下は履歴。
+
+# 2026-10-29 消費済みcompile claimを計画時に検出し、別PTX工程へ
+
+共通`compile-plan`は既存claim（壊れたsymlinkを含む）を読み取り確認し、`execution_claim_available=false`/`passed=false`で止める。artifact変更でも同じpacketのclaimを再使用しない。実行時の排他的claim/監査/数値/GPU/golden/保護CPU4fileは変更0、CLIの既存top-level定義変更はcompile_planだけ。開発側119検査、現source基準の固定fd7de6c1…自身compiler70検査とPTX/2GiB/60秒planが成功。旧small基準での固定はsource closure staleとして拒否され、goldenを書き換えず現moving-many基準で固定した。証跡`research/portable-compile-plan-claim-v1.json`。
+
+Windowsへは別artifactのPTX単独生成を1回だけ依頼。元不変ZIP/package76fbe7c3…を新しいnikke-moving-group-ptx-v1へ展開し、旧CUBIN失敗/claimsを保持。既存paired generation必須hit/Slang0、2GiB/BelowNormal/fresh Job/gate/child60秒/outer180秒、native/driver/ptxas/GPU0。Macの元packet ownCLIでplan成功、Windows側もplan成功まで確認、実結果は待機中。NVRTC終了後の別assemblerでメモリを減らせるかは未検証で、後段への自動移行は依頼しない。全キャラ/default/全目標未達。
+
+# 2026-10-29 未対応の優先順とWindowsのコンパイル失敗を保存
+
+共通`entry-plan`は保存entry-inventoryを再準備せず、operator/複数target間の同じprofileを重複除去して影響数順に並べる。元266行/全入力hash/GPU sourceを保持、254 packing/12失敗/11系統。最大はベイ4段階で、all_allies/self_coverを8件に水増ししない。scoped Metal/CUDA記録は残し、current_source_revalidated/calculation/default/全キャラはfalse。約693KBの報告からstdout5650byteへ短縮。新規7含む116検査成功、固定f756da39…自身のCLIでも開発側と完全同じplan JSON、payload前後検査成功。旧CLIはmain以外の全function/class AST同一、数値/GPU/保護CPU4file/golden変更0。[次のoperator選択](portable-shared-entry-inventory.md)。
+
+ベイの公開比率表は本人:他=8:3という候補を人数別に支持するが、cover262候補は1人時の表97.03%と最近接丸め97.04%が一致しない。元の規格未定/拒否は維持し、根拠無しから公開候補と未確定の分離へ分類を更新した。正確なcover演算・layer/通知・死亡/復活/再burst・favorite全段階が次の契約。[公開資料の境界](portable-bay-allocation.md)。
+
+Windows固定76fbe7c3…では59テストとpaired CUDA/MSL生成が成功（35.371/26.374秒）。source/strict normalized pairはM5基準と一致。generation cacheを必須再利用したCUBIN/O1・2GiB/child60秒/outer180秒の1回は、NVRTC42.638秒・code6、ptxas Memory allocation failure。CUBIN無し、GPU/driver/native全件0、追加compile/再試行0、Job残存/既存process欠落/観測error0。Job capとsystem memoryの原因切分けは未確定。元claim/ログは保持し、個人pathを含む元stderrを共有せず、要約＋診断excerptだけ取得した。サービス未識別の保全/overall=false。[保存結果・出所・次の分離assembler計画](portable-moving-group-cuda.md)。以下は履歴。
+
+# 2026-10-29 最大127ADD・30秒を同じ実行器でMetal検証
+
+最新sealed `moving-many`は元ユニ＋ニヒリスター全71定義/元武器・育成/5人編成/30秒を保持し、BODY＋127ADDを処理する。2体を射線付近、125体を遠方に置き、全127体の元移動carrierと全228727frame/228854区間・最終状態・全paddingを比較する。同時127体命中の認定ではない。従来4096行では拒否された3体以上に対応するため、既存本体をincludeするだけの新entryと262144行ずつのframe/segment bankを追加。input123188wordは同じ、output10422672word。元のskill/typed/group/history容量は削らず、旧layoutの既定byteも保持する。
+
+固定b44a5f39…のM5実GPU1回で全13入力（native1/拒否12）一致。GPU42.869923秒/初回PSO61.194543秒、generation必須hit/Slang0。別fresh GPU禁止child7群の独立sealは160.209秒、全群180秒以内で成功。元の実通知9回・子着弾27回・typed着弾50件と元全battle比較も保持。raw/CPU snapshot/claimsを永続proof rootへ保存。小証跡 `tests/fixtures/moving-many-metal-v1.json`。[容量・境界・共通CLI](portable-moving-many.md)。
+
+`moving-many-cache-only`は同じ計算に既存CUBIN/O1とpaired generation必須を適用し、固定e5c5ce5b…のcompile-plan（2GiB/60秒）は成功。現CUDA/実ゲーム空間規則/同時多数命中/BODY・PART移動/default/全キャラは未認定。Windows新依頼0。共有7fileはexact inverseで旧sourceを保持し、旧小entryの生成CUDA/Metalは既存strict normalized hashと一致したが、旧suiteのcurrent-source GPU再認定とは区別する。以下は履歴。
+
+# 2026-10-29 移動中の実グループconsumerを同じMetal実行器で検証
+
+最新のsealed `moving-group`は元ユニ＋ニヒリスターを同じ元5人編成（全71定義・元武器/育成・30秒）へ接続する。移動/範囲外/再出現の3戦闘＋拒否12。各20group、元`multi_hit:2`→`버닝 샷 3`の通知9/0/17・子着弾27/0/51が実発動。CPUで移動fieldsだけを外すと通知9→5・子着弾27→15となる。GPU source276ファイルは直前のmoving-typedと全byte同一で、元全比較文をAST同一の共通関数へ抽出し、計算を複製していない。
+
+固定b6729852…のM5実GPU1回で全15一致（GPU2.281622秒、PSO0.003021秒、generation/pipeline必須hit、Slang0）。別fresh GPU禁止child8群の独立sealも123.327秒で成功、全raw/旧失敗/claims保持。通常`moving-group`と同じ計算の`moving-group-cache-only`を登録し、現CUDAは未確認。小証跡は `tests/fixtures/moving-group-metal-v1.json`。[範囲・負例・次のCLI](portable-moving-group.md)。3ADD以上の30秒容量、他キャラ/全条件、PART/BODY移動、実ゲーム空間規則/default/全キャラは残る。Windows新依頼0。以下は履歴。
+
+# 2026-10-29 移動するADDとtyped物理対象を共通実行器でMetal検証
+
+最新はsealed `moving-typed`。元ユニ69/ヤン71/混合69定義・30秒を維持した6戦闘＋拒否12入力をM5 GPU1回（3.094098秒）とfresh独立sealで全比較。既存clock/actor世代/carrierと1つのcanonical pelletを共有し、宣言した所有者へのshape並進・死亡・再出現を処理する。全移動frame/区間、既存battle/typed/skill/group比較、最後のaim中心を検査する。実group consumerが無い元編成の空履歴を発動実証へ読み替えない。ゲーム実機の付属物モデル、空間recipient、default/全キャラは未認定。[設計・失敗保持・証跡](portable-moving-typed.md)。
+
+関連118テスト、通常packet自身26テスト成功。`moving-typed-cache-only`も同じ計算payloadを保持し、既存CUBIN/O1・paired generation必須へ接続。固定011db4de…自身54テストと2GiB/60秒compile-plan成功、Windows追加依頼/GPU/コンパイル0。現CUDA統合検証は未完了。次は元group consumerとの合成とactor数拡張を優先し、Windowsの全件nativeはMacでも162秒なので既存staged groupで分割する。rawと旧失敗claimは永続proof rootへ保持。以下は履歴。
+
+# 2026-10-29 未対応の敵移動へ着手：元5戦闘CPU契約とMetal数値核
+
+移動停止/強制移動を、元ユニ69/ヤン71/混合69定義の全実編成を保持したCPU契約へ接続した。既存native frame、実duration carrier（5秒/2秒）、generation-aware enemy fields、ADDコライダー、元sampled shot/landing/ダメージを使う。期限内分割・世代再初期化・同時状態の明示優先順位・scope復元・overflowを9検査で確認。consumerだけを除く故障注入で、同じ元定義の実packet/ADDダメージが変わる。`reference --suite enemy-movement-common`は5ケースを約4.095秒で成功し、GPU/packing0。速度/強制移動先/優先順位は宣言値で、recipientは正本のall-in-range近似を必須明示する。ゲーム軌跡、真の空間recipient、BODY等、GPU戦闘consumerは未完了。
+
+新しい共通`enemyMovementStep`はsoftware binary64の順序付き演算のみ。43入力（native34・raw拒否9、overflow status16 witness2件）はM5 GPU1回で全2752byteを取得。GPU0.0000236秒/MSL0.0464秒/PSO0.0308秒。初回はstandaloneにresident generation-cacheを指定してclaim前に拒否、ログ保持。正しい起動のGPU値は正しかったが、status16を従来native正例0固定の監査器が拒否した。source限定/契約名固定の`portable_native_status`を追加し、旧battle既定0・未知status/bool拒否を保持。数値/status/期待値を書き換えず、immutable ff646ff2で元captureをreplay、fresh独立seal0.508秒成功。元GPU claim/失敗/raw保持、追加GPU0。sealed goldenを通常`enemy-movement-math`へ登録。CUDA/Windows新依頼0。
+
+証跡`tests/fixtures/enemy-movement-math-metal-v1.json`、raw/packet/全ログ/元CPU reportは永続`.portable-recovery/proofs/enemy-movement-20261029`。元439 GPUファイル/保護CPU4ファイル/strict normalizer全byte不変。既存106/appendの証拠やhashは更新しない。未対応分類は宣言CPU契約と数値核だけを別記し、canonical不足5/20model gap/全キャラ0/UI CPU/公開受付falseを維持する。次は既存Runtimeのalive/end/actorFieldMember/source clockと動的ADD位置・元5戦闘の全比較を結ぶ。数値核を戦闘GPU接続済みとしない。[敵移動の範囲と次段階](portable-enemy-movement.md)。以下は履歴。
+
+# 2026-10-29 現CUDA全106入力をfresh native/wire envelopeで認定
+
+共通CLI `partitioned-witness-join`を実装し、固定proof SHA・元own packet・context/plan/anchors・14fresh群・全106/native63/拒否43・全input/raw/logical/generated/native指紋と保持Metal rawを再検査した。immutable packet e38b399c自身の72検査とjoinが成功。source-hostで原CUDA出力を再読したenvelopeとMacのbyte-identical Metal witnessに対するfresh native比較が揃い、**固定106入力のcalculation=true**になった。原CUDA rawをMacで取得/再読したとは主張せず、peer受領の境界を結果に保存する。元中間capture/claim/失敗/pendingは変更0、追加GPU/compile/native再計算はjoin中0。証跡`tests/fixtures/resident-current-cuda-native-join-v1.json`/SHA6cf83185…。共通判定は[保存結果監査](portable-identical-wire-native-audit.md)。
+
+Windowsの正常承認下で70検査8.115秒、validation-depsインストール0、原captureのCPU監査42.219秒で成功。7launch/106readback引数、exact CUBIN、全875MBとprepared/claim/ledger/processを検査。原GPU実行をやり直していない。固定report2d0d24e2094ab6b1bed518c7b1d41969cffa4128/codex/cuda-resident-envelope-v1-reportの非個人JSON1883byte/SHA6648e2c8…だけを取得。sandbox TEMP/hardlinkの旧2失敗は保持し、OS/ACL/テストの緩和なし。サービス未識別により原/監査の環境保全とoverallはfalseを維持する。
+
+未対応分類と`model-check --summary`はhistorical frames/append/wireを保持し、別joined proofで106入力の計算true・native pending false・環境false・Mac原CUDA未読を表示する。5 canonical consumer/20model gap/全キャラ0/UI CPU/公開受付falseは継続。次は保存結果監査の再実行を重ねず、未対応の移動状態/物理producer等の不足モデルを優先する。Lock Onの距離式は公開情報で確定できず保留。以下は履歴。
+
+# 2026-10-29 同一byte witnessの全106 fresh native監査成功
+
+共通`portable_partitioned_native.compare_readback`へ既存native/rejection比較ループを抽出し、元Metal入口も同じ関数を使用。`partitioned-witness-native-audit`は元Metal captureを既存address auditorで全byte再監査し、現CUDAの固定要約と全raw/論理SHAを照合する。現source/golden/native/input/paired generationを維持し、現Metalのseal前development packetの期待は正確なinput/source/native projectionで検査する。出力欄を捏造してsealed扱いしない。新packet v2/9c2b84fd自身の67検査とvalidation-depsが成功、14個のfresh GPU禁止childで全106（native63/拒否43）を549.815秒で独立照合した。全元entry/native/出力を保持、追加GPU0。元875MBをコピー/書換えせず、raw/失敗/claimと全group logsは永続Bへ保持。証跡[Mac native witness](../research/target-count-query-evidence/resident-current-native-witness-v1.json)。v1 packetはgeneration元がdevelopmentであることを静的点検で検出し、監査未実行で保持。
+
+`witness_calculation_verified=true`はMetal由来の同一byte witnessへのfresh native一致。CUDA原captureをMacで取得/独立再読したとは呼ばず、`calculation_verified=false`・原CUDA envelope監査pendingを維持。共通CLIのWindows専用`partitioned-current-envelope-audit`は、既存Job/BelowNormal/2GiB/180秒とGPU/compiler禁止guardで原source/paired generation/loaded CUBIN/input/ABI全trace/claims/process観測を再監査するCPU入口。native戦闘0、元GPU claim/ledger不変。両証拠のjoinはまだ未実装/未認定で、片方の結果を成功へ昇格しない。
+
+60dc9d09で関連70/CLI51検査が成功し、source-only packet22762b5e（ZIP11,066,142byte/SHA002aa6ca…）を固定c50e17e2/codex/cuda-resident-envelope-v1-sourceへ共有。Windows事前70検査は最初sandbox TEMP拒否（0.474秒/93errors）、所有TEMPを固定した次は基本操作が成功したがhardlinkがsandbox拒否（約10.07秒）で停止。validation-deps/envelope/GPUは未実行。計算失敗や原CUDA claim消費と混同しない。元失敗を保持し、通常承認経路でCPU検査だけを行う依頼を送った。OS/ACL/guard/テストを緩めず、拒否時は停止する。Windows結果は未取得なので重複実行を依頼しない。
+
+次はWindowsの既存依頼結果を取得し、原出力envelopeとMac fresh native witnessの全106/63・input/raw/logical/generated/sourceを共通joinで結ぶ。保全/overallと計算の認定を分離し、service未識別はfalseを維持。未対応5 canonical consumer/20model gap/全キャラ0/UI CPU/公開受付falseは継続。実装と証拠境界は[保存結果監査](portable-identical-wire-native-audit.md)。以下は履歴。
+
+# 2026-10-29 現ソースCUDA全106入力のwire一致・共通CLIへ記録
+
+`partitioned-current-package`を実装し、現Metal独立sealと元physical wire参照を別々にpinした。旧失敗回収ownerは保持し、既存の分割transport・linked artifact admission・Job・ABI観測を再利用。新ownerは元PTX/object/linkをCPU準備で一度監査し、実行直前には小さいreceipt anchorsと全input/source/header/CUBINを確認する。fallback compile/linkなし、source/goldenの除外なし。保存容量はGPU claim/ledger作成前に確認する。全106/native63、488 GPU/canonical/upstream/normalizerファイル、元CLIのmain以外のASTを保持した。詳細[現ソースCUDA owner](portable-current-source-cuda-owner.md)。
+
+固定packet b873a58c（source806e01dc）のWindows実行は、smoke47検査15.70秒、全106入力のfresh静的準備41.20秒、GPU stage28.92秒で成功。launch/sync各7、readback106、driver失敗0。875,469,264byteの全rawとlogical SHAが参照と一致し、生成cache必須hit・compiler/link0。低優先度/2GiB/GPU60秒を保持し追加GPU実行は不要。元raw/claim/全receiptはWindowsに保持し、Macは固定b3c989d1の1637byte要約のみ取得。process保持true、service未識別のpreservation/overall false、calculation false・fresh独立native監査pendingを維持する。
+
+Macでは保持済みMetal rawをsource-pinned address viewで全106行再照合し、Windows要約のraw SHAとも一致した（1.124秒、20参照/5アドレス移動）。これはMetal由来の同一byte witnessであり、CUDA原captureの取得/独立監査とは呼ばない。fresh native再計算0。次は元出力を再実行せず、共通native比較器の保存結果入口を現ownerへ接続し、全63 native＋43拒否を独立監査する。Windowsで長い正本計算を常駐させず、Macのbyte witnessとWindows原captureの証拠境界を保持する。
+
+共通CLI `model-check --summary`と未対応分類へwire106成功/計算false/pendingを別字段で表示。partitioned63/readiness25/model-gap14/CLI51検査、model-check成功。5 canonical consumer/20model gap/全キャラ0/UI CPU/公開受付falseは未完了。証跡[checkpoint](../research/target-count-query-evidence/resident-current-cuda-v2-checkpoint.json)、固定Windows要約`tests/fixtures/resident-current-cuda-v2-summary.json`。Lock On公開調査は照準線基準までを採用し、中心/外形/2D/3D/tie/PARTは未確定のまま。他機能の開発を実機提供待ちで止めない。以下は履歴。
+
+# 2026-10-29 現full PTX生成成功・未対応分類へstorage証拠を接続
+
+compiler v2はsource stale負例テストのsynthetic inventoryにCPU audit fixtureが無く、Windows6群72検査の1失敗で停止。production guardは変更せず、そのunitだけCPU suite/smoke/native payload検証を隔離して本来のstale source拒否を検査した。v3/babcd09cはv2とtest1ファイルだけの差で、GPU/全golden/consumerは同一。packet自身の20群210検査がMac/Windowsで成功。元失敗/capture/claimは保持。
+
+v3固定source3fca564fで現full CUDA/Metal生成がv2 certificateと一致し、PTX生成とcompiler検証が成功。NVRTC処理37.187秒（peer最終報告）、compile子50.899秒／外61.776秒、PTX12,934,766byte/SHA a50f1d53…。driver/GPU0。生成cacheはcompile時必須hit。環境保全・overallはservice未識別でfalseのまま。Windowsの34 metadataファイルはauto-reviewで共有拒否され、再送せず、path/PID/環境情報を除いた29key/1362byteの単一要約だけを別orphan branchへ共有した。固定615e1944/codex/cuda-resident-frames-v3-public-summary。拒否34fileとae599c8c/原PTXはWindows保持。Macではpackage/entry/厳密正規化生成hashの一致を確認したが、元34fileの独立監査とは主張しない。証跡resident-frames-current-ptx-v3.json。
+
+保存PTX全体のmodule-objectは成功。固定ptxas12.4.131/--compile-only/O1/sm86/FMA無効、元12,934,766byteを保持し7,179,120byteのobjectを生成。native14.274秒/ret0、子29.834秒/外50.439秒、timeoutなし、object/containment true、preservation/overall/calculation false。Slang/NVRTC/driver/GPU0。単一要約7dc6ff2a/codex/cuda-resident-frames-v3-object-summaryを取得し、PTX SHA/bytes/packageが直前compiler要約と一致。元object/JobのMac独立監査とは呼ばない。証跡resident-frames-current-object-v3.json。
+
+同じobjectからjit-link-objectも成功。固定nvJitLink12.4.127、API9回ret0/API計0.057221秒、CUBIN6,639,440byte/SHA43de2ec9…。子19.148秒／外49.471秒、link/containment true、preservation/overall/calculation false、compiler/driver/GPU0。通常cacheへは登録しない。固定要約e6707dc4/codex/cuda-resident-frames-v3-link-summaryを取得し、直前object要約とSHA/bytes/package一致。原CUBIN・全receipt・claimはWindowsのroot/jit-link/proofに保持。リンク済みCUBINの監査元packageは同root/package。証跡resident-frames-current-link-v3.json。
+
+次は全106のfresh CPU準備と保存CUBIN admissionを通して、既存の低メモリ分割ファイル転送でCUDA全出力を照合する。CUBINを再compile/linkしない。normal sealed battle package ba3189a6（B/resident-frames-cuda-battle-v3.zip/-package、2463files、ZIP11,016,876byte/SHA55ceaf48…）をMacで準備し、packet自身のverifyと、全106のfresh Metal golden／PTX正規化基準との完全一致まで確認した。Windowsへは未配布・未実行、fresh CPU preflight未実行。v2作成はv2 source certificateの梱包依存漏れでdevice0停止し、frame本体/短縮profileのsupport_filesを同じCPU_AUDIT_FILESから取得する修正と9検査/CLI51で解消。生成/数値/保護CPU/normalizerは変更0。元失敗log保持。今後のGPU結果はまだ未認定なので、全キャラ/公開受付を開かない。
+
+共通portable_resident_validationをmodel-gap監査とreference work laneへ接続し、Metal106とCUDA append9を別のpinned proofとして表示。model-check --summaryはappend計算trueとstage/環境保全false・full CUDA battle falseを同時に表示する。proof fixtureのSHAと全106/9のscope、両consumer一致を検査。readiness25/model-gap14/CPU batch19/CLI51/projection9成功。source closureは実監査済みframes v2と同一、追加GPU0。5 canonical consumer/20model gap/全キャラ0/UI CPU/公開受付falseは不変。証跡resident-storage-routing-v1.json。以下は履歴。
+
+# 2026-10-29 Resident配列追加3箇所を修正・CUDA/Metal9契約一致・Metal全106独立一致
+
+fd15fec6の共有markEntry／initializeHPWatchesを「格納→加算」へ変更。旧CUDAが加算後indexを再読する3箇所を修正し、既存生成器とpaired cache読込へ生成順guardを接続。空／最終512／refresh／owner重複／全2048watchを、実共有関数の9入力でCUDA/Metal全word一致。新gpu-cached wrapperは保存source・SDK・両cacheの4キーを固定し、CUBIN O1／必須hit／Job／2GiB／180秒・子60秒を保持する。
+
+Windows固定report 7f2e988fのcalculation/containment true、process保持true・missing0。Slang/NVRTC0、launch/sync/readback各1、host dispatch0.328秒、GPU子11.219秒／外32.371秒。service未識別のpreservation／全体passed／transport_verified falseを保持する。元v1の引数欠落失敗とclaimは残し、GPU再実行ではなく新wrapperの初回実GPUだけを実施。全battle/全キャラのCUDA成功ではない。出所・全指紋はresident-append-cross-gpu-v1.json。
+
+現sourceのcoordinate-resident-frames全106（native63／拒否43）もM5で1回成功、14個のfresh GPU禁止childの独立seal成功。全旧entry/input/output/native指紋を保持。GPU4.134秒／cold pipeline62.416秒、CPU正本430.231秒、unit114.828秒、独立監査582.646秒。約875MBの全raw、旧golden、失敗を保持。独立group logsは永続Bへ全byte照合して保存、元tempも削除していない。新v2 goldenと同じfresh監査から既存certificate helperで作成したsource-only証明書を登録し、旧v1は保持。証明書はCUDA compile/cache/実計算の認定ではない。証跡resident-append-full106-metal-v1.json、詳細portable-resident-append-publication.md。
+
+現full sourceのcompiler-only packet20d328a5をb7ff2c64/codex/cuda-resident-frames-v2-sourceへ共有し、既存Windowsチャットへtests→generation→PTXのみ1回を依頼済み。新rootはC:/Users/owner/Documents/Codex/nikke-resident-frames-v2。内compile60秒／外180秒／2GiB、driver/GPU0、fallback/retry禁止。結果は未取得なので再送せず既存turnを確認する。own compile-planのPTX＋O1指定はpolicy拒否を保持し、O1指定なしの新receiptが成功。パッケージ/transport/要求範囲はresident-frame-current-compiler-packet-v2.json。
+
+次は現full sourceのCUDA接続を既存の限定compiler段階で進め、保存済み旧106 CUDA失敗との差分を再評価する。大きい本体を無制限に再compileしない。今回の9probeとMetal106だけで未対応分類を消さない。5 canonical consumer欠落／20model gap／全キャラ0／UI CPU／公開受付falseを維持。Lock Onは公開記述を根拠に取得・解除を進め、距離式は未確定のまま、実機環境の回答待ちでは止めない。以下は履歴。
+
+# 2026-10-29 CUDAの更新前scalar消失を2箇所修正・Metal3ケース独立一致
+
+保存CUDAの厳密生成基準2380f6f3…と一致するコードで2つの具体的な差を確認した。通常回復のbefore HPがCUDAでは更新後HPの再読となり累積回復が0になる。findCarrierの後置incrementも更新後countを配列index/戻り値へ使う。Metalには更新前の値が残る。共通SlangのbodyHPBeforeHeal/carrierCountBeforeAllocateというnoinline scalar境界で修正した。本修正のGPU差分はevent_runtime/carrier_runtimeの2file。正本4file/厳密normalizer/wire/runtime_init shaderは変更0。現在の開発closureを使うので、旧凍結ownerとの全source一致は主張しない。
+
+固定v5/8c87f24bの元ミサトHP・owner/body・owner/addsの3ケースがM5 Metalで成功し、別fresh GPU禁止sealも成功（45.438秒）。入力/全native期待は旧106の対応3件と完全一致。own28群179検査115.022秒、CPU全3照合39.586秒、実GPU2.317秒、冷pipeline62.332秒/library2.216秒、child84.573秒。generation必須hit/Slang0、pipelineを永続cacheへ保存。現在のapp/gpu/scripts全1222fileは実行済みpacketとbyte一致。root CLIテストだけ後からsynthetic data依存へ追従して51成功、計算codeは不変。
+
+選択3件の全outputは既存source-pinned typed address viewで旧Metal基準と完全一致。ミサトだけcorpus位置9→0のDFS receipt参照1wordが変わり、既存4file ABI/receipt ID/boundsを検査したRAM内viewで全word一致した。rawは変更せず、最初のraw-only差分記録も保持。元875MB CUDA失敗・claims・goldenを変更/再実行しない。
+
+生成時とgeneration cache pair再検査へ2箇所のsnapshot→更新→利用監査を接続し、実生成断片の負例テストを追加した。これは全生成codeが安全という認定ではない。追加静的確認で、v5 CUDAのmarkEntryにenemyBuffRows/infiniteRowsの後置incrementも更新後indexを使うことを発見した。Metal側は更新前indexを保持している。次はこの2つと他の更新前値の利用を監査・修正してからCUDA compile/runへ進むこと。v5をWindowsへ送らず、Windows新依頼0。現在の3件Metal成功をCUDAや全106/全キャラへ拡大しない。
+
+v2はcompactで旧inverse接続が欠落、v3は未追跡の新fixtureがtracked whitelistに入らず、v4は共通initializer生成器が既存Lock用optional宣言を未認識で停止。すべて失敗/packetを保持しdevice0。厳密inverseをcompactでも必ず接続し、fixture2件をGit登録＋AUDIT_FILESへ明示した。既知optional宣言は専用initializeGenerationLocks/initializePhysicalLocksが全fieldを初期化することを確認して、共通generatorからexact blockだけを分離した。runtime_init全byte一致を保持し未知guardの拒否は維持する。最終v5のみdevice1回。
+
+model-checkは成功。差分80pathはevent_runtime/carrier_runtimeのsource SHAだけで、5つの未実装canonical consumer/20model gap/全キャラ0/UI CPU/公開受付Falseは不変。証跡resident-scalar-snapshot-root-causes-v1.json、原本B/resident-scalar-snapshot-v5-metal、independent/sealed/logical-retentionも同proof root。以下は履歴。
+
+# 2026-10-29 保存CUDA差分をCPUだけで23ケースへ限定
+
+共通CLIに`partitioned-saved-index`と`partitioned-index-compare`を追加。既存hash helper/source-pinned address view/Job監査を再利用し、旧raw・失敗判定・claimsを変更しない。Windows index15.582秒、詳細13.713秒、GPU/compile/native追加0。固定report8c349c2cとa2a2a2e1からmetadataだけを取得した。全106statusはMetalと一致、83行は論理全byte一致、差分23行/191個64KiBページ/315個4KiB block。最大8ケースの8192uint32を輸送し、Macで全875MB参照/row/sample SHAを検査してword比較した。
+
+最初のミサトHP照会の累積healingはMetal283571/282542/282456/281928/280623対CUDA全0。addsケースのcarrier pass49/50はslot71/72が入れ替わり、抽出範囲の他fieldは一致。owner/bodyなどにはtotal damageの差もある。これは一律ULP差ではないが、原因をcompiler/alias/初期化と断定できない。slot差を除外・正規化せず、厳密比較は失敗のまま。次はこの保存差分と共通health/carrier/typed owner経路を照合し、原因を限定した上で共有shader修正を設計すること。旧GPUの再送・再compile・上限増加は行わない。
+
+診断完了は計算成功ではない。共通CLIの比較exit0でもall_logical_rows_equal=False/calculation_verified=Falseを読む。原本B/partitioned-details-windows-v1-report、CPU比較B/partitioned-index-word-comparison-v2.json。詳細[分割転送](portable-partitioned-file-transport.md)、記録partitioned-cuda-saved-word-diagnosis-v1.json。公開GPU/全キャラ/全特殊効果は未達。以下は履歴。
+
+# 2026-10-29 CUDA全106の実API成功・出力差分を検出（再実行禁止）
+
+固定e2f6470d/2166file、source固定24c11faaの単発CUDA ownerを実装。固定97e9477e CPU監査と独立Metal/native参照ca3c24a8を結合し、fresh静的input再構築とsource/header/CUBIN照合を維持する。約127秒の元producer監査をGPU子で繰り返さない。新しい専用claimと旧失敗・claimに結ぶ安定ledgerで重複実行を拒否。旧claim/ledgerは保持。元2147file/既存CLI関数/全goldenを保持し、shader/正本/厳密normalizer変更0。own52＋checkout129テスト、Mac CPU smoke成功。
+
+Windows smoke8.246秒/prepare42.079秒/実GPU27.561秒、各1回・timeout0。GPUの全7launch/syncと106 chunk readback、context destroyは成功、全CUDA return0。実grid16×6＋10/block1、入力7403524/output132146304/runtime2288768byteを実引数で確認。GPU Job peak1874407424byte/2GiB以下・post0。旧code2は今回再発しなかったが原因の断定はしない。生成cache hit・Slang/NVRTC/native戦闘0。smokeで既存7process消失が観測され原因unknown、prepare/GPUはprocess保持True。サービス未確認で環境保持False。
+
+一方、全875469264byteのCUDA raw SHA bc59f8bb…は分割Metal0a737874…と異なり、論理viewも旧4ecc755e…と不一致。共通transportはstrict検査で例外を出し、元stageはFalse・計算未認定のまま保存した。CUDA logical SHA自体は旧失敗controllerが保存しておらず未知。部分/全7batch/output/input/claim/ledgerを保持し、GPU再実行/再compile/上限増加は行わない。
+
+Windows report固定d48d5050の38file/360328byteをMacへ取得。全phaseは末尾の出力検査RuntimeErrorで失敗のまま。同じ監査器で、明示的にそのenclosing failureを保持したAPI-prefix projectionだけを検査し、全7実引数/API/stream/cleanupを確認した。これはhardware completionの証拠であり、whole trace・計算検証の成功へ置換しない。詳細partitioned-cuda-single-attempt-v1.json、原本B/partitioned-cuda-windows-v1-report、API projectionはB/partitioned-cuda-v1-api-projection.json。
+
+次は保存済みCUDAの全row/status/logical hashとMetalの差分をCPU-onlyで特定すること。GPUを再送しない。今後の共通transportには、失敗直前に既に計算済みのaddress-view JSONを保存する診断改善と負例testを追加したが、旧captureは編集しない。旧source固定106の比較であり、現全suite・全char/効果・公開GPUは未達。以下は履歴。
+
+# 2026-10-29 実CUDA引数の共通観測・Windows元admit/CUBIN再監査成功
+
+共通partitioned transportへ任意のcuda_argument_journalを接続。元NativeFunctionへ同じ引数objectを一度だけ渡し、3allocationの実byte/address、input/48byte定数ABI、各grid/block/shared/streamを検査する。NVRTC fallbackや元API観測なしのdriverを拒否し、実観測のないbackendは完成outputを公開しない。sequence traceのrequire_arguments=Trueが各receiptと実API境界を照合する。計算/Slang/正本/厳密normalizerは変更0。実CUDAでの引数認定はまだ行っていない。
+
+元66c50b92のadmitをbounded再評価する入口がなく、最初のWindows読み取りはmetadataだけ取得して停止した。新CPU-only entry partitioned-origin-smoke/auditを追加し、既存run_job/start gate/BelowNormal/2GiB・旧admit/saved_linked_admission・Job/snapshot監査・native出力probeを再利用。新GPU claim/ledger/実行許可は発行0。
+
+固定97e9477e/2161file、source branch codex/cuda-partitioned-origin-v1-source commit11b1719e。元2147file・既存CLI関数・全goldenを保持、own42＋checkout119テスト、Mac CPU smokeが成功。Windows smokeは11.202秒、元admit/CUBIN監査は155.448秒（子のreadonly再評価127.033秒）で成功。双方exit0/timeoutなし/Job post0/cleanup・観測error0、2GiBとstart gateを確認。CPU監査Job peak153800704byteはGPU実行時のmemory測定ではない。元106/native63のadmissionを再評価し、6,636,880byteの同じCUBIN（70fff521…）と旧phase172803byte/fc933ba9…、全32API境界、旧claim/ledgerの保持を確認した。GPU/compiler/native戦闘追加0。process保持True、service識別未確認でenvironment=Falseを維持する。
+
+保存結果15file/166606byteをreport branch固定cc75ccefから取得。Macで同じJob監査器・元失敗sequence・linked receipt keyと全golden一致を再検査した。環境raw snapshotは転送せず、source-host結果を保持する。詳細portable-partitioned-file-transport.md、証跡partitioned-cuda-origin-v1.json、原本B/partitioned-origin-windows-v1-report。
+
+次はこのCPU receiptを新しい単発のCUDA実行ownerへ結び、元claim/ledgerを再利用しないこと。保存CUBINを同じsource/header/imageで再検査し、7batch全106・全raw/logical fingerprint・実引数traceを検査する。元producer全体の約127秒の再監査をGPU子の60秒へ再投入しない。新ownerのCPU preflightと実行時artifact revalidationの境界を明示し、上限増加/SDK再compile/GPU再送で回避しない。実CUDA成功・現在の全suite・全char/効果・公開defaultは未達。以下は履歴。
+
+# 2026-10-29 保存済み分割Metalの独立native監査・全106一致
+
+`partitioned-native-audit`を共通CLI/immutable dispatcherへ追加した。実行済みv4の失敗rawと元sourceを変更せず、別packetのfresh GPU禁止childで元adapterのsemantic compare/rejection/stage validatorsを実行する。明示source-pinned address viewを使い、全input/output/native/strict generated指紋を保持する。既存partition/selection/validate_factsを再利用し、群単位のcalculationはFalse、全入力の重複・欠落なし集約だけTrueとする。
+
+初版051dc854の一括CPU監査は240秒timeoutで失敗保存。上限を増やさず分割版d2197957へ移行し、全106/native63・7 fresh childが成功した。群の秒数73.62/28.63/57.84/92.32/50.68/120.13/81.04、集約506.70秒。入力再構築30.82秒、元native比較466.04秒で、時間の主体はCPU戦闘シミュレーション。各比較をjournalへ記録し、最も長いshield-stream-overflowは30.36秒だった。GPU/compiler/Windows追加0、raw/期待hash/旧失敗stage変更0。新独立監査のみcalculation_verified=True、旧stage=False・public=False・全goal=Falseを維持。v7 controllerと開発sourceはbyte同一、own packet26＋checkout関連108テスト成功。
+
+別のCUDA sequence trace監査器を追加した。全7launch/sync/readback・cache-only CUBIN・zero/全chunk address/bytes/receipt・context destroyを検査し、後続失敗や欠落を拒否。legacy一回launch監査は変更0。旧observerが記録しない実launch寸法/allocation byteは未認定で、CPU故障5テストのみ・CUDA新ownerへの接続は未完。消費済みWindows claim/ledgerを再使用せず、新しいbounded owner、実引数観測、保存CUBIN再利用へ接続すること。上限増加/常駐テスト/GPU再送はしない。
+
+全キャラ/全特殊効果/現在の全suite・公開受付は未達。旧固定106の独立計算認定と混同しない。詳細[分割転送](portable-partitioned-file-transport.md)、証跡 `partitioned-saved-native-v1.json`。以下は履歴。
+
+# 2026-10-29 全106の共通分割file transport・M5論理wire一致
+
+共通partitioned transportとprivate Metal CLIを実装。106を16×6＋10に分け、既存CUDA execute_cuda_batches(output_paths)／Swift --batchesの1context/pipeline・3bufferを再利用する。GPU計算/正本/厳密生成normalizer変更0。最大input7403524/output132146304/runtime2288768byte、全output875469264byteを保持。原本2148file中2147はbyte同一、CLIはmain dispatcherのみ追加、元registry/goldenを保持。
+
+実行固定9a69d35dのfresh CPU全106/native63は391.973392秒で一致。M5全7dispatchは11.216289秒、必須generation/compiler0、Metal pipeline7hit。旧flat wire検査はRaw SHA 0a737874…対旧4ecc755e…で失敗し、child14.217147秒/exit1。旧親CLIはFalseを返しつつexit0だったため現codeでexit1へ修正。原本/partial/claimは保持しGPU再実行0。
+
+保存raw比較で101rowは全byte一致、残るrow16/28/29/30/31も各1word、すべてDFS scratch depth1の+530（row word1924498）だった。destructibleBattleCaptureが保存するresults配列内の絶対word indexで、差は16×2064786。数値/state差ではない。source4file SHAを固定する明示address profileを実装し、全20参照のID・参照先・boundsを検査。rawを変えずRAM内の論理viewだけ5参照を付替え、全106のrow hashと全体4ecc755e…が一致。GPU原本raw0a737874…、期待hash、旧失敗判定は変更0。
+
+現69f25d90 packetはsource-pinned profileを明示しraw SHAとlogical SHAを別記する。出力rawの付替え/数値正規化は行わない。source/call AST比較でplan/split/CUDA・Metal sequenceの引数は実行済みv4と同一。現packet自身13＋5unit成功、既存batch8/file15/stream4/CLI50成功。現profile統合の追加device実行ではなく、旧実GPU出力へのread-only監査とsource/unit証拠である。計算認定/独立post-GPU native監査/CUDA新owner・sequence traceは未完。Windows追加0、消費済み旧claim/ledgerを再使用しない。
+
+model-checkはe061e679…で従来同一、未対応分類/公開default/全キャラ認定は維持。次はこの明示wire viewを使う保存結果の独立native監査と、共通sequence API trace・bounded CUDA実行経路への接続。詳細portable-partitioned-file-transport.md、証跡partitioned-file-transport-v1.json。
+
+# 2026-10-29 immutable recovery接続・CUDA launchでcode2
+
+元04515f96の計算/data/test/registry/goldenを保持するcapsuleを実装。CLI/flowの必要なbridgeだけをAST差込みし、9個の入力/claim/finish関数とnative loopを保持。新owner/nonce/transactionを安定した排他ledgerへ結合し、旧claimを触らない。固定66c50b92/commit18cde163のproduction codeは旧テスト成功版9d995acdと全byte同一（差は追加testのみ）。元28群177unit、新capsule9検査、関連stage31/preflight13/origin11/continuation10成功。Mac必須生成hit/compiler0は0.57秒。
+
+Windows source2153file検証後のpreflight-recoverは59.477秒/exit0で成功。generation2.927秒・元証拠26.800秒・静的入力10.404秒・CUBIN出所12.409秒。元106/native63を再計算せず新transactionを作成。続くstaged GPUを同じ固定ownerで1回だけ実行したが、cuLaunchKernelがcode2。3回のcuMemAlloc/context/moduleは成功、sync/readback未到達。outer148.286秒/inner48.041秒、両exit1/timeoutなし、generation hit/Slang0。原本JSON4個をbytes/SHA照合し保存。後処理のevidence.json不足は副次エラーである。
+
+新旧claimとledgerを保持し再実行0、両Job post0/monitor cleanup error0、process保持True/service未識別でenvironment=False。Job peakはouter2182651904/inner2023596032byte、上限2GiB。これだけでhost commit/VRAM不足を断定しない。全106の期待readbackは875469264byte。次は保存PTX/CUBIN/resource metadataの読取り依頼の結果を取得し、既存共通batch/streamingを用いて全入力を維持しながら一括出力割当を減らす設計を検証する。GPU再実行/claim削除/上限拡大で代替しない。
+
+Windows taskのread-only metadataはcursor52a33edf-b45e-47e6-bdf6-6851a2c039ed:17で取得済み、idle。GPU/driver/SDK tool/compile/native/unit追加0。保存metadataではinput49048324/output875469264/scratch15163088byte（stride143048×106）。launch106block×1threadはソースからの導出でAPI引数記録ではない。既存CUBIN resource出力はREG254/STACK17056/LOCAL0/SHARED0、PTX entryはlocal0/virtual50。PTX全体のmax local宣言5192/max virtual15299を物理資源使用量へ読み替えない。元journal172803byte/SHA fc933ba9…はmetadataだけ取得、full bytesは未回収。3alloc成功→launch code2→context destroy成功、sync/readback無しを確認。未対応分類/model-checkのSHA e061e679は維持。現在の全106 CUDA計算成功・公開default・全キャラは未達。詳細portable-gpu-recovery.md、証跡cuda-gpu-recovery-v1.json。
+
+# 2026-10-29 元preflightをown CLIで再監査するCPU経路
+
+元04515f96の106/native63を再計算せず再監査するstaged-origin-check/audit-staged-originを実装。旧package自身のstaged-preflight-checkを別Pythonで呼び、当時の完全receiptとの一致とhost/nonce/input/countを確認する。元source/transaction/continuation親/各stage/timeoutの全file name・bytes・SHAを前後照合し、リンク/読取り失敗/追加/変更を拒否。workspace全体は探索しない。新ownerへのGPU admissionやCUBIN/cache検証は未実装で、execution/recovery/calculationはFalse。旧claimを触らず、GPU/compiler/native再計算0。
+
+固定d754f360/commit928f3a33の9群101unitは10.454秒で成功。既存CLI50/stage31/failure7/preflight13も成功し、model-checkは従来と同じSHA e061e679…。source-only ZIP13,040,209byte/3879fileをartifact branch codex/staged-origin-controller-v1-source/0f524364で共有。Windowsも全byte一致後にCPU監査1回が78.906553秒/exit0で成功。106/native63を再計算せず再監査し34root/4916fileを固定、Job post0/cleanup監視error0。元結果2JSON計2467byteを回収しbytes/SHAとstage内reportの一致を照合。process保持True/service未識別でenvironment=False。native/host再監査Trueだがrecovery実行許可とCUBIN/cache検証はFalseを維持。元Slang/cacheの正確なpath/keyもmetadataから取得済み。次はこの完全証拠を保持するimmutable recovery owner/nonce/claimを実装し、保存CUBINと必須generation cacheを再検証して短いCUDA成立へ接続する。全キャラ/default/残consumerは未達。詳細portable-staged-failure-audit.md、記録staged-origin-controller-v1.json。
+
+Windows原本のCPU監査は固定ebe7d2dbで終了0/30.154169秒、予算179.797秒・BelowNormal・stage_verified=True。元04515f96の106入力/AST/両Job/監視/消費済みclaimを確認。元結果2JSON計11,102byteを再実行せず回収しbytes/SHA一致を検証、fixturesへ保存した。execution metadataはscalar projectionだけを記録し、元1107byteのSHAも保持。GPU/compiler/native/旧unit/smokeの追加実行0、process保持True/service識別未確認なのでenvironment=False。execution_permitted/native/cache/host再認定はFalseのまま。元claimは消費済みで編集しない。実fixture追加後のfailure7検査とmodel-checkも成功。source-only ZIP13.03MB/3875fileの転送だけを使い、巨大履歴checkoutを避けた。記録staged-failure-windows-v1.json。次は既存事前検査とCUBINを保持するimmutable recovery protocolの実装。
+
+# 2026-10-29 staged CUDA失敗監査と明示生成設定
+
+元04515f96の消費済みexecution claimを再使用する既存経路はなく、その拒否を維持する。新CPU専用staged-failure-check / audit-staged-failureは、package owner・AST関数一致・7phase・両Job/監視・prepared全row/nonce/transaction/claimを既存監査器で検査する。passedでもexecution_permitted/native_admission_revalidated/linked_artifact_revalidated/host_revalidated/calculationはFalse。新しいimmutable recovery protocolは未実装であり、この診断でGPU再実行を許可しない。
+
+staged-gpu-linkedのSlang/cacheはペアのCLI引数でも指定でき、recipeとbounded子環境に固定する。親環境を変更せず、partial/relative/子でのdriftを拒否。旧packet/claimを編集しない。固定754fcea8の8群90unit成功、明示設定31/failure6/既存CLI50/preflight13検査成功。GPU/Slang/CUDAの追加実行0、生成normalizer/保護CPU/Slang source変更0。Windowsでは保存metadataを読取済みでphase projectionだけfixture化した。実原本の新監査はまだ未実施で、下のWindows結果取得後に記録する。
+
+詳細portable-staged-failure-audit.md、記録staged-failure-controller-v1.json。次はWindows原本をCPU専用・BelowNormal・2GiB・180秒で1回監査し、元106/native63と保存CUBINを保持する新controller移行を設計する。旧GPU/compile/native群を再実行しない。
+
+最終330e9603/cache固定packet6b4d8009は6群53unit成功。sealed paired生成は必須hit/Slang0、source-baseline current、CUBIN/O1・2GiB・60秒compile-plan、model-checkも成功（追加GPU/実CUDA/Windows依頼0）。記録enemy-ammo-self-destruct-final-cli-v1.json。GPU実計算とfresh独立監査は先の固定2d5ad371の16入力証拠であり、このunit-checkをfresh全native実行と扱わない。
+
+# 2026-10-29 敵弾薬と自爆を同じSlang実行器でMetal実証
+
+固定2d5ad371の元Velvet76定義8world＋raw拒否8がM5/同出力のfresh GPU禁止独立sealで一致。14自爆/26試行/許可18発/実被弾90件、GPU0.803771秒/cold PSO58.212479秒/独立144.576577秒。unit43とfresh8 nativeの実行前照合、generation必須hit/Slang0、stride138952不変。CPU入力に計算済みschedule/弾薬/退場を入れず、入力117632word/出力2032000wordの幅を維持する。自爆記録をresource履歴の後1943776wordへ分離し、同世代・同時刻の実queueだけが退場後のmagazineを使える。empty/reloadも元scheduleで退場、HP/time退場は射撃なし。元時計/actor/割合演算/incoming/resource consumerと比較器を共用。
+
+新golden/同sealのcompiler-source-only証明書/独立receiptを登録し、通常とcache-only入口へ接続した。compiler証明書自体のcalculationはFalseであり、実計算の根拠はgolden/receipt。新proof-binding5検査/readiness24検査と、旧ammo9/self8/CLI50の検査が成功。unitで8戦闘を繰り返す重複を除き、full nativeは固定package準備/実行前/独立sealで検査する。旧goldenは変更せず、新shared hookは別exact inverseで旧監査へ合成する。
+
+現CUDA/公開default/全キャラは未達。Windowsは既存04515f96のGPU前失敗claimを保持し、今回の新規依頼0。次は通常/cache固定CLIの登録後確認、次の未対応consumerと既存CUDA preflight/cacheを保持するcontroller移行の設計。巨大な旧golden群を一括再実行しない。詳細portable-enemy-ammo-self-destruct.md、証跡enemy-ammo-self-destruct-metal-v1.json。
+
+# 2026-10-28 敵弾薬と自爆のCPU合成契約・梱包漏れguard
+
+元Velvet76定義のenemy-ammo-self-destruct-commonは固定packetで8契約/新7unit成功。関連敵弾薬24・自爆wire8・readiness24・CLI50・registry payload3検査が成功。実自爆時の既存AttackHit object/世代/frameを証拠に退場後の弾倉へ接続し、元scheduler/割合演算/被弾/完了通知を共用する。空弾倉/リロード中でも元scheduled countで退場、HP撃破/時間切れに射撃を生成しない。既定enemy-ammoは自爆拒否を維持。新CPU inverseを既存監査へ合成し、旧Metal goldenを改変しない。GPU source/保護CPU変更0、GPU合成は出力所有権とqueue資格のSlang接続が次。新契約の実Metal/CUDA/default/全キャラは未達。
+
+初版packetは未追跡module漏れでreferenceのimport前後に失敗し保持。修正版を別展開して成功。full packageで全reference登録rootがtracked payloadへ入ることをZIP作成前に検査するguardを実装（動的import全closureの保証ではない）。小証跡enemy-ammo-self-destruct-native-contract-v1.json。先の自爆M5実証の最終d7d82948/cache packetは50unit/必須生成hit/Slang0/source current/compile plan/model-checkを確認し、add-self-destruct-final-cli-v1.jsonへ記録した。
+
+Windowsは既存04515f96の保存事前検査177unit/106入力/native63成功と、保存PTX/object/CUBINを確認。再compile/事前検査再実行なしのstaged-gpu-linkedを1回だけ依頼し、設定行の失敗を報告した。GPU前にSlang compiler identity absentで終了。GPU子48.64秒/exit1、外181.59秒/timeout、driver/launch/sync/readback0、post0/消失0/監視cleanupエラー0。stage/サービス保全は未認定、旧claim保持/retry0。帰属不明を成功にしない。Mac共通runnerへ設定pathのpreclaim早期guardを追加し26検査成功。compiler/cacheの本検証は省略しない。証跡staged-cuda-environment-failure-v1.json。次は保存失敗metadataの回収と、元CPU事前検査/キャッシュを保持する新固定controllerへの正当な移行設計であり、旧claimの再使用はしない。
+
+最終4883442aの敵回復normal/cache固定packetは107/135unit成功。sealed生成はrequired cache hit/Slang0、CUBIN/O1・2GiB・60秒plan成功（追加GPU/実CUDA compile0）。model-check成功、全source棚卸しの21 current/179 stale/2 unavailableを保持。現CUDA/公開受付/全キャラ未達。元32再認定の全run/sealは終了済みで再実行しない。新しいCUDA依頼0、Windowsstatusのみhost unavailable/durable。次は敵弾薬のCPU契約とCUDA成立経路の切分けを優先し、履歴goldenの一括再実行・巨大GPU本文の追加を先行しない。記録enemy-healing-named-admission-final-cli-v5.json。
+
+# 2026-10-28 敵弾薬の元ハンドラ・実射撃をCPU契約へ接続
+
+最終4542661bのADD実戦normal/cache固定packetは35/44unit成功、関連82検査成功。sealed生成必須hit/Slang0・新entryのregistered source current・CUBIN/O1/2GiB/60秒plan成功（追加GPU/実CUDA compile0）。保護CPU4ファイルはbyte不変。Windows既存statusはhost unavailable/durable、新runなし。次は敵弾薬6ケースのCPU契約をこの実戦queueに接続する。最終小証跡`target-count-query-evidence/add-attack-battle-final-cli-v1.json`。
+
+後続`add-attack-battle`は実actor poolの世代/生存/bornを共通cursorに接続し、既存WS_LOGとincoming実行器を共用。固定44a543f8/package52b7150c…の元ニヒリスター70定義6編成＋拒否11、284発/1,120被弾の全戦闘がM5/独立seal成功。GPU0.692924秒・冷PSO58.330511秒・独立監査106.091323秒、readback138,176,000byte。34unit/fresh CPU6・必須生成cache hit/Slang0・stride138,952byteを確認。通常goldenとCUBIN/O1/NVRTC禁止/paired generation必須cache-onlyを登録。敵弾薬、self-destruct、攻撃debuff、現CUDA、default、全キャラは未完了。
+
+旧敵回復入口の生成CUDA/MSLは以前の実GPUcaptureから全raw byte同一。guard付き共有sourceの正確な逆変換は過去監査で検査するが、旧goldenのraw source closureは別であり自動昇格しない。旧current suiteの再認定は、次の敵弾薬接続までsource変更をまとめてから行い、179履歴の一括実行は避ける。設計`portable-add-attack-battle.md`、小証跡`target-count-query-evidence/add-attack-battle-metal-v1.json`。新raw/claimは永続proofに保持。
+
+ADD部品の登録6fde3ca2後も通常/キャッシュ専用固定packageで12/21unit成功、CUBIN/O1・2GiB・60秒plan成功（compiler/GPU0）。旧GPU421ファイル・保護CPU4ファイルの全byte保持、旧enemy-healing source-baseline currentを確認。追加GPU0。現Windows statusはhost unavailable/durable、既存結果取得のみ待ち、新runなし。小証跡`target-count-query-evidence/add-attack-registered-cli-checks-v1.json`。
+
+後続：GPUの既存scheduleはADD射撃を拒否することを確認し、`add-attack-schedule`の共通cursorを先行実装。固定39a1908b/package468ff5fb…の8正例/11拒否（全187発）がM5/独立fresh GPU禁止監査で成功。GPU0.008248秒・監査1.487986秒。旧GPU本体source変更0。初版はfinish退場後のcleared診断1項目だけ失敗しraw/claim保持、別packageで修正。関連67検査成功。`add-attack-schedule-cache-only`は同じ計算のCUBIN/O1必須・NVRTC禁止、standaloneでresident生成cache指定不可。現CUDA/battle actor pool/弾薬未接続。詳細`portable-add-attack-schedule.md`と`target-count-query-evidence/add-attack-metal-component-v1.json`。
+
+固定b8416750/package39a7382f…（3,816file/ZIP12,939,983byte）を別展開し、own CLIでも6契約2.641秒・新規8検査成功。全input/native/trace/contract指紋をcheckoutから保持し、実行後の全payloadも検証。container suiteのenemy-healing Metalは再実行0。梱包receiptは`target-count-query-evidence/enemy-ammo-frozen-cli-receipt-v1.json`。
+
+`reference --suite enemy-ammo-common --out NEW.json`を追加。元ヴェルヴェット76効果・実武器・育成・owner順を維持した6worldで、割合演算は元handlerのcode identityを保持し、対象/状態closureだけを差し替える。既存BODY/ADD handle/generation、元frame、元attack callback/被ダメージHPへ接続。source表示名とADD_PREFIX付きregistry labelの不一致を修正。独自の敵clockやdamage計算は追加しない。共通CLIは6契約/2.550秒成功、関連61検査成功、model-check成功。証跡`target-count-query-evidence/enemy-ammo-cpu-contract-v1.json`。
+
+固定容量・初期残弾・whole reloadを明示するopt-in CPUモデル。元scheduled attempts/counterを維持し、blocked shotの再予約はしない。Lv1/-2.95%とLv10/-5%の容量16での0/-1発差、空対象loop後の名前付き完了、reload期限/中断、世代reset/dead/staleを検査。武器変更/容量バフ/flat充填/force reload/self-destructは未対応。GPU本文/wire・過去golden・canonical CPU4ファイルは変更0。現Metal/CUDA/default/全キャラの認定ではない。設計は`portable-enemy-ammo.md`。
+
+Windows既存chatのstatus取得は今回もhost unavailable/durable。追加run/再送なし。CUDA成立経路を先に切り分けるレビュー順を維持し、既存保存結果を取得できた時に次のbounded/cache検証を決める。Mac側はこのCPU契約を固定してから共通GPU資源状態へ接続する。以下は履歴。
+
+# 2026-10-28 全登録source棚卸しを共通CLIへ追加・レビューの順序を維持
+
+source-baseline --all-registeredを追加。source/golden組をde-duplicateしentryごとに一度hash、producer rootだけでcurrent/stale/unavailableを出す。全202組/224登録名/114source entryの結果は21 current・179 stale・2 unavailable（attack-magnitudeのgolden欠落）。source差分の多くは過去のschema/admission等も含むため、今回の32件だけで全登録を現source認定済みとしない。11 source-baseline境界検査が成功。数値/受付/正規化/過去goldenは変更していない。summaryはregistered-source-closure-inventory-v2-summary.json、全差分は共通CLIで再現する。
+
+参照レビュー309e305/0e1f71bの方針を再確認：共通Slangと薄いbackendを維持し、巨大GPU本文の追加を続ける前にCUDA compiler/cache成立経路を確認する。独立監査を削らず、同条件Windows再試行・上限拡大はしない。179履歴を一括再実行する方向へ作業を広げず、現runtimeの証拠と未対応consumerのCPU契約を優先する。次は敵弾薬の世代付き状態/実shot/reload契約をCPUで固め、Windows既存transactionの保存状態が取得できた後に必要な短いCUDA検証を設計する。最新statusはhost unavailable/durable、追加runなし。以下は履歴。
+
+# 2026-10-28 敵回復14も現sourceでM5・独立監査成功
+
+固定5433f8e9/package343fa678…の敵回復14入力は100unit・fresh native6・M5 1回・fresh GPU禁止14群sealが成功。GPU4.863728秒、冷PSO59.320956秒、独立監査666.033136秒。input/全entry/native hashとreadback113,792,000byteを旧v1から保持した。新v2 golden/同一監査のcurrent source証明書を登録し、旧v1 golden/証明書を保存。旧18入力の再認定に続くこの14入力も完了したが、他の登録スイートの現source整合性・default consumer・現CUDA・全キャラ認定は別途確認が必要。
+
+元Anne69定義・6worldの限定証拠を作業分類とsource監査へ更新。敵回復runtime6/readiness24検査が成功し、公開/正本受付は閉じたまま。記録enemy-healing-named-admission-recert-v3.json。次は登録後のnormal/cache固定packet検査・全登録goldenのsource整合性棚卸しと、敵弾薬の世代付きstate/shot/reload consumerへの接続。Windowsstatusはhost unavailable/durable、再依頼0。以下は履歴。
+
+# 2026-10-28 次の未対応分類を元3編成のselected entry-inventoryで具体化
+
+既存共通CLI entry-inventory --suite original-shield-weapons --character 유니 --character 얀 --character 벨벳 --favorite-stage 0 を再利用し、元69/71/76定義の3profileを全定義保持で静的監査。3packing失敗・各1観測カテゴリ、CPU battle/GPU0。Yuni row5のenemy_movement_disableはburst時5秒、Yan row4のforce_moveはburst時2秒で、数値量を持たない状態効果。Velvet row1はbattle_start/burst_enter:2のall_enemies ammo_charge_pct（level10 -5%）。新しい状態/射撃/リロードproviderが必要で、既存allied operatorのdivision→multiply→ties-even round→clampを共通規約として使える。名前付き完了は非空nameなら受信者loop後に一度、空loopでも発行する。
+
+source監査と作業分類へ共通の敵弾薬前提を追加し、移動状態の空間/寿命依存を明示。24 readiness/14 model-gap検査が成功。再監査で全original definition SHAと拒否理由が従来と同一、受付は開けていない。次の優先候補は敵弾薬の世代付き状態と実shot/reload consumerであり、移動やLock Onの未確定空間規則を仮実装へ置換しない。選択3件だけの監査で全profileの優先順位/解除数を予測しない。記録selected-movement-ammo-prerequisites-v1.json。以下は履歴。
+
+最終70f11e25のlogical/rosters通常・cache固定packetは76/95/104/123unit成功。通常2packetのsealed生成はrequired hit/Slang0、cache2packetのCUBIN/O1・2GiB・60秒planも成功（実compile/GPU/Windows0）。model-checkも成功し未対応canonical5種/公開受付/現CUDA/全体未達を保持。敵回復runは固定packetで継続中で、再依頼・再実行しない。記録logical-named-admission-final-cli-v4.json。
+
+# 2026-10-28 共通source検査を固定packetで実証・旧18入力を現source再認定
+
+固定5433f8e9のlogical13/元Nihilister5は75/94unit・fresh全native・M5各1回・fresh GPU禁止独立sealが成功。GPU2.509929/2.429060秒、独立監査147.150955/116.157589秒。後者は必須Metal pipeline cache hitでPSO0.002954秒。旧input全byte・全entry/native hash・readback計146,304,000byteを保持。新v3 goldenと同一監査のcurrent source証明書を登録し、v1/v2 golden/証明書は履歴として保持する。source-baselineは親logicalの全sourceが検証済みrosters development closureへ含まれることを実パッケージで検査し、登録source current=False/計算認定Falseと明示した。
+
+新6境界検査に加え、現source/過去証明書pair・保持結果の5検査、既存CLI/rosters検査が成功。未対応分類は新source18件の限定証拠だけへ更新し、default/全キャラ/現CUDAを開けない。詳細証拠logical-named-admission-recert-v3.json。
+
+敵回復14の同source固定packetもfresh native6の作成・14群100unit・必須paired生成hitが成功。own CLI runを開始し、まだfresh CPU照合中でGPU/独立sealは未完。PIDやcaptureの状態だけを成功証拠にしない。producer rootを変更しても実行中の固定packet rootは変更しない。Windows追加0、全目標未達。次は敵回復runの終了確認・同readbackの旧byte保持照合・fresh独立seal。以下は履歴。
+
+# 2026-10-28 再認定用の共通source-baseline検査を実装
+
+旧logical/rosters/healingのgolden/証明書は整合するが、現sourceとは異なる。全てを現sourceへ付替えず、共通CLI source-baselineで通常の厳密一致と検証済みdevelopment closureを区別する。親/peerを認めるのは要求sourceの全file/SHAがactive manifestのclosureに含まれる時だけ。登録source current/計算認定/GPU認定は別field。旧golden/証明書pairの検査とfresh native/Metal/sealを残す。選択suiteの個別test分岐も共通helperへ統合。6境界検査・既存範囲8検査と現登録範囲のCLI source-checkが成功。temp alias初版の失敗はtest root.resolveで修正し、Slang生成器は変更なし。次は固定packetで旧32入力（logical13/rosters5/healing14）を現source再認定。Windows追加0、全目標未達。以下は履歴。
+
+最終358687dfの旧selection通常/cache固定packetは24/52unit成功。sealed paired生成はrequired hit/Slang0、CUBIN/O1・2GiB・60秒plan成功。最終model-checkも成功しcanonical consumer5種/公開受付/全目標未達を保持。追加GPU0/Windows0。記録named-range-final-cli-v7.json。
+
+# 2026-10-28 範囲battle通常/cache検査・旧selection21の現source再認定が成功
+
+登録aa4c32e1の通常/cache固定packetは7群53unit/9群81unit成功。sealed paired generationはrequired hit/Slang0、CUBIN/O1・2GiB・60秒compile-plan成功（実compile/GPU/Windows0）。結果はnamed-range-battle-registered-v6.json。
+
+旧selection21はsource変更を正しく拒否した。development packet内だけ検証済みmanifestの新source基準を読むようテストを修正（5369e834）、通常goldenのcurrent一致は維持。固定f052572f…のM5全21とfresh独立seal（1.23757秒）が成功。GPU0.003406秒、旧input全byte/出力13,418,496byte/全entry/native hashを保持し、v1を残してv2 goldenへ登録。v3はCPU testでGPU前停止し失敗を保持。証拠named-effect-range-current-source-v4.json。
+
+新battle16と旧selection21は別scope。旧logical13/rosters5/healing14の現共通source再認定はまだ必要。default正本consumer5種/公開数値受付/現CUDA/全キャラは未達のまま。Windowsstatusはhost unavailable durableで追加実行・再送0。以下は履歴。
+
+# 2026-10-28 元範囲battle全16入力の保存再監査・独立seal成功
+
+固定240a9788/package8b532626…の修正比較器で、保存v3出力全16入力をfresh16群で再監査成功（242.42秒）。続いて別fresh8群（2入力/群・各180秒上限）で独立seal成功（216.40秒）、同じ監査から期待値とfull-source compiler証明書を生成。元4worldの各54cast/実選択/元87定義の全battle比較とraw拒否12を含む。元失敗/claim/rawを保持、追加GPU0/Windows再実行0。通常named-range-battleと同じ計算のcache-onlyを登録し、CUBIN/O1・paired generation必須を継承。キャッシュ実hit/現CUDA/実ゲーム半径・最近傍/default consumer/全キャラは未認定。
+
+モデル監査と作業分類は共通の証拠記述を使い、effect_range_pct/target_countの未対応分類を残したまま限定battle証拠を併記する。旧sourceのnamed-effect-range/旧logical/healingは共通stack admission変更による現source再認定が必要で、旧goldenのSHAを付替えない。旧範囲testのsource一致検査はこの未完を検出している。次は新normal/cache固定packetのunit/generation/compile-plan確認と旧範囲の現source再認定。証跡named-range-battle-sealed-v5.json、独立receipt named-range-battle-independent-v5.json。全目標未達。以下は履歴。
+
+# 2026-10-28 範囲battle M5実行・命中番号比較器修正
+
+固定628dd82d/package ee3ab93f…のown CLIが6群48unit/fresh native4（175.65秒）/required generation hitを通過しM5 Metalで16入力を1回実行。GPU2.29904秒、冷PSO58.4064秒。正例4件status0/各54cast recordは一致、raw拒否12件成立。ただし全selection比較は旧traceの仮hit1を使って停止。既存trace_viewで実HitEvent生成番号を厳密に結び、同一GPU保存出力のexpanded1件をfresh CPUで診断すると全既存battle比較が成功（41.44秒、102creation receipts）。全16の固定再監査と独立sealは未完、成功golden未登録。同claim再試行0/GPU追加0/Windows追加0。証拠named-range-battle-metal-v3.json。
+
+共通source inverseの二重healing巻戻しと途中の検査済み依存dropを修正（f1de08fc）。新wire5/旧logical5/旧named6/元health-parts6検査が成功、改変sourceの拒否を維持。旧logical生成CUDA/MSLは今回の共通admission修正で変わり、旧goldenの現source再認定は未完。正規化器/保護CPU/旧証明書の書換えなし。次は修正版固定packetで保存v3出力を全件replay/独立sealし、現CUDAは引き続き未認定とする。全目標未達。以下は履歴。
+
+# 2026-10-28 範囲battle初回Metalの初期化拒否を修正・再検証前
+
+v2はM5実GPUが完了したが正例4件すべてstage15/status64で初期化拒否、raw拒否8件は成立。失敗/raw/claimを保持し同claim再実行0。元Asukaのnamed-enemy MODE24..27とstack演算の併存が原因。新entryへ既存PORTABLE_NAMED_ENEMYを接続し、既存named validatorが検査する4wordだけstack検査から委譲。不正tag/name/flags/reservedを拒否する4件追加（全16入力）。新wire3/旧logical source5検査とpaired CUDA/MSL生成成功。修正版Metalは未検証、全目標未達。証拠named-range-battle-admission-v2.json。以下は履歴。
+
+# 2026-10-28 範囲battleの共通Slang実装・検証前
+
+元4world＋raw拒否8の新named-range-battleを実装。NRB1/version1のliteral tail544word（input116224/output2032000）に元damage row/base count/base radius/BODY colliderだけを保持し、元range/count定義をprivate stat94/93へ対応付ける。対象数は既存namedTargetCountValue、範囲はordered software binary64、候補順は既存actorSetCaptureへ接続。共通CP cast/queueにADD世代とBODY ordinalを固定し、既存ActorPool/land/counter/healへ配送する。新ダメージ式/HP/時計なし。全54cast record/全selectionと既存full battle比較を追加。GPU未実行、goldenなし。
+
+共有4ファイルのopt-in差分を厳密な全文SHA inverseで保持し、既存healing/logical source監査へ合成。新wire3検査・旧logical runtime5検査が成功。旧source証明書は履歴であり、変更後sourceへ付替えない。次は固定packetのfresh native・paired生成・M5 Metal1回・fresh独立seal。以下は履歴。
+
+# 2026-10-28 元87定義battleの固定CPU契約・共通reader統合が成功
+
+最終2f64d278/cache packet 7afe87dd…のown CLIで5群51unit、fresh全4world CPU reference（3.222秒）、model-checkが成功。重複していた対象数演算を既存共通queryへ統合し、4worldのinput/native/trace全指紋を保持した。default callerのrecipient受付は変更せず、静的なallies_with_buffを明示opt-inする。
+
+既存selection-only21のsealed生成も必須cache hit/Slang0、CUBIN O1・2GiB・60秒plan成功。これは新battle4worldのGPU認定ではない。今回GPU/Windows新実行0、battle wire/Metalは未接続、全目標未達。packet v1のmodel-check依存不足は失敗を保持して既存arc goldenを明示同梱しv2/v3で解消。次は新battle cast/queue snapshot/landingを同じ共通Slangへ接続する。最終証跡named-range-battle-cpu-final-v3.json。以下は履歴。
+
+固定CPU packet v1のown CLIで50unit・全4world fresh reference・旧sealed21のrequired generation hitが成功。追加のmodel-checkはarc golden未同梱でCPU停止。producer側auditとは区別し、必要な既存arc goldenを明示support_filesへ追加する。元失敗/packetは保持、計算sourceと旧Metal期待値の変更なし。
+
+# 2026-10-28 範囲の元87定義battle CPU接続・出所訂正
+
+前回範囲500%をマリと説明したが、実sourceは레이 (가칭)/index4。METAと定義11件が存在しis_preview=False。辞書や既存21 golden/input/rawは変更せず、元マリのキャラ認定へ使わない。旧case label original-Mariは履歴として保持。
+
+新reference named-range-battle-commonはAsukaWILLE/Rei(가칭)/Miranda/Dora/Maryの全87定義・実武器/育成/config/seedを保持。cast時のnamed range/count queryと既存logical candidate順/geometry filterを接続し、同じHitEventと既存ActorRegistry/route/HP/landで配送。元worldの全54cast/landingで、初期2回の0%/2体→52回の500%/3体を確認。小基準半径・遅延spawn・死亡ADDの4worldが共通CLI fresh CPU契約に成功、約2.98秒、GPU/packing0。stale/dead frozen actorは除外し、次世代へ当てず振替もしない明示モデル。空間最近傍/ゲーム半径の認定とは別。
+
+このbattleのGPU wire/Metalは未接続。既存sealed21のMetal証拠を今回へ付け替えない。既存GPUファイル変更0で旧source/goldenを保持。次はCP cast/queue snapshotとpacket hookへ接続し、literal versioned tail・cast/selection全出力比較を追加。詳細portable-named-effect-range.md、CPU証拠named-range-battle-cpu-v1.json。以下は履歴。
+
+最終e47a74a7のimmutable cache packet bb8f984f…は通常の全検査を含む4群45unit成功。sealed paired generationは必須hit/Slang0、CUBIN O1・2GiB・60秒compile-planも成功（実compiler/GPU/claim0）。通常/cacheで計算/golden/sourceが同一であることも検査した。追加GPUなし。記録named-effect-range-final-cli-v1.json。次は`coordinate_area_runtime.slang`のcast時grow/snapshotを実actor setとqueueへ結び、既存世代付きcarrierとlandingを使う。基準半径は宣言値として保持し、ゲーム式の認定と混同しない。
+
+# 2026-10-28 効果名別範囲を共通実行器の実状態→幾何選択へ接続
+
+新named-effect-rangeは元レイ（データ上の名称「レイ（仮称）」）の500%/9秒/marker限定recipientを保持した5条件＋派生7＋raw拒否9。新entryは既存event初期化/command/serializerを再利用し、final checkpointの実carrierからordered percent→factor→declared radiusを読んで、既存決定的circle/rectangle選択へ渡す。既存GPU source変更0。stat引数だけを共通化したnative readerは旧target-count10検査も成功。
+
+固定6b1369a0のM5実GPU1回（0.003541秒、冷PSO3.095670秒）はdecoder配列型で比較停止。失敗/claim/rawを保持。9415c8f0のdecoder修正だけを別固定packetへ作り、既存CLI replayの全source/input/native guardで保存readbackを再監査し全21成功、GPU追加0。fresh独立GPU禁止sealも1.305107秒で全一致。全world compiler証明書はscope guardが拒否、限定sealだけを作成した。通常/cache CLI登録済み。現CUDA/実world世代/生死/ダメージ配送/ゲーム半径規則/全キャラ/defaultは未認定。次はこのconsumerを実actor setと元Asuka/Reiのbattleへ接続する。Windows旧transaction statusはhost unavailable durable、終端未取得・再送なし。証跡named-effect-range-metal-v2.json、詳細portable-named-effect-range.md。以下は履歴。
+
+# 2026-10-28 敵回復の最終normal/cache packet検査成功
+
+最終2842d83dの通常4cdb20da…/cache-only5ba6bd36…を固定。own CLIの15群122unitが成功、sealed paired生成は必須hit/Slang0。CUBIN O1・2GiB・60秒compile-planも成功（実compile/GPU/claim0）。元Metal14件/独立監査の計算source/全期待値を保持。v1の証明書同梱漏れはGPU前CPU gateで検出し、失敗packet/rawを保持してv2で修正した。Windows新依頼0。現CUDA/全キャラは未完。最終証跡enemy-healing-final-cli-v2.json。以下は履歴。
+
+最終packet v1のCPU unit gateは新source証明書の同梱漏れを検出（GPU/claim0）。producerの明示support_filesへ追加し、検査を維持して別v2へ固定する。失敗packetとログを保持し、元Metal/golden/source bytesは変更しない。
+
+# 2026-10-28 敵回復14入力のfresh独立監査が成功・通常CLIへ登録
+
+固定688de06e/package80c86ed0…のM5全14入力を、別fresh GPU禁止14群（元native6/拒否8、各180秒上限、計667.090秒）で全比較した。親oracle再利用0・追加GPU0。同じsealのgolden/source証明書を登録し、通常enemy-healingと同じ計算のenemy-healing-cache-onlyを追加。後者はCUBIN/O1とpaired generation必須。旧CPU契約とdefault gapは保持し、別の限定Metal証拠を分類へ追記。現CUDA/公開admission/全キャラは未認定。v4失敗とraw/claimは保持。小さな最終証跡enemy-healing-metal-sealed-v5.json。以下は履歴。
+
+# 2026-10-28 修正版敵回復14入力がM5 Metal全一致（fresh独立監査中）
+
+固定688de06e/package80c86ed0…のown CLIが90unit・fresh CPU6件・必須paired生成cache hitを通過し、M5 Metalで14入力全比較に成功。GPU4.886496秒、冷PSO58.768053秒。親のfresh native6件/creation context6件を再利用し、追加native0。前回失敗deadはraw overkill498896へ一致。他13入力の全readback byteは保持し、deadの差分4wordはquery/最終/全体overkillと着弾試行数2833→2839だけだった。比較を弱めていない。v4の失敗/claim/rawを保持し、v5は別sourceで1回/retry0。
+
+同じproducer rootのown CLI `seal` をgroup-size1/各180秒・GPU禁止fresh14群で開始した。現在その完了とsource証明書/independent receipt待ち。未確認のまま通常goldenへ登録しない。実行中rootを変更しない。小さな一次結果 `research/target-count-query-evidence/enemy-healing-metal-live-parent-v5.json`。旧18入力は上記修正sourceで再認定/登録済み。Windows新依頼0、全目標未達。以下は履歴。
+
+# 2026-10-28 共通配送修正後の旧18入力をMetal・独立監査で再認定
+
+固定688de06eのlogical13/package4093b5b9…と元Nihilister5/packagebae48b53…は、own CLIの65/84unit・fresh全native・M5 Metal各1回・fresh GPU禁止独立sealが成功。GPU2.518804/2.435720秒、独立監査140.324/115.503秒。後者のpaired generation/pipelineは必須hitでPSO0.002840秒。全18入力・CPU指紋・全readback byteを旧保存結果から保持した。retirementの追加passive監査は正本結果の透明性、全ADD pool/score/global overkill、hit_addに帰属するowner別overkillも照合。ただし同ケースの同世代死亡後packetは0であり、Anne deadの回帰を代替しない。
+
+通常logical geometry/rostersのCLIを新v2 goldenへ更新。旧v1 goldenと旧source証明書のbyteを別ファイルで保存し、fresh sealと同時生成したcurrent source証明書を登録した。分類にはfixed source688de06eの再認定だけを追記し、default/全キャラ/現CUDAは閉じたまま。継承test dataは登録golden名から参照するよう修正し、証明書/履歴の8JSONも明示同梱。新4検査・入口4/5検査が成功。小さな出所 `research/target-count-query-evidence/logical-dead-overkill-recertification-v1.json`。
+
+Anne修正版v5/package80c86ed0…は14入力/全native期待指紋をv4から保持し、90unitとpaired生成が成功。own CLIのfresh CPU照合→新Metal1回を開始、完了/独立sealは未確認。v4消費済みclaimの再試行0。実行中rootを変更しない。Windows新依頼0。最終6b114364の通常32bf85b4…/cache-only6f199272…は固定own CLIで14群116unit、sealed paired生成必須hit/Slang0、CUBIN O1・2GiB・60秒compile-plan成功。追加GPU/Windows0。出所 `research/target-count-query-evidence/logical-delivery-final-cli-v1.json`。以下は履歴。
+
+# 2026-10-28 敵回復M5実行13/14一致・死亡後overkillを修正
+
+v4のfresh CPU6件（約580秒）/89unit/必須generation hitが成功し、M5 Metal1回で14入力を実行。5正例＋8拒否は全比較一致、dead1件のraw overkillがGPU85404/CPU498896。GPU4.8772秒・冷PSO58.8500秒。失敗/raw/消費済みclaimを保持し、同実行の再試行0。fresh保存group3監査でも同じ失敗を確認。計算全体はfalseのまま。
+
+原因は回復ではなく、共通logical direct配送で同射撃内の死亡済み・同世代ADDをearly dropしていたこと。既存ActorPoolLandのoverkill-only経路へ渡す1条件の修正と回帰検査を追加し、stale世代拒否、命中/counter/group/trace抑止を保持した。新25検査＋旧logical source5検査が成功。比較器は項目/実値/期待値の説明だけ追加し、比較を弱めない。旧logical13/5の現source再認定も後続で必要。
+
+次は修正版を別packetへ固定してMetal14件＋fresh独立seal。現在sourceでGPU成功未確認。Windows新依頼0。詳細[敵回復](portable-enemy-healing.md)、小さな失敗出所 `research/target-count-query-evidence/enemy-healing-first-metal-difference-v1.json`。以下は履歴。
+
+# 2026-10-28 敵回復14入力の完全CPU基準とpaired生成が完了
+
+固定4f56bc8e/package1581f245…の元6条件は完全観測で参照値を固定（1件約70〜104秒）。Anneにmulti_hit定義がないため欠けていたgroup空集合の観測を有効化し、旧v2のCPU作成は明示中断/GPU0・ログ保持。短い3秒診断で6種類の空group記録と実回復2件/元69定義を確認した。本来の6条件は短縮していない。
+
+CUDA/MSLのpaired生成が成功。v3のunitは継承検査が使う旧logical goldenの同梱漏れを検出。共通CLIの限定 `supplement-test-golden` で、sealed donor1b700538…からgolden1ファイル32,392byteだけを加えたv4/package2d9216cb…を作り、元3,758ファイル・全入力/CPU期待指紋を完全保持した。own CLIの12群89検査成功、paired必須cache hit/Slang追加0。今後の通常packageのsupport_filesにも依存を登録し、新toolの7検査/入口5検査も成功。元失敗とパッケージは変更しない。
+
+v4のown CLIでfresh CPU事前照合→Metal1回の実行を開始した。完了/独立sealはまだ確認していない。Windowsの既存statusはhost unavailable durable、再送/新実行0。実行中coordinator/rootを変更しない。小さな出所 `research/target-count-query-evidence/enemy-healing-predevice-v1.json`。以下は履歴。
+
+# 2026-10-28 敵回復の共通wire・Slang consumerを実装（実機認定前）
+
+EHL1/version1のliteral bankを既存logical prefixへ追加し、新入力120,048/出力2,032,000wordの明示entryを登録。既存pool同期後にsource-openを消費し、既存の世代付き敵carrierとbinary64 ADD HPを使う。hit/score/overkillを回復では変えず、raw小数creditと公開キャラ別roundを別に比較する。元6編成/69定義とraw拒否8件の開発専用 `enemy-healing` を共通CLIへ追加。新24検査・旧logical source5検査成功。初回旧source検査の戻りmap件数差を検出し、既存6件の返却契約を保持して修正。失敗は保存し、旧テスト期待値は変更しない。
+
+次は固定packet自身のnative事前検査→paired生成→Metal1回→fresh GPU禁止seal。wire/Slang/登録の成立は実GPU成功ではない。Windows新依頼0、旧transactionの終端不明を維持。詳細[敵回復](portable-enemy-healing.md)。以下は履歴。
+
+# 2026-10-28 敵回復consumerの元アンCPU契約を実装（GPU未接続）
+
+`enemy-healing-common`は元アン全69定義、既存idle source/ADD HP/世代/回復倍率で6条件を検証。元Lv10約0.2107/Lv1約0.5659が実回復量へ反映。回復が実際の生存/累積得点へ影響する検査、上限/死亡拒否、未期限切れ旧世代の除外、二重t0とalias復元を含む。新時計/HP heap/効果の置換なし。
+
+小数回復後の撃破ではraw score/overkillが小数になるが、公開SimResultは元からキャラ別round→合算だった。失敗診断を保持し、内部ledgerと公開roundを別々に検査する。GPUで途中int変換しないことが次の数値要件。専用11検査成功。既定consumer未設置/GPU wire/Metal/CUDA未接続、分類はreference_model_gap。次は[敵回復wire/phase/小数credit設計](portable-enemy-healing.md)に従い共通GPUへ接続する。固定5fb6a02c/package c8d95305…のown CLIで参照6件（7.11秒）・11群83unit・model-checkが成功。GPU追加0。出所 `research/target-count-query-evidence/enemy-healing-cpu-final-v1.json`。以下は履歴。
+
+最終b390bad5の通常1b700538…/cache-only16917e53…を固定。own CLIの72unit/model-check/required generation sealed baseline hit・Slang0と、CUBIN O1・2GiB・60秒compile-plan/必須flag負例が成功。追加GPU0。出所logical-Nihilister-final-checks-v1.json、private継続点logical-Nihilister-sealed-continuation-v1.json。既知の元multi_hit2/4はこの明示幾何モデルで検証できたが、既定producer/残る5stat/敵quantity/現CUDA/全キャラは未完。次は未対応分類の新しい実戦consumerを優先し、同じ形状fixtureの反復だけへ縮小しない。
+
+# 2026-10-28 元ニヒリスター70定義の実2敵通知をMetalで検証
+
+`logical-actor-rosters` sealed5。元SR/全70定義のままBODY+ADD、範囲外、PART、37度矩形、30秒を検査。実group20/通知19/子着弾38の長時間も全比較。固定66df6953/package b38e3b9d…、M5 GPU2.434174秒、必須pipeline hit0.002745秒、generation必須hit/Slang0。旧GPU entry/CUDA/MSL/reflection全byteと旧13goldenを保持し、旧GPU再実行0。71unitとfresh独立監査5件107.573248秒が成功。共通比較器の旧全検査文は固定AST一致で保持する。
+
+最初のPART対照assertはPART単独初弾の敵集合0を考慮していなかった。実native診断を保存し、最大1敵・実BODY1・実PART着弾・通知子なしを検査する形へ修正。源effect/武器/時刻は変更していない。通常/cached CLIを登録し、分類は明示モデルの元2敵通知だけを検証済みとし、既定gap/公開拒否/全キャラ未認定を維持。現CUDAは未検証、Windows新依頼0。詳細は[元ニヒリスター](portable-logical-actor-rosters.md)。以下は履歴。
+
+最終e0e2b430の通常a254a809…/cache-only9f583a9b…を固定。通常own CLIの65unit/model-check/required generation sealed baseline hit・Slang0、cache側のCUBIN O1・2GiB・60秒compile-planと必須flag負例を確認。追加GPU0。model-check用固定文書とarc基準の同梱、共通receipt includeの厳密source監査も完了。Windows statusはhost unavailable durable、旧終端不明で新runなし。次は他の元キャラの実複数敵通知・武器/幾何/世代の組合せへ広げる。private継続点logical-actor-metal-sealed-continuation-v1.json。
+
+# 2026-10-28 実ADD幾何をM5 Metal・独立sealで検証
+
+`logical-actor-geometry` sealed13（元6＋拒否7）。固定5ed97fd4/package e4d6f280…のown CLIがCPU63検査・fresh native6・M5 Metal全比較に成功。GPU2.514622秒、初回PSO58.345348秒、事前CPU102.617612秒。比較はlive ParentOracles6件再利用/追加native0。独立GPU禁止fresh監査も全13件で成功（128.944960秒）。通常goldenとfull-source compiler証明を同じ監査で作成。実GPU1、retry0、Slang必須cache hit/Slang0。未対応分類には別の明示モデル証拠を追加し、既定戦闘のgapと全キャラ未認定を保つ。
+
+次は通常sealed packetとcache-only packetのCPU/compile-planを確認し、他キャラ・複数形状・世代遷移など未認定の組合せへ広げる。新CUBIN/cache hit・現CUDAは未実証。旧Windows transactionの終端不明の間は新runを送らない。詳細は[実ADD幾何](portable-logical-actor-geometry.md)、出所はmetal-logical-actor-geometry-v1.json。以下は履歴。
+
+# 2026-10-28 実ADD幾何の共通runtime配線・paired生成（Metal未実行）
+
+新world_coordinate_logical_actor_entryは通常shot snapshotへ実ADDを合流し、元shape math/整数親量/landing/receipt/groupを共有する。Runtime138,952byte不変、新CUDA/MSL生成成功、旧history entryのCUDA/MSL/両reflection全byte保持。新required生成cache hit/Slang0。CPU契約6件の全nativeを保持、既存full native chainでも6件のgroup/子/point/draw/RNG等10項目を完全照合。関連43検査成功。初回観測self問題・逆順rewrite・旧arena逆投影の接続漏れの失敗を保存し修正。GPU/Windows新依頼0、公開受付/全キャラ認定は未完。
+
+次はSwiftの新wire受付、共通CLIの開発suiteと既存全battle/group/history比較＋新scratch監査を登録し、固定packetでMetal1回＋fresh sealへ進む。新entryの実GPUはまだ0であり、生成成功を計算成功と扱わない。旧Windows transactionの終端不明の間は新runを送らない。詳細は[実ADD幾何](portable-logical-actor-geometry.md)、小さな出所はlogical-actor-runtime-generation-v1.json、private詳細はresident-frame-arena-20261027/logical-runtime-source-v1およびlogical-full-existing-native-six-v1.json。以下は履歴。
+
+最終0175fe99…（27466a62）のown CLIはCPU契約6件2.34秒、25群226unit/compile-plan policy成功。旧GPU entryのgeneration必須hit/Slang0・CUDA/MSL/reflection全byte保持。新logical geometryのwire/Metalは未接続。private full native約5.35MB、公開は小さなSHA/件数/境界記録のみ。次はこのCPU契約を固定基準に共通wire/actor pool/Metalへ接続する。
+
+# 2026-10-28 実ADD幾何と元RLの4敵通知をCPU契約へ接続
+
+`logical-actor-geometry-common`は元ベロータ5人/全68定義を保持し、既存WorldSchedule/actor registry、sampled `_coord_pellet`、既存landing/groupでBODY＋実ADDを結ぶ新しい明示モデル。元multi_hit:4→敵def field/追加攻撃、3敵/範囲外/PART非算入、実死亡後の子対象、30秒を6条件へ固定する。元damage/sampler/HP/clockの複製なし。ADD前面はbody-hit creditを保持し、元PART/coreチャンネルと投影外fallbackを保つ。全aliasとevent復元、世代filter、元effect/owner/実武器/config/seed、全SimResultとpoint/draw/RNGを検査。既定CPU同値ではなくCPU reference/model gapのまま、GPU wire/Metal/CUDA未接続。既存typedoptin追加より古いaudit2引数期待を変更前HEAD同一sourceで確認し、3引数＋両False default＋型依存guardへ厳密修正。Windows新run0。次は共通wire/arena/source保持→同じ6条件でMetal接続。全体未達。[詳細](portable-logical-actor-geometry.md)。以下は履歴。
+
+最終packet10bb432e…（f096e7fc）は選択監査実行/24群216unit/compile-plan policy成功。計算/packing/native/比較/goldenを保持し、native全sweep/GPU再実行0。詳細`target-count-query-evidence/selected-entry-final-checks-v1.json`。
+
+# 2026-10-28 元profile選択監査を共通CLIへ接続
+
+`entry-inventory`へ`--character`反復指定/`--favorite-stage`を追加。元metadataで全選択を検証後、指定profileだけprepareする。元owner/source行/name/effect SHAと既存reference_readinessを結合した`profile_explanations`を出し、部分結果に全体admissionを付けない。未知名/存在しないstage/重複は準備前拒否、failureも保存。favorite bodyの共有defaults混入をdeepcopyで防止する。実Ann/Velvet2件0.87秒/Cinderella1件0.82秒、全266対照4.53秒。旧全profile行/input SHA/定義identity/未対応順位を保持し、選択3行も全体行と一致。専用7/既存inventory11/readiness15/semantics22検査成功。元GPU/数値/正本/packing/比較/golden変更0、追加GPU/compile0、Windowsstatusはhost unavailable・再送0。既存model-gap調査を重ねず、敵向けconsumer不足とGPU lower不足をこの入口で確認してから次の変更を選ぶ。全体未達。[詳細と証跡](portable-shared-entry-inventory.md)。以下は履歴。
+
+最終cache packetb9cf55d4…（a41de72f）は23群209unit/compile-plan policy成功。全計算/観測/比較・元input/native期待と独立goldenを保持し、最終登録によるnative/GPU再実行0。詳細`target-count-query-evidence/original-catalogue-incoming-final-checks-v1.json`。
+
+# 2026-10-28 元B2・デコイの実被弾を共通実行器で独立seal
+
+`original-catalogue-incoming`は元Red Hood B2/autoとCinderella chipped/broken各30秒の4入力、元81/81/74/74定義を保持。挑発中だけのvictim変更、実HP被弾後の吸血、デコイ一発全体吸収→次弾HP→元burst復帰を既存処理で全照合した。全skill217行、全battle/武器/通知/回復/乱数/全burst tickを比較。固定05cc2d69/package854ea3ad…、178unit/CPU81.73秒/M5 GPU3.82519秒/独立94.51秒、生成/PSO必須hit・Slang0/PSO.00311秒。GPU実行1/retry0、元GPU/数値/CPU正本/効果変更0。初版2件の誤った検査期待はGPU前に失敗保存、元burstを抑止せずliteral4.1秒攻撃を足して実分岐を確認。CUDA cache-onlyは同じ計算/golden、現CUDA実機未確認・Windows新run0。全キャラ/全特殊効果は未達。Ann/Velvetの失敗を本人の敵向けoperatorへ特定し、味方selector不足と混同しない。cover_def_pctの正本inertも保持。次は敵向けconsumer契約と混成world/周期False側などの残件。[詳細と証拠](portable-original-catalogue-incoming.md)。以下は履歴。
+
+最終cache packet9fb47503…（7fdc2b26）は22群205unit/compile-plan policy成功。全計算/観測/比較と元input/native期待を保持し、最終登録によるnative/GPU再実行0。詳細`target-count-query-evidence/original-catalogue-roles-final-checks-v1.json`。
+
+# 2026-10-28 元のB1条件と明示バースト順をMetalで独立seal
+
+`original-catalogue-roles`はRapi no/with B1の実編成とRed Hood 123/12の明示操作、各30秒4入力を同じ共通実行器でseal。元90/91/81/81定義を保持し、全skill31/38/6/6行と全戦闘状態・全burst tickを比較した。実owner/stage receiptも必須検査する。明示burst操作は元identity検査後にcopyして適用し、元操作保持Falseを記録。初版の自動候補順の期待誤りはGPU前に修正し失敗を保持。固定8c3a1706/package acc12615…、174unit/CPU100.11秒/GPU4.47774秒/独立115.38秒。生成/Metal必須hit・Slang0、GPU実行1回/retry0。CUDA/MSL/reflection全byteは前burstと同一。既存cache-only経路へ同じ計算/goldenを登録するがCUDA現実機未確認。Windows新実行0、全キャラ/全特殊効果/公開受付は未達。次は実被弾/decoy、混成worldと他の未実証元profile。[設計と証拠](portable-original-catalogue-roles.md)。以下は履歴。
+
+# 2026-10-28 元4編成のburst合成を独立seal・観測器の不足を修正
+
+最終cache packet f7ca339e…（9cbcad76）は20群197unit/compile-plan policy成功。初版の比較golden同梱不足を既存support_files/AUDIT_FILESで修正。独立sealから全計算/観測/比較moduleを保持し、native/GPU全再実行0。最終検査の詳細は `research/target-count-query-evidence/original-catalogue-burst-final-checks-v1.json`。
+
+`original-catalogue-burst`はRapi RH/SBS/Red Hood/Cinderellaの元30秒4編成を同じ共通実行器でseal。全318定義を保持し、付着/蓄積・即時起爆、gauge3段、武器変更、HP由来ATK/最大HP更新と連続攻撃を実行。全skill160行/物理6344receiptの既存全件SHA+保持prefix/全状態を比較。初回GPU比較は成功したが独立observerのstale scalar codeで失敗したため、実caller+現在のscalar returnへ観測を修正。元4入力/native/GPU source全保持のstrict replay・fresh GPU禁止監査101.22秒で成功した。GPU実行1回のみ4.036秒、generation/pipeline必須hit・Slang0/PSO.00327秒。canonical/GPU/数値/効果/normalizer変更0。単一監査failure/timeoutの詳細を共通CLIがcapture隣へ保存する。Rapi no-other-B1とRH B1/B2は未観測で、次に実入力へ接続する。CUDA cache-only入口は同じkernel/基準を使うが実CUDA未確認、Windows新依頼0・旧transaction再送なし。全キャラ/全特殊効果は未達。[設計・失敗・証拠・次の条件](portable-original-catalogue-burst.md)。以下は前段の履歴。
+
+# 2026-10-28 共通スキル履歴1,618件をMetalで全照合・独立seal
+
+`original-catalogue-initial`の元4入力を共通記録器の2,048件bankへ接続し、M5 Metal全一致・fresh GPU禁止監査でseal。入力/CPU指紋は旧4件全保持、旧成功3件の24,384,000byte完全一致。新entryは武器専用の未使用typed receipt領域へ128行以降を保存し、全行を既存decoderで比較した後に限り旧比較viewへ射影する。input115680/output2032000・Runtime138952byte/全field reflection不変、damage/時計/効果/正本/normalizer変更0。固定d90c5f9a/package3edf0819…、136unit/CPU77.54秒/GPU4.746秒/PSO62.16秒/独立89.35秒。通常sealed入口と同じ基準のCUBIN/O1+paired generation必須cache入口を登録。CUDA現実機未確認・Windows新依頼0・旧transaction再送なし。次は未実証元profile/他履歴bank/model gapを同じ選択CLIで進める。全キャラ/全特殊効果・公開GPU受付は未達。[設計・証跡・限界](portable-original-catalogue.md)。最終cache packet8a2bb6d4…は16群165unit/compile-plan policy成功、CLI関数AST/既存test/全計算source保持でnative再実行0。checkout model-checkも成功。以下は前段の履歴。
+
+# 2026-10-28 元profile選択CLIと実履歴容量の未対応
+
+`original-catalogue`で1,064名から1〜4件だけをprepare/compileする開発経路を実装。元266profileの全inventory recordを保持。固定4件は129unit/CPU全4成功、M5実GPU1回で3件一致、Modernia30秒はスキル履歴128件上限でstatus8。CPU実履歴1,618件が次の優先課題。係数変更と復帰は元定義から検査し、通常攻撃扱いの武器変更をskill damageと混同しない。最終guard15unitは超過をGPU前に拒否するが容量対応/全4認定は未完了。必須generation/pipeline hit・Slang0、Windows新依頼0。詳細は[元profile選択と未対応容量](portable-original-catalogue.md)。失敗packet3591b6f8…/captureは保持し再実行しない。全キャラ/全特殊効果・CUDA現実機・公開GPU受付は未達。
+
+# Mac GPU開発引き継ぎ
+
+2026-10-28追加：共通入口ごとの静的監査を既存`entry-inventory`へ接続。`--suite original-projectile-weapons`/`original-shield-weapons`は実`compile_coordinate_typed`、明示BODY owner、kind2/3・1対象の宣言worldを使う。元準備/KindAdmission/source逆対応/診断/禁止contextを再利用し、原effect/ownerを保つ。変換失敗は同じgroup/target-modifier lowering後の定義診断も持ち、変換前のstat/target/source identityを保持。未知policy/不一致source/axis provenance/CPU battle/GPU/上書きを拒否する。
+
+監査は全266中、legacy world245/元座標247/宣言typed254で別の数。247との差は7carrierで、GPU対応数を増やしたのではない。12profileの失敗を13の元stat/target分類へ絞れた。multi_hit2/4のNihilister/Belortaは共通入力とgroup ownerを既に持ち、旧単体/実射撃/長時間/混成の限定証跡もある。複数論理敵への座標着弾と既定producerは別に残るため、PARTやtyped shieldを敵数へ読み替えない。次は現共通入口で受理される元profileを選択・固定・bounded実行するCLI経路を整備し、未実証条件を反復検証する。新しいprobeを既存証跡と重ねて作らない。[監査の使い方](portable-shared-entry-inventory.md)。
+
+固定93919181/package d389bd5d…で14群143検査（11.62秒）と3入口の全監査成功。全266元定義identity/既存input SHAを保持。旧sealed packetとのpayload差分5ファイルは監査/診断/CLI/testのみで、全GPU/計算/packing/native/比較とgoldenは不変、mainの本command解析/dispatch以外の全CLI関数ASTも同じ。compiler/GPU/Windows追加0、full native sweep再実行0、compile-planはpolicyのみpassed。旧test manifestのsuite欠落2件をfixture修正し本体guardを保持した。
+
+global model-checkは今回/旧suite packetともpinned IMPL-STATUS未同梱で実行できず、必要資料があるcheckoutで成功した。packetの成功とはしない。12profileはgeneric typed入口の失敗であり、Heavyarmsなど別専用entryの既存実証も必ず照合する。次はaccepted profileを明示選択して固定するcatalogue経路（現prepare_entriesは全prepare後にcase filterのため全profile混在では失敗候補も先にcompileする）を整備する。選択外profileを黙ってdrop/rejection成功へ置換しない。証跡 `shared-entry-inventory-v1.json`。
+
+2026-10-28追加：`original-shield-weapons`をsealed15入力（native10/raw拒否5）に登録。shield_dmg_pctの元4carrier（レイ/アスカ/マリ/ミサト）を3/30秒の実編成/実武器/元全効果で共通座標typed owner実行器へ接続。マリ12秒/ミサト22秒は明示ハイド操作を元identity検査後に適用し、効果失効と元条件による再発動を検査する。元操作不変とは記録せず、操作overlayのcaseはoriginal_controls_preserved=False。元定義73/74/70/71、追加damage/timer/計算複製なし。全9,237着弾、最大2,457件は先頭2,048＋全streamSHAを比較する。
+
+固定53ca72b3/packageaba59d6b…はM5 Metal＋独立fresh seal成功。86unit/CPU128.25秒/GPU3.81635秒/必須pipeline hit0.00294秒/独立149.61秒。live native/context10件再利用、独立GPU0、実GPU1/retry0。生成も必須hit/Slang0、前回projectileの生成CUDA/MSL全byteと同一、406 GPUファイル不変。未対応分類に元物理shieldのscopeを追記し、旧non-coordinate証跡の未検証範囲と新座標証跡を混同しない。`original-shield-weapons-cache-only`は同じ計算/goldenのCUBIN/O1必須＋paired generation必須。Windows追加0、実CUDA/cache hitは未確認。canonical target-world/任意world・混成/全分岐・育成/実機/公開受付/全キャラは未達。[元シールド補正](portable-original-shield-weapons.md)参照。
+
+最終36b4304f/cache package fad27828…のunit-checkは12群117検査（6.16秒）成功。compile-plan CUBIN/O1/2GiB/60秒もpassed、実compile/GPU0。Metalとのpayload差分は依存登録/分類/CLI登録/test/goldenの5ファイルだけ。全計算・入力・native・比較ソースと全input/native期待、CLI/CPU batch関数ASTは不変のため、約128秒の全native sweepは再実行しない。fresh inventoryは266中245packing/21失敗、全キャラ0/UI CPUのまま新scopeをself/all_alliesへ記録。次は既存original-coordinate/attack-group証跡と現在のshared実行器の差分を確認し、混成/対象処理の未実行条件を優先する。同じprobeを再実装せず、未知のゲーム規則は保留を維持。最終証跡 `original-shield-weapons-final-checks-v1.json`。
+
+2026-10-28追加：`original-projectile-weapons`をsealed13入力（native8/raw拒否5）として登録。元サクラ3/30秒、アンカー3/30秒、クレイ3/12/30秒、発射体未出現対照を、既存typed BODY owner/自動照準/元武器へ接続した。元全効果/owner/実武器/育成/configを保持し、模擬damageや別timerなし。サクラ全体7.74%、アンカー本人25.6%、クレイ全体45.05%の実条件発火と失効を意味契約にする。全5,367着弾、最大2,186件で先頭2,048件＋全streamSHAを既存比較器で検査。固定540142c4/package7fa83104…はM5 Metal＋fresh独立seal成功、58unit/CPU81.06秒/GPU3.04524秒/初回PSO62.10秒/独立97.21秒、実GPU1/retry0。406 GPUファイルは前checkpointからbyte不変、旧suite再認定とは別。
+
+同じ計算/goldenの`original-projectile-weapons-cache-only`をCUBIN/O1必須＋paired generation必須へ登録。生成事前準備は2compiler/GPU0、実runは必須cache hit/Slang0。Metal archiveのCPU file snapshotも成功、実warm runやCUDA hitの認定にはしない。Windows既存statusはhost unavailable、新規依頼/再送0。未対応分類にprobe実証と元物理武器実証を区別して追加し、canonical target-world/Elegg nearby/実機/全キャラ/公開受付は未達のまま。次はshield_dmg_pctの元武器と現在敵fieldの未検証profileを優先し、Eleggのnearbyを削除して通さない。詳細 [元武器接続](portable-original-projectile-weapons.md)。
+
+最終e704391d/cache package eff7ddd9…の`unit-check`10群91検査（3.87秒）とcompile-plan成功。実compile/GPU0。Metal packageとの全payload差分はreadiness/CLI登録/test/goldenの4ファイルだけで、全CLI関数AST/全計算・native・packing・比較ソース/全input/native期待は不変。fresh inventoryは266中245packing/21失敗、全キャラ0/UI CPUを維持し新しい元武器scopeを記録した。変更のない全native sweepは再計算しない。最終証跡 `original-projectile-weapons-final-checks-v1.json`。
+
+2026-10-28ネット調査：ユーザーは実機提供ではなくネット情報での判断を指定。日英韓の公開情報を照合し、照準基準の未ロック取得/0.2秒/通常5/バースト+10/攻撃・ハイド解除を設計根拠として維持。中心vs外形vs3D、同距離順、PART候補、死亡時振替先の数値規則は得られず、現行の明示policyを実機仕様へ昇格しない。実機環境の回答待ちは解除し、他のGPU開発を継続する。新規制御実験/公式数値仕様が出るまで同じ転載の再探索は不要。計算/GPU/Windows追加0。詳細は [調査判断](portable-heavyarms-lock-selection.md) と `research/target-count-query-evidence/heavyarms-online-selection-decision-20261028.json`。
+
+2026-10-28追加：`original-lock-health-parts` をsealed11入力（native7/raw拒否4）として登録。元Heavyarms25定義/実編成91定義を維持し、実PART2個への命中と破壊、負傷/CPR、メアリーを先に置く実編成のburst回復、回復後HP条件の真偽と5秒後の実被ダメージ、3秒後ADD出現との同居を共通実行器へ接続。静的has_partsはFalseのままでlive nodeが決める。原操作/育成/武器/configを維持し、編成変更は元bodyとして明示する。
+
+固定338d2280/package66bef718…がM5 Metal全比較とfresh GPU禁止seal（136.12秒）に成功。11群95テスト、CPU事前照合132.43秒、実GPU2.21711秒/冷PSO9.61304秒、generation必須hit・Slang0。既存heal-share diagnosticの呼出し/配分/clamp/元heal_source/通知順204行を全比較。既存projectionはHP/adjacent_hpの観測専用通知をserializeしないため、それら全通知列の認定ではない。PARTをLock On候補へ入れる規則、距離/同距離順、死亡時振替、全分岐/他キャラ/公開受付は未達のまま。
+
+初版718a776a…はCPU74/全11照合成功後、hostのentry登録漏れでGPU計算前に停止。消費済みclaim/失敗は保持しretry0。修正版は明示entryと完全wireを登録し、既存ガードとexact inverseを維持。共通CLIはpackage/runのCPU準備前にもexplicit wireを検査し、不明entry/幅違いを拒否する（関連79検査）。既存GPU405ファイルは前回f51bbe9eと全byte同じ、追加は既存回復logを有効化する3行のentryだけ。v1/v2の全golden/input/native期待と生成CUDA/MSL原byteも同一。
+
+Windowsは既存status取得がhost unavailableで、再依頼/追加実行0。CUDA用`original-lock-health-parts-cache-only`は同じ計算/goldenのCUBIN/O1必須＋paired generation必須。実CUDA/CUBIN hitは未確認。追加した`unit-check`は固定packetの既存CPU unit群だけをbounded実行し、完全native事前検査/calculation/GPU認定はFalseのまま記録する。登録/監査器だけの変更確認に利用し、数値変更時のrun/sealを省かない。次は他の未対応分類/実編成を優先し、未知のLock On規則は保留を維持する。証跡 [Metal](../research/target-count-query-evidence/metal-original-health-parts-v2.json)、[HP条件](../research/target-count-query-evidence/original-mary-hp-condition-v1.json)。
+
+登録77de10f7後の固定cache package8815c31b…を新unit-checkで13群111検査（約22.48秒）成功。CUBIN/O1/2GiB/60秒のcompile-planもpassedだが実compile/GPU0。元Metal packageとのdeltaはCLI登録/新unit command/監査分類/tests/goldenのみで、全numeric/native/packing/比較ソースと全input/native期待は不変。全native sweepは重ねない。最終証跡 `original-health-parts-final-checks-v1.json`。再inventoryは266中245packing、21失敗、全キャラ認定0を確認。次はprojectile_dmg_pctのSakura/Clay/Anchor（Eleggはnearbyも必要）を既存declared typed modifier/battleへ原定義で接続する。分類はcanonical reference gapのまま、no-op受付で成功にしない。
+
+2026-10-28追加：`original-lock-controls` をsealed17入力（native9・raw拒否8）で登録。元全25効果/実編成91定義/実武器/育成/configを保持し、本人ハイド（取得前/充填中・本体/3ADD）、別キャラのハイド、30秒16ADDの15対象飽和を既存manual/lock/typed実行器へ接続した。ハイドは原入力identity検査後の明示操作overlayであり、元の操作を一切変えていないという主張ではない。source row2の0.35秒発火・実敵marker削除・state_end通知・再取得をCPU受動観測し、全native指紋も固定基準と一致。従来の24entryと合わせて元25entryの呼出しを観測できたが、全条件分岐/全キャラ認定ではない。
+
+固定1754ba71、package2b01f589…がM5 Metal全比較と別fresh GPU禁止seal（94.64秒）に成功。元burstで15対象を2回snapshotし、その後5へ戻る。10群76テスト、fresh CPU事前検査90.96秒、GPU2.59235秒、warm PSO0.00227秒。生成cache/PSOは必須hit、Slang0、実GPU1/retry0、旧8caseの全input/nativeと全出力41943040byteを既存CLI `readback-retain` で保持。CUDA/MSL原byteも旧版と同一、wire/runtime不変。梱包漏れで止まったv2はCPU失敗/GPU0/claim0のまま保持し、既存AUDIT_FILESへ依存JSONを登録して梱包前停止へ改善（関連16テスト）。件数のためだけにfixture9を再生成したunitの重複を除き、同じ4テストは38.15秒で成功（以前85.91秒）。件数はCLI gate、旧8入力のbyte照合はunitと保持監査に残す。
+
+`original-lock-controls-cache-only` は同じ計算/goldenにCUBIN/O1必須＋paired生成必須を適用する。CUDAハードウェア/実CUBIN hitは未検証。Windowsは既存transactionのstatusを1回確認したがhost unavailable、終端判定/再送/追加実行0。次は実編成のPART/負傷・回復条件を優先し、距離/同距離順と死亡時振替は未確定のまま保持。公開GPU受付・全キャラ認定0・UI CPU・20model gapは継続。証跡 [Metalと独立監査](../research/target-count-query-evidence/metal-original-lock-controls-v3.json)、[旧出力保持](../research/target-count-query-evidence/original-lock-controls-cli-retention-v1.json)、[元cover効果](../research/target-count-query-evidence/original-cover-source-activation-v1.json)。
+
+登録bff94e61後の固定cache-only package08d237bc…でも、11群86テストと17入力/native9のfresh CPU照合が成功（GPU0）。CPU群67.18秒、元Metal計算/packing/native/比較器と全入力指紋は不変。モデル監査13検査も成功し全体未達を保持。最終証跡 `research/target-count-query-evidence/original-lock-controls-final-preflight-v1.json`。
+
+2026-10-28更新：`original-lock-composition` を追加し、Heavyarms元全25定義、装備/共通込み本人34定義、実編成91定義を実武器・元configのまま3/30秒×本体/3ADDで実行。固定8fd51499、package0d4b4748…のnative4+拒否4がApple M5 Metalと独立GPU禁止sealに成功。9群71テスト、実GPU2.2474秒、冷PSO9.3935秒、fresh CPU比較49.34秒。13種類のnative履歴容量をclaim前に監査し、30秒の射撃742回/取得110回/配送190行/skill113行/端数通知2240行/team1120行を全行比較、省略0。既存wire内の未使用領域に5bankを割当て、旧bankゼロ・新全row/padding/tailを検査する。v1のmetadata/照会上限差分、v3の既定通知省略差分を保持、v2はGPU未実行。同claim再実行0。
+
+CPU受動監査は各caseの全native fingerprintを固定goldenと一致させたまま、30秒で元25定義中24定義のactivation entryを観測した。未観測は元row2（cover）。entry呼出しはGPU全分岐認定ではない。次は実編成のcover入力を既存manual制御へ接続し、元row2を通す。実編成でのburst15対象飽和、parts/負傷/healのworld、距離/同距離順、死亡時振替、他キャラ/variant、CUDA実機、既存suiteのcurrent-source GPU再認定も残る。公開GPU受付・全キャラ認定0・UI CPU・20model gapは継続。
+
+`original-lock-composition-cache-only` は同じSlang/入力/golden/比較器を使い、residentのpaired generationとCUBIN/O1のcompile cache両方の必須hitを要求する。今回のSlangは必須hit・compiler0、実CUBIN hitは未検証。旧7suite+本体106のCUDA/MSLは従来のstrict normalized SHAと全て同一。Windowsは旧transactionのstatusを1度読んだだけでhost unavailable、terminalと判断せず実行再送0。最後の旧thread/cursorはprivate continuation v31の値を保持する。詳細[合成](portable-heavyarms-lock-selection.md)、[Metal](../research/target-count-query-evidence/metal-original-lock-composition-v4.json)、[未発火条件](../research/target-count-query-evidence/original-lock-native-activation-coverage-v1.json)。登録7b31389c後の固定packetも通常72検査/cache profile81検査とnative4・入力8のfresh CPU事前検査に成功。最終証跡 `research/target-count-query-evidence/original-lock-final-preflight-v1.json`。以下は履歴。
+
+2026-10-28更新：元の敵ロック定義を共通actor carrier実行器へ接続した `enemy-lock-carriers` を追加。元index0/1/2/6/20を保持し、自己向けmarkerへ置き換えず、敵への名前付き状態・被ダメージ増加・解除まで比較する。固定32630ddf、package eee19024…の7入力（native4・拒否3）はApple M5 Metalと独立GPU禁止sealに成功、53テスト、GPU0.05085秒、Metal PSO必須hit。死亡でrecipientが空になった実敵carrierの誤分類は、native観測器で保持済みのimmutable受け手IDを使い修正し、空carrierを含む全行を保持した。失敗5capture（診断wire拒否1はGPU未実行）も保存。Windows追加0、同claim再実行0。CUDA cache-only経路は同じgolden/実装を参照し、standaloneの既存CUBIN必須hit規約を使うが、実CUDA/CUBIN hitは未検証。
+
+旧6スイートと本体106のCUDA/MSL生成は従来のstrict normalized SHAと同一。source inverseも完全一致ledgerで保持する。ただし共通sourceのcurrent-mapは変わったため、旧GPU goldenを新sourceへ黙って更新しない。新sourceでの旧GPU再認定は未完了。次はこの敵carrier接続を既存の順番攻撃/typed projectile合成へ適用し、元全25定義を実行する。候補は明示body/spawn-order providerであり、距離規則と死亡時振替の実機認定は未完了。公開admission・全キャラ認定0・UI CPU・20model gapの境界を維持する。詳細[Lock On接続](portable-heavyarms-lock-selection.md)、[Metal証跡](../research/target-count-query-evidence/metal-enemy-lock-carriers-v4.json)。登録後の固定953a3416では通常54検査・CUDA cache profile63検査とnative4がCPU事前検査成功。CLIモデル監査も成功し、全体未達を維持。最終証跡 `research/target-count-query-evidence/enemy-lock-final-preflight-v1.json`。以下は履歴。
+
+保存結果のfresh分割監査をCUDA／Metalで共通化。`saved-battle-audit`、`aggregate-native-groups`、Windowsの1群限定`audit-native-group` stageを追加した。元own CLI／比較器を別fresh childで実行し、全case・全raw SHA・元manifest／capture／controller anchors、重複・欠落・bool整数混同を検査する。部分結果は全体成功にしない。Metalの旧gate/schemaを保ち、CUDAは計算transportとサービス保全を分離する。実装`1fdab95a`、境界強化`834a0fda`。固定v1で保存Metal4入力を2+2へ分け、各fresh比較約12.3／12.7秒・GPU追加0で全entry/input/output/生成物が独立sealed goldenと一致した。最終v2は選択62／共通604検査（Windows専用1skip）成功、GPU／保護CPU／golden不変。Windows新stageは未実行、現4入力CUDAを再実行しない。[共通監査](portable-shared-native-groups.md)、[Mac実証](../research/shared-native-group-evidence/metal-four-v1.json)。全106 CUDAの起動前native63を短いJobへ分けるtransactionは次段階で、通常preflightはまだ省略・変更していない。Heavyarms元25効果はLock On markerだけでなく対象数追加とtyped敵弾への攻撃を要する。対象数を無効statへ置換して全対応とせず、専用対象数／空間選択モデルを整える必要がある。全キャラ0／20model gap／UI CPU／全体未達は継続。以下は履歴。
+
+共通CLIに`recover-readback`とWindowsの同名CPU stageを追加。保存CUBINの子が正常終了し、親が比較中にouter timeoutとなった場合に、元capture・消費済みclaim・欠落記録を保ったまま別監査へ回収する。元own CLIのfresh比較・出所・全raw・Job・観測を再利用し、再GPU／compilerはない。旧compactを新registryで検証した初版不具合は修正済みで、byte bootstrap後に旧own registryで完全検証する。固定v3の選択62検査と実旧e72パッケージ検証がMacで成功、共通制御はv2で598検査（Windows専用1skip）。GPU／保護CPU／golden不変。公開source packetは`research/windows-source-packets/readback-recovery-v3.*`、実装`09a9467a`、配布`f2099375`。[回収CLI](portable-readback-recovery.md)。Windowsの私的captureと結果はGitへ入れない。全106 CUDA認証・公開受付・全キャラ認定は未完、残20model gap／UI CPUを維持する。全106へ広げる際はfresh native63の予算とGPU実行を明示的に分ける設計が必要で、通常preflightの省略やCPU値cacheは導入しない。以下は履歴。
+
+resident arc本体106はMetal独立認証済み、CUDA計算は未実証。PTX固定942b009e…はWindows共通tests207が成功しましたが、smokeはcompiler profileのCPU worker既定60秒で34/60群・354検査までで停止（実行済み群のfailure/error0、未完了）。generation／PTX compile未着手、同packetのclaimを保持。既知Windows smoke約84秒に合わせ、共通smokeのCPU予算を既存上限180秒内で明示分離した固定33415559…を準備。Mac共通tests207／smoke586成功、必須生成cacheはv1と同じkeyでhit・Slang0、PTX plan成功。Windowsでは新v2だけを次に確認します。compiler child60秒／2GiBと旧CUBIN claimsは不変。Macでは元25効果Lock Onをboss／3ADDの4CPU契約へ拡張し、自然named query0/0/88/820と元定義・全結果・射撃履歴を検査。旧2契約の結果と266profile入力／issue／順位を保持、245変換・20model gap・全キャラ認定0・UI CPUは継続。汎用markerは存在し、専用空間選択／対象数拡張／full25 typed GPUが未完という分類に明確化。[現在の契約](portable-coordinate-resident-arc.md)。以下は履歴。
+
+共通resident arcの全106入力は修正版58daee47…でM5通常検証に成功しました。GPU4.240秒、子72.407秒、Runtime reflection不変。独立監査も536.437秒で全106入力に成功し、sealed登録しました（7群・fresh native63・追加GPU0）。旧prefixの差は既存trace参照20語のcase-base移動だけで、残り861,567,920byte一致・新tail全0を専用監査で確認しました。wire事前検査・狭い修復器・保持監査をCLI化し、共通制御580（Windows1skip）が成功。Windows CIMは正規承認contextで取得成功、新着弾40の固定通常／cache-only packetはCPU47／54検査成功。Windowsの着弾40/native26はCUBIN必須cacheで実launch／sync／readback成功、Metal保存golden全byte指紋と一致、NVRTC／compiler library要求0。STACK199352→2880byteをoffline確認。サービス識別は未確認のためCLI全体exit2／preservation未確認を保持し、本体106のCUDA成功とは区別します。計算一致／preservation／全キャラ認定は別の証拠として扱います。[wireと監査](portable-wire-preflight.md)。以下は履歴。
+
+開発profile `coordinate-resident-arc` を共通戦闘実行器へ接続しました。既存全106入力（native63／拒否43）とCPU指紋を保持し、出力tail32,786語を追加、Runtime reflectionは旧版と完全一致。関連140／制御555成功、固定ae70b296…の通常Metal検証が進行中です（まだsealedではありません）。Windowsのprocess観測は既定／明示pwshとも失敗し、compiler/GPU0。有限operation/type/error-family IDのCPU診断を追加、制御559成功。raw／claims／旧失敗を保持。[接続と現在の検証範囲](portable-coordinate-resident-arc.md)。以下は履歴。
+
+共通arc区間のresource view版を追加し、M5 Metalでarc140／着弾40を全word照合・fresh独立sealしました。旧arc135／着弾40のinput/nativeとlogical出力hashを全保持し、1024区間・127対象・5098cutを維持。Windows旧CUBINのSTACK199,352byteとcache-onlyでもlaunch code2の失敗を保存。次は新sourceの短いcompile-only／offline資源検査でstack量を確認し、その後にCUDA実行を判断します。現resident106本体・公開UI・全キャラ対応は今回変更していません。[配置と検証範囲](portable-coordinate-arc-arena.md)。以下は履歴。
+
+通常の元武器による実射撃をtyped対象へ共通接続。sealed `coordinate-typed-weapon`46（native29／拒17）がM5 Metal・GPU禁止fresh監査131.445秒で全一致。散弾内handle固定／次射撃再選択、canonicalとの奥行きmerge、RL critical共有、親量と実着弾順、history2457件（保持2048＋全件SHA）を確認。旧35全284480000byte／input/native保持。既存Python観測filterで全46指紋を保ちCPU269.180→104.266秒（2.58倍）。関連74／制御488成功（Win1skip）、GPU1／retry0、GPU3.861秒／初回PSO93.762秒。生成必須cache hit・run追加Slang0、Runtime追加0。finalは配置監査・対応metadata・seal登録だけで計算／proof関数ASTを保持、再GPU0。raw全byte／SHA／inode保持の疎化で364113920byte回収。現CUDA／typed auto aim／canonicalゲーム仕様／全キャラ0／UI CPUは未達。[通常射撃のtyped接続](portable-coordinate-typed-weapon.md)。以下は履歴。
+
+座標通常射撃→型付き対象のCPU契約を共通CLI `reference --suite coordinate-typed-weapon-common` へ追加。元の武器・効果を保持した6ケース、661実ペレット／666packet／typed278、散弾内世代固定・次射撃再選択・RL critical再利用・full_charge親量／通知後着弾・MT全624語を確認。fresh不変packageでCPU契約2.923秒、関連64／制御488成功（Win1skip）。旧35入力16,195,204byte・全356Slang・保護8file保持。GPU／Windows新実行0、型付き通常射撃のMetal接続は次段階。canonicalゲーム仕様／typed auto aim／全キャラ0／UI CPUは未達。[通常射撃CPU契約](portable-coordinate-typed-weapon-reference.md)。以下は履歴。
+
+共通CLIに `package --develop --native-baseline-package PATH` を追加。CPU依存／入力／caseが完全一致する固定基準から期待hashだけを引き継ぎ、GPU sourceと検査済みSlang ledger current部の変更だけを受付。runtime値／旧GPU出力は引き継がず、fresh preflight／独立seal・Windows制約は不変。実35入力pack3.482秒（native基準関数禁止）、通常CLI同一ID、runで22nativeを177.031秒で再計算して一致。関連60／制御488成功（Win1skip）、新GPU0／Windows0。8負例・境界検査とスキル手順を追加。GPU本体は実照準35から変更なし。次は通常武器のtyped命中・型付きauto aim、現CUDA/cache検証。全キャラ0／UI CPU／未達。[CPU期待基準の再利用](portable-development-expectations.md)。以下は履歴。
+
+固定pointに続き、正本の実照準bankを共通型付きスキルselectorへ接続。sealed `coordinate-typed-live-aim`35（native22／拒否13）がM5実GPU1回・独立GPU禁止監査203.872秒で一致。auto、スキル前／同フレームの照準切替、HPシールドを実証。照準操作は元編成の照合後に明示overlayし、元操作保持とは区別。旧28全227,585,000byte／input/native保持、旧164 shader source保持で旧compile/GPU0。関連60／制御480成功（Win1skip）、GPU2.360秒／初回PSO92.612秒、生成必須cache hit・Slang0。通常武器命中／型付きauto aim／移動・貫通・現CUDA・全キャラ0／UI CPUは未完。CPU基準のpackage/run重複計算が効率化候補。[実照準の接続](portable-typed-live-aim.md)。以下は履歴。
+
+型付き対象の固定point／円・回転矩形selectorを共通DFSへ接続。`coordinate-typed-geometry`28（native18／拒否10）はM5実GPU1回と独立GPU禁止監査166.167秒で一致。生存・奥行き／生成順・破壊／期限／再出現世代・HPシールドを実選択してdamage/receiptへ渡す。既存10入力・nativeと81,280,000byte出力、旧型付き入口CUDA/MSL/reflection全byte保持。関連56／制御480成功（Win1skip）、生成必須cache hit・Slang0、GPU2.322秒／初回PSO92.864秒。wireとRuntime不変。通常武器auto aim／移動・射線・貫通、正本の敵弾／shieldルール、現CUDA、全キャラ0／UI CPUは未完。次は固定pointスキルから元武器とlive aim consumerへの接続。[形状と対象選択](portable-typed-geometry.md)。以下は履歴。
+
+武器skill指定と乱数BODY／ADD receipt groupを共通実行器で実証。sealed coordinate-sampled-delivery136（CPU正本126／拒10）がGPU禁止replay・独立sealで全一致。新14契約、CPU95／制御428（Win1skip）、旧120全849346560byte保持。GPU／compiler／transport／数値ソース変更0、旧13 CUDA-MSLペアを保持し生成cache hit・Slang0。Metal実archive hitでPSO91.958→.002588秒、GPU.480秒／子3.491秒。実GPU1／host修正版再GPU0。観測hookのcode identityを修正し、metal-cache-probe、package前の監査データ検査、準備64MiBの容量余裕を追加。現CUDA未取得／Windows新依頼0。手動cover・追加武器／回復混合・全元定義は残る。全キャラ0／20gap／UI CPU／未達。[乱数groupとcache](portable-coordinate-sampled-delivery.md)。
+
+乱数戦闘へ既存の武器変更／HP・遮蔽物回復／現在HP減少を接続。sealed coordinate-sampled-vital120（CPU正本112／拒8）がM5 Metal全一致・独立seal。新29契約、CPU63／制御421（Win1skip）、旧89全629932032byte・旧12 CUDA-MSLペア保持。実総口と初弾係数を受動観測し親量を検査、damageスキルなしの整数総計初期化漏れを修正。新GPU2／retry0、GPU.491秒／初回PSO91.958秒。容量追加0、通常run内のCPUゲートを使い事前CPUの重複を避ける。手動cover packing・追加武器flag／回復混合・sampled group・全元定義は残る。現CUDA未取得／Windows新依頼0、全キャラ0／20gap／UI CPU／未達。[武器変更と回復](portable-coordinate-sampled-vital.md)。
+
+乱数保留バーストの旧B3／opt-inを共通residentへ接続。sealed coordinate-sampled-burst89（CPU正本83／拒6）がM5 Metal全一致・独立seal。新24契約、旧62全373817344byte prefix・追加zero、旧11 CUDA-MSLペア保持。CPU55／制御421（Win1skip）／正本24。512entry×256hit bankを明示し出力+1MiB、Runtime不変。旧B3のbuff除外setterとmarker受付を修正し、修正前失敗保存・新GPU2回／同claim retry0。GPU.486秒／初回PSO92.568秒。異strideのreadback-retainを共通CLIへ追加。現CUDA未取得／Windows新依頼0。武器変更／heal・sampled group・全元定義は残る。全キャラ0／20gap／UI CPU／未達。[保留バースト](portable-coordinate-sampled-burst.md)。
+
+通常damageのhit別critical・cast snapshot・子queueを共通residentへ接続。sealed coordinate-sampled-skill62（共通CPU59／拒3）がM5保存結果replay・独立sealで全一致。実GPU1／比較修正版の再計算0。CPU43／制御419（Win1skip）／正本22、旧38全229113856byteと旧10 CUDA-MSLペアを保持し旧拒否1件を正例へ移行。数値probeは125→4ソースへ独立し14045入力実証、生成コード／全449440byte保持・Metal cache hit。replay容量ゲートと保存版registry監査をCLIへ追加。保留バースト・武器変更／heal・sampled groupと全元定義は残る。現CUDA未取得、全キャラ0／20gap／UI CPU／未達。[乱数スキルとCLI](portable-coordinate-sampled-skill.md)。
+
+乱数物理射撃の親参照量を共通residentへ接続。sealed coordinate-sampled-parent39（共通CPU36／拒3）とpacket-ratio14045がM5 Metal全一致・独立seal。整数128bit÷muzzleを一度だけnearest-even丸めし、dealt_fixed_damageの既存通知／queueへ接続。大整数の旧double総計差も実計上の整数sidecarで解消し、従来double加算の検査を保持。CPU28／制御416（Win1skip）／正本16、旧23全138674176byteと旧9 CUDA-MSLペアを保持。容量追加0、実GPU計4／同claim retry0／raw削除0。戦闘GPU.464秒／初回PSO92.693秒、数値cache hit・GPU.002秒。現CUDA未取得／Windows新依頼0。通常damage RNG・武器変更／heal・sampled group owner・全元定義は残る。全キャラ0／20gap／UI CPU／未達。[親参照量・整数総計](portable-coordinate-sampled-parent.md)。
+
+乱数物理射撃を共通resident executorへ接続。sealed coordinate-sampled-battle23（共通CPU20／拒3）がM5 MetalのGPU禁止replay・独立sealに成功。1256ペレット／1397packet／5498 MT word、127対象・1024ペレットを検査。物理MTとboss MTを分離し、shot snapshot・個別critical・auto／charge通知・muzzle core平均・not_core／prob条件抽選を接続。期待値scratch再利用でRuntime138952byte／入力109528／出力1507328word不変。GPU.448525秒／初回PSO91.909787秒。1024件のteam履歴省略を厳密検査する比較viewへ修正、実GPU計2／修正版再計算0／retry0。旧11raw全66322432byte・旧8 CUDA-MSLペア保持。現受付buffのみ、非buff・親量・sampled group ownerと全元定義は残る。現CUDA未取得／Windows新要求0。全キャラ0／20gap／UI CPU／未達。[乱数射撃の接続](portable-coordinate-sampled-battle.md)。
+
+乱数着弾点の共通producer coordinate-sample-v1を既存MT19937へ接続。sealed coordinate-sample107（共通CPU93／拒14）、1296点がM5 Metal全bit一致・独立seal。MT全624状態／index／消費・拒否数／後続抽選を照合、GPU1回.018514秒／PSO.278665秒／retry0。実CPUのrandom経路11契約で63ペレット／77packet／362wordとcritical再利用を確認。最終CPU12／control416（Win1skip）、旧10閉包193sourceとmixed244 current seal保持、旧GPU再実行0／Windows0。非residentのgeneration cacheは既存reflection guardで開始前停止し、guard不変の通常生成を使用。GPU戦闘callerは未接続。次はphysical専用MT状態→per-pellet core／crit／通知→個別snapshotとgroup delivery。全キャラ0／20gap／UI CPU／未達。[乱数着弾点と正本契約](portable-coordinate-sampling.md)。
+
+座標弾・groupへ有効なsplit_damageとbuff／shield／vanish／move／groggy／直接boss attackを合成。sealed coordinate-mixed244（共通CPU218／拒26）がM5 Metal全一致・独立seal、正例8484 frame、旧225全1356595200byte保持。均等配分・ADD途中消滅・対象順位／seed選択・tie偶数丸め／ゼロ丸めを含む新19契約。旧shareは現parserのnative_reference_exclusionとし、有効splitの移植と区別。距離モード切替と別PART packet診断traceを共通コードで修正し旧7 CUDA-MSLペア全byte保持。CPU149／control416（Win1skip）、修正版GPU3.724秒／初回PSO91.484秒。修正前旧sourceのwarm必須cache hitは.002612秒。CPU上限60停止はdispatch0、v3失敗／v4成功の実GPU計2／同claim retry0、原本保持。現CUDA未取得。次はsampling RNG・召喚攻撃／debuff payload・全元定義認定。全キャラ0／20gap／UI CPU／目標未達。[混在worldと割合配分](portable-coordinate-mixed.md)。
+
+座標physical packetの実receiptを共通groupへ接続。sealed coordinate-group225（共通CPU199／拒26）がM5 Metal一致・GPU禁止replay・独立seal。旧206input／native182保持、8060正例frame、追加17の112group／186packet／134receipt／111通知を比較。allocation／sealは既存snippet共有、compact186528wordを1310720へ移設しoutput1507328word、全stride／clear／実slotを接続。BODY／ADD native再選択、PART／INTERRUPT除外、閉集合child／91射撃履歴を実証。旧readback全1080033280byte検査、差165wordは解除済みActor setだけ、他領域保持。旧6 CUDA-MSLペア全byte保持。初回Swift strideでdispatch前停止、v2 dispatch後decode4件停止を保存し比較器だけ修正、実dispatch1／GPU再計算0／同claim retry0。GPU3.718秒／初回PSO91.531秒／shared103.213秒、Slang0。最終CPU140／control416（Win1skip）、現CUDA未取得／Windows依頼0。次はRNG／割合配分・未検証混在scene／全元定義認定。全キャラ0／20gap／UI CPU／目標未達。[座標GPU group](portable-coordinate-group-gpu.md)。以下は履歴。
+
+座標physicalの異量・複数対象packetを既存group observerへ明示opt-inで接続し、共通CPU17契約をCLIへ登録。112group／186packet／134receipt／111通知、BODYだけのdedup・PART／INTERRUPT除外・ADD途中破壊・閉じた集合のchild・2射手・91射撃履歴を確認。default false／native routing限定、正本不変。新8＋旧group31を共通CPUゲートへ登録（計134）、制御416（Win1skip）。source改変検出2分岐とmissing-consumer既定値監査の失敗を保存して修正。model-check分類はadapter_gap→gpu_port_gap。GPU shader／wire／旧golden／cache変更0、新GPU0／Windows依頼0。次はgroup begin／collect／sealを座標receiptへ接続、compaction移設とclear／host stride、BODYのADD routingとscene-pool同居。現GPUはgroup受付拒否、全キャラ0／20gap／UI CPU／未達。[group正本契約](portable-coordinate-group-reference.md)。以下は履歴。
+
+武器変更・動的reload・散弾・tap／holdと照準を共通executorへ合成。sealed coordinate-control206（共通CPU182／拒24）がM5 Metal一致・独立seal、正例7878frameを検査。base武器reload時間とlive ratioによるclip分類／照会順を新profileで修正、正本不変。旧190input／native166／raw全996147200byte保持、旧5系統の生成CUDA-MSL全byte保持。新GPU1成功／retry0、GPU3.739秒／初回PSO90.528秒／shared100.593秒、Slang0。最終CPU95／control416（Win1skip）、full3072→compact1763全残存byte一致。raw削除0、全SHA-byte-inode保持で2024034304byte回収。model-checkでgroup writerの実3重複と容量保持の1507328word移設案を監査。移設・clear・physical group receipt・ADD共有・transport登録は未実装。Windows追加検証0／現CUDA未取得。次は実group writer/caller統合→RNG／混合scene／全元定義。全キャラ0／20gap／UI CPU／目標未達。[操作合成とgroup残件](portable-coordinate-control.md)。以下は履歴。
+
+手動aim／camera調停を共通complete executorへ接続。新coordinate-aim190（共通CPU166／拒24）がM5 Metal一致・独立seal。要求合流／4window／5anchor／gate／動的reload／focus sequence／shared camera／前回点を読むskillと今回点を読むphysicalを実証。7059frameを2種digest＋数＋最終bank、全戦闘／packet／cacheを比較。input109528／output1310720、CF_END〜GC_BASEの160wordを実consumer監査、Runtime stride138952保持。旧151input prefix／native136／新領域を除く791578240byte保持。初版26差分（auto上書き／span欠落）を保存して修正、v2 CPUのみ、v3成功。GPU2／retry0、GPU3.699秒／PSO91.078秒／execute100.810秒、Slang0。旧81／97／120／133 CUDA-MSL全byte保持、現CUDA/cache実hit未取得。最終CPU90／control416（Win1skip）、full3062→compact1753全残存byte一致、model-check成功。raw byte-SHA-inode保持で2970705920byte回収／削除0。Windows snapshot rev78 idle・新依頼0。次は武器変更等との合成・group／ADD writer/caller統合→RNG／scene混在／全元定義。全キャラ0／20gap／UI CPU／目標未達。[共通GPU照準](portable-coordinate-aim-gpu.md)。以下は履歴。
+
+手動照準の正本30契約を共通reference CLIへ追加。1652frame／実照会206、4window／5anchor／動的reload減算／gate／優先度edge／生存fallback／共有camera／実破壊／全バースト追従をCPU検査。定時skillが前回照準、調停後physicalが新照準を読む同frame差3件を保持。静的aim IRは元normalizerを再利用し、live default priority／全clock式／他操作軸を残す。GPU caller／clock接続は未完了・受付拒否を維持。最終CPU85／control416（Win1skip）、full3052→compact1743全残存byte保持、旧151input／golden／GPU source保持、生成cache必須hit／Slang0。新GPU0／Windows依頼0。詳細8.2MBはローカル保持・共有summaryと失敗履歴を保存。次は要求合流→照準bank→前半skill／後半physical caller接続。全キャラ0／20gap／UI CPU／目標未達。[照準接続契約](portable-coordinate-aim-contract.md)。以下は履歴。
+
+範囲スキルのhost trig入力を共通数値IRへ接続。新coordinate-matrix151（共通CPU136／拒15）がM5 Metal一致・独立seal。旧cache133全input／全raw697303040byte保持、新18worldで軸／隣接float／負角／巨大角・命中境界を実戦比較。旧host本体2000＋部位3000→共通本体2000のみとなる境界を明示しcanonical CPUは不変。CUDA/MSL両reflectionとgeneration identity保持、Slang0・生成／Metal pipeline必須hit。GPU3.713秒／PSO.002616秒／execute7.535秒、速度倍率未主張。最終CPU78／control416（Win1skip）、full3047→compact1738全残存byte一致、model-check成功。GPU1／retry0／Windows追加0、raw SHA-byte-inode保持で563281920byte回収／削除0。現CUDA未実証。次はmanual aim／camera layer2→RNG／group・ADD／scene混在／全元定義。全キャラ0／20gap／UI CPU／目標未達。詳細[共通area matrix](portable-coordinate-matrix-common.md)とresearch/portable-coordinate-matrix-checkpoint.json。以下は履歴。
+
+Geometry小数6桁key＋共有dictを共通実行器へ接続。coordinate-round9046（正9039／拒7）とcoordinate-cache133（共通CPU118／拒15）がM5 Metal一致・独立seal。uint128で正確decimal6丸め、signed-zero key正規化、最初の実Landing保持、全射手共有、Geometry変更時だけ切替。query無しの切替、世代のみ更新、同径core、完全hash照合／全entry／代表署名／tail検査。127対象は容量231、対象0は4096、超過は明示拒否しevictionしない。旧120入力／元native保持、戦闘・bank・packet全559672320byte一致（新cache／作業scratchは別profile）。正例GPU照会878＝hit515＋積分363、既存template再利用146は別。GPU全133で3.682秒／PSO90.408秒／execute99.236秒、速度倍率未測定。通常81／97／core120のCUDA/MSL全byte保持、別GPU再実行0／現CUDA/cache実hit未取得。CPU72／control416（Win1skip）／model-check成功、full3041→compact1732全残存byte一致、保護7維持。GPU3（丸めstatus不一致1／成功2）retry0、cache GPU1、CPU初版guard-message失敗は保持。raw2件をbyte-SHA-inode保持疎化、1724448768byte回収／削除0。Windows read-onlyでidle revision78、追加依頼0。次優先area matrixのhost math.cos/sin lowering共通化→manual aim／RNG／group・ADD／scene混在／全元定義。全キャラ0／20gap／UI CPU／目標未達。詳細[Geometry cache](portable-coordinate-cache.md)、research/portable-coordinate-cache-checkpoint.json。以下は履歴。
+
+live coreを共通実行器へ接続。新coordinate-core120（共通CPU106／拒否14、追加core28＋IR拒否8）がM5 Metal一致・独立seal。world graphの開閉／再出現／startを再利用し、最大径→同径で新start→後宣言、base原点、既定照準core追従を実装。127対象＋core／32node、遮蔽・貫通・爆発・通知・親量・範囲skillを照合。入力108648＋静的144word=108792、出力1310720。旧84のinput prefix・native／raw全440401920byte保持。全720pellet／2037着弾。初版2差分（RL入力不整合／部位skill trace）を保存して修正、GPU2／retry0。修正版GPU.247秒・PSO90.561秒・execute95.164秒、Slang0。通常81／97のCUDA/MSL全byte保持・別GPU再実行0・現CUDA/cache実hit未取得。最終CPU59／control416（Win1skip）／model-check成功、full3024→compact1715全残存byte一致、保護7保持。raw3件をbyte-SHA-inode保持疎化、2294730752byte回収／削除0。Windows追加0。次優先Geometry丸めcache key、その後aim／RNG／group・ADD／scene混在／全元定義。保存結果の厳密再結合CLIは候補・未実装。全キャラ0／20gap／UI CPU／目標未達。詳細[live core](portable-coordinate-core.md)、research/portable-coordinate-core-checkpoint.json。以下は履歴。
+
+座標物理の蓄積放出を既存take／split／整数化／queueへbody-only receiptで接続。新coordinate-accum-emission84（共通CPU78／拒否6）がM5 Metal一致・独立seal、旧31全input/native/output entry保持。既存49蓄積world＋新4geometry world、全622pellet／1845着弾／46放出。ADD共有2件・敵攻撃1件はscene受付外として未対応保持。GPU1／retry0／Windows追加0、GPU.243秒・PSO91.803秒・実行時Slang0。通常81／97生成CUDA/MSL全byte保持、旧GPU再実行0／CUDA実hit未取得。最終CPU53／control416（Win1skip）、model-check成功、full3013→compact1704全残存byte一致、保護7維持。旧81証明書のcurrent仮定によるcontrol失敗を保存、exact inverseで履歴監査＋現source拒否負例を追加し旧proofは昇格せず。raw3件をbyte-SHA-inode保持疎化、649306112byte回収／削除0。次優先live core、その後Geometry cache／aim／RNG／group・ADD／敵攻撃scene／全元定義。全キャラ0／20gap／UI CPU／目標未達。詳細[蓄積放出](portable-coordinate-accum-emission.md)、research/portable-coordinate-accum-emission-checkpoint.json。以下は履歴。
+
+座標物理full-charge親参照量をuint128整数和→pellet乗算→binary64一度丸めで接続。M5 Metalでpacket-integer305（正294／拒11）、coordinate-quantity31（共通CPU25／拒6）一致・独立seal。旧23全entry保持、87pellet／214着弾packet／11通知。固定子body-only receiptと次frame着弾を接続。初版29の時刻誤り1captureは保持して修正。旧81／97もMetal・独立seal、全entry保持、生成CUDA/MSLをpre132全byteへ復元、生成cache＋PSO必須hit。CUDA cache実hit・現計算は未実証。最終CPU37／control416（Win1skip）、full3006→compact1683全残存byte一致、保護7維持。新GPU5（成功4／失敗1）／retry0、容量guard1はGPU前、raw4件をbyte-SHA-inode保持疎化で1086881792byte回収／削除0。Windows再送はAPI active turn不在で拒否・開始未確認。part蓄積はCPU正本にもconsumerなしと3world確認、native_reference_exclusionへ分類訂正（ゲーム仕様未確認）。次優先は座標蓄積放出body-only receipt、live core、Geometry cache／aim／RNG／group混在／全元定義。全キャラ0／20gap／UI CPU／目標未達。詳細[整数参照量とcache保持](portable-coordinate-quantity.md)、research/portable-coordinate-quantity-checkpoint.json。以下は履歴。
+
+座標物理の共通着弾→packet捕捉→通知→着弾をresident実射撃へ接続。新coordinate-physical23（共通CPU17／拒否6）がM5 Metal成功・独立seal、52pellet／100packetの全戦闘decoderと順序付きtraceを照合。散弾・2銃口・貫通・charge・回転矩形・crit・accuracy・2射手・破壊・interrupt補正・武器変更を実証。旧97／81も現sourceでMetal／独立seal、input/native/raw全byte SHA保持。生成CUDA/MSLはspread抽出で変更、新指紋とfull compiler証明書を独立監査後に更新。GPU4／retry0、warm23は生成cache＋PSO必須hit・Slang0・GPU.132秒／execute1.25秒（初回PSO90.84秒）。最終CPU27／control416（Win1skip）、full2986→compact1663全残存byte一致、保護7source維持。監査3失敗を保持しexact inverse／証明書を修正。raw3件を全byte-SHA-inode保持で疎化、1896841216byte回収／削除0。Windows追加0／現CUDA未実証。次優先は全packet整数和のfull-charge参照量とparts蓄積、通常経路生成byte保持によるCUDA cache再利用。live core／丸めGeometry cache／aim／RNG／group同時／原定義混在は未完了。全キャラ0／20gap／UI CPU／目標未達。詳細[座標物理GPU接続](portable-coordinate-physical-gpu.md)とresearch/portable-coordinate-physical-gpu-checkpoint.json。以下は履歴。
+
+
+共通CLI `reference --suite coordinate-physical-common` を追加。共通着弾規約を実際のCPU物理packet・通知・破壊へ接続し9world／27pellet／47packetを検査した。完全遮蔽の旧0damage本体packetとの差、別frameの正残差packet保持、同射撃snapshot固定（6×1000→次射撃6×7000、part通知11）を明示。旧CPU／passive観測器／GPU283source／保護7source不変。selected36／control416（Win1skip）、full2976→compact1643全残存byte一致、model-check成功。初回監査資料梱包漏れを保持し修正済み。新GPU0／Windows追加0／cache変更0。resident物理へのGPU packet・fraction通知・着弾接続は未完了、body-only制限／全キャラ0／20gap／UI CPU維持。詳細[共通規約の物理CPU比較](portable-coordinate-physical-common.md)とresearch/portable-coordinate-physical-common-checkpoint.json。以下は履歴。
+
+
+共通の可変指数unit pow・GL10定数・形状arcをexpected landingへ接続。sealed `coordinate-power`909（共通CPU898／拒否11）と`coordinate-landing`40（共通CPU26／拒否14）がM5 Metal全word一致・独立seal、MPFR2434入力0 ULP。127対象／5098cut／1024arcを保持し、初版pipeline stack失敗を出力arenaと参照渡しで解消。形状準備をGPU内で一度だけ行い、旧全1715850byte保持・新準備データ照合、GPU17.130→.424秒（単一probe測定対約40.4倍）。最終CPU17／関連・制御462（Win1skip）、full2969→compact1636全byte一致。新kernel3／pipeline失敗1／同claim再試行0、旧主要7suite再GPU0。raw全SHA-byte-inode保持の疎化で1096093696byte回収。Windows新要求0、API active ID不在・CUA Codex安全制約で未送達。物理packet／resident戦闘caller／RNG／aim・cache key／全元定義と公開受付は未接続。全キャラ0／20gap／UI CPU／目標未達。詳細[共通着弾確率](portable-coordinate-landing-v1.md)とresearch/portable-coordinate-landing-v1-checkpoint.json。以下は履歴。
+
+
+共通数値profileをGPU側の角度→回転係数→形状距離／contains／円・半平面・grow付き回転矩形arc／区切り半径へ接続。sealed `coordinate-geometry`1224（共通CPU1209／拒否15）がM5 Metal全word一致・独立seal。旧正本と方針不変の288入力を距離／breaks照合し、別方式Decimalの円弧内外200点超も成功。最終CPU18／関連・制御445（Win1skip）、full2950→compact1621全残存byte一致。GPU1／retry0／旧6suite再GPU0。GPU .188791秒、Swift module cache利用でexecute全体1.722503秒。Windows新要求0、直前の数値依頼はAPIエラーで未送達。積分／pow・GL定数規約／物理packet／resident戦闘caller／全元定義・公開受付は未完了。全キャラ0／20gap／UI CPU／目標未達。詳細[共通形状・円弧](portable-coordinate-geometry-v1.md)とresearch/portable-coordinate-geometry-v1-checkpoint.json。以下は履歴。
+
+数値基準はユーザー明示回答で「決定的な共通規約」に選定。選択fixtureと監査をgpu_numeric_implementation_gapへ更新し、共通profile実装／公開受付は未完了として保持。共通Slangに正period剰余・arc wrap／shift／measureと生成被覆の差／交差を追加、既存Sum/addSumを直接再利用しevent_runtime本体不変。極小負剰余→2π、幅0区間→差集合2区間、補償1ULPを保持。640入力（native632／拒否8）がM5 Metal一致・独立seal、旧600input/nativeと9849600byte保持。各shift反復の1024区間コピー3回をactive挿入へ変更し全640raw10506240byte一致、今回GPU2.516秒→.036585秒（probe測定約68.8倍、CLI全体比ではない）。最終CPU18／制御416（Win1skip）、full2938→compact1611全record/byte保持。kernel4（成功3/失敗1）・容量guard1/同claim再試行0・Windows要求0。opcode5負例の衝突は失敗保持して8/9へ分離、CPU重複検査追加。過去raw2件をSHA/全byte/inode保持の疎化で2212257792byte回収、削除0。旧135/97/88/81閉包と保護7source/cache規約不変、再GPU0。次は共通三角関数・範囲縮約とCPU参照のversioned規約を定義し、幾何arc→積分→物理packet→resident本体へ接続。全キャラ0／20gap／UI CPU／目標未達。詳細[円弧数値演算](portable-coordinate-arc-scalar.md)、research/portable-coordinate-arc-scalar-checkpoint-v2.json。以下は履歴。
+
+決定的な共通数値profile `coordinate-binary64-v1`のsin/cos・atan2・acos・整数sqrtを共通IRからCPU／Slangへ実装。sealed `coordinate-numeric`2783（共通CPU2771／拒否12）がM5 Metal全word一致・独立seal、独立Decimal10451入力は最大1/1/1/2/0 ULP。共通CLI `numeric-audit`追加、最終CPU9／関連・制御436（Win1skip）、full2944→compact1614全残存byte一致。新GPU1／retry0、旧5suite再実行0。CUDAの新規計算実証は未取得。回転caller・arc生成・積分・物理packet・共通resident戦闘への接続と公開受付は未完了。全キャラ0／20gap／UI CPU／目標未達。詳細[共通数値v1](portable-coordinate-numeric-v1.md)とresearch/portable-coordinate-numeric-v1-checkpoint.json。以下は履歴。
+
+
+座標物理の移植境界をsource-bound model-checkへ整理し既存モデル／arena監査を再利用。物理は6pellet→12packet、ほぼ全遮蔽でも0damage本体packetが残ることを正本passive観測で確認。既存の均一packet／BODY-ADD group観測器は変更せず、expected専用の正本8world／15pellet／31packet oracleを追加。共通Slangの角度区間union／intersect／subtractを実装し、coordinate-arcs135（native126／拒否9）がM5 Metal一致・独立seal、最大1024区間／境界／符号zero／tail検証。GPU1回0.012983秒／同claim再試行0／Windows実行0。最終区間CPU8／合成CPU51／制御416（Win1skip）、full2932→compact1605全record／byte保持。監査データの同梱漏れ2件は失敗記録を保持しpackage作成時とCPU worker前に自動拒否。source更新時は旧proofをstale表示し開発検証を継続可。旧97／88／81のGPU閉包と保護7source不変、再GPU0。物理確率・三角関数／積分／measure／packet展開／group本体接続は未実装。数値方針の回答待ち。Windows保存objectのCPU回収依頼はAPIがactive turn不在として拒否、開始未確認／再送0。全キャラ0／20gap／UI CPU／目標未達。詳細[座標物理の移植境界](portable-coordinate-physical-frontier.md)、research/portable-coordinate-physical-frontier-checkpoint-v1.json。以下は履歴。
+
+座標＋実射撃groupを共通GPU常駐Runtimeへ接続。private coordinate-composed97（native81／拒否16）がM5 Metal実GPU一致・独立seal。入力108648／出力1310720word、scene104408／area107592／CP1048576、全容量保持。owner0／3と1／3／6packetの同frame共存を検査。物理射撃はbody-onlyで部位poolを明示拒否、座標skillの部位・保留・世代交代は接続済み。旧81／88を最終sourceで再実証しinput／raw全byte／生成CUDA-MSL保持、新97内の旧88はworld＋座標一致・主入口admission16word差を全goldenへ固定。CPU42／制御415（Win1skip）、full2922→compact1628全record／byte保持。GPU5（成功4／比較失敗1）、実行前停止4／容量guard2、同claim再試行0。Windows保存objectは5452464byte／SHA ea9e1484…48cb8、proof結果JSONと回収receiptなし／関連active0をread-only確認、追加compile／GPU0。sin45数値方針は回答待ち。座標物理部位／手動aim／混合world原定義／公開受付が次優先。全キャラ認証0／20gap／UI CPU／目標未達。設計[合成実行器](portable-arena-composed-executor.md)、集約research/portable-arena-composed-executor-checkpoint-v1.json。以下は履歴。
+
+主実行器統合に向け共通arena schemaとCLI arena-checkを実装。CP Python/AG host定数を共通schema化し旧Slang宣言byte保持・実consumerの入力/clear範囲を照合、既存resident監査再利用。combined-legacyは出力live235096word＋clear末尾4968wordに加え、AGでsceneが8word動きCA_BASE_INPUT固定のため入力107585–107592も重複し終了1。combined-v1はscene104408/area107592/CP1048576、入力108648/出力1310720word、全容量保持で重複0。ただしruntime_connected=false、backend最大1Mのままで合成battle未接続。次は合成入口・backend受付・decoder・storage budgetを同時接続。共通smokeに7検査追加、実宣言/入力/clear5改変拒否。固定packageで旧88(native75)+CPU37/本体81(native68)+CPU53/制御413(Win1skip)成功、両GPU閉包・入力/native指紋保持。full2913→compact1619全残存record/byte保持。GPU0/Windows0/数値変更0。全キャラ0/20gap/UI CPU/未達。詳細[arena合成](gpu-arena-composition.md)とresearch/portable-arena-composition-checkpoint-v1.json。以下は履歴。
+
+座標スキルの世代交代を共通executorへ接続。選択snapshot固定・着弾時対象名→現在世代解決・期限切れ部位のimpact→閾値→死亡順と冪等性を保持。新coordinate-generation88(native75/拒否13)がM5 Metal一致・独立seal、追加12正例、旧76全318767104byte raw/33026560byte input/entry保持。本体81閉包不変で再実行0。GPU2(初回期限切れ死亡登録失敗1/修正版1)、retry0/Windows0。CPU37/制御406(Win1skip)、保存5改変/source5改変拒否。full2910→compact1616全record/byte一致、raw2件4KiB疎化で707969024byte回収、全byte-SHA-inode保持/削除0。主実行器のAGとCP arenaが同時有効時243608word重複する静的課題を発見、現別profileの衝突実証ではない。次は共通schema/CLI合成検査/合成profileを優先、世代固定ActorHandleは対象名解決と区別。許可済みWindows15fileはda805153/計9634581byte取得・照合済み、再送なし。数値基準回答待ち、全キャラ0/20gap/UI CPU/未達。詳細[世代交代](portable-coordinate-generation.md)、[arena合成](gpu-arena-composition.md)、research/portable-coordinate-generation-checkpoint.json。以下は履歴。
+
+座標opt-in全バースト保留を共通executorへ接続。scalar/periodic/interrupt receiptと68word座標snapshotを同じqueue indexへ移動。新coordinate-full-burst76(native63/拒否13)がM5 Metal一致・独立seal、範囲/多段/参照count/出生消滅/子tail/旧形式共存13正例と3負例。旧60全251658240byteと旧81全339738624byte/input/生成CUDA-MSLを完全保持。旧81も現sourceでMetal一致・独立sealとcompiler source証明書更新。GPU3(初回flag不足失敗1/修正版1/旧81回帰1)、同package retry0。未登録source deltaで制御失敗したため過去ledgerを保持して今回の全SHA/一意literal差分監査と5改変拒否を追加。最終CPU35/制御405(Win1skip)、full2905→compact1611全record/byte一致。4K疎化で計2097152000byte回収、raw削除0/全byte-SHA-inode保持。数値/正本/厳密normalizer不変。Windows送達・数値方針回答待ち、手動aim/物理/世代交代/混合world/公開受付が残る。全キャラ0/20gap/UI CPU/未達。詳細[座標full-burst](portable-coordinate-full-burst.md)とresearch/portable-coordinate-full-burst-checkpoint.json。以下は履歴。
+
+旧形式B3 bonus_damageの保留→共通本体着弾を座標worldへ接続。新coordinate-pending60(native50/拒否10)が実M5 Metal一致・独立seal、先行/後続ATK・全バーストbuff・部位出生/消滅・吸血8契約を追加。旧area52の全218103808byte raw／22597120byte入力／sealed entryを完全保持。GPU1/retry0、実GPU.027555秒、CPU33/制御404(Win1skip)、full2899→compact1605全record/byte一致。新raw全byte/SHA/inode保持の4KiB疎化で242868224byte回収。旧81本体source closureと保護CPU/数値/normalizerは不変、Windows新依頼送達は未確認で再送なし。座標opt-in保留のsidecar移動、手動aim/物理/世代交代/公開受付、host trig数値方針とCUDA回収が残る。全キャラ0/20gap/UI CPU/未達。詳細[座標B3保留](portable-coordinate-pending.md)とresearch/portable-coordinate-pending-checkpoint.json。以下は履歴。
+
+Read-only module-object recovery is implemented in the shared CLI/wrapper. It anchors an external object SHA, validates the original terminal outer timeout and successful inner Job, reuses the object auditor with a separate before/after byte snapshot, and never backfills original artifacts/result. Fixed packet control404 (Win1skip), recovery7 included, compiler CPU191 passed. Distribution: codex/current-object-recovery-v2-source @811ca5ce; Windows dispatch has no acknowledgement, so execution is unconfirmed and must not be repeated without status. Recovery receipt is not yet connected to JIT-link admission. No new tool/GPU calls; original failure/claims retained. Goal incomplete, coordinate numeric policy pending. See [object recovery](portable-object-recovery.md) and research/portable-module-object-recovery-checkpoint.json. History follows.
+
+現full PTXのmodule-objectをWindowsで1回だけ実行。ptxas20.545秒/ret0で5452464byteを保存したが、outer終了後監査中に90秒上限となり全stage/object_verified false。inner59.414秒/exit0・両Job2GiB/BelowNormal/post空/missing0/service未確認。元proofのartifacts/resultなし・status processingとclaim保持、再実行/上限増加/link0。次は別CPU監査receiptによる原本回収、元captureへの後付け禁止。保存CUBIN戦闘を共通wrapper gpu-linkedへ接続し固定package制御397件(Win1skip)/wrapper19成功、Windows新stage未検証。GPU/正本/数値/normalizer変更0。全キャラ0/20gap/UI CPU/未達、座標数値方針回答待ち。詳細[保存リンク実行](portable-saved-linked-stage.md)。以下は履歴。
+
+<!-- coordinate-skill-packets-current -->
+compiler-onlyのcompactを既存依存解決器へ接続し、full2892→compact1578の全残存record/byte/golden保持。CPU191/共通395(Win1skip)成功。Macの現full source生成cache必須hitでSlang/GPU0。Windows旧PTX file-probe hit.146秒、現package9bf571ab…のgenerationを明示1回（Slang2/9.099秒・sealed一致）後、両cache必須のcompile-ptx1回がSlang/NVRTC/ptxas/driver/GPU0で既存9554090byteを.122秒復元。現owner自身のproducer、旧owner再ラベル0/原本claim保持。全Job2GiB/BelowNormal/post空/timeoutなし/missing0、service未確認で保全/compile全stage false・計算falseを維持。cache key/厳密normalizer/GPU/数値/正本変更0。次は保存PTXからのmodule-object/JIT-link・短いCUDA実計算。座標の数値基準は回答待ち、全キャラ0/20gap/UI CPU/未達。詳細[compiler compact/cache](portable-compiler-compact-cache.md)とresearch/portable-compiler-compact-cache-checkpoint.json。以下は履歴。
+
+円/回転矩形の距離選択→既存照準/範囲buff→PART/INTERRUPT packet着弾を共通Slangへ接続。area52(native42/拒否10)と同じshape関数のprobe158(native150/拒否8)がM5 Metal一致・独立seal。旧19全79691776byte/native保持、初回focus設定漏れを修正し他51block保持・失敗保持。新Metal3/retry0、旧35/24/16/81/hypot閉包不変で再実行0。最終CPU31/shape6/制御394(Win1skip)、full2893→compact1599全record/byte一致。input gateへ最大64rowの自動SHA診断を追加しGPU/oracle再実行なしでWindows差45行を検出。Windowsは小probeを1回だけ、CPU6後に入力差で停止/GPU0。sin45のhost 1ULP差が境界の命中/非命中も反転することを実証しreference_numeric_policy_gapへ分類、数値基準選択をユーザーへ依頼中。原本/guard/normalizerは変更せず、Windows失敗/claim/14欠落原因unknown保持。全キャラ0/20gap/UI CPU/未達。手動aim/座標物理/保留B3/世代交代/混合actor/全元定義/公開受付が残る。CLI guideの履歴を別fileへbyte保持移動し手順書を軽量化。詳細[座標area](portable-coordinate-area.md)とresearch/portable-coordinate-area-checkpoint.json。以下は履歴。
+
+座標距離用の整数binary64 hypotを共通Slangへ実装。sealed coordinate-math1026(native1024/拒否2)がM5 Metal全word一致・独立seal、4CPUで追加30000入力一致。subnormal単一丸めと正本二段丸めの1ULP差を発見し、正本を変えず二段丸め契約を保持。4limb整数2乗/中点比較、近似sqrt/native float0。GPU .000261秒/new1/retry0、旧35/24/16/81閉包不変・再実行0。最終CPU4/制御392(Win1skip)、full2880→compact1574全record/byte保持。Windows小norm1026も1回で計算/containment成功、比較原本SHAがMetal全1026entryと一致。missing0/service未確認で保全/stage false。診断4file公開は自動審査拒否、接続内read-only照合・原本保持、full本体なし。shape/回転sin-cos/実callerは未接続、全キャラ0/20gap/UI CPU/未達。詳細[座標数値](portable-coordinate-math.md)とresearch/portable-coordinate-math-checkpoint.json。以下は履歴。
+
+DoTの既存時計→frame Geometry→世代付き座標packet→PART着弾を共通Slangへ接続。sealed coordinate-dot35(native28/拒否7)がM5 Metal一致・独立seal。新9ケースで即時/遅延tick、消滅/破壊/世代2/不壊/depth、DoT限定counter/吸血、created .2099→landed .216666の新生部位、dot+part同一層加算を検査。旧24も現sourceでMetal一致・独立sealし全100663296byte/input保持、35先頭も完全一致。新GPU2/retry0、旧16/81閉包は不変で再実行0。最終full/compact CPU23各成功・制御392(Win1skip)、2875→1585全record/byte保持。Windows保存PTX生成成功26.302秒/全97.422秒/GPU0、outer missing9でstage false・原因unknown。再実行なし、承認済み15fileをMac取得・全サイズ/SHA一致。正規化生成一致だがraw/source IDは異なりcache再bind不可。全キャラ0/20gap/UI CPU/未達。距離形状/座標物理/保留B3/跨frame世代/元全定義/公開受付は未完了。詳細[座標DoT](portable-coordinate-dot.md)とresearch/portable-coordinate-dot-checkpoint.json。以下は履歴。
+
+即時全部位スキルのframe Geometry→cast→世代付きpacket→Actor着弾を共通Slangへ接続。sealed coordinate-skills24(native19/拒否5)がM5 Metal一致・独立seal。宣言/期待値モデルでplain/pierce/explosionのhits_parts、depth反転、破壊/不壊、同cast stale、吸血子のframe残存near（8800/HP5880）、typed counter閾値→refresh→死亡（epoch1→2）を検査。全battle＋選択key/世代＋着弾順/量を比較。新Runtime0/local receipt uint1、容量超過status64。旧16/81も再検証・独立seal、全406847488byte/input/生成CUDA-MSL保持（81両reflectionも保持）、compiler mixed証明書更新。最終CPU20/旧81CPU52/制御392(Win1skip)、full2872→compact1581全SHA一致。新GPU4/retry0/Windows追加0。距離形状/座標物理/保留DoT/跨frame世代/原キャラ全定義/公開受付は未完了。全キャラ0/20gap/UI CPU/未達。詳細[座標skill packet](portable-coordinate-skill-packets.md)とresearch/portable-coordinate-skill-packet-checkpoint.json。以下は履歴。
+<!-- /coordinate-skill-packets-current -->
+
+<!-- coordinate-world-pool-current -->
+座標selectorを共通戦闘の16word actor poolへ直接接続（状態コピー0／Runtime追加0）。sealed coordinate-world-pool16(native battle11/拒否5)がM5 Metal一致・独立seal、再出現世代2/出生順/ordinal/破壊/interrupt/depth反転を検査。既存非座標battle＋literal座標sidecarの終了前読取り検証で、座標packet producer／Frame着弾は未接続。旧21全byte保持、mixed81も現schemaで再検証・独立seal、全339738624byte/input/native/生成CUDA-MSL両reflection保持。新compiler-full--attack-group-mixedを共通CLIで独立監査登録、旧long証明書は履歴（現source stale）。最終CPU16/旧81CPU52/制御392(Win1skip)、full2866→compact1575全record/SHA一致。新GPU4/retry0/Windows新依頼0、保存PTXunknown。全キャラ0/20gap/UI CPU/未達。次は選択時の座標集合固定と実packet接続、stale accounting/通知吸血順。詳細[実pool直接接続](portable-coordinate-world-pool.md)とresearch/portable-coordinate-world-pool-checkpoint.json。以下は履歴。
+<!-- /coordinate-world-pool-current -->
+
+<!-- coordinate-scene-current -->
+座標descriptor／depth・出生時刻順／live世代付き全部位集合を共通Slangへ追加。sealed coordinate-scene21(native10/拒否11)が実M5 Metal全word一致・独立seal、保存raw4改変検出。127対象/pattern31/不壊/再出現/signed-zero/subnormalを検査。CUDA/MSL共通生成、CUDA実行なし。明示primitive操作の部品検証で、戦闘Frame・範囲距離・公開受付は未接続。正本stale targetはkindを返し総量計上するため前記録を訂正、同cast後続packetのreference25を追加。最終CPU12/旧81native68+CPU52/制御392(Win1skip)、全package SHA/compact残存records一致。新GPU1/retry0、Windows追加依頼0・保存PTX結果unknown。全キャラ0/20gap/UI CPU/未達。次は共通Frame caller pool接続、形状数値primitive。詳細[座標GPU部品](portable-coordinate-scene.md)とresearch/portable-coordinate-scene-checkpoint.json。以下は履歴。
+<!-- /coordinate-scene-current -->
+
+<!-- coordinate-skill-reference-current -->
+座標スキルの正本24契約を共通reference CLIへ追加しGPU/packing0で成功。全部位指定と通常貫通/爆発の距離選択・前後順・破壊/不壊・通知/packet順・別interrupt量を区別。CPU bridgeの無条件PART publishによるinterrupt誤分類を、native戻り値capture→元total後/吸血前の条件publishへ修正。hit_target1回・private kind6非alias・reserved local拒否を検査。観測透明性/既存profile連鎖/入力不変も成功。source監査は座標をnativeモデル有りのgpu_port_gapとし、GPU拒否guardと数値依存6math＋powを記録。固定package CPU49/旧81入力native68保持/制御392(Win1skip)、全残存full/compact records一致。正本/数値/GPU/旧golden変更0、新GPU0/Windows新依頼0。座標GPU未接続、全キャラ0/20gap/UI CPU/未達。次は共通descriptorと形状/数値primitive。詳細 [座標スキル正本契約](portable-coordinate-skill-reference.md) とresearch/portable-coordinate-skill-reference-checkpoint.json。
+<!-- /coordinate-skill-reference-current -->
+
+<!-- mixed-attack-group-current -->
+実Ni/Velを同編成のslot0/1・3/4へ配置し元全効果を保つ混合owner20ケースを追加。sealed attack-group-mixed81(native68/拒否13)がMetal一致・独立seal、旧60の全251658240byte/input/native保持。新20は1116group/528通知、3/30/180秒・閾値2/4・両policy・65件目以降の両ownerを照合。GPU11.661秒/必須pipelinehit.002401秒/Slang0、保存4改変拒否。最終CPU34/制御392(Win1skip)、full2848→compact1567全残存record一致。共通テストfixture同梱漏れの失敗を保持して修正。容量guard停止後4KiB opt-in疎化を実装し2capture計1564307456byte回収、全byte/SHA/inode/証拠保持・削除0。共有計算/数値/正本/旧golden変更0、新GPU1/retry0。Windows新依頼0、既存PTX結果unknownで再依頼せず。全キャラ0/静的245/266/base185/203/20gap/UI CPU/未達。次はgeometry/parts/arena境界の正本契約、Windowsは復旧後に保存結果取得。詳細 [混合owner実射撃group](portable-mixed-attack-groups.md) とresearch/portable-mixed-attack-group-checkpoint.json。
+<!-- /mixed-attack-group-current -->
+
+<!-- current-full-compiler-packet -->
+現在のMetal60をGPU0で独立再監査しcompiler-full--attack-group-longの全source証明書を登録。旧本体で成功したPTX→object→JITlinkを再利用する方針で、現全ソースPTX専用1回をWindowsへ依頼。接続不可のため実行状態・結果はunknown、再依頼0。共通packetへ既存module-object/JITlink CLIを固定request/外Job/内60外180秒/2GiBで接続し、CPU191＋制御391(Win1skip)成功。source/数値/golden変更0・新GPU0。v2へ移行する場合は成功済みPTX cache必須でNVRTC0のproducerを同ownerへ作り、providerのpackage ID条件を維持する。新stage実Windowsは未確認。全キャラ0/20gap/UI CPU/未達。詳細 [現在の全本体コンパイル経路](portable-current-full-compiler.md) とresearch/portable-current-full-compiler-checkpoint.json。
+<!-- /current-full-compiler-packet -->
+
+<!-- long-group-history-current -->
+
+<!-- cuda-packet-preparation-current -->
+CUDA準備を既存packet wrapperの生成専用stageへ分離し、実Job/2GiB/BelowNormal/gate確認付きでWindowsへ接続。Windows CPU32/native48/60入力成功後、生成v4も34.117秒でCUDA/MSL sealed指紋一致（Slang2、NVRTC/driver/GPU0、postJob空/missing0、service unverified）。最新3suiteをcompactへ追加し、残存全byte/goldenを保持。Windows相対path監査不具合をPOSIX表記で修正。Mac制御387(Win1skip)・生成stage成功、計算コード/数値/golden変更0・GPU再実行0。生成cache必須O0を1回だけ実施しcachehit/Slang0、NVRTC27.211秒でptxas Memory allocation failure/rc6/artifactなし、全58.300秒（timeoutなし）。内外Job後空/missing0、driver/GPU0・再試行/上限変更0。次はCPUのみで保存生成コードを解析しcompilerメモリ削減の共通分割候補を調べる。失敗・claimは保持。現CUDA計算未確認、全キャラ0/静的245/266/base185/203/20gap/UI CPU/未達。詳細 [CUDA packet準備](portable-cuda-packet-preparation.md) とresearch/portable-cuda-packet-preparation-checkpoint.json。以下は履歴。
+<!-- /cuda-packet-preparation-current -->
+
+sealed attack-group-long60(native48/拒否12)で、180秒の全927group/209通知をMetal一致・独立seal。live32slotと観測履歴を分離し、opt-in可変長24+4*対象wordsで全recordを保存、先頭64legacyも保持。schema LANDINGS2048から開始862048/arena186528wordsを導出、尽きれば明示status64。初版の512誤認/領域重複で新6件の参照bank検査が失敗したcapture/claimを保持し、同じ60入力で修正を検証。65射目/最終時刻/余分word/参照bank末尾の4改変を検出。旧53の全222298112byte/input/native保持、旧53/32のsource/生成IDだけ更新。CPU31/正本48/制御380(Win1skip)、GPU11.181秒/PSO90.851秒/run Slang0、最終package4c2a5371…全payload/CPU/generation照合済み。旧61は新GPU0/source再bind0、生成CUDA/Metal/両reflection全byte一致だけをCPU確認。原本削除0で約656MB割当回収。静的245/266/base185/203/20gapと全profile/issue/lane保持、全キャラ0/UI CPU/Windows0/未達。次はCUDA本体compile/cacheとmixed-owner/arena境界、geometry/盾/parts。詳細[完全な長時間group履歴](portable-long-group-history.md)とresearch/portable-long-group-history-checkpoint.json。以下は履歴。
+<!-- /long-group-history-current -->
+
+<!-- metal-pipeline-cache-current -->
+共通CLIへopt-in Metal pipeline cacheと必須hitを追加。生成MSL/Swift consumerの全byte、GPU/OS/entry/stride/safe数値optionをkey化し、native failOnBinaryArchiveMissで再コンパイルfallbackを禁止。key lock内の2file読込・fsync/rename公開、破損/別kernel/必須miss拒否と公開途中待機を実機確認。最終v5の実53 cold/warmが全一致・独立監査、既存222298112byte/rawとcomparison全文を完全保持。PSO90.964848→.002401秒、GPU2.144520→2.108135秒（準備1pair実測）。v4も成功、公開競合のsource点検後v5修正を保持。制御380(Win1skip)、小nativeはv2/v4/v5各4GPU、実53はv4/v5各2GPU、計16dispatch/再試行0/Windows0。最終package037ef7aa…はreplay監査器差替拒否/負例だけを追加し全payload SHA照合。raw削除0で約1.63GB割当回収。CUDA既存cache/計算/Slang/normalizer/golden変更0、現CUDA実機・全キャラ0/UI CPU/残20gap/未達。次はCUDA本体compile/cacheと長時間group64・mixed-owner・geometry/盾/parts。詳細[Metal pipeline cache](portable-metal-pipeline-cache.md)とresearch/portable-metal-pipeline-cache-checkpoint.json。以下は履歴。
+<!-- /metal-pipeline-cache-current -->
+
+<!-- native-route-gpu-current -->
+通常対象選択を既存共通actorSetCapture／actorPhysicalTargetへpacketごと接続。sealed attack-group-native-route53(native42/拒否11)がM5 Metal一致・独立seal、旧32の全134217728byte保持。新20は172group/2通知、SG途中ADD3破壊→BODY再選択、元Ni/Vel16全battle保持。全53は340group/114通知、保存出力4改変を共通比較器で拒否。旧61も現source一致・独立sealし全255852544byte、入力/native、両生成/両reflection全byte保持。CPU28＋旧93＋分類17、制御372(Win1skip)。実run Slang0/再試行0/Windows0。GPU53=2.028秒/PSO93.076秒、61=10.382秒/PSO67.185秒、永続PSO cacheは未実装。全byte/SHA/inode不変で約1.55GB割当回収、raw削除0。最終package53は7e38f81f…、61は6dbb436d…、payload全SHA照合済み。静的245/266/base185/203/20gapと全profile/issue/lane保持、通常UI CPU/全キャラ0/未達。次は長時間log64・mixed-ownerと準備cache、geometry/盾/parts、現CUDA。詳細[通常対象選択GPU](portable-native-route-gpu.md)とresearch/portable-native-route-gpu-checkpoint.json。以下は履歴。
+<!-- /native-route-gpu-current -->
+
+<!-- native-route-groups-current -->
+実射撃groupに明示nativeポリシーを追加し、元Bossルーターを変更せず実着弾を収集するCPU20契約を共通CLI referenceへ登録。新規展開の固定packageで172group／2通知／2子着弾、元2プロフィール16件のbattle全体と全物理shotが未導入正本に一致。宣言listener付きSG2件では同一射撃中ADD3破壊→BODYへ実再選択し、各1回だけ発動。CPU27成功、旧32input/native22全保持、全2832payload SHA一致。旧policy専用source監査の初回失敗を保持し、明示二policyと置換禁止3負例で修正。GPU source／golden／数値／保護CPU変更0・GPU0・Windows操作0。新20はGPU未接続で全キャラ認定へ加算しない。次はpacketごと既存actorPhysicalTargetへ共通Slangを接続し、Metal20＋旧32/61保持・独立seal。詳細[通常対象選択の射撃group](portable-native-route-groups.md)とresearch/portable-native-route-group-checkpoint.json。全体目標未達、以下は履歴。
+<!-- /native-route-groups-current -->
+
+<!-- battle-attack-groups-gpu-current -->
+実射撃group・queued childの世代付き対象・敵buff fanoutを共通Slangへ接続し、sealed `attack-group-battle`32（native22／拒否10）がApple M5 Metal一致・独立seal。元ニヒリスター／ベロータ20入力と宣言listenerを加えたSG2入力で168group／112通知、全物理snapshot・全ADD数量／hit／世代・global overkill・buff対象・所有参照解放を照合した。GPU1.950秒／cold PSO89.670秒、Runtime138952不変・run Slang0。旧61も同じ現共有sourceで一致・独立sealし、旧255852544byte rawと全input／native保持。旧goldenはsource／生成物identityだけを更新した。CPU23＋旧93、共通制御372（Win1skip）が成功。CLIへ出力割当一致guard、source履歴へexact逆差分を追加し、失敗・claim・rawを保持。明示all-logical-enemies/BODY/ADDモデルで、geometry／長時間log64超／mixed-owner広範囲／現CUDA／公開受付は未完了。静的245/266・base185/203・残20gap／全キャラ0／UI CPU／ゴール未達。Windows追加0。詳細 [実射撃group GPU接続](portable-battle-attack-groups-gpu.md) とresearch/portable-battle-attack-group-gpu-checkpoint.json。以下は履歴。
+<!-- /battle-attack-groups-gpu-current -->
+
+<!-- battle-attack-groups-native-current -->
+共通CLI `reference --suite attack-group-battle` に実射撃のCPU22契約を追加。固定full packageで168射／168group／112通知／448子着弾が成功、16入力で非zero。元ニヒリスター／ベロータ20入力と、宣言listenerを加えた元ノワール／ツバイ10packet射撃2入力を区別する。実際のBODY/ADD receiptからdistinct集合をsealし、queued childの世代固定・例外復元・単boss全battle保持を検査。明示all-logical-enemiesモデルで、ゲーム内の範囲判定／Slang自律producer／Metal接続は未完了、22全てmodel gap・GPU加算0。前回のsealed Metal入口はdestructible-body-heal-share-retention61、親oracle52再利用とfresh独立監査を維持する。Windowsは接続復旧を読み取り確認、idleで新規CUBIN／CUDA依頼0。全キャラ0／通常UI CPU／ゴール未達。詳細 [実射撃group CPU契約](portable-battle-attack-groups-native.md) とresearch/portable-battle-attack-group-checkpoint.json。以下は履歴。
+<!-- /battle-attack-groups-native-current -->
+
+<!-- body-lifesteal-shield-current -->
+HSI5で元ミルク吸血16.16%を既存body着弾後へ接続。盾で吸収したpacketはbody/吸血を抑止し、body到達だけ従来処理。元77定義・3/30秒の新13(native10/拒否3)、旧AoE18込み31(native26/拒否5)がMetal一致・各独立seal。累積healing未照合を保存raw破損で発見して厳密なnative receipt比較を追加し、GPU0 replay13/再seal・12破損検出。旧18全raw一致、新13の6件は配置変更に伴うscratch絶対アドレス1wordのみ、元raw/保持検査失敗/全差分を保持しnormalizer除外0。source158/Runtime138952/数値/保護CPU維持、旧経路の生成CUDA/MSL全byteも同一。現在sealed入口destructible-body-lifesteal-retention31、旧goldenはsource stale履歴を保つ。蓄積/共有回復/貫通は未対応、Windows追加0/全キャラ0/UI CPU/残20gap。詳細docs/portable-destructible-body-lifesteal.mdとcheckpoint。以下は履歴。
+<!-- /body-lifesteal-shield-current -->
+
+<!-- aoe-burst-shield-current -->
+元ノワールAoEと元ミサト盾150%、元トリナAoE435.6%を既存共通FrameでMetal18(native16/拒否2)・独立seal。全78/83定義を保つ3/30秒実編成、HP/hit/slot順/破壊body/世代を照合、旧14全raw保持。GPU9.758秒/PSO.002491秒、source157/Runtime138952/正本/数値/normalizer不変・required generation hit/Slang0。sealed destructible-aoe-burst-rostersをcompactへ追加し比較器共通化、破損16検出は同一入力nativeをコピーし90秒上限を維持。Windows追加0/現CUDA未確認/20gap/全キャラ0/UI CPU。詳細docs/portable-destructible-aoe-burst-rosters.mdとcheckpoint。以下は履歴。
+<!-- /aoe-burst-shield-current -->
+
+# 共通CLIの軽量パッケージ
+
+`docs/portable-compact-package.md` と `research/portable-package-projection-checkpoint.json` を参照。`package --compact` は現行skill157/Misato2に限定し、全GPU source・fixture/data・pinned upstream・指定CPU/全smokeを保持する。ファイル数2,795→1,550/ZIP8.46→6.39MB、Windows速度は未測定・今回追加実行0。共通制御372(Win1skip)、strict generation hit/Slang0、保存Metal2 replay成功。失敗と古いgeneration fixtureを保持し、歴史source auditだけ後続の明示stride差分へ対応。計算本体/normalizer/全キャラ認定0/残20model gapは変わらない。
+
+<!-- shared-gpu-current -->
+元selector/count/burst flagsを共通actorSetCapture・sampleDamageFactorsForReach・既存typed Frameへ接続。sealed destructible-skill-retention157(native102/拒否55)＋destructible-skill-misato-retention2がMetal一致・各独立seal。元レイ7＋全73定義の4契約でHP/hit各38packet内のskill3を確認、Dola burst/single=trueとRei B3 damageのburst=falseを保持。新HSI4だけで拡張、盾なしは元skill Frame、旧141全input/native/raw591396864Bとミサト2全8388608Bを保持、保存5block61改変検出。fixed b00d2fcd…CPU43/skip0・native102成功、4既存/2新shaderでsource157、Runtime138952/保護CPU/量core/binary64/normalizer維持。GPU157=3.110215秒/PSO65.163974秒、warmミサト=1.760292秒/PSO.005851秒、実run/final生成cache必須hit Slang0。GPU2回/再試行0、raw削除せず958595072B割当回収。Windows復旧、既共有O0 fixed21ba977a…だけCPU63/native17＋compile各1回。CPU成功/欠落0、O0内側60 timeout・NVRTC entered1/return0/CUBINなし/driver-GPU0、外側82.825秒・両BelowNormal/2GiB/post空/欠落0、service unknownで保全false・旧7終了unknown継続。child verify17.456s/generation10.512s cold2回、entered→wait29.376sは完了時間でない。remote reported summaryでMac raw独立監査なし、claim保持。既存packet2702filesの不要依存を検査しpayload縮小と工程分離が次の効率化。全266/245/base185/残20・issue/順位は限定metadata以外保持、全キャラ0/UI CPU/未達。standalone16はdevelopment_only、現入口は157とnewミサト2。次はAoE burst正例（今回true正例なし）、広いskill/貫通/吸血蓄積/parts/coords/ADD、現CUDA cache/計算。詳細 docs/portable-destructible-skill-rosters-gpu.md / research/portable-destructible-skill-rosters-gpu-checkpoint.json。
+
+元レイ7スキル＋装備/同伴の全73定義を、元selectorを変えないskill_shields opt-inのnative契約4件へ接続。共通CLI reference destructible-skill-rostersがpacking/build/execute禁止で成功、HP/hit各38packet内に元skill3（ドラー単体burst748299、レイ4727897/44161247、hit側590618/7703705）を確認。盾補正700.5%・credit1を分離、元Dola single=trueと元Rei B3 damageのburst=falseを保持。3秒17packet/盾破壊後body、未知family/multi/deferred/ADD/parts/coords/吸血蓄積を拒否、全method例外復元。fixed39c1188e…CPU32/skip0・旧native2成功、旧ミサト2golden全entry/武器141 input-native保持。全155GPU source/Runtime/両生成/binary64/保護CPU/normalizer不変、generation必須hit/Slang0/新GPU0。新レイ4はGPU未接続で実証認定しない。inventory全266/245/base185/残20/全field完全一致、全キャラ0/UI CPU/未達。Windows観測/新依頼0、現CUDA/cache速度/CUBIN O0/7終了unknown・保全false継続。次は元route/count・burst/AoE/single flagを共通selector/factor/Frameへ接続し、旧141/ミサト2保持＋新レイ4のMetal/独立seal。詳細 docs/portable-destructible-skill-rosters-native.md / research/portable-destructible-skill-rosters-native-checkpoint.json。
+
+元ミサト5スキル＋装備/同伴4人の全71定義を、実武器・元preparationのまま共通武器盾入口へ接続。sealed destructible-weapon-rosters2（3/30秒）がMetal/native一致・独立seal成功。3秒は補正0の3packet、30秒は元60回条件→passive盾補正150%の22packet、元回復27配布/10正回復の最終HP・弾数・burst/物理履歴まで一致。GPU回復全イベント列の個別照合ではない。155GPU source/Runtime138952/両生成/binary64/保護CPU/normalizer追加変更0、既存実行器を再利用。最終fixed e95f1af2…CPU24/skip0・native2成功、旧141全input/native保持、実GPU両block18改変検出。GPU1.758617秒/child2.645708秒/実runとfinal生成cache必須hit Slang0、GPU1回/再試行0/Windows依頼・観測0。容量不足はclaim前GPU0で停止、旧成功141rawの全byte/hash/inodeを保持し440991744B割当回収・raw削除0。final v2の旧141golden梱包漏れCPU失敗を保持しsupport_files修正、fresh v3成功/GPU再実行なし。全266/245packing/base185/残20gap・issue/順位は限定metadata以外保持、全キャラ0/UI CPU/目標未達。通常受付は拒否、宣言単一boss・武器専用policy。次は他の盾補正キャラ全定義、貫通・吸血/蓄積・skill route・部位/座標の混在。現CUDA/cache速度/CUBIN O0/7終了unknown・保全false継続。詳細 docs/portable-destructible-weapon-rosters.md / research/portable-destructible-weapon-rosters-checkpoint.json。
+
+通常武器の盾接続を共通Slangへ実装し、sealed destructible-weapon-shield141(native98/拒否43)がMetal一致・独立seal成功。実shotの9factor/HP補正を1回保存し、pellet通知前のlive HP/hit/body選択・dwLand/counter子・body除外を共通化。auto/散弾/charge/tap/武器変更/core/RL/2銃口/slot4/2射手の22契約で、量/時刻/弾数/gauge一致。旧111全input/native/raw465567744B全保持、実GPU10block91改変検出、final fixed328abf81…CPU204(skip0)/native98/reference22成功。初回charge3件の時刻失敗はfixtureの静的postfire0をnative metadata fallback.215へ5入力補正して解消、全native/source保持・raw変更3件・初回失敗/claim保持、計2GPU/同claim再試行0。成功GPU.069158秒/child2.191777秒、初回pipeline込み68.966296秒、実run/final生成cache必須hit Slang0。4既存/2新shader、source155/Runtime138952/保護CPU/binary64/normalizer不変、通常147/scalar119は共通hook変更でsource不変とは扱わずfull492再実行なし。rawを削除せず割当788332544B回収。全266/245packing/base185/残20model gap・順位は限定metadata以外保持、全キャラ0/UI CPU/未達。Windows status取得不可/新依頼0、現CUDA/cache速度/CUBIN O0/7終了unknown・保全false継続。座標/parts/aim/貫通/ADD owner/吸血・蓄積混在/対象DEF・敵debuff/全profileが次の未対応。詳細 docs/portable-destructible-weapon-shield-gpu.md / research/portable-destructible-weapon-shield-gpu-checkpoint.json。以下は各時点の履歴。
+<!-- /shared-gpu-current -->
+
+<!-- destructible-frame-current -->
+通常burst_cast通知→既存条件/発動権/係数確定/mode10 Frame→typed弾着弾をopt-inで接続。閾値全兄弟latch/子/破壊終了を同じFrame配列・work/depthでmode26継続、dispatch再帰なし・深さ別scratch。CPUはmanager scoped対象resolver/damage callbackでlive弾集合を返し、例外時も元callback/resolver復元。対象0なら発動権を消費しない既存契約を維持。Metal26(native宣言17/拒否9)＋独立seal、level1/10/fullburst/DEF0-100/zero/round/trigger未到来/2攻撃450→500/予算1/空予算/名前命中子450→595/128slot127/兄弟epoch1-2-3 ATK33/context解放が一致。GPU.033392秒/raw81,788,928B/Runtime163528、旧25 input/native/output/raw78,643,200B保持。初回23の子mode26終端未指定でcreditのみ溜まり完了しない差分を既存Frame valueへready終端を渡して修正・失敗保持。fixture8block故障注入、最終fixed a92d8469…CPU51/native17成功。通常492もfixed1a412068…CPU288/native378/Metal/独立seal成功、旧1,547,698,176B全byte・全492 input/native/output保持。通常経路はCUDA/MSL生成rawまで同一、Runtime138952不変、旧gold snapshot保持後actual sealで最新retention goldenを登録。共通2sourceのexact inverseは歴史source検査のみで、新実証の代用なし。通常GPU4.483秒/PSO65.213秒、Metal作成費は未解決。CUDA入力同一でもWindows新cachehit/数値は未測定、追加Windows0/claim操作0、remote最終turn01a16ab6…terminal/pending0のまま。全266/245packing/20分類順位保持、priority16へFrame限定証拠だけ追加しmodel gap/公開拒否維持。full battle scheduler/敵弾生成/個別DEF-debuff/倍率/盾迎撃/破壊固有/attack groupは残件、typed1行・driver root最大2で全キャラ認定0/UI CPU/全目標未達。次はscheduler worldと元profileのこの入口への接続、CUDA保存PTXの関数境界によるJIT費用削減。詳細docs/portable-destructible-frame.mdとcheckpoint/evidence。以下は履歴。
+<!-- /destructible-frame-current -->
+
+<!-- destructible-skill-current -->
+原all_projectiles定義→既存係数選択/compiled Definition/damageValue→live弾producer/counter/同期子をCPU/共通Slangへ接続。元SnowWhite HeavyArms index24の1定義8入力＋合成0係数/丸め境界2のMetal18(native宣言10/拒否8)が全件一致・独立seal成功。GPU.026898秒/raw56,623,104B/Runtime163528/source128。level1 24.76%=266/level10 41.9%=450/fullburst660/DEF100=405を既存7段/roundで確認、同攻撃のchild ATK増後も2本目の量固定。callerが明示DEF/phaseを持ち、typed Actorは保持・sentinel carrierだけworld-skill route1、既存ABI/mode7/時計through条件へ正しく変換。初期5失敗（literal入口、clock未到達、診断、sentinel route、旧DEFと消えた一時phase代入）を保持、数値/正本/normalizerの緩和0。最終fixed d34d72ec…CPU46/native10成功、梱包漏れCPU v7も保持・support_files修正、GPU再実行なし。旧producer15全input/native/既存GPU source保持。inventory全266/245packing/20分類順位の全field保持、priority16へ限定typed_skill証拠だけ付記しmodel gap/公開拒否維持。通常battle自動Frame/生成元/弾個別DEF-debuff/倍率/盾迎撃/attack group完了は残件。Windows今回は旧cache PTX静的分析のみ既存bounded CPU1.402秒、全181関数reachable/582edges/1510sites/無循環・間接call0、JIT負荷候補だが因果未確定・物理register/stack証明なし。Slang/NVRTC/driver/GPU0/claim不変。remote turn01a16ab6-b5a5-73b2-a610-8ff4466ebd8a terminal/idle cursor b0ceb4a4-c8c1-428e-bc07-b30c38de2633:16/pending0。詳細docs/portable-destructible-skill.md、checkpoint/evidence。全キャラ0/UI CPU/全目標未達。次は通常skill Frameからtyped routeへの自動dispatch契約と対象context/倍率、保存PTXの共通関数境界によるcompile費用削減。以下は履歴。
+<!-- /destructible-skill-current -->
+
+<!-- destructible-attack-current -->
+共通CPU/Slang producerがlive PROJECTILE一覧をGPU側で選択しslot/kind/id/generationを固定、既存dwLand/dwPublishImpact/counter/子dispatchへ複数着弾。盾除外/空集合/遅延/世代2/128対象slot127/miss/blocked/端数credit/元attackID/子ATKをMetal15(native宣言9/拒否6)で1回実行。GPU.039299秒/readback47,185,920B。初回reader effects渡し忘れKeyErrorを修正し新固定v2へ保存replay＋独立seal成功、GPU再実行0/元失敗・claim保持。saved5block改変検出、CPUの同期子世代交代はold handleを拒否。GPU子によるworld世代変更自体は未実証。旧counter/world/core/production147source・Runtime138952不変、新driver163528。inventory全266/245packing/20分類順位を完全保持。sealed最終v3 package45ed81bd…/最終CPU検証記録はresearch/destructible-attack-evidence/。旧counter18のWindows cache必須gpu1回は生成hit/Slang0/PTXhit/NVRTC0、child入力.027634秒、cuInit/context成功後cuModuleLoadData進入→inner60 timeout、launch/readback0/数値未検証。module進入後観測38.632秒は完了時間ではない。outer125.725秒/timeoutなし、両2GiB/BelowNormal/post空/missing0・service不明/環境保全false・旧claim保持/再試行0。remote turn01a16aac-39e6-72e0-8a15-a58b2a8cd063 terminal/idle、cursor b0ceb4a4-c8c1-428e-bc07-b30c38de2633:15/pending0。新producerのWindows実行は未依頼。通常battleの効果係数/倍率/typed生成元/盾迎撃/attack group完了は残り、all_projectiles通常受付は拒否。次は既存damage query/Frameからtyped producerへ接続する契約と保存PTXのmodule/JIT費用切分け。全キャラ0/UI CPU/残20model gap/全目標未達。詳細docs/portable-destructible-attack.md。以下は履歴。
+<!-- /destructible-attack-current -->
+
+<!-- prepared-transport-current -->
+CPU成功後の入力をprepared-v1で公開し、子はpackage全件検証＋入力全体/行SHA/CPU receipt照合を維持してadapter再import/packingを省略。auditも同じ照合、欠落/改変は停止・legacy fallbackなし。Metal先行v2の18入力が全件一致、旧raw56,623,104B同一、子入力確認Mac.005087秒。最終v3固定5972500d…はMac/Windows CPU64/native13成功・関連146成功、最終v3 GPU再実行なし。既存packetにcompile-ptxを追加し同じJob/gate/2GiB/BelowNormal/inner60/outer180以下で既存compiler-only経路を呼ぶ。Windows CPU1回/PTX1回、生成cache hit/Slang0、NVRTC22.536秒でPTX4,952,590B完成・driver/GPU0・旧CUBIN未完claim元SHA保持/新PTX claimなし。両Job終了後空/missing0、service unverifiedなので環境保全false/全体stage exit2、compiler成功と区別。CPU全体62.747秒（package27.207/群26.804、worker14.395含む）、compile全体65.946秒（親verify15.140/子16.045/NVRTC22.536）、入れ子合算不可。過去7終了は操作なし/game-video可能性でもcause unknown。remote turn01a16aa6-3ecc-7b32-ae11-0f2126820c14 terminal/idle、cursor b0ceb4a4-c8c1-428e-bc07-b30c38de2633:12/pending0、再試行0。Windows報告metadataは取得済み/PTX本体独立audit未実施。詳細docs/portable-prepared-transport.md、証拠research/prepared-transport-evidence/。通常戦闘producer/選択/迎撃/倍率未接続、245packing/残20model gap/全キャラ0/UI CPU/目標未達。以下は履歴。
+<!-- /prepared-transport-current -->
+
+<!-- destructible-counter-current -->
+宣言typed弾/HP盾/hit盾のresolved Impactを既存collector/DFS子イベントへ接続する共通CLI destructible-counterを追加。GPUで消費後、全兄弟latch→閾値子→壊れた正確な世代のcounter終了。body enemy_death/owner死亡へ変換しない。Metal18(正例13/拒否5)＋独立seal、ATK0/11/22/33/epoch/元Impact/old gen/子refresh/兄弟+破壊順が一致。旧16 input/native/raw50331648B全保持、最終Mac固定11a78f5c…CPU43/native13成功・保存5block故障注入、GPU.026794秒/cached PSO.001578秒/実run生成cache必須hit Slang0。初回ABI host不一致status64は保持し入力修正、追加case含む各固定package1回ずつ（v1入口拒否/v2成功16/v3成功18）。driver Runtime163528/123source、production147/Runtime138952/core/world source不変。inventory全266/245SHA/20code順保持、5分類へfoundation証拠だけ追加しmodel gap/受付拒否維持。Windows固定9b2d57fb…をroot642ab82で2file共有しCUDA18だけ1回。CPU42/native13/Slang build9.197秒成功、NVRTC entered後28.646秒の観測内で戻りなし→inner60 timeout/outer141.509秒exit1、GPU0/数値未確認。両2GiB/BelowNormal/post空/missing0・service unverified/保全false、生成cache完成/未完NVRTC claim保持・再実行0。remote GPU turn01a16a82-e29a-7501-ba5d-3a1ad1b86d72 terminal/idle、転送turn01a16a8c-0b6a-7340-9cd5-6157ca2d62f3もterminal、cursor b0ceb4a4-c8c1-428e-bc07-b30c38de2633:10/pending0。詳細16fileのsource/絶対path送信はauto-review拒否、縮小4JSON+manifestは審査拒否なしだがWin Git認証不足、認証を変えずCodex経由元bytes16276BをMacへ回収・manifest SHA53a777dc…/全4membersを検査、Mac認証で縮小版branch codex/cuda-destructible-counter-v1-sanitized-report commit45609afへ共有済み（source/path/PID/tokenなし）。strict normalized CUDA/Metal/input/normalizer SHAはMac一致。通常戦闘生成元/選択/倍率/破壊固有effectは未接続、全キャラ0/UI CPU/未達。次はCUDA内側予算のverify/pack/生成時間の削減（時間枠だけ増やさず、claim保持）と通常戦闘への接続。詳細docs/portable-destructible-counter.mdとcheckpoint。以下は履歴。
+<!-- /destructible-counter-current -->
+
+<!-- generation-timing-current -->
+共通observerにgeneration各区間/関数elapsed/status timed_calls、cacheパス/key/entry/claim参照を追加。key/consumer/claim規則/全件SHA不変。Windows CPU-only v2はverify38.917秒＋cp932診断errorで12中11成功/残未到達・timeoutなし。診断UTF-8＋owned child UTF8/親不変、file metadata3→lstat1（旧2667records/40404440B全一致・改変/nonregular拒否）に修正。Windows v4固定4fe0ff04…はCPU38/native24成功、inputSHA旧Metal46同一。全stage64.580秒/verify26.163/CPU batch33.904(worker verify9.510含む)/観測2.198+1.999、単回なので改善率未認定。2GiB/BelowNormal/peak199839744/post空/missing0、service未確認・環境保持false、Slang/NVRTC/driver/GPU0。remote turn01a16a70-1a2a-74e1-91f6-499eba312ccd terminal/idle、cursor b0ceb4a4-c8c1-428e-bc07-b30c38de2633:2、pending0。旧timeout cause/旧claimともunknown。さらにoverlay cases()がデータ取得だけでnative7を走らせていた根因を分離しsimulation_cases()へ。変更前9cases/packed SHA全保持、packing時oracle禁止＋明示native7維持を確認。CLI core/smokeへ純粋性2検査を追加、最終Mac固定4e3cc51d…でCPU40/native24 stage成功、関連74成功。最新case分離はWindows未測定・追加Windows依頼なし。旧Metal33/46・production147source/Runtime138952保持、全目標未達。次はtyped着弾→既存counter/所有破壊dispatchの共通接続と必要時だけの短いCUDA。詳しくはdocs/portable-generation-timing.md。以下は履歴。
+<!-- /generation-timing-current -->
+
+<!-- destructible-world-current -->
+型付き弾/HP盾/hit盾を既存world_scheduleへ接続する共通CLI destructible-worldを追加。GPUが生死からclearedを求め、既存active/generationで生成・退役する。別時計/CPUスポーン予定表なし、same-time再入/旧世代着弾/cleared優先/epsilon/slot127/owner/finishをBossScript正本時計＋宣言target状態と照合。Metal33(正例21/拒否12)一致＋独立seal、最終CPU17成功・保存5block故障注入、GPU.012810秒/PSO.182481秒/実run生成cache必須hit/Slang0。production147source/Runtime138952と旧core保持。戦闘生成元/dispatch/迎撃・倍率/all_projectilesは未接続、245packing/残20model gap/全キャラ0/UI CPU/未達。Windows追加0、7欠落は操作否定・game/video可能性の回答でもcause unknown/保全false、次CUDA前はCPU準備計測と保存claim監査。詳細docs/portable-destructible-world.mdとcheckpoint。以下は履歴。
+<!-- /destructible-world-current -->
+
+<!-- packet-preparation-current -->
+Windows core46はCPU37/24state preflight成功後に全stage90秒timeout。Slang2回は合計.608秒、CPU batch33.685秒/native.033秒、NVRTC/GPU/readback未観測。外側2GiB/peak340,103,168B/post空/cleanup正常、inner after未完・missing7/unknown/保全false。保存7JSON11,614Bを全SHA検査、再実行/cache-check0。CLI再importと同一processの重複全件検証を除き、共有run_captureのgate前検証、CPU worker/GPU childの検証は維持。既存Journalへ準備/監視/各検証/CPU/inner jobを追加しstatusもstage対応。最終固定packet 9fb5ca76...でCPU37＋controller335(334成功/Win1skip)、改変/gate故障注入9＋CLI41成功。旧Metal46は保存replay＋独立sealで全golden/raw保持・追加GPU0。Windows改善実測は未実施、次はCPU-only準備計測、時間枠拡大やGPU再試行はしていない。source147/245SHA保持・残20model gap・typed target coreはbattle未接続。全キャラ0/UI CPU/目標未達。再利用停止の直接差分は追加したIMPL-STATUS文書だけで、ActorRegistry由来との説明を訂正した。詳細docs/portable-destructible-target-core.mdとcheckpoint。以下は履歴。
+<!-- /packet-preparation-current -->
+
+<!-- destructible-target-core-current -->
+残20分類の未監査10件をsource監査し、20model gap/review0へ。移動/lock/range/対象数のconsumer欠如、敵弾薬のallied filterとnamed通知、nearbyの1対象fallbackをCLI consumer-auditへ追加し、source変更注入で停止。単なる受付追加を避け、projectile/HP盾/hit盾の共有Slang状態部品＋CPU ActorRegistry bridgeを実装。Metal46（宣言モデル24/拒否22）＋独立seal、CPU5群37成功、GPU.002794秒/cached pipeline.000774秒、CUDA生成29,512B。型/identity固定・世代/失効・HPとhitcredit・slot127選択を検証、保存5blockの故障注入付き。probe Runtime8B、production Runtime138952/147source/全266記録/245SHA/20code順位不変、旧Metal492＋実ラピ2を保持。battleの生成/着弾/破壊通知とall_projectiles/倍率は未接続で、状態coreを全機能対応と数えない。CUDA実機はこれから必要な46入力だけを短く検証する候補、full battle未検証/旧7終了unknown/保全falseを維持。通常UI CPU/全キャラ0/目標未達。詳細docs/portable-destructible-target-core.mdとresearch/portable-destructible-target-core-checkpoint.json。以下は履歴。
+<!-- /destructible-target-core-current -->
+
+<!-- projectile-chain-reference-current -->
+
+<!-- projectile-chain-gpu-current -->
+名前付きスキル終了weapon_hitを既存damage Frame完了後のevent51へ、buff型buff_stack_addを非数値carrier stat92へ接続。CUDA/MetalのSlang・入力・native比較を共通化、Runtime全field/offset/stride138952とbinary64/正本/normalizer不変。Metal32(native24/拒否8)、元ラピ：レッドフード全87定義3/30sの2入力、旧460込み492(native378/拒否114)が全件一致・各独立seal成功。旧460 raw1,447,034,880B/新32 raw100,663,296Bと全指紋保持。CPU41群281件skip0、95.366秒＋native事前38.076秒、GPU4.549秒。初回pipeline66.165秒、同source後続.002690秒、実run generation cache必須hit/Slang0。旧descriptor sentinelのhost変換失敗と旧負例のCPU失敗を保持して修正。raw削除0、疎化で1.107GB回収。静的245/266/base185/203/残20分類、旧244SHA全保持。Windows追加実行・観測0、ゲーム/動画利用可能性の申告は因果根拠でなく7終了unknown/保全false、現full-battle CUDA未検証。通常UI CPU/全キャラ認定0/目標未達。詳細docs/portable-projectile-chain-gpu.mdとresearch/portable-projectile-chain-gpu-checkpoint.json。次は残20分類のcanonical consumer調査とfull-burst混在契約。以下は履歴。
+<!-- /projectile-chain-gpu-current -->
+
+次のラピ：レッドフードの付着弾/weapon_hit/buff型stack carrierを正本26契約＋元87定義3/30sで固定。native handler終了通知はper-packetではなくcast終了で1回、0/負hit・元係数0・名前倍率0・nested child・buff/instantの違いを実測。new GPU受付は閉じたまま、既存146 shader/旧62 source-input-native/全266記録・244 SHA/23分類code順保持、Metal460証拠を再利用。分類はGPU候補2/native extension1/model gap10/review10。Windows保存v4の26files201729Bを回収し、共通CLI saved-core-report-auditで41指紋と両生成strict指紋・cache identityを照合。cold1.453s/warm file-only.085s、CUDA raw/CUBIN独立監査やfull battle CUDAではない。7欠落はinner before/afterに0・旧7と同一identity0、role/cause unknown・環境保持falseを維持。追加GPU/Slang/NVRTC/Windows観測0。次は共有Frameのhandler終了continuation、ordinary carrier projection、matching base weapon guardとMetal/旧460/元ラピ。全キャラ0/UI CPU/未達。詳細docs/portable-projectile-chain-reference.md、docs/portable-saved-core-report-audit.mdとcheckpoint。以下は履歴。
+<!-- /projectile-chain-reference-current -->
+
+<!-- damage-accum-battle-current -->
+ダメージ蓄積4種を共有scalar coreから実carrier・吸血後boss着弾・所有付きevent50 continuationへ接続。Metal62(native52/拒否10)、旧398込み460(native354/拒否106)、元ドロシー73定義/トロニー74定義3/30sの4入力が一致し、各独立seal成功。旧398 raw1251999744Bと新62 raw195035136B、全Runtime field/stride138952を保持。回帰CPU39群268、実編成23検査成功。初回pipeline約65秒/計算.065秒、同一source回帰pipeline.003秒/計算4.511秒、実編成計算2.387秒。実run生成cache必須hit/Slang0。観測タグは復元し正本battle/projectile不変。静的244/266/base184/203/残23(gap10/review13)、旧242記録/SHA保持。途中の全GPU状態履歴ではなく全battle/trace/RNG＋最終pool/archiveの比較で、scalar詳細証拠は別。Windows追加GPU/compile0/保存export再依頼受付/7欠落unknown/環境保持false/現full-battle CUDA未検証。全キャラ0/UI CPU/目標未達。次は残23分類、軽量admission切り分け、aimed/容量mixed、保存CUDA回収。詳細docs/portable-damage-accum-battle.mdとcheckpoint。以下は履歴。
+<!-- /damage-accum-battle-current -->
+
+<!-- damage-accum-core-current -->
+追記：RTX3070Tiの同じcore41(native34/拒否7)も共通CLIで数値一致との完了報告。cold NVRTC1回1.453秒、warm file-only hit/追加compile・GPU0。報告input/output SHAはMetal goldenと同一。内側欠落0/全stage欠落7・保全false/原因unknown。小さい保存結果の共有依頼cell6939応答待ち、追加実験なし。CUDA rawのMac独立再監査やbattle/全キャラ認定ではない。
+ダメージ蓄積の共有scalar状態本体を実装し、共通CLI damage-accum-coreをsealed登録。Metal41(native状態契約34/拒否7)＋独立seal成功、量/率/順序/名前archive/放出整数/activeリンク一致。旧52戦闘契約とproduction143source/Runtime138952不変、battleのGPU受付は未接続。active連結リストで順序再探索を除去、head/tailは明示別領域。probeのみresident順序counter8B。最終package47a3e486.../2592files/6509450B、CPU14成功・故障注入付き保存raw6ブロック、生成cache必須hit/Slang0/CUDA46301B。full battleのCUDA実機/速度は未確認。初回reader/拒否header差等を保持、計2source各1Metal・readerのみのGPU再実行0。成功rawのゼロ領域126287872B回収・削除0。静的242/base182/残30/全キャラ0/UI CPU/未達。Windowsへ同一packet6.5MBを履歴なしbranchで配布。旧helperが過去34046files/1.17GBを走査して中断、CPU4のみ/完了未確認/GPU0、runnerはOpenProcess87でlive handleなし。個別helperを廃し全stage所有launcherを追加、Mac CPU21とsmoke324(Win1skip)成功、Windows外側Jobは単独/2GiB/57秒/終了空/既存欠落0を確認したが、CPU193中Mac専用endpointテスト1件で停止/GPU0。production guard不変でテストだけOS条件を修正、Mac324成功、修正版Winは未実施。過去7終了unknown/保全false。全5mode非衝突のheader260666/queue260668は候補のみ。次はこのcoreを実carrier・吸血後boss着弾・再入安全なevent50 continuationへ接続→52＋旧398＋実編成をMetal検証。詳細docs/portable-damage-accum-core.mdとcheckpoint。以下は履歴。
+<!-- /damage-accum-core-current -->
+
+<!-- damage-accum-reference-current -->
+次の未対応ダメージ蓄積4種を共通CLI reference damage-accumの正本52契約へ固定。dealt→received走査、基礎/名前率の別順序和、None/明示0、ATK snapshot、吸血後boss収集、全pool更新後通知、owner非依存first-active/名前archive、splitのみ倍率/intを確認。fresh不変package9a6e80f1...で52契約9.827秒＋10検査10.367秒、旧family通常CLI31検査成功。未移植敵carrierのreader分類修正は旧Metal398保存replay＋独立sealで全指紋/143source/raw1251999744B保持、GPU追加0。新蓄積系のGPU受付は拒否のまま。全266profile/242SHA保持、静的242/base182/残30・contract6/gap10/review14。失敗/元refresh/散弾/adds対照を保持、ゼロ領域のみ1271791616B回収・raw削除0。Windows追加0/7終了unknown/保全false/現CUDA未確認。全キャラ0/UI CPU/未達。次はscalar carrier＋global名前archive、吸血後continuation/遅延event50を共通Slangへ接続しMetal実証。詳細docs/portable-damage-accum-reference.mdとcheckpoint。以下は履歴。
+<!-- /damage-accum-reference-current -->
+
+<!-- heal-charge-lifetime-current -->
+回復poolのdown破棄を共通retirementへ接続。正本activeのpersistent/共有carrierは保持し、終了/消失recordは復活通知前に破棄する12契約がMetal398(native302/拒否96)・独立seal成功。旧386 input/native保持、385raw1211105280B完全一致、down1入力のみstale量/型2wordを意図して0へ修正し差分明示。標準デルタ79定義に防御型がなく蓄積0だった失敗を保持し、対照＋ノア入り81定義を各3/30s、4入力全定義/順序・Metal/独立seal成功。発動30sは生成7/take2/正の放出2、全1272量/順序/時計を先頭512raw＋SHA256連鎖/最終poolで一致。共通SHA圧縮器を再利用し旧history13/8192記録もMetal成功・全旧raw指紋保持。全Runtime/stride138952不変。CPU36群248/85.079秒・native28.240秒/GPU4.561秒、実編成GPU3.434秒。最終通常CLI31成功、compiler-full--heal-charge-lifetime-retentionの143source証明/固定packet771f4aa1...、CPU323中322/Win1skip、生成cache必須hit/Slang0/GPU0/両生成・reflection全byte保持。静的242/base182/残30と全266/242SHA保持。Windows追加0/現CUDA実機未確認/7終了unknown/保全false、全キャラ0/UI CPU/未達。次は容量境界・広い混在・未対応30分類・有用な短いCUDA。詳細docs/portable-heal-charge-lifetime.mdとcheckpoint。以下は履歴。
+<!-- /heal-charge-lifetime-current -->
+
+<!-- heal-charge-gpu-current -->
+回復蓄積/容量boost/放出を共通Slangのscalar kind10・既存pool lifetime/同期continuationへ接続。Metal386(native290/拒否96)の29新契約が一致し、decoder-only修正後に保存raw replay/独立seal成功、GPU追加0。元CPU型比較・kind32 Actor-pool受付・指紋popの失敗を保持。旧349 input/native/output/raw1097859072B、全Runtime field/stride138952、旧241input SHA/全266profile保持。CPU33群231/78.087秒＋比較器故障8成功、GPU4.445秒、生成必須hit/Slang0。静的242/266/base182/203/残30、元デルタ79定義はpackingのみ。次は終了pool→down→復活の即時破棄（現sweep時機に不足の恐れ）、上限/回復分配mixed、元デルタ実編成。CUDA生成のみで実compiler/cache速度/計算未検証、Windows追加0/7終了unknown/保全false。全キャラ0/UI CPU/development_only/目標未達。詳細docs/portable-heal-charge-gpu.mdとcheckpoint。以下は履歴。
+<!-- /heal-charge-gpu-current -->
+
+<!-- compiler-certificate-current -->
+共通CLI compiler-certificateで保存Metalをfresh childから独立再監査し、登録world suiteごとのcompiler-full--suite source-only証明書を発行。Metal349/139sourceから発行成功、固定compiler packet ca71d9c0.../2556filesを作成。共通CPU32群323中322成功/Windows1skip・4.941秒、seal5成功。required generation cache hit/Slang0/GPU0・CUDA/Metal/reflection全byte保持。独立seal済みmax-ammo3 suiteを通常sealed package可能にし、実編成2もCPU3群16/native2で経路確認。旧weapon/query監査の追加差分接続漏れをCPUで検出、厳密逆変換を接続し元token/hashと失敗を保持。旧compiler-full/commands/historical、raw CUDA/prelude/toolchain/claim/Jobと保存CUBIN専用identityは維持。GPU数値/正本/ABI/normalizer変更0、Windows追加0・現CUDA compile/計算未確認・全キャラ0/UI CPU/目標未達。次は回復蓄積29の共有GPU接続と有用な固定checkpointでの短いCUDA。詳細docs/portable-compiler-certificate.mdとcheckpoint。以下は履歴。
+<!-- /compiler-certificate-current -->
+
+<!-- heal-charge-reference-current -->
+共通CLI reference --suite heal-chargeへ受けた回復量の蓄積/容量boost/放出の正本29契約を追加。scalar pool・ATK snapshot・満HP前clamp・state_end retention/cleanse/down discard・consume後の重複対象順・owner順を固定。fresh不変packageで5.963秒/関連4群27検査(skip0)成功、追加照会0・全native/trace/RNG保持。harmful指定ずれとowner順をCPUで検出、失敗保持・同時刻反例を残し別ケース追加。GPU受付拒否のまま、Slang/数値/正本変更0・GPU/Windows commands0。全266profile/241input SHA/拒否理由/Metal349 source保持、静的241/266/base181/203/残33・modelgap10/contractextension3/review20。保存CUDA2.068MB/833fn/241noinlineをCPU構造分析、既存compiler-full sourceに追加23/変更38（cache hit/性能証明ではない）。次は共有pool lifetime/放出continuation接続と最新Metal seal由来compiler package経路。全キャラ0/UI CPU/現CUDA未検証/7終了unknown/保全false/未達。詳細docs/portable-heal-charge-reference.mdとcheckpoint。以下は履歴。
+<!-- /heal-charge-reference-current -->
+
+<!-- max-ammo-scaling-gpu-current -->
+max_ammo_countのcharge_dmg_pctを共通Slangへ接続。Metal349(native261/拒否88)＋元エミリア全73定義3/30sの2入力が一致、両独立seal成功。live本人容量/stack後倍率/整数丸め/mode memoを再利用、Runtime全layout/stride138952不変・旧321 input/native/raw1009778688B保持。CPU31群217/71.663秒・native20.732秒・GPU4.426秒、実編成CPU3群16/GPU1.817秒、実run生成cache必須hit/追加Slang0。初回generationの静的再帰はGPU0で検出し非再帰容量読取＋共通整数変換へ修正、import/テスト形状もGPU前に修正し失敗を保持。静的241/266/base181/203/残33・旧240記録/SHA保持。Windows追加0/現CUDA未検証/7終了unknown/保全false、全キャラ0/UI CPU/development_only/未達。次は残33分類consumer、late-query/mode遷移混在、CUDAcache。詳細docs/portable-max-ammo-scaling-gpu.mdとcheckpoint。以下は履歴。
+<!-- /max-ammo-scaling-gpu-current -->
+
+<!-- max-ammo-scaling-reference-current -->
+共通CLI reference --suite max-ammo-scalingへ正本20契約を追加。live recipient容量、半端割合グループ0.5切上げ/flat偶数丸め、1発効果、mode memo/再装填/失効、再帰Noneを固定。外側1349/内側1170、観測追加照会0・全native/trace/RNG保持。fresh不変packageでreference1.796秒と5群37検査(skip0)成功。GPU受付は拒否のまま、Slang/正本/数値/normalizer変更0・GPU/Windows追加0。前回Metal321の全sourceと全266profile/240input SHA/拒否理由を保持。静的240/266/base180/203/残34、全キャラ0/UI CPU/目標未達。次は量源を共通lookupへ接続し、再帰/query scope/cacheを検証→Metal20＋旧321保持・元エミリア実編成。詳細docs/portable-max-ammo-scaling-reference.mdとcheckpoint。以下は履歴。
+<!-- /max-ammo-scaling-reference-current -->
+
+<!-- parent-fixed-current -->
+親通知のdealt_fixed_damageを共有Slangへ接続。Metal321(native241/拒否80)＋独立seal成功、旧291 input/native/raw915406848B保持、Runtime全layout/stride138952不変。23新契約は散弾/複数muzzle/端数0packet/通知欠如/再入/吸血/大整数を含む。CPU29群203/67.906秒、native19.685秒、GPU4.451秒、生成cache必須hit/実run追加Slang0。初回package欠落はGPU0、初回Metal差分はfixture待機0→正本.215の入力修正で解消し失敗を保持、GPUsourceと全正本期待値不変。consumer-auditで実consumer欠如を明示分類、静的240/266/base180/203/残34。次はmax_ammo_countのlive対象容量scaling（source確認のみ/契約0）と広い親context/現CUDA。Windows追加0/7終了unknown/環境保全false、全キャラ0/UI CPU/development_only/未達。詳細docs/portable-parent-fixed.md、checkpointとevidence。以下は履歴。
+<!-- /parent-fixed-current -->
+
+<!-- full-burst-query-current -->
+保留pending2の0hit query-only・現在参照数の読取後に固定countを使用・HP換算を共有Slangへ接続。専用diagnostic19でbuff/ref/HP41戻り値の順・bit値・時刻が正本一致、通常とのbank外59456320B保持。Metal291(native218/拒否73)と両独立seal成功、旧272 input/nativeと855638016B保持・Runtime全layout/stride138952不変。巨大係数0hit5・現在1024でも固定1hit2・両HP方式/部位/子HPを含む新19。初回HP除外2差分は不変parent maskをHP基準へ渡して修正、初回診断のarray/listとcache無効時初期化も修正。保存replay GPU0で初期化漏れを検出、失敗/raw/claim保持・新source別package実証。通常291 input/native同一、他289raw909115392B保持。CPU27群190(skip0)66.850秒/native18.697秒/GPU4.416秒、診断CPU3群15/GPU0.053秒、実run生成cache必須hit/追加Slang0。分類追記後19検査成功、静的240/266/base180/203/残35・旧266全記録と240SHA保持。次は優先35分類の実consumer（projectile_dmg_pct等）、低marker周期移動/zero係数/対象混在/広い実編成/現CUDA。Windows追加0/7終了unknown/保全false、全キャラ0/UI CPU/development_only/未達。詳細docs/portable-full-burst-query.mdとcheckpoint。以下は履歴。
+<!-- /full-burst-query-current -->
+
+<!-- full-burst-capacity-current -->
+full-burst待機列512境界と着弾後の次回mode2残存を実証。既存出力word3＋旧形式優先512entryで新形式件数/owner/name/hitsを公開し、正本の実controller終了列と照合。Metal272(native199/旧拒否72/実行時容量超過1)と独立seal成功、旧267 input/nativeと全839909376B保持・Runtime全layout/stride138952不変。親1＋子511で514packetとdamage654278、着弾後追加1項目が次回へ残る。513はnative515packetで有限/GPU status64、入力差はBUDGET511→512の1word。summaryは履歴のみ省略し全処理/総packet数/公開battle状態/RNG/最終列を比較、個別GPU514traceではない。CPU25群180(skip0)63.867秒/上限90秒/native17.885秒/GPU4.410秒、生成cache必須hit/実行時Slang0。次は0hit query-only・HP basis照会順/保留組合せ・周期snapshot移動・現CUDA/全キャラ。Windows追加0/7終了unknown/保全false、全キャラ0/UI CPU/development_only/未達。詳細docs/portable-full-burst-capacity.mdとcheckpoint。以下は履歴。
+<!-- /full-burst-capacity-current -->
+
+<!-- full-burst-queue-current -->
+フルバースト着弾のlive再入とtyped receipt tail所有情報を共通Slangへ修正。子・孫を同回生成、旧bonus追加分だけ次回へ残し、既存出力bankに旧batchを一時保存して着弾前に枠解放。tailの本体8/部位2/周期・迎撃snapshot38wordとslot参照を移動。Metal267(native195/拒否72)と独立seal成功、旧260 input/nativeと全817889280B保持・Runtime全layout/stride138952不変。CPU24群174(skip0)52.754秒/native15.774秒/GPU4.399秒、生成cache必須hit/実行時Slang0。追加7はlive/孫/初期混在/旧tail/部位/迎撃/周期共存。周期低markerの移動は未実証、512枠境界・着弾後mode2の直接観測・0hit query-only/HP basis順・現CUDA/全キャラは残件。Windows追加0、利用者の終了/再起動操作なし回答を記録、ゲーム/動画原因は未確定・7終了unknown/保全false。全キャラ0/UI CPU/development_only/未達。詳細docs/portable-full-burst-queue.mdとcheckpoint。以下は履歴。
+<!-- /full-burst-queue-current -->
+
+<!-- full-burst-landing-gpu-current -->
+フルバースト開始後の着弾を共有Slang private mode2へ接続。FBL1を非weapon MODE17..19へ格納し既存pending配列/Frame10/typed receiptを再利用、旧pending counter意味・通常queue prefix/tailを保持。Metal258(native186/拒否72)と独立seal、元イレグ全76定義3/30sの実編成2と独立sealが成功。cast1→live2読取の固定1回、同frame親子、0/負/13hit等を合成で検証、元13hit branchは未発火。旧232 input/native/output・729808896B保持、Runtime全layout/stride138952/数値/normalizer/正本不変。初回の倍率除外1件は生成MSLで消えた一時状態代入を不変row mask読取へ修正、失敗/raw/claim保持・別package成功、同一入力の他257 raw808452096B保持。元counterは宣言済single_body＋binding1の入力route/policyだけbodyへ正規化し、原定義と他世界拒否を保持。CPU23群169(skip0)47.733秒/native13.616秒/GPU4.340秒、実編成CPU2群10/GPU2.978秒、生成cache必須hit/実行時Slang0。静的240/266・base180/203・残35分類、旧239記録/SHA保持。次はlive再入queue/capacity、0hit query-onlyとHP basis照会順、RNG/部位/他実編成/現CUDA。新queue生成中の再入tailは現時点で正本と未一致、全キャラ0/UI CPU/未達。Windows操作0/7終了unknown/保全false。詳細docs/portable-full-burst-landing-gpu.mdとcheckpoint。以下は履歴。
+<!-- /full-burst-landing-gpu-current -->
+
+<!-- full-burst-landing-reference-current -->
+次の未対応land_in_full_burstを共通CLI referenceへ合成13＋元イレグBoom&Shock3/30sの2契約として固定。cast条件/count固定、landingでlive参照1→2を実読取した後に固定1へ戻す順、後続cast buff除外、通常は次frame/保留はfullburst同frame、旧B3bonus先行・親子3150/1260/1323/1386を検証。合成handler24/親通知36/全packet40、元30sは6hit branchのhandler2/通知6、13hit原分岐未発火（合成で13hit検証）。fixed package reference15＋CPU5群27(skip0)/旧230native成功。GPU source133/input/native230不変により旧Metal証拠を保持、新build/Slang/GPU/Windows0。全266記録/239SHA/27拒否/37code順位保持、2分類をnative_contract_extensionへ。GPU受付は拒否のまま。設計は二つの正本queue順・旧pending counter意味・cast暫定係数の照会・signed count・除外scopeと通常receipt再利用を明記。次はzero係数/HP/RNG/capacity契約と共有別mode接続→Metal。現CUDA/全カタログ未完、全キャラ0/UI CPU/未達。詳細docs/portable-full-burst-landing-reference.mdとcheckpoint。以下は履歴。
+<!-- /full-burst-landing-reference-current -->
+
+<!-- named-enemy-removal-current -->
+名前付き敵へのremove_named_buffを既存の共有解除本体へ接続。target scopeは名前route、default/globalはtarget未消費・descriptor未追加を区別。正本16契約48dispatch/33rank/33recipient/504所持、通知時の残存所属と全battle/trace/RNG/照会回数を確認。Metal230(native171/拒否59)と独立seal成功、旧207 input/native/output・651165696B保持。別の実編成2入力は元アスカWILLE全80定義3/30sがMetal＋独立seal一致、解除0/1回・state_end0/1回を観測。GPU差分は受付1式、Runtime/stride138952/数値/normalizer/正本不変。CPU20群156(skip0)35.914秒/native12.550秒/GPU4.337秒、実編成CPU2群7/GPU2.934秒、生成cache必須hit/実行時Slang0。旧テストの既対応random1拒否を容量外6へ訂正、CPU失敗保持/GPU起動0。静的239/266・base179/203・残37分類、旧238記録/SHA保持。周期/空の解除対象名/再入callback/seq/ref/scaling/budget/広い実編成/現CUDAは残件。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/目標未達。詳細docs/portable-named-enemy-removal.mdとcheckpoint。以下は履歴。
+<!-- /named-enemy-removal-current -->
+
+<!-- named-enemy-gpu-current -->
+名前付き敵の対象選択を共有Slangのprivate入口へ接続。名前operandを非weapon MODE24..27へタグ付き格納し、既存の敵集合/所持状態/照会scope/世代を再利用。Metal207(native155/拒否52)・診断23の全69対象マスク・独立seal成功。旧175のinput/native/outputと550502400Bを保持、診断領域外72257444B同一。Runtime/stride138952/数値/normalizer/正本不変。初回の追加ダメージ4件status64は着弾の定義番号受け渡し漏れを修正、失敗/raw/claim保持・別packageで実証。CPU17群135(skip0)28.256秒/native12.033秒/GPU4.317秒、生成cache必須hit/実行時Slang0。静的238/266・base178/203・残39分類、旧237記録/SHA保持。名前付き敵remove_named_buffは未受付、seq/ref/scaling/budget/passive/実編成/現CUDA/全カタログは残件。Windows操作0/7終了unknown/保全false、全キャラ0/UI CPU/目標未達。詳細docs/portable-named-enemy-gpu.mdとcheckpoint。以下は履歴。
+<!-- /named-enemy-gpu-current -->
+
+<!-- named-enemy-reference-current -->
+共通CLI reference named-enemyへ23正本契約。buff/bonus damage/duration extension、名前そのまま（colon/空白/空文字）、body先頭alive add誕生順、同名caster非依存、該当なしboss fallback、expiry/late wave/retire/同id再登場/解除/128敵を固定。実rank64/recipient57/所持628、全native/trace/RNG/6照会回数保持、故障拒否。旧native観測器が未対応敵selectorを味方に整形するValueErrorだけ修正、正本/GPU受付変更0。fixed package reference23＋CPU6群49(skip0)/旧175native成功、旧GPU/source/input/native175全同一。静的全266記録/237SHA/29拒否/41code順位保持、4分類をsource確認済みnative_contract_extensionへ。Slang/NVRTC/GPU/Windows追加0、全キャラ0/UI CPU/未達。次は共有名前operand/敵route/状態世代への接続、seq/ref/scaling/budget/文脈/実編成契約→Metal保持。詳細docs/portable-named-enemy-reference.mdとcheckpoint。以下は履歴。
+<!-- /named-enemy-reference-current -->
+
+<!-- generation-boundary-current -->
+Slang source_hashes/build/resident生成を独立moduleへ抽出し、backendの転送/driver編集による不要な生成cache missを解消。元3関数はroot引数以外AST同一、他backend全module文/定数同一。cache keyは生成器全体/ABI/scope/tool/GPU閉包のhashを保持、新keyで旧cache流用0/旧receipt監査保持。新entryはCPU禁止・cache先行確認・replay保護へ接続。固定Aと転送chunk8→4MiBだけのBでGPU/input/native175全同一、cold2.766s/Slang2→B必須hit0.287s/Slang0、CUDA/MSL/両reflectionは前回Metal175と全byte同一。比較用chunk変更は復元済み。CPU11群116(skip0)/native175成功。初回CPUのps sandbox拒否は保持し同packageを別CPU-only captureで権限付き終了検査成功、skip0。新GPU/Windows execution0/現CUDA未検証、前回175の証拠は元scopeで保持。前回静的237/266・41分類、今回効果/入力変更0、全キャラ0/UI CPU/未達。次は名前付き敵対象等の未対応契約と、本体CUDAの保存object/linkから短い検証を選ぶ。詳細docs/portable-generation-boundary.mdとcheckpoint。以下は履歴。
+<!-- /generation-boundary-current -->
+
+<!-- random-cleanse-gpu-current -->
+有害所持味方のrandom selector20をprivate CUDA/Metal共通Slangへ接続。基礎18/live12/budget6/ココア全71定義3/30sの2で正本38。本人包含・解除不能候補・expiry/down/復活・人数0..5・budgetの候補probe→dispatch二重抽選/上限後0を固定。Metal169成功後budget追加175を実行、ownerメタデータ不足の比較失敗を元raw/claim保持で修正し共通replay＋独立seal175(native132/拒否43)成功、GPU再実行0。全624語MT/初期0抽選/最終所属と既存battle/traceを比較。旧125raw393216000Bと旧169raw531628032B全byte保持。CPU15群125(skip0)＋最終8成功、GPU4.365s、cache必須hit/追加Slang0。Runtime/stride138952/数値/normalizer/正本/Windows wrapper不変。静的237/266・base177/203・41分類、旧236SHA/残拒否/code順保持。Windows0/原因unknown/保全false/現CUDA未検証、全キャラ0/UI CPU/development_only/未達。次はperiodic/免疫/別carrier混在、敵デバフ実編成、現CUDA/全カタログ。詳細docs/portable-random-cleanse-gpu.mdとcheckpoint。以下は履歴。
+<!-- /random-cleanse-gpu-current -->
+
+<!-- random-cleanse-reference-current -->
+共通CLI reference random-cleanseへ18正本契約を追加。本人を含む有害所持者/解除不能も候補/編成順pool/ordered sample/各人の古い順/共有carrierの部分解除/小数上限を固定。fresh packageのreference18＋CPU4群26(skip0)成功、元battle/trace/RNG/全照会回数保持。GPU受付は拒否のまま、既存125のsource/input/native期待値全同一、追加GPU/Windows0。全266profileSHA/拒否理由/42順位code保持、236/base176不変。次はexpiry/down/revive/repeated候補変化→共通Slang→全定義実編成と現CUDA。全キャラ0/UI CPU/未達。詳細docs/portable-random-cleanse-reference.mdとresearch/portable-random-cleanse-reference-checkpoint.json。以下は履歴。
+<!-- /random-cleanse-reference-current -->
+
+<!-- burst1-ally-gpu-current -->
+has/no_burst1_allyをprivate actor-field受付へ接続。GPU変更はguard4行＋flag1行、既存basicConditions/数値/状態更新/Runtime/stride138952/normalizer/正本/旧CUDA/Windows wrapperは不変。正本12契約36判定で自己除外・戦闘不能者のstage保持・live override/失効を固定し、全battle/trace/照会回数保持。不正name/引数/NaN/combat/world8も拒否。Metal125(native94/拒否31)と独立seal成功、前回拒否のアニス全83定義3/30秒2入力も同じinput/native期待値で一致（正本auto calc2/77）。旧95の298844160Bと旧合成8の25165824Bを全byte保持、旧10 input/native fingerprintも不変、失敗/raw/claim保持。CPU12群108(skip0)11.322秒/native9.956秒/GPU4.333秒、生成事前検査→cache必須hit/追加Slang0、監査GPU0。静的236/266・base176/203・42分類は全profileSHA/拒否理由とも不変。既知runtime blockerはこの12契約/2実編成範囲で解消しroutingへscoped証拠を記録、全キャラ0/UI CPU/development_only/全目標未達。caster他位置/広いstage・復活混在/新private全1612/全catalog/現CUDAが残件。Windows操作0/原因unknown/保全false。詳細docs/portable-burst1-ally-admission.mdとresearch/portable-burst1-ally-gpu-checkpoint.json。以下は履歴。
+<!-- /burst1-ally-gpu-current -->
+
+<!-- skill-weapon-metadata-current -->
+auto_damage武器欄は正本handlerが読まずactor武器を使うことをsource/実計算で固定。既知種別かつ基礎武器と一致するnormal_attack注記だけを共通hostで限定受付し、元定義を保持。不一致6はmodel gap、override実装とは数えない。合成14契約42calcとモード入退出、アニス全83定義3/30sで2/77calcを観測。新Metal10は合成8一致・実編成2がstatus64、suite未成功/未sealを維持。別不変packageへ既存診断flagだけ有効化し1入力を観測、stage8000/定義index1/스타 폴 2/no_burst1_ally[32,0,0,0]を特定。basicConditionsには有るがactorFieldsDefinitionValidでB1味方条件が未接続。通常source/registry復元済み、失敗/raw/claim保持。新CPU5群37(skip0)6.781秒/native1.806秒と旧9群81成功。全通常GPU/数値/normalizer/正本/旧CUDA/Windows wrapper不変のため旧95(native72/拒否23)を共通replay＋独立sealで再利用し298844160B保持・GPU再実行0。静的236/266・base176/203・42分類、旧235SHA保持だがアニスのGPU受付は未完。実行時blockerは静的分類と分離し次経路を記録。次はB1味方条件の自己除外/生死/stage override/失効の専用native契約→共通shape guard→実編成再検証。Windows操作0/現CUDA未検証/原因unknown/保全false、全キャラ0/UI CPU/development_only/全目標未達。詳細docs/portable-skill-weapon-metadata.mdとresearch/portable-skill-weapon-checkpoint.json。以下は履歴。
+<!-- /skill-weapon-metadata-current -->
+
+<!-- below-def-gpu-current -->
+最終防御力比較selector14をCUDA/Metal共通private入口へ接続。解決済みresidentの割合→付与元flat、strict未満、down除外、文字列lazy/list即時を正本13契約39解決/234読取で固定。Metal95(native72/拒否23)と独立seal成功、旧74 input30902400B/output232783872B全byte保持。Runtime/stride138952/数値/normalizer/正本/Windows wrapper不変。GPU4.294秒、生成cache必須hit/追加Slang0。初回未定義シンボルはSlangで停止・GPU前失敗/claim保持し、既存alliedFlagsへ修正、生成だけの事前検査後に別packageで検証。共通CLI generation --developを追加し実packageでcache hit/Slang0/GPU0、sourceとpaired receiptを確認するが計算/封印生成基準認定false。既存sealed照合は維持。最終CPU9群81(skip0)7.320秒/native8.112秒、CLIテスト環境漏れは単一process検査で検出し復元、失敗保持。最終CPU packageとsealed replay差はテスト復元だけ、source/input/native同一。静的235/266・base175/203・43分類、旧235SHA保持。アニス：スターは別のauto_damage weapon_typeが残り、実編成GPU未検証。新private全1612/現CUDA/全カタログが残件。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/development_only/全目標未達。次はauto_damage武器指定の正本契約と防御lazy/参照/復活混在。詳細docs/portable-below-def-recipient.mdとresearch/portable-below-def-gpu-checkpoint.json。以下は履歴。
+<!-- /below-def-gpu-current -->
+
+<!-- leftmost-gpu-current -->
+属性×武器種の左端生存者selector24をprivate CUDA/Metal共通Slangへ接続。生存filter後に人数制限、0〜5人、buff/instant、mask/flag/lazy不正拒否。Metal74(native59/拒否15)と独立seal成功、トリナ全76/78定義3編成3/30秒の6実編成を含む。新13契約/原正本22対象解決/実射2768、容量内traceと省略数を既存比較器で照合。旧47出力147849216B＋新21出力66060288B全byte保持。CPU8群41(skip0)4.838秒/native7.917秒/GPU4.338秒、生成cache hit/追加Slang0。初回21のstorage decode不足と初回74の拒否domain誤分類は失敗/raw/claim保持しreplayで修復、GPUretry0。後者は固定origin/adapterhash/15行だけの明示metadata migration、59正例とsource/input期待値は不変。旧入口生成CUDA/MSL全byte同一、Runtime/stride138952/数値/normalizer/正本/Windows wrapper不変。静的235/266・base175/203・44分類、旧234SHA/残分類順保持。旧1612の新private全再実行は未実施、全キャラ0/UI CPU/development_only/全目標未達。Windows操作0/現CUDA未検証/原因unknown/保全false。次はselector復活/list混在・新入口全保持と残るconsumer/対象分類。詳細docs/portable-leftmost-recipient.mdとresearch/portable-leftmost-gpu-checkpoint.json。以下は履歴。
+<!-- /leftmost-gpu-current -->
+
+<!-- cache-preflight-current -->
+共通CLIへfile-only cache-probeとcache必須時の先行確認を追加。CUDAの両cache必須とMetal/CUDAの生成cache必須は、単体/native計算/実行claim前にmissを拒否。Slang/NVRTC/driver/子processを禁止したsnapshotで、hit後も既存検査・実行子の再確認は省略しない。旧schema1のkey/receipt/保存JSON全byte互換、未知claim保持、空/破損成果物をfail closed。初回Metalのlate生成missはhost consumer hash変更によるもの。旧失敗/claimを保持しSlangのみ2回2.692秒で刷新、CUDA/MSL/両reflection全byteを旧実証と一致確認しkey規則は不変。新版Metal47と独立seal成功、旧全entries/input19627204B/output147849216B保持。生成snapshot0.311秒。最終15群150検査14.002秒、Mac CPU-only smoke30群302(Windows専用1skip)成功。smoke初回の歴史compiler cert/current一致という誤前提を、保存基準一致＋現行流用拒否へ分離し旧証明は不変。テスト追加版へreplay＋独立sealしGPU追加0。GPU本体/数値/normalizer/Windowswrapper不変、既存1612は従前のbody証拠で新host全再実行なし。raw全byte/SHA/path/inode保持で3619946496B割当回収/削除0。skill-creator標準検査とrepo/installed Skill同期済み。Windows追加操作0、実cache-probe/新Job smoke/現CUDAは未検証、7終了unknown/保全false、全キャラ0/UI CPU/全目標未達。次は短い実Windows file-only確認/Job smokeの条件整理と、優先未対応consumerを続ける。詳細docs/portable-cache-preflight.mdとresearch/portable-cache-preflight-checkpoint.json。以下は履歴。
+<!-- /cache-preflight-current -->
+
+<!-- duration-scaling-gpu-current -->
+持続時間のstack_count倍率をCUDA/Metal共通Slangのprivate入口へ接続。Metal1612(native1276/拒否336)と独立seal成功、通常47/native40・旧入口拒否1・診断47も独立監査。31既存＋passive/source/0優先/stack操作/コロン名9の40契約、全80定義レイブル通常/シールド破壊3/30sを含み物理49/38/455/444射を照合。診断160expiry/154refはbinary64生bit一致・省略0、領域外147076160B保持。比較器のstorage decode/array型失敗はraw/claim保持、診断は共通CLI replayで修復しGPU再実行0。未発火のinstant型刺激はhandler0を確認後buff型へ訂正しhandler3・raw時間更新を実測。適用元定義・stack増加前参照・乗算後加算・None/-1のみ無限、値倍率独立、passive再計算、既存stack操作の元duration更新を保持。REFERENCE4番目のタグunionのみ、Runtime/stride/容量/数値/normalizer不変。旧1565の4923064320Bと新47の147849216Bを全byte保持。CPU95群500検査175.582秒/事前93.154秒/GPU10.954秒/最終27検査12.517秒。cache必須hit/追加Slang0、親native1192再利用/84fresh/拒否336、sealはfresh。静的234/266・base174/203・47分類、旧233記録/32拒否/code順保持。入力出力5744084740B+14GiB確認、raw内容保持で6898712576B割当回収/削除0。Windows操作0/7終了unknown/保全false、現CUDA未検証、private/development_only/全キャラ0/UI CPU/未達。次は空/免疫/lazy recipientや復活・世代混在と、残るconsumer/全カタログ実戦を優先。詳細docs/portable-duration-scaling-gpu.mdとresearch/portable-duration-scaling-gpu-checkpoint.json。以下は履歴。
+<!-- /duration-scaling-gpu-current -->
+
+<!-- duration-scaling-reference-current -->
+重複数に比例する持続時間を共通CLI reference duration-scalingへ31契約（合成27＋レイブル全80定義3/30sの通常/シールド破壊4）で固定。正本expiry93回/ref_count87回、通常入力0回と破壊刺激のstealth/stun各1回を区別。参照なし0・0ゲージ優先・整数化・caster単位・再付与の増加前読取・同名aliasの適用元定義・None/-1の読取省略・負の有限時間・値倍率との独立を確認。元battle/trace/全get_buffs/sample/expiry/ref読取の順と結果を保持、8故障拒否。不変packageのreference31とCPU5群26検査14.241秒成功。2分類をnative_contract_extensionへ移し、全266記録/233SHA/33拒否/49code順保持。GPU125sourceと既存32input/native同一によりMetal1565証拠を再利用し、今回GPU追加0。GPU受付は拒否のまま。正本/数値/normalizer変更0、Windows追加操作0/7終了unknown/保全false、全キャラ0/UI CPU/未達。次はstatic参照descriptorと適用前expiryを共有Slangへ接続し、passive/stack操作/召喚体の混在とMetal保持を検証。詳細docs/portable-duration-scaling-reference.mdとresearch/portable-duration-scaling-reference-checkpoint.json。以下は履歴。
+<!-- /duration-scaling-reference-current -->
+
+<!-- not-core-gpu-current -->
+非コア条件not_coreをCUDA/Metal共通Slangの開発専用入口へ接続。Metal1565(native1236/拒否329)と独立seal成功、新32＋旧入口拒否1も独立検証。冬ギロチン全79定義3/30秒の実ゲージ3/34回を含む。発射core snapshot、定義×caster独立binary64累積1280セル、prob別bank、重複/短絡/条件後budget、子context空と親復元、passive限定例を固定。既存Frameタグ/paddingのみ、Runtime/stride/数値/normalizer不変。旧1533の4822401024Bと新32の100663296Bを全byte保持。CPU95群500検査175.635秒/事前89.709秒/GPU11.063秒/最終26検査成功。cache必須hit/追加Slang0、親native1152再利用/84fresh/拒否329、sealはfresh。初回decode/入力散布界、GPU前の旧故障注入不成立、CPU-onlyの起動cwd失敗は保持し、期待値変更0。静的233/266・base173/203・49分類、旧232SHA/残33拒否/分類順保持。容量予算+14GiB確認、raw内容保持で6910836736B割当回収/削除0。Windows操作0、7終了の操作なしとの回答、ゲーム/動画の因果証拠なし/unknown/保全false。現CUDA未検証、private/development_only/全キャラ0/UI CPU/未達。次は通知開始HP同期とpassive maxHP/prob複合等のconsumer混在契約と全カタログ実戦を優先。詳細docs/portable-not-core-gpu.mdとresearch/portable-not-core-gpu-checkpoint.json。以下は履歴。
+<!-- /not-core-gpu-current -->
+
+<!-- not-core-reference-current -->
+未対応not_coreを共通CLI referenceへ27契約（合成25＋冬ギロチン全79定義の実編成3/30s）で固定。正本条件評価160回/成立95回/instant39回、実ゲージhandler3/34回を観測。元battle/trace/全get_buffs/全sample保持、7種故障拒否。不変packageでreference27とCPU7群49検査成功。独立したeffect/caster累積キー、probとの独立、重複条件/descriptor、条件短絡とbudget後の評価、ペレット→銃口平均、発射snapshot、子通知の空contextと親復元、passive評価を明示。分類1件を正本接続待ちへ移動し、静的266記録/232SHA/34拒否/50code順序は保持。GPU123sourceと既存17 input/native指紋は同一のため、既存Metal1533の証拠を再利用。今回GPU build/execute/Windows0。GPUのnot_core受付は未開放・対応追加0、全キャラ0/UI CPU/未達。次は通知core_fracと独立状態・条件/budget順を共有Slangへ接続し、Metal合成/実編成/保持を検証。詳細[非コア条件の正本契約](portable-not-core-reference.md)とresearch/portable-not-core-reference-checkpoint.json。以下は履歴。
+<!-- /not-core-reference-current -->
+
+<!-- partial-query-current -->
+短押し＋lazy/direct数値参照の17正本契約を共通CLIへ追加し、GPUの3実差分を修正：開始/待機中の余分な辞書照会、回復倍率の全辞書参照、mode終了の無効化不足。Metal1533(native1209/拒否324)と独立seal成功。診断2の0.2〜0.8秒の全missも一致し、診断bank外6258560B保持。新17の全4465抽選・順序・最終MTを検証。旧1516のinput/native全保持、1512raw全同一、4入力はcache hit回数1wordずつ（16B）だけ減少し正本回復呼出3/2/3/3回×2に一致。他4768923632Bと新17単独/全体rawを保持。CPU95群500検査176.060秒/正本事前88.790秒/GPU11.064秒/最終5群20検査11.253秒。全体v1の故障注入はGPU前停止を保持し、正しいlayout層へ投影して同じ故障を検査。入力/正本/ソース基準1533は修正前後同一。静的全266記録・232SHA・34拒否・50分類不変。数値primitive/normalizer/Runtime/stride/容量不変。生成cache必須hit・追加Slang0。Windows操作0/原因unknown/保全false/現CUDA未検証。development_only/全キャラ0/UI CPU/未達。次は追加consumer/制御混在と全カタログ実編成。詳細[短押しと数値参照](portable-partial-query-gpu.md)とresearch/portable-partial-query-checkpoint.json。以下は履歴。
+<!-- /partial-query-current -->
+
+<!-- partial-charge-current -->
+短押し・非フルチャージをCUDA/Metal共通Slangの開発専用入口へ接続。Metal1516(native1192/拒否324)とGPU禁止の独立seal成功。追加74入力はpartial45・動的14・クロスト全77定義4・signed基準11。符号付きbaseから回数補正を引いてから最小1へclampし、signed32両端・負の小数補正・期限切れを固定。CPU95群500検査175.999秒、正本事前85.512秒、GPU11.219秒、最終12群93検査20.700秒。旧1505の全raw4734320640Bとnativeを保持し、入力変更は0/負base2件の静的header/tag/flagだけ。静的232/266・base172/203・50分類、旧231入力SHAと34拒否保持。数値primitive/normalizer/Runtime/stride/容量不変。生成cache必須hit・追加Slang0。Windows操作0/原因unknown/保全false/現CUDA未検証。public event40/tap2は未開放、development_only/全キャラ0/UI CPU/未達。次はtapとlazy/random数値readerの照会時点・混在制御の正本契約。詳細[短押しGPU接続](portable-partial-charge-gpu.md)とresearch/portable-partial-charge-checkpoint.json。以下は履歴。
+<!-- /partial-charge-current -->
+
+<!-- nonfull-charge-reference-current -->
+共通CLI reference nonfull-chargeへ23の正本契約を追加。短押しpartial/full、周期的full、発射単位counter、重複/raw alias/軽減/budget、散弾2銃口、reload、通知callbackでauto武器へ変更・復帰を固定。全battle/trace/semantic read回数保持、7種故障拒否、fresh packageのreference23とCPU7群47検査成功。未対応4分類を正本確認済みnative_contract_extensionへ移動し、全266profile・231入力SHA・35拒否・54分類code順序を保持。GPU122sourceは既存1442と同一、追加GPU/Windows0。tapはstatic層で未受付、GPUはchargeならfull通知するためevent40だけ開放しない。次はpartial chargeの状態・tap制御・damage/core/ゲージsnapshotを共有実装し、混在/全定義クロストとMetalで検証。GPU対応追加0・全キャラ0/UI CPU/development_only/未達。詳細[非フルチャージの正本契約](portable-nonfull-charge-reference.md)とresearch/portable-nonfull-charge-checkpoint.json。以下は履歴。
+<!-- /nonfull-charge-reference-current -->
+
+<!-- squad-stage-current -->
+段階別squad_burst_cast:1/2/3を共有Slangへ接続。Metal1442(native1144/拒否298)と独立seal成功。16native契約＋14拒否、全81定義のレッドフード7実編成で自動B3/明示A/live/期限切れを検証。旧1405の4419747840Bと追加37の個別結果を全保持。既存論理6/callback20/実編成12も変更後Metal一致・全raw保持。CPU95群500検査176.226秒、native事前80.025秒、GPU10.771秒。数値/normalizer/容量/Runtime不変。静的231/266・base171/203・54分類、旧230入力SHAと35拒否保持。Windows追加0/原因unknown/保全false/現CUDA実機未検証。development_only/全キャラ0/UI CPU/未達。詳細[段階別通知](portable-squad-stage.md)とresearch/portable-squad-stage-checkpoint.json。次は未対応consumer確認と対象/制御契約の拡張。以下は履歴。
+<!-- /squad-stage-current -->
+
+<!-- aimed-real-world-current -->
+全定義の実編成3profile×部位/interrupt×3/30s=12をprivate明示受付へ接続。Mermaidの2入力で名前付き状態/解除の論理対象不整合を検出し、共通Slang2ファイル4箇所でpart/private6→本体の敵効果scopeへ修正。正本/期待値不変、修正版Metal12と論理6/直接private28receipt成功・独立seal。正本6624射/11870returned packet/3532private着弾/9102RNG、実GPU比較は状態/武器時計/burst/全pool会計/ordered RNG/最終MT。射撃trace容量770・省略1354保持、全packet/全skill列traceではない。旧1405の全4419747840Bとcallback20の62914560Bを全byte保持・独立seal。CPU回帰95群498検査175.984秒＋最終7群71検査。CLIは単体検査→native→GPUへ変更し故障注入11成功、実callback実行でも順序確認。default266の旧230packing入力SHA/拒否理由を全保持（base170）。sparsifyはSHA/path/inode保持で6941179904B回収・削除0。Windows追加0/原因unknown/保全false、現CUDA実行未確認。development_only/全キャラ0/UI CPU/未達。次は対象worldのカタログ拡張と未対応consumer/制御。詳細docs/portable-aimed-real-worlds.mdとcheckpoint。以下は履歴。
+<!-- /aimed-real-world-current -->
+
+<!-- aimed-callback-current -->
+GPU本体変更なしでbody/partカウンター子のATK/吸血を共通20ケースへ追加。正本104射/440returned packet/20完了をCPU固定し、追加観測器のsemantic read/trace保持。Metal20の全battle/HP/pool/counter/named/trace/会計と直接private184行一致・独立seal。440行GPU個別traceではない。CPU4群17検査18.356秒＋最終5群21検査18.508秒、GPU0.05524秒、生成cache hit/追加Slang0。通常122/診断123 sourceが旧sealed1405/診断12と全同一なので旧1405保持証拠を再利用し全体再実行0。初期テストのcanonical通知無効化とcharge時刻0の誤認はGPU前に修正、数値期待値/正本変更なし。Windows追加0/原因unknown/保全false、現CUDA未検証。development_only/全キャラ0/UI CPU/未達。次は全定義実編成のtarget worldと広いcallback。詳細docs/portable-aimed-callbacks.mdとcheckpoint。以下は履歴。
+<!-- /aimed-callback-current -->
+
+<!-- aimed-area-current -->
+共有Slangへ狙った部位／interruptの貫通・爆発body→target配信、対象重複除外・発射時倍率snapshotを接続。Metal全1405(native1121/拒否284)＋診断12/直接private74receipt成功。正本60射/172returned packetはCPU固定（全172のGPU個別traceではない）。旧1393 input/native保持、1387raw全byte一致、混在6はNQR cache hit数各3減だけ。他のbyteと診断bank外37551360B保持。診断容量16→128を排他bankで拡張、Runtime/stride/数値/normalizer不変。CPU95群498検査175.857秒。full v1のCPU故障注入失敗は保持、上位層逆投影の検査修正後v2成功・GPU同条件retry0。Windows追加0/原因unknown/保全false、現CUDA未検証。development_only/全キャラ0/UI CPU/未達。次は混在callbackと全定義実編成のtarget world。詳細docs/portable-aimed-area.mdとcheckpoint。以下は履歴です。
+<!-- /aimed-area-current -->
+
+<!-- aimed-packets-current -->
+正本の物理split/hit_countと全returned HitEventを別観測する共通reference aimed-packets16契約を追加（86射/178packet/88private着弾）。旧24native/trace/receiptsとsemantic read回数保持。共有Slang1ファイルで狙ったpart/interruptのno-coreと直接対象倍率を接続。Metal全1393(native1109/拒否284)＋倍率診断8/34receiptが一致・独立seal。CPU95群498検査175.5653秒＋最終6群28検査、GPU10.5420秒。旧1385 input/native全保持、1361raw全byte一致、24件はcore memo72wordだけで旧4,356,832,992B保持。診断bank外25,148,928Bも全一致。共通CLI aimed-factor-compareでsource遷移/全raw/hashをGPU0で再監査。数値ライブラリ/normalizer/Runtime/容量変更0。Windows0/原因unknown/保全false、全キャラ0/UI CPU/未達。次はarea8の本体+対象packet/aimed重複除外を共有continuationへ接続。36private着弾を含むので診断容量16へケースを縮めず排他領域を拡張。development_only維持。詳細docs/portable-aimed-packets.mdと対応checkpoint。以下は履歴です。
+<!-- /aimed-packets-current -->
+
+<!-- interrupt-aim-gpu-current -->
+private kind6の直接着弾を共有actor pool/吸血/通知へ接続。Metal通常1385(native1101/拒否284)＋診断24/98receiptが一致・独立seal。CPU95群498検査175.6899秒、GPU10.7289秒、normal122source/診断123。旧1355のinput/native全保持、1354raw全byte一致、負例1だけcharge制御不整合の拒否位置変更657wordを固定し両方64。混在6の18,874,368B、診断bank外75,446,784Bも全保持。normalizer/数値/Runtime/既存容量変更0。通常v1の零率通知差・診断v2の初期化順序失敗raw/claim保持。sparsifyはbyte/SHA/path/inode保持で6,898,974,720Bのzero割当回収・削除0。Windows0/原因unknown/保全false、静的230/266・62分類、全キャラ0/UI CPU/未達。24例はcore0/intercept追加なしの直接packet範囲。次は狙った対象のno-core/intercept倍率、複数packet native観測、貫通/爆発の本体+対象/aimed重複除外。development_onlyを維持し広いpromotionをしない。詳細docs/portable-interrupt-aim-gpu.mdと対応checkpoint。以下は履歴です。
+<!-- /interrupt-aim-gpu-current -->
+
+<!-- interrupt-aim-reference-current -->
+共通CLI reference interrupt-aimへprivate物理着弾24契約を追加。正本hit_target前後98receipt、通常合計外会計・吸血・dead同フレーム・generation1→2・charge・散弾/2銃口・gateを固定。canonical ActorKind2はPROJECTILE、private6にhit creditを付けない。context内だけのCPU橋で通常CPU/default typed橋/GPU受付は不変。native/全trace/semantic read回数保持、偽receipt/二重/非物理/世代/容量/6故障を拒否。fresh不変packageのreference24とCPU23群140検査成功、batch28.4414秒。GPU/Windows0・共通GPU source/数値/normalizer変更0。全キャラ0/UI CPU/未達。次は共有landing continuationへprivate種別を接続し、Metal full battle/receiptと保持回帰後に受付。詳細docs/portable-interrupt-aim-reference.mdと対応checkpoint。以下は履歴です。
+<!-- /interrupt-aim-reference-current -->
+
+<!-- mixed-query-current -->
+照準＋数値辞書＋回復共有＋部位の混在6ケースを共通CLI mixed-query/mixed-query-diagnosticへ追加。正本観測の計算・trace・semantic read回数保持、8種の故障検出。Metal通常6＋診断6が全項目/全抽選順序/最終MT/照準/回復順一致し、独立seal成功。診断bank外18,628,416byte全保持。CPU13/16検査成功、GPU各約0.050秒。通常122sourceは既存1355と完全同一で全体再実行0、通常Slang0・診断両生成2。GPU本体/数値/normalizer変更0。Windows追加操作0、ユーザーは終了/再起動操作なし・ゲーム/動画の可能性を回答、因果はunknown/保全falseのまま。全キャラ0/UI CPU/未達、次はprivate物理interrupt橋のCPU契約と接続。詳細docs/portable-mixed-query.mdと対応checkpoint。以下は履歴です。
+<!-- /mixed-query-current -->
+
+<!-- scratch-layout-current -->
+旧scratch配置に部位スキル/割り込み集計/回復診断との重複を発見し、最大容量を保って分離。出力786432word/Runtime138952B/数値cache64/照準cache256/部位receipt2048は不変。NQRはpadding二bank、headerと履歴は割り込み集計後へ移動。排他的な二つの診断entryだけは領域共有し、同時macroを実Slangで拒否。共通CLI layout-check/layout-compareと読み書き幅・容量縮小・計算改変の故障検査を追加。Metal最大容量probe8＋実window1＋同122sourceの1355(native1071/拒否284)が全成功・独立fresh seal。CPU全92群487検査と最終小CLI10検査成功。GPU11.3868秒、normalizer/正本/算術不変。旧1302件は全byte一致、移動53件のcache/履歴と移動外4,260,934,400Bも保持。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/未達。次は混在consumer契約とprivate kind6の物理interrupt橋。18CPUケースが終了する試作は/tmp/nikke-private-interrupt-runtime-draft-v1.pyに保持し受付未開放。詳細docs/portable-scratch-layout.mdと対応checkpoint。以下は履歴です。
+<!-- /scratch-layout-current -->
+
+<!-- native-query-observation-current -->
+共通Slangへログsnapshot・初回/変化HP同期・期限切れログのlazy確定を接続。ログ有効/無効、満HP初回回復、終了通知から同効果再発動を含む25入力が同121sourceのMetalで全一致し独立seal成功。リリー30秒は4550抽選の全semantic順序・最終MT・原文battle/全射撃履歴まで一致。正本6編成の元指紋保持、CPU/数値/normalizer不変。読み取り専用census/windowをCLIへ追加し、診断領域以外の全byte保持を確認。旧1330＋新25の1355回帰も同121sourceでMetal全一致・独立fresh seal、CPU91群482検査成功。旧1326件のraw全4,171,235,328Bと新25件は全byte一致、既記録のselector25修正4件だけ各2B変化、旧1330のnative指紋は全保持。GPU11.14889秒/生成cache必須hit/追加Slang0。初回は旧散弾のno-op故障注入でGPU前停止し、監査層へprojectして確実に変異させるテストへ修正。Windows追加操作0/7終了原因unknown/保全false、全キャラ認定0/UI CPU/ゴール未達。詳細docs/portable-native-query-observation.mdと対応checkpoint。以下は履歴です。
+<!-- /native-query-observation-current -->
+
+<!-- ordered-history-current -->
+共通履歴を先頭128生record＋全semantic順序SHA-256へ拡張。追加bank64word(781792..781856)、stride/Runtime field不変。時刻はhash対象外でbattle/trace比較を保持。単体ordered-history13入力がMetal成功・独立seal、実goldenで通常CLIへ登録し通常CPU6成功。resident専用generation cacheの不適合指定はCPU/capture/claim前に拒否するCLI検査を追加。実編成でselector25のeager確定（旧4入力は1word21→5のみ、旧SHAへ全復元）と率0のlanding数値照会を修正、post-hit CPU契約を追加。119sourceのbattle19は18一致、リリー30秒のみ正本4550/GPU4542抽選で8不足・205発目からdamage差分。全6native/trace元指紋保持、失敗raw/claim保持、最終CPU55＋reference6成功。次は3.85..4.0秒のGPU辞書照会owner/target/epoch/hitを直接観測し欠落を特定。旧1330＋新19の1349suiteは登録のみで、差分解消後に一括検証。旧rawの全bytes/SHA/path/inodeを保って割当1.899GB回収、削除0。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/ゴール未達。詳細docs/portable-ordered-history.mdと対応checkpoint。以下は履歴です。
+<!-- /ordered-history-current -->
+
+<!-- native-numeric-query-current -->
+後段ATK＋allies_randomのdirect読取と数値辞書cacheを共有Slangへ接続。meta+5の厳密tag/64context/8736word(773056..781792)、Runtime field追加0。初回命中/charge開始と既存mutationの破棄、数値reader入口、終了時の敵ATK→Actor数値読取順を保持。Metal native5＋拒否7が全項目・抽選pool/order/MT位置/最終全state一致し独立fresh seal、実golden保存・development_only維持。v1-v4の停止/失敗raw/claimは保持。CPU/数値/normalizer不変、厳密11source差分で旧監査層と算術/exit/boundary故障検査を維持。リリー実30秒の4550抽選は128履歴上限の拡張待ちで未検証。次は履歴方式とcharge実射撃/混在readerを検証し、実6＋旧1330を同じsourceで全保持検証。旧1330は変更前sourceの歴史的証拠で今回sourceでは未実行、広いpromotion保留。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/ゴール未達。詳細docs/portable-native-numeric-query.mdと対応checkpoint。以下は履歴です。
+<!-- /native-numeric-query-current -->
+
+<!-- late-attack-random-current -->
+全定義3編成を共通CLI state-focus-rostersへ追加しMetal6入力を検証。5一致、リリー30秒は122差分で失敗・raw/claim保持/再実行0。原因は後段ATKのdirect random読取とdictionary cache境界：正本4550抽選に対しGPU4。CPU契約5をreference late-attack-randomへ追加し、各248照会/158hit・mapped1対late90抽選・5故障拒否・元native/trace/照会数保持を確認。分類器はこの組合せをreader/cache/history拡張へ修正。GPU source117は前回と同一、生成cache必須hit/Slang0、Apple M5 GPU2.745459秒。新suiteは未seal/development_onlyで、sealed範囲1330を維持。次は共有dictionary-query入口/後段direct読取/128超履歴を接続して実6と旧1330を保持検証。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/ゴール未達。詳細docs/portable-late-attack-random.mdと対応checkpoint。以下は履歴です。
+<!-- /late-attack-random-current -->
+
+<!-- state-focus-current -->
+共有cover/camera条件39/30、focus_fire存在stat91、フレーム照準とtyped部位着弾/通知を接続。Metal新66(native54/拒否12)＋旧1264(native1000/拒否264)が同117sourceで成功・各独立seal。計1330、旧全entriesとraw3,976,200,192Bを全byte保持。条件30＋照準24、初期数値cacheとlive markerの違い・更新破棄・部位同フレーム破壊を照合。新Runtime field0/stride138952/CUDA定数48B、専用bank770976..773056/cache256。旧CPU455成功/GPU10.696秒/生成cache必須hit/Slang0。静的230/266・base170/203・62分類はGPU認定でない。追加stat reader/cache invalidation、typed interrupt橋、revival/random混在、実編成と広いpromotion、現CUDA実行が残件。旧golden/本体compiler証明は保留、suiteはdevelopment_only。失敗v1-v3/claim保持・正本CPU/数値/normalizer不変。Windows操作0/7終了unknown/保全false、全キャラ0/UI CPU/ゴール未達。詳細docs/portable-state-focus.mdと対応checkpoint。次は新規packing3編成の全定義3/30秒を優先し、readerとtyped interrupt橋を検証。以下は履歴です。
+<!-- /state-focus-current -->
+
+<!-- ally-random-gpu-current -->
+味方random selector19/25を既存allied MT・遅延cache・順序付きrecipientへ接続。Metal新30(native20/拒否10)＋旧1234(native980/拒否254)が同じ116sourceで成功・各独立seal。旧全entriesとraw3,881,828,352Bを全byte保持、計1264/正例1000。旧保持CPU449成功、生成cache必須hit/追加Slang0、GPU10.3185秒。CPU契約18は不変、追加GPU契約は人数0と発動上限。新しいRuntime field0/stride138952、正本CPU/数値/MT/normalizer不変。味方だけでは復活を有効化しない。cover_breakログとcover_revive受付も既存処理へ接続。混在revive/random、random buff list、debuff型、cover/camera条件とfocus_fire marker/aim、現sourceのCUDA実行は未検証。実証goldenは保存したがsuiteはdevelopment_only、旧golden/本体compiler証明の一括promotionは保留。Windows操作0/7終了unknown/保全false、全キャラ認定0/UI CPU/ゴール未達。次は混在契約と共有cover/camera/marker接続をまとめ、次のsource batchで保持検証。詳細docs/portable-ally-random-gpu.mdとresearch/portable-ally-random-gpu-checkpoint.json。以下は履歴です。
+<!-- /ally-random-gpu-current -->
+
+<!-- state-prerequisites-current -->
+次のまとめ移植に向け、共通CLI referenceへstate-predicates30＋ally-random18のCPU契約を追加。不変packageで48成功、CPU-only20群124検査24.533秒。生存者のみのcover判定（本人含む）、破壊/復旧/死亡、casterカメラ・有限/無限・同時刻の順序、独立した味方global RNGと敵RNG、空/1人/全員選択の消費、source欄を跨ぐ遅延対象cache、即時修復後の候補変化を固定。100条件/204cover/326runtime照会、50sample/50resolve/52選択。native全項目/trace/元照会回数/乱数stateを保持。focus_fireは条件だけでなくmarker＋aim consumerが未接続。not_coreは期待値累積でbool反転不可。静的227/266・68分類は不変、契約拡張6/consumer研究4/gap3/review55。GPU本体/受付/golden/正本CPU/数値/normalizer不変、GPU実行/claim0、既存Metal1234を新規証明へ加算しない。Windows操作0/原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-state-prerequisites.mdと対応checkpoint。次は共有状態/marker/aim/味方recipientを同一batchで接続しMetal新例＋旧1234を検証。以下は履歴です。
+<!-- /state-prerequisites-current -->
+
+<!-- undying-predicate-current -->
+不屈条件self_undyingを既存共有liveMarkerへ接続。値/名前でなく生存statを照会、Runtime追加field0/stride138952、明示発動/private worldのみ。CPU22＋原文全定義マキマ3（致死刺激あり）契約、Metal主28(native22/拒否6)＋実3＋旧1203が同一sourceで一致・独立seal、計1234(native980/拒否254)。旧全entries/raw3784310784Bを全byte保持。CPU事前67.249秒＋回帰75群433検査141.520秒、GPU10.966637秒、後続生成cache必須hit/Slang0。親再利用871/fresh84/拒否248、独立sealはfresh。full116/commands117 certificate14検査と正式CPU111検査成功、3suiteを通常経路へ昇格。2件のGPU前停止は保存し、監査区切りと古い拒否fixtureだけを修正。実履歴155/1398/1398、省略0、旧省略は残る。静的227/266・base167/203・68分類はGPU認定でない。接続済み条件の旧診断は未実装候補でなく文脈確認へ。rawゼロ領域回収で全byte/SHA/path/inodeを保持し、今回7360544768Bの割当を回収、削除0。正本CPU/数値/normalizer不変、Windows追加操作0/原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-undying-predicate.mdと対応checkpoint。次は共有状態の未対応条件をまとめて契約/保持検証。以下は履歴です。
+<!-- /undying-predicate-current -->
+
+<!-- accuracy-retention-current -->
+命中率条件の全保持検証完了。新34と旧1169が同一共有sourceでMetal一致・独立seal、合計1203(native955/拒否248)。旧全entriesとraw3677356032Bを全byte保持。CPU事前66.177秒＋回帰72群423検査129.281秒、GPU10.694823秒、生成cache必須hit/Slang0、親再利用843/fresh84/拒否242、独立監査はfresh。full116/commands117 certificate14検査と正式package CPU102成功、3suiteを通常経路へ昇格。共通CLIにMac sparsify-rawを追加し実APFS9検査成功、4rawの内容/長さ/path/inode/SHAを維持して7543914496Bのゼロ領域を回収、raw/claims削除0。歴史artifact metadataも不変、4.17GB入力出力＋14GiB予備を実空きで確認してからGPU実行。静的226/266・base166/203・69分類はGPU認定ではない。Windows追加操作0/原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-accuracy-predicate-gpu.md、docs/portable-sparse-raw.mdと対応checkpoint。次は正本consumerのある未対応効果の契約と共有実装を継続。以下は履歴です。
+<!-- /accuracy-retention-current -->
+
+<!-- accuracy-predicate-gpu-current -->
+命中率条件を既存共有stat読取/binary64比較へ接続。通常/actor-field受付を同一のstat whitelist＋有限値guardへ統一。Metal主32(native26/拒否6)＋原文全定義実モダニア2が同一到達sourceで成功し独立seal。CPU各102検査、GPU0.043992秒/3.645644秒、後者生成cache必須hit。物理履歴112/0省略と2048/295省略を照合。初回受付失敗・診断・GPU前監査失敗を保持し、入力/native期待値は不変。静的226/266・base166/203・69分類はGPU認定ではない。旧1169は変更前sourceの証拠で、今回sourceの全保持検証は容量不足で未開始（input約0.49GB＋output3.68GB＋予備14GiB必要）。development_only維持、全体promotion/証明更新は保留。raw/claims削除0、正本CPU/数値/normalizer不変、Windows追加操作0/原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-accuracy-predicate-gpu.mdとresearch/portable-accuracy-predicate-gpu-checkpoint.json。以下は履歴です。
+<!-- /accuracy-predicate-gpu-current -->
+
+<!-- accuracy-predicate-reference-current -->
+命中率条件の正本CPU26契約＋実モダニア全定義2入力を共通CLI referenceへ登録。不変packageで28契約成功、CPU-only14群99検査成功。実30秒は8判定が全成立、値は14%×5→5.44%×3で固定bool化不可。CPU物理履歴2343件はGPU容量超過のため後続比較で省略を明示する。差等被ダメ分配の2分類はpinned仕様未定の証拠を固定してmodel gapへ移動、均等分配への別名化なし。静的225/266・70分類は不変、candidate1/consumer研究4/gap3/review62。GPU受付は拒否継続、新GPU実行/claim0、正本CPU/GPU/数値/normalizer/golden不変。Metal既存1169範囲維持、Windows操作0/終了原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-accuracy-predicate-reference.mdとresearch/portable-accuracy-predicate-reference-checkpoint.json。次は容量予算を確保して共有条件受付・Metal短例・旧1169保持へ進む。以下は履歴です。
+<!-- /accuracy-predicate-reference-current -->
+
+<!-- parent-oracles-current -->
+共通CLIに同一親プロセスの事前CPU結果の再利用を実装。現在のmanual-swap/実編成/保持suiteで自動利用し、既存比較器のGPU decode/全項目比較/拒否/全raw/SHA/生成code/輸送監査は維持。package/capture/PID/thread/引数/値の同一性を検査、一度だけ消費してclose、値を子や保存cacheへ渡さない。独立audit/seal/replayとCPU-onlyは再利用なし。旧Metal1137のCPU読取比較で818正例を再利用/84再計算/235拒否、親比較68.414秒→11.833秒（56.581秒削減）、全項目/全entries/元保存JSON一致。preflight64.800秒とCPU回帰/独立監査は残す。新旧両比較を含む測定peakRSS6140461056Bは増分/Windowsメモリ証明ではない。正式30入力を新通常経路でMetal一致（再利用23/拒否7）、生成cache追加Slang0/GPU0.054426秒、CPU13群90成功、その保存結果の独立fresh auditも成功。故障注入13を含む関連97検査成功。GPU本体/golden/正本CPU/数値/normalizer変更0、既存Metal1169の範囲を維持。Windows追加操作0/7終了unknown/preservationfalse停止、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-parent-oracles.mdとresearch/portable-parent-oracles-checkpoint.json。次はこのCLIを使って未対応制御/効果の共通GPU接続を継続。以下は履歴です。
+<!-- /parent-oracles-current -->
+
+<!-- manual-swap-gpu-current -->
+weapon_mode_swapを共通reloadへ接続。owner別5bit＋tagを既存headerへ格納し、GPUで条件付きfull_reload候補を判定、既存beginReload/完了dispatcherへ委譲。満弾開始・charge中断・0/負reload・条件失効・budget到達後の再試行・再突入を保持。Metal主30(native23/拒否7)＋自然な全定義実2＋旧1137が同116sourceで一致・独立seal。計1169(native927/拒否242)、旧全entriesとraw3576692736Bを全byte保持。実30秒は約16.483333秒に移行し原文値40が8dispatch、物理履歴112/1425、省略0。cover sequenceとのCPU1契約はhost拒否継続。Runtime追加field0/stride138952/CUDA定数48B、正本CPU/既存CUDA/数値/normalizer不変。初回kind取り違えの失敗raw/claim保持、input/nativeを変えずkind2修正v2で成功。full116/commands117 certificate14検査、最終sealed CPU78検査とreference26契約成功。旧1137はCPU preflight64.373秒＋回帰67群389検査117.387秒（worker117.703秒）＋親比較68.299秒、GPU10.748800秒。後続実2/旧1137は生成cache必須Slang0。静的225/266・base165/203・70分類はGPU認定ではない。Windows追加操作0/7終了unknown/preservationfalse停止、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-manual-swap-gpu.mdとresearch/portable-manual-swap-gpu-checkpoint.json。次は未対応制御/効果の契約と、独立sealを維持する親CPU事前照合結果の再利用設計。以下は履歴です。
+<!-- /manual-swap-gpu-current -->
+
+<!-- manual-swap-reference-current -->
+weapon_mode_swapの正本経路を確認し、共通CLI referenceへmanual-swap24＋全定義manual-swap-rosters2契約を追加。full_reload候補の条件・原文順・budget非再検査、満弾開始、charge中断、再突入、0/負reload、cover前の判定を固定。24契約は34開始/17完了/主対象139射、全native/trace/get_buffs呼出数を保持。実シンデレラ30秒で約16.483333秒のready1回＋値40の原文効果8dispatchを正本で観測、3秒は未発火対照。trueフラグがprivate正規化で落ちる問題を、接続までreason=control/fields=weapon_mode_swapの明示拒否へ修正（false/省略保持）。consumer確認済み26契約のprogram blocker候補として分類、GPU支持はfalse。fresh packageのCLI26契約＋既存46入力/29native指紋一致、9群61検査14.104秒と別32検査成功。単独起動の依存初期化失敗は保存し、fresh child検査で修正確認。GPU本体/受付/golden/Runtime/数値/正本CPU/既存CUDA/normalizer変更0、GPU実行0/claimなし。既存Metal1137の範囲を維持し新GPU認定は加算しない。Windows追加操作0/7終了unknown/preservationfalse停止、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-manual-swap-reference.mdとresearch/portable-manual-swap-reference-checkpoint.json。次は静的ownerフラグと条件付きreload判定を共通GPUへ接続し、実編成と旧1137の保持をMetal検証。以下は履歴です。
+<!-- /manual-swap-reference-current -->
+
+<!-- ammo-equivalent-gpu-current -->
+squad_ammo_consume_asを共通Slang kind37へ接続。リテラルtruncate後N-1通知を同期continuationで処理し、実弾の追加消費なし。Metal主46(native29/拒否17)＋原文効果の明示charge1＋全定義の実2＋旧1088を独立seal、計1137(native902/拒否235)。旧全entriesとraw3422552064Bを全byte保持。実2は既定MGで対象dispatch0の対照で、自然なSR進入／手動reloadは未対応。原文効果1は2射80通知・装弾8・6000/12000一致。静的geometry再コンパイルとactor core/range受付を修正。診断stage重複をClaudeのsourceレビューで特定し、pool8000へ分離・再発検査追加、一時実験コード除去、失敗raw/claims保持。旧1088はCPU preflight62.609秒＋回帰64群376検査102.090秒、GPU10.670990秒。full116/commands117 certificate14成功、Runtime追加field0/stride138952/CUDA定数48B、数値/正本CPU/既存CUDA/normalizer不変。静的225/266・base165/203・70分類はGPU認定ではない。実30秒物理履歴32省略と旧省略を維持。Windows追加操作0・7終了unknown/preservationfalse停止、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-ammo-equivalent-gpu.mdとresearch/portable-ammo-equivalent-gpu-checkpoint.json。次は正本consumerのある未対応制御経路を優先。以下は履歴です。
+<!-- /ammo-equivalent-gpu-current -->
+
+<!-- ammo-equivalent-reference-current -->
+共通CLI `reference --suite ammo-equivalent` に正本CPU25契約を追加。fresh不変packageで71射・4426通知・64dispatch成功、旧散弾／共通reference負例／分類器を含む4群30検査成功（10.442秒）。小数truncate、N-1追加通知、実弾の追加消費なし、auto/charge順序、全体counter、4096、無限弾薬、max_trigger再帰、periodic登録とtickを固定。wrapperをunwrapして正本valを読み、追加buff照会0・native/trace全保持。シンデレラ：クリスタルウェーブのconsumerを確認、通常self/literalだけをGPU実装候補へ分類。静的224/266・base164/203・71分類不変、candidate1/review65。GPU本体／受付／golden／数値変更0・GPU実行0・claimなし。Windows追加操作0、7終了unknown/preservationfalse停止。詳細docs/portable-ammo-equivalent-reference.mdとresearch/portable-ammo-equivalent-reference-checkpoint.json。次は同期continuationへkind37を接続し、Metal短例・実定義・旧1088保持。全キャラ認定0／UI CPU／ゴール未達。以下は履歴です。
+<!-- /ammo-equivalent-reference-current -->
+
+<!-- pellet-shot-gpu-current -->
+1射内pellet_hit_in_shot:NをCUDA／Metal共通Slangへ接続。原文別ID・signed32、0/負値の静的loweringと復元、captured pellet×muzzles、auto/warmupの通知順・重複descriptorを保持。CPU21契約、Metal36(native21/拒否15)＋メイドプリバティ全定義3秒/30秒2＋旧1050が同116sourceで一致・独立seal。旧全entriesとraw3303014400Bを全byte保持し、計1088(native870/拒否218)。CPU回帰61群362検査88.802秒、GPU10.649943秒、成功3検証の追加Slang0。full116/commands117 certificate14検査成功、最終sealed package CPU62検査・claimなし。実30秒で閾値通知43回・正reload speed照会4133回、最大20.88%、native指紋保持。物理履歴85/770・省略0、旧既知省略は維持。v1はfixtureのmin_cycle10混入でcharge1射差分、原失敗保持・正本入力0.1秒へ修正した別v2で成功、GPU source再変更なし。静的224/266・base164/203・71分類はGPU認定ではない。Windows追加操作0・7終了unknown/preservationfalse停止、全キャラ認定0/UI CPU/ゴール未達。詳細docs/portable-pellet-shot-gpu.mdとresearch/portable-pellet-shot-gpu-checkpoint.json。次は正本consumer確認済みsquad_ammo_consume_asのCPU契約。以下は履歴です。
+<!-- /pellet-shot-gpu-current -->
+
+<!-- pellet-shot-reference-current -->
+共通CLI `reference --suite pellet-shot` に正本CPU20契約を追加。fresh不変packageで59射・62通知が成功し、旧失HP／共通reference負例を含む3群18検査成功。raw閾値aliasの区別、数値→原文順、重複descriptorの複数発動、captured pellet×muzzles、auto/warmupのみの通知、gauge/attack前の順序を固定。観測器の追加buff照会0・native/trace全保持。GPU本体／受付／golden／数値／ABI変更0・GPU実行0で、未実装のCPU準備段階です。Windowsのゲーム／動画併用は原因証拠ではなく、7終了unknown・環境保全false・追加検証停止を維持。詳細docs/portable-pellet-shot-reference.mdとresearch/portable-pellet-shot-reference-checkpoint.json。次は原文別ID＋共通Slang通知、Metal短例・実編成・旧1050保持。全キャラ認定0／UI CPU／ゴール未達。以下は履歴です。
+<!-- /pellet-shot-reference-current -->
+
+<!-- lost-hp-attack-current -->
+失HP ATKを既存共有Slang scalarへ接続。GPUはreference受付1箇所だけで、数値・Runtime・正本CPU/既存CUDA/normalizerは不変。CPU21＋復活3契約、Metal主29(native21/拒否8)＋復活3＋ギロチン全定義3秒/30秒2、旧1016が同115sourceで一致・独立seal。旧全entriesとraw3196059648Bを全byte保持、計1050(native847/拒否203)。CPU回帰58群350検査が79.062秒、GPU10.416秒、生成cache追加Slang0。full115/commands116 certificate14検査成功、commands両生成の原byteも旧版と同一（NVRTC実hit証明ではない）。ギロチン30秒で正scalar714回、最小HP50.1209%・最大倍率47.8839を観測しnative指紋保持。物理履歴30秒32省略・旧省略は残す。静的223/266・base163/203・72分類はGPU認定ではない。Windows追加実行0、7終了unknown/preservationfalse停止、UI CPU/全キャラ認定0/ゴール未達。詳細docs/portable-lost-hp-attack.mdとresearch/portable-lost-hp-attack-checkpoint.json。次はpellet_hit_in_shot:5の正本契約。以下は履歴です。
+<!-- /lost-hp-attack-current -->
+
+<!-- skill-hp-basis-current -->
+最大HP由来のスキルATK加算／置換を共通Slangへ接続。damage_basis_specsを共有し、GPUで最大HPを取得、演算順序・親子snapshot・部位・吸血を保持。HP37(native26/拒否11)＋保護回復4＋メイデン／キロ全定義3秒/30秒4、旧8群971を同115sourceでMetal一致・独立seal。旧971の全entriesとraw3054501888Bを全byte保持、計1016(native821/拒否195)。CPU回帰340成功、full115/commands116 certificate14検査成功。共通CLIで8群を1バッチへ統合し、初回60秒CPU停止を保持、当該suiteだけ90秒で66.540秒成功。GPU10.387秒、生成cache追加Slang0、GPU枠は不変。保留B3のHP換算欠落はホスト／GPUで拒否。キロ30秒の物理履歴32省略と旧省略を明示。静的222/266・base162/203・73分類はGPU認定ではない。Windows追加native/compile/GPU0、7終了unknown/preservationfalseの停止を維持。UI CPU/全キャラ認定0/ゴール未達。詳細docs/portable-skill-hp-basis.mdとresearch/portable-skill-hp-basis-checkpoint.json。次はatk_pct+lost_hp_pct等の正本consumerを先に契約化。以下は履歴です。
+<!-- /skill-hp-basis-current -->
+
+<!-- mode-capacity-current -->
+武器変更max_ammo_scaling_refを共通Slangへ接続。None/0、ゲージ→召喚体→stackの優先順位、整数倍率、進入/再進入/再装填snapshot、弾薬即時操作、容量0と無限弾薬、散弾/2銃口/charge/sentinelのCPU29契約を固定。sealed mode-capacity32(native26/拒否6)＋追加instant3＋E.H.全定義3秒/30秒2入力がMetal一致・独立seal。旧849/部位63/実4/味方通知16/ルピー2も同sourceで全一致・独立seal、計971、旧934の全entriesとraw2938109952Bを全byte保持。CPU回帰330成功。Runtime追加field0/stride138952、CUDA定数48B、full114/commands115 certificate更新。sealのCWD混在を修正し、異なる2checkoutの実子プロセス検査4件を通過、保存32のCPU監査結果がpackage自身からのsealと完全一致。初回query guard3失敗はGPU前/claimなしで保持し、元fixtureを換えず有限deltaを接続。E.H.履歴152/1388・省略0、30秒で容量1/モード1packetの実行を正本でも観測。静的220/266・base160/203・75分類はGPU認定ではない。Windows追加GPU/native/compile0・既存7終了unknown/環境保全falseで停止維持。通常UI CPU/全キャラ認定0/ゴール未達。詳細docs/portable-mode-capacity.mdとresearch/portable-mode-capacity-checkpoint.json。次も正本consumerのある未対応項目を優先し、未確認projectile/shieldをnoop受付しない。以下は履歴です。
+<!-- /mode-capacity-current -->
+
+<!-- ally-burst-current -->
+味方バースト使用通知event42を共通Slangへ接続。CPU15契約とsealed ally-burst16(native15/拒否1)、ルピー：ウィンターショッパー全定義の実編成3秒/30秒2入力がMetal全一致・独立seal。旧849＋実4＋部位63も同sourceで全一致・独立sealし、旧916の全entriesとraw2881486848Bを全byte保持。新実編成の物理履歴49/471件・省略0、旧レム30秒55件省略等は維持。Runtime追加field0/stride138952、CUDA定数48B、full114/commands115 certificate更新、成功5検証のSlang0。CPU回帰312成功、新feature検査21成功。静的219/266・base159/203・76分類はGPU認定ではない。event41別段階通知は拒否のまま。Windows追加GPU/native/compile0、既存7終了unknown/環境保全falseで新規検証停止維持。初回sandboxのMetal未取得失敗・claim等を保存。全キャラ認定0/UI CPU/ゴール未達。詳細docs/portable-ally-burst.mdとresearch/portable-ally-burst-checkpoint.json。次は武器変更max_ammo_scaling_refのNone/zero/snapshot/reload契約。以下は履歴です。
+<!-- /ally-burst-current -->
+
+<!-- windows-historical-log-current -->
+Windowsの既存7プロセス終了（2026-10-22 19:04:25 JST）の追加切り分け。ユーザーから同時刻前後のアプリ／ターミナル終了・Codex再接続・Windows再起動なしとの回答があり、ゲーム／動画の併用は可能性として挙がっただけで因果関係は未確認です。±2分のSystem/Applicationログを30秒上限で読み取り照会し、両方UnauthorizedAccessExceptionで取得不能（1.824秒）。イベントが存在しなかったという証拠ではありません。権限昇格・範囲拡大・再現実験・追加GPU／コンパイルは0。原因unknown・環境保全false・サービス未識別を維持し、保存済み失敗／claimを保持。Windowsの新規native/GPU検証停止を継続し、Macの独立開発を進めます。根拠はresearch/portable-scope-windows-event-log-peer-report.json（peer要約、元ログの独立監査ではない）。
+<!-- /windows-historical-log-current -->
+
+物理武器のinterrupt追加着弾を共通Slangへ接続しました。現在`parts-skill-world`63（native59／拒否4）がMetal成功・独立seal済み。スキルと同じgroup HP・総ダメージ外計上・吸血を使い、散弾・2銃口・生成後buff変更・射程境界・コア／critical分離・破壊／gate／add対象を検証しました。既存849・実4も全一致・独立seal、旧45入力・849全raw約2.67GB・実4全rawを保持。全実行は生成cache必須・Slang0回です。座標・deferred・random最終tick・実CUDA／環境保全・全キャラ認定は未完了、Windows新規実行0。詳細は[物理interrupt](portable-physical-interrupt.md)。以下は履歴です。
+
+Slangの両生成cacheを共通CLIへ追加しました。`generation --generation-cache <dir>`でsealed sourceをCPU準備し、`--require-generation-cache`でコンパイラ起動を禁止した再利用を指定します。`run`／`compile`／`module-check`にも同じ2オプションがあります。Mac本体114sourceの実測は初回4.09秒・Slang2回→hit0.47秒・0回、別packageでMetal実4も全一致・独立監査済み。これはNVRTC cacheとは別の前段で、Windowsの速度・実CUDA一致・環境保全の証明ではありません。Windowsのstandalone生成は拒否し、追加検証停止を維持します。詳細は[生成cache](portable-generation-cache.md)。以下は履歴です。
+
+共通Slangへ非座標skillのpierce／explosion到達、生成値・reach receipt、interrupt群のHP／総ダメージ外計上・吸血を接続しました。現在`parts-skill-world`46（native41／拒否5）がMetal成功・独立seal済み。生成後buff変更・複数破壊・壊れない対象・周期3tick・共有吸血を含みます。最終849と実4もMetal成功、旧849全raw約2.67GB・実4全raw・従来26入力を保持。物理interrupt・座標・deferred・実CUDA照合・CUDA生成cache改善は未完了、全キャラ認定0、Windows新規実行0です。詳細は[到達処理](portable-interrupt-reach.md)。以下は履歴です。
+
+interrupt packetの7bit codec単体を共通Slangで実装し、sealed suite `interrupt-packet-codec`154（正例140／拒否14）をMetal検証・独立sealしました。本体へのincludeはまだなく、既存849／40／実4のソースは維持。次はFrameに生成値／reachを保持し、codecをreceiptの保存・読出しへ接続してからkind6群着弾・計上・吸血を接続します。初回probeの256word stride誤りは原失敗を保持して786432wordへ修正済み。Windows新規実行0。
+
+interruptのprivate kind6／source3を共通world poolへ接続し、出現・世代・再出現・期限終了をMetalで検証しました。現在のsealed入口は`parts-skill-world`40（native30・拒否10）。既存849と実編成4も独立sealし、旧全rawと以前の26入力を保持しています。到達ダメージ・吸血・座標・deferred・修正版CUDA照合は未完了、全キャラ認定0です。Windowsの新規実行は停止中。詳細は[interrupt接続](portable-interrupt-source.md)、次の実装は[packet設計](portable-interrupt-packets-next.md)。以下は履歴です。
+
+<!-- parts-skill-world-current -->
+hits_partsの生成時二値sample→Frame snapshot→2048件専用receipt bank→live部位群着弾を共通Slangへ接続しました。新sealed suite parts-skill-world26(native25/拒否1)、skill-part-codec4(正例3/拒否1)がMetal成功・独立seal済み。最終DoT部位familyも本体と共通化、part/DoT専用counter完了を実証。旧849＋実4は同じ最終sourceで全件一致・独立seal、全input/native/output entriesと旧raw計2683305984Bが完全一致、CPU集約308成功。full closure112/commands113/Runtime stride138952、goldens/certs登録。原25入力失敗はnative観測器の固定0だったclearedを実Runへ直し、明示的なparts-cleared-v1移行監査で1ケース1項目だけの修正・他全項目同一を要求して保存raw再監査/旧失敗保持/GPU再実行0。新26は別source/inputの実GPU証拠です。詳細 docs/portable-parts-skill-gpu.md / research/portable-parts-skill-gpu-checkpoint.json。次はinterrupt Actor入力7契約、interruptの部位と異なるaccounting/吸血、座標/deferredと詳細lifecycle証明、およびCUDA保存生成物キャッシュ改善。Windows追加実行0、既存7終了cause unknownは維持し、ユーザーへ10/22 19:04:25前後の終了操作の有無だけを確認中。静的218/266・base158/203はGPU認定ではなく、全キャラ0/通常UI CPU/ゴール未達。以下は履歴です。
+<!-- /parts-skill-world-current -->
+
+<!-- damage-factors-current -->
+共通ダメージの因子取得／順次積を分離し、damageValueWithPartの入口を追加しました。CUDA／Metal共通Slang、binary64／整数／pow／normalizer／protected CPUは不変です。CLI damage-factors16はMetal全bit一致・独立seal、既存849(native676/拒否173)と実4も全件一致・独立seal、旧raw2670723072B/89afa4ed...と12582912B/f83a45b0...が全byte一致、全input/native/output entries保持。CPU集約307成功。source closure111/Runtime stride138952、full/commands証明書とgoldenを実証から登録しました。details docs/portable-damage-factors.md / research/portable-damage-factors-checkpoint.json。新しい二値入口は戦闘未接続でhits_partsの受付は閉じたまま。次は生成時の二値sample診断とFrame snapshot、周期snapshotと重ならないreceipt bank、live part group landingへの接続です。Windowsは以下の7終了の原因unknownで追加実行停止、全キャラ認定0/ゴール未達を維持します。
+<!-- /damage-factors-current -->
+
+# Windows scope検証の停止記録
+
+固定ソース`5c4bfcd`のCPU272件、PTX生成、object生成、JIT CUBIN生成は成功しました。link後の既存プロセス7件の消失により、実編成4ケースのGPU実行は開始せず停止しています。CUDAの修正版数値一致は未検証です。MacではMetal849ケースと実編成4ケースの全raw保持・独立sealが完了しています。
+
+接続復旧後、Windows側の保存記録のみを読み取りました。7件は今回の最初のsmoke検証より前から存在し、全件が終了コード1・signaledでした。CIMとnativeの作成時刻の差はマイクロ秒への切り捨てで説明され、PID再利用として扱いません。終了はlinkのbefore観測後、約5.19ミリ秒の区間に集中し、最後の子journalの約5.7秒前でした。後始末の開始時刻そのものは記録がなく、この順序だけで因果関係は断定できません。
+
+保存PPIDはlink子・ラッパーのPIDと一致せず、ソースレビューでは検証用Popenと新規無名Job以外を明示的に終了する処理は見つかりませんでした。実行時の原因はunknownです。環境保全はfalse、サービス識別はunverifiedを維持します。保存記録と失敗判定を変更せず、Windowsの追加native/GPU実行を止めています。復旧後の調査でGPU・コンパイル・新しいプロセス照会は実行していません。
+
+根拠は`research/portable-scope-windows-pipeline-peer-report.json`、`research/portable-scope-windows-exit-peer-report.json`、`research/portable-scope-windows-timing-peer-report.json`です。Windows側から取得した要約であり、Macで元の全ファイルを独立監査した証明ではありません。7件の原因調査と、将来の検証で終了処理の直前・直後を記録する設計が必要です。全キャラ・全特殊効果のGPU対応は未完了です。
+
+
+<!-- scope-metal-sealed-current -->
+scope snapshot修正がMetal全849＋実4で保持確認・両独立seal成功。849packet d8ae57ff.../capture /tmp/nikke-scope-regression-v3-metal、CPU306全成功、GPU10.377407s、旧raw2670723072B全byte一致/89afa4ed...。実4packet edc6b6e4.../GPU3.104149s、旧raw12582912B全byte一致/f83a45b0...。入力/native/outputの全entriesも旧golden一致、source変更はworld_actor_state1fileのみ/110 closure/Runtime stride138952不変。新sealed goldens2とcompiler-full/commands証明書を実証から更新、full110/commands111/両生成指紋固定。新fresh compiler-full controller272中271成功/Win1skip/失敗0。旧Swift/CPU guard失敗全保持、old native source fixtures/hashも保持。record research/portable-scope-regression-metal-checkpoint.json。次は固定clean source共有→Windows同code full/rosters packet→CPU272/native gate1回→PTX/object/JIT各1回/各2GiB60秒、成功時のみ新CUBIN実4を1回。古いab5失敗/claimを再実行しない。残Na30の4wordが修正で消えるかは未証明、tol/normalizer変更なし。Windows現在idle、ゴール未達/全キャラ認定0/parts CPU32/UI CPU維持。以下は履歴です。
+<!-- /scope-metal-sealed-current -->
+
+<!-- scope-ledger-reconciliation-current -->
+849 v2 packet a5fe2bb3...もGPU前CPUでdefinition-viewの歴史的consumer rawhash guard1件のみ停止。scope以外の改変はなし。元fixture/hashは更新せず、query-boundaryにhelper/comment/call/store/returnのexact raw逆変換を追加し、definition-viewも同じdeltaだけを元rawへ戻して旧consumer SHAへ照合。unchanged flagはfalse/approved delta listを明示、外側source/数値/wire変更は拒否する。関連query5＋definition6成功、v2で未実行だった残5group22検査を元fresh packetでCPU-only実行して全成功、GPU0。v1/v2失敗capture/packet保持、いずれもGPUclaimなし。次はcorrected fresh full packetで849全CPU→Metal1回→全raw旧2.67GB比較→独立seal、new goldens/certificates→CUDA修正版検証。Metal実4の全raw保持/独立sealは済。GPU sourceはscope1fileだけ、normalizer不変、Windowsidle。以下は履歴です。
+<!-- /scope-ledger-reconciliation-current -->
+
+<!-- scope-rosters-retained-current -->
+修正候補＋private Swift cacheのMetal実4がApple M5で成功（packet edc6b6e4...、GPU3.104149秒、Runtime stride138952不変）、旧raw12582912Bと全byte一致/f83a45b0...、独立seal成功/GPU0。record research/portable-scope-rosters-metal-checkpoint.json。849最初のdevelopment packet efa7767a...はCPU query-boundary guardの2失敗だけでGPU前停止、capture /tmp/nikke-scope-regression-v1-metal/原失敗保持、GPUclaimなし。旧6注釈のみのledgerがscope修正を拒否したため、元ledger hashは据え置き、helperとcall/store/returnの完全一致するレビュー済みdeltaだけを逆変換して残全tokenを検査するguardへ更新。original_file_tokens_preserved=false/explicit_scope_snapshot_delta=true/unmodified_tokens_preserved=trueを明記、任意差分や数値式変更は拒否、新改変負例含む5検査成功。GPU normalizer変更なし。次はcorrected fresh packetで849CPU/GPU保持→全2.67GB旧raw一致→独立seal、新source golden/両compiler証明書登録→新full pipeline/短いCUDA再検証。全goal未完了/Windows現在idle。以下は履歴です。
+<!-- /scope-rosters-retained-current -->
+
+<!-- private-swift-cache-current -->
+scope修正候補9b87d1fのMetal実4初回はSwift module cache書込拒否でGPU前に停止。capture /tmp/nikke-scope-rosters-v1-metal、packet2da654bd.../claim/失敗ログ保持・readbackなし。CPU-only Swift -module-cache-path /tmp/nikke-scope-swift-module-cache-v1 -e import Foundationはexit0、SDK再install不要と確認。共通Metal launcherでprivate cache argvを指定し、CLI validation envはcapture専用cacheまたは明示タスクprivate cacheを保持、親env変更なし・絶対path必須。既存deadline/新cache7検査成功。次は修正版fresh packetで実4を1回、同SDKの既存task-private cacheを再利用してlibrary再コンパイルを抑制。旧packet/claimは再実行しない。shader candidateの共通snapshot生成監査は両target成功、Metal849保持/独立seal/new compiler certと修正版CUDA比較は未完了。Windowsidle/追加GPUなし。詳細research/portable-private-swift-cache-checkpoint.json。以下は履歴です。
+<!-- /private-swift-cache-current -->
+
+<!-- scope-snapshot-candidate-current -->
+共通gpu/world_actor_state.slangにnoinline uint value-return snapshot helperを追加し、旧scopeの取得をstore前の実値へ固定する候補を実装。pinned Mac Slangで現行full両生成を実行し、CUDA/Metalともhelper call→buffer store→保存uint returnに修正されることを監査済み。CUDA helperは__noinline__。新4負例＋既存resident transport3検査成功、共通resident buildに両生成のsnapshot監査を接続。生成CUDAだけのpatch/normalizer変更/数値式変更/Runtime ABI変更なし。codegen記録research/portable-scope-snapshot-codegen-checkpoint.json（GPU0/計算false）。GPU sourceは1file変更・110 closure、旧sealed golden/source certificateはまだ更新していないので通常旧suiteはstaleとして閉じる。次はdevelopment packetでMetal実4と849の全raw保持/独立seal/new source certificateを実証し、それから新full pipeline/短いCUDA比較。Na30残4wordがscope修正で解消するかは未証明。旧ab5c17b実CUDA1回のraw/失敗claimは保持、Windows現在idle/新実行未依頼、compile/GPU再実行なし。全キャラ認定0/parts CPU32/UI CPU維持。以下は履歴です。
+<!-- /scope-snapshot-candidate-current -->
+
+<!-- scope-snapshot-diagnosis-current -->
+749ba6b CPU照合完了：3072block中6不一致・全6sampleをMac preserved rawと厳密比較し8wordへ確定。全4case word253955（actorFieldHead+3 query scope）はCUDA1/Metal0、ナユタ30秒のみ86024/86025（removal queue packed metadata）と512176/512178（counter-field work count/total）の4word。残3066blockは全SHA一致、native4 fingerprint一致。generated CUDA actorStatePushQuery_0が旧値のuint snapshotでなくuint*を保持し、同addressへnewscopeを書いた後return *oldpointerを行う具体的誤生成を発見。Metalはstore前に旧uintを保持して返す。Windows saved generated.cu同functionもread-only確認済み（1861674B/SHA548a1cc6...、記録SHA一致、同じstore後loadパターン）、追加GPU/compile0。共通scope差の説明がつくがNa30残4wordとの因果は未断定。次はshared Slangでnoinline value-return snapshot helper等に分離し両生成を検査、生成物の直接patch/normalizer除外/末尾の無条件zeroは禁止。GPU source未変更のまま、まだ修正未実装。変更後はMetal849+実4保持/独立seal/new source certificate→新full pipeline→必要な短いCUDA比較。全キャラ認定0/parts CPU32/UI CPU維持。詳細docs/portable-full-compiler.md、research/portable-linked-rosters-block-samples.jsonとword-differences。以下は履歴です。
+<!-- /scope-snapshot-diagnosis-current -->
+
+<!-- linked-rosters-difference-current -->
+ab5c17b Windowsで保存現行CUBINを使う通常CUDA4入力1回を実行。RTX3070Ti/cuModuleLoad・Launch・Sync・readback2回/driver全19ret0、追加compiler0、source/生成CUDA/prelude/CUBIN一致、Job45.666s/peak1667842048B/実2GiB/post空/cleanup正常/missing0/25637原本保持。だが4件output指紋不一致→calculationfalse。保存JSONのCPU確認で4件すべてnative compareは例外なし/name・input・native指紋一致、raw outputのみ不一致と判別。全raw同等とは扱わず、tolerance/normalizer除外追加なし、GPU/compile/audit再実行なし。Windows現在idle、失敗claim/raw/log保持。次は新stdlib CPUブロック照合器を既存CUDA rawにだけ使う。Mac保存Metal実4 raw12582912Bはgolden f83a45b0...一致、3072block指紋indexを研究記録へ生成（rawは未共有）。readback-index/compare共通CLI＋同modulemain、全raw/SHA・二度読SHA・最大8診断block/元読取専用/出力上書禁止、5負例＋既存CLI39成功。詳細docs/portable-full-compiler.md、research/portable-linked-rosters-peer-report.jsonとhash-fields。数値/Runtime/Metal849+実4/parts CPU32/全キャラ認定0/UI CPU維持。以下は履歴です。
+<!-- /linked-rosters-difference-current -->
+
+<!-- linked-provider-current -->
+現行CUBIN再利用の明示run --linked-package/--linked-captureを共通CLIへ実装。保存compiler→object→linkの全出所/元claim、full source110/両生成指紋/生成CUDA全byte/prelude/CUBINを照合し、独立provider receipt/phaseで通常NVRTC cacheと区別。CLIのcompile境界だけ一時置換し、既存backend module/実行/stream readbackを再利用、live NVRTC/fallback禁止・2GiB/60秒・private driver cache、GPU数値/Runtime/strict normalizer不変。親と独立raw比較にも全admission/専用traceを接続。新13含むfresh CPU261中260成功/Win1skip、実4 CPU/native指紋と関連19検査成功、全code packet byte一致。実GPUはまだ0。次は固定clean source共有→Windows CPU/Job smoke1回→保存現行CUBINでMetal実編成4をCUDA1回、NVRTC/ptxas/link再実行なし。実行済みclaimは維持。現行保存CUBINはfull package a247319b...、Windows C:/Users/owner/Documents/Codex/nikke-full-object-link-d1594d9-diagnostic/link/jit-linked.cubin（3877904B/91aacb33...）。実行前にdocs/portable-full-compiler.md。Metal849+実4/parts CPU32/全キャラ認定0/UI CPU維持。以下は履歴です。
+<!-- /linked-provider-current -->
+
+<!-- full-cubin-success-current -->
+固定d1594d9の現行full entryでPTX→object→メモリCUBINがWindows実証。full package a247319b.../2020files/Metal基準110source・両生成指紋一致。NVRTC14.953秒/PTX7099843B c9a35121.../peak506089472、ptxas--compile-only O1 fmadfalse6.483811秒/object4141360B b658a7f4.../peak267169792、JIT0.210278秒/CUBIN3877904B 91aacb33.../peak84570112/全9return0/Destroy/params48B/driver3観測false。各2GiB/60秒/startgate/BelowNormal/post空/cleanup正常/missing0、最終25589原本・全失敗/claims/親環境保持。最終link CPU audit1回から全chain認定、CPU248/native smoke再実行なし。service未識別preservationfalse/CLI exit2、計算/全キャラ認定0は維持。Macはpeer summaryまで・raw独立監査なし。Windows現在idle/未依頼実行なし、同package・消費済みclaimを再実行しない。次は保存現行CUBINの明示providerを共通backendと独立監査へ接続（NVRTC cache偽装/自動fallbackなし）、厳密raw CUDA/prelude/全source/toolchain照合後にMetal実編成4の短いCUDA比較。実行前にdocs/portable-full-compiler.mdの接続条件を読む。GPU数値本文/Runtime/strict normalizer不変、Metal849+実4/parts CPU32維持。詳細research/portable-full-ptx-peer-report.json、portable-full-object-link-peer-report.json。以下は履歴です。
+<!-- /full-cubin-success-current -->
+
+<!-- jit-link-success-current -->
+d1594d9 Windows CPU248/native gate成功後、保存旧commands objectのnvJitLink1回が成功。provider0.245787秒/CUBIN3129744B・65963e8d.../API12.4全9return0/Destroy/ET_EXEC sm86 params48B。保存CPU audit link/containment true、Job2GiB/peak82231296/post空/missing0/16492fileとDLL・object保持。service未識別preservationfalse/CLI exit2、計算/現行full battlefalseを維持。Macはpeer summaryまで・raw独立監査なし。次に同固定d1594d9の別compiler-full package a247319b...で現行PTXだけを1回依頼済み、同controller CPU/Job再検査とNVRTC以外compiler/driver/GPU0。結果評価前にobject/link自動実行しない。通常cache provider未接続/Metal849+実4/parts CPU32/全キャラ認定0維持。詳細docs/portable-jit-link-next.md、research/portable-jit-link-peer-report.json。以下は履歴です。
+<!-- /jit-link-success-current -->
+
+<!-- jit-link-controller-current -->
+Windows接続復旧後、64af5fbの保存結果を再取得。新実行なし、欠落7原因unknown/service未識別/preservationfalse維持。nvJitLink明示CLI jit-link-objectを共通object controller/bounded childへ接続し、元source全chain/専用claim/固定DLL前後SHA/実Job PID・2GiB/API journal・ELF/driver module観測を監査。新9を含むfresh CPU248中247成功/Win1skip、全source byte一致。実DLLロード/link/driver/GPUはまだ0。次は固定clean sourceを共有しCPU+Job smoke1回後に保存旧commands objectのメモリlink1回、nvlink.exe/ptxas/NVRTC再実行なし。成功でも現行full battleとは別、cache provider未接続/全キャラ認定0。Metal849+実4/parts CPU32維持。詳細docs/portable-jit-link-next.md、research/portable-jit-link-controller-checkpoint.json。以下は履歴です。
+<!-- /jit-link-controller-current -->
+
+<!-- jit-link-primitive-current -->
+Windows64af5fb CPU230/native I/O成立（CreateFileW新規20B/write/flush/close/実SHA/2PID/2GiB/Resume1）、nvlink固有出力は未解決。欠落7はunrelated5/service_candidate2・原因unknown、service未識別/preservationfalseを維持。保存14393file不変、追加compile/link/driver/GPU0。原失敗raw/claims保持。次候補nvJitLink12.4.127公式archive/DLL/header/LICENSEをMac静的SHA/export確認、DLL実ロード0。CUBIN AddData→Complete→GetLinkedCubin/共通ELF/Destroy/ログ保持primitiveと9疑似API検査を実装。fresh CPU239中238成功/Windows1skip。CLI実行mode/Job/source origin/cache接続は未実装で返すorigin/containment/calculationはfalse、API自動fallbackなし。次は共通bounded child/専用claim/固定DLLと元object全chain/phase監査/driver module観測を接続してからWindows1試行を選ぶ。source only旧commandsと現行compiler-fullを区別。Metal849+実4/parts CPU32/全キャラ認定0維持。詳細docs/portable-jit-link-next.md、research/portable-jit-link-primitive-checkpoint.json、portable-nvjitlink-component-candidate.jsonとnative I/O peer report。以下は履歴です。
+<!-- /jit-link-primitive-current -->
+
+<!-- native-output-probe-current -->
+78121d4保存全文とexec履歴を取得。job/linkは既にrequire_escalatedで、suffixだけの変更でも同じ出力エラーのため単純な再昇格/relinkは選ばない。既存Windows smokeのnative子を固定出力probe scriptへ接続し、CreateFileW/CREATE_NEW→WriteFile20B→Flush→CloseとWin32失敗番号をJSON保存、native returnも成功判定前に保持する実装。既存上書き/設定変更なし、parentは実20B照合。fresh CPU230中229成功/Windows1skip。次は固定新packageでCPU+native I/O smokeだけ1回、compiler/link/driver/GPU0。probe成功もnvlink個別権限や計算成功とは別。元raw/claims/失敗保持。詳細docs/portable-native-output-probe.md、research/portable-native-output-probe-checkpoint.json。Metal849+実4/parts CPU32/全キャラ認定0維持。以下は履歴です。
+<!-- /native-output-probe-current -->
+
+<!-- link-output-suffix-result-current -->
+78121d4 Windows CPU223/native smoke成功、出力suffix変更でもnvlinkは0.072903秒ret1/Could not open output file継続、partial/CUBINなし。2PID/実測2GiB/Resume1/peak61820928B/post空/missing0/cleanup正常、元12275file不変。単なるsuffix仮説では解消しないため比較終了、retry/flags/cap変更なし。Macは小peer summaryまで・raw独立監査ではない。次は保存全文とexecのsandbox/昇格履歴をread-onlyで取得し、native子のファイル出力権限/APIを切り分ける。Macで固定nvlink PE importsにCreateFileA/W/WriteFile/GetLastErrorを確認したが失敗API/Win32番号は未確定。再link/GPU依頼はしない。取得RPCの一度の応答待ちだけを中止し、Windows新turn未生成を確認後、read-only取得を再依頼済み。全キャラ認定0/本体CUDA未成立/Metal849+実4/parts CPU32維持。詳細research/portable-link-output-suffix-peer-report.jsonとportable-nvlink-file-api-inventory.json。以下は履歴です。
+<!-- /link-output-suffix-result-current -->
+
+<!-- link-output-suffix-current -->
+f604071 Windows CPU223全成功/native smoke成功。2PID所属/停止起動/Resume1/実測2GiB/marker/return0/cleanup確認。実nvlinkは.cubin入力を認識し202B gmem/48B cmem[3]/portableEvents統計を出すが0.070901秒ret1で旧partial出力作成失敗。native Job cap2GiB/peak62898176B/post空/missing0、元10162file不変。link/計算false。次の1変数診断は一時名のみlinked.partial.cubin（末尾.cubin）へ変更、input/tool/flags/cap/公開名/検査は同じ。vendor必須仕様の証明はなく互換性仮説。fresh CPU223中222成功/Win1skip。未実行の新packageでCPU/Job gate後に1回だけ選ぶ。追加NVRTC/ptxas/driver/GPU0、元claim/失敗保持。詳細docs/portable-device-link.md、research/portable-link-output-suffix-checkpoint.jsonとportable-device-link-native-gate-peer-report.json。Metal849+実4/parts CPU32/全キャラ認定0を維持。以下は履歴です。
+<!-- /link-output-suffix-current -->
+
+<!-- native-memory-current -->
+9115884 Windows CPU217全成功、停止起動/2PID所属/Resume1/marker/return0/cleanup成立だが、native観測器のmemory欄が未取得nullで最終smoke拒否。原失敗/8083file保持。共有portable_job_limitsへ従来x64 ABIを移し、Job設定とnative/outer観測が同じclass9完全144byte応答を使う修正。NULL現在Jobから実際のcap/peakを取得、照会拒否/短応答/未設定は2GiBへ推定しない。旧上限/割当/cleanup方針不変。fresh CPU223中222成功/Win1skip、新API6検査含む。次は固定修正版でCPU223+native gate smoke1回、成功時のみ.cubin入力契約の保存object link1回。追加NVRTC/ptxas/driver/GPU0、元object再生成/同条件retry/cap増加なし。Metal849+実4/parts CPU32/全キャラ認定0を維持。詳細docs/portable-native-launch.md、research/portable-native-memory-checkpoint.jsonとWindows peer report。以下は履歴です。
+<!-- /native-memory-current -->
+
+<!-- raw-device-link-current -->
+LLVM nvlink wrapperの生device ELF入力契約に合わせ、link用copy名をmodule.relocatable.cubinへ変更。元module.oのbyte/SHA/ET_RELを保持、rename/再生成なし。receipt input_container=raw-device-elf-cubin-v1、argvは新名を要求。出力名/固定tool/flags/2GiB/60秒は変更なし。fresh CPU217中216成功/Windows1skip。Windows9115884はnative gate専用CPU+Job smoke進行中、リンクはまだ再実行しない。元出力エラーの原因が入力拡張子と確定したわけではない。次はgate結果確認後、別packageで同じ保存objectのlink1回を選ぶ。追加compile/link/driver/GPU0、元失敗/claims/生object保持。全キャラ認定0/本体CUDA未成立/Metal849+実4/parts CPU32維持。詳細docs/portable-device-link.mdとresearch/portable-raw-device-link-checkpoint.json。以下は履歴です。
+<!-- /raw-device-link-current -->
+
+<!-- native-launch-current -->
+link profileへCREATE_SUSPENDED/BelowNormal/stdio handle listの起動adapterを接続。共通Job親子/PID作成時刻を実行前に確認してからResumeThread1回（count1のみ）、所有handleのみcleanup。旧focus/module identity/通常assembler/数値/GPU本文不変。既存Windows smokeは同じadapterで即終了Python(-I -S)を確認し、2GiB/出力marker/所属/gate/returnを要求。別Job runnerなし。fresh CPU217中216成功/Windows1skip。初回freshの共通証明書fixture不足エラー保持、whitelistを修正。実Windows gate/リンクは未検証、次はCPU+Job smokeだけ1回。Windows保存CPU診断は原object全symbol定義あり/undefined0、両dir ACL同一/短path/原8083file不変。Defender限定event昇格readは0件で原因断定不可。出力作成エラーは未解決、raw PTX共有拒否継続。full compiler packageは準備済みだがnative再試行はしない。Metal849+実4/parts CPU32/全キャラ認定0維持。詳細docs/portable-native-launch.mdとresearch/portable-native-launch-checkpoint.json。以下は履歴です。
+<!-- /native-launch-current -->
+
+<!-- device-link-failed-current -->
+Windows330b204のlink1回は失敗。package2010/tool/license/元object全byte/CPU origin gate一致、CPU202全成功・Job smoke成功。nvlinkは出力作成不可、続くnative子所属確認は不成立。native return/snapshot未保存・CUBINなし・link/計算false。外Job31.986572秒/peak62066688B/2GiB/timeoutなし/post空/missing0/cleanup観測errorなし、native子の証明とは別。service未識別はpreservation=false。原失敗claim保持、retry/出力先変更/追加compile/driver/GPU0。入力.oはLLVMの生ELF.cubin要求と相違するが出力エラー原因と断定しない。Windowsへ元ACL/path/ELF symbols/保存記録のCPU-only診断を依頼済み。Mac共通engineは所属拒否snapshot/観測可能returnを今後保存する修正、関連31成功。起動前native gateは未実装。full package b9434efは準備済みだが追加native試行は診断後。全キャラ認定0/本体CUDA未成立/Metal849+実4/parts CPU32維持。詳細docs/portable-device-link.mdとresearch/portable-world-v135-device-link-peer-report.json。以下は履歴です。
+<!-- /device-link-failed-current -->
+
+<!-- full-compiler-package-current -->
+compiler-fullを既存compiler-only経路へ登録。Metal849と同一full entry/全110 source/両生成指紋をsource-only certificateへ固定し、追加wrapperやGPU数学/normalizer変更なし。commandsはwrapper1追加、fullはclosure完全同一と生成指紋一致を検査。historical/通常battle拒否と2GiB/60秒/PTX/driver禁止を保持。fresh package CPU205中204成功/Windows1skip、新しいcompile/link/driver/GPU0。Windowsは固定330b204の保存旧commands object linkを検証中で、その結果を評価してから現行full compileの独立packageを選ぶ。full CUDA計算/全キャラ認定0、Metal849+実4/parts CPU32は不変。詳細docs/portable-full-compiler.md、research/portable-full-compiler-checkpoint.json。以下は履歴です。
+<!-- /full-compiler-package-current -->
+
+<!-- device-link-current -->
+保存単一module.oからのlink-object CLIを共通native engineへ追加。元compiler-source-only package/producer/全source/capture/Job/claimと独立object SHAを再監査し、nvlink12.4.131の公式archive/member SHA固定。-arch=sm_86/--ignore-host-info/verbose、2GiB/60秒/BelowNormal/gate/wait55+cleanup5、専用claim・mode・artifactで通常cacheと区別。ET_EXEC/EM_CUDA/sm86/64bit/全table範囲とportableEvents実行code・SLANG_globalParams48byteを静的検査。fresh CPU202中201成功/Windows1skip、新link9・既存focus/module21保持。GPU数学/legacy assemble不変。次は固定sourceと隔離toolをWindowsへ用意し、CPU/Job smoke1回後に保存objectのlink1回のみ。新ptxas/NVRTC/driver/GPU、fallback/retry/cap増大なし。link/実行/計算は現時点未認定、旧commands-onlyと現在のfull battleを混同しない。Metal849+実4/parts CPU32/全キャラ認定0を維持。詳細docs/portable-device-link.md、research/portable-device-link-development-checkpoint.json。以下は履歴です。
+<!-- /device-link-current -->
+
+<!-- module-object-verified -->
+元v135全PTXの--compile-only object生成がWindowsで成功（固定e909395、input5666316byte全byte不変/分割0、193CPU全成功）。ptxas12.4.131/O1/FMA無効、5.500616秒/ret0、module.o3327472byte/SHA c92550d36a7bc5892ffcb9f002c297227b34f7184a74827394996c2afe44b79c、CUDA format124/755sections。共通audit object_verified/containment=true、Job26.855570秒/peak219258880byte/2GiB/BelowNormal/post空/missing0、service未識別はpreservation=false/exit2。原本/全失敗/partial/claims/回収receipt/親環境保持。追加ptxas1/NVRTC/link/driver/GPU0。Macはpeer summaryまでで独立原本監査ではない。次は同版nvlinkの保存単一object実験を共通CLIへ接続し、tool版/全source chain/ET_EXEC/Job監査を準備する。PTX分割を増やしたり元objectを再生成せず進める。commands-onlyは現在のfull battleと別で、link/計算/全キャラ認定0・parts GPU未接続は未完了、Metal849+実4とparts CPU32を維持。詳細docs/portable-module-object.md、research/portable-world-v135-module-object-peer-report.json。以下は履歴です。
+<!-- /module-object-verified -->
+
+<!-- module-object-current -->
+元PTX全体の明示module-object CLIを実装。focusと同じobject engine/ELF/tool/Job/監査を再利用し、元producer/cache/phaseの全byte一致からだけmodule.ptxへコピー。source_partitioned=false、module専用purpose/provider/artifact/claim/child modeを区別し、候補分割入力は拒否。通常assemble/cache/GPU数値本文は不変。fresh CPU193中192成功/Windows1skip、元focus/recovery16保持、新module5成功。次は固定sourceで元v135全体を同じ--compile-only/O1/FMA無効の1回だけ比較（2GiB/60秒/BelowNormal、CPU/Job smoke重複なし）。新NVRTC/link/driver/GPU、自動fallback/再試行/cap拡大は追加しない。単独focusのret0だけからmodule負荷・RDC効果を断定しない。全キャラ認定0/本体CUDA未成立・parts GPU未接続、Metal849+実4とparts CPU32を維持。詳細docs/portable-module-object.md、research/portable-module-object-checkpoint.json。以下は履歴です。
+<!-- /module-object-current -->
+
+<!-- saved-object-recovery-complete -->
+Windows保存focus partialのCPU回収が成功（998db4e/12file237020byte全SHA一致、18.734118秒）。元ptxas0.315660秒/ret0の145024byteはCUDA format124/14sections/外部記録SHA一致、元Job containment確認。4024file・原失敗/claim/inventory/親環境は不変、追加Job/compiler/link/driver/GPU0。saved_object_cpu_verified=trueと元実行passed=false/未公開を分離、service未識別のpreservation=false/exit2を保持。Macはpeer summaryまでで独立原本監査ではない。通常cache/CUBIN/計算への昇格なし。次は元v135 PTX全体を同じ--compile-only条件で比較する明示module-object実験を共通CLIへ設計し、分離とRDCの影響を区別する。対応nvlink候補はCPU指紋確認まで・link未実行。parts GPU接続・本体CUDA計算/全キャラ認定0は未完了、Metal849+実4/parts CPU32を維持。詳細docs/portable-partition-object.md、research/portable-world-v135-focus-object-recovery-peer-report.json。以下は履歴です。
+<!-- /saved-object-recovery-complete -->
+
+<!-- saved-object-recovery-current -->
+Windows75dc851のfocus実ptxasは1回、0.315660秒/ret0/145024byte partial、Job peak148045824byte/post空/missing0。元CLIはCUDA e_version124をgeneric1へ誤限定して拒否し、object_verified=false/partial/claimを保持。CUDA ELF EI_VERSIONと非ゼロformat versionを区別する修正と、別receiptだけを作るCPU-only partition-object-recoverを追加。独立記録のpartial SHA必須、元producer/candidate全再構成・固定tool/argv/ret0/Job/metadata inventory/claimを再監査し、元失敗・partialを変更/rename/再コンパイルしない。collectの元metadata-only inventoryへraw recordを捏造追加しない。fresh CPU188中187成功/Win1skip。CPU回収用の既存CLI12file/237020byteを同packageから抽出しhash固定、WindowsはそのCPU検査のみを次に行う（追加compile/link/driver/GPU0）。サービス未識別・link/計算未認定、全キャラ認定0/本体CUDA未成立。詳細docs/portable-partition-object.md、research/portable-object-recovery-checkpoint.jsonとportable-world-v135-focus-object-format-peer-report.json。以下は履歴です。
+<!-- /saved-object-recovery-current -->
+
+<!-- historical-producer-current -->
+Windows5801e81の保存結果を回収。CPU181全成功/Job smoke成功（post空/missing0/service未識別）、objectは旧producerに現行heal-share証明書を要求してnative compiler/実験Job/capture/claim前に停止。原失敗と全input保持、追加compile/GPU0。修正版は診断経路だけ元manifest/全records/唯一certificate/基準hash/source closureへ結び、古いproducerと現在のbattle基準を混同しない。通常assemble/current cacheの同一source条件は不変。fresh CPU185中184成功/Windows1skip、実保存compiler packet3種もread-only監査成功。事前失敗もfresh captureへ保存・audit false、claim消費前に停止。次は固定修正版でCPU/Job共通smokeを1回だけ行い、元v135上流監査成功時のみfocus object1試行。PTX公開拒否は迂回しない。全キャラ認定0/本体CUDA未成立・Metal849+実4/parts CPU32維持。詳細docs/portable-partition-object.md、research/portable-historical-producer-checkpoint.jsonとportable-world-v135-focus-object-preflight-peer-report.json。以下は履歴です。
+<!-- /historical-producer-current -->
+
+<!-- partition-object-current -->
+共通CLI partition-objectへ保存candidateのfocus専用relocatable object実験経路を追加。元producerのcompile/Job監査＋cache/phaseからcandidate全体再構成＋producer SHA/key照合を親/子/事後で再利用。固定12.4.131・O1/fmad=falseに明示--compile-only、既存bounded Job2GiB/60秒/BelowNormal・専用claim/ELF ET_REL検査、失敗/partial保持。既存assemble/通常cache/数値/共通GPU本文は不変。fresh immutable CPU181中180成功/Windows1skip、新故障注入11成功。固定5801e81をWindowsへ依頼済み。package ID/2007file table完全一致とJob smoke成功のpeer報告後、接続が利用不能となり、実assemblerの開始/終端・object/最終containmentは未確認。同じturnの保存結果だけを回収し、再実行を依頼しない。詳細research/portable-world-v135-focus-object-pending.json。remainder/link/driver/GPUへ自動移行しない。Macで公式12.4.131 archive/nvlink memberのSHAとLICENSEを確認（tool実行/link互換性は未確認）。全キャラ認定0/本体CUDA未成立・Metal849+実4とparts CPU32維持。詳細docs/portable-partition-object.md、research/portable-partition-object-development-checkpoint.json。以下は履歴です。
+<!-- /partition-object-current -->
+
+<!-- ptx-partition-tool-current -->
+共通CLI ptx-partitionの保存v135に対するWindows CPU確認が成功。固定f7e83ccの8ファイル照合・16検査2.1443秒、候補生成4.4559秒、元cache/phaseからの再構成監査4.1026秒。191 bodyをfocus1/remainder190へ保持、global/const101定義はremainder単独。focus applyDefinitionFrame_0は306333byte、remainder5477943byte。元PTX/cache/phaseと親環境は不変、compile/link/driver/GPU追加0。原本・候補・完全planはWindowsに残り、Macはpeer summary取得までで独立原本監査ではない。PTX＋出所JSONの明示共有許可は受領済みだが、Windows自動承認レビューが別チャットの回答を認めずpushを再拒否。別経路転送・再pushは行わずWindowsチャット側の承認解決待ち。次は独立object実験のtool/link/ABI・明示manifestを準備する。partition合法性/コンパイル/計算は未認定、本体CUDA未成立/認定0、Metal849+実4とparts CPU32を維持。詳細docs/portable-ptx-partition.md、research/portable-world-v135-partition-peer-report.json。以下は履歴です。
+<!-- /ptx-partition-tool-current -->
+
+<!-- v135-callgraph-analysis-current -->
+Windows保存v135のcache/phaseを共通ptx-stats --callgraphでCPU解析成功。191定義すべてportableEventsから到達、SCC191個/循環0、間接/外部/未解決0。最大applyDefinitionFrame_0の5865virtual/10472行/local宣言56byteは物理memoryに換算しない。9テスト成功＋解析1.692秒/BelowNormal、追加compile/GPU0。最初のTEMP権限7pass/2errorは保持し、既存validation_environmentで別captureの環境設定だけ修正。完全261KBreportと元PTXはWindowsに残し、Macはpeer summaryのorigin/source fields照合まで（独立原本監査ではない）。次は共通CLIのCPU分割計画/ABI/global所有権検査を実装し、準備後に必要な新しいcompiler専用実験を選ぶ。単なるdead-function削除やcall循環対策は今回根拠なし。本体CUDA未成立/全キャラ認定0、Metal849+実4とparts CPU32を維持。詳細docs/portable-v135-callgraph-analysis.md、research/portable-world-v135-callgraph-peer-report.json。以下は履歴です。
+<!-- /v135-callgraph-analysis-current -->
+
+<!-- ptx-callgraph-tool-current -->
+保存PTXのCPU-only ptx-stats --callgraphを追加。既存cache key/bytes/SHA/phase receipt照合を再利用、全直接call/entry閉包/SCC/宣言・loadstore統計を出す。間接/外部/未解決は明示しclosed判定false、PTX分割合法性とcompiler memoryの認定はfalse。fresh共通smoke163中162成功/Windows1skip、選択60成功、既存CLI6ファイル約142KBのCPU受渡し9検査成功。legacy PTX3つもread-only解析できたがv135ではない。次はWindowsの保存v135 cache/phaseだけをCPU解析し、小さな派生summaryを取得。NVRTC/ptxas/driver/GPU追加0、PTX本体公開は個別確認待ちのまま。詳細docs/portable-ptx-callgraph.mdとresearch/portable-ptx-callgraph-cpu-checkpoint.json。以下は履歴です。
+<!-- /ptx-callgraph-tool-current -->
+
+<!-- parts-lifecycle-current -->
+parts-skill-lifecycle7の生成stats／着弾live部位／group破壊→子回復順序を共通reference CLIで検証。parts32＝通常31＋deferred gap1、影響25検査成功、旧25全input/native/trace/contract指紋保持。倍率を変更するnamed子の前に生成値を固定、同時2発の2発目は生成part値を保持しても先行破壊後の着弾part集合は空、同名再出現はopen ordinalで区別。GPU source閉包は旧849不変・追加GPU/Windows0・受付閉。次はdocs/portable-parts-skill-next.mdのcaptured stats/Frame/receipt/部位group接続を実装する条件を満たし、CUDA保存PTXで判別可能なcompiler実験を設計。本体CUDA未成立・全キャラ認定0/UI CPU。詳細research/portable-parts-lifecycle-reference-checkpoint.json。以下は履歴です。
+<!-- /parts-lifecycle-current -->
+
+<!-- parts-review-current -->
+Claudeレビュー反映：共通reference CLIは最適化Pythonをnative前に拒否・失敗保持、parts検査は明示例外、positive/model-gap別集計。parts15＋extended10＝25CPU契約（24通常＋deferred gap1）、非飽和吸血/interrupt/sharedを追加。fresh影響38検査成功、旧22全native既存field/trace保持。oracle追加でinput指紋は意図変更。GPU source全閉包は旧849同一、追加GPU/Windows0・GPU受付閉。本体CUDA未成立/全キャラ認定0/UI CPU。次は生成時stats snapshotと着弾のgeneration/子イベント契約を補強し、保存PTXに基づく判別可能なCUDA実験を設計。at+7は周期処理使用済みなので再利用不可。詳細portable-parts-skill-reference-checkpoint.json、docs/claude-overall-review-8b77b1f.md。以下は履歴です。
+<!-- /parts-review-current -->
+
+<!-- heal-real-rosters-current -->
+heal-share-rosters4（ナユタ/レムの全定義3秒/30秒）をMetal一致・GPU0 seal。定義81/70のbinding欠落0、source/両生成指紋は旧849と同一、849再実行0。レム30秒だけ物理履歴2103中2048記録/55省略、prefix+省略数と全戦闘結果までで未記録packet完全照合は未証明。最終CPU preflight/既存6検査/readiness22成功。全266入力と80順位保持、hits_parts3分類をsource確認済み・CPU契約0のlaneへ。次はdocs/portable-parts-skill-next.mdのCPU契約を作成し共通receiptへ移植。GPU source変更時は849＋実4を保持。本体CUDA未成立/認定0/UI CPU、Windows追加0、保存PTX共有は個別確認未回答。詳細docs/portable-heal-share-real-rosters.mdとresearch/portable-heal-share-real-rosters-checkpoint.json。以下は履歴です。
+<!-- /heal-real-rosters-current -->
+
+<!-- healing-share-gpu-current -->
+現在はheal-share-regression849(native676/拒否173)をMetal全一致・GPU0独立seal。回復分配のmembership→既存Frame mode31→HP/storage/同期子イベント→元通知へ共通接続、normal stat75なしfast pathを保持。診断53も全一致（plan/portion/元通知を直接比較、HP notify profiler列は明示的対象外）。旧796全input/native/raw・2.50GB直接比較/lazyゼロ保持、Runtime247/138952不変。CPU893中892成功/Win1skip、最終compiler smoke158中157成功/Win1skip＋更新certificate9成功。静的packing216/base156で新ナユタ/レムは入力受付だけ。次は全定義の3秒/30秒実編成を検証。本体CUDA未成立・認定0・UI CPU、Windows追加0。保存PTXの個別共有確認は未回答・再実行しない。詳細docs/portable-heal-share-gpu.md、research/portable-heal-share-gpu-checkpoint.json。以下は履歴です。
+<!-- /healing-share-gpu-current -->
+
+<!-- heal-plan-current -->
+回復分配のCPU参照は43（元34全input/native/trace/contract保持＋lifesteal9）、関連18成功。共通heal_share_plan.slangを実装し、独立Metal10入力（literal8＋拒否2）が一致、GPU0 seal、通常sealed CLI登録。planのみでmembership/HP/storage/DFS通知への接続は未実装・heal_split受付は閉じたまま。portable887は885成功/Win1skip/ps拒否1、同packageの観測5再確認成功。誤った広い1260 discoveryの失敗も保持。GPU実行1/Windows0。詳細research/portable-heal-share-plan-checkpoint.json、portable-heal-share-lifesteal-reference-checkpoint.json、接続計画docs/portable-heal-share-gpu-next.md。保存PTX共有の個別確認は未回答・再実行しない。以下は履歴です。
+<!-- /heal-plan-current -->
+
+<!-- heal-targets-current -->
+共通CLI referenceへheal-share-targets6を追加、旧28の全input/native/trace/contract保持・関連15検査成功。self＋RL上位2／重複／RLなし／別carrier重み／同率／別ownerを検査。正本sync_hpの除算→乗算を反映しHP5500の55.00000000000001を厳密比較、55.0再結合は故障注入で拒否、元失敗保持。readiness記録34とfresh21検査成功。GPU source/受付変更・GPU/Windows追加実行0、lifesteal等と本体CUDA成立は未完了。詳細research/portable-heal-share-target-reference-checkpoint.json。以下は履歴です。
+<!-- /heal-targets-current -->
+
+<!-- reference-readiness-current -->
+最新レビューはdocs/claude-overall-review-0e1f71b.md。未対応82分類へ保守的な作業laneを追加、全266 profile/input/issueと旧順位を保持。21検査とfresh inventory成功、GPU/CPU battle0、packing214/base154・認定0は不変。詳細research/portable-reference-readiness-checkpoint.json。v135はPTX生成/cache再読成功、commands assemblyはMemory allocation failure、post空/missing0だがservice未識別でpreservation=false。詳細research/portable-world-v135-definition-view-compiler-sanitized.json。単なるgetter/構造体縮小試行を追加せず、保存PTXの関数負荷とmodule負荷を区別できるCPU分析・明示実験契約を優先。PTX共有は自動承認拒否で個別許可待ち、再実行しない。heal_split composite対象とlifestealはCPU契約未被覆。以下は履歴です。
+<!-- /reference-readiness-current -->
+
+<!-- definition-view-current -->
+現在の通常入口はentry-reload-regressionの新golden portable-world-definition-view-regression-short-expected.json。Definitionを55項目の一括値からwire input/row+ローカルoverride5uintへ変更し、getter/型/初期化/元全consumerを固定Gitに照合。Metal probe6はadapter戻り値だけを訂正して元GPU結果をG0 replay/seal、原失敗保持。full796/native633全一致・旧2.50GB全byte/input/native保持・独立G0 seal成功、GPU9.755秒は単一観測。全CPU870中869/Windows1skip、影響5/diagnostic9再確認、compiler packet smoke158成功。Runtime247/138952/48byte不変、CUDAmemory改善は未確認。次は固定sourceを共有し、commands-only PTX1回＋正常receipt/cache/containment時だけAOT1回(各60秒/2GiB)。v134欠落7はunknown/preservation=falseのまま、driver/kernelやfallbackは追加しない。詳細docs/portable-definition-view.md、research/portable-definition-view-checkpoint.json。回復分配28はCPU契約のみ・全キャラGPU認定0・UI CPU。以下は履歴です。
+<!-- /definition-view-current -->
+
+<!-- v134-and-definition-prototype-current -->
+現在の根拠はresearch/portable-world-v134-commands-compiler-sanitized.json／portable-world-v134-saved-compiler-analysis.json。v133 fixtureのWin pathを88bce89で修正、v134はsmoke153全成功、commands PTX5.46MB/11.094秒と同key cache hit成功、独立assembly1回はMemory allocation failureで未成立。Job post空だが既存process7欠落・原因unknown、service unverifiedでpreservation=false。driver/module/kernel0。init/write追加やRDC等の自動fallbackはしない。追加CPU解析でPTX191関数/maxvirtual5328（basicConditions）を確認。Macの一時Definition wire-view案（55項目一括248byte推定→5uint20byte）はCUDA／Metal生成だけ成功し、生成CUDA量は増えておりメモリ改善未証明、本worktreeのGPU本文は未変更。次はsnapshot/override/55getter契約を確認してからMetal796候補へ。詳細docs/portable-definition-view-prototype.md。回復分配は元20完全保持＋追加8をCPU検証・関連11/通常smoke153成功、GPU接続は未完了。全キャラ認定0・UI CPU。以下は履歴です。
+<!-- /v134-and-definition-prototype-current -->
+
+<!-- compiler-diagnostic-current -->
+現在はcompiler-commandsの固定compiler-diagnostic packageを追加し、既存compile/cache-check/assemble/監査/Jobを再利用。full796の共有本文は不変、診断入口1ファイルのみ追加。通常run/adapter/moduleとbattle認定を拒否、PTX/2GiB/60秒を子・親・保存監査で固定。fresh aaec8ca7で全CPU861中860成功/Windows1skip、smoke153、生成指紋/layout247/138952/48byte一致。次は固定コミット共有後、Windowsでこのcommands PTX1回＋成功時のみ独立assembly1回。通常fullを再実行せず、失敗時のinit/write・RDC等の自動追加も禁止。詳細docs/portable-compiler-diagnostic.md、research/portable-compiler-diagnostic-checkpoint.json。以下は履歴です。
+<!-- /compiler-diagnostic-current -->
+
+<!-- phase-codegen-current -->
+次のcompiler調査用に共通CLI phase-codegenを追加。fresh package8470d38eで同Slang本文からinit/commands/write各CUDA／Metal全6生成、全CPU852中851成功/Windows1skip。CUDA生成量は本体1.66MB/652関数に対しinit543KB/170、commands1.20MB/573、write169KB/153。commands閉包は大きく残り、ptxasメモリ改善や本番複数kernelは未証明。詳細docs/portable-phase-codegen.md、research/portable-phase-codegen-checkpoint.json。新しいGPU/Windows実行0。次はcommands診断の固定source/生成物/compiler/cacheとbounded Jobを結ぶcompiler専用package契約を設計し、事前検査後の必要な1試行だけを検討。以下は履歴です。
+<!-- /phase-codegen-current -->
+
+<!-- heal-share-reference-current -->
+現在の入口はdocs/claude-overall-review-e630078-2026-10-22.mdとdocs/portable-heal-share.md、状態はresearch/portable-heal-share-reference-checkpoint.json／portable-query-boundaries-checkpoint.json。heal-shareはCPU契約20・観測器透明性・入れ子snapshot・hook連鎖の7テスト成功、共通CLI reference登録済み、GPU受付未追加。fresh846検査はsandboxのps拒否1件を同packageの影響群5件で再確認して全成功、Windows専用1skip。既存796/native633のCPU全指紋も保持。Windows v132はPTX6.72MB/最大virtual5931へ減少したがassembly失敗。保存stdoutの再読でMemory allocation failureを確認（再実行0）、gate開放時刻／直前harness memoryは未取得。次は同共有本文のcompiler到達範囲の切り分けをMacで設計する。全キャラ認定0・full796 CUDA未成立・UI CPUを維持。以下は履歴です。
+<!-- /heal-share-reference-current -->
+
+<!-- query-boundaries-current -->
+6個の既存query/actor command関数へnoinlineだけ追加、元5ファイルの全tokenを固定8fdaf47と同一に保持。fresh CPU839中838成功/Windows1skip、CUDA全6境界・uint Runtime handle確認、652関数/noinline226。Metal796/native633全一致、旧全input/raw/native指紋と2.50GB直接比較/lazy bankゼロ、GPU0独立seal成功。現sealed goldenはportable-world-query-boundaries-regression-short-expected.json。WindowsはPTX1回→保存v128とのCPU全関数max/size比較→事前gate成立時だけ独立assembly1回（各60秒/2GiB）を準備。driver/kernelは追加しません。全キャラ認定0/full796 CUDA未完了。詳細portable-query-boundaries.md/checkpoint。以下は履歴です。
+<!-- /query-boundaries-current -->
+
+<!-- cpu-batch-and-v131-current -->
+共通CLIのCPUテストを1 fresh workerへまとめ、旧37群245件を全保持+故障注入7件で38群252件、単一観測50.087→34.783秒。fresh全CPU834中833成功/Windows1skip、全796/native633のCPU preflight成功、追加GPU0。Windows v131（固定438d357）はCPU129とtiny binding4 CUDAの実転送/12MiB全比較・Mac golden一致、8+4MiB copy/zero/1launch/sync/context破棄/48byteABI、2GiB Job peak406MB/post空/missing0を確認。service未識別はpreservation=false/exit2。CUBIN再読cache hitは追加NVRTC/driver/GPU0。新CPU workerのWindows確認は次の必要検証へ。full796 CUDA compiler/module・全キャラ認定0・UI CPUは未完了。次は保存PTX/callgraphに基づく限定的なcompiler境界改善を検討し、v130同条件再実行はしません。詳細portable-cpu-batch.md/file-transfer.md/checkpoints。以下は履歴です。
+<!-- /cpu-batch-and-v131-current -->
+
+<!-- file-transfer-current -->
+共通CLIを8MiB file保存へ接続。CUDAのdevice zero/offset付き分割DtoH、Metalの分割write、exclusive final公開、unused child domains解放、全chunk/zero/context破棄のtrace監査を実装。fresh CPU827中826成功/Windows1skip、Metal796/native633/全input・output・旧comparison全一致（新実行1回）。小さいbinding4もMetal実行・GPU0独立seal、新専用goldenでWindowsの短い実転送を準備。通常bytes APIは維持。全796 CUDA compiler/module・全キャラ認定0は未完了。詳細portable-file-transfer.md/checkpoint。以下は履歴です。
+<!-- /file-transfer-current -->
+
+<!-- offline-assembly-v130-current -->
+Windows v130のoffline assemblyは1回失敗で終了・idleです。正規承認経路でCPU107とsmoke/観測成功後、固定12.4.131 tool/元PTX SHAを照合。ptxas9.174秒/exit4294967295、2GiB Job peak2,147,573,760byte、stderr0、ELF/partial0。harness+assemblerの正確なJob所属と親/作成時刻、post空/missing0/cleanup・observation正常を確認。service未識別でpreservation=false、原因未確定、NVRTC/driver/kernel0。v129はsandbox snapshot失敗でgate前停止した原失敗を保持。再試行/上限拡大/fallbackなし。詳細portable-offline-assembly.mdとv130 sanitized。次はMacでbounded transfer/child保存と、証拠に基づくcompiler負荷削減へ。全キャラ認定0・新版CUDA計算未確認・目標未完了です。以下は履歴です。
+<!-- /offline-assembly-v130-current -->
+
+<!-- compact-input-current -->
+共通regressionの796 word行をarray('I')へcompact化、各行の元wire照合とdomain identityは維持。保存Metal796/native633/全input・全output・comparison全一致、GPU0。Macのprepare最大RSS2,354,872,320→1,808,695,296byte、全監査1,812,381,696byte。全CPU812のlist型固定テスト1件を内容/domain/wire/array型の契約へ修正し、fresh関連5件成功（他810成功/Windows1skip）。GPU本体と比較器不変。CUDA transfer/child保存のstream接続は未完了。Windows v130は権限修正後smoke107成功/missing0/post空、offline assembly1回失敗、追加実行せず保存証拠取得中。詳細portable-compact-input.md/checkpoint。以下は履歴です。
+<!-- /compact-input-current -->
+
+<!-- stream-audit-current -->
+共通CLIのartifact SHAと親readback監査を固定8MiB/1case読取りへ変更。fresh package CPU809中808成功・Windows1skip、保存Metal796/全2.50GBをnative633と再照合し旧comparison全一致（GPU0）。ただし最大RSS2,365,014,016byteで全体2GiB未達。次は入力準備peakとword表現、CUDA transfer/child保存のstream化が必要です。Windows v129はCPU107pass後、snapshot取得失敗でgate前停止。ptxas取得/assembly/driver/GPU0、再試行せずCPU観測診断中。詳細portable-stream-audit.md/checkpoint。以下は履歴です。
+<!-- /stream-audit-current -->
+
+<!-- offline-assembly-current -->
+共通CLIへ保存PTX専用の `assemble` を追加しました。固定tool SHA、元producerの既存監査、fresh BelowNormal Job/start gate、2GiB/60秒、別claim、ELF/phase監査を再利用します。NVRTC/driver/kernel0、fallback/retryなし。Macではcomponentをdownloadしwheel/EXE SHAを確認、実行していません。fresh immutable packageのCPU805件は803成功・Windows1skip・sandboxのps拒否1件で、当該phase群5件はOS観測許可で全成功しました。GPU本体/adapter/transportは実行済みMetal796とbyte同一。Windows実assemblerは未実行、CUBIN cache接続/driver load/stream転送/新版CUDA計算は未完了。詳細docs/portable-offline-assembly.mdとdevelopment checkpoint。以下は履歴です。
+<!-- /offline-assembly-current -->
+
+<!-- weapon-phases-current -->
+## 共通武器フレーム分割とMetal796
+
+現在のsealed suiteはentry-reload-regression796（native633／拒否163）、goldenはportable-world-weapon-phases-regression-short-expected.jsonです。武器本体を共有5 helperへ分割し、2,287 tokenの処理文を再構成、引数・snapshot・早期returnを検査しました。CUDA生成にもnoinline5境界が存在します。Runtime247／138952byte／align8と入力は変更していません。
+
+Metal796全件一致、分割前796の全input／raw／native、全lazy bankゼロを確認し、GPU禁止の独立sealが成功。SHA b9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637、2,503,999,488byte。CPU788中787成功・Windows専用1skip、その後signature guard5件も成功。詳細portable-weapon-phases.md、development checkpoint、retention、compiler-structureを参照してください。
+
+通常UI CPU、全キャラ認定0、packing214/266は入力受付のみ、entry_reloadのcover4件・新版CUDA計算は未完了です。v126既定JITとv127明示JIT1は旧Runtime246のPTXに対するメモリ確保失敗でした。固定976fb99のWindows v128はsmoke91・PTX生成・新cache hit・normalized source一致まで成功しましたが、JIT1 moduleはCUDA218／メモリ確保失敗でした。context破棄0・post Job空・missing0・service未識別、kernel0／計算未確認。保存PTX最大virtual宣言はexecutePortableCommands10927、武器root70。単なるサイズ指標で原因とは扱いません。Claude限定レビューの指摘を実ソースへ照合し、追加GPU実行や盲目的な文分割を止め、offline assemblerの段階分離を優先候補にしました。既存Windows ptxasは11.3.58で、新PTX向けに12.4.131の隔離component metadataを選定済みですが、まだdownload／offline compileしていません。macro escape契約を7検査へ補強し、scratch memset推奨は初期化コードを確認して不採用にしました。詳細claude-cuda-followup-976fb99-2026-10-22.md。全796のCUDA転送には2.50GBの一括ホスト確保を抑える修正も必要です。以下は履歴です。
+<!-- /weapon-phases-current -->
+
+<!-- entry-reload-current -->
+## 共通entry_reloadの現在地
+
+独立37（native31／拒否6）と集約796（native633／拒否163）がMetalで一致しました。CPU35契約のうちcover操作4件は既存control adapterが拒否するため未対応です。毎実tickのreloadDuration照会、元武器時間、fixed負値、明示delay0、待機latch、弾倉・charge開始を共有実行器へ接続し、照会owner／時刻／値の全順序を独立CPUと比較しました。Runtimeは247 fields／138952byte／align8。詳細はdocs/portable-entry-reload-gpu.md、checkpointと保持検査を参照してください。以下の旧759は履歴です。
+
+全portable CPU784件中783成功・Windows専用1skip・失敗0。静的packing214/266（base154）は入力受付で、全キャラGPU認定ではありません。通常UI CPU、全キャラ認定0、新版CUDA計算未確認、目標未完了です。接続復旧後にv126最終報告を取得し、既定JITのmodule失敗（CUDA218、メモリ確保失敗）・context破棄0・post Job空・missing0を記録しました。Macの原capture独立監査ではありません。明示JITレベル1の検証コードは固定6b1a15eにあり、新sourceで既存v125 cacheを照合したことにはしません。固定6b1a15eのv127はCPU smoke86・PTX hit・JIT level1実引数照合まで成功しましたがmodule loadがCUDA218／メモリ確保失敗でした。context破棄0・post Job空・missing0・service未識別、kernel0／計算未確認です。同条件再実行は行いません。
+<!-- /entry-reload-current -->
+
+<!-- entry-reference-nvrtc-current -->
+entry_reloadを共通CLIのreferenceへ接続し、full-world32契約と全戦闘／traceの観測透明性を確認。GPU対応は未実装です。NVRTC12.4のv119依存ロード失敗を共通loaderで修正し、v120は両DLLロード成功後にCUBINのptxas allocation failure（42.402秒／2GiB付近）で終了。Windows追加試行は止めました。次はGPU常駐Runtime参照の構造仮説をMacで検討します。小さいコード生成4件は成功していますが本体は未変更です。詳細は[CPU契約](portable-entry-reload-next.md)と[Runtime検討](portable-runtime-storage-next.md)。通常UI CPU・全キャラ認定0・最終目標未完了。
+<!-- /entry-reference-nvrtc-current -->
+
+<!-- parent-audit-current -->
+CLIのchild／親とreplayの重複CPU比較を整理しました。計算本体・goldenは変更せず、保存Metal759を新しい親監査器で再照合しています。詳細と検証記録は[親監査の変更](portable-parent-audit.md)を参照してください。次はCUDAのコンパイル成立の仮説とentry_reloadのCPU正本契約を優先します。
+<!-- /parent-audit-current -->
+
+<!-- revival-notify-current -->
+## seedと通知規約を反映した蘇生の共通実行器とMetal759
+
+現在のsealed CLIはregression759（native602／拒否157）、goldenはportable-world-revival-notify-regression-short-expected.jsonです。reviveの永続definition保持、数値／markerパッシブの復元、persist、共有carrier対象の再追加、HP同期・満弾行動resetと自己蘇生後の通知を共通Slangへ接続しました。味方class randomは敵RNGと別のMT bankを使い、budget前照会で捨てる抽選も含め正本の全stateと位置を一致させています。Runtime配列は追加していません。
+
+独立31（native22／拒否9）に加え、seed0／42で抽選を発火する2入力と、共有再追加／新規再生成の通知対照2入力を集約へ追加しました。実編成のRunPlan.seedもstatic preparationで保持してMODEへ渡します。初期755では実編成6入力が抽選0回だったためfixture既定19の転送漏れを検出できず、成功結果とseed findingを保持しました。実ディーゼル：ウィンタースイーツ／ラプンツェル／マナの全定義3秒／30秒を含む最終759全件一致・GPU0 sealを確認済みです。
+
+旧718全input／raw／nativeはarchive全展開SHAも確認して保持。独立31は診断tailとpeak／total work2語の明示的減少を除くrawと全759のlazy bankゼロも一致。新規6実編成の物理履歴省略は0、既存ミハラ／persona等の省略制約は残ります。途中の対象packing漏れ、対象順／ログ出力、破壊ログkind5衝突、charge最低周期／global RNG事前照会の失敗も保持しています。CPUの旧revive未対応負例は未知instantへ移行。最終CPU731件中730成功・Windows専用1skip・失敗0です。
+
+静的packing213/266・base153/203・83分類、通常UI CPU・全キャラGPU認定0・新版CUDA数値一致未確認・最終目標未完了。Windows追加実行0。共有carrierへの再追加は名前付き通知を再発火せず、新規再生成だけが通常のactivation通知を行う対照2ケースも追加しました。生成CUDA差分は記録を参照。Runtime全field同一・推定138,928byteで、compiler改善ではありません。HP条件付きpassiveの一部でpinned CPUが復帰中None比較のTypeErrorになる参照制約は残し、26fixtureで全組合せを認定したとは扱いません。次は正本consumerがあるentry_reload／damage HP basis等を検討します。詳細docs/portable-revival.mdとdevelopment checkpoint。以下は履歴です。
+<!-- /revival-notify-current -->
+
+<!-- revive-reference-current -->
+## 蘇生のCPU正本契約：GPU接続は未完了
+
+共通CLIに`reference --suite revive --out /tmp/revive-reference.json`を追加しました。packing／GPUを禁止し、18 literalケースで23 down・15 reviveの実処理と共有carrier／HP／行動／通知／クラスrandomの契約を確認します。失敗も保存し、同名出力への再実行を拒否。GPU監査器と既存full-native observerを再利用し、GPU source／goldenは要求しません。native参照約1.4秒、専用CPU5検査と既存CLI28検査が成功しました。
+
+全18の既存battle／skill traceは観測器の有無で一致。クラスrandomは敵専用RNGと別のPython global RNGで、空集合は無消費、1候補のsampleは消費します。GPU移植時は状態を混同しないでください。約1.9MBの詳細はローカル、小さな指紋・契約・source identityだけを共有します。
+
+今回GPU source変更・GPU実行・Windows実行は0、sealed Metal718・静的210/266・通常UI CPU・全キャラGPU認定0のままです。次は失われた永続効果のdefinition順序を保持するledger、shared対象の再追加、復帰中HP同期抑止と満弾行動resetを通知DFSへ接続します。revive／persist／down-only selectorのGPU受付は未実装です。詳細docs/portable-revive-next.md、research/portable-revive-reference-checkpoint.json。以下は履歴です。
+<!-- /revive-reference-current -->
+
+<!-- attack-magnitude-current -->
+## 名前付きATK倍率79とMetal718
+
+現在のsealed CLIはregression718（native570／拒否148）、goldenはportable-world-attack-magnitude-regression-short-expected.jsonです。atk_buff_mag_pctを共通Slangのcaster基礎ATK加算へ接続し、独立52入力とイヴ全定義の実編成3秒／30秒を追加しました。正本の加算順・対象・owner／runtime条件の非再検査・lazy fresh readを保持し、通常ATK％／HP由来／ATKコピー／順位は増幅しません。
+
+初回51のlazy対象1差分、初回718の保護stat受付漏れ13拒否は保存し、修正版718全件一致・GPU0の独立sealを確認しました。旧664のうち79未対応を前提にした旧負例1件だけを未知stat負例へ明示移行し、残る663の全input／raw／native、独立52の専用診断tail以外の全raw、全718のlazy bankゼロを保持。イヴの物理履歴は3秒116件／30秒1063件・省略0です。既存ミハラ／persona等の省略制約は残ります。
+
+最終CPU723件中722成功・Windows専用1skip・失敗0、CLI28件成功。Metalコンパイラ配置の欠落を重いCPU参照／GPU claim前に拒否するCLI検査を追加しました。指定漏れでGPU前に止まった原記録は保持しています。生成CUDAは5,044byte・3関数増、Runtime全field同一・推定138,928byte。compilerメモリ改善ではありません。
+
+静的packing210/266・base150/203・86分類、通常UI CPU・全キャラGPU認定0・新版CUDA数値一致未確認・最終目標未完了。Windows追加実行0。次はreviveの永続passive再付与／HP同期／満弾行動再開／通知再入を接続する予定です。consumer未確認のprojectile_dmg_pct／shield_dmg_pct／heal_splitは無効果受付しません。CUDA cold compiler失敗の同条件再試行や上限拡大もしません。詳細docs/portable-attack-magnitude.md、docs/portable-revive-next.mdとdevelopment checkpoint。以下は履歴です。
+<!-- /attack-magnitude-current -->
+
+<!-- enemy-selection-current -->
+## 共通random／code対象・DoT終了契約とMetal664
+
+現在のsealed CLIはregression664（native526／拒否138）、goldenはportable-world-enemy-selection-regression-short-expected.jsonです。共通MT19937のrandom選択、codeの正本body規約、budget probe、DoT refresh／最終tick、敵stack／解除／期間延長を共有実行器へ接続しました。独立60入力は61正例を51 GPU入力へまとめ、各aliasの正本比較と9拒否stageを保持しています。新規8プロファイルの全定義実編成を各3秒／30秒で追加しました。
+
+Actor側のnamed解除にDoT clockの終了漏れがあり、従来経路と同じretireNamedCarrierへ統合しました。0.27秒再付与の境界とミハラ30秒の全51スキルも正本一致。途中62／68／58／662の失敗を保持し、最終664全件一致、旧588の全input／raw／native、途中662の成功661の全raw、独立60の診断tail以外の全raw、全664のlazy bankゼロを確認してGPU0の独立sealを行いました。CPU719成功・Windows専用1skip・失敗0です。
+
+新規ミハラ30秒の物理履歴は2048記録＋32省略で、prefix・省略数・全戦闘状態の一致までです。新規の他15実編成は省略0。過去persona等の省略制約も残ります。診断専用のowner0スキル51件と、通常の物理履歴の省略は別の範囲です。
+
+共通CLIにarchive-raw／restore-raw（GPU0）を追加しました。固定evidenceの元サイズ／SHAと全展開byteを検査し、明示remove-original時だけ非圧縮コピーを除きます。実capture約2.08GBを約5.85MBへ無損失退避し、既存の失敗JSONは保持。監査前には復元してください。生成CUDAのRuntime宣言は138,928byteで据え置き、actorSetCaptureのnoinlineも復帰を確認しました。compiler peak／速度改善は未証明です。
+
+静的packing209/266・base149/203・87分類、通常UI CPU・全キャラGPU認定0・新版CUDA数値一致未確認・最終目標未完了。Windows追加実行0です。v117 CPU53のcache/controller確認とv115 cold compiler allocation failureは区別し、同条件の再実行や上限拡大はしません。次候補は参照consumerを確認できるatk_buff_mag_pct（79）。projectile_dmg_pct／shield_dmg_pctはconsumer未確認のため無効果受付しません。詳細portable-enemy-selection.md、development checkpoint、retention、compiler-deltaを参照してください。以下は履歴です。
+<!-- /enemy-selection-current -->
+
+<!-- named-magnitude-current -->
+## 名前付き係数／被ダメージ倍率とMetal588
+
+現在の通常CLIはregression588（native459／拒否129）、goldenはportable-world-named-magnitude-regression-short-expected.jsonです。canonical78／80を共通Slangへ接続し、独立54（正43／拒否11）とブレイディ／エマの全定義実編成3秒／30秒を追加しました。Metal588全件一致、旧530・独立54の全input／raw／native保持、全588のlazy scratchゼロ、GPU禁止sealを確認済みです。CPU711件・Windows専用1skip・失敗0。詳細docs/portable-named-magnitude.md、research/portable-named-magnitude-retention.json、development checkpoint。
+
+初回52は48一致・4失敗で原captureを保持。倍率後0の通常スキルを最小1ダメージのヒットとして残し、保留0係数はbuff query後にスキップする正本の差を修正。保留3件はdecoder未接続のため、既存3カウンタreadを共有し、原rawでも全native一致を診断しました。原失敗は成功へ書き換えていません。追加実編成4件の物理履歴省略は0ですが、過去persona等の省略制約は残ります。
+
+静的packing201/266・base142/203・104分類、通常UI CPU・全キャラGPU認定0・新版CUDA数値一致未確認・最終目標未完了。stat79のATK倍率、random／code対象（イブ等）は未対応です。CUDA v115 cold compilerのallocation failureは未解決で、今回の機能でWindowsの追加実行は0です。v117 CPU53件成功は以前のcache/controller検証であり、CUDA計算一致ではありません。次のcompiler変更には、同条件再試行でなく新しい仮説・計測・停止条件が必要です。以下は履歴です。
+<!-- /named-magnitude-current -->
+
+<!-- persona-current -->
+## ペルソナ状態・B3対象とMetal530
+
+現在の通常CLIはregression530（native412／拒否118）、goldenはportable-world-persona-regression-short-expected.jsonです。persona_state存在マーカーと本来のB3味方対象（selector18）を共通Slangへ接続し、独立41入力とクイーン／ユキコ／アイギスの実編成・3人同時編成を追加しました。Metal530全件一致、旧481・独立33・原522の成功518の全input／raw／native保持、全530のlazy scratchゼロ、GPU禁止sealを確認済みです。CPU708成功・Windows専用1skip・失敗0。
+
+原522でクイーン／ユキコ4入力が拒否された失敗は保持しています。診断でTARGET_CODE44のactor-field追加条件受付漏れを特定し、既存共通評価器へ接続。不一致／不正codeと名前表の完全一致も検査します。物理履歴の2048件上限によりユキコ30秒32件・3人同時30秒2123件を省略しており、記録prefixと省略数・全戦闘状態の一致までの確認です。省略packet個別一致ではありません。詳細portable-persona.md、portable-persona-retention.json、portable-persona-development-checkpoint.json。
+
+CUDA cacheは同一keyのmiss時に排他的claimを取得し、競合を即時拒否・取得後のhit再検査・自ownerのみ解放・異常終了claim保持を実装しました。実プロセスを使うCPU検査もfake compilerであり、NVRTC実行やcoldコンパイル改善の証明ではありません。共通CLIのsmokeはcleanup4＋CLI27＋cache12＋artifact10の53件とfresh Jobだけです。必要test欠落はJob前に拒否します。Windows v116はCPU43件中42成功・cache PID前提の1件失敗で停止、artifactとfresh smoke Jobは未到達。原失敗を保持し、テストchildをbase Pythonへ変更。Mac cache12＋CLI27＋artifact10成功後、固定d5ccaf5のWindows v117はCPU53件とfresh Job smoke成功（全体15.268秒／Job6.129秒、post空）。既存process欠落7・原因unknown・service未識別なので環境保持成功とはせず、新版CUDA数値一致も未確認です。原v116の原因は未確定のまま保持。本体cold compiler v115の失敗は未解決・同条件再試行しません。詳細portable-cuda-cache-claims.md。
+
+次候補の名前付き倍率78／80は参照consumerを確認し、GPU禁止のdamage projection6件が成功しました。GPU受付は未実装で、enemy named-state observerも本対応が必要です。docs/portable-named-magnitude-next.mdを参照してください。
+
+静的packing199/266・base140/203・106分類、通常画面CPU・全キャラGPU認定0・新版CUDA数値一致未確認・最終目標未完了を維持します。以下は履歴です。
+<!-- /persona-current -->
+
+<!-- base-copy-current -->
+## 基礎ATK／HPコピーと集約481
+
+通常CLIはregression481（native379／拒否102）、goldenはportable-world-base-copy-regression-short-expected.jsonへ明示seal済みです。stat85／86、MODE tagged union、carrier別basis／gift／source／generationを共通Slangへ接続しました。自己／味方、stack初期化、named子イベント、親削除→slot再利用、refresh、負値、失効のHP cap、source戦闘不能後の再選択を47入力で確認。ギルティ／シン／クエンシーの全定義実編成を各3秒／30秒で追加し、Metal481が全件一致しました。
+
+旧428と新47は保存baselineと全input／raw／native同一。初期の受付・HP同期・policy受付の3失敗は元package／rawと別JSONへ保持。CPU695・Windows専用1skip・失敗0、その後のseal改善はCPU3＋CLI26成功と実481のGPU禁止sealで確認しています。sealは元packageの独立監査内の比較を1回だけ再利用し、同じnative全体の二度目の実行を省きます。
+
+静的packing196/266、base137/203、108分類。通常画面CPU、全キャラ認定0、新版CUDA数値一致未確認、最終目標未完了。この機能でWindows実行は0です。v115のcold compiler失敗から同条件再試行しません。詳細はdocs/portable-base-copy.md、research/portable-base-copy-retention.jsonと開発checkpointを参照してください。以下は履歴です。
+
+<!-- lazy-bank-current -->
+Windows v115は終了済み・idleです。固定4312287、CPU21成功後のCUBIN O1は42.99秒／NVRTC30.422秒でMemory allocation failure、compiler改善未証明、artifact0、GPU0／retry0。Job post空、missing7／原因unknown／service未識別で環境保持falseを維持します。同条件を再依頼せず、次の変更仮説を先に固定してください。詳細はresearch/portable-world-v115-compiler-sanitized.json。
+
+未知fieldを構造化し、全266profileのpacking・input hash・分類codeを保持したまま効果fallback44→25／program27→14へ削減しました（CPU14成功）。次の高優先機能は基礎HP／ATKコピーで、既存CPU参照8ケース25観測はGPU禁止で再確認済み、portable接続は未実装です。docs/portable-base-copy-next.mdを参照してください。
+
+## 2026-10-22 private lazy cacheの作業領域とMetal428
+
+現在の通常CLIはregression428（native341／拒否87）、goldenはportable-world-lazy-bank-regression-short-expected.jsonです。5配列24576byteをprojectile入口のprivate Runtimeから出力内scratchへ移し、共通アルゴリズムを保持。Metal428全件一致、旧420と追加8境界のinput／全raw／native同一、全bank語ゼロを確認して明示sealしました。原fixture失敗は保持しています。詳細はdocs/portable-lazy-bank-storage.mdとresearch/portable-lazy-bank-retention.json。
+
+旧event／rosterの2入口ではCUDA／Metal生成byte不変。projectileのRuntime推定163504→138928byteは生成宣言の測定であり、compiler改善・実CUDA ABIではありません。新版CUDA数値一致は未確認です。次は固定packageでCUBIN O1・60秒／2GiB・driver/context/kernel0のcompiler-onlyを必要な1回だけ行います。失敗時に上限拡大・再試行しません。通常画面CPU、全キャラGPU認定0、静的193/266・base134/203、最終目標未完了です。
+
+以下は過去の接続時の記録です。
+
+<!-- skill-flat-current -->
+## 2026-10-21 名前付き周期秒数補正と制御smokeの効率化
+
+通常CLIはregression420（native334／拒否86）、goldenはportable-world-skill-flat-regression-short-expected.jsonです。effect_interval／skill_cooldownを共通時計へ接続し、個別57入力と実에이다3秒／30秒を追加。Metal420全一致、旧361と初回415の成功414のinput／全raw／native維持を確認して明示sealしました。初回1拒否はC34の対象別受付漏れで、原失敗を保持し、既存HP条件評価器へ接続。CPU684検査・1skip・失敗0です。
+
+受付マクロのrowを明示引数にし、Windows子の専用TEMPを自動設定。run --smokeは制御CPU29件とfresh Jobだけでnative全編成を省きます。Windowsではこの制御確認だけを短く行い、失敗した本体コンパイルを再実行しません。静的packing193/266、base134/203、分類110。通常UI CPU・全キャラ実戦認定0・新版CUDA数値未確認・最終目標未完了です。詳細portable-skill-interval-flat.md、portable-skill-flat-development-checkpoint.json。GitHub共有はゴール中利用者許可済みです。
+
+Windows v114は固定ee0756fで制御CPU29件とfresh Jobのsmoke成功。native_oracles0、全体11.219357秒、pre子1／post空、after2.433606秒、missing0／残留0、Slang／NVRTC／driver／GPU0、retry0。親TEMP保持・子temporary設定を確認。service未識別なので環境保持認定はせず、CUDA数値一致も未確認のままです。詳細portable-world-v114-controller-smoke-sanitized.json。
+<!-- /skill-flat-current -->
+
+<!-- skill-interval-current -->
+## 2026-10-21 周期割合補正・分類の観測・NVRTC読込み省略
+
+現在の通常CLIはregression361（native292／拒否69）、goldenはportable-world-skill-interval-regression-short-expected.jsonです。skill_cooldown_pctを共通時計へ接続し、28native＋4拒否と実イサベル3秒／30秒を追加。Metal361全一致、旧327のinput／全raw／native維持を確認し明示sealしました。静的packing192/266、base133/203、分類112。通常画面CPU・全キャラ実戦認定0・最終目標未完了です。
+
+分類へstructured reason／文言fallback件数を追加し、既知の境界・audience・scalingを明示分類。CUDA cacheはexact identityを維持し、hit／必須miss／破損でNVRTC DLLを読まないCPU経路へ改善しました。Windows実測の高速化は未確認です。
+
+依頼済みv112 compiler-onlyはallocation failure（NVRTC30.344秒、Job2GiB／60秒、kernel0／retry0）。保存結果だけを回収し再送0。noinlineの改善は未立証、環境保持もservice未識別でfalseを維持、新版CUDA数値一致は未確認です。次は保存結果からコンパイル仮説を絞る作業とflat周期変更等へ進みます。詳細portable-skill-interval.md、portable-skill-interval-development-checkpoint.json、portable-world-v112-compiler-sanitized.json。GitHub共有はゴール中利用者許可済みです。
+
+Windows v113は3ソースのSHA一致後、fake NVRTCのCPU10検査成功。専用TEMPを指定しない初回の権限失敗ログも保持。実cache hitは元v105 generated.cu不在で未確認、再生成／DLL／NVRTC／GPU0です。今後CPUテストも専用TEMP/TMPを指定します。
+<!-- /skill-interval-current -->
+
+<!-- readiness-cli-development -->
+## 2026-10-21 レビュー反映：未対応分類・開発CLI・失HP防御
+
+`nikke_gpu.py inventory`で全266プロファイルの定義別拒否を分類し、全体packingも継続します。効果ごとに最初の失敗までの診断であり、未観測要件や対応完了予測ではありません。静的packingは163→167、base116→117。次は生成JSONのprioritiesを使い、未対応のstun、burst_reentry(all_allies)、heal_overcharge_store等を検討します。
+
+共通CLIにMetal限定のdevelopment package、case選択、cases一覧、GPU禁止sealを追加。入力/native/source/全payloadを固定し、出力の自動期待値化をしません。`readiness`が新しい正式suiteで、共通75(native60＋拒否15)をM5で確認し、旧63入力/output/native指紋は完全保持。実Peony通常＋favorite1/2/3の4プロファイル×3/30秒の8戦闘も、全効果・被弾・物理履歴まで元CPUと一致しました。
+
+共通Slangへlost_hp_pct防御を接続。直接HP/防御helperと通常buff照会のruntime predicate規約を分け、型付き敵対象の挑発を既存receiver集合へ接続。実編成では敵パターン有無から遮蔽物HP同期を選びます。保護されたCPU/compiler/referenceは変更していません。途中の拒否・差分・診断captureは保持しています。全キャラ/変種/容量/長時間の戦闘認証ではなく、public world=false、通常UI=CPU、full_goal_complete=falseを維持します。
+
+Windows v105は共通75/native60とCPU検査・smokeが成功しましたが、NVRTC44.609秒後のPTX module load中に180秒で停止、kernel launch0、retry0です。missing0、後続残留0、元HEAD/status保持も、失敗したcontainment/サービス識別未確定を成功に変えません。個人情報を除いた集計はportable-world-v105-cuda-sanitized.json、詳細原本はWindowsローカルです。
+
+修正版はSM86 CUBIN直接生成と形式別の原byte cacheへ変更。DLL/header/flags/sourceをkeyにし、破損拒否・途中失敗時artifact回収・GPU/NVRTC0のcache-checkを共通化しました。Slangのline directiveを生成時に無効化し、2展開先のCUDA/MSL全byte一致をCPUで確認。改行配置が変わるためnormalizerは維持し、Metal75を再実証・v3 goldenへseal、旧75全出力指紋を保持しました。CUBINのWindows実機確認はこれからで、180秒上限の修正版1回だけを使います。API能力はNVRTC11.3/GetCUBIN有りをCPUだけで確認済みです。
+
+詳細：docs/gpu-development-cli.md、research/portable-readiness-development-validation.json。全ゴールと未対応項目は継続中です。
+<!-- /readiness-cli-development -->
+
+<!-- shared-gpu-cli -->
+## 2026-10-21 共通検証CLI・Windowsパッケージ・開発スキル
+
+今後の短時間検証はscripts/nikke_gpu.pyとdocs/gpu-development-cli.mdを使います。既存のnative比較、共通CPU/GPU監査、厳密normalizer、phase観測、WindowsJobとprocess observerを再利用。package→unpack→CPU preflight→限定テスト→bounded run→status/export/import→GPU禁止auditを共通化しました。固定SHAパッケージ、排他的な実行claim、失敗原記録、Job子のbase Python起動、finally内で終了直後にafter観測を保存します。計算/containment/環境保持は別判定です。
+
+Mac関連44検査、隔離パッケージの63入力/native52と限定16、保存済みMetal63の全出力/native/生成一致、従来v104監査、結果ZIPの原byte回収が成功。Windows固定3c44b97はCPU32＋限定16、CPU-only Job smoke1回が成功し、子45800/親17312、pre[45800]/post[]、after約2.073秒、missing0、GPU/build0、元HEAD/status保持を確認。サービス識別はunverifiedであり、保持成功は主張しません。初回cadd96bは共有ブランチの監査器更新漏れでJob前に停止し、失敗記録を保持して修正。新GPU dispatchは0です。
+
+スキルnikke-shared-gpu-developmentを~/.codex/skillsへインストールし、repoのskills/にも原本を保存しました。CLI listでgolden_source_readyを確認してください。現行reloadの旧goldenはsource hash差分により拒否します。期待値の自動書換えは行いません。全キャラ対応の状況・未解決差分は以下の実装記録を引き継ぎ、今回のツール整備を新しい戦闘認証に数えません。詳細research/portable-gpu-cli-validation.json。
+<!-- /shared-gpu-cli -->
+
+<!-- world-projectile-v104 -->
+## 2026-10-21 散弾数・貫通/爆発範囲と実編成の資源条件を共通実行器へ接続
+
+private ABI0x5045568d/mode24でpellet_count/pellet_count_fixed/pierce_range/explosion_range、frame開始時has_parts、元CPUの部隊弾薬通知indexを共通Slang本体へ接続しました。binary64の順序付き合計とties-to-even、最低1/上限4096、係数と総口数の区別、100−1e−9の到達閾値を検証しました。gauge条件/消費と名前付き解除は既存の共通演算子を利用し、self/enemy解除の未使用recipient予約語だけをprivate packerで修正。canonical engine/compiler/referenceは変更していません。
+
+Metalは共通63（native52＋拒否11）と新規11実プロファイル×3/30秒＝22戦闘で、全効果・状態・物理射撃の時刻/ペレット/総口数/範囲/damageが元CPUと完全一致。最終63は保存62の不変61ブロックと修正後delta2の集約で、集約GPU0、対応表・元raw・厳密生成一致を監査しています。通常生成コードは1421ea2と一致し、診断専用入口だけを分離。計8実GPU呼出し（診断1を含む）、同一source/input retry0、失敗原報告を保持。CPU549、旧21入口CUDA/MSL厳密一致、旧65入力bytes保持、5戦闘35資源最終値のnative直接照合が成功しました。
+
+全266プロファイルの静的入力変換は152→163、base108→116、未対応103です。入力変換はGPU admission/全キャラ戦闘認証ではありません。全203＋お気に入り、未接続buff/selector・操作・復活・source攻撃/interrupt・組合せ/長時間/容量と効率化が残ります。通常画面CPU、public world false、full_character_verified=0、full_goal_complete=false、legacy Metal14c8e2e OPENを維持。詳細はportable-world-projectiles.mdとportable-world-projectile-validation.json。
+
+Windows v104は固定def167197c840d63457ce139f5f6131ce78dc491（codex/cuda-world-v104-source、26ファイル390810bytes）で共通63入力だけをBelowNormal/JobObject/start gate/180秒＋cleanup5秒で1回実行し、127.617560秒で成功しました。事前CPU27検査、native52、全input/output/generated指紋、API50段階、PID107896のpre所属1/post空・残留0/retry0を保存3JSON404357bytesのSHA一致と独立監査で確認しました。実22・旧65/1063・通常4682の再実行は0です。
+
+実行中のモデル容量エラー後も既存OSコマンドは終了0で完了しました。結果だけを取得する後続turnはGPU/build0です。ただし終了後snapshotはJob終了から401.9489005秒遅れ、GPU直前から約529.973秒の観測窓で既存28件の欠落を確認しています。欠落は検証Job外の既存プロセスですが、GPU実行中の終了もGPUとの因果も証明できません。原因unknown、サービス識別unverified、calculation_verified=true、preservation_verified=false、総合passed=falseを保持します。別のCPUのみ約37秒の対照観測では、自身のvenv観測launcher1件だけが欠落しMCP欠落0でした。過去の7/14件の原因も解消扱いにしません。次回の短いWindows検証では、外部bounded wrapperのfinally内でwait直後に完全なafter snapshotを採取し、モデルの次turnを待たない方式が必要です。今回の観測改善目的のGPU再実行は行いません。詳細はportable-world-v104-cuda-validation.json、portable-world-v104-collection-finding.json、seal-world-v104-cuda.py。
+
+GitHub共有は現在のゴール達成まで利用者許可済みです。
+<!-- /world-projectile-v104 -->
+
+<!-- world-real-roster-v103 -->
+## 2026-10-21 実編成の全効果を共通world入力へ接続、Metal10実証
+
+計算source76dc4de・private ABI0x5045568c/mode23で、実準備結果を最新の共通world実行器へ接続しました。app/portable_world_roster_input.pyが各編成70〜91の全効果、成長・装備・スキルレベル、武器・カメラ・敵パターン・操作方針を既存sidecarへ渡します。研究用の効果/武器/基礎値差替えや効果フィルタはありません。静的CharState以外のCPU計算済み射撃時刻・数量・対象・生死は入力しません。通常の回復・HP減少・遮蔽物回復・待機短縮と既存条件を共通演算子へ接続し、canonical compiler/referenceは変更していません。
+
+Metal10＝実5人編成6＋拒否4が成功。3/30/180秒と実成長差分を含み、全員damage/HP/maxHP/def/遮蔽物/弾薬/射撃数/各待機/phase/gauge/cooldown/burst履歴が元CPUと完全一致しました。M5 command completed、GPU17.433928秒、library1.053856秒、pipeline0.004912秒、input4176004/readback31457280bytesを判定前に保存。CPU531＋監査故障注入2＝最終533検査、旧20入口CUDA/MSL厳密生成一致、保存raw・Git固定source・native6・以前の6全出力word保持のGPU禁止監査に成功。詳細portable-world-real-roster.md、portable-world-roster-validation.json、seal-world-roster-metal.py。
+
+5aea8ccの初回6入力は1件だけ一致、5件はteam1024/fraction2048の診断履歴上限でstatus64停止。903fc97は全6成功。76dc4deは旧入口の生成物まで保持する共通macroへ整理し、不正4件を追加しました。実編成専用入口は履歴上限後も累積/counter/dispatchを継続し、team head+5/fraction head+3に省略数を記録します。180秒でteam7965/fraction15930件を省略し、全通知履歴は主張しません。旧入口の容量超過拒否は保持。計3固定source・GPU3回、同一source/input retry0。Swift sandbox初回停止はGPU実行前で、失敗記録も保持。正規化規則は拡張していません。
+
+実203＋お気に入り込み266プロファイルを実5人編成の全入力としてCPU battle/tick/GPU build/execute禁止で検査しました。入力変換成功はbase108/全152、未対応114も理由を保持。own定義事前検査148とは別指標で、GPU admissionや全キャラ戦闘認証ではありません。通常画面CPU・public world false・全キャラ戦闘認証0・legacy Metal14c8e2e OPEN・全ゴール未完了。未接続buff/selector、source攻撃/interrupt、操作/復活、全変種・組合せ・容量/長時間、最後の効率化が残ります。
+
+Windows v103は固定767f4f4274b5850da44cc48687572580f030d07a、codex/cuda-world-v103-source（12ファイル238622bytes）で計算検証に成功しました。CPU17・10入力/native6のGPU禁止照合、実base Python再照合とCPU Job smoke0.110550秒の後、BelowNormal/JobObject/start gate/180秒＋cleanup5でCUDA1回・176.942747秒。保存3JSON194699bytesをSHA一致で取得し、全input/output/native/generated指紋、API50段階PID22056/親39616、作成時刻、pre所属[22056]/post空、残留0/retry0、元HEAD/status保持を共通監査で確認しました。旧65/1063以下/通常4682再実行0。既存14プロセスの欠落とサービス識別未確定は残り、原因unknown、検証Job所属外・本番子より前の作成を確認。calculation_verified=true、preservation_verified=false、総合passed=falseを維持し、v102の既存7件も解消扱いにしません。GPU再実行は不要、turn01a15d03-a9b4-7ba1-92f2-1db1d530ba9f completed/idle、cursor223。詳細portable-world-v103-cuda-validation.jsonとseal-world-v103-cuda.py。上限まで約3秒しか余裕がなかったため、次回Windowsは変更対象の最小入力に限定します。GitHub共有は利用者からゴール達成まで許可済みです。
+<!-- /world-real-roster-v103 -->
+
+<!-- world-reload-v102 -->
+## 2026-10-21 固定再装填時間と強制再装填を共通実行器へ接続、Metal65実証
+
+計算source76344c05940db2c8059af149482bdf6802f5ddcf・private ABI0x5045568b/mode22で、reload_time_fixedとforce_reloadを共通carrier/recipient/weapon loopへ接続しました。固定値の最大値、値なしmarkerと0秒の区別、レベル別values、開始後の期限保持、nativeの直接active query、stack/alias、物理武器コールバックの文脈を保持します。強制再装填はreload_until>0なら何もせず、そうでなければ弾薬0と充填・保持の取消を共通beginReloadで行います。full_reloadの同期子処理、クリップ継続、再装填中のpost_delay、通常ammo percent/flatも同じ本体です。
+
+Metal65＝full native46＋拒否19が成功しました。M5 command completed、GPU0.031416秒、library1.001秒、pipeline25.511秒。input27144004/readback204472320bytesを判定前に保存し、全battle/state/notice/skill queueとforce/start/finish traceを完全照合。CPU523（GPU source時点512＋Windows観測11）、旧19入口CUDA/MSL厳密生成一致、旧58/native31の入力・ネイティブ指紋保持、保存raw/Git/nativeの独立監査が成功しました。同じsource/inputのGPU再試行0です。実データのMilk Blooming Bunny/Jillの再装填2定義ずつも含みますが、全キャラ戦闘認証の数ではありません。
+
+27216abはhostの出力上限検査でGPU前に停止、入力と失敗を保存しました。dff1086の初回GPU62は41/43 nativeと拒否19が一致し、再装填中のphase保持と通常ammoの許可不足2件を保存。76344c0で修正し、通常ammo3件を追加して全65成功。初回の変更対象以外41ケースと拒否19は最終全出力wordと一致しました。3計算コミット・GPU実行2回です。
+
+入力104400word（旧104136＋WRL1 header8＋定義256flags）、出力786432wordです。655360にheader16と5人の最終reload_until、655376から4096×16wordの履歴、終端720912です。共有transportとMetal入口は新サイズだけを明示追加し、隙間サイズは拒否します。固定値は64要素damage vectorの外のidentity90で扱います。明示max_trigger:-1はネイティブでは発動しないため、共通packerでbudget0へ正規化し、キー欠落の無制限sentinelと区別しました。canonical compiler/CPU referenceは変更していません。詳細はportable-world-reload.md、portable-world-reload-validation.json、seal-world-reload-metal.pyを参照。
+
+Windows v102は固定51aa3399961c408889a599e1a265057469ff1bb6（25ファイル432154bytes）、codex/cuda-world-v102-sourceで計算検証に成功しました。CPU137・GPU禁止65入力/native46・base Pythonでの再照合後、CPUだけの実Job smokeは0.106619秒/GPU0。本番はBelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回・121.898908秒、全65入力/output/native/generated指紋とAPI50段階が一致しました。新しい観測器のSHA、PID77560/親2448、作成時刻、pre所属[77560]、post所属空、全50段階PID77560、残留0/retry0、元HEAD/status保持を独立監査済みです。保存3JSON180500bytesはSHA一致で取得しました。ただし既存MCP等7件の欠落とNIKKEサービス識別未確定は残り、原preservation flagと総合passedはfalse、calculation_verifiedはtrueです。欠落7件は本番子より前に作成され、検証Jobの所属に含まれませんでした。終了原因は不明のままです。通常4682・旧1063以下の再実行0。summaryの旧958件カウンタ名をold965と転記したミスも監査が検出し、元JSONを変えず、明示receiptのold958=0と固定65入力・単一dispatchから検証しました。今後のreporterは修正済み、故障注入2件を加えた最終CPU525が成功しています。portable-world-v102-cuda-validation.json、seal-world-v102-cuda.py、portable-world-v102-summary-counter-finding.jsonを参照。
+
+実203＋21お気に入り段階1/2/3＝266プロファイルのPython own定義事前検査はbase105→107、全145→148（Milk/JillとExia favorite3）です。CPU battle/GPU呼出し0で、GPU admissionや全効果の戦闘認証の数ではありません。通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。tap/anchor/cover/reload/aim/burst/focus操作、他buff/selector、明示parts/interrupt/source攻撃、復活、全組合せ/容量/長時間/全変種認証、その後の効率化が残っています。GitHub共有はゴール達成まで利用者許可済みです。
+<!-- /world-reload-v102 -->
+
+<!-- world-charge-control-v101 -->
+## 2026-10-21 手動チャージ保持を共通実行器へ接続、Metal58実証
+
+計算source2a585cfab7b15bedc6a591433ee4bf3edbc49df6・private ABI0x5045568a/mode21で、charge_hold:N/count:M、手動hold、hold_until_close、hold_judge、明示holdシーケンスを共通実行器へ接続しました。完了を実観測時刻でラッチし、生の0.1/0.10を別通知として閾値順に処理、条件より前に一度消費します。カメラの優先度/新規要求/部隊順、先取り解除、同一burstアンカーの再入1回、本人full burstと終了後の判定、動的chain窓、戦闘不能、武器session復帰順を扱います。CUDA/Metal別の計算実装、CPU算出済み射撃・充填時刻・通知・所有者入力はありません。
+
+Metal58＝native31実戦＋拒否27が成功しました。Apple M5 command completed、GPU0.089250秒、library1.028秒、pipeline11.503秒。input24159556/readback152043520bytesを判定前に保存し、全battle・状態・通知・小数・skill queueとカメラtraceを完全照合しました。CPU全488検査、旧18入口CUDA/MSL厳密生成一致、旧47入力/native29の指紋保持、保存raw/Git/nativeの独立監査も成功。同一source/inputのGPU再試行は0です。
+
+a9b7c2aの初回Metalは28/31一致、弾薬kind13/14の許可不足2件と武器終了後の保持解除1件を保存しました。既存の共通弾薬演算子をcontrol通知の定義に限って許可。f077cbeは30/31一致でしたが、保持解除がカメラ判定より1フレーム早い差を保存しました。2a585cfで論理失効→カメラ判定→物理武器復帰のnative順へ接続し、全31成功。初回の変更対象以外28ケース、2回目の変更対象以外30ケースは最終全出力wordと一致しました。3固定ソース・GPU実行3回です。
+
+CPU生成器が前段階のprivate teamEvent宣言を共通fieldとして解釈できなかった3件も発見・保存しました。正確な条件付き宣言だけを明示して扱い、共通initializerのbytesを変えず、未知のdirectiveは拒否します。専用入口のteamEvent初期化は従来どおりです。最終488件は成功しています。
+
+入力は104136word（従来98000＋WCH1の6136）、出力655360wordです。653160からowner5×32、653320からheader16、653336から閾値1280bit、653376からowner5×16アンカー、653536から220×8trace、終端655296です。未使用/予約語、raw event名と秒数、有限値、DOWN_Charge制約などをGPUで検査します。trace/履歴容量超過は失敗扱いです。詳細はportable-world-charge-control.md、portable-world-charge-control-validation.json、seal-world-charge-control-metal.pyを参照。
+
+Windows v101は固定784762d0f9cb809958107c040dcac7c219889c4c（22ファイル341461bytes）、codex/cuda-world-v101-sourceで計算検証に成功しました。CPU106・GPU禁止58入力/native31・全source SHA照合後、BelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回・118.622770秒。保存3JSON121370bytesのinput/output/native/generated指紋とAPI50段階は一致、元HEAD/status保持・residual0/retry0、通常4682・旧1005以下の再実行0です。ただし既存Node/Python7件（Codex cua_node3、Blender MCP2、generic uv Python2）のPID保持を確認できず、元receiptのexisting_gpu_service_preservedはfalseです。追加の読取専用調査12543bytesも取得しましたが、終了原因と元NIKKEサービスの同一性は不明です。検証JobObjectは新規子プロセスだけを割り当てる実装で、7件への直接割り当て記録はありません。GPU再実行・サービス操作は行っていません。strict監査は拒否したまま、全計算/API/source検査を最後まで行う診断ではcalculation_verified=true、preservation_verified=false、総合passed=falseです。4件の故障注入を含む最終CPU492が成功。次のWindows実行前にはサービスの明示識別と子PID/PPID/creation/Job所属のbaseline保存を改善します。portable-world-v101-cuda-validation.jsonとportable-world-v101-preservation-finding.jsonを参照。
+
+実203＋21お気に入り段階1/2/3＝266プロファイルのPython own定義事前検査はbase102→105、全142→145（라푼젤 : 퓨어 그레이스、길티 : 마이티 바니、신 : 스위프트 바니）です。CPU battle/GPU呼出し0で、GPU admissionや全キャラ戦闘認証の数ではありません。通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。tap/anchor/cover/reload/aim/burst/focus操作、他buff/selector、明示parts/interrupt/source攻撃、復活、全組合せ/容量/長時間/全変種認証と、その後の効率化が残っています。GitHub共有はゴール達成まで利用者許可済みです。
+<!-- /world-charge-control-v101 -->
+
+<!-- world-team-v100 -->
+## 2026-10-21 部隊part/body命中を共通実行器へ接続、Metal47実証
+
+計算source725f020・private ABI0x50455689/mode19で、part_hit_count/body_hit_countを既存コンパイラの5人分bindingへ接続しました。条件は元のeffect owner、発動casterとtarget:self・caster-based数量は実attackerです。部隊のglobal count、max_trigger、確率accumulatorは攻撃者をまたいで共有します。scalar・carrier・recipient・health・gauge・damage子処理は共通dispatchを使用し、CUDA/Metalに別実装やCPU算出済みcredit入力はありません。通常のpellet通知とchargeの弾数buff期限前というnative順、1−coreのbinary64蓄積、source owner downを保持します。
+
+Metal47＝native29実戦＋拒否18が成功しました。Apple M5 command completed、GPU0.036294秒、library 1.089秒、pipeline 8.318秒。input18424004/readback123207680bytesを保存し、全数量・状態・通知時刻・小数・実accumulator・skill queueを照合しました。共有budget/prob、3pellet×2muzzle、core0/小数/1、HP条件と戦闘不能、caster-based量、heal/gauge、child damage、normal/skill charge、add消滅とtarget state、重複timingのnative通知indexを含みます。CPU460検査・旧17入口CUDA/MSL生成厳密一致、保存raw/Git/nativeの独立監査が成功。同じsource/inputのGPU再試行0です。
+
+29be064/f1465b2/373ad77はpipeline生成300秒でGPU実行前に停止し、各input・失敗を保存しました。専用入口でcounter marker/mode19をGPU上で先に検査して旧モード分岐を定数化し、pipeline生成を約8秒へ削減しました。旧入口の生成物の余白差も原型を保持して解消し、正規化は拡張していません。277af2bでの初回GPU47は46一致・gauge1拒否を保存。既存共通kind24がteam初期検査に無かったため追加し、725f020で全47成功。修正対象以外46入力の全出力wordも初回と一致しました。stage計5ソース、GPU実行2回です。
+
+入力98000word（従来fraction97480＋WTH1 header8＋256binding×2）、出力655360wordです。644936から5×4wordの部隊小数、644956に12word head、644968に1024×8word traceを置きます。bindingのsource owner/shared budget/実attacker順と未使用語をGPU検査します。mixed/periodic/weapon-change team listenerは既存コンパイラで拒否します。詳細はportable-world-team-hits.md、portable-world-team-validation.json、seal-world-team-metal.pyを参照。
+
+Windows v100は固定a61136f1db638b7cd16f5174b08fa13dffbe0bb1（23ファイル387656bytes）、codex/cuda-world-v100-sourceで成功しました。CPU78・GPU禁止47入力/native29・全source SHA照合後、BelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回・111.208852秒。保存3JSON計108231bytesのinput/output/native/generated全fingerprint・API50段階・元HEAD/status/service保持・residual0/retry0・旧958以下/通常4682再実行0を共通監査済みです。portable-world-v100-cuda-validation.json、seal-world-v100-cuda.pyを参照。
+
+実203＋21お気に入り段階1/2/3＝266プロファイルのown定義Python事前検査はbase100→102、全140→142（D : 킬러 와이프、루마니）です。CPU battle/GPU build/execute禁止・呼出し0で、GPU kind admissionや全キャラ戦闘認証の数ではありません。通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。charge_holdの手動control・充填latch・一度判定、他buff/selector、明示parts/interrupt/source攻撃、動的操作/復活、全組合せ/容量/長時間/全変種認証を続けます。GitHub共有はゴール達成まで利用者許可済みです。
+<!-- /world-team-v100 -->
+
+## 2026-10-21 クリティカル・コア小数通知をMetal35・CUDA35で実証
+
+計算source7cb937878bd642ccf448cd5f4c7b33feafe993a5・private ABI88/mode17で、crit_hit/core_hitと各countを共通実行器へ接続しました。物理damageValueから一発分の確率を捕捉し、既存binary64でowner別の小数を蓄積、1を超えたら共通dispatchを呼びます。確率0/1では新しいaccumulatorを作らず、既存の残り値を保持します。CUDA/Metal別実装やCPU算出済みcredit入力はありません。
+
+通常射撃はpellet_hit→critical→coreを弾片ごと、チャージはon_attack/full_charge/hit_count等→弾数buff消費→全critical→全core→last_bulletというnative順を保持します。同じ散弾中のcallbackで確率を取り直しません。normal専用criticalはskill modeへ入れず、pinned nativeがaddへの最終routingでもcore確率を維持する契約も観測のまま保持します（明示parts/interrupt照準とは別です）。
+
+Metal35＝native24実戦＋拒否11が成功しました。M5 command completed、GPU0.039672秒、input13647204bytes/readback91750400bytesを保存。0/1clamp、15%の7発目、unit率への変更時の残り値、3pellet×2muzzle、callback/charge/skill mode/normal限定補正/弾数期限/core出現変化/add経路を完全nativeの数量・状態・通知時刻・小数値・実accumulator keyで照合しました。CPU442検査、旧16入口CUDA/MSL生成物厳密一致、保存raw/Git source/nativeのGPU禁止監査も成功。旧923以下・通常4682のGPU再実行はありません。
+
+初回ee14e40（ABI87/input97464）の29入力を保持しています。全24の数量・最終小数値は一致しましたが、charge6件の通知が1frame早い差を発見しました。literal base charge入力のinterval.4−charge.2が実native SRのpost_fire_delay.215を表しておらず、さらに一般にcharge+delayからdelayを復元してもbinary64値が保存されないため、独立したstatic時計入力へ接続しました。初回raw・initial-metal・findingを保存し、同一source/input retry0です。異なる固定source2種でMetal計2回。
+
+新入口だけ入力を97480wordへ拡張し、97464から16word（WFC1/version1/5owner/予約0＋各post-fire delayのbinary64＋予約0）を追加しました。native静的CharStateから読み出すnormalize_static_clockと厳密packerを共通化し、CPU battleは禁止して検査。weapon modeは既存descriptorのraw post_fire_delayを直接読みます。NaN/負値/nonchargeへの非0/予約語をGPUで拒否。旧入口のinput幅と生成結果は保持します。出力655360wordは同じで、628504に5×8wordの小数/shot snapshot、628544に8word head、628552に2048×8wordの観測を置き、過去のbankと重なりません。
+
+Windows v99は固定158e8b7a81e0af470af7cfe06e5d8809b48690ba（19ファイル293289bytes）、codex/cuda-world-v99-sourceで成功しました。CPU60検査・GPU禁止35入力/native24・source SHA82・input97480照合後、BelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回・116.380413秒・exit0。保存3JSON計71749bytesを取得し、全input/output/native/generated fingerprint・API50phase・元HEAD/status/service保持・residual0・retry0・旧923以下/通常4682再実行0を共通監査器で照合済みです。portable-world-v99-cuda-validation.json、seal-world-v99-cuda.pyを参照。turn01a15c58-b163-7190-8fd9-bed75504179aはcompleted、cursor187、idleで、再依頼は不要です。
+
+実203＋21お気に入り段階1/2/3＝266プロファイルの静的監査では、own定義のPython事前検査通過がbase97→100、全137→140になりました（K、루드밀라 : 윈터 오너、마스트）。CPU battle/GPU build/executeは禁止・呼出し0。これはGPU kind admission・real roster/world配線・容量・全キャラ戦闘認証を示す数字ではありません。
+
+次のpart/body通知はnative6実戦を固定しました。条件はeffect owner、発動casterとtarget:selfは実attackerであり、team counterはattackers間で共有されます。owner4だけ被弾させる条件対照と、3pellet/2muzzleの全体N=3対照も確認。portable-world-team-hit-native-contract.json、characterize-world-team-hit-ownership.pyを参照。このGPU bridgeはまだ拒否します。charge_holdも手動control・充填完了のlatch・閾値ごとの一度判定・キャンセル/カメラの接続が必要です。
+
+通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。部隊命中/保持・他buff/selector・source攻撃/interrupt・skill追加part到達・動的操作/復活・全効果組合せ・容量/長時間/全変種認証、nativeの永続条件付き味方HP/防御とhit-only max-HP rankの不整合も残ります。効率化は必要な検証後。GitHub共有はゴール達成まで利用者許可済みです。
+
+## 2026-10-21 初期敵出現通知をMetal27・CUDA27で実証
+
+計算sourcecb4400977032fdac69621c9f1fa5a6dff34e8c31・private ABI86/mode15で、event:enemy_spawn（元のevent5）をworld定義の受付と共通startupへ接続しました。全員のbattle_start→全員の初期enemy_spawn→初期magazineの順で一度だけ実行し、召喚敵1体ごとの既存通知は同じdispatchを使います。CUDA/Metalに別のイベント実行器・数量計算・効果定義は追加していません。new入口のevent5定義は旧mode13では拒否します。
+
+Metal27＝native22実戦＋拒否5が初回成功しました。Apple M5 command completed、GPU0.063310秒、input10526116bytes/readback70778880bytesを保存。初期通知5回、即時/遅延2体、127体の計640通知とowner順序・binary64時刻、再出現、全5owner、別ownerのbattle_start状態、初期装弾、gauge、敵fieldのscope/stack、trigger budget、vanish、同フレームの敵攻撃、128対象への通常skill/DoTを完全nativeで照合しました。既存timer・queue・counter・Actor着弾順序を保持し、DoT初回は既存のt=0 timer passを使います。
+
+CPU429検査、旧15入口CUDA/MSL生成物厳密一致、保存raw/Git source/nativeのGPU禁止監査に成功しました。出力は既存655360wordのまま、612112に8word head、612120から4096件×4wordの通知観測をGPUが記録します。128Actorの敵攻撃力・periodic packet bankと重ならず、容量超過はstatus64です。旧入口の生成結果を保持し、旧923以下・通常4682を再実行していません。Metal GPU1回・source1種・同一source/input retry0。
+
+CPU初回の「0.2秒以上」という観測assertは、実native累積clockが0x1.9999999999999p-3だったため不正でした。浮動小数点sumのPython版による差も避け、nativeと同じ12回の逐次加算を厳密比較します。丸め/許容誤差は追加せず、初回native20件をportable-world-spawn-native-initial.jsonへ保持しました。旧生成物の空行1行差も空展開フックを既存行に置いて解消し、正規化規則は変更していません。失敗したCPU生成照合はportable-build/world-spawn-initial-generation.json/.logへ保持。
+
+Windows v98は固定a7f4b777845dee039f9d873df7eea272d4debf07（17ファイル280180bytes）、codex/cuda-world-v98-sourceで成功しました。CPU47検査・GPU禁止27入力/native22・source SHA80照合後、BelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回・114.941192秒・exit0。保存3JSON計66029bytesを取得し、全input/output/native/generated fingerprint・API50phase・元HEAD/status/service保持・residual0・retry0・旧923以下/通常4682再実行0を共通監査器で照合済みです。portable-world-v98-cuda-validation.json、seal-world-v98-cuda.pyを参照。turn01a15c43-0306-7782-94cc-7e37a28380aeはcompleted、cursor182、idleで、再依頼は不要です。
+
+実203キャラ＋21お気に入りの段階1/2/3＝266プロファイルを静的再監査しました。own定義のPython事前検査通過はbase95→97、全133→137です。바이퍼（通常＋お気に入り1/2）と아크레인저 블랙の4プロファイルが増え、差分をportable-world-spawn-catalog-delta.jsonへ保存しました。CPU battle/GPU build/execute禁止・実呼出し0。GPU kind admission・容量・real roster/world配線・全キャラ戦闘認証を示す数字ではありません。
+
+通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。次はcharge/part/crit判定、未接続buff/selector（explosion_range、effect_interval、trigger_count_reduce、stun等）、source攻撃/interrupt・skill追加part到達、動的操作/復活、周期gone/expiry/dispelを含む全組合せ、容量/長時間/全変種の認証を進めます。永続条件付き味方HP/防御とhit-only max-HP rankのnative不整合も残ります。効率化は必要な検証後。GitHub共有はゴール達成まで利用者許可済みです。
+
+## 2026-10-21 敵攻撃力fieldをMetal37・CUDA37で実証
+
+計算source0395cad4130cadf32d560efa0df5551d374f7f10・private ABI85/mode13で、敵へのatk_pct/atk_caster_based_pctを既存のresident・stack・期限・Actor recipient・名前付き状態へ接続しました。CUDA/Metalは同じSlang本体と28実戦・不正9入力を使います。出力幅655360wordは前段階のまま、periodic snapshotの後611856から128Actor×2wordの実GPU queryを保存します。CPU計算済みの敵攻撃力や被害量は入力しません。
+
+nativeのenemy_atk_down_flatは術者の基礎攻撃力×割合をresident順に合計し、ボス攻撃力へ加算して0以上に制限します。この値をtarget選択・5人への着弾より前に一発ごと捕捉し、途中のHP条件変化で残りの対象を再計算しません。敵へのatk_pctはnativeの被ダメージ式では読まれませんが、get_buffsの対象側分岐ではこちらの与ダメージのatk_pctに入るため、既存の順序付きcollectStatsへ接続しました。味方のrank/base-stat helperへは混ぜていません。nativeが召喚敵の発射元IDを復元できずflat補正を適用しない既知の制約も残ります。
+
+修正版Metal37＝native28実戦＋拒否9はすべて一致しました。M5 command completed、GPU0.139797秒、input14424676bytes/readback96993280bytesを保存済み。基礎ATKと味方buffの区別、正負・0clamp、expiry、stack/refresh、複数owner/alias、HP runtime条件と有限条件のlatch、7rank、128対象、遅延spawn/再世代、全battle/field/名前付き状態を照合。CPU418検査、旧14入口のCUDA/MSL厳密一致、保存raw/Git source/nativeのGPU禁止監査にも成功しました。
+
+初回22c8ca3の35入力は不一致を保持しています。既存status観測の有効化だけで保存出力をCPU再監査し22/28が一致、残るatk_pct与ダメージ3件とHP条件受付3件を共通処理へ修正しました。初回raw・initial-metal・observer-replay・findingを保持し、同一source/input GPU retry0です。今回のMetalは異なる固定source2種で計2回。旧入口は14生成物の厳密一致を確認して旧923以下と通常4682のGPU再実行をしていません。
+
+skill/pendingの古いshort goldenはこの変更前のa51ea7dでも現行生成物と異なりました。この2入口は追跡ファイルのcleanな固定a51ea7d worktreeから生成して比較し、今回の変更後も厳密一致を確認しました。normal等の旧11とperiodicも従来基準に一致。正規化規則を追加して差を隠していません。portable-world-enemy-attack-generation-baseline.jsonに両方の値と固定source SHAを保持しています。
+
+Windows v97は固定970aed0d7921de429c3808ec73a7115b0dcd2386、codex/cuda-world-v97-source（16ファイル252144bytes）で成功しました。指定CPU36検査・GPU禁止37入力/native28・source SHA78照合後、BelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回・112.762323秒・exit0。保存3JSON計66976bytesを取得し、全input/output/native/generated fingerprint・API50phase・元HEAD/status/service保持・residual0・retry0・旧923以下/通常4682再実行0を共通監査器で照合済みです。portable-world-v97-cuda-validation.json、seal-world-v97-cuda.pyを参照。turn01a15c33-bbcf-75e1-b3d9-08c4d7753dceはcompleted、cursor174、idleで、再依頼は不要です。
+
+実203キャラ＋21お気に入り段階1/2/3＝266プロファイルを静的再監査し、own定義のPython事前検査通過がbase85→95、全121→133へ増えました。12の新規プロファイルをportable-world-enemy-attack-catalog-delta.jsonに保存。CPU battle/GPU build/executeは禁止して呼出し0です。これはGPU kind admission・容量・real roster/world配線・戦闘認証の証明ではありません。
+
+通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。敵対象の他field/selector、enemy_spawn通知、charge/part/crit、source攻撃/interrupt・skill追加part到達、動的操作/復活、周期gone/expiry/dispelの全組合せ、永続条件付き味方HP/防御とhit-only max-HP rankのnative不整合、容量/長時間/全変種認証を進めます。効率化は必要な検証後。GitHub共有はゴール達成まで利用者許可済みです。
+
+## 2026-10-21 DoT・一般周期ダメージをMetal923・CUDA45で実証
+
+計算source1f059919037de30f722b121064cd4be819cc87e1・private ABI84/mode11で、DoT/一般周期ダメージを既存timer・stack・reference・binary64数量計算・共通Actor着弾へ接続しました。256定義と2048着弾パケットそれぞれに、128対象の順序/bitset/捕捉birth ordinalを38wordで保存します。既存のchecked monotonic add birth ordinalを使い、後から生まれた同slotの世代へ再結合しません。aliasによる対象unionでも、作成済みパケットは不変です。通常timer更新→queue drain→burst/射撃の順序を保持し、即時DoTを別の早着弾経路にしていません。
+
+Metal923＝native32実戦＋不正13＋旧878が成功しました。全数量/着弾traceに加え、実際のnative timer・carrier・named predicate状態を一致検査しました。128対象、7rank、同名alias、再出現世代、own stack/refresh、参照stack、通常式、一般周期3hit、DOT credit/counter子、致死/生存addからの登録・回復を含みます。CPU408検査、旧11入口CUDA/MSL生成物厳密一致、保存raw/Git source/nativeのGPU禁止監査に成功。legacy UIの全キャラ対応を意味しません。
+
+新入口だけ出力655360wordへ拡張し、不変snapshot領域を追加しました。従来の524288word prefixを旧878入力すべてで完全保持し、追加tailは0です。従来入口の出力幅は変更していません。共通backend/Metal transportは従来の範囲と新655360だけを許可し、未検証524289などはbuild前に拒否します。2GiB未満の互いに重ならない700件＋223件の2バッチで、各input/readback/evidenceを即保存しました。source2種・Metal計4 dispatch（初回2＋修正版2）、同一source/input retry0です。
+
+初回7fffac4の全数量・packet traceと旧878 prefixは一致しました。finish後pool aliveでbefore_finishの捕捉membershipを削った観測差2件と、prepare hookを通らない実native periodic ActiveBuff UIDを数えなかったordinal差1件を、保存readbackのCPU再監査だけで解消し32実戦一致を確認しました。観測項目を無視・丸めてはいません。残るNaN intervalのstatus0は、共通周期判定を正の有限binary64 intervalへ修正し、NaN/Infinity/負値を実GPUで拒否しました。初回raw/observer-replay/findingを保持しています。portable-world-periodic-validation.json、seal-world-periodic-metal.pyを参照。
+
+Windows v96は固定4554b0b61ce98375deee8aedeb262729915e3e0f（21ファイル346136bytes）で新45入力/native32だけを検証しました。CPU65検査・GPU禁止45入力・source SHA76照合後、BelowNormal/JobObject/start gate/180秒/cleanup5秒でCUDA1回、111.904949秒・exit0。保存3JSON計70803bytesだけを取得し、全input/output/native/trace/generated fingerprint、API50phase、元HEAD/status/service保持、残存0、retry0、旧878以下/通常4682再実行0を共通監査器で照合済みです。portable-world-v96-cuda-validation.json、seal-world-v96-cuda.py。turn01a15c1c-6a59-7803-bb5e-a9787bfd22fdはcompleted、cursor167、idle。再実行依頼は不要です。
+
+実データを全203キャラ＋お気に入り21キャラの段階1/2/3、計266プロファイルで静的監査しました。own定義のPython事前検査通過はbase85/203、全プロファイル121/266です。全定義を実owned/growth準備から取得し、除外や架空効果を使っていません。CPU battle/GPU build/executeを禁止して呼出し0を実測しました。これはGPU kind admission・capacity・policy wiring・戦闘認証ではありません。portable-world-catalog-definition-readiness.jsonに全target/field/trigger/conditionと不受理理由を保存しています。
+
+次はこの実キャラ一覧から、敵atk_pct/atk_caster_based_pct等の未接続numeric field・selector、event:enemy_spawn等の通知、charge/part/crit判定、source攻撃/interrupt・追加part到達、revive/controlへ進みます。DoTのmid-frame gone/expiry/dispelを含む全効果組合せとreal roster/world入力接続も引き続き認証が必要です。
+
+通常画面CPU・public world false・全203変種の戦闘認証0、legacy unexplained Metal14c8e2e OPENを維持し、全ゴール未完了です。nativeの永続条件付き味方HP/防御とhit-only max-HP rankの不整合、容量/長時間/全変種認証も残ります。計算処理の効率化は必要な検証後。GitHub共有はゴール達成まで利用者許可済みです。
+
+## 2026-10-21 pendingを共通Actor着弾へ接続しMetal878・CUDA37で実証
+
+計算source6bd7ab48095984d76ebdd5b291f56e0c99a5032e・private ABI83/mode9で、B3 pendingを128Actorの共通着弾helperへ接続しました。通常skillとpendingは同じ選択・世代検査・HP/counter/lifestealを使い、既存のソフトウェアbinary64・reference・後続buff除外・全数量を先に捕捉する二段階を保持します。pendingだけ同フレームで着弾し、full_burst_startやcounter子が作った通常skillは次フレームまで通常queueに残ります。明示normal_attack式よりB3 plain bonus pendingが優先するnative契約を共通packerへ反映しました。
+
+Metal878＝native26実戦＋不正11＋旧841（833＋8）全524288word一致が初回成功しました。Apple M5でcommand completed、GPU 0.924025秒、全input/readbackを保存済み。CPU399検査、旧11entryのCUDA/MSL生成物厳密一致、保存raw/Git source/native/着弾trace/実際のpending容器から観測したenqueued・fired・countのGPU禁止監査にも成功。128対象、7rank、reference欠落/0/2、名前付き3hits、buff順序、counterが変える前の一括数量、add死亡、回復を含みます。通常画面の全キャラ認証ではありません。
+
+直接skill入口はActor着弾本体の共通helperへの切り出しで生成コードが変わりました。これを旧12entry厳密一致と誤記しないでください。旧11entryは厳密一致、直接skillを含む旧841は全出力word保持です。生成測定はportable-world-pending-refactor-generation.json、実証と監査はportable-world-pending-validation.jsonとseal-world-pending-metal.pyです。CUDA/Metal別実装やCPU計算済み数量の入力はありません。GPU計1回、同一source/input retry0。
+
+Windows v95は固定ea1eccc0e23d22f7cfede3437fd76dedf6dec0fe（15ファイル297084bytes）で成功しました。CPU48検査・GPU禁止37入力/native26・source SHA74照合後、BelowNormal/JobObject/start gate/180秒/cleanup5秒でCUDA1回、109.304244秒・exit0。保存3JSON計76674bytesだけを取得し、全input/output/native/trace/generated fingerprint・API50phase・元HEAD/status/service保持・残存0・retry0・旧841以下/通常4682再実行0を共通監査器で確認しました。portable-world-v95-cuda-validation.json、seal-world-v95-cuda.py。turn01a15bf5-799c-7bb1-a476-b5948bbaf2f6はcompleted、cursor164、idle。再実行依頼は不要です。
+
+次のDoTはCPU11実戦を固定しました。通常timer tickはBM更新で作成され同フレームのqueue drainへ入り、射撃counterで適用したimmediate DoTは次のtimer更新で初めて生成されます（作成0→次フレーム着弾の通常skillとは数量捕捉時刻も異なる）。後続buffをその最初のtickが読む対照も保存しました。適用時の対象membershipは後から出現したwaveを含まず、tickごとに現在の数値を読み、refresh/own stacks/expiryを保持します。portable-world-dot-skill-native-contract.jsonと初回CPU観測を参照。初回は観測値の生成時刻を通常skillと同一視したassertが不正で、実測を残して修正しました。DoTのGPU受付は未接続のままです。
+
+次は既存periodic timer/stack/数量計算を使い、8bitのperiodic対象maskを128Actorの捕捉membership・世代へ接続する必要があります。liveなlate-routingの直接skillと混同しないでください。timers→通常queue drain→burst/射撃のnative順序を保持し、DoTだから常に即時着弾とする別経路は作りません。
+
+通常画面CPU・public world false・全203変種認証0、legacy unexplained Metal14c8e2e OPEN、全ゴール未完了を維持します。DoT/source攻撃/interrupt・skill追加part到達、動的操作/復活、全効果組合せ、容量/長時間/全変種認証、nativeの永続条件付き味方HP/防御とhit-only max-HP rankの不整合が残ります。計算処理の効率化は必要な検証後。GitHub共有はゴール達成まで利用者許可済みです。
+
+## 2026-10-21 auto_damageの数値契約をMetal8・CUDA8で実証
+
+計算sourceef12e0940259d64bb48ed252ef1836b52ef4bfa7で、world入力のauto_damageは明示normal_attack式がある場合だけ通常攻撃計算を使うよう共通packerを修正しました。通常攻撃専用damage/critical補正と全攻撃critical補正、1hit/3hitsをnative8実戦で区別し、Metal8のbattle・着弾traceが完全一致しました。default242、normal専用damage50でも242、明示normal式なら363、全攻撃critical50なら298です。CPU393検査に成功し、従来のnon-world auto契約は保持します。
+
+GPU shader73ファイルと生成CUDA/MSLは不変です。旧833の全保存input/readback SHAを確認し、旧40native中39は全入力word一致＋全native/trace再監査、変更したauto1入力は新8の先頭で実GPU検証しました。不正10入力も同一、旧783は保存済みsealed出力を保持します。同じ入力の再実行を避け、Metalは新8だけ1回、旧833再実行0、retry0。共通計算本体を別実装へ置き換えていません。portable-world-skill-formula-validation.json、seal-world-skill-formulas-metal.py、portable-world-auto-formula-finding.jsonを参照してください。旧v93は固定2498e1e worktreeでもMetal/CUDAをCPUだけで再監査済みです。
+
+Windows v94は固定05a763db1d988ad9c82e5b14fcf4a49aa16430a0（6ファイル89510bytes）で成功しました。CPU42検査・GPU禁止8入力/native8・source SHA73照合後、BelowNormal/JobObject/start gate/180秒/cleanup5秒でCUDA1回、103.169556秒・exit0。保存3JSON計58579bytesだけを取得し、全input/output/native/trace/generated fingerprintとAPI50phase、元HEAD/status/service保持、残存0、retry0、旧833以下/通常4682の再実行0を共通監査器で確認しました。portable-world-v94-cuda-validation.json、seal-world-v94-cuda.py。Windows turn01a15be6-06de-7443-81e8-0c77c918612bはcompleted、cursor159、idle。再実行依頼は不要です。
+
+次のpendingを完全native9実戦で固定しました。B3 bonus_damageは約0.583333秒のfull burst進入フレームで作成・着弾し、通常skillの次フレームqueueとは異なります。後続cast buffは除外し、先行buffは適用し、2pending分の数量は最初のcounter子fieldが変化させる前に一括捕捉します。all3対象、normal専用補正の除外、0係数も確認。B3 plain bonusのpending処理は明示normal_attack式より優先し、その補正を使わないことも固定しました。登録をliteral fixtureへ差し替える観測器ではchar_effects検索にも同じliteral一覧が必要でした。opt-in observe_authored_effect_lookupを追加し、元catalogによる誤った後続buff包含748と、正しい354のCPU対照を保存しました。portable-world-pending-skill-native-contract.jsonと初回native報告を参照してください。pendingはGPU未接続で、現private受付でも拒否します。
+
+次は、既存pendingの「全数量を計算してから着弾」の二段階とreference/後続buff除外を保持し、direct queueの128Actor着弾本体を共通helperにしてpendingから同フレームで呼ぶ必要があります。通常queue全体を途中でdrainするとB3中の通常skillまで早く着弾するため不可です。pendingが明示normal式より先に処理されるnative優先順位も保持してください。新しいprivate入口を固定して、旧直接skillの全出力・拒否契約を保持しながら検証します。
+
+通常画面CPU・public world false・全203変種認証0、legacy unexplained Metal14c8e2e OPEN、全ゴール未完了を維持します。pending/DoT/source攻撃/interrupt・skill追加part到達、動的操作/復活、全効果組合せ、容量/長時間/全変種認証が残ります。nativeの永続条件付き味方HP/防御、hit-only max-HP rankの不整合も未解消。必要な検証後に計算処理を効率化します。GitHub共有はゴール達成まで利用者許可済みです。
+
+## 2026-10-21 direct skillの遅延着弾をMetal833で実証
+
+計算source761e362・private ABI82/mode7で、counter子を含む直接skillを既存の共通damage計算・LandingReceiptキュー・128Actor selector・HP/counter/lifestealへ接続しました。作成時にbodyの明示query scopeで数量・hit数を捕捉し、次フレームまたは終了時にlive targetを選びます。捕捉したcompletion Actorへ敵fieldを付ける処理とは別のnative契約です。named hit_count wire49はcompletion targetを継承します。カウンターなし編成にも合成counterを挿入しません。
+
+Metal833＝完全native40実戦＋不正10＋旧783全524288word一致、CPU390検査、旧11entry CUDA/MSL生成物厳密一致、保存input/readback/Git source/native/着弾traceのGPU禁止監査が成功しました。12直接damage系統、7rank selector、128対象分配と丸めで0damageでもcredit1、作成後に出現したadd、同じdrain中に追加される子damage、作成後buffで変わらないmulti-hit数量を確認しました。ソフトウェアbinary64、整数丸め、選択、状態、イベント、counterをCUDA/Metalで共用し、実装・fixture・比較器を分岐させていません。
+
+nativeの空enemy field資源に依存したbody query scopeを修正しました。中立field0の有無で変わった242/511は両方511、旧11中10辞書と過去381完全native辞書を保持しています。証拠はportable-world-query-scope-regression.jsonとportable-world-counter-damage-queue-native-contract.jsonです。
+
+初回のcore_damage分類差、通常攻撃式の許可bit256漏れ、入力packerの式指定漏れをそれぞれ保存しました。canonical CPUのcore_damageはWEAPON、normal_attack式はnormal_skill/SKILLです。単なるskill起源で分類しません。最終ケースはnormal_atk_dmg_pct50で式指定の数値も検査します。4つの固定source snapshotでMetal計4回、最終2回はGPU shader共通でauthored inputが異なり、同一source/input retry0。全失敗raw・全出力を保持しています。portable-world-skill-finding.jsonと初回/formula-admission/formula-packing-metal.jsonを参照してください。
+
+Windows v93は固定9c34a5f1a4542811385ac3f6160087c3ef39b29e（23ファイル356917bytes）で新規50入力/native40に成功しました。CPU39検査・GPU禁止50入力照合・source SHA73を先行し、BelowNormal/JobObject/start gate/180秒/cleanup5秒でCUDA1回、105.142319秒・exit0。保存3JSON計65960bytesだけを取得し、source/name/bytes/SHA・全input/output/native/着弾trace/generated fingerprint・50 API phase・旧783/通常4682以下の再実行0・元HEAD/status/service保持・残存0・retry0を共通監査器で照合しました。portable-world-v93-cuda-validation.jsonとseal-world-v93-cuda.pyを参照。再実行不要です。
+
+次の数値組合せで、auto_damageのnativeは明示damage_formulaがない限りnormal_atk_dmg_pctを受けない一方、既存portable packerはauto_damageを常にdamageNormal1にする差をCPUで確認しました（native242→242、明示normal_attackなら363）。今回の既定値40実戦は一致していますが、auto_damage＋通常攻撃専用補正の組合せは未認証です。world入力の追加検証・修正が必要で、legacy normal生成物を変更しないでください。
+
+通常画面CPU・public world false・全203変種認証0、legacy unexplained Metal14c8e2e OPENを維持します。pending/DoT/source攻撃/interrupt・skillの追加part到達、動的操作/復活、全効果組合せ、容量/長時間/全変種の認証は未完了です。hit-only max-HP rankと永続条件付き味方HP/防御のnative不整合も残ります。明示normal_attack式はworld入力だけの追加受付です。全ゴール完了ではありません。効率化は必要検証後、GitHub共有はゴール達成まで利用者許可済みです。
+
+## 2026-10-21 counter完了子の敵fieldをMetal783で実証
+
+計算source4fc576c・private ABI81/mode5で、counter完了子の敵効果を既存Actor selector/resident/merge/条件/同期子へ接続しました。current selectorだけ捕捉Actorの型/ID/世代を使い、致死addから別addへ再aimしても元の死亡世代へ付与します。partの論理受取先はbodyです。generic named子とranked/nearest selectorは現在のaimを使います。def_pct・def_caster_based_pct・received_dmg_pct、current/boss/all/7種rank、同epoch refresh、有限/永続条件、expiry、part damage事前捕捉、128受取先とmarkerが見える間の128同期子を完全native52実戦で確認しました。全特殊効果の組合せ認証ではありません。
+
+Metal783＝新52実戦＋不正10＋旧721全524288word保持が成功し、CPU379検査、旧10entry CUDA/MSL生成物厳密一致、保存input/readback/Git source/nativeのGPU禁止監査も成功しました。共通数値・stack・状態・子イベントを複製していません。case fixtureと比較器はCUDA/Metalで共用です。
+
+初回bf9a60bは旧721/不正10を保持し、31実戦一致でした。body-only native観測にmembershipが無かったため、実際のtarget_charsの観測をopt-inで追加し、同じ保存rawをCPU再監査して51一致を確認しました。項目を無視してはいません。残る128受取先の正当な同期子列は旧4096 work上限でstatus4でした。mode5だけ512carriers×32depth＝16384の有限上限とGPU所有workカウンター（512176以後8words）を追加し、最大4106・合計4833・dispatch691・guard exit0を実測しました。旧モードの4096上限は生成物/全出力で保持しています。異なるソースでMetal2回、同一ソース/入力retry0、失敗raw保持です。
+
+証拠はportable-world-counter-field-validation.json、監査器seal-world-counter-fields-metal.py、初回/membership-replay/finding.jsonです。Windows v92は固定9152a2a52b89cb8d3b77a94a619101a31d6942e8・15ファイル234843bytesの共通short driverで新規62入力/native52に成功しました。CPU28検査とGPU禁止62入力照合後、BelowNormal/JobObject/start gate/180秒/cleanup5秒でCUDA1回、98.870483秒・exit0でした。保存3JSON計74574bytesだけを取得し、source/name/bytes/SHA、全input/output/native/generated fingerprint、50 API phase、workカウンター、元checkout/status/service保持、残存0、retry0、通常4682/旧721以下の再実行0まで共通監査器で確認しました。証拠はportable-world-v92-cuda-validation.json、監査器seal-world-v92-cuda.pyです。Windows turn01a15bbc-c577-7da3-a1f3-f73de12eefcdはcompleted、cursor145、idle。再実行依頼は不要です。
+
+次のtyped damage queueはGPU未接続です。CPU11実戦で、counter子は作成時に式を一度計算し、次フレーム（DT=1/60）か終了時drainで実着弾すること、致死addの子skillが後のbody aimへ着弾すること、named hit_count子（compiler wire49）が元completion targetを継承することを確認しました。ダメージの遅い対象解決と、敵fieldの捕捉対象解決を混同しないでください。
+
+CPU11には新たなnative query scope不整合も保存しました。中立の敵field0があるだけで、body明示照会の味方runtime条件がparent completionのadd文脈からbodyへ変わり、同じchild skillが242→511になります。enemy_recipient_runtime.buffsの非empty field resource条件付きquery scopeを、typed skill受付前に解消・検証する必要があります。portable-world-counter-damage-queue-native-contract.jsonを参照。既知の永続味方HP/防御条件、hit-only max-HP rankの不整合も残っています。
+
+通常画面CPU・public world false・全203変種認証0・legacy unexplained Metal14c8e2e OPENを維持します。typed damage/skill/pending/DoT/source攻撃/interrupt、動的操作/復活、容量/長時間/全変種の認証は未完了です。効率化は必要検証後。GitHub共有は利用者がゴール達成まで許可しています。
+
+## 2026-10-21 counter完了子の対象条件をMetal721で実証
+
+計算source6348577・private ABI80/context mode3で、immutable ready rowのActor型/ID/世代を完了子のイベント文脈へ接続しました。target_is_boss/add、target_state/not_target_state/target_stack、self_state/not_self_state/self_stackは既存の共通条件評価器を使います。致死addの再aim後も元addを判定し、death completionはimpactなしでもcompletion.actorを保持します。generic named子イベントは対象を継承せず、現在のaimへ戻ります。有限条件は発動時にlatch、永続条件はcounter終了後の吸血照会で再評価し、同じものにしません。敵sentinelのcounterはself_stateに含まれず、ownerのself_stackには含まれるnative契約を保持しました。
+
+完全native49実戦＋不正9＋旧663全524288word保持＝Metal721入力が成功しました。単体374、旧9entryのCUDA/MSL生成物厳密一致、保存入力/readback/source/nativeのGPU禁止監査も成功しました。contextは既存ready bankへのpointerを32 dispatch×32 frameのGPU所有bank1096words（511080以後）へ保持し、終了時は全word 0へ復元します。数値・resident・同期子実行器の別コピーはありません。新しい共有compiler adapterは既存target_stack placeholder/name allocationを使い、旧41 literal入力はSHA完全一致です。
+
+初回db568d3は新49/不正9成功・旧662保持でしたが、旧「unknown mode2」負例1件が新mode2と衝突しました。失敗rawを保持し、CPU診断後、mode3へ移して旧mode2拒否を保持しました。異なるソース/入力でMetal2回、同一条件retry0です。証拠はportable-world-counter-context-validation.json、監査器seal-world-counter-context-metal.py、mode-finding.jsonです。
+
+前段Windows v90は接続復帰後に保存済み3JSON計55749bytesだけを取得し、CUDA41/native26・CPU18・source67・50 API phase・94.982143秒/実行1回・残存0・元checkout/service保持まで監査しました。v90の再実行0です。Windows v91は固定a9bb64216cce80e813a4a18e524f8b178ba6cc2c、16ファイル250508bytesの共通short driverで新規58入力/native49に成功しました。CPU23検査・GPU禁止58入力照合後、BelowNormal/JobObject/start gate/180秒/cleanup5秒でCUDA1回、100.699126秒・exit0です。保存3JSON計71270bytesだけを取得し、source/name/bytes/SHA、全input/output/native/generated fingerprint、50 API phase、元checkout/status/service保持、残存0、retry0、通常4682/旧663以下の再実行0を共通監査器で確認しました。証拠はportable-world-v91-cuda-validation.json、監査器seal-world-v91-cuda.pyです。Windows turn01a15bad-07d9-7460-8418-eb95ddd467e3はcompleted、cursor143、idle。再実行依頼は不要です。
+
+通常画面CPU・public world false・全203変種認証0、legacy unexplained Metal14c8e2e OPENを維持します。damage子/任意の敵field子、typed skill/pending/DoT/source攻撃/interrupt、動的操作/復活、容量/長時間/全変種の認証は未完了です。nativeの永続条件付き味方HP/防御とhit-only max-HP rankの不整合も未解消です。効率化は必要検証後。GitHub共有は利用者がゴール達成まで許可しています。
+
+## 2026-10-21 実武器・部位・召喚のcounterをMetal663で実証
+
+計算source e758630、private ABI7Fの共通Slangで、実際のActor着弾receiptから既存counter collect/latch/frame26/event58へ接続しました。body/partは元damage、addはclipped took、致死着弾も捕捉したkind/ID/generationを保持し、credit→同期完了子→死亡登録→lifestealの順で動きます。武器変更のskill式もcredit familyはWEAPONです。part damage/reachを射撃callback前に捕捉し、body回復後に全partのHP/死亡を更新してから個別callbackを回します。
+
+Metal663入力＝完全native26実戦＋不正15＋旧622全524288word保持が成功しました。散弾・武器変更・召喚・部位・致死・世代・expiry・遮断、body+127partsを含みます。partのdirect hits/landedとextra hits/dealtを分け、unbreakable partのHP damage0とextra damage968、再出現gen3のextraリセットも一致しました。CPU369検査、旧8entryのCUDA/MSL生成物厳密一致、保存raw/Git source/全nativeのGPU禁止監査も成功しました。
+
+初回0ae8c2dはcurrent_hp_reduceのkind8受付漏れで23実戦を拒否、次の1f07dbdは21/23一致でpartのdirect/extra会計だけ差がありました。各失敗rawを保持し、CPUで根因確認後に別ソースへ修正しています。異なるソースのMetal実行3回、同一ソース/入力retry0です。証拠はportable-world-counter-landing-validation.json、監査器seal-world-counter-landing-metal.py。新規41入力だけのMetal fingerprintとCPU26実戦照合を固定し、Windows v90を03383d90d5eda28c4eb8c15529365b33add0190e（21ファイル310092bytes）で依頼済みです。CPU18検査後、BelowNormal/JobObject/start gate/180秒/cleanup5秒で1回、通常4682と旧622の再実行0を指定しました。結果はまだ未照合です。
+
+Windows v90のCPU18検査・41入力/native26・全67 source SHA照合とGPU呼び出し0はremote commentaryで確認しました（turn01a15b9e-ae4f-7693-9f09-9263cc3a83e0、cursor133）。CUDA実行依頼後にremote hostがunavailableとなり、実行結果と3JSONは未取得・未監査です。成功/失敗を推測しません。接続復帰後は既存検証の保存済み3JSONだけを取得し、再実行は依頼しないでください。seal-world-v90-cuda.pyとfingerprint/source manifestは保存済みです。
+
+型付きtarget/Impact子context・runtime条件・damage子、skill/pending/DoT/source攻撃/interrupt、動的操作/復活、容量/長時間/全203変種認証は未完了です。未接続のcounter子はprivate受付でも拒否します。通常画面CPU・public world false・全変種認証0/203・legacy unexplained Metal14c8e2e OPEN、効率化は必要検証後です。GitHub共有は利用者がゴール達成まで許可しています。
+
+## 2026-10-21 実着弾のCPU23実戦と共通入力adapter（物理GPU entry未実装）
+
+前回の「body/partはlifesteal後」という引き継ぎは誤りでした。実CPUのイベント列とinstalled ASTを確認し、body/part/add全てでImpact→同期counter完了子→counterへの死亡登録→lifestealと訂正しました。23実戦でbody/addとも同じ着弾の吸血10%→50%変更が効き、HP500→984。body/partのImpactは元damage968、HP50 addはclipped50、hit-HP addは1です。partではbody回復後596.8でcounter子が動き、その後part回復で1000になります。part全件のHP/死亡を先に更新し、それから個別partのcallbackを回すnative順を維持してください。
+
+skill_damage武器変更も物理tagはnormal/pellet/full_chargeで、CounterSpecのfamilyはWEAPONです。式のskill/normalやworldPhysicalNormalからcredit familyを推測しないでください。単発modeのSKILL-only counterは0、WEAPON-onlyは完了を実証しました。遮断はBLOCKED Impactを発行せず、基礎攻撃0でも物理damage下限1です。未知ID/古い世代をbodyへ読み替えません。実戦counter carrierはtarget=bossを明示し、数えるadd/part等はCounterSpecに保持します。target selectorは実addへ解決されてnative prepareに拒否されるため、この差を混同しないでください。
+
+app/portable_target_counter_program.pyへcounterの非数値carrier/event58変換を共通化し、全定義のstat identityを保持しました。既存32入力/native10のSHA完全保持、旧53 native辞書完全一致、portable CPU368が成功しました。research/compile-world-target-counter-battles.pyは23実戦のliteral定義と128 bindingのpart reachをmode1 sidecar/pending ABI7Fへ符号化します。CPU途中状態を入力にせず、現literal ABI7Eはmode1を拒否します。GPUソース変更0・今回GPU実行0・Windows追加依頼0です。
+
+次は新private entryで実際のActor receiptからcredit/死亡を既存collect/latch/frame26/event58へ渡し、lifesteal前に完了子を実行します。part damage/reachは射撃callback前に既存damageValueから捕捉し、body回復後にpart全HPを更新してから個別part callbackへ進みます。旧8entry生成物と旧622全出力を保持してからMetalで実証してください。詳細はdocs/portable-world-target-counters.md、CPU証拠はportable-world-target-counter-battle-native-contract.json/input-validation.json、訂正証拠はlanding-order-finding.jsonです。
+
+前回Metal622/CUDA32は引き続き有効で、Windowsはv89完了・idle、cursor130です。通常画面CPU/public world false・全203変種認証0・legacy unexplained Metal14c8e2e finding OPEN。物理bridge、typed child context、skill/pending/DoT、操作/復活、容量/長時間、全変種対応と必要検証後の効率化は未完了です。
+
+## 2026-10-21 対象別counterの共通resource/event:Metal622／CUDA32一致
+
+計算source98427c0・private ABI7Eで、credit/UID/refresh epoch/expiry/dead Actor、immutable ready queue、全siblings先行latch、共通event58の同期子と同epochだけの終了処理を接続しました。正常10ケース・48段階のUID/epoch/credit/完了snapshot、不正22、旧590全524288word保持に成功し、保存rawのCPU再監査も成功しました。通常＋6旧private entryのCUDA/MSL生成物は厳密一致、portable CPU364（unit revision a27f308）も成功しています。
+
+初回a27f308の10正常入力は自律worldのop24完了条件で全受付拒否でした（raw22拒否/旧590保持は成功）。失敗rawを保持し、CPUで根因を確認後、sidecarあり・全op43・範囲内時刻のliteral rootをprivate providerで区別しました。別ソース98427c0で成功し、物理GPU実行は異なるソースで各1回、同一ソース/入力の再試行0です。Macは現在GPU job0です。
+
+source packet61c7a884c3d687c486017d71e84e560d6b0a46e9、codex/cuda-world-v89-source（13ファイル233071bytes）でWindows新32入力だけを検証し、Mac監査まで成功しました。CPU phase5＋target_counter8、GPU禁止の32入力/native10照合後、BelowNormal/JobObject/start gate/独立180秒/cleanup5秒でCUDA1回・92.3588146秒・exit0。3JSON計50092bytesのsource/name/bytes/SHA、全input/output/native/generated fingerprint、50 phase、元checkout/service保持・残存0を確認しました。旧590/通常4682/旧各suite再実行0、GPU retry0です。Windows turn01a15b67-4fba-7982-b0ad-033e5cf20c5aはcompleted、cursor130、idle。再実行依頼は不要です。GitHub共有はゴール達成まで許可済みです。
+
+Mac証拠:portable-world-target-counter-validation.json、portable-world-target-counter-metal.json、初回失敗/root-finding、監査器seal-world-target-counter-metal.py。次は実武器/散弾/部位/召喚のImpact bridge（body/part/addはいずれもlifesteal前、addはclipped receipt callback、致死credit先行）、型付き対象条件/子context、skill/pending/DoTへ接続します。このphaseはliteral resource/eventのみで、未接続のdamage子/runtime条件/通常enemy field子をcounter有効時に拒否します。通常画面CPU・world公開無効・全変種認証0/203、効率化は必要検証後です。
+
+## 2026-10-21 対象別カウンター：入力とnative基準を固定（GPU未接続）
+
+前段のMetal590/CUDA61成功を保持し、CounterSpec/Impactを使う共通literal sidecarとCPU参照器を追加しました。既存10ケース・48段階、共通compilerの11 policy row、子イベント内のdamage0/credit1着弾で即完了する実CPU witnessが成功し、portable CPU363検査も成功しました。GPUソース・通常受付・実験ABI7Dは変更していません。今回GPU0・Windows追加依頼0、通常画面CPU・world公開無効・全変種認証0/203です。
+
+重要な接続順として、counter prepareはcarrier登録/refresh直後、名前付き/stack子イベントの前に必要です。CPU AST挿入と実際の子でresourceが見えることを確認しました。入力は5,128 words（256定義/64 action）、native途中状態を含めません。`research/portable-world-target-counter-native-contract.json`と`docs/portable-world-target-counters.md`を参照し、次はprivate entryへresource/epoch/dead/ready queue/event58を接続してください。着弾bridge、Metal/CUDA照合、skill/pending/DoTと全変種対応はまだ未完了です。GitHub共有はゴール達成まで許可済みです。
+
+# Mac側で開発を続けるための引き継ぎ
+
+## 2026-10-21 128対象・共有バフのスタック操作をMetalへ接続
+
+実験ABI7D・計算source50522a9で、buff_stack_add/remove/init、buff_max_stack_add、debuff_stack_add/removeを共通実行器へ接続しました。対象集合と世代・免疫だけを拡張し、整数変換・符号・ゼロの既定値・有限/無限上限・期限更新・遅延通知は既存stack_runtime/stack_numericを共用します。共有バフは65対象への操作でも1個のstackだけを1回更新し、対象ごとへ分割しません。共有バフに一部免疫があっても、nativeと同じ共有stackへの影響を保持します。
+
+Metal590入力はnative53件・拒否8件・旧529入力の全524288出力word保持で成功しました。単体356件と、通常/fields/state/mutation/recipient/statusのCUDA・MSL生成物厳密一致を確認しました。小数・正負ゼロ・正負巨大値、named/unnamedの0/1下限、無限上限、2147483647の最終許容値、参照stack、所有者の違い、共有対象・免疫・再出現、期限更新とstack_reach子通知を含みます。31bit保持域を超える結果はstatus2で拒否し、許容範囲と混同しません。GPU実行1回・再試行0です。
+
+証拠はportable-world-actor-stack-validation.json、CPU監査器はseal-world-actor-stacks-metal.py。新規61入力/53 native参照の全fingerprintを保存し、GPU関数禁止のCPU照合も成功しました。Windows v88は固定a106e1eの共通driverで61入力/53 native参照を94.76秒、BelowNormal・180秒上限の1回で成功しました。CPU13検査・GPU禁止事前照合、全input/output/native/generated SHA、NVRTC/launch/同期/readbackの50記録をMacで監査しました。31bit超過のstatus2も一致しています。保存済み3JSON 66,312bytesを取得してbytes/SHAと固定Git sourceを照合し、元checkout/サービス保持・残存0・retry0を確認しました。証拠はportable-world-v88-cuda-validation.jsonです。通常4682・旧529全件の再実行はありません。target_hit_counterと完了/死亡/refresh epoch、skill/pending/DoT、mixed target、source攻撃/interrupt、操作/復活、容量/全203認証は未完了で、通常画面CPU・world公開無効・全変種認証0/203・効率化未開始を維持します。
+
+
+## 2026-10-21 128対象の免疫・回数プール・解除をMetalへ接続
+
+計算source0873bd9・実験ABI7Cで、既存status_runtimeの免疫走査・容量最大・使用数加算・再補充・解除順を共用し、対象参照と保存先を128対象へ拡張しました。通常/名前指定免疫は捕捉世代と生存を照合します。回数免疫はnativeのtarget_chars契約に従い、再出現通知中の旧世代でも実際に対象一覧から除かれるまで容量を参照します。この差は完全CPUの通知トレース3件で実測して保存しました。容量を整数へ丸めず、0.5/1.5の防御回数も一致します。
+
+Metal529入力はnative37件・不正入力8件・旧484入力の全524288出力word保持で成功し、単体348件と通常/fields/state/mutation/recipientの生成CUDA・MSL厳密一致も確認しました。128個別プール、同名最大・別名独立、再補充、named免疫、irremovable、65対象、共有バフの部分解除、無通知での最後の受領者解除、再出現を含みます。初期コンパイラ比較はCUDAの空行1個で失敗し、読み取り式のproviderへ移して正規化を広げず回復しました。その修正までGPU実行0で、最終GPUは1回・再試行0です。
+
+証拠はportable-world-actor-status-validation.json、CPU監査器はseal-world-actor-status-metal.py。共有受領者の新23入力と今回の45入力をまとめた68入力/56 native参照の全fingerprintを保存し、GPU関数を禁止したCPU事前照合も成功しました。Windows v87は固定f988d15の共通driverで68入力/56 native参照を94.93秒、BelowNormal・180秒上限の1回で成功しました。CPU21検査・GPU禁止事前照合、NVRTC/launch/同期/readbackの50記録、全input/output/native/generated SHAをMacで監査しました。元checkout/サービス保持・残存0・retry0です。保存済み3JSON 70,487bytesだけを取得してSHA照合し、GPU再実行0です。summaryにold484のカウンターが無いため、明示receiptの0・固定68入力command・実測launch1回から確認し、欠落や矛盾を許さないCPU負例5件と旧v83〜v86監査結果保持も確認しました。証拠はportable-world-v87-cuda-validation.jsonです。旧461/484・通常4682を全件再実行していません。スタック操作/target counter、skill/pending/DoT、mixed target、source攻撃/interrupt、操作/復活、容量/全203認証は残っており、通常画面CPU・world公開無効・全変種認証0/203・効率化未開始を維持します。
+
+
+## 2026-10-21 長寿命共有受領者をMetalへ接続
+
+実験ABI7B・計算source e7585b8で、512 residentそれぞれの128bit可変membership・捕捉generation・対象順を追加しました。単一受領者と共有受領者が同じ照会・世代照合を使い、buff_stack_initは1/65/128対象を1個のstack/期限で保持します。部分解除・全解除・死亡によるmembership解除・再出現・有限期限通知を共通実行器へ接続しています。
+
+Metal484入力は完全native19件・不正入力4件・旧461入力の全262144出力word保持と拡張領域zeroで成功しました。CPU340件、通常／fields／state／mutationのCUDA・MSL生成物が厳密一致しました。M5のmaxBufferLength 14,302,248,960 bytesを実測し、新出力524288 words/ケース・実行全体1,015,021,568 bytesが上限内であることを確認しました。入力92336 wordsは増やしていません。GPU実行1回・再試行0です。元nativeの共有受領者も全辞書で照合しています。
+
+保存結果のCPU監査器はseal-world-actor-recipients-metal.py、証拠はportable-world-actor-recipient-validation.json。新規23入力の全input/output/native/generated基準を保存しました。Windowsは未実行で、次の128対象免疫/解除とまとめて新規入力だけを短く検証する予定です。回数免疫用の拡張領域は確保済みですが、計算接続はまだ未実施です。通常画面CPU・world公開無効・全変種認証0/203・旧Metal差分OPEN・効率化未開始を維持します。
+
+
+## 次の接続：共有受領者と免疫プール
+
+128対象の完全native17ケースを実測し、回数免疫が対象・名前ごとの最大容量プール、buff_stack_initが1つのcarrierに1/65/128対象を共有する契約を確認しました。従来の単一受領者へ分割するとstack・通知の意味が変わるため、GPUの長寿命共有受領者領域を先に接続します。実装・Metal検証・Windows確認は未実施です。設計は `docs/portable-world-actor-status.md`、実測は `research/portable-world-actor-status-native-contract.json`。今回のGPU実行0、Windows待機中、通常CPU・全変種認証0/203を維持します。
+
+
+## 2026-10-21 型付き128対象の名前指定解除（Metal／CUDA一致）
+
+実験ABI7A・固定af7aae6で、共通resident解除処理に名前指定のglobal／味方scope／敵scopeを接続しました。敵scopeは既存128対象集合を一度だけ捕捉し、全対象の解除を終えてから既存の状態終了通知列を実行します。新しい同名バフを通知から再付与しても、終了した走査で再削除しません。世代の照合は既存actorFieldMemberを使います。効果計算の別コピーはありません。
+
+Metal461入力で完全native30件・不正入力7件・旧424入力の全262144出力word保持が成功しました。初回は29/30件が一致し、再出現直後に旧世代の空carrierを誤って解除する差が1件ありました。失敗rawを保持し、実CPUのmutation_targetsで重複ラベル45件の旧世代除外を確認後、共通の世代照合を追加した別GPUソースで検証しています。同一ソース・入力の再試行はありません。CPU332件、通常／fields／stateのCUDA・MSL生成物が厳密一致しました。
+
+Windows v86は固定4271202の共通driverで新規37入力（native30＋不正7）を78.29秒、BelowNormal・180秒上限の1回で成功しました。CPU事前13検査・GPU禁止37入力と30参照、NVRTC／launch／同期／readbackの50記録、全input/output/native/generated SHAをMacで監査しました。旧424・通常4682の再実行0・GPU retry0・残存検証0で元checkoutとサービスを保持しています。保存済み3JSON 56,848bytesだけを取得し、bytes／SHAと固定Git sourceを照合しました。証拠はportable-world-v86-cuda-validation.jsonです。通常画面CPU・world公開無効・全変種認証0/203です。条件付き永続味方HP/防御のCPU不整合、広域免疫/stack/counter、skill/pending/DoT、操作・復活・容量・全変種の認証と必要検証後の効率化は未完了です。証拠はportable-world-actor-mutation-validation.json、監査器はseal-world-actor-mutation-metal.pyです。
+
+
+## 2026-10-21 型付き対象の名前付き状態条件（Metal／CUDA一致）
+
+共通計算ソース8c5a09b、実験ABI79で、target_state／not_target_state／target_stack、self_state／not_self_state／self_stackを128対象のresidentへ接続しました。条件の評価対象は味方数値照会・イベント所有者・明示対象の文脈を保存復元し、死亡・期限切れの対象解除は通知の後に行います。空のenemy carrierも期限通知まで残します。通常受付CPU・world公開無効・全変種認証0/203を維持します。
+
+Metal424入力はnative完全戦闘49件、不正入力18件、旧357入力の全262144出力word保持で成功しました。最初の実行では48/49件が一致し、1件は敵攻撃のliteral payloadが入力生成で欠落して初期拒否されました。失敗rawを保存し、共通入力packerを修正した3bf0881で変更された1入力だけ実行、同じ計算ソース・生成物・入力を持つ423blockを再利用しています。同一入力のGPU再試行0です。CPU単体324件、旧125 native辞書、通常版および前fields版のCUDA/MSL生成物の厳密一致を確認しました。
+
+残課題として、元CPUが永続味方HP/防御効果のruntime条件を無視する実例を保存しました。今回の実験policyでは該当入力を拒否し、対応済みには数えません。旧Metal差分・広範な免疫/解除/カウンター、skill/pending/DoT、interrupt/source攻撃、操作/復活、容量と全203変種の統合も未完了です。効率化は必要な検証後です。
+
+Windows v85は固定c9ecd4dの共通driverで新規67入力（native49＋不正18）を76.69秒、BelowNormal・180秒上限の1回で成功しました。CPU事前14検査・GPU禁止67入力と49参照、NVRTC／launch／同期／readbackの50記録、全input/output/native/generated SHAをMacで監査しました。旧357・通常4682入力の再実行0・GPU retry0・残存検証0で、元checkoutとサービスを保持しています。保存済み3JSON 61,096bytesだけを取得し、各bytes／SHAと固定Git sourceを照合しました。証拠はportable-world-v85-cuda-validation.jsonです。GitHub共有はゴール達成まで利用者が許可しています。個人設定・raw・巨大詳細は共有しません。証拠はportable-world-actor-state-validation.json、CPU監査器はseal-world-actor-state-metal.pyです。
+
+
+## 2026-10-21 Metal357:128対象の敵バフと敵数条件
+
+private ABI78の共通実行器へ、def_pct・def_caster_based_pct・received_dmg_pctの型/世代付き受取先と、敵数/target_is_boss/add条件を接続しました。発動条件と回数は1回だけ処理し、既存owned setで親の対象順・世代を固定して各受取先を既存resident executorへ渡します。計算式・保持領域・名前merge・expiry・同期子イベントは共用です。Metal357の新52実戦・raw20・旧285既存全出力保持が成功し、最終の各Actor modifierと保持領域の型/ID/世代/stack/時刻/順序までnative完全一致です。128対象・512 resident・死亡/再出現・有限latch/永続runtime敵数条件・武器変更/散弾を含み、通常CUDA/MSL生成コードの厳密一致、CPU315、旧125 native辞書保持も成功しました。
+
+初回保持verifierは、初期化後のコマンド拒否6件でも新領域zeroを期待したため失敗しました。旧285の既存領域と新72は全成功しており、初回report/rawを残して、固定旧GPUのpool-ready markerに従う期待値へ修正し、同じ読み戻しをCPUで再監査しました。GPU retry0です。通常生成差もCPU段階で式/行位置を修正し、厳密一致と314件成功を確認後にGPUへ進みました。後続typed query入力テストを含む315件も成功しています。計算source c2425e5、証拠 `research/portable-world-actor-fields-validation.json` と各findingを参照。
+
+Windows CUDA72も成功しました。最小18ファイル250,128 bytesを固定8be669d、`codex/cuda-world-v84-source`へ共有し、CPU11件＋GPU禁止の72入力/52 native事前照合後、BelowNormal・180秒上限の実GPU1回で72.631秒、exit0でした。全input/output/native・生成fingerprintがMetal保存基準と一致し、NVRTC/launch/sync/readbackを実測50eventsで確認しました。接続の一時失敗と別質問への応答でカプセルが未出力になりましたが、検証を再実行せず保存済み3JSON計53,844 bytesだけを取得し、固定Git blob・輸送SHA・CPU事前結果・全fingerprintをMacで再監査しました。旧285の専用countはreceiptに無いため、source固定の72-input command・transport cases72・実測kernel launch1回・actual execution1回とsummaryの0から非再実行を確認しています。旧208/通常4682/GPU retry0、残存0、元Windows作業/サービス保持、Windowsは待機中です。`research/portable-world-v84-cuda-validation.json` を参照。個人設定/raw/巨大詳細は共有せず、利用者のゴール達成までのGitHub共有許可を反映しています。
+
+wide enemyのその他条件、immunity/cleanse/counter、skill/pending/DoT、mixed target、interrupt/source attacks、自動制御/復活、容量/長時間条件、全変種認証と必要検証後の効率化は未完了です。pure hit-HP召喚のmax-HP順位は元nativeでTypeErrorになることをCPU実証して保存し、この組み合わせはまだ受け付けません。通常画面CPU/public受付false/全変種0/203を維持します。
+
+## 2026-10-21 Metal285: ActorのHP・命中・128対象集合
+
+固定822c559のprivate ABI77で、召喚のHP/hit制HP・通常武器からの命中・死亡通知・GPU targets_cleared再出現、部位の超過ダメージ/score、128bitと順序/世代付き対象集合を共通landへ接続しました。Metal285は実戦native14・型付きpool/set10・raw拒否19・旧242全出力保持で成功、portable CPU309件、通常CUDA/MSL生成コードの厳密一致、保存rawと固定Git blobの再監査も成功しています。`research/portable-world-actor-pools-validation.json` を参照してください。
+
+Windows CUDA77も成功しました。最小24ファイル301,900 bytesを固定ea1f8dd、`codex/cuda-world-v83-source`へ共有し、CPU15件・全77入力/36 native oracle/SHA事前照合後、BelowNormal・180秒上限の実GPU1回で72.917秒、exit0でした。全input/output byte・native・CUDA/MSL生成fingerprintがMetal保存出力と一致し、NVRTC/launch/sync/readbackを実測50eventsで確認しました。3JSON計56,595 bytesを既存接続で取得し、固定Git blob・全SHA・事前検査・イベント順をMacで再監査しました。通常4682/旧208再実行0、GPU retry0、残存0、元Windows作業/サービス保持、Windowsは待機中です。証拠は `research/portable-world-v83-cuda-validation.json`。利用者はこのゴール達成までのGitHub共有を許可済みで、個人設定/raw/巨大詳細は送っていません。
+
+wide enemy効果・skill/pending/DoT・Actor-bound callback・interrupt・召喚自身の攻撃/自爆・dynamic control/復活・全変種認証・必要検証後の効率化は未完了です。通常画面CPU・public world受付false・全変種認証0/203を維持します。
+
+## 2026-10-21 128枠Actor識別を共通フレームへ接続
+
+実験ABI76でbody・parts・addsの型、設定内ID、出現世代、親参照を共通worldフレームの開始／終了へ接続しました。Metal242入力でnative BossScript/ActorRegistryとの12比較、不正入力22件、以前の208全出力byte保持が成功しました。128枠・全32node・未出現・再出現・古い世代・親rootを含みます。初回237の全blockも保持し、通常CUDA/MSL生成コードはv79と厳密同一、CPU portable303件が成功しました。
+
+最初の通常生成比較ではActor分岐による空行1つを検出しました。shellの後続処理が続いて初回237実証が行われた事実を保存し、比較規則を広げず配置を修正しました。最終242は通常生成物とCPU検査成功を確認後に実行しました。証拠は `research/portable-world-actor-registry-validation.json` と `research/portable-world-actors-metal.json`、設計は [Actor接続](portable-world-actors.md) です。
+
+このActor実証はlifecycle/識別の範囲です。HP・命中・敵数・対象集合・interruptはまだ未接続で、完全battleやキャラ対応として数えません。次に128枠を維持して共通HPと対象集合へ接続します。新ActorのCUDAは未依頼、Windowsは前回208成功後の待機状態です。通常受付CPU・全変種認証0/203を維持します。
+
+## 2026-10-21 共通208入力のCUDA／Metal一致
+
+固定db8f4c8の共通実行器で、skill_damage武器モードとHeavyarms charge holdを含む208入力がCUDA／Metalで一致しました。全入力・全出力byte、125完全native／actual辞書、共有GPUソース、両生成コードのfingerprintを照合しています。WindowsはCPU11検査（終了処理5＋literal入力6）、GPU関数を禁止した全208入力生成とSHA一致の後、BelowNormal・180秒上限の実GPU1回で68.656秒、exit0でした。NVRTC・起動・同期・readbackの成功を50実測イベントで確認しました。
+
+3JSON計96,679バイトを既存接続で取得し、各bytes／SHA、固定Git blob、事前検査、全208fingerprintとイベント順をMacで再監査しました。通常4682の再実行・GPU再試行0、元Windows作業／サービスを保持し、検証プロセス残存0です。Windowsのチャットは完了・待機状態です。共有したのはコード・ケース・小さな基準20ファイル331,359バイトだけで、rawと巨大詳細は各PCに保持します。
+
+証拠は `research/portable-world-v82-cuda-validation.json`、`research/windows-portable-world-v82-summary.json`、`research/portable-cross-v82-receipt.json`。`research/portable_cuda_proof_audit.py` が共通のCPU証拠監査を行い、固定設定の `research/seal-world-v82-cuda.py` からGPUなしで再検証できます。通常受付CPU・全変種認証0/203を維持します。次は128枠の識別・世代・親参照を含むActorモデルと既存8対象の共通実行器の差を解消し、部位・阻止・召喚・HP／hit制HP・対象集合を接続します。混在selector、dynamic control・復活、全変種認証、必要な全検証後の効率化も未完了です。以下は段階ごとの記録です。
+
+## 2026-10-21 Heavyarms holdのMetal208
+
+共通実行器へHeavyarmsのvanish時charge holdを接続しました。静的な実在rosterからpolicyだけを入力にし、vanishの終了時刻・2秒上限・charge完成と期限はGPUが計算します。固定終了・終了不明・2秒の隣接値・複数vanish・再開・非camera・速度バフ失効・保持中の武器変更と再chargeの26条件を、元のHeavyarmsを含む完全native simulateと比較しました。完成後はcharge速度バフが失効してもfull latchを維持し、mode取消で完成chargeを解除します。状態領域と上限は共通schemaに集約しました。
+
+初回206入力では、非cameraの1fixtureにcamera用ゲージ倍率300を残していた誤りを検出し、rawを保存しました。native123辞書を変えずGPU入力を100へ修正し、GPUソースと205入力の完全一致を確認して保存出力を再利用、変更1入力だけを実GPUで検証しました。その後、武器変更中の2スナップショットと共通状態schemaを追加した固定4bd848bで208入力を新規実行し、完全native125件・raw拒否34件・旧world49全出力が成功しました。旧179と途中206の全入力・全出力byte、99／123 native／actual完全辞書を保持しています。通常CUDA／MSL生成コードはv79と厳密同一、portable単体299件・旧native17辞書も成功しました。
+
+証拠は `research/portable-world-charge-hold-validation.json`、`research/portable-world-overlay-charge-hold-metal.json`、`research/portable-world-charge-hold-expected.json`。Windowsは新規skill modeとholdを合わせた共通208入力を短く1回検証する準備中です。rawと巨大詳細は各PCのローカル保持です。通常受付CPU・全変種認証0/203を維持します。複合ally/enemy selector、Actor、dynamic control・復活、全変種認証と必要な検証後の効率化は引き続き未完了です。
+
+## 2026-10-21 skill_damage武器モードのMetal179
+
+実験ABI75の明示skill_damageモードを、同じダメージ式のnormal倍率・skill crit・core確率、着弾ゲート、ゲージ、弾数バフ消費へ接続しました。物理射撃の種類はcallbackによるモード終了前にGPUが保持します。初回175入力で2差分を検出し、rawを残して調査しました。元nativeの分類は、名前付き単発をスキル、pellet/core:pelletタグを名前にかかわらず通常着弾とするため、この着弾分類をスキル式・ゲージ・弾数消費から独立させました。これは現在のnative規約の保持であり、一律に全散弾をスキル扱いへ変更したものではありません。もう1件はカメラ中のcharge武器モードでfullChargeMultをゲージへ反映して解消しました。
+
+修正版c953d3bのMetal新規179入力は全成功です。完全native simulate99件（従来70＋武器モード29）、不正入力31件、旧world49全出力を確認しました。前回CUDAまで確認済み146入力とその全出力byte、70件の完全native／actual辞書を、今回の成功・失敗両readbackから再監査して保持を確認しています。通常CUDA／MSL生成コードもv79と厳密同一、CPU状態を入力へ混入させない新規hostテスト4件を含む共通portable単体297件が成功しました。
+
+証拠は `research/portable-world-skill-mode-validation.json`、`research/portable-world-overlay-skill-modes-metal.json`、`research/portable-world-skill-mode-expected.json`。`research/seal-world-skill-mode-metal.py` はGPUなしで固定ソースと全byteを再監査します。この29条件の新規CUDA実行はまだ行っていません。次の必要な短い検証へまとめます。Windows146の成功は保持し、元Windowsは待機中です。
+
+Heavyarms固有のcharge hold、複合ally/enemy selector、Actor、dynamic control・復活、全変種認証は未完了です。通常受付CPU・全変種認証0/203を維持し、効率化は未着手です。
+
+## 2026-10-21 CUDA／Metal146の全出力一致
+
+固定6c8aaa5の共通overlay・shield／vanish・敵バフ解除146入力は、Windows CUDAとMac Metalの全入力・全出力byte、完全native／actual辞書、計算ソース、生成コードのfingerprintが一致しました。WindowsはCPU故障注入5件・Job Object子孫終了と、GPU呼び出しを禁止した全146入力生成／SHA照合後、BelowNormal・180秒上限のGPU実行1回で70.930秒、exit0でした。NVRTC・launch・同期・readbackの戻り値0を実測50イベントで確認しました。通常4682の再実行・GPU再試行は0、元作業・サービス保持、残存プロセス0です。
+
+3つの結果JSON計73,073バイトを既存接続で取得し、個々のbytes／SHAと固定Git blob、CPU事前検査、全146fingerprintをMacで再監査しました。rawと巨大詳細は各PCに保持します。証拠は `research/portable-world-v81-cuda-validation.json`、`research/windows-portable-world-v81-summary.json`、`research/portable-cross-v81-receipt.json`。通常受付CPU・全変種認証0/203を維持し、次はskill_damage武器変更モードへ進みます。以下は段階ごとの履歴です。
+
+## 2026-10-21 Metal146・敵バフ解除の整数境界
+
+実験ABI75で防御・core・move・敵効果、shield／vanishの着弾とゲージ、休止・reload・MG冷却、敵バフ解除を共通本体へ接続しました。Metalの146入力で、元の完全simulate70件、raw拒否27件、旧world49全出力が一致しています。敵解除の初回は整数直前の2条件で丸め指定の誤りを検出し、rawを保存してゼロ方向切り捨てへ修正しました。既存35ケースの全出力byteとnative辞書、通常CUDA／MSL生成コード、旧native17辞書、共通portable単体293件も維持しています。
+
+コード・共通fixture・fingerprintだけの22ファイル299,196バイトを固定6c8aaa5として codex/cuda-world-v81-source へ共有済みです。ユーザーは「今後githubへの共有をこのゴールを達成するまで許可します」と明示承認しました。個人設定・raw・巨大詳細は含みません。WindowsにCPU事前検査後の146入力だけをBelowNormal・180秒上限で1回依頼し、結果待ちです。通常4682を再実行しません。新overlayのCUDA成功はまだ主張しません。
+
+通常受付CPU・全変種認証0/203は維持します。skill_damage武器変更モード、Heavyarms固有charge hold、複合ally/enemy selector、Actor、dynamic control・復活、全変種認証は未完了です。[接続契約](portable-world-overlays.md)、`research/portable-world-cleanse-validation.json` と `research/portable-world-cleanse-expected.json` を参照してください。
+
+## 2026-10-21 world49をWindows実GPUで照合
+
+共通フレーム・敵攻撃・対象選択・パターン通知のworld49入力は、固定86f6685でCUDAとMetalの全出力・ソース・生成コードが一致しました。通常4682入力は実行済みv79の保存結果を再利用し、全入力・全出力・CPU比較項目も一致しています。通常コアのGPU再実行はありません。
+
+WindowsはCPU一時領域の権限と隔離checkoutの参照不足をGPU起動前に検出し、失敗記録を保持して環境を修正しました。CPU故障注入5件・Job Object子孫終了・GPU関数を禁止した49入力生成と全SHA一致を先に確認後、worldだけをBelowNormal・独立180秒上限で1回実行し、61.139秒で成功しました。NVRTC・launch・同期・readbackの戻り値0を実測JSONLで確認し、結果8ファイルのbytes／SHAとMac基準を照合しました。元作業・既存サービスを保持、残存検証0です。
+
+追加5ファイルの共有と現在のゴール中の共有・検証について利用者の包括承認を受けています。個人設定とrawは送信しません。通常画面CPU・全変種認証0/203を維持します。別worktreeの実験ABI75 overlayはこの認証に含めません。証拠は `research/portable-world-v80-cuda-validation.json` です。
+
+## 2026-10-21 共通本体への統合とパターン通知
+
+別コピーの実行器を廃止し、通常ABI73と実験world ABI74が同じevent／combat／protection／target計算を使う構成へ戻しました。計算ソース15bcbfeの0秒修正とパターン開始／終了通知を、検証後に元ツリーへ統合しました。通常受付と通常画面はCPUのままです。
+
+通常版の固定ソース4c07f45はMac全52検査・単体286件・Node4件・実編成158条件を通過しました。通知接続版も通常4682入力をMetalで実行し、全出力・全CPU比較項目が一致しました。新しいworld版は38成功条件・2容量拒否・34不正入力、旧4682入力の全出力保持、単体288件を確認しました。初期0秒を二重に処理する追加境界差は失敗rawを保持し、別ソースで4回帰条件を通して解消しました。旧原因未特定Metal差分は未解決のままです。
+
+Windowsの短い検証用に、個別実証済みworld49入力を同じ1セッションへまとめ、Metalで全byte一致を確認しました。通常4682入力とworld49入力の全出力・全CPU参照・ソース・生成コードを比較する基準は約44KBです。許可済みの最小42ファイルを固定6f54193としてGitHubへ共有し、Windows v79をBelowNormal・全体180秒上限で1回実行しました。通常4682入力は141.942秒で成功し、Macで全入力・全出力・CPU参照・共通ソース・生成コードのfingerprint一致を確認しました。続くworld49入力は全体上限で終了し、readbackとevidenceがありません。GPU投入段階は不明のためCUDA未検証を維持します。保存済み4ファイルを既存接続で取得してbyte数とSHAを照合し、GPU再実行0・残存検証0・元Windows作業とサービスの保持を確認しました。効率測定は未実施、worldを含む両GPUの完了版はまだありません。通常版の前回完了ソースは7357045です。`research/portable-cross-v79-partial-validation.json`を参照してください。
+
+世界overlay・debuff／継続被弾・部位・召喚・操作・復活・通常画面・全変種の接続は未完了で、全変種認証0/203を維持します。[共通通知と証拠](portable-world-notices.md)、`research/portable-world-notices-validation.json` と `research/portable-world-provider-global-validation.json` を参照してください。以下は段階ごとの履歴です。
+
+## 2026-10-21 共通フレームから敵攻撃への接続を別コピーで検証
+
+GPUのフレーム時計→敵スケジューラー→既存の対象選択・保護・分配・HP・通知へ接続しました。20成功条件で元の完全なsimulateと全比較項目が一致し、別の2容量超過も拒否できました。72発・同時512発、624語を跨ぐ乱数、装填中の遮蔽物、戦闘不能での射撃停止、終了通知と順位選択の順序を含みます。旧4682入力の全出力ワードも保持し、新規不正入力25件・単体285件が成功しています。
+
+本体はまだ7357045／ABI73で、別コピーの仮ABI74を通常受付へは開いていません。世界overlay・パターン通知・debuff／継続被弾・部位・召喚・操作・復活などの接続を続けます。Windowsと効率測定は未実施です。[接続順・失敗記録・証拠・残作業](portable-world-frame-design.md)を参照してください。通常画面CPU・全変種認証0/203を維持します。
+
+
+## 2026-10-21 敵世界スケジューラーの共通部品をMetalで検証
+
+最後の本体認証は下記の `7357045` です。次の共通スケジューラーは87グラフ・22不正入力をM5で検証し、元CPUの終了履歴・分岐消費・繰り返し・開始／終了／発射順・フレーム状態が一致しました。逆順32段の連鎖、終了理由の優先、同時1000発、EPSの隣接値、180秒時計、容量あふれを含みます。入力生成の単体4件も成功しました。入力・全readbackと最初の全展開JSONを保持し、同一GPUコードの保存出力で再照合しています。実GPU実行は1回です。
+
+実編成の敵世界受付、共通フレームへの攻撃接続、overlay・効果・召喚体・操作・復活はまだ未完了です。cleared maskは部品検証の手動刺激で、本体ではGPUの対象HP／世代から求めます。Windowsと効率測定は本体接続と必要な全検証まで待ちます。[設計・証拠・次の接続点](portable-world-schedule-design.md)を参照してください。通常画面CPU・全変種認証0/203を維持します。
+
+
+## 2026-10-21 敵対象選択・整数RNGと最適化を両GPUで照合
+
+固定ソース `782a13c`、ABI `0x50455673`。挑発・ステルス・敵の対象選択（全員／指定枠／乱数／攻撃力順）とCPython整数seed互換MT19937を共通Slangへ接続しました。対象と順序はGPUで決め、既存の受撃・分配・通知へ渡します。対象選択は敵攻撃のsourceTimeとHP同期後に実行します。入力86016／出力159744 wordsは維持しています。seedはuint64整数または正規10進文字列を受け付け、HTTPで不正確な大整数JSON数値を拒否します。
+
+Metal／CUDA全4,682入力（4,112正例・570拒否）の入力・全出力・展開結果・CPU回帰・限定正規化した生成CUDA／MSLが一致しました。旧4,070入力と導入時4,658入力も保持しています。敵対象のCPU回帰548件、同名武器変更と敵バフ24件、624語のRNG更新を跨ぐ2件を含みます。有限最大HPのCPU同期を直し、既知差分3件を完全一致の検査へ戻しました。
+
+Mac全52検査・Python単体278件・Node4件・実編成158条件が成功しました。156条件は既存CPU観測項目と完全一致し、ベクハク2条件の従来HP差分だけを厳密に保持しています。旧136条件の観測結果と全158条件の入出力ブロックを保持しました。実射撃80件・条件付きHP20件と大整数seedのHTTP経路はMacでの追加検証です。
+
+Windows v77はBelowNormal・180秒上限のGPU1回、145.904秒で成功しました。許可済み結果2ファイル（52,532,755 bytes）をGit `7f31876` から取得し、親・2パス・byte数・SHA・全出力を照合済みです。元の作業とサービスを保持し、残存検証0、転送目的のGPU再実行0です。
+
+全検証と転送終了後、不要な定義展開を省く候補を別コピーで測定しました。7局所負荷×1024入力、交互順・warmup後3標本で乱数選択約7.6%・指定枠約4.5%の短縮を確認し、事前基準を満たしました。候補の4,682＋80＋20入力は全入出力一致です。採用版 `7357045` は新たなMetalコア4,682入力と実編成158条件で旧版と全入出力一致、Mac全52検査・単体278件・Node4件も成功しました。Windows v78もBelowNormal・180秒上限のGPU1回、145.193秒で成功しました。許可済み結果2ファイル（52,532,755 bytes）をGit `39fbfc4` から取得し、親・2パス・byte数・SHA・全入力・全出力・CPU回帰・限定正規化した生成CUDA／MSLを照合して採用を確定しました。元Windows作業とサービスを保持し、残存検証0、転送目的のGPU再実行0です。
+
+事前検査79体、愛蔵品313/812条件・全4段階78体、未受付264効果です。全変種認証0/203・通常画面CPUを維持します。一般の敵世界スケジューラー、操作・復活、残る効果は未接続です。以前の原因未特定Metal差分も未解決です。最適化版の証拠は `research/portable-enemy-target-scalar-broad-validation.json`、`research/portable-enemy-target-scalar-transfer-completed.json`、`research/portable-enemy-target-scalar-adoption.json`。基準版の記録も保持しています。[対象選択の契約](portable-taunt-design.md)を参照してください。
+
+
+## 2026-10-20 HP由来攻撃力・武器変更待機・保留バースト参照倍率
+
+固定ソース `39bce8a`（計算本体 `f2e250c`）、ABI `0x50455672`。`atk_from_hp_pct`、条件付き武器変更の進入待機、保留B3の全バースト時の参照倍率を共通Slangへ接続しました。入力86016／出力159744 wordsを維持し、CPUの戦闘経過をGPUへ渡していません。
+
+Metal／CUDAの全4070入力（3540正例・530拒否）が成功し、入力・全出力ワード・展開結果・CPU回帰と限定正規化した生成CUDA／MSLが一致しました。旧3539入力では有効ABI71→72だけを変更し、意図的な不正ABI70・他の入力・全出力・CPU回帰を保持しています。HP由来185正例・23拒否、待機400正例・11拒否、保留倍率120正例を共通テストへ収録しました。
+
+Mac全47検査・単体263件・実編成136条件・既存HTTP APIが成功しました。旧134成功条件を保持し、以前拒否されたラプラスの通常／成長180秒も検証しました。134条件はCPU観測項目と完全一致、ベクハク2条件だけは従来のHP限定契約を固定値で検査します。別の実射撃80例・条件付きHP20例はMacで検証した範囲です。今回専用のAPIケースを追加したとは扱いません。
+
+Windows v76はBelowNormal・150秒上限のGPU1回、133.46秒で成功しました。利用者が許可した結果2ファイル（42,173,583 bytes）をGit `8eee91b` から取得し、親・2パス・byte数・SHA・全出力を照合しました。元作業・既存サービスを保持、残存検証0、転送のGPU再実行0です。コードと前段記録も個別許可を受けて固定39bce8aまで共有しました。
+
+全検証・Windows転送・残存検証0を確認後、HP基準値の再利用候補を別コピーで測定しました。基準・候補の4070＋実射撃80＋条件付きHP20入力は全入出力が一致しました。7負荷×1024入力、交互順・warmup後3標本では採用基準を満たさず、候補を不採用として検証済み本体を維持しました。CUDA速度・実編成全体・物理ピークメモリの改善は主張しません。以前からの原因未特定Metal差分は未解決のまま保持します。事前検査68体、愛蔵品269/812条件・全4段階67体、未受付294効果です。全変種認証0/203・通常画面CPUを維持します。
+
+証拠は `research/portable-mode-entry-broad-validation.json` と `research/portable-mode-entry-transfer-completed.json`。数値設計は [HP由来攻撃力](portable-atk-from-hp-design.md)、物理時計と保留倍率は [武器変更待機](portable-mode-entry-delay-design.md) を参照してください。
+
+## 2026-10-20 バースト充填速度・射撃中スキル係数を共通化
+
+固定ソース `20e213b`、ABI `0x50455670`。`burst_charge_speed_pct` を共通Slangの射撃・スキル加算へ接続しました。付与者の元ゲージ基準値と初回通常命中を保持し、物理射撃内の同期スキルでは、その射撃中の武器係数を使います。スキルのゲージ用バフは名前付き通知前に取得した値を保持します。入力86016／出力159744 wordsを維持し、CPUの戦闘経過をGPUへ渡していません。
+
+新310正例・71拒否を共通化し、Metal／CUDAの全3331入力（2835正例・496拒否）が成功しました。旧2950入力のABI以外の入力・全出力と、初期版3231入力の全出力を保持しています。Windows v75はBelowNormal・120秒上限の実GPU1回、110.52秒で終了。許可済み2ファイルをGit経由で取得し、親コミット・パス・byte数・SHA・全入力・全出力・展開結果・CPU回帰・限定正規化した生成CUDA／MSLを照合しました。元Windows作業とサービスを保持、残存検証0、転送のGPU再実行0です。旧版v74も短い1回を実行しましたが、修正版の認証根拠には使いません。
+
+Mac全41ゲート・単体254件・実編成130条件・既存HTTP APIが成功しました。実編成128条件が既存CPU観測項目と完全一致、ベクハク2条件は従来のHP／最大HPだけの既知差分を固定値で検査します。条件付きHP20例は今回Macで実行しましたが、Windows v75の新規実行範囲は共通コア3331入力です。APIには今回専用の充填速度ケースを追加しておらず、既存経路の回帰検査です。
+
+初期化器への履歴フィールド反映漏れと、武器変更の同期スキルがCPU28・Metal19となる未収録条件を別々に検出・修正しました。失敗入力とreadbackを保持し、後者は元simulateを使う40条件へ拡張して検証しています。以前の原因未特定Metal差分は未解決として保持し、今回の修正と混同しません。
+
+全検証・Windows転送・プロセス終了後、ヒット数のbinary64変換を再利用する候補を別コピーで測定しました。基準・候補の3331＋HP20入力は全入出力一致です。局所5負荷×1024入力、交互順・warmup後3標本の結果と採否は `research/portable-burst-charge-efficiency-decision.json` に記録し、候補は不採用、検証済みソースを維持しました。CUDA速度・実編成全体・物理ピークメモリの改善を意味しません。
+
+定義事前検査の候補65体、愛蔵品257/812条件・全4段階64体、未受付効果300件です。全変種認証0/203・通常画面CPUを維持します。証拠は `research/portable-burst-charge-validation.json`、[充填速度の契約](portable-burst-charge-speed-design.md)、[次のHP由来攻撃力設計](portable-atk-from-hp-design.md)を参照してください。後者はCPU基本60条件・混合順位60条件だけを調査し、GPU受付はまだ有効にしていません。
+
+## 2026-10-20 物理攻撃の貫通・防御無視フラグを共通化
+
+固定検証ソース `7492d8b`、ABI `0x5045566F`。`pierce_enabled`／`armor_break_enabled` を共通Slangの物理射撃へ接続しました。数量ではなく存在で判定し、既存64要素のstat領域を使います。武器変更中も適用し、通常型スキルや外部の通常ダメージ命令の分類と分けます。散弾は親パケットのダメージを共有します。
+
+Metal全2950入力（2525正例・425拒否）が成功し、旧2754入力はABI番号以外の入力と全出力を保持しました。フラグ162例・不正入力34例・API新8例を両バックエンド共通で保持しています。Windows v72は低優先度・120秒上限の実GPU1回、106.87秒で全2950入力を確認しました。検証器だけを変えた現ソースはGPU計算・主入力・主検証ファイルがv72とbyte単位で同一なので、この保存結果を再利用しています。追加の条件付きHP20例はWindows v73で1回・50.30秒とMetalで実行し、全入力・readback・CPU側差分記録も一致しました。結果共有は版ごとの明示許可後に行い、元Windows作業とサービスを保持、残存検証0です。
+
+Mac全37ゲート・単体251件・実編成126条件・203武器・203部隊の装備初期化・固定8編成・APIが成功しました。実編成は124条件が既存のCPU観測項目と完全一致し、ベクハク2条件は条件無効化後のHP／最大HPにだけ既知のCPU差分を記録します。CPUの最大HP集計は実行時条件を再検査していません。独立20例で契約を確認し、CPU戦闘やGPU本体は変えず、この2固定条件の10フィールドそれぞれを厳密に検査しました。初回と現行のGPU展開結果・元CPU観測結果は全126条件で同一です。全内部状態や受撃時の伝播までの認証ではありません。
+
+初回の実編成検証は一時readbackを削除する設計だったため、失敗時の生readbackは未保存です。全展開結果と同一SHAの再構成入力を保持し、現行では全126条件の入力・生readbackを比較前に保存しています。診断fixtureの初回観測スロット重複と、計測器の単一バッチ上限による保存失敗も別記録に残し、GPU不一致と混同しません。以前の原因未特定Metal差分も未解決として保持します。
+
+全検証・Windows転送・検証プロセス終了後、2つのstat比較を1つのmask比較にする候補を測定しました。基準・候補の2950＋HP20入力は全入出力が一致しましたが、散弾親子通知のGPU中央値が約2.4%増え、warmup後3標本の範囲も重なりませんでした。他7負荷は範囲が重なり、改善を確認できなかったため採用しません。現行の読みやすい比較を維持します。8局所負荷×1024入力のM5測定であり、実編成全体・CUDA速度・物理ピークメモリの改善は主張しません。
+
+入力事前検査の候補63体、愛蔵品0～3段階は249/812条件・全4段階の候補62体です。未対応判定は345件から310件へ減りました。全変種認証0/203体・通常画面CPUを維持します。証拠は `research/portable-attack-flags-validation.json` と [物理フラグの規約](portable-attack-flags.md)。次のバーストゲージ充填速度はCPU45条件＋単発式24条件だけを調査し、GPU受付は未有効です。[次段階の設計](portable-burst-charge-speed-design.md)を参照してください。
+
+## 2026-10-20 敵状態・対象スタック条件を両GPUで検証
+
+固定ソース `795a9e5`、ABI `0x5045566E`。`target_state:`／`not_target_state:`／`target_stack_above:` を共通Slangへ接続しました。完全一致の名前を使い、生きている敵のいずれかに付いた状態を判定し、重複数は複数キャスター・対象の合計ではなく最大値を使います。状態の有無は無限効果の取得時にも再評価しますが、対象スタック閾値は発動時だけ判定します。Runtime配列・入力86016／出力159744 wordsは維持しています。
+
+Mac全2754入力（2363正例・391拒否）が成功し、既存2503入力の全出力・展開結果・CPU回帰を保持しました。新233ケースには完全一致名、全5所有者、期限、複数敵、対象の死亡と再出現、継続ダメージ、除去、整数境界、同名効果の統合30件を含みます。Mac全35ゲート・単体249件・実編成108条件・203武器・203装備初期化・固定8編成・API新10件が成功し、旧104編成はCPU参照の実行時間以外すべて一致しました。
+
+Windows v71はBelowNormal・120秒上限の実GPU1回、82.23秒で変更対象251入力（新233正例・拒否18）を検証しました。GPU計算ソース全46ファイルはv70からbyte単位で不変なので、旧2503入力は保存済みv70の入力・全出力・GPUソースを厳密照合して再利用しました。Macの全2754入力を251＋2503に分け、両方の入力・出力をCUDAと完全一致で照合しています。全2754入力をWindowsで新規GPU実行したという意味ではありません。元checkout・サービスを保持し、残存検証0です。利用者の明示許可後、結果2ファイル（約135KB）をGit `0eb87fb` から取得し、親commit・paths・byte数・SHA・限定正規化した生成CUDA／MSLも照合済みです。転送目的のGPU再実行はありません。
+
+初回Metalでは新しい状態スキャンの期限確認漏れ11件を検出して修正しました。続く追加ケースでは、旧コンパイラーへ渡す仮条件がruntime/merge flagsを変え、同名atk10／20効果がGPU30・CPU20になる不具合を確認しました。元2724入力は両GPUで一致していましたが、そのMac全体検証を中止し、発動時だけの仮条件と別の名前登録に修正しました。両方の失敗入力・readbackを保持し、修正版で全2754入力を新たにMetal検証、変更233ケースをCUDA検証しました。記録は `portable-target-states-first-finding.json`、`portable-target-stack-alias-finding.json` と `portable-target-states-initial-gates-aborted.json` です。以前の原因未特定のMetal差分は別の未解決記録として保持します。
+
+全35ゲート・Windows検証・結果転送・検証プロセス終了後、状態の存在判定を最初の一致で終了する候補を測定しました。全2754入力の入出力は基準版と一致しましたが、未存在の負荷はGPU時間中央値が約9.8%増え、warmup後3標本の範囲も重なりませんでした。残る5負荷の範囲は重なり、明確な改善を確認できなかったため採用を見送り、`795a9e5` を維持します。M5の6局所負荷の測定であり、全実編成・CUDA速度・物理ピークメモリの改善は主張しません。
+
+段階0の受付候補54体、愛蔵品0～3段階の受付210/812条件・全4段階の候補52体で、全変種認証0/203体・通常画面CPUを維持します。全体証拠は `research/portable-target-states-validation.json`、直前の全体証拠はGit `3f6342f` です。次の貫通・防御無視フラグは、CPU102ケースで存在判定・期限・条件・AR/SR/RLの物理攻撃を観測しましたが、GPU受付はまだ無効です（導入前102例は `portable-attack-flags-native-study.json`、当時の原本はGit `13c9bdf`）。残る全キャラ・全特殊効果の対応と認証を続けます。
+
+## 2026-10-20 コア・適正距離条件を両GPUで検証
+
+固定ソース `17decef`、ABI `0x5045566D`。敵コア径・距離の有無・武器リスト・元武器と変更後武器の距離上下限を入力余白1592 wordsへ梱包し、共通Slangがbinary64で判定します。適正距離を広げるstat61/62は既存64要素のstat集計を使い、通常攻撃の距離ボーナスにも接続しました。条件の発動判定は元武器、射撃ダメージはその時点の変更後武器の範囲を使います。入力86016／出力159744 wordsとRuntimeの配列は維持しています。
+
+全2503入力（正例2130・拒否373）をMetal／CUDAで実行し、全入力・全出力・ケース別結果・CPU回帰が一致しました。従来2280入力の全出力ワードを保持しています。新190件にはbinary64の境界、条件の記述順、武器変更の物理射撃8件、確率の0／100%に丸め残差が残る列を含みます。Mac全34ゲート・単体246件・実編成104条件・203武器・203装備初期化・固定8編成・API新8件が成功し、旧102編成もCPU参照の実行時間以外は全項目一致しました。
+
+Windows v69はBelowNormal・120秒上限の実GPU1回、101.86秒で成功しました。元checkoutと既存サービスを保持し、残存検証0です。利用者の明示許可後にGit `6295626` から保存結果2ファイルを取得し、byte数・SHA・全入出力・生成CUDA／MSLをMacで照合済みです。転送のためのGPU再実行はありません。
+
+初回の成分検証は武器変更4件のゲージ観測で失敗しました。検証器が射撃後に元武器へ戻った状態からゲージを再計算していたため、実際のBuffManagerのゲージを読むよう修正しました。初回の全入力・readbackを保持し、CPU-only再照合で190件が一致しています。その後、固定版の全2503入力を新たに実GPUで検証しました。以前の原因未特定のMetal差分は別の未解決記録として保持します。
+
+全34ゲート・Windows実行・転送終了後、入力のゼロ領域検査をまとめる効率化候補を測定しました。候補と基準版の全2503入力・全出力は完全一致しましたが、5負荷すべてでwarmup後3標本の範囲が重なったため、改善は確認できず採用を見送りました。固定ソース `17decef` を維持します。判断は `research/portable-geometry-efficiency-decision.json` に記録しています。M5の局所測定であり、CUDA速度・全実編成・物理ピークメモリの改善は主張しません。
+
+段階0の受付候補52体、愛蔵品0～3段階の受付202/812条件・全4段階の候補50体で、全変種認証0/203体・通常画面CPUを維持します。全体証拠は `research/portable-geometry-validation.json`、直前の証拠はGit `cd5762a` です。残る全キャラ・全特殊効果の対応を続けます。次の `not_core` は着弾文脈のコア確率を参照するため、敵コア径の判定とは別に接続が必要です。CPUで1120イベントと条件順4件を観測し、GPU受付はまだ無効です（`portable-not-core-native.json`）。
+
+## 2026-10-20 条件helperの効率化を両GPU検証後に採用
+
+固定ソース `2b89bab`、ABI `0x5045566C`。共通Slangの条件helperで必要なowner・duration・flags・conditionCountだけを読みます。測定した候補と採用版のhelperは同一です。数値演算・効果定義・Runtimeの配列、入力86016／出力159744 wordsは変更していません。
+
+全2280入力（1940正例・340拒否）の全出力ワードが基準版 `27a3751` とMetal／CUDAで完全一致し、ケース別SHA・展開結果・CPU回帰・旧2182入力も保持しました。Mac全32ゲート・単体243件・実編成102条件・203武器・203装備・固定8編成・HTTP APIが成功し、従来102条件もCPU参照の実行時間以外は全項目一致しました。
+
+Windows v68はBelowNormal・120秒上限の実GPU1回、99.71秒で成功しました。元checkoutと既存サービスを保持し、残存検証0です。結果2ファイルの共有は利用者の明示許可後にGit `4ab2a94` から取得し、byte数・SHA・全入力と出力・CPU回帰・限定正規化した生成CUDA／MSLをMacで照合しました。転送のためのGPU再実行はありません。
+
+全基準検証・転送終了後の測定では、4096発負荷のGPU時間中央値が約2.7%短縮し、標本範囲は重なりませんでした。他の4負荷の範囲は重なります。今回の採用確認で新しい速度測定は行っておらず、実編成全体・CUDA速度・物理ピークメモリの改善は主張しません。
+
+初回の新しい保存器は入力先頭の件数4バイトを記録し忘れて停止しました。実GPU入力・出力は基準版と一致し、rawを保存したうえで保存器を修正し、固定版の全検証をやり直しました。記録は `portable-probability-optimized-initial-harness-finding.json` です。前段の原因未特定のMetal差分は別の未解決記録として保持し、修正済みとは扱いません。
+
+最新の証拠は `research/portable-probability-optimized-validation.json` と `research/portable-combat-checkpoint.json`、基準版の全体証拠はGit `988858f` です。愛蔵品0～3段階の受付監査は198/812条件・全段階の候補49体で、段階0だけの候補51体と区別します。プリムの対象スタック条件・ジュリアのクリティカル条件などが残ります。全変種認証0/203体・通常画面CPUを維持します。
+
+次のコア／適正距離条件は、実CPUのbuff付き35条件と203体×6武器種の距離境界32,886条件を観測しました。入力余白へ武器ID・距離・元武器と変更後武器の範囲を保持する設計だけで、GPU受付はまだ無効です。残る全キャラ・全特殊効果の接続と認証を続けます。
+
+## 2026-10-20 確率条件の両GPU検証と結果照合
+
+ABI `0x5045566C`。期待値モードの `prob:` を共通Slangへ接続し、条件の記述順・binary64累積・元効果の識別を保持します。状態は既存出力余白2560 wordsへ置き、入力86016／出力159744 wordsとRuntime private配列を維持しました。Metal成分92件（4096回の物理射撃5件、複合受領者・遅延順位解決を含む）と単体243件が成功しています。
+
+固定ソース `27a3751` の全2280入力では、旧2182入力の全出力・展開結果・全CPU回帰を保持しました。Mac全32ゲート・単体243件・実編成102条件・APIを確認済みです。Windowsは90.38秒で全2280入力が成功しました。利用者の明示許可を受け、保存結果2ファイルをGit `a14c02b` で取得し、byte数・SHA・全入力と出力・CPU回帰・生成ソースをMacで照合済みです。転送のためのGPU再実行はありません。全検証・転送終了後の効率測定では、条件helperの必要フィールドだけを読む候補が全2280入力で同一出力となり、4096発負荷で中央値約2.7%短縮しました。他の4負荷の標本範囲は重なります。候補は未採用で、採用には変更後ソースの両GPU検証が必要です。前段の全体検証済み証拠はGit `f2206ef`、今回の証拠は `research/portable-probability-validation.json` です。全キャラ・全変種認証0/203体・通常画面CPUを維持します。[確率条件の接続と検証状況](portable-probability-design.md)を参照してください。
+
+## 2026-10-20 属性判定の最適化を両GPU検証後に採用
+
+固定ソース `32653b0`、ABI `0x5045566B`。属性優位上書きの存在判定を、alive／対象所属で絞って既存のkind・stat・codeアクセサーを読む方式へ変更しました。実装は共通Slangの1か所です。数値演算・状態配置・入力86016／出力159744 wordsは変更していません。
+
+最適化後も全2182入力の全出力ワードが、基準版 `14c8e2e` とMetal／CUDAの両方で完全一致しました。全ケース別SHA・旧2006入力・全CPU回帰も保持しています。Mac全31ゲート・単体237件・実編成86条件・203武器・203装備・固定8編成・HTTP APIが成功し、旧86条件の実行時間以外の全項目も一致しました。
+
+Windowsの今回v66はBelowNormal・120秒上限の1回、93.48秒で成功しました。元checkoutとサービスを保持し、残存検証0です。結果JSONとreadback照合記録の2ファイルだけをartifactブランチへ保存し、MacでGit blobのbyte数・SHAと内容を照合しました。基準版v65の88.58秒の保存結果も取得済みで、接続復旧に伴う過去検証の再実行はしていません。
+
+全基準検証・転送終了後の測定で選んだ候補と、採用したhelperのソースは同一です。その測定では通常負荷のGPU時間の中央値が約5.6%、末尾一致負荷で約1.3%改善し、標本範囲は重なりませんでした。残る3負荷は範囲が重なります。今回の採用確認は正しさの検証であり、実編成全体・CUDA速度・ピークメモリの新しい測定ではありません。
+
+初回の未保存Metal出力差は原因未特定のまま、`portable-element-initial-core-finding.json` に保持します。現在の検証では再現していません。修正済みとは主張しません。出力不一致時の全readback・差分ケースの入力・ケース別SHAを保存して停止する比較器を維持しています。
+
+最新証拠は `research/portable-element-optimized-validation.json` と `research/portable-combat-checkpoint.json`、基準版証拠はGit `80170c3` の `portable-element-baseline-validation.json` です。定義受付候補43体・未受付効果384件・全変種認証0/203体・通常画面CPUを継続します。次の確率条件は、スキル値・短絡順・所有者共有位相・4096イベントのbinary64状態をCPUで観測し、[接続設計](portable-probability-design.md)へ整理しました。GPU受付はまだ無効です。
+
+## 2026-10-20 属性優位上書きの基準版検証と効率化候補
+
+固定ソース `14c8e2e`、ABI `0x5045566B`。`element_code_override` を共通Slangへ接続し、元属性とORで属性優位を判定します。数値量やスタック量ではなく、有効キャリアの対象所属とコードIDを参照します。周期callbackが期限整理より先に動く順序、未解決の順位対象、同名・別定義更新で元コードを保持する規則、物理射撃による弾数寿命も元CPUと一致させました。Runtime・Definition・Frameのフィールドと入力86016／出力159744 wordsは増やしていません。
+
+Metal／CUDA1848正例・334拒否（2182入力）、新規CPU参照156件・単体237件・出力記録付きMac全31ゲート・実編成86条件・API追加9条件が成功しました。旧2006入力のABI番号以外の全バイトと全出力ワード、旧86編成のCPU実行時間以外の全項目を保持しています。WindowsはBelowNormal・120秒上限の1回、88.58秒で成功し、元作業とGPUサービスを保持、残存検証0、全65分割の保存結果転送と復元SHAを確認しています。全入力・全出力・判定・展開結果・CPU回帰・検証ソース・限定正規化した生成CUDA／MSLが一致しました。
+
+最初のMac全体実行で旧出力SHAの不一致を1回検出しましたが、そのreadbackを保存できておらず原因は未特定です。同じGPUソースで、隔離した旧2006入力・全2182入力比較・出力保存付き4回・CUDAでは差が再現しませんでした。比較器を変えず、比較前にケース別SHAと不一致時のreadbackを保存する方式へ進め、全31ゲートが成功しました。初回差分を修正済み・解明済みとは扱いません。記録は `research/portable-element-initial-core-finding.json` です。
+
+全検証・転送終了後、必要な3フィールドだけを読む候補を測定しました。全2182入力の出力は完全一致し、今回の通常負荷で約5.6%、属性効果が末尾にある負荷で約1.3%改善しました。残る3負荷の標本範囲は重なります。状態追加を伴わない直接読み取りを採用候補に選び、最適化後の固定ソースを両GPUで確認します。実編成全体・CUDA速度・ピークメモリの測定ではありません。
+
+基準版の証拠は `research/portable-element-baseline-validation.json` と `research/portable-combat-checkpoint.json`、詳細は[属性優位上書き](portable-element-overrides.md)を参照してください。定義受付候補43体・未受付効果384件・全変種認証0/203体・通常画面CPUです。ラピ：レッドフード／シュガの上書き定義を試験していますが、両キャラには他の未対応効果が残ります。次の確率条件は元CPUの規則だけを観測し、GPU受付はまだ有効にしていません。
+
+## 2026-10-20 回帰を保持する共通GPU分割実行
+
+固定ソース `ff9a10d`、ABI `0x5045566A`。全キャラ・全効果の回帰を追加し続けられるよう、一括上限2048を超える入力を順序どおり分割する共通経路を接続しました。CUDAはNVRTC・コンテキスト・モジュール、Metalはライブラリー・パイプラインを各1回生成し、最大分割に合わせた入力・出力バッファ2本をゼロ初期化して再利用します。数値・効果の共通Slang、入力86016／出力159744 words、GPUのRuntime・Definition・Frameは変更していません。
+
+旧2006入力を削らず、先頭44入力を繰り返した2050入力を1024／1024／2で両GPU実行し、旧全出力・追加44入力の全バイトが一致しました。全体と各分割の入力・出力・status・検証ソース・限定正規化した生成CUDA／MSLも一致しています。WindowsはBelowNormal・120秒上限の1回、78.66秒で成功し、元作業とGPUサービスを保持、残存検証0、保存報告の全1分割転送と復元SHAを確認しました。
+
+固定ソースのMac全31ゲート、共通コア2006入力・単体220件・実編成86条件・203武器・203装備・固定8編成・HTTP APIが成功しました。従来86編成の全比較項目をCPU実行時間以外保持しています。全検証と転送終了後の効率測定では、2050入力のGPU時間中央値が分割2048で0.527秒、1024で0.790秒、512で1.079秒でした。GPU標本範囲は重ならず、小さくするほど遅いため既定2048を維持します。ホスト実行時間の範囲は重なります。要求したwireバッファはそれぞれ約1.875／0.938／0.469GiBで、小さい明示サイズも利用できます。物理ピークメモリ・GPU私有領域・CUDA速度の測定ではありません。
+
+最新証拠は `research/portable-dispatch-sequence-validation.json` と `research/portable-combat-checkpoint.json`、詳細は[共通分割実行](portable-dispatch-sequence.md)を参照してください。前段のreceiptは各証拠コミット時点の履歴です。定義受付候補43体・未受付効果385件・全変種認証0/203体・通常画面CPUを維持します。次の属性上書きはCPU60ケースで規則を観測しましたが、GPU受付はまだ有効にしていません。残る効果・敵世界処理と全キャラ・全変種の接続・認証を続けます。
+
+## 2026-10-20 敵コード条件の共通化と両GPU検証
+
+固定ソース `dd7d62b`、ABI `0x5045566A`。`target_code:` の完全一致条件を共通Slangへ接続しました。CPUでコード文字列をID化し、GPUが発動時・実行時の条件を比較します。未指定・空コードは元CPUどおり通し、追加敵への照準継承があっても部隊共通の敵コードを参照します。武器変更が終了時に有効な実編成は、実CPUの射撃方式・定義ID・発数・行動待機時計まで比較します。
+
+Metal／CUDA1692正例・314拒否（2006入力）、追加CPU参照103件、単体212件、Mac全29ゲート・実編成86条件・コード一致／不一致／未指定の実編成6条件・203武器・203装備・固定8編成・HTTP APIが成功しました。旧1893入力はABI番号以外不変で全出力ワード一致、旧84編成はCPU実行時間以外の全項目を保持しています。
+
+WindowsはBelowNormal・120秒上限の1回、80.35秒で成功しました。元作業とGPUサービスを保持し、残存検証プロセス0、保存結果の全9分割転送と復元SHAを確認しています。途中で途切れた転送は保存ファイルの再送だけで完了し、CUDAを再実行していません。全入力・全出力・status・CPU回帰・検証ソース・限定正規化した生成CUDA／MSLはMetalと一致します。
+
+全検証・転送終了後、コード条件を数値引数の読み込みより先に判定する候補を測定しました。全2006入力の出力は一致しましたが、条件なし負荷の中央値が約32.4%悪化し、残る4負荷も標本範囲が重なるため不採用です。現行ソースを保持し、入力86016／出力159744 words、Runtime・Definition・Frameのフィールドは増やしていません。実編成全体・CUDA速度・ピークメモリの測定ではありません。
+
+最新証拠は `research/portable-enemy-codes-validation.json` と `research/portable-combat-checkpoint.json`、詳細は[敵コード条件](portable-enemy-codes.md)を参照してください。定義受付候補43体、未受付効果385件、全変種認証0/203体・通常画面CPUです。効果本体の別フィールド `target_code`、残る効果・敵世界処理と全変種の接続・認証を続けます。現在2006入力／一括上限2048のため、今後は既存回帰を削らず共通検証の分割実行も検討します。
+
+## 2026-10-20 名前付き状態・適用通知と元武器分類の両GPU検証
+
+固定ソース `ed68e68`、ABI `0x50455669`。コロンを含む名前の状態条件・通知と、`dot_dmg_pct`／`split_dmg_pct` の適用通知を共通配送器へ接続しました。発動時の対象順・重複を保持し、遅延対象を解決した後の別定義更新でも元定義のフラグで通知を省きません。実編成で見つかったRLチャージ射撃の爆発分類漏れも、元武器情報を共通入力へ渡して修正しました。
+
+Metal／CUDA1589正例・304拒否（1893入力）、追加CPU参照65件、単体195件、Mac全27ゲート・実編成84条件・203武器・203装備・固定8編成・HTTP APIが成功しました。旧1882入力はABI番号以外不変で全出力ワード一致、旧82編成もCPU実行時間以外の全項目を保持しています。元の失敗2成分・別定義更新2件・新規「민트」実編成2条件は履歴に残し、現在版は全効果を含む「민트」通常／成長180秒もCPU本体と一致します。
+
+Windowsは初期版77.07秒、実証した差を修正した現在版76.23秒の必要な短い各1回です。BelowNormal・120秒上限、元作業とサービスを保持、残存検証プロセス0、全8／9分割の転送と復元SHAを確認済みです。全入力・全出力・status・CPU回帰・検証ソース・限定正規化した生成CUDA／MSLが両GPUで一致します。
+
+全検証と転送終了後、通知先がない継続処理を省く候補を測定しました。全1893入力の出力は完全一致しましたが、全5負荷で標本範囲が重なり、遅延／空の対象負荷でも中央値が改善しないため不採用です。現行ソース・入出力86016／159744 wordsを維持し、Runtime・Definition・Frameのフィールドは増やしていません。実編成全体・CUDA速度・ピークメモリの測定ではありません。
+
+最新証拠は `research/portable-named-states-validation.json` と `research/portable-combat-checkpoint.json`、詳細は[名前付き状態と適用通知](portable-named-states.md)を参照してください。定義受付候補42体、未受付効果395件、全変種認証0/203体・通常画面CPUです。次は敵コード条件など残る効果・敵世界処理を接続し、全キャラ・全変種の認証を続けます。
+
+## 2026-10-20 Windows接続復旧・現在版の両GPU照合
+
+固定ソース `60a10b6`、ABI `0x50455667`。Metal／CUDA1524正例・300拒否（1824入力）、instant配送CPU参照45件・分配46件・保護層57件、Mac全26ゲート・単体177件・実編成82条件が成功しました。旧1773入力の出力は全ワード一致です。全入力・全出力・status・全CPU回帰リスト・検証ソース、および限定正規化した生成CUDA／MSLを両GPUで照合しました。
+
+接続復旧後、先行v59の保存結果をGPU再実行なしで回収しました。現在版v60はBelowNormal・120秒上限の1回で77.98秒、残存検証プロセス0、元のWindows作業とGPUサービスを保持しています。両報告とも全8分割の転送と復元SHAを確認済みです。
+
+全検証と転送終了後、Frame.valueを32bitへ戻し、対象順序の上位bitを既存出力余白の32ワードへ置く候補をM5で比較しました。全1824入力の出力は完全一致しましたが、単一グループ・複合3対象・21回instant回復で中央値が約2.4〜3.5%悪化したため不採用です。21対象通知は標本範囲が重なり速度改善を確定できません。現行コード・ABI・strideを維持します。実編成全体・CUDA速度・ピークメモリの測定ではありません。
+
+最新の証拠は `research/portable-instant-lists-validation.json` と `research/portable-combat-checkpoint.json`、契約と数値は[共通instant配送](portable-instant-lists.md)を参照してください。以前のMac単独receiptはコミット `c72b529` 時点の履歴です。全変種認証0/203体・通常画面CPUを継続し、残る効果・敵世界処理と全変種の接続・認証を進めます。
+
+## 2026-10-20 複合instant配送のMac確認（CUDA結果取得待ち）
+
+固定ソース `60a10b6`、ABI `0x50455667`。HP・遮蔽・保護膜・デコイ回復、現在HP減少、弾薬操作、クールタイム短縮の複合対象を共通の再開可能な配送器へ接続しました。最大21回の順序と重複を保持し、子通知後に次の量を評価します。部隊共有ゲージは1回だけ加算します。通常入力で21回の回復がHP310となり、前段のGPUが5回だけ処理する未完成経路を修正しました。
+
+Metal1524正例・300拒否、新規CPU参照45件、単体177件、Mac全26ゲート・実編成82条件・API追加8条件が成功しました。旧1773入力の全出力ワード、直前82編成のCPU実行時間以外の全項目を保持しています。入力86016／出力159744 wordsとRuntime／Frame宣言は前段と同じです。
+
+Windowsは先行v59（`d12b365`）の実行結果と転送終端が接続途絶で未確認です。同じ検証を再起動せず、保存結果の取得を待っています。現在の固定版でのCUDA検証はまだ依頼しておらず、先行実行の終端確認後に必要な短い検証だけを依頼します。効率化は未実行です。全変種認証0/203体・通常画面CPUを継続します。[契約・Mac証拠・残る作業](portable-instant-lists.md)、`research/portable-instant-lists-metal-validation.json` を参照してください。
+
+## 2026-10-20 均等分配・複合バフ対象のMac確認（継続中）
+
+固定ソース `d12b365`、ABI `0x50455666`。均等被ダメージ分配と、順序・重複を保持する最大21回の複合バフ対象を共通Slang実行器へ接続しました。Metal1479正例・294拒否、CPU分配46件＋既存保護層57件、単体166件、Mac全25ゲート・実編成82条件・API追加6条件が成功しています。旧1709入力の全出力ワードと新末尾のゼロ、旧74編成のCPU時間以外の全項目を保持しています。監査候補41体・全変種認証0/203体・通常画面CPUです。
+
+Windows v59は依頼受領後に接続が失われ、実行結果と転送の終端が未確認です。再実行せず保存結果の取得を待っています。また、通常APIが拒否する複合instant対象のraw-wire診断で、21回の回復をGPUが5回だけ実行する未完成経路を確認しました。次にinstant配送を接続して境界を閉じます。効率化と段階全体の完了扱いは保留しています。[契約・未完了・Mac証拠](portable-split.md)、`research/portable-split-metal-validation.json` を参照してください。以下の保護層は直前の両GPU検証済み記録です。
+
+## 2026-10-20 保護膜・デコイと被弾層の共通化
+
+固定ソース `c411ddc`、ABI `0x50455665`。保護膜・共有保護膜・デコイの生成／消費／回復、次の保護膜の増幅、作成者基準の保護膜無敵、遮蔽無効、`during_shield` と適用／消費通知を共通Slang実行器へ接続しました。入力は81920／出力135168 wordsで、私有配列・Runtimeスカラー・Frameフィールドは追加していません。
+
+Metal／CUDA1433正例・276拒否（1709入力）、保護層CPU参照57件・状態79件・スタック148件、単体155件が成功しました。最適化後のMac全24ゲート、実編成74条件・203武器・203装備・固定8編成・API保護層5条件も成功しています。旧1625入力はABI番号とゼロ拡張以外不変で、旧出力全ワードと新しい末尾のゼロを保持します。最適化前後の全1709入力の出力、および74実編成の全比較項目・CPU参照（CPU実行時間以外）も一致しています。
+
+Windowsは初期版74.59秒・最適化後72.67秒の必要な短い2回です。各120秒上限・BelowNormal、元作業とサービス保持、残存検証プロセス0、全8分割の転送完了を確認しました。最終版は固定ソースの全1709入力を実際に一括CUDA実行した証拠で、差分の合成ではありません。生成CUDA／MSLも位置情報・標準include経路等を限定した正規化で一致します。
+
+全検証と転送終了後に測定し、定義に存在しない保護膜無敵・遮蔽無効・増幅の探索を省く静的機能マスクを採用しました。M5の限定負荷中央値は32膜27.535→24.674ms（約10.4%短縮）、256膜332.400→283.381ms（約14.7%短縮）。1膜と機能が存在する対照負荷は範囲が重なり、変化を確定できません。実編成全体・CUDA速度・ピークメモリの測定ではありません。
+
+監査候補は37体・全変種認証0/203体・通常画面CPUを継続します。対象／遮蔽マスクは手書きの機械条件であり、自動照準・ボス予定・均等分配などの世界処理は未接続です。残る保護系10項目と修飾・操作・敵世界・効果を接続します。[契約・CPU補正・測定範囲](portable-protection.md)、`research/portable-protection-validation.json` と最新checkpointを参照してください。
+
+## 2026-10-20 デバフ解除・免疫・名前付き状態の共通化
+
+固定ソース `d2ba01a`、ABI `0x50455663`。デバフ解除、無制限／名前指定／回数制免疫、statを持たない名前付き状態を共通Slang実行器へ接続しました。省略・null・空文字の状態統合、通知後の免疫残量リセット、共有敵世代、部分解除後のDoT対象と時計、最大HP解除後の比率を独立CPU参照で照合しています。
+
+採用後のMetal／CUDA1376正例・249拒否、状態CPU参照79件、切り替え境界64／65プールの追加2件が成功しました。Mac全23ゲート、単体146件、64実編成・203武器・203装備・固定8編成・API追加5条件も成功しています。旧1528入力の出力差は、CPUでは有効だったlazy容量入力1件だけで、別の実際に容量を超える入力で拒否を維持しました。旧60実編成と直前64条件はCPU実行時間以外の全項目を保持しています。
+
+Windowsは初期全体69.15秒、CPU入力／観測修正の差分2件45.74秒・1件45.38秒、GPU最適化後の全体＋境界2件115.90秒の4回だけです。各120秒上限・BelowNormalで終了し、元作業・サービス保持、残存検証プロセス0、全転送完了を確認しました。最終版は現ソースの全1625入力を一括CUDA実行しており、途中の差分合成証明と区別して保存しています。
+
+全検証・Windows転送終了後に測定し、64以下の免疫プールだけ触れた名前を消去する方式を採用しました。限定負荷のM5中央値は1プール15.625→13.647ms（約12.7%短縮）、32プール35.850→35.157ms（約1.9%短縮）。255プールでは改善を判断できず、大きいプール数では従来の全消去を維持します。候補の全1625入力・全出力ワード一致と、採用後の両GPU・全ゲートを確認済みです。入力77824／出力102400 words、出力は32KiB増えますがRuntime配列・スカラーやFrameフィールドは増やしません。実編成全体の速度・CUDA速度・ピークメモリの主張ではありません。
+
+定義監査候補32体・全変種認証0/203体・通常画面CPUを継続します。残るライフサイクル・敵世界・防御・操作・効果と全変種の認証を続けます。[契約・数値・測定範囲](portable-status.md)、`research/portable-status-validation.json` と最新checkpointを参照してください。
+
+## 2026-10-20 スタック操作・初期化・変更免疫の両GPU確認
+
+固定ソース `ba890da`、ABI `0x50455662`。6種類のスタック操作と変更免疫を共通実行器へ接続し、共有敵状態の世代・部分解除・終了通知、HP子通知順、対象別発数、初期化時の条件寿命を検証しました。Metal／CUDA1297正例・231拒否、スタックCPU参照148件が成功しています。旧1355入力はABIのみの変更、旧出力差は18ケースのDoT生成時刻だけで、全てCPU生成記録と一致します。他の全出力ワードは保持しています。
+
+全22ゲート、単体138件、60実編成・203武器・203装備・固定8編成・HTTP追加4条件が成功しました。既存58編成の全比較項目・CPU参照も保持しています。Windowsは初期版68.78秒と修正版66.98秒の必要な短い2回で終了し、元作業・サービス保持、残存検証プロセス0、各7分割の転送完了を確認しました。全入出力・status・CPU参照・正規化生成コードは両GPUで一致しています。
+
+全検証・転送終了後の検索効率2候補は、異名負荷を約8%短縮しましたが、同名負荷では改善を確認できず採用を見送りました。入力／出力サイズとRuntime／Frame宣言は前版と同一です。定義監査候補は30体、全変種認証0/203体・通常画面CPUを継続します。[実装・測定・残る範囲](portable-stack-operators.md)、`research/portable-stack-operators-validation.json` と最新checkpointを参照してください。
+
+## 2026-10-20 スタック整数・保存通知と+1専用化の両GPU確認
+
+固定ソース `6e28e63`、ABI `0x50455661`。整数化・ゼロ既定値・符号反転・上限処理と、更新時の値を保持する4096件の共有通知基盤を接続しました。既存の通常バフ・DoT・対象別発数スタックの増加も共通処理です。入力77824／出力94208 words、保存値のため出力は16KiB増えますが、私有配列・Runtimeスカラー・Frameフィールドは増やしません。
+
+Metal／CUDA1149正例・206拒否、数値19908件・通知9件が成功し、採用前1355入力・全出力が正規化なしで一致しました。モードCPU参照41件・既知差分0、単体131件、58実編成・203武器・203装備・固定8編成・API追加4条件など、採用後の全22ゲートも成功しました。58実編成の全比較項目・CPU参照も保持しています。
+
+全検証とWindows転送終了後、+1専用uint64候補を測定しました。32バフ×64イベント×64入力のGPU中央値53.946→47.470ms（約12.0%短縮）、各3標本の範囲は非重複です。実編成全体の速度やピークメモリの主張ではありません。採用後のWindowsは低優先度・120秒上限の1回、82.486秒で成功しました。基盤版の103.038秒と合わせて必要な短い検証2回で、各7分割の転送終了、元HEAD・作業・サービス保持、残存検証プロセス0です。
+
+新しいstack add/remove/init/maxと変更免疫の効果種別はまだ受理していません。次の接続用に、整数/期限/通知/免疫53条件、初期化/0保持/共有対象11条件、敵世代22時点を独立CPU参照で確認しました。通常画面CPU・全変種認証0/203体を維持します。[数値・通知・次のCPU契約](portable-stack-foundation.md)、`research/portable-stack-increment-validation.json`、最新checkpointを参照してください。
+
+## 2026-10-20 スタック整数・遅延通知の共通基盤
+
+固定ソース `8516256`。整数化・ゼロ既定値・符号反転・上限処理を共通Slangへ接続し、Apple M5で19,908数値ケースと通知9ケースが成功しました。旧1355入力はABI番号だけの変更、旧出力90112 wordsは全バイト一致し、新末尾はゼロです。ABI `0x50455661`、入力77824／出力94208 words。更新時の値を保持する共有通知キューにより出力は16KiB増えますが、私有配列・Runtimeスカラー・Frameフィールドは増やしません。
+
+Macの全22ゲートは成功し、58実編成の全比較項目・CPU参照も前版と一致しました。Windowsも低優先度・120秒上限の1回、103.038秒で全検証が成功しました。入力・出力・CPU参照・正規化生成コードが両GPUで一致し、7分割の転送と検証プロセスの終了を確認しました。この段階で新しいスタック操作・免疫の効果種別は受理していません。全変種認証0/203体・通常画面CPUを維持します。[数値・通知・次のCPU契約](portable-stack-foundation.md)、`research/portable-stack-foundation-global-gates.json` を参照してください。
+
+## 2026-10-20 同フレームのセッション識別・終了通知の弾倉基準
+
+固定ソース `2e1a265`。CPU互換層で論理セッションと物理入場を区別し、未解決の同フレーム再入／別モード置換2件と、既知の期限終了後の子再入1件を通常照合へ戻しました。モードCPU参照41件・既知モード差分0です。保持中の入力期間は維持し、親の射撃で新しい弾倉・発数・予約を上書きせず、実際に撃ったMGの蓄積と時計を保持します。元のCPUファイルは変更していません。
+
+追加テストで、共通GPUの終了通知内の割合操作が旧射撃の容量を参照する差分も見つかりました。10発へ戻した後の50%除去が2発となる差を5発へ修正し、子の再入／取り消しと二重補充も検査しています。新しいGPU配列・スカラー・wire領域はありません。
+
+Metal／CUDA1149正例・206拒否、単体131件・周期CPU15件・追加native10件、58実編成・203武器・203装備・固定8編成・HTTP追加4件・数値34874件・実証4件を含む全21ゲートが成功しました。Windowsは低優先度・120秒上限の1回、73.230秒で終了し、全入力・全出力・status・検証コード・全CPU参照・正規化生成コードが一致しました。旧1345入力と全出力は両GPUで全バイト一致、58実編成もCPU実行時間の記録だけを除いて全項目一致しています。元のWindows作業状態・サービスを保持、検証プロセス0、全22分割の転送も終了しています。
+
+全検証と転送終了後、解除の重複を省く候補で1149正例の全出力ワード一致と順次測定を確認しました。64入力×3秒、各3標本のGPU中央値は終了1回17.287→17.236ms、毎フレーム終了22.678→22.481msですが、どちらも範囲が重なり未採用です。[契約・原因・数値・残る範囲](portable-session-identity.md)、`research/portable-session-identity-validation.json` と最新checkpointを参照してください。次はstack変更・初期化・免疫など残るライフサイクルと世界・操作・全効果の接続を続けます。全変種認証0/203体・通常画面CPUを維持します。
+
+## 2026-10-20 通常武器復帰時計の修正
+
+固定ソース `a7f4784`。通常武器の再開フレームで射撃時計を更新し、終了通知前に戻した弾倉を再補充せずに保持します。新しい状態配列・wire領域はありません。機械fixtureの変更武器が省略した装填時間を、CPU参照と同じ元武器から継承するよう入力準備も修正しました。未調査だった4ケースがCPU全比較フィールドと一致し、連続フレーム8条件を追加、モードCPU参照29件となりました。
+
+Metal／CUDA1139正例・206拒否、単体128件・周期CPU15件、58実編成・203武器・203装備・固定8編成・API・数値34874件・実証4件を含む全18ゲートが成功しました。Windowsは低優先度・120秒上限の1回、61.989秒で終了し、全入力・全出力・status・全CPU参照・正規化生成コードが一致しました。元の作業状態とサービスを保持、残存プロセス0、22分割の転送も終了しています。旧1125ケースの全状態を維持し、変わった6件はquery内の射撃／装填時計だけです。58実編成もCPU参照の実行時間だけを除いて全項目一致しました。
+
+全検証と転送終了後、復帰判定を既存分岐へまとめる候補で1139入力の全出力ワード一致を確認しました。64入力×3秒、各3標本の中央値は発数終了17.256→15.266ms、時間終了17.255→17.188msでしたが、両条件で範囲が重なり、前者はばらつきも大きいため未採用です。[原因・数値・比較範囲・残作業](portable-mode-return.md)、`research/portable-mode-return-validation.json` と最新checkpointを参照してください。残る同フレームの終了再入／別モード置換のCPU raw差分2件と、全効果・全変種の接続を続けます。通常画面CPU・全変種認証0/203体を維持します。
+
+## 2026-10-20 Windows再確認・武器変更と再突入の証跡
+
+固定版 `76e0c08` の既存共通実行器を再確認しました。Metal／CUDA1131正例・206拒否、portable単体127件が成功し、全入力・全出力・status・既存CPU参照はv45と一致しました。Windowsは低優先度の1回、65.348秒、120秒上限内で、元の作業状態とサービスを保持、検証プロセス0、報告も終了しています。武器変更・散弾・再突入の23fixtureを再監査し、再突入など7件を追加でCPU controllerの全比較フィールドへ照合しました。実装・定義・fixtureは従来どおり両GPUで共通です。
+
+追加の未補正CPU observer調査では、旧武器変更8件中7件に残弾・発数・待機時計の差分があり、既知の契約差分1件と未調査6件を区別して記録しました。CPU完全一致や全キャラ認証とは扱いません。[再現方法・比較範囲・差分](portable-weapon-burst-recheck.md)、`research/portable-weapon-burst-recheck.json` とWindows v46 receiptを参照してください。通常画面CPU・全変種認証0/203体を維持します。
+
+## 2026-10-20 名前付き持続時間延長と独立した敵状態
+
+固定ソース `b0f1cf3`、ABI `0x50455660` でMetal／CUDA1131正例・206拒否が成功しました。名前付き持続時間延長39ケースを実CPUの対象・期限・時計・世代と照合しています。単体127件・CPU周期処理15件、29候補の通常／SR15の58実編成、203武器・203装備・固定8編成、API追加4件、数値34874件・実証4件も成功しました。旧1092ケースの全クエリと1028ケースの全読み戻しを保持しています。敵64ケースはresidentの分離・世代表示・実際のフレーム深度の変化を明示し、58実編成の既存の全項目とCPU参照も維持しました。
+
+共有味方／DoTは一致した対象が一部でも共有期限を変えます。敵のバフは対象ごとに期限・スタック・世代を持ち、発動時の順序と世代を固定して子通知の終了後に次の受領者へ進みます。有限の1e30、無期限、再付与による期限種別の変化、正負のオーバーフローを区別し、内部はsoftware binary64の∞を保持します。stride77824／90112ワードとresident容量512を維持し、追加の私有配列は作りません。
+
+基準版の全16ゲートとWindows転送終了後、対象1体でHP通知pending/dirtyがない場合だけ追加フレームを省く候補を測定しました。1131正例は実際の最大フレーム深度1ワードだけを別管理し、ほかの全出力ワードが一致しました。固定256入力×60回発動でGPU中央値26.642→24.351ms（約8.6%短縮）。3体は範囲が重なり明確な差を示しません。採用後も全16ゲートを再確認しています。
+
+Windowsは基準版・最適化版を各1回、低優先度・120秒上限で67.483秒／65.985秒で実行しました。最適化版は最大フレーム深度も含め全出力・入力・status・CPU参照・正規化生成コードが一致しました。元の作業状態とサービスを保持し、残存検証プロセス0です。末尾7分割は保存済みの再送だけで、GPU再実行はありません。[契約・数値・測定範囲](portable-duration-extend.md)、`research/portable-duration-extend-validation.json` と最新checkpointを参照してください。通常画面CPU・全変種認証0/203体を維持し、残るライフサイクル・世界・効果群の接続を続けます。
+
+## 2026-10-20 対象別除去・定義入力ビューの両GPU検証
+
+固定ソース `9047790`、ABI `0x50455659` でMetal／CUDAの1092正例・195拒否が成功しました。対象別除去の28件と武器87件を実CPU参照と照合し、同名の旧1059ケースと58実編成の全読み戻し・CPU参照を保持しました。単体118件、29候補の通常／SR15の58実編成、203武器・203装備・固定8編成・API追加4件、数値34874件・実証4件も成功しています。旧期待を直した4件は名前と履歴を残し、変更武器のreload、チャージ待機時計、明示フレームの入力条件を整えました。
+
+私有の256定義配列を廃止し、同じ共通入力wireのビューへ接続しました。大きなレコードはout引数、単項目参照は直接読み、入力検査76行を内容・順序を保って共通GPU関数へ分離しました。初期化と読み戻しの関数境界も明示した候補で全体コンパイルが成功しています。複数の変更を含むため、単一の原因を断定しません。strideは77824／90112ワードのままです。
+
+Windowsは低優先度・120秒上限で1回、65.478秒で終了し、本体と55項目×1024行のcodecが成功しました。全入力・出力・status・CPU参照リスト・正規化生成コードが一致し、元の作業状態・サービスを保持、残存検証プロセス0です。全22分割の転送とMacの全15ゲート終了後に、比較版の1092正例の全出力ワード一致を確認しました。続く順次測定は256定義×32入力の名前付き除去で、全定義参照62.286→直接参照60.306ms（中央値、約3.2%短縮）です。比較範囲は新しい入力ビュー内の参照方法に限ります。私有テーブル63488バイトの保存を避けますが、ピークGPUメモリの実測値ではありません。
+
+[契約・診断・測定範囲](portable-removal.md)、`research/portable-removal-validation.json` と最新checkpointを参照してください。全キャラ・全特殊効果の目標は継続中で、通常画面CPU・全変種認証0/203体です。残るライフサイクル・世界・効果群の接続を続けます。
+
+## 2026-10-19 時点の未完了チェックポイント：対象別除去とコンパイラー障害
+
+ABI `0x50455659` の作業版です。名前付き状態の対象別除去・最後の対象の終了通知・敵別の通知数を共通Slangへ接続し、独立した武器変更と周期instantを誤って止めていた旧期待4件を実CPU参照で修正しました。単体117件、29の除去fixture（28のCPU除去参照と発数寿命1件）、全1287入力のバイト列維持を確認しています。定義監査の未対応ライフサイクルは93→84件、入力候補は29体のままです。
+
+**全体カーネルのMetal検証は未完了です。** 5候補ともGPU実行前のAppleコンパイラー内でLLVMのメモリ確保失敗となりました。本体と同じGPU所有の終了通知キュー関数を単独で実行する検査はApple M5で成功し、4096件格納・4097件目の拒否・16bitの両側を確認しましたが、全体実行器の認証へ読み替えません。Windowsの新しい検証と効率測定はまだ実行していません。
+
+次は大きな私有定義配列と生成コードのライブ範囲を調べ、全体カーネルのコンパイルを解決します。[契約・診断・残作業](portable-removal.md)、`research/portable-removal-work-in-progress.json` を参照してください。最後の完全な両GPU認証は固定ソース `70f9018`、証跡コミット `272ed61` です。旧Metal報告は `research/portable-combat-v41-metal.json`、旧checkpointは `research/portable-combat-v41-checkpoint.json` に保持しています。通常画面CPU・全変種認証0/203体を維持します。
+
+
+## 2026-10-19 着弾記録の共通圧縮と効率確認
+
+固定ソース `70f9018`、ABI `0x50455658` で着弾記録を12→8ワードに圧縮しました。2048件の容量とbinary64の量・時刻を維持し、出力を98304→90112ワードへ削減しました。実際の出力バッファで1プログラム32KiB、約8.3%減です。同じ物理処理の12ワード制御版と、全1247入力の全出力ワード（使用済み着弾記録を含む）が表現の正規化後に一致しました。259境界正例・11拒否、未排出キューの読み戻しも成功しています。
+
+Metal／CUDA1063正例・184拒否、単体106件・CPU周期処理15件、58実編成・203武器・203装備・固定8編成・API・数値34874件・実証4件が成功しました。旧1063ケースと58実編成の全読み戻し項目・CPU参照も保持しています。Windowsは低優先度・120秒上限で境界と本体だけを1回のラッパー、79.495秒で実行し、全入力・出力・status・CPU参照リスト・正規化生成コードが一致、残存検証プロセス0です。保存済み21分割の転送も終了しています。
+
+全検証とWindows転送終了後の順次測定は、2着弾×64プログラムでGPU中央値8.661→8.470ms（約2.2%短縮）、2048着弾×16で23.377→23.202ms（約0.75%短縮）でした。後者は標本範囲が重なり、明確な速度改善とは扱いません。限定負荷で、デスクトップGPU活動は除外できません。[配置・測定範囲](portable-landing-compact.md)、`research/portable-landing-compact-validation.json` を参照してください。全変種認証0/203体・通常画面CPUは継続し、残る効果ライフサイクル・対象・世界モデルを共通実行器へ接続します。
+
+
+## 2026-10-19 共通着弾キュー・吸血とWindows再検証
+
+共通Slangの着弾キューに通常弾・スキル・周期／段階DoT・B3保留の回復を接続しました。発動時に量を捕捉し、次フレームの排出・排出中の子通知・回復で追加された次のB3保留を保持します。以前のHP150対CPU250の差は解消しました。ABI `0x50455657`、固定ソース `431d699` です。以下の通常弾試作は過去の記録です。
+
+武器変更・散弾・バースト再突入を含むMetal／CUDA1063正例・184拒否、単体106件・CPU周期処理15件が成功しました。Windowsは低優先度・120秒上限で1回、80.582秒で終了し、全入力・出力・status・CPU参照リスト・正規化生成コードが一致しました。元のWindows作業状態とサービスを保持し、残存検証プロセス0です。検証と保存済み20分割の転送は終了しています。
+
+定義監査候補は29体、通常／SR15の58実編成条件がCPU本体と一致しました。203武器・203装備・固定8編成・HTTP着弾追加4件・数値34874件・Metal実証4件も成功しています。旧1028正例と52実編成の既存読み戻し項目も維持しました。[着弾契約と残る範囲](portable-landings.md)、`research/portable-landings-validation.json` と最新checkpointを参照してください。今回の着弾記録は2048×12ワードで、圧縮・効率測定は次の作業です。世界・ライフサイクル・残る効果と全変種の認証は未完了で、通常画面CPU・全変種認証0/203体を維持します。
+
+
+## 過去の記録：2026-10-19 吸血の通常弾試作と着弾順の未接続
+
+吸血回復の共通binary64処理と、通常弾の射撃通知後の回復経路を試作しました。Apple M5で15ケースが元CPUの吸血関数・CharStateと一致し、既存1028正例・176拒否の全入力／出力バイトも維持しました。単体101件が成功しています。
+
+吸血ファミリー全体は未完了です。実CPUタイムラインで通常弾＋攻撃時スキル2ヒットを実行すると総ダメージ3000・最終HP250ですが、現GPU試作は同じダメージでHP150です。スキルの次フレーム着弾時の回復が未接続で、公開ホスト受付は閉じています。差を `passed: false` のまま記録し、次は共通着弾キューへ接続します。[契約と残る実装](portable-lifesteal.md)、`research/portable-lifesteal-work-in-progress.json` を参照してください。この試作でWindowsは使っていません。以下の両GPU認証は以前の固定版 `21e03a0` の安定記録です。通常画面CPU・全変種認証0/203体という未完了範囲は維持しています。
+
+## 2026-10-19 段階選択の索引と効率検証
+
+段階適用を持つ定義だけを選ぶ静的索引を共通Slangへ接続しました。ABI `0x50455656`、既存余白の257ワードを使い、入出力stride・Runtimeの私有状態は増やしていません。最大254段階キャリアと不正索引5件を含むMetal／CUDA1028正例・176拒否、全走査版との全出力バイト一致、単体94件・CPU周期処理15件が成功しました。旧1027ケースと52実編成の全読み戻しも維持しています。
+
+Windowsは固定版 `21e03a0` を低優先度・120秒上限で1回、66.976秒で成功しました。全入力・出力・status・全CPU参照リスト・正規化生成コードが一致し、元の作業状態・サービスを保持、残存検証プロセス0です。接続断後は保存済みの最後の1分割だけを再送し、GPUは再実行していません。52実編成・203武器・203装備・固定8編成・API追加4件・数値34874件・実証4件も成功しています。全検証と転送終了後の順次測定は、256定義でGPU中央値1036.069→1022.829ms（約1.3%短縮）。33定義は範囲が重なり明確な速度改善を示しません。限定負荷の結果であり、デスクトップGPU活動は除外できません。[設計・測定範囲](portable-staged-index.md)と `research/portable-staged-index-validation.json` を参照してください。通常画面CPU・全変種認証0/203体を維持し、世界・効果ライフサイクル・残る全キャラの接続を続けます。
+
+## 2026-10-19 Windows再確認と段階適用
+
+武器変更・散弾・バースト再突入を含む共通回帰をWindowsでも再確認しました。固定版 `8bc3c97` のRTX 3070 Tiは低優先度・120秒上限の1回、68.935秒で1027正例・171拒否が成功し、Metalと入力・全出力・全status・全CPU参照リスト・正規化生成コードが一致しました。元のWindows作業状態とサービスを保持し、残存検証プロセス0です。
+
+same-targetの段階DoTを共通Slangへ追加しました。23ケース、登録世代・0〜64回・固定ダメージ用スタック・遅延フレーム・資源参照時刻を検証しました。単体93件とCPU周期処理15件、52実編成・203武器・203装備・固定8編成・API追加4件・数値34874件・実証4件が成功しています。旧1004ケースと52実編成の全状態も新しい空のフィールドを除いて維持しました。ABI `0x50455655`、配置strideの増加なしです。[規約と残る範囲](portable-staged.md)、`research/portable-staged-validation.json` と最新checkpointを参照してください。段階予定の選択は全走査で、高速化の測定は次段階です。通常画面CPU・全変種認証0/203体、全キャラ・全特殊効果の目標は未完了です。
+
+## 2026-10-19 所有者付き周期資源とfeather
+
+所有者付き周期資源とfeatherを共通Slangへ接続しました。寿命・生存数・人口依存の周期・登録順・子通知での再召喚、命中数／buff倍率／最大HPの参照をGPUが管理します。ABI `0x50455654`、追加29件を含むMetal／CUDA1004正例・159拒否、常時計数版との全出力一致、単体87件、52実編成・203武器・203装備・固定8編成・HTTP追加4件が成功しました。起動アダプターのstride変更後に数値34,874件・実証4件も実GPUで再検証しています。Windowsは固定版 `924279e` を低優先度で1回、71.189秒で実行し、全出力・全参照リストと正規化した生成コードが一致しました。既存975ケース・52実編成の状態は2つの空の新フィールドを除いて一致し、計数省略前の27ケースも同じ読み戻しを保持しました。同一時刻・再召喚世代で生存数を再利用する固定負荷は、全出力を保ってGPU中央値400.521→376.461ms、約6.0%短縮しました。[配置・数値規約・順序・測定範囲](portable-sources.md)を参照してください。全変種認証0/203体・通常画面CPUは維持し、same-target ramp・世界・残る全効果の接続を続けます。
+
+## 2026-10-19 外部参照倍率と最大HP境界
+
+外部参照buff倍率とDoT係数、保持／更新の順序、最大HPとHP率の境界同期を共通Slangへ接続しました。ABI `0x50455653`、追加40件を含むMetal／CUDA975正例・142拒否、毎回探索版との全出力一致、単体80件、52実編成・203武器・203装備・固定8編成・HTTP追加4件が成功しました。Windowsは固定版 `1f06043` を低優先度で1回、64.408秒で実行し、全出力・全参照リストと正規化した生成コードが一致しました。既存935ケース・52実編成の状態は、新しい参照保持値の空欄追加を除いて一致しています。CPUの自己参照名キャッシュと、最大HP参照変更後の古いHP率を互換層で修正し、pinnedソースは保持しています。探索省略の固定負荷は全出力を保って中央値24.653→24.357ms、約1.2%短縮しましたが、3標本の範囲が重なり、明確な速度向上とは扱いません。[数値規約・順序・検証範囲](portable-reference-scales.md)を参照してください。全変種認証0/203体・通常画面CPUを維持し、feather・世界・残る全効果へ接続を続けます。
+
+現在の確認範囲と未完了項目は[共通実行器の進捗](portable-combat-runtime.md)と `research/portable-combat-checkpoint.json` を参照してください。以下は移行開始時の手順・経緯を含み、共通Metal本体の全キャラ対応完了を示す文書ではありません。
+
+## 2026-10-19 大容量モード・無消費バフと補充の文脈
+
+`max_ammo=-1` の999,999発モードと、弾を消費しない `infinite_ammo` バフを共通実行器で区別しました。射撃中／外の補充上限、チャージ途中の弾薬除去、装填取消の射撃時計、発数寿命・終了通知の子効果まで接続しています。ABI `0x50455648`、Metal649正例・69拒否、弾薬96件（追加45件）のCPU参照、単体40、HTTP API、固定8実編成と全17候補の34実編成が成功しました。203武器・203部隊の装備初期化も成功しています。[数値・文脈・実体索引・残る差異](portable-infinite-ammo.md)を参照してください。固定版 `83d9df3` はWindowsのRTX 3070 Tiでも低優先度・1回、35.580秒で649正例・69拒否が成功しました。共通ソース・入力・全出力・検証コード・全status・全CPU参照リストがMetalと一致し、生成CUDA/MSLも改行・位置情報・標準includeパスだけの正規化で一致しました。元のWindows作業状態を保持し、残存プロセス0です。無消費フラグの索引は、他の本チャットの検証を終えた単独の固定負荷でGPU時間中央値6.886秒→5.891秒、約14.5%短縮し、参照版と全出力が一致しました。同一フレームの失効→子モードでは既存のfresh-session期待値と元CPUの残弾引継ぎに未解決差があり、全変種認証0/203体・通常画面CPUを維持します。前段の両GPU一致は `research/portable-combat-v23-checkpoint.json` に保存しました。
+
+## 2026-10-19 弾薬即時操作と名前付きイベント
+
+割合補充・固定発数の増減、符号付き残弾、装填取消、変更武器の上限を共通Slangへ接続しました。割合の偶数丸め・固定発数の切捨て・負残弾からの部分装填・空の対象・子イベントを、元CPUハンドラーと照合します。進入前に参照した変更武器の上限は、実際の進入時に再計算する境界も追加しました。ABI `0x50455647`、Metalの604正例・69拒否と弾薬51件のCPU参照、単体38件が成功しています。ノワールを含む全17入力候補の通常／SR15・180秒、34実編成は修正版でもCPU本体と一致し、固定8条件・HTTP API・203武器・203部隊の装備初期化も成功しました。名前付きイベント処理の固定負荷は、他の検証終了後の単独測定で533.706ms→97.283ms、約81.8%短縮し全出力が一致しました。固定版 `a5822ad` はWindowsのRTX 3070 Tiでも低優先度・1回、32.740秒で604正例・69拒否が成功しました。共通ソース・入力・全出力・検証コード・全status・全CPU参照リストがMetalと一致し、生成CUDA/MSLも改行・位置情報・標準includeパスだけの正規化で一致しました。元のWindows作業状態を保持し、残存プロセス0です。[順序・丸め・数値範囲・残る範囲](portable-ammo-instants.md)を参照してください。全変種認証0/203体・通常画面CPUは未完了です。前段の両GPU一致は `research/portable-combat-v22-checkpoint.json` に保存しました。
+
+## 2026-10-19 フルバースト期間と全入力候補の実編成
+
+共通実行器に期間効果の加算・短縮・最短1秒・最終B3発動者と鮮度・source別重複を接続しました。開始通知より先に期間を固定し、再突入・発動回数条件もCPU本体の順序に合わせます。ABI `0x50455646`、Metalで553正例・62拒否、期間30件のCPU controller参照が成功しました。武器変更・散弾・再突入を含む既存回帰を維持しています。入力監査を通る全16候補について、全効果を含む通常／SR15育成180秒の32条件がCPU本体と一致しました。固定8条件とHTTP APIも成功しています。`trace='burst'` で計算を保ち全バースト時刻を照合し、512着弾でsummaryとの計算一致を確認します。[順序・境界・検証範囲](portable-burst-duration.md)を参照してください。固定版 `4342fe1` はWindowsのRTX 3070 Tiでも低優先度・1回、30.447秒で553正例・62拒否が成功しました。共通ソース・入力・全出力・検証コード・全status・全CPU参照リストがMetalと一致し、生成CUDA/MSLも改行・位置情報・標準includeパスだけの正規化で一致しました。元のWindows作業状態を保持し、残存プロセス0です。全変種認証0/203体・通常画面CPUは未完了です。前段の両GPU一致は `research/portable-combat-v21-checkpoint.json`、最新証跡は `research/portable-combat-checkpoint.json` です。
+
+## 2026-10-19 B3予約ダメージとブリッド実編成
+
+元のB3属性、予約時の条件・係数、後続の同発動者バフの除外、フルバースト開始後の計算・着弾を共通Slangへ接続しました。ABI `0x50455645`、522正例・51拒否と予約27件のCPU controller参照をMetalで確認しています。512予約の保持とflush、名前付き親の静的反復、再突入・周期再登録を含みます。ブリッド編成を追加した実編成8条件は、全定義を含めCPU本体と一致しました。入力監査では実験用static adapterの存在と通常画面の未接続を区別します。全変種認証0/203体・通常画面CPUは未完了です。[順序・数値・効率化と残る範囲](portable-pending-burst.md)、固定版 `51fe398` はWindowsのRTX 3070 Tiでも低優先度・1回、29.728秒で522正例・51拒否が成功しました。共通ソース・入力・全出力・検証コード・全status・全CPU参照リストがMetalと一致し、生成CUDA/MSLも改行・位置情報・標準includeパスだけの正規化で一致しました。元のWindows作業状態を保持し、残存プロセス0です。モデル混雑で中断した要約転送は既存ファイルから再開し、GPU計算を繰り返していません。 最新の照合は `research/portable-combat-checkpoint.json` を確認してください。前段495正例の両GPU一致は `portable-combat-v20-checkpoint.json` に保存しました。
+
+
+## 2026-10-19 遮蔽物HPとSR15実編成
+
+遮蔽物HPの加算率・発動者最大HP基準、通常回復・復活、残り比率による対象選択、生存条件と命中／回復通知を共通Slangへ接続しました。ABI `0x50455644`、495正例・41拒否と遮蔽物32件の独立CPU参照をMetalで確認しています。SR15育成を止めていた `cover_hp_pct` を省略せず計算する経路です。固定編成の3・30・180秒（71定義）とSR15育成180秒（91定義）は、遮蔽物状態も含めてCPU本体と4条件とも一致しました。通常画面・全変種認証0/203体は未完了です。[数値・状態・対象・残る範囲](portable-cover-runtime.md)、固定版 `78a59ee` はWindowsのRTX 3070 Tiでも低優先度・1回、27.698秒で495正例・41拒否が成功しました。共通ソース・入力・全出力・検証コード・全status・全CPU参照リストがMetalと一致し、生成CUDA/MSLも改行・位置情報・標準includeパスだけの正規化で一致しました。追加GPU実行はなく、元のWindows作業状態を維持し残存プロセス0です。 最新の照合は `research/portable-combat-checkpoint.json` を確認してください。前段463正例の両GPU一致は `portable-combat-v19-checkpoint.json` に保存しました。
+
+
+## 2026-10-19 敵への分配と実編成入力
+
+敵の対象順・複数ヒット・分配丸め、本体／ADD／過剰分の集計と、CPUと同じ加算時計を共通実行器へ接続しました。ABI `0x50455643`、Metalの463正例・36拒否、単体31件・API・34,874数値ケースが成功しています。武器変更・散弾・バースト再突入を含む共通回帰を維持しています。実B1/B2/B3編成の全71定義で3・30・180秒のCPU本体と一致しましたが、SR15育成は遮蔽物HPで拒否され、必須4条件の全体結果は未完了です。全変種を含む認証済み0/203体・通常画面CPUを維持します。[範囲・数値・残る課題](portable-enemy-damage.md)、WindowsのRTX 3070 Tiでも固定版 `372f85e` の499入力が26.841秒・低優先度の1回で成功し、ソース・入力・全出力・検証コード・全CPU参照が一致しました。証跡は `research/portable-combat-checkpoint.json` です。前段420正例の両GPU一致は `portable-combat-v18-checkpoint.json` に固定しました。
+
+
+## 2026-10-19 バーストの短縮と共有ゲージ
+
+クールダウンの使用時短縮・開始時の追加反映・待機再計算と、共有ゲージの即時加算を共通実行器へ接続しました。ABI `0x50455642`、追加31件の独立CPU参照、既存の武器変更・再突入との組み合わせを検証しています。[参照順・数値・残る範囲](portable-burst-resources.md)を確認してください。固定版 `ac5378d` はMetalの420正例・22拒否とWindowsのRTX 3070 Tiでも93.551秒・低優先度の1回で成功し、共通ソース・入力・全出力・検証コード・status・全CPU参照リストが一致しました。単体29・API・旧16＋2・203武器・203装備初期化も成功し、同じ全出力の固定負荷ではGPU中央値が132.321msから89.509msへ約32.4%短縮しました。最新証跡は `research/portable-combat-checkpoint.json`、前段389正例の両GPU一致は `portable-combat-v17-checkpoint.json` に保存しています。実定義の入力preflightは7体ですが、全効果込みの実編成GPU検証は0/203体です。
+
+## 2026-10-19 受領者別の発数寿命
+
+発数制バフの受領者別消費・再付与・stack、遅延対象、終了通知を共通実行器へ接続しました。ABI `0x50455641`、Metalの389正例・19拒否、発数寿命33件の独立CPU参照が成功しています。[消費順序・CPUとの差異・効率化](portable-bullet-runtime.md)を確認してください。固定版 `d8d0d79` はWindowsのRTX 3070 Tiでも通常条件・低優先度の1回、95.711秒で成功し、共通ソース・入力・全出力・検証コード・status・全CPU参照リストがMetalと一致しました。診断トレース付きの先行実行は120秒で打ち切り、失敗記録も保持しています。照合は `research/portable-combat-checkpoint.json`、前段353正例の両GPU一致は `portable-combat-v16-checkpoint.json` に保存しています。実編成GPU検証は0/203体、通常画面と全効果の接続は未完了です。
+
+## 2026-10-19 遅延対象と共有スナップショット
+
+順位指定の持続バフを最初の参照でGPU解決し、同じ発動者・時刻・生の対象指定の効果が結果を共有する経路を接続しました。ABI `0x50455640`、共有結果1,024枠。Metalの353正例・16拒否、追加26件の独立CPU参照、単体27・API・旧16＋2・203武器・203装備初期化が成功しています。GPU生成の1,201射撃で再利用しつつ、遅れて参照する回復効果の古い結果も保持しました。[解決順・数値差異・キャッシュと残る範囲](portable-lazy-runtime.md)を確認してください。同じ全出力を保つ固定負荷でGPU中央値を468.414msから288.114msへ短縮しています。本体性能の証明ではありません。固定版 `053faba` はWindowsのRTX 3070 Tiでも低優先度・1回、73.697秒で成功しました。353正例・16拒否の共通ソース・入力・全出力・検証コード・status、遅延対象を含むCPU参照はMetalと一致し、元のWindows作業状態を保持しています。Windows照合の記録は `research/portable-combat-checkpoint.json`、前段325正例の両GPU一致は `portable-combat-v15-checkpoint.json` に固定しています。実定義の入力preflightは6体ですが、全効果込みの実編成GPU検証は0/203体です。発数寿命・残る効果・実編成と通常画面への接続を続けます。
+
+## 2026-10-19 定義と複数の効果実体
+
+定義ごとの発動予算・時計から、対象／stack／期限／HP snapshotを持つ実体を分離しました。ABI `0x5045563F`、256定義・512実体、入力49,152語・出力32,768語です。持続バフの発動時状態・バースト対象、同名統合の規約、全発動者の名前付き削除と終了通知を接続し、Metalの325正例・12拒否、追加15件の独立CPU参照、API・単体27・203武器・203装備初期化が成功しています。[実体・通知・効率化と残る範囲](portable-carrier-runtime.md)を確認してください。全出力を保つ固定の実体探索負荷ではGPU中央値が870.332msから129.458msへ短縮しました。本体性能の証明ではありません。固定版 `7b86f88` はWindowsのRTX 3070 Tiでも低優先度・1回、67.788秒で成功しました。325正例・12拒否の共通ソース・入力・全出力・検証コード・status、実体を含むCPU参照はMetalと一致し、元のWindows作業状態を保持しています。Windows照合の記録は `research/portable-combat-checkpoint.json`、前段307正例の両GPU一致は `portable-combat-v14-checkpoint.json` に固定しています。遅延対象・発数寿命・残る効果・実編成／通常画面は未接続で、全効果込みの実編成GPU検証済みは0/203体です。
+
+## 2026-10-19 味方対象選択と即時効果
+
+共通Slangへ静的な武器種／属性／クラス／配置フィルターと、即時回復・HP減少の現在HP／攻撃力順位・バースト状態による対象選択を接続しました。順序と発動予算を含むMetalの307正例・11拒否条件、追加32件の独立CPU参照、単体27件が成功しています。ABIは `0x5045563E`、入力49,152語・出力28,672語です。固定版 `91303cc` はWindowsのRTX 3070 Tiでも、低優先度・1回、63.042秒で成功しました。307正例・11拒否の共通ソース・入力・全出力・検証コード・statusとCPU参照はMetalと一致し、元のWindows作業状態を保持しています。Windows照合の記録は `research/portable-combat-checkpoint.json`、前段271正例の両GPU一致は `portable-combat-v13-checkpoint.json` に固定しています。[対象選択の規約と未接続範囲](portable-recipient-runtime.md)を確認してください。対象が変わる持続バフ・一般の複数効果実体は受付を広げておらず、実編成のGPU検証済みは0/203体、通常画面と全効果への接続は未完了です。
+
+## 2026-10-19 256定義と実装備の入力
+
+共通定義容量を256へ拡張し、強制スキル・時計を8語maskへ接続しました。ABIは `0x5045563D`、入力45,056語・出力28,672語です。Metalの271正例・9拒否、API、単体24件、旧イベントと203武器の回帰が成功しました。通常の所持・育成準備から、203部隊の45装備定義を初期化する実Metal経路も追加しました。[wire・実データ段階・残る複数キャリアの制約](portable-capacity-runtime.md)を確認してください。固定版 `e1960cd` はWindowsのRTX 3070 Tiでも低優先度・1回、63.396秒で成功しました。271正例・9拒否の共通ソース・入力・全出力・検証コード・statusとCPU参照がMetalと一致し、元のWindows作業状態を保持しています。最新記録は `research/portable-combat-checkpoint.json`、前段258ケースの両GPU一致は `portable-combat-v12-checkpoint.json` です。実編成・通常画面・全キャラ対応は未完了で、実編成の検証済みは0体です。
+
+## 2026-10-19 体力層への被弾とダウン
+
+共通実行器へ攻撃力・係数・明示対象からの体力層ダメージ、無敵／不屈・致死通知、受領者単位のダウン片付けを追加しました。ABIは `0x5045563C`、単一バッチ上限512。Metalの258正例・8拒否、HPのCPU参照69ケース、API、単体22件、203体の武器回帰が成功しています。[体力層の規約・効率化・未接続範囲](portable-incoming-runtime.md)を確認してください。固定版 `e014b1b` はWindowsのRTX 3070 Tiでも低優先度・1回、50.340秒で成功しました。258正例・8拒否の共通ソース・入力・全出力・検証コード・statusと既知CPU差異がMetalと一致し、元のWindows作業状態を保持しています。最新記録は `research/portable-combat-checkpoint.json`、前段230ケースの両GPU一致は `portable-combat-v11-checkpoint.json` です。保護層・敵攻撃のスケジュール／照準・復活・実編成は未接続で、実編成のGPU検証済みは0体です。
+
+## 2026-10-19 HP通過通知と同期順
+
+共通実行器へ本人・部隊・隣接者のHP通過／満タン復帰通知、通算回数、同キーの重複除去、子によるHP再変化の抑制を追加しました。ABIは `0x5045563B`。Metalの230正例・7拒否、HP43ケースの独立CPU参照（失効時の既知差異2件を明示）、API、単体21件、203体の武器回帰が成功しました。[通知の数値規約・効率化・残る範囲](portable-health-runtime.md)を確認してください。固定版 `a55ab81` はWindowsのRTX 3070 Tiでも低優先度・1回、47.298秒で成功しました。230正例・7拒否の共通ソース・入力・全出力・検証コード・statusと既知CPU差異がMetalと一致し、元のWindows作業状態を保持しています。最新記録は `research/portable-combat-checkpoint.json`、前段212ケースの両GPU一致は `portable-combat-v10-checkpoint.json` に固定しました。実編成のGPU検証済みは0体、全キャラ・通常画面への接続は未完了です。
+
+## 2026-10-19 味方HP・防御・回復
+
+共通Slangへ味方の初期HP／防御、最大HP・スナップショット、回復倍率・回復通知と子の順序、HP条件を接続しました。ABIは `0x5045563A`。Metalの212正例・7拒否、25ケースの独立CPU参照（HP失効時の既知差異1件を明示）、API、単体19件、203体の武器回帰が成功しています。[規約・効率化・未接続範囲](portable-health-runtime.md)を確認してください。固定版 `37c2e36` はWindowsのRTX 3070 Tiでも低優先度・1回の検証が76.388秒で成功しました。212正例・7拒否の共通ソース・入力・全出力・検証コード・statusと既知CPU差異がMetalと一致し、元のWindows作業状態を保持しています。最新記録は `research/portable-combat-checkpoint.json`、前段187ケースの両GPU一致は `portable-combat-v9-checkpoint.json` へ固定しました。実編成・通常画面・全キャラ対応は未完了です。
+
+## 2026-10-19 チャージ後の自動補充と全203武器
+
+チャージ射撃後の補充予約・完了通知・モード変更時の破棄を共通実行器へ接続しました。ABIは `0x50455639`。Metalの187正例・5拒否、新しい12ケースの独立CPU参照、単体18件を確認しています。全203体の実武器データは効果を除く3秒間のMetal実行で射撃数・残弾・ダメージを照合し、入力preflightも203体です。[動作規約・効率化・未接続範囲](portable-weapon-runtime.md)を確認してください。固定版 `082509d` はWindowsでも低優先度で1回だけ検証し、187正例・5拒否が37.235秒で成功しました。共通ソース・入力・全出力・検証コードのハッシュと全statusがMetalと一致し、元のWindows作業状態を保持しています。最新記録は `research/portable-combat-checkpoint.json`、前段169ケースの両GPU一致は `portable-combat-v8-checkpoint.json` へ固定しました。実編成のGPU検証済み0体・通常画面・全特殊効果の接続は未完了です。
+
+## 2026-10-19 ソース別の弾数・チャージ時間
+
+共通実行器へ弾数／チャージ時間のソース別丸め、有限モードの弾倉、速度免疫、固定時間、超過分のダメージ変換を接続しました。ABIは `0x50455638`、Metalの169正例・5拒否と単体18件が成功しています。独立CPUの武器／量補正63ケースには、同名装備成分の早期統合に関する既知差異1件を明示して検証しています。[量補正の数値規約と検証](portable-quantity-runtime.md)を参照してください。固定版 `132461d` はWindowsのRTX 3070 Tiでも低優先度で1回だけ実行し、169正例・5拒否が36.299秒で成功しました。共通ソース・入力・全出力・検証コードのハッシュはMetalと一致し、元の作業状態を保持しています。最新照合記録は `research/portable-combat-checkpoint.json`、前段130ケースの両GPU一致は `portable-combat-v7-checkpoint.json` に保持しています。実編成のGPU検証済みは0体、通常画面と全キャラ・全特殊効果の接続は未完了です。
+
+## 2026-10-19 ウォームアップ・拡散・分割装填
+
+自動連射のウォームアップと冷却、可変拡散と精度、分割装填・装填後遅延、チャージ周期下限を共通実行器へ追加しました。Metalの130正例・3拒否、新しい24ケースの独立CPU武器比較、単体17件が成功しています。powは正確な比率が同じときだけ再利用し、状態・子通知を省かず評価回数を減らしています。[共通武器処理](portable-weapon-runtime.md)を確認してください。
+
+実カタログではCPU戦闘を実行せず131体の武器入力を正規化・梱包できました。72体は未接続のチャージ後のカバー／自動装填を理由に拒否しています。全効果込みの実編成GPU検証は0体のままで、通常画面・全キャラ対応は未完了です。現在のABIは `0x50455637`。 固定版 `14f7bed` はWindowsのRTX 3070 Tiでも130正例・3拒否が21.204秒の低優先度1回で成功し、共通ソース・入力・出力・検証コードのハッシュがMetalと完全一致しました。元のWindows作業ツリーとHEADは保持しています。前段 `859aa65` の106正例・3拒否はWindowsでも17.948秒の低優先度1回で成功し、共通ソース・入力・出力・検証コードのハッシュがMetalと一致しました。その固定記録は `portable-combat-v6-checkpoint.json`、最新版は `portable-combat-checkpoint.json` です。
+
+## 2026-10-19 単発ダメージ式と登録順集計
+
+通常／スキル別の補正、ダメージ種別、基本チャージ倍率と加算・倍率補正、適正距離と属性を共通Slangへ接続しました。Metalは従来69ケースと新しい37ケース、拒否3ケースが成功しています。新規37ケースは手書き期待値とCPUの単発式にも一致し、登録順の1ケースは独立BuffManagerの状態でも確認しています。ABIは `0x50455636` です。CUDAの最新照合状態は `research/portable-combat-checkpoint.json` を参照してください。前段69ケースの両GPU一致は `portable-combat-v5-checkpoint.json` に固定しています。
+
+登録順の保持と単回集計により、同一入力・出力を使う固定測定でGPU時間中央値が19.86msから14.60msへ短縮しました。本体全体の速度・全キャラ対応の証明ではありません。計算順、検証方法と未対応範囲は[共通ダメージ処理](portable-damage-runtime.md)へまとめています。実編成・通常画面・全特殊効果は引き続き未完了です。
+
+## 2026-10-19 共通通知・条件とWindows再確認
+
+共通Slangへ1効果あたり最大8通知・3条件、通知ごとのカウンター、同期した名前付き終了／スタック到達、passiveと周期時計を接続しました。武器変更・散弾・バースト再突入を含む従来53ケースに、16ケースを追加し、Metalで69正例・3拒否を確認しています。外部通知の14ケースは独立CPU参照とも照合しました。現在のABIは `0x50455635`、入力8,192語・出力16,384語です。WindowsのRTX 3070 Tiでも同じ固定版 `cfff376` を低優先度で1回だけ実行し、69正例・3拒否が13.193秒で成功しました。共通ソース・入力・出力・検証コードのハッシュはMetalと完全一致です。元のWindows作業ツリーとHEADは保持しています。照合記録は `research/portable-combat-checkpoint.json`、正確なWindows要約は `windows-portable-combat-v5.json` です。
+
+Metalのコンパイル時間増大に対し、共通ソースの主要な関数へ `noinline` を付け、生成されたCUDAにも `__noinline__` が出ることを確認しました。Metalアダプターにはライブラリー生成・パイプライン生成・GPU投入の診断を追加しています。通常画面の実編成経路、全キャラ・全特殊効果のGPU対応は未完了です。
+
+## 2026-10-19 GPU内フレーム進行と203体の監査
+
+GPU内で1/60秒のフレームを生成し、180秒まで進める経路を接続しました。分割／一括の状態一致、明示フレームとの一致、長時間DOTとバーストを含め、53正例と3拒否例をMetalで検証しています。APIからの180秒進行も確認し、ABIは `0x50455634` です。この変更後のCUDA実機検証はまだ行っていません。前段43ケースの両GPU一致はABI v3の記録として保存しています。
+
+203体の実定義を通常の育成準備から監査した記録は `research/portable-catalog-readiness.json`、全体の完了条件は `docs/portable-roadmap.md` です。実編成のGPU検証済みは0体で、通常画面・全キャラ・全特殊効果への接続と効率化は未完了です。次はpassive／周期通知、条件、残りの数値式と武器処理、実編成アダプターを進めます。
+
+## 2026-10-19 武器変更・散弾・バースト再突入
+
+共通実行器へ武器変更の時間／発射数／トグル終了と子からの再入、ペレット／銃口と実弾の分離、段階A・段階上書き・バースト再突入を接続しました。共通43ケースと拒否2ケースをMetalで検証しています。ABIは `0x50455633`、通常画面・全キャラ受付は未接続です。追加後の `5985f82` もWindowsで1回だけ検証し、43正例＋拒否2が105.337秒で完了しました。Metalと共通Slang・入力・出力のハッシュが完全一致しています。最新記録は `research/portable-combat-checkpoint.json` です。詳細は[共通戦闘実行器](portable-combat-runtime.md)を確認してください。
+
+ユーザー依頼で以前の確定版 `3c34171` をWindowsのRTX 3070 Tiで再確認し、20正例・2拒否の単一バッチが26.718秒で成功しました。Metalと共通ソース・入力・出力のハッシュが一致しています。旧版の固定した証跡は `research/portable-combat-v2-checkpoint.json` に保存しています。
+
+## 2026-10-19 武器・バースト・敵対象の追加接続
+
+共通実行器へ固定連射／自動フルチャージ、弾倉・装填・待ち、基本の1→2→3バースト、ゲージ／クールダウン、本体・追加の敵のHP／照準／出現世代を接続しました。新しい20ケースと拒否2ケースをApple M5で確認し、旧イベント16ケースと拒否2ケース、HTTP APIの新しい戦闘入力も検証しています。計算とfixtureはCUDA／Metalで共通です。[受付範囲・入力規約・未完了項目](portable-combat-runtime.md)を先に読んでください。通常画面と全キャラ受付はまだCPU／既存の境界のままです。今回のCUDA比較は120秒で停止し、未確認として保存しました。Windowsでは再実行せず、次回の負担を減らす単一バッチ化をMetalで確認しています。照合状況は `research/portable-combat-checkpoint.json` と `windows-portable-combat-timeout.json` を参照してください。
+
+以下の数値・イベントの検証は以前の到達点の履歴です。旧ABIのCUDA／Metal照合記録はその実行時コミットを指します。今回のwireはABI `0x50455632` へ更新しています。
+
+## 2026-10-19 共通実行器の追加更新
+
+整数変換・floorと、コア命中確率のclampされたpowを共通Slangへ追加しました。数値34,874ケース、状態・イベント16ケース、再入／数値あふれの拒否2ケースをApple M5で確認しています。アプリの `POST /api/portable-events` から実Metalまで接続済みです。通常画面の自律戦闘と全キャラ対応は未完了で、GPUの標準受付は増やしていません。[共通実行器の範囲と検証手順](portable-event-runtime.md)と[更新した数値規約](portable-numerics.md)を先に確認してください。WindowsのRTX 3070 Tiで短いCUDA検証を実施し、数値5,178ケース・状態14ケース・拒否2ケースが成功しました。GPUソース・入力・出力のハッシュがMetalと一致しています。Windowsの元の作業フォルダーと本体は変更せず、フルビルドや常時テストは行っていません。来歴は `research/portable-cross-gpu-checkpoint.json` を参照してください。
+
+## 2026-10-19 Mac実機の初回記録（上記の追加更新より前）
+
+- このMacの作業ブランチは `codex/mac-metal`、開始点は `origin/codex/mac-portability` の `61a43e9` です。以下のWindows時点の履歴は比較用として残します。
+- M5・24GB・macOS 26.6.2 arm64、Python 3.12.15、Node 24.22.0でCPUカタログ203体を確認。元のMetal実証4/4ケースはApple M5のGPUで成功しました。
+- binary64をuint64整数で計算する共通Slang候補を追加。四則演算・比較の14,034ケースがMetalでbit一致。CUDAは同じソースから生成までで、NVIDIAでの実行は未確認です。詳細と残作業は[数値規約](portable-numerics.md)を先に確認してください。
+- SwiftはCommand Line Toolsで動作し、実証は実行時MSLコンパイルを使います。Xcode本体・オフラインmetalコンパイラーは未導入です。
+- 添付セッションは画面へ取り込み、CPUを選択して15秒の5人部隊を再計算済み。元データとCPU用書き出しは `local-data/` 内だけに保存しています。再起動は `./Start-NikkeTools.command`。
+- Nodeの既存テスト34件、Pythonの実証梱包1件・エンジン導入2件・時計3件を確認しました。
+- 本体のMetal実行と全キャラ対応は未完了です。既存CUDA本体／ABI／定義は変更せず、Windows PCは使用していません。
+
+## 作業の目的と現在の優先順位
+
+最終目的は、NIKKEの所持・育成に基づく詳細計算、育成条件の探索、おすすめ部隊探索を支える全キャラ・全特殊効果のGPU対応です。新しいキャラ固有の分岐や同じテストの複製を増やさず、共通の効果・状態・イベント実行器へ接続します。CPUがゲーム仕様と異なる場合、その不具合へGPUを無理に合わせません。
+
+現在は残りキャラのCUDA対応拡大に先立ち、CUDAとMacのMetalで計算本体・定義・テストを共用する設計を実証する段階です。共通GPUソースから両ターゲットへ出力し、バックエンド固有部分は起動・転送・メモリ配置・読み戻しに限定する方針です。Slangは候補であり、本体全体を移せるかと性能はまだ証明されていません。
+
+最初に[移行手順](mac-migration.md)を実行してください。Macで本体のMetal計算が完成しているわけではありません。
+
+## 環境と制約
+
+- 主な開発環境：ユーザー申告のMacBook M5・24GB・macOS 26.6.2。Mac実機での初回確認はこれからです。
+- 比較環境：Windows PC、RTX 3070 Ti（SM86）。既存のCUDAビルドはCUDA Toolkit 11.3のWindows NVRTCを使っています。
+- Windows検証時のPythonは3.12.14、Nodeは24.19.0。MacもまずPython 3.12系・Node 24系で合わせます。
+- Windows PCは常時起動してリモート利用可能ですが、他の作業への影響が出たことが移行理由です。編集・共通テスト・Metalの開発と測定はMacを主にします。
+- Windowsで常時GPUテストや自動フルビルドを設定しません。CUDAに関係する差分のみ、必要な短いケースを明示的に実行します。大きなビルド、PTX初回JIT、長時間の性能測定は空き時間を確認します。CPUのプロセス優先度だけでGPU競合を解消できるとは扱いません。
+
+## GitHubと保存範囲
+
+- リポジトリ：`https://github.com/edommoner/nikke_tools`
+- 作業ブランチ：`codex/mac-portability`
+- Draft PR：`https://github.com/edommoner/nikke_tools/pull/1`。mainへは未マージです。
+- 初回アップロード：`6f3f4f0`。最初のMac移行準備：`24e9d90`。この文書などの後続変更も同じブランチにあります。最新の状態はブランチHEADで確認してください。
+- `research/upstream/`、`research/ports/`、`research/staging/`、CUDAキャッシュ、`.tools/`、`.venv/`、`local-data/`、認証情報はGit対象外です。
+- 過去版の保存コピーはWindows側にあります。過去版を必要とする比較スクリプトは、GitHubからクローンしただけでは実行できないものがあります。必要な保存版だけ移すかWindows側を参照してください。
+- 所持・育成・編成・計算履歴は画面の「保存・書き出し」でJSONへ保存して移します。セッションJSONは個人データとして扱い、Gitへ追加しません。Macで読み込んだ後は詳細計算をCPUへ選び直します。
+- Macからコミット／pushするためのGitの名前・メール設定とGitHub認証はMac側で行います。公開リポジトリの取得とMetal実証だけなら書き込み認証は不要です。
+
+## 確認済みのことと、まだ確認していないこと
+
+Windowsで以下を確認しました。
+
+- Nodeの軽いテスト34件、Pythonの新しいテスト3件。
+- CPU側の起動と203体のカタログ取得。これはダメージや全キャラのGPU対応確認ではありません。
+- 固定版のエンジンZIPのバージョン確認と、別環境に導入するセットアップ処理の検査。
+- Slang 2026.20の同じソースからCUDAとMetalのソースを生成できること。
+- 共通の実証入力4ケースの形式と期待値の梱包。
+
+Macでの起動、Swift／Metalコンパイル、Metal GPUでの実証4ケースの実行、速度・メモリ使用量は未確認です。この小さな実証のCUDA実行アダプターも未実装です。今回のMac移行準備ではGPUを実行していません。
+
+本体のCUDA版は別途、ABI `detail_timer_registry_v81` まで確認しています。状態領域は1部隊1,260,136バイト。共通の時計の検査はnative/PTX各8ケース、既存の周期処理17ケース・発動順25ケース・混成10部隊、軽い検査112件、通常APIの所持・装備・一時育成変更も確認済みです。標準条件のコンパイル受付は187/203体で、全キャラ・全装備・全条件の数値検証済み件数ではありません。
+
+v81の時計の索引拡張案は、状態領域を1,016バイト減らしましたが通常8部隊のGPU中央値が約3.8%遅くなったため採用せず、機能確認版へ戻しています。記録は `research/timer-registry-checkpoint.json` と `research/timer-registry-index-experiment.json` です。
+
+## 最初に読むファイル
+
+| ファイル | 役割 |
+| --- | --- |
+| `gpu/portable_probe.slang` | 小さな共通GPUコア。整数演算、対象世代、時計の登録世代を扱う実証。 |
+| `tests/fixtures/portable-probe.json` | 手書きの共通入力・期待値4ケース。CPU実行の途中状態をGPUへ渡していません。 |
+| `scripts/build-portable-probe.py` | 同じソースからCUDA／MSLを生成。生成だけではGPU実行済みになりません。 |
+| `scripts/verify-portable-probe.py` | 共通の梱包・結果比較。Metal実行は`--backend metal`で明示します。 |
+| `scripts/run-metal-probe.swift` | Metalの起動・転送だけ。ゲーム計算ロジックは置きません。 |
+| `scripts/setup-engine.py`・`setup-slang.py` | 別環境への固定版セットアップ。Slang配布物はSHA-256で照合します。 |
+| `app/detail_effects.cu` | 現行本体のCUDA計算・状態・イベント実行器。共通GPU本体への切り出し元。 |
+| `app/detail_gpu.py` | 詳細計算の命令生成、入力検査、CUDA実行と出力の復元。 |
+| `app/effect_spec.py`・`lifecycle_specs.py` | 効果の分類と共通ライフサイクル。 |
+| `app/timer_registry_runtime.py` | CPU参照側の共通時計。周期維持更新と再登録・再生成を区別。 |
+| `docs/adding-effects.md`・`docs/timer-registry.md` | 新しい効果の追加方針と時計の規約。 |
+| `docs/summon-source-next-steps.md` | 対象別の継続ダメージ、予約着弾、通常の敵対象処理への未接続事項。 |
+
+## 次に進める順序
+
+1. Macで環境確認とCPU起動を確認し、共通のMetal実証4ケースを実際に実行します。失敗ならSwift／MSLの診断から修正します。入力検査だけの成功へ置き換えません。
+2. `research/portable-probe-metal.json` の`passed`・`gpu_execution_verified`・`backend`・GPU名と全4ケースの出力を確認します。`production_runtime_connected: false`はまだ正常です。
+3. 本体の数値規約を整理します。約2,700行の現行CUDA本体は広く`double`を使用し、Metalは`double`非対応です。単純なfloat化や誤差判定の緩和で対応済みにしません。時刻・閾値・ゲージ・丸め・累積・指数計算を分け、整数／固定小数点／高精度演算の必要範囲を決めます。実証の整数演算成功はこの問題の解決を意味しません。
+4. 共通コアへ実際の状態更新・イベント順・対象世代・時計を順に移し、同じ期待値を両GPUに使います。生成されたCUDA／MSLを手作業で別々に編集しません。共有状態とバッファー配置も確認します。
+5. 小さな実証のCUDA実行部分を薄いアダプターとして用意し、Windowsが空いているときに必要なケースだけ比較します。大きな本体の再ビルドや全キャラの検査は、その前提が変わった場合に限定します。
+6. 本体の実編成・装備・一時ステータス変更を含めた正しさと速度を測り、通常画面のMetal計算へ接続します。その後も残るキャラ・特殊効果・敵世界の対応を進め、全体の効率化を見直します。
+
+現行の未完了項目には、受領者別の継続ダメージの時計、予約着弾の対象世代、通常の自動照準・召喚への攻撃経路、物理的な射撃単位の同時命中、残りキャラ・装備・効果の組み合わせがあります。標準条件で通ったことだけでこれらの受付を開きません。
+
+## Mac側の作業開始時に渡す依頼文
+
+```text
+このリポジトリのdocs/mac-migration.mdとdocs/mac-handoff.mdを読み、MacBook M5・24GBで続きを進めてください。まず環境確認、CPU起動、共通SlangソースのMetal実証4ケースを実行し、実際にGPUで動いたことを確認してください。
+
+最終目標は全キャラ・全特殊効果のGPU対応です。CUDA版とMetal版の計算本体・効果定義・テストを二重に実装せず、共通コアと薄いバックエンドへ分けてください。Metalのdouble制約への数値設計は未解決です。CPUの不具合へ無理に一致させず、発動順・対象世代・丸めを仕様に基づいて確認してください。
+
+Windows PCは他作業に影響が出ているため、常時のCUDAテストや自動フルビルドは設定せず、必要な短い検証を明示的に実行してください。Metal実証の成功だけを、本体移植や全キャラ対応の完了として扱わないでください。
+```
+
+## 2026-10-21 v89完了追記
+
+上記v89依頼は完了・Mac監査成功です。固定61c7a884のCUDA32はCPU13＋GPU禁止のnative10/48段階照合後、独立180秒/BelowNormalの1回で92.3588146秒、exit0。3JSON計50092bytesを取得し、source/name/bytes/SHAと共通監査器の全fingerprint・50 phase・元環境保持・残存0を確認しました。旧590/通常4682再実行0、GPU retry0です。Windows turn01a15b67-4fba-7982-b0ad-033e5cf20c5aはcompleted、cursor130、idle。再実行依頼は不要です。
+
+現在の10ケースはbody0/gen1にcounterをbindするliteral resource/event検証です。他Actorへのbind、実着弾、target条件/child contextは次の段階で実証します。実戦測定ではbody/part/addの全てでcounter通知がlifesteal前でした。以前のbody/partをlifesteal後とした記録は誤りです。addのclipped damage、body/partの元damage、part全体のHP更新と個別callbackの順を検証してください。全変種0/203・通常CPU/public false・legacy unexplained Metal14c8e2e finding OPENを維持します。
+
+## 2026-10-21 Claudeレビュー反映・再突入接続
+
+最新の開発手順は`docs/gpu-development-cli.md`、根拠は`research/portable-review-development-checkpoint.json`を参照してください。共通CLIの開発package・保存Metal replay・sealを使用しています。recipient6は元のrawを再比較して成功（GPU再実行0、原失敗保持）、再突入/instant対象13は修正版Metalでnative完全一致、readiness v4は81（native60・拒否21）で成功しました。旧75のinput/native/output指紋と全raw byteも完全一致です。CPU共通テスト610件が成功しています。
+
+味方全体表記のburst_reentryを発動者に一度だけ記録する規約でworld受付へ接続しました。literal名・B3発動済み対象のbuff/instantには、存在・不在・重複・コロン付き名・発動前後の共通ケースがあります。静的packingは173/266、base122/203へ進みましたが、全キャラ実戦認定0と通常画面CPUは維持します。未対応分類はstatとrecipientを構造化reasonで分離しました。
+
+Windows v105はPTX生成後のmodule load、v106はCUBIN生成前のNVRTCで180秒に到達し、どちらもkernel0です。v106のmissing14の原因は不明で、元の失敗判定は変更しません。終了監査はJobを明示終了→子/子孫終了を5秒以内で待機→post観測→handle closeへ修正し、ピークメモリを記録します。Macの故障注入は成功していますが、実WindowsのGPU0 timeout/smoke検査が次です。追加の重いCUDAコンパイルは先行させません。CUBINはELF確認前にキャッシュへ書かないよう修正しました。coldコンパイルと実機キャッシュ効果は未解決です。
+
+次は短いWindows制御検査、CUDA coldコンパイルの資源/設定切り分け、stun/target_stunned等の未対応効果、対応済み実編成の通常結果への接続です。全面的な実行器再実装や、時間枠を増やしたWindows再試行は行いません。
+
+### Windows制御検査v108
+
+v107はCPU81/native60の後、テスト用の子起動直後に失敗し、smoke未到達でした。原失敗を保持しています。テスト起動をCLIと同じbase Python・launcher環境除去へ合わせ、wrapper診断を残したv108は単独3件とCLIのCPU69件が成功しました。実Windowsの子孫付き2秒timeout検査と外側smokeで、終了後の空Job・peak memory取得を確認しました。smoke4.841秒、missing0、元HEAD/status保持、NVRTC/driver load/GPU0です。サービス識別unverifiedのため環境保持全体は未認定です。新機能のCUDA計算・coldコンパイル・速度は未検証のままで、次は資源と生成/最適化設定の切り分けです。詳細は`research/portable-world-v107-control-sanitized.json`、`research/portable-world-v108-control-sanitized.json`を参照してください。
+
+## 2026-10-21 stunとコンパイル専用CLI
+
+最新根拠は`research/portable-stun-cache-development-checkpoint.json`です。stun/免疫/対象条件の36正例＋拒否10は修正版Metalでnative完全一致。readiness v5の81も旧81と全input/native/output・raw一致です。CPU631件成功（Windows専用1件はMacでskip）。初回stun46ではrankの早期消費とenemy倍率への混入を発見し、原失敗を保持したまま、状態presenceを数値バフ集計から分離して解消しました。B1/B2の既定候補はstun中も保持して待機し、typed敵の条件は現在対象の文脈・世代を使います。既存canonical参照とbinary64/normalizerは変更していません。静的packing180/266、base126/203ですが通常CPU・全キャラ認定0です。
+
+新しい`compile` CLIは同じNVRTC/compiler cacheを使い、sealed sourceと生成指紋を検査後、driver/kernelを禁止して最大60秒・既定2GiBのJob上限で実行します。異なるptxasレベルはcache keyを分け、後続`run --require-cache`はmissでNVRTC program作成前に停止します。CUBIN速度・実CUDA数値は未検証です。次のWindows依頼は、メモリ上限の実WinAPI CPUテストとcompiler/CLIのCPU故障注入を先に行い、成功時だけO1のGPU0コンパイルを1回に限ります。以前のv105/106/107の失敗は変更せず、同条件retryやtimeout延長は行いません。
+
+## レビュー後の分類・実編成CLI・NVRTC引数
+
+未対応triggerのvalidatorはtiming/conditionと不成立のdescriptorを構造化して返します。inventoryは117分類となり、旧113分類で混在した演算を分離しました。全266profileのpacking可否・入力SHAは以前と同じで、180/266、base126/203です。同じcodeの診断文集合も保持します。
+
+共通CLIの`roster-regression`は実編成18入力を全定義のままMetal/native比較し、完全一致後にsealしました。初回のsandboxによるSwift module cache拒否はGPU起動前の原失敗として保持し、transport修正後の別package/captureで検証しています。通常画面CPU・全キャラ認定0は維持します。
+
+Windows v109はCPU19件と実Jobメモリ上限検査に成功し、本体compilerは結合形式の`--ptxas-options=-O1`を受け付けず約9.95秒で終了、kernel0でした。実DLLの`nvrtcVersion`は11.3です。その後、tiny kernelで別文字列の長名/短名2構文を各1回だけ確認し、約4.74秒、driver/context/kernel0、missing0で成功しました。共通compilerは`["--ptxas-options","-O1"]`へ修正しました。本体O1の速度・CUDA数値一致は未確認です。CUDA context破棄失敗は、本来の実行失敗へnoteとして付け、原因を隠さないようにしました。詳細は`docs/claude-architecture-review-2026-10-21.md`と`research/portable-review-followup-checkpoint.json`を参照してください。
+
+## 残りskill cooldownと集約回帰
+
+`docs/portable-skill-cooldown.md`、`research/portable-skill-cooldown-development-checkpoint.json`を参照してください。共通kind22は残り時間だけを調整し、元のperiodを保持します。初回23の巨大負値反復で見つけた時計境界を修正し、Inf/NaNの非発火と復帰を含む25入力がMetal/native一致しました。ソフトウェアbinary64やnormalizerを緩めていません。GPU前のCPU参照で見つけた配列targetのhash検索例外は、`enemy_recipient_runtime`でnative resolverへの委譲を維持する型guardへ修正し、独立テストで確認しています。protected4ファイルとupstreamは変更していません。
+
+`regression`149は既存readiness81・stun46・実編成22を元の比較器のまま集約します。全149入力がMetal/native一致し、旧145入力は入力・全raw出力とも完全一致、追加センチ4入力も成功しました。現在のsealed suiteはskill-cooldown25とregression149で、古い個別goldenは履歴としてsource staleを保持します。CPU645件成功（Windows専用1件skip）、静的182/266、base127/203、通常CPU・全キャラ認定0です。
+
+Windows v110はCPU20件成功後、修正argvでO1 compilerを1回だけ実行し、全体41.20秒／NVRTC30.11秒、ptxas Memory allocation failureで終了しました。Job2GiB、post空、missing0、driver/context/kernel0、artifact0、再試行0です。サービス識別とメモリ上限との因果は未確定です。次はMac上の生成CUDA／保存PTXの構造とcompile資源の診断、残りのheal_overcharge_store・trigger_count_reduce・trigger_hit_crit等へ進みます。Windowsで同じ巨大compileを繰り返したり、メモリ上限や時間枠を自動で拡大しません。
+
+## 回復貯蔵・実編成受付・保存コンパイル解析
+
+`docs/portable-healing-storage.md`と`research/portable-healing-storage-development-checkpoint.json`を参照してください。共通stat74／protection kind9の回復貯蔵を追加し、既存の身体回復・lifesteal・被ダメージ・HP drainへ接続しました。maxHP付与は回復と区別します。初回実編成184のAnchor／Sora4拒否は原記録を保持し、C_STATIC条件と状態解除の受付接続を修正しました。拡張regression235（native188＋拒否47）はMetal全件一致、旧210の入力・全raw・nativeも一致、明示seal済みです。個別suiteの古いgoldenは自動追従させず、現在の通常入口はregression235です。CPU659件成功（Windows専用1skip）、静的187/266・base130/203、通常画面CPU・全キャラ認定0です。
+
+共通CLIに`compiler-stats`と`ptx-stats`を追加しました。保存byte／既存receiptを検査するCPU解析で、NVRTC・GPU0。PTXの仮想register／local宣言を実レジスタ数やcompilerメモリ原因へ換算しません。旧Windows解析器が拒否した`%`なしregister名を含む正負例をCPU検査しました。原解析失敗は別JSONへ保持しています。新版CUDAの数値一致は未確認で、同じ巨大compileは再実行していません。次の未対応上位はprojectile_dmg_pct・trigger_count_reduce・trigger_hit_critです。
+
+保存済みv105 PTXのWindows解析は共通CLIで成功しました。CPU3件成功、解析約1.16秒、BelowNormal・5秒上限、NVRTC／driver／context／GPU0、原PTX・cache・旧失敗保持。188関数の仮想宣言を集計し、entryのlocal宣言164,296byte、dispatch9,496byte、weaponFrameBodyは仮想register28,295でした。物理register／compilerメモリ原因の証明ではありません。`research/portable-v105-saved-ptx-stats-sanitized.json`はWindowsの構造化報告であり、Macへ原PTXを転送して独立監査したものではありません。次のCUDA比較仮説は武器frameの共通関数境界やRuntimeのprivate状態量を対象にし、同じ巨大compileの再実行はしません。
+
+## 発動回数減少とregression287
+
+`docs/portable-trigger-reduction.md`と`research/portable-trigger-reduction-development-checkpoint.json`を参照してください。buff版trigger_count_reduceはcanonical REDUCER_MASKの転置を使い、caster・生timingの一致と、resident順の固定値合計→整数化→閾値最小1を共通Slangで処理します。スタック／受益者／runtime条件による再フィルターを入れません。非武器MODEのtagged unionを使いstrideは維持、既存status／stack metadataとの共存も検査しています。
+
+最初の287で見つけたフルチャージ2入力の時計不整合は、native静的正規化へ入力各3wordを合わせて修正しました。native全指紋・計算本体・比較器は不変、元失敗は保持。修正版287（native232＋拒否55）がMetal全件一致し、旧235と原失敗中の成功285は入力・全raw・native同一です。新goldenを明示sealし、現在の通常CLI入口はregression287です。新しい2キャラの全定義実編成を各3／30秒で追加。CPU665成功・Windows専用1skip、静的189/266・base132/203・分類114、通常CPU・全キャラ認定0。今回はWindows実行0で、CUDA数値一致は未確認です。次はtrigger_hit_crit等と、projectile_dmg_pctのCPU基準にも欠ける意味定義、および保存PTXに基づく共通関数境界のコンパイル診断を進めます。
+
+## 名前付き命中context・強制スキル使用・regression327
+
+`docs/portable-skill-critical.md`と`research/portable-skill-critical-development-checkpoint.json`を参照してください。predicate28は期待値のcaster/name別skill critical累積と、通知ごとのFrame contextへ接続しました。多段の率snapshot、入れ子・兄弟からの復帰、通常攻撃式、deferred B3の通知なし経路を区別します。nativeの実際のrng_acc辞書も比較します。
+
+最初の320ではユリア愛用品1・2段階の計4実編成が拒否され、1件の診断でkind33 force_skill_useのactor-pool受付不足を確認。既存共通強制使用を受付へ接続し、maskの範囲／caster／自己参照と、強制先の条件を検査しました。every時計はresetしません。元の失敗と診断は保持。修正版327（native262＋拒否65）はMetal全件一致、旧287と元失敗中の成功316はinput／全raw／native同一。明示seal済みの通常CLI入口はregression327です。CPU671件（1skip）失敗0、静的191/266・base132/203・分類113、通常CPU・全キャラ認定0です。
+
+保存生成コードを使うcompiler-statsに--callerを追加し、最大3段・noinlineで止まる字句上の呼出関係を出せます。現ソースでもeffectiveCharge→rawEffectiveChargeの未注釈境界を確認し、次のCUDA改善候補はrawEffectiveCharge一箇所です。共通境界変更をMetal327で数値・全raw検証してから、必要な60秒／2GiB compiler-only検証1回を検討します。現在は新版CUDA数値一致未確認、今回Windows0で、同じ冷コンパイルを再試行していません。
+
+## rawEffectiveChargeの共通関数境界候補
+
+rawEffectiveChargeへ共通noinline属性だけを追加しました。変更前1180f97と生成CUDAの差分は該当1属性だけで、厳密normalizerは変更していません。固定327入力のMetal/nativeは全件一致し、input／全raw outputも旧327と同一です。新しいsourceを明示sealし、現在のregression327はresearch/portable-world-charge-boundary-regression-short-expected.jsonを使います。CPU事前検査の登録9群も成功しました。旧671件全体のCPU回帰は1180f97の証拠で、今回再実行したという意味ではありません。
+
+research/portable-charge-boundary-development-checkpoint.jsonが最新根拠です。生成CUDAの呼出関係上でrawEffectiveChargeがnoinlineになったことは確認しましたが、compilerメモリ／速度の改善はまだ未確認です。Windowsはsealed packageでCUBIN O1・60秒・Job2GiBのcompiler-onlyを1回だけ行う予定です。driver/context/kernelは使わず、再試行・上限拡大・自動fallbackはしません。過去v110との比較はsourceが違うため、この1属性だけの因果として扱いません。
+# 2026-10-24 実戦時計の型付き投射物Metal実証
+
+最新は`docs/portable-destructible-battle.md`/`research/portable-destructible-battle-checkpoint.json`。共通CLI `destructible-battle`がMetal20(native10/拒否10)・独立seal成功。通常と同じ最新entry/単一WorldSchedule/同じdamage Frameを使い、CPUイベント列なしで出現世代・物理攻撃混在・名前付き子・128弾・空対象budget保持を照合。GPU0.061秒/pipeline64.809秒、Runtime138952不変・新entryだけ出力1048576wordへ拡張し専用領域へ配置。最終不変package1ba39cad...はCPU119(skip0)/native10成功、実raw5blockの破損45通りを検出。通常492もCPU288/native378/Metal/独立seal成功し、旧1547698176byteを直接比較して全一致、生成CUDA/MSLも正規化前から同一。旧goldenは保持し、実証後だけ新golden登録。初回Swift guardのGPU前失敗、次の2回の名前付き子拒否（flag受付＋最新consumer入口の漏れ）、package中source編集の停止は保持/同一claim retry0。全266profile同一、packing245/base185/残20・全キャラ0/UI CPU/未達。Windows接続取得失敗で新run依頼0。次は実戦typed counter/子context・通常cleared node共存、元の全定義profile、個別DEF/投射物/盾倍率。CUBIN O0短時間実証は接続復旧後のみ。以下のCPU段階は履歴。
+
+# 2026-10-24 実戦時計の型付き投射物CPU契約
+
+最新の追加は`docs/portable-destructible-battle.md`と`research/portable-destructible-battle-cpu-checkpoint.json`。通常native simulate所有のBossScriptへ数量を接続し、別時計を作らず3世代再出現・普通の子/物理攻撃保持・再入ID・例外復旧をCPU9契約で確認。fresh共通CLI packageのCPU72(skip0)/既存native17成功、既存Metal golden保持、新GPU/Windows追加0。実schedulerのMetal接続は未完了。共通packetへCUBIN O0 compile-only stageを追加、同じ60/180秒・2GiB・BelowNormal/Job・driver/GPU0制約を保持。Windows実行は未依頼。7プロセス終了についてユーザーは手動終了/再接続/再起動なし・ゲーム/動画利用の可能性と回答。因果不明/保全失敗は維持し、利用状況から原因を断定しない。次はSlang world同期→既存FrameのMetal実証。全キャラ0/UI CPU/目標未達。
+# 2026-10-24 body蓄積・固定量放出と観測器の高速化
+
+最新は `docs/portable-destructible-body-accum.md` と `research/portable-destructible-body-accum-checkpoint.json`。共通CLIの `destructible-body-accum-retention` 49入力（native40／拒否9）がMetal全件一致・別process独立seal済み。旧31のinput／native／全130,023,424byte rawは同じ配置で完全一致しました。HSI6の明示policyだけで既存のbody着弾→吸血→蓄積と、pool take→整数化→landing queue→live盾への固定量放出を接続します。固定量へダメージ式・盾倍率を再適用しません。整数化後0もhit creditを消費します。元トロニー全定義はbody蓄積・body放出を実証し、盾への固定量放出は独立した宣言入力です。元ドロシーは貫通未対応として全定義のまま拒否を維持します。
+
+native observerの全Python呼出し監視がcode objectをhashしていたため、監視対象codeの強参照を保ってidentity検索へ変更しました。変更前の14編成とnative全指紋は同一。初回事前照合153秒に対し、新版14編成の準備・照合は約21秒（工程・負荷差があるため厳密な速度倍率ではない）です。GPU4.66秒／初回PSO65.80秒と、回帰49のGPU10.08秒／cached PSO0.003秒を分けて記録します。保存raw4blockの破損24通りと既存蓄積CPU参照10検査も成功。旧HSI5の生成CUDA／Metalは正規化前の全byte一致。保護CPU4ファイル・pinned upstream・binary64・strict normalizerは不変です。
+
+最終小型packageは1576 files／7,218,467byte。CPU60件83.570秒・native40件40.598秒、共通制御372件（Windows専用1skip）に成功し、実行後の全payload SHAとcheckoutとの一致も確認しました。旧golden／失敗／claim／rawは保持し、単独18は開発用のままです。次は共有回復の受益者receipt、貫通、parts／coords／ADD混在、同期子放出境界を優先します。packing245/266・base185/203・残20 model gap・全キャラ認定0・通常UI CPUは維持。Windows追加操作0、現full battle CUDA実機とcache性能は未確認。過去7プロセス終了はユーザー操作なし・game/video利用の可能性だけでは原因を確定できず、unknown／保全falseを維持します。
+
+# 2026-10-24 共有回復の受益者監査・保持61
+
+最新は `docs/portable-destructible-body-heal-share.md`／`research/portable-destructible-body-heal-share-checkpoint.json`。元レム・ミルク・RL2人と元ノワール／元トロニーの全73定義×3／30秒・HP／hit／破壊の12編成を追加。既存共通Slangの共有Frameを使い、recipientごとの実clamp前後HPを既存observerのcontext managerで観測します。初期1/3とburst後2/8対1/8、盾のbody吸血抑止、蓄積共存を検査。回復元のHP差へ誤帰属せず、5人のquery／最終累積healingを厳密比較します。実raw2blockへの24破損と誤帰属・audit省略を拒否。故障注入で見つけた最終HP欄の未照合も、同じnative最終queryへのHP／maxHP／HP%／DEF照合で修正しました。実body clamp内の例外後にprofile・simulate・damage/heal scopeが復元することも検査しています。
+
+共通CLI `destructible-body-heal-share-retention` 61入力（native52／拒否9）がMetal全件一致・独立seal成功。旧49の全input／native指紋と全205,520,896byte rawが同一indexで一致。GPU sourceと生成CUDA／Metalは正規化前から前回と全byte同じで、Slang追加0、GPU10.170秒／cached PSO0.003秒。CPU71件87.796秒／90秒枠、native52事前照合72.304秒。独立sealのみ実測に基づくCPU90秒を明示（GPU／Windows枠変更なし）。最初の12入力は容量再検査でGPU前停止、rawをbyte/SHA/inode保持で疎化して未消費claimを使った別captureで実行。原失敗は保持しています。
+
+最終compactは1583 files／7,275,395byte。CPU71件89.150秒、native52件72.096秒、共通制御372件（Windows専用1skip）成功、全payload SHAとcheckoutとの一致も確認済み。単独12は開発用、旧goldenは履歴のまま。Windows追加操作0、現full battle CUDA／cache実測は未確認、旧7プロセス終了原因unknown／保全falseを維持。packing245/266・base185/203・残20 model gap・全キャラ0・UI CPU・目標未達です。
+
+次の効率化は、共通adapterのnative providerを既存ParentOraclesへ直結して同じ親processの事前値を通常比較で使うこと。現retentionのcompareは別adapterへ委譲するためprovider検出が通らず、事前計算と通常監査の約72秒ずつが重複しています。独立seal／保存結果監査をfreshに保ち、input/provider/valueのstampと全比較項目を維持したCPU故障注入・保存raw照合で進めてください。未対応20分類を見直し、貫通・元ドロシー／parts・coords・ADD混在と共通CUDA compile負荷も優先します。
+
+# 2026-10-24 共通比較器の親process再利用と未対応20分類の再確認
+
+最新は `docs/portable-destructible-parent-oracles.md`／`research/portable-destructible-parent-checkpoint.json`。共通body比較を1か所へまとめ、retention61のcompareからnative_referenceを直呼びすることで既存ParentOraclesへ接続。通常実行のCPU事前52編成を同じ親だけで再利用し、追加native0／拒否9／全61 Metal一致。通常比較2.051859秒（以前fresh約72秒）で、input/provider/valueのstamp・所有者・1回だけの利用・全数値比較は維持。別processのGPU禁止監査は実native52回・再利用0、75.438829秒で成功。旧61全255,852,544byteとinput/native/生成CUDA/MSLは同一、GPU/定義/core/normalizer/goldenは変更なし。今回GPU1回／Slang0／Windows0。
+
+新しい実fixture再利用2検査と既存ParentOracles13検査を追加し、CPU86件91.286秒。既存71検査約89秒に追加分があるためsuiteのCPU枠だけ事前に120秒へ設定し、GPU/compiler/Windows枠は変更していません。終了故障注入のunitが実disk不足へ先に到達したため、この模擬testだけ容量成功と2回呼出しを検証して目的のtransport失敗へ到達させます。本番storage guardは不変。compact package b58be3b...は1585 files／7,281,453byte。GPU10.283秒・cached PSO0.003秒、事前native52は72.634秒。共通制御372件（Windows専用1skip）成功、全payload SHA/checkout一致も確認済み。
+
+現sourceの共通CLI inventoryは266 profiles／packing245（base185）、未対応21 profiles／20分類、CPU戦闘/GPU0。20分類は全てreference_model_gapで、現在のtyped補正modelの通常入口への接続、受取damage splitの保留仕様、空間・cover・敵回復/弾薬等が残る。小さな全20分類・未対応profile一覧とfull report SHAをevidenceへ保存。次は既存attack_group_runtimeのopen/sealを実戦producerへ接続するmulti_hit:2/:4（니힐리스타／벨로타）のnative契約を優先。受付だけを開いたpacking増加を対応済みにしない。CUDA compile負荷と短いcached実機検証も未完。全キャラ0/UI CPU/全目標未達、旧Windows7プロセス終了原因unknown/保全falseは維持。
+
+## 2026-10-25 明示cover／holdの共通GPU実行
+
+`coordinate-manual`169（native151／拒否18）はM5 Metal照合・独立seal済み。旧136全962592768byte・input/native指紋を保持。新規25worldで有限／None／時刻0、部分装填取消、mode auto／charge、camera preempt、cover_disabled、被弾、後から予約したhold、ゼロ射撃・全MT保持を検査。初版GPUは23差分を保存、CF領域clear後の初期化とbase autoの内部phase／見えるchargingの分離で解消。実GPU計2／同claim retry0。CPU112／control428（Win1skip）、Runtime138952byte・247fieldと入出力容量不変。GPU.484183秒／初回PSO91.796496秒。共通CLIがstrict SOURCE不一致を準備前に拒否し、fixture base再利用で入力生成の重複を削減。保存済みMetal cacheのfile probeはhitだがwarm GPUは再実行していない。Windows新要求0・現CUDA未取得。
+
+最新根拠は `research/portable-coordinate-manual-checkpoint.json`。現worktree `/private/tmp/nikke-runtime-resident`、branch `codex/runtime-resident`。復旧点は固定package `/tmp/nikke-manual-develop-v8` と成功capture `/tmp/nikke-manual-metal-v2`、失敗 `/tmp/nikke-manual-metal-v1`。rawは削除せず4KiB疎化で全byte/SHA/inode保持。次は条件付きcover/reload/burst policyとcover_all、post-delay中のcover・mode期限、named listenerなしの数値cache／reload速度条件、down／revival・healing storage合成を優先して契約→共通Slangへ進める。明示25worldから全入力・全元定義の対応を推定しない。元canonical7ファイル不変、全キャラ0／model gap20／UI CPU／目標未達。
+
+## 2026-10-25 条件付きcover／reload方針の共通GPU実行
+
+`coordinate-policy`196（native171／拒否25）はM5 Metal全件一致・独立seal済み。本人FB coverと4リロード方針、5種類のanchor、if_dry、stage gate、優先度、camera preempt時の一度だけのanchor復元を共通Slangへ接続。既存aimのanchor／装填総時間／次FB予測を共有し、CPUで操作時刻表を作らない。20新worldを追加し、旧169全1,196,163,072byteとnative／input prefixを保持。入力+128word／出力+384word、Runtime138952byte・247fieldは不変。共通readback器はcase境界をまたぐhashと短い末尾blockを照合する。静的burst cooldownの正本との矛盾は入力準備で拒否する。
+
+固定package `/tmp/nikke-policy-develop-v2`、成功capture `/tmp/nikke-policy-metal-v2`、最終配布 `/tmp/nikke-policy-final-compact-v1.zip`。CPU116件141.626秒、native171事前98.824秒。GPU0.644926秒／初回PSO91.377002秒。初版 `/tmp/nikke-policy-metal-v1` は旧ソース逆変換のschema／Swiftの不足をCPUで検出し、GPU前停止。修正版だけGPU1回／claim retry0。sealとcompiler証明書は別processのGPU禁止監査。rawは全byte/SHA/inodeを保った4KiB疎化で約1.35GBを回収し、削除していない。生成cache必須検査はpaired CUDA／Metal出力をcompiler0で再利用したが、CUDA実行・warm cache性能は未証明。
+
+詳細は `docs/portable-coordinate-cover-policy.md`／`research/portable-coordinate-policy-checkpoint.json`。現worktree `/private/tmp/nikke-runtime-resident`、branch `codex/runtime-resident`。旧manual169単独のcertificateは履歴としてexact inverseを維持。新方針の証明を旧入口の対応済み認定へ自動転記しない。次はcover_allと強制burst action producer、post-delay／zero-listener／knockdown・回復貯蔵の合成、mixed actor／元定義を優先する。Windowsは既存接続の送信APIがidleを開始できず、新規GPU要求0、現CUDA結果未取得。全キャラ認定0／20 model gap／UI CPU／目標未達を維持する。
+
+最終compactは1,832 files（full3,173）で全選択byte一致・checkout SHA一致。共通制御433件成功（Windows専用1skip）、frontier5件と静的cooldown負例1件も成功。最新inventoryは245/266 packing・base185/203で、全キャラ戦闘認定0を保持。
+
+## 2026-10-25 スクワッドfocus／全体遮蔽の共通GPU実行
+
+最新は `coordinate-squad`222（native189／拒否33）、`docs/portable-coordinate-squad.md` と `research/portable-coordinate-squad-checkpoint.json`。focus／cover_allのauthored literalを共通Slangへ接続し、burst tick後・カメラ調停前に処理する。focus解除とcover_allが同時でも旧ctrl_ownerを除外する順序をCPUで確認。全体遮蔽はカメラ維持を要求しない。武器変更・遮蔽禁止・部分装填・個別sequence／方針との18worldを追加。Runtime138952byte・247field／出力1769856wordは不変、方針padding48wordへ明示状態を割当て、入力+136word。
+
+固定GPU package `/tmp/nikke-squad-develop-v1`、元capture `/tmp/nikke-squad-metal-v1`。CPU121件151.241秒（batch151.537秒）／native189事前114.846秒。GPU0.661187秒／初回PSO92.310655秒。方針＋squad合成1件だけ旧host比較器の再packが拒否。原失敗は保持し、比較器を共通policy-state関数へ分離。修正版 `/tmp/nikke-squad-develop-v2` ではGPU source・全input・全native基準が厳密同一。`/tmp/nikke-squad-replay-v2` でGPU禁止replay全222一致、別processの独立sealも成功。元のstorage停止 `/tmp/nikke-squad-replay-v1` も保持。旧196全1,387,567,104byte／native／input prefixと固定の空拡張を保持し、実GPUは計1回・retry0。raw2本は全byte/SHA/inodeを維持した4KiB疎化で保持。13個の完了済みsource-package展開だけをtar.gzへ全復元テスト後に移し、receiptと元zipを残している。必要な古い展開はreceiptのtarを復元して再検証する。
+
+最終compact `/tmp/nikke-squad-final-compact-v1.zip` はfull3181→1840 files、全選択byteとcheckout SHA一致。共通CLIとblock検査器の入力拡張契約一覧を1か所にまとめ、二重parserの不一致を回帰検査した。新profile専用compiler-source証明書と現CUDA実機は未作成／未検証で、親policyの証明を代用しない。生成cacheのrunはhit／compiler0だがCUDA cache性能実測とは区別する。Windows新要求0。全キャラ0・20 model gap・UI CPU・目標未達。
+
+最優先の追加境界は、mode duration=.3とsquad t=.3が同じtickの操作。CPU観測ではpump前に `_in_weapon_change=True` でowner0を除外し、t=.5ではFalseで含む。現18worldにはこの同時境界を入れていない。`gpu/event_runtime.slang::clearMode` のlogical modeと、次char tickまで残るphysical状態を同一視しない。physicalModeIndex=-2はrevivalでも使うため一律判定へ置き換えず、native `_tick_weapon_change` の終了分岐を確認し、共通stateを保持・比較する。次にburst delay／wait_own_cooldown／patternと次FB予測への接続（`docs/portable-burst-control-next.md`）。効率化ではcoordinate adapterの比較を共通observed経路へまとめ、既存ParentOraclesの同じ親だけの再利用を検討する。独立auditはfreshのまま保つ。
+
+## 2026-10-25 キャラmode状態・装填callbackからのmode進入
+
+最新は `coordinate-squad-mode`251（native213／拒否38）、`docs/portable-coordinate-squad-mode.md`／`research/portable-coordinate-squad-mode-checkpoint.json`。mode effect満了・弾数終了・トグル解除後も次の生存・非気絶char tickまで残る `_in_weapon_change` を5flagで保持し、全体遮蔽と調停前のcover/reload要求で共有。強制focusのownerはchar tick内でmode終了後すぐ方針へ入れる。気絶・復活、装填完了からのmode進入・待機の24worldと全pumpの2×64bit指紋・最終flagsを比較する。既存revival handler29をこのsourceへ接続。Runtime138952byte・247field／入出力サイズは不変、wire v2の固定markerと既存出力bankを使い、CPU操作表を入力しない。
+
+初版 `/tmp/nikke-squad-mode-develop-v1`／`/tmp/nikke-squad-mode-metal-v1` はCPU125検査159.353秒・native209事前122.209秒、247中246一致。装填完了callbackでmodeへ入る時、CPUはそのフレームのcover再判定を経ず `_tick_weapon_change` を開始するため、GPUにt=.31666666666666665のmode射撃とteam2通知が不足した。修正版は共通prepareWeaponFrameでこの経路を識別し、同じフレームの進入待機・shot limitを処理する。計算・正本の比較対象を削らず、4合成worldを追加。
+
+修正版 `/tmp/nikke-squad-mode-develop-v2`／`/tmp/nikke-squad-mode-metal-v2` は251全件一致。CPU正本・packingの旧247全fingerprintは不変。差分8検査13.200秒に選択し、全213 native事前123.470秒・全251 GPU比較は維持。初版の固定125検査も保持。GPU.714553秒／初回PSO91.490106秒。旧222全1,571,632,128byteと、初版で成功した246全1,741,538,304byte／input・nativeを保持し、装填進入1件のraw変化を明示。新Slang各1回の実GPU計2／同claim retry0。raw2本は全byte/SHA/inodeを維持して4KiB疎化。16個の古いsource-package展開だけを全復元テスト後に圧縮し、元zipとreceiptを保持した。
+
+`seal --compiler-certificate PATH` を追加し、同じGPU禁止fresh監査からgoldenと専用full-source証明を作成した（`docs/portable-joint-seal-certificate.md`）。既存pure certificate関数を再利用。filtered／probe、manifest変化、package・source・計算不一致、既存／同一出力を拒否し、従来の単独sealと既存certificate操作を保持する。23 CPU検査と実251入力で確認。新証明は専用compiler aliasを準備するが、CUDA compile/link/cache/GPU/resourceの成功にはしない。
+
+最終 `/tmp/nikke-squad-mode-final-compact-v1.zip` はfull3189→1832 files、全選択byte／checkout SHA一致。最終control443（Windows専用1skip）、frontier5、追加の進入待機positive witness1も成功。Windowsはrev78 idleのままで新しい実行依頼0。生成cache hit／compiler0と、現CUDA実行・warm cache性能未確認を分ける。packing245/266・base185/203、未対応21 profiles／20 model gap分類、全キャラ0／UI CPU／全目標未達を維持。
+
+次は未対応分類の現consumerを再確認し、burst delay／wait_own_cooldown／patternと予測時計（`docs/portable-burst-control-next.md`）、modeと個別sequence・post-delay・healing storage／actorの合成、元定義への接続を進める。coordinate ParentOraclesの再利用では、比較時だけ収集するcreation_indicesも事前観測へ含める必要がある。比較から単にnative呼出しを抜いてobserverの値を空にしない。独立監査はfreshを維持する。
+
+## 2026-10-25 burst操作の共通policy単体実証
+
+最新追加は `docs/portable-burst-control-policy.md` と `research/portable-burst-control-policy-checkpoint.json`。共通CLI `burst-control-policy` は347正本＋34拒否の381入力がM5 Metal全一致・別process/GPU禁止seal済み。候補producerをactual/予測で共有し、delay、本人wait、安定pattern順位、明示順序、再突入/A候補とepsilon境界を共通software binary64で検査。GPU1回、0.000918秒、pipeline0.129766秒。単独probeへresident generation cache指定した初回はcapture/claim前に拒否、指定修正後に実行。CPU3、共通制御443（Windows1skip）、保護8ファイル・旧world shaderは不変。実戦のcontrol.burst受付は未接続のまま。次は同じhelperをburstFrame/coordinateAimBurstEndへ接続し、stage_open/完了周期/tick冒頭候補をGPU保持、cooldown低下・full-end通知・reload into_fbを実戦照合し、旧251全raw保持後だけ受付を開く。固定package `/tmp/nikke-burst-policy-develop-v1`、capture `/tmp/nikke-burst-policy-metal-v1`、seal `/tmp/nikke-burst-policy-sealed-v1.json`。Windows追加0、現full battle CUDA/cache性能未取得。packing245/266・未対応21profiles/20分類・全キャラ0/UI CPU・全目標未達。
+
+## 2026-10-25 burst操作を共通戦闘実行器へ接続
+
+最新は `docs/portable-coordinate-burst-control.md`／`research/portable-coordinate-burst-control-checkpoint.json`。共通CLI `coordinate-burst-control` 293入力（native246／拒否47）がM5 Metal全一致・GPU禁止の別process監査＋同じ監査からのcompiler source certificateでseal済み。delay・本人wait・pattern・明示順序を共通candidate producerへ接続し、stage-open／完了周期／tick冒頭の候補段階をGPUが保持、次FB予測と同じ候補／delayを使います。既存Runtime247field/138952byte・出力1769856wordは不変、squad bank末尾18wordを所有。入力は固定176wordを足した109968wordです。旧251入力の全1776935424byte／input-prefix／nativeを保持。初版で一致した287入力の全2031794688byteも保持し、旧289全input/nativeが同じでrawが変わったのは実際の失敗2件だけ。初版のdown時boss_log逆順と再突入kind25の受付漏れを修正し、全員cover／先行down／最後の対象のcover等4編成を追加。原失敗とraw/claimは保持しています。
+
+GPU.727458秒／初回PSO93.066173秒／CPU事前174.963130秒／通常全比較195.023022秒。初期CPU監査180秒は実測に対して不足と判断して子だけ中止、GPU禁止のsaved seal/certificateだけ上限240秒へ分離（GPU/Windows/compiler/CPU test枠180は維持）。上限分離24件、native進捗journalの成功／指紋不一致／例外13件をCPU検査。journalは実GPU前の各ケース名・番号・件数・開始／終了／例外・時間を記録し、全体の生存／成功と混同しません。単体policy381はinclude調整後も全input/raw/CUDA/MSLが旧版と全byte同じ、新goldenを別名で登録し旧golden保持。
+
+固定package `/tmp/nikke-burst-control-develop-v3`（281dd15c…）、capture `/tmp/nikke-burst-control-metal-v3-ready-v1`、seal `/tmp/nikke-burst-control-sealed-v3.json`、certificate `/tmp/nikke-burst-control-source-certificate-v3.json`。v2準備は多重個別操作fixtureの誤った前提で中止、v3初回captureは容量検査でclaim/GPU前停止。元ソース展開16件を復元・全SHA検証付きでlossless圧縮して展開分だけ除去、全rawは削除せずSHA/inode/byte保持で4KiB疎化。
+
+現inventoryは266/packing245・base203/185・未対応21profile/20reference-model-gap分類、全キャラ認定0/UI CPUで未達。Windowsは既存チャットを一度read-only確認しrev78/idleのまま、新メッセージ・新実行0、現CUDA／warm cache性能は未取得。次は明示mode-sequenceとpost-delay、healing storage／混在actorの元定義、共通CLIのParentOraclesに新adapterの通常比較をつなぐこと。独立監査はfreshのまま維持し、current-source CUDAは短い必要検証だけにします。
+
+最終compact package `c4de2a88…`（1846 files／ZIP 8,475,998byte／展開53,629,442byte）は専用12検査・全246 nativeのCPU再照合・共通制御446検査（Windows専用1skip）が成功し、終了後に全payload SHAとcheckout全byteの一致を検査済みです。最終captureは `/tmp/nikke-burst-control-final-cpu-v1` と `/tmp/nikke-burst-control-final-control-v1`、archiveは `/tmp/nikke-burst-control-final-v1.zip`。GPU追加実行はありません。
+
+
+## 2026-10-25 座標戦闘の通常比較での事前計算再利用
+
+最新は `docs/portable-coordinate-parent-oracles.md`／`research/portable-coordinate-parent-oracles-checkpoint.json`。coordinate-burst-control293の元leaf比較器を既存ParentOraclesへ接続し、実native観測で得たcreation_indicesも同じ親・threadだけで一度再利用します。全入力のfresh比較との完全一致、実native事前246／通常比較追加0／fresh246回をCPU専用CLIで確認。事前178.002秒／再利用比較8.661秒／fresh比較195.058秒。同一実行の順次測定で、独立benchmarkではありません。独立audit/replay/sealのfresh境界と元比較関数を維持し、source/input/native/provider/補助記録/所有者のstamp・原observer復元を検査。GPU/core/正本/golden変更0／実GPU追加0。全原capture artifact hash29件を終了後も再検査しました。
+
+CPU専用 `coordinate-parent-check` は原成功Metal293のread-only fixtureから新GPU claim/capture/certificateを作りません。固定実証packet `/tmp/nikke-coordinate-parent-develop-v2`、結果 `/tmp/nikke-coordinate-parent-check-v2`。最後に追加した原artifact再hash後条件は別の実29件再hashで検査し、fixture4件にはobserver復元assertを追加。Slangペアgeneration cache hit／compiler0・CUDA/MSL全byte原成功captureと同一、Metal file cache probe hit。現CUDA実行・warm GPU性能にはしません。Windowsへのcoordinate-landing40の送信を再試行したが、既存idleチャットを開始できない同じAPIエラーで未送信。再実行依頼の重複はしていません。
+
+次はmode中の明示sequence・post-delayのnative契約、healing storage／混在actorの元定義、短いcurrent CUDA検証。packing245/266・base185/203、未対応21profiles/20分類、全キャラ認定0/UI CPU/目標未達を維持します。
+
+最終compact `c325f597…`（1851 files／ZIP 8,530,451byte）は選択36件と共通制御446件（Windows専用1skip）が成功。終了後に全payload SHAとcheckout全byte一致を確認。archive `/tmp/nikke-coordinate-parent-final-v1.zip`、選択検査 `/tmp/nikke-coordinate-parent-final-tests-v1`、制御 `/tmp/nikke-coordinate-parent-final-control-v1`。GPU追加0。
+
+
+## 2026-10-25 mode中の明示操作・射撃後待機
+
+最新は `docs/portable-coordinate-mode-actions.md`／`research/portable-coordinate-mode-actions-checkpoint.json`。共通CLI `coordinate-mode-actions`313（native266／拒否47）がM5 Metal全一致・別process/GPU禁止fresh seal済み。mode中のhold／cover・同時順序・待機中cover・期限／auto／進入待機・自動装填／tap・元武器周期の非継承・遮蔽禁止を20worldで合成。正本は一時武器交換前のbase fire_modeで姿勢を処理するため、共通enterManualCoverでbase chargeのnextShotもcover時刻へリセット。Runtime138952byte/247field・入出力109968/1769856wordは不変。base SRの0.215秒とmode効果0.2秒を区別し、既存static normalizerとの不一致を新adapterで拒否。strict wire登録をopen_suiteでpacking/native前に検査し、必要監査JSONもpackage前に検査します。
+
+初16入力はsandbox No Metal deviceでカーネル前停止、claim保持。M5デバイス読み取り確認後の20入力初版にはbase待機0秒の入力矛盾があり、修正後も全20native指紋は不変。正しい入力では17一致・3実装差となり、時計リセットで全313一致。途中v4はJSON依存不足、v5はwire登録漏れをCPUで検出し作成子だけ明示中止。全原失敗・rawを保持。現rawの旧293は287全2031794688byte保持、6件のみ未射撃10秒charge武器のnextShotをcover進入時刻へ更新。全変更wordの位置・値・owner・未射撃を確認し、旧raw保持検査falseも残す。元20の17成功全120350208byteは保持、変化は実失敗3件だけ。待機配列の誤りを正本に従って直した後、native正本と比較項目は変更していません。
+
+固定GPU packet `/tmp/nikke-mode-actions-develop-v6`（55b8a8a3…）、capture `/tmp/nikke-mode-actions-metal-v6`、seal `/tmp/nikke-mode-actions-sealed-v6.json`、certificate `/tmp/nikke-mode-actions-source-certificate-v6.json`。GPU.706120秒／初回PSO93.681053秒／CPU事前186.553041秒／通常比較8.632057秒。親再利用266・追加native0、fresh監査へ再利用0。GPU実行は失敗2＋修正1、同claim retry0。共通CPU-only cache検査ではsealed Slangペアhit/compiler0・CUDA/MSL全byte原capture一致、Metal file probe hit。現CUDAとwarm GPU性能は未確認。
+
+最終compact `/tmp/nikke-mode-actions-final-v1.zip`（9954d281…／1856 files／8607700byte）は選択30・制御446（Windows1skip）成功、全payload SHA／checkout全byte一致とGPU packet source/input/native同一を確認。最終配布だけで全266nativeを再実行しない。全reader終了後にrawをbyte/SHA/inode保持で4KiB疎化。完了済みsource展開12件も全復元・全SHA検査後にlossless圧縮し、receiptは `research/coordinate-mode-actions-evidence/nikke-mode-actions-staging-archived-v1.json`、実tar/全file一覧は `/tmp/nikke-mode-actions-staging-archives-v1`。raw削除0。
+
+model-checkに最新入口の証明を追加しsource match true、inventoryは245/266 packing・base185/203・未対応21profiles/20 reference_model_gap分類を維持。全キャラ0／UI CPU／全目標未達。Windowsは既存チャットrev78 idleのままで、今回status確認1・新メッセージ/GPU0。次はmodeで中断したpending automatic reloadの通知とspeed effect期限の合成、zero-listener／healing storage／mixed actor元定義、短いcurrent CUDAとwarm cacheの検証を進めます。
+
+このMacの今回のsandbox内ではMetal deviceを列挙できず、読み取り確認と実Metal実行はrequire_escalatedで成功しました。次回もデバイス可視性を先に確認し、同claimを再利用しないこと。共通CLIへGPU0のMetal可視性事前検査を加え、CPU準備後のNo Metal device停止を避けることも次の効率化項目です。
+
+
+## 2026-10-25 保留自動装填・CPU前Metal確認・test-only更新
+
+最新は `coordinate-auto-reload`322（native275／拒否47）、`docs/portable-coordinate-auto-reload.md` と `research/portable-coordinate-auto-reload-checkpoint.json`。共通weapon tickでpost-delay完了を扱い、遮蔽でreadyへ戻ったmode chargeだけ弾倉を補充、非適格な次shotでもpendingを保持します。mode開始／終了の既存pending破棄は保持。9worldで期限・cover取消・mode満了／交換・until_reload・zero-duration／listener・待機途中終了を実native観測し、通知の子damage／atk・最終ammo／pendingを比較。Runtime／wire／入出力容量と保護8ファイルは不変です。
+
+固定 `/tmp/nikke-auto-reload-develop-v4`（6b24922b…）／`/tmp/nikke-auto-reload-metal-v4` は322全一致。GPU.697421秒／初回PSO93.756371秒／CPU事前192.452146秒／通常比較8.671853秒、事前275を再利用し追加native0。同じ親のreceiptを渡さないGPU禁止fresh子監査は210.929726秒、全322／275native domain一致。同じ監査でgolden・専用source certificate・実測時間receiptを作成。CUDA証明へ流用しません。旧313は入力／native全同一、312全raw保持、残る1件はfield work統計2wordのみ変化。初版成功321も316全raw保持、5件は同じwork統計だけ。失敗1件はammo0→1と統計。詳細全word差分・元失敗は保持し、全raw保持と偽りません。新sourceのGPU計3回、同claim retry0。
+
+共通CLIにGPU0のMetal device可視性検査を追加。容量／必須cache後、CPU準備／test／claim前に20秒上限でdevice確認。sandbox未検出・権限別M5検出、実packetのCPU前停止を確認。CPU-only／smoke／CUDAは除外。`refresh-tests` は未claim・GPU未開始のfailed development packetだけ、既存test Pythonの明示変更を新ZIPへコピー。非test／golden／基準を原byteで保持し、全payload再hash・排他的公開・元capture維持。実322 packetのテスト期待値1件更新に利用し、CPU基準再作成だけを回避。通常native照合・独立監査は省略しません。機構7検査、可視性8、既存cache境界9を共通制御へ登録。CLIのimport scope失敗も既存復旧検査が検出・修正し元失敗を保存。
+
+最終compact `/tmp/nikke-auto-reload-final-v2.zip`（85d28d12…／1871files／8,716,209byte）は選択33・制御470（Windows1skip）成功、終了後に全payload SHA／checkout全byte／実GPU source・input・native基準一致を確認。生成cache hit／compiler0、実GPU時のCUDA/MSL両生成物と全byte同一。追加GPU0。全reader終了後にrawを全byte/SHA/inode維持で4KiB疎化。完了source展開19件も全復元・全SHA検査後のlossless archiveへ移し、元ZIP・receiptを保持。raw削除0。
+
+inventory再検査は245/266 packing・base185/203、未対応21profiles、全キャラ認定0／UI CPU／目標未達。未対応20 model-gap分類の解消をpackingだけで認定しません。Windowsの送信API再試行はidle chatを開始できず未送信で、追加実行0。接続復旧を繰り返し依頼せず、ユーザーが開始した場合だけ既存短い検証の結果を取得します。次はpending装填とdown／復活・callbackでのmode／容量変更、healing storage／混在actor元定義、短いcurrent CUDA／warm cache確認を優先します。
+
+
+## 2026-10-25 sampled座標戦闘の回復貯蔵・分配・放出
+
+最新は `coordinate-healing`340（native291／拒否49）、`docs/portable-coordinate-healing.md` と `research/portable-coordinate-healing-checkpoint.json`。既存のHP超過回復貯蔵・ATK由来受療pool・heal_split・放出の同じSlang handlerを使い、新入口だけsampled admissionへkind32と既存整数総計初期化を接続。16world＋拒否2で期限・capacity・periodic・lifesteal・mode散弾・手動cover・別caster・active pool・ADDへのskillを合成。計算本体／容量／Runtime／wire／保護8ファイルは不変です。
+
+元GPU `/tmp/nikke-coordinate-healing-develop-v1`（ddd3ca4c…）／`/tmp/nikke-coordinate-healing-metal-v1` は339/340一致。1件は既存packet observerが空ev.targetをBODYと記録し、実 `_land` のADD routeを失ったため総計54,000を期待していました。GPU・native本体・exact bankは34,000／17件で一致。既存実landing observerを明示opt-inで再利用し、ADD2体への10packet／20,000のラベルだけを補正。旧nativeに投影すると原指紋に全一致する、source前後SHA固定migrationを追加しました。ダメージ／時刻／owner／generation・他入力・source変更は拒否。元失敗・claim・rawは保持しています。
+
+修正版packet `/tmp/nikke-coordinate-healing-develop-v2`（d291c83f…）は全input／GPU source同一、339入力の基準指紋を保持し変更観測1件だけ再作成。`package --baseline-package OLD --reference-migration coordinate-healing-routed-adds-v1 --develop --compact` で全340inputを再pack／hashしてから固定します。続くGPU禁止saved replay `/tmp/nikke-coordinate-healing-replay-v2` は全340／291native fresh一致。新CLIではbaseline_migration付きpacketの新GPU実行も拒否し、saved replayへ限定します。最終sealed packetにこの制限markerは付きません。
+
+独立sealの2回は240秒timeoutで終了・記録保持。重複migration guardとその全入力再構築を削減しました。成功したv4監査は225.422417秒、fresh guard1／同じ子内receipt再利用1、fresh静的入力構築1／再利用1、live parent receiptなし。静的入力はadapter・manifest・全domainのpickle stamp（deserializeなし）・両payload全SHA・receipt anchorsを再検査し、native値は再利用しません。全291native domainの計算比較はfreshです。同じ監査からgoldenと専用source certificateを作成しsealed登録。GPU／Windows180秒、CPU saved audit240秒は不変。
+
+実GPU計1回、同claim retry0／observer修正後の再GPU0。GPU.755795秒／初回PSO93.081245秒／CPU事前200.755415秒／通常比較8.978930秒（同じ親291を再利用）。旧322は全input／native／全2,279,574,528byteのraw保持。Slangペアgenerationは必須cache hit/compiler0で、CUDA/MSL原生成物と両方全byte同一。現CUDA／warm CUDA cache性能へ流用しません。全reader終了後に原rawとreplay rawをbyte/SHA/inode維持で疎化。完了source展開16件は全復元／全SHA検証後にlossless archive、元ZIPとreceiptを保持しraw削除0です。
+
+最終compact `/tmp/nikke-coordinate-healing-final-v1.zip`（a0f3be21…）は機能37・制御476（Windows専用1skip）成功。全1890filesの終了後payload SHA／checkout全byteと、実GPU source/input・修正版native基準との一致を確認。最終配布で全nativeを再作成しません。
+
+次はauthored fixtureを増やす前に、元の完全編成input bridgeを優先します。既存static preparationからマルチャーナ編成68効果（本人14）、デルタ：ニンジャシーフ編成79効果（本人25）の全元定義・weapon/config SHAを抽出済み（`original-static-v1.json`、CPU battle/GPU0）。authored observerはweapon metadata／遅延／cover HP／操作を置換するため元編成正本に代用しません。`portable_world_roster_input` の全定義・owner・元正規化と座標sidecarを共通化し、real bodyを既存native reference＋user選択の共通座標mathだけで比較します。元の不都合な定義・武器を抜かないこと。down／復活・callback session合成と公開受付も残ります。
+
+inventory再検査は245/266 packing、base185/203、未対応21profiles／20model-gap分類、全キャラ認定0／UI CPU／全目標未達。Windows新依頼0。既存idle chatを開始できない送信APIの制約に対して同じ依頼を重複送信せず、開始可能になった既存短いCUDA検証の保存結果だけを取得します。
+
+## 2026-10-25 元の完全編成と座標実行器：開発途中
+
+最新は `docs/portable-coordinate-original.md`／`research/portable-coordinate-original-checkpoint.json`。worktree `/private/tmp/nikke-runtime-resident` の `coordinate-original`8を追加しました。マルチャーナ／デルタ：ニンジャシーフ、それぞれ4枠目ノア版も含む完全5人編成、3／30秒。全68／70／79／81定義と元weapon/config/base-stat hooksを保持し、元public body→実engine_worker→宣言座標worldのnativeを比較します。authored metadata/stat/delay置換はせず、全registered effects/owner/orderとrun identityを検査。観測ラベルはmanagerローカルのeffect/cacheコピーへ隔離し、共有parsed definitionsの汚染を防ぎます。
+
+固定packet `/tmp/nikke-coordinate-original-develop-v2`（ab4b3b25…）、capture `/tmp/nikke-coordinate-original-metal-v2`。M5 GPU実行2.496399秒・PSO cache hit0.003064秒・CPU事前202.573866秒。CUDA/MSL generation cache必須hit。実GPU1、retry0、全8の計算比較は失敗、sealなし。元失敗・claim・rawは保持。containment成功、preservationはnullのままです。
+
+失敗原因は、(1)元world adapterのburst-only traceで短いケースのskill historyが空、(2)30秒のfractional履歴省略が旧decoder未対応、(3)Deltaの元定義7・kind1 named removeがsampled入口未対応。元効果を削らないこと。現checkoutは(1)だけ元編成入口をfullへ訂正し全8input差分がword5だけと検査、(2)は実fractional native観測＋typed prefix/omission検査を追加。保存Marciana30秒でfractional3870＝2048＋1822、team3870＝1024＋2846、最終accumulatorを含む全battle fieldsが一致しました。skill trace／Deltaを含む全体の成功へ読み替えません。訂正後GPU0、次のpacketはnative fingerprintも新規に固定する必要があります。
+
+元経路4 inputの全byte保持、旧340input／291native指紋保持、共通比較器6経路の保存GPU block一致を確認。初期関連37検査、訂正後original/history8、最終共通制御476（Windows1skip）が成功。CPU観測の対象外関数でlocals取得を避け、CLIのdevelopment基準生成にケース別時間を出しました。途中package v1は作成中のtest修正をsource guardが拒否、最終制御v3は外側forbid_gpuがmocked transport検査まで遮断した検証wrapperの問題で、正規runner v4は全成功。原記録も保持しています。
+
+次は既存named remove handlerを新しいoriginal入口のsampled admissionへ接続し、Deltaの実被弾で解除が発火する元編成worldも追加します。その後、訂正済み8＋実解除ケースを固定してMetal、全比較成功後だけfresh seal／source certificateへ進めること。全キャラ認定0／公開UI CPU、packing245/266・base185/203・未対応21profiles/20分類の認定は変更していません。同名damageのowner-aware観測、multi_hit完全group binding、公開受付、現CUDA／warm cacheは残ります。Windows新依頼0。既存チャットを開始できないAPIへ依頼を繰り返さないでください。
+
+
+## 2026-10-25 元編成10入力・名前指定解除・履歴の厳密な再照合
+
+最新 `docs/portable-coordinate-original.md`／`research/portable-coordinate-original-checkpoint.json`。`coordinate-original`10（全native）がM5全一致・独立fresh監査238.653837秒でsealed登録済みです。元の68／70／79／81全定義とweapon/control/config/base-stat hooksを保持し、3／30秒の完全編成8＋Deltaの実被弾2。新入口は既存共通named-removal handlerへkind1受付を追加するだけ。1.0秒に実stealth1→0、1.1／1.2秒も解除通知、GPU activation3／残存carrier0を確認しました。
+
+GPU packet `/tmp/nikke-coordinate-original-removal-develop-v1`（0d8be0bb…）／capture `/tmp/nikke-coordinate-original-removal-metal-v1` は初8/10。Delta30秒の残2件はprojectile履歴2048の省略55／59を旧decoderが拒否。元raw／失敗／claimは保持。source-bound comparator訂正 packet v2（80575ac3…）へ入力・GPU・native指紋全10を保持し、新native基準計算0で再配布。GPU禁止saved replay v2が全10fresh一致。保持射撃全件のowner／時刻／実method由来mode／pellets／muzzles／予約0と省略件数を検査し、全damage／RNG／packet／最終状態を別途比較。team1024／fractional2048の省略も明示したままです。
+
+新shader GPU1回・4.390048秒、初PSO92.883551秒、CPU事前212.834851秒。同claim retry0／host修正後GPU0。独立監査は別child・live parent receiptなし、全10native domain fresh／GPU0。同じ監査からgoldenとsource-only certificateを作成。現CUDA compile／cache／battle証明へ流用しないこと。旧entryは新macro未定義のCUDA/MSL生成が旧healing基準と一致し、strict normalizerは不変です。
+
+最終sealed配布 `/tmp/nikke-coordinate-original-final-v2.zip`（68e3a051…）は機能53・制御476（Win1skip）成功、終了後に全1904payload SHA／checkout全byte一致を確認。全reader終了後に原とreplay rawをSHA／inode／size保持で4KiB疎化し、各67,231,744byte回収、削除0。旧世代のGPU再実行はしていません。
+
+model-gap監査の旧unconditional座標guardがprivate opt-in導入後のASTを認識できず、frontier検査が失敗していたため修正。既定False・literal bool guardと公開engine_workerのallowed enemy拒否を独立検査し、負例も追加。現在model-checkのoriginal proof/source match true、public admitted／all-char certified false。inventory245/266・base185/203・未対応21profiles/20分類、全キャラ0／UI CPU／目標未達は維持します。
+
+次はfresh監査238.65秒に余裕を作るCPU observerの対象外locals取得削減（world_coordinate_manual_native等）を行い、元編成multi_hit完全group binding・owner-aware同名damage観測・down/revivalとcallback sessionを進めます。ケース削減・時間短縮・監査timeout拡大で解決しないこと。Windowsは状態を1回確認しrev78 idleのまま、新依頼／GPU0。既存送信APIの同じエラーを繰り返し試さず、実行開始可能な状態になってから必要な短い検証だけに使います。
+
+
+## 2026-10-25 元の同名DoT4・観測filter・group結合の共通化
+
+最新は `docs/portable-original-periodic.md`／`research/portable-original-periodic-checkpoint.json`。`coordinate-original-periodic`4はハラン／クルミ、3／30秒の完全5人編成、全72／70定義保持。元登録のrow IDとownerで同名DoTを照合し、名前だけで最後の定義へ結び付ける問題を解消。30秒で実DoT発火を確認してM5全一致・別process/GPU禁止fresh監査91.144139秒でsealed登録。非周期の同名はまだ明示拒否、death-spread／同時refresh組合せは残件です。
+
+packet `/tmp/nikke-original-periodic-develop-v1`（60a60b66…）、capture `/tmp/nikke-original-periodic-metal-v1`。共通shader／transport／numeric source変更0、生成とPSO cache必須hit、GPU2.361383秒・PSO0.003104秒・CPU事前82.305819秒。GPU1／同claim retry0、source-only certificateは同じfresh監査から作成。現CUDA計算／warm cache性能へ流用しないこと。Windows新依頼／GPU0。
+
+manual observerは対象codeを判定してからlocalsを取得するようにし、元編成10native指紋保持を200.573231秒で確認。新source-ID観測も含む旧healing340入力／291native全指紋保持は148.908552秒。独立監査との同条件速度比較ではありません。全sampled profileの数値・RNG・観測内容は維持します。
+
+`portable_group_binding` を通常group入力と座標元編成で共有し、既存53＋10入力は全byte保持。ベロータ71／ニヒリスター73全定義をprivate coordinateへ静的結合できました。ただしalive／1HP ADDの4native worldは最大1group1対象、2／4対象のmulti_hit通知と子damageは0。元のnative routing／対象モデル不足として残し、all-enemies routingへ置換したり未発火のpackingからGPU認定しないこと。
+
+最終 `/tmp/nikke-original-periodic-final-v2.zip`（519c3343…）は機能32・制御476（Win1skip）成功、終了後に全1911payload SHA／checkout全byte一致を確認。全reader終了後にrawをsize／SHA／inode保持で4KiB疎化し27,000,832byte回収、削除0。データを失った場合はGPU再実行で復元しないこと。
+
+model-checkでoriginal-periodic proof/source match true、全キャラ0／公開UI CPU／全目標未達。次は同名DoTの実死亡spread／refresh、nonperiodicのsource identityが必要な元定義、down/revivalとcallback sessionの組合せを優先し、multi_hitの正本対象展開を別model-gapとして調べます。既存original10・healing340の認定範囲と240秒fresh上限を維持してください。
+
+## 2026-10-26 元編成DoTの別定義発火・死亡通知・tick位相
+
+最新は `coordinate-original-lifecycle`3、`docs/portable-original-lifecycle.md`、`research/portable-original-lifecycle-checkpoint.json`。完全5人編成のハラン72／クルミ70全定義を保持し、ハラン12秒の敵死亡前／感染後2world、クルミ6秒の実バースト再付与を共通GPUへ通しました。元public body／weapon／操作は置換していません。source-aware受動観測は元の発火元と保持timerを区別し、次tick位相を保つ期限更新を確認。既存original比較をcompare_observedへ分け、再計算せず全battle／packet／RNG・周期最終状態を共用します。
+
+固定GPU packet v1 `/tmp/nikke-original-lifecycle-develop-v1`（9134bac1…）とcapture `/tmp/nikke-original-lifecycle-metal-v1` は全3一致。実GPU1回0.965066秒／PSO cache hit0.002735秒／CPU事前43.059290秒。CUDA/MSL generation cache必須hit・compiler0、元生成物と両方全byte一致。GPU source／数値／wire／容量変更0。ハランの別定義row1は負例0／正例2回、クルミrow1は1回、独立timer0を保存readbackでも確認しました。
+
+発火回数を比較器へ追加したpacket v2 `/tmp/nikke-original-lifecycle-develop-v2`（32f78758…）は全input／native／GPU sourceを保持。GPU禁止replay `/tmp/nikke-original-lifecycle-replay-v2` は全3fresh一致。独立sealは47.556235秒、別child・live parent receiptなし・全3native fresh／GPU0。同じ監査からgoldenとsource-only certificateを作りsealed登録。現CUDA compile/link/cache/battleの証明ではありません。GPU retry／観測修正後の再GPU0。
+
+最終compact `/tmp/nikke-original-lifecycle-final-v1.zip`（6b35f276…）は機能13／制御476（Windows1skip）成功。全1914payloadのSHA・checkout全byteとGPU source／全入力・基準の一致を終了後に再検査。旧元編成14inputも全byte保持。最初の手動_tests起動はcapture directory未作成で検査前停止し、失敗logを保持、専用directory作成後のv2で成功。全reader終了後、原とreplayのrawはSHA／size／inodeを保ち疎化し各15,794,176byte回収、削除0です。
+
+重要な分類: ハランの正例はBODY感染中のADD死亡通知であり、現正本の条件は「現在対象の状態」です。死亡敵自身の感染／生存ADDへのspreadを証明しません。召喚攻撃・自爆は既存共通処理があるという初期仮説を調査で否定し、schedulerとactor registryの2guardが未対応として拒否することを確認。guardを外していません。multi_hitの静的結合を対象ルーティング解決へ読み替えないこと。
+
+model-checkは新suiteのproof/source match true、public/all-char false。全キャラ認定0／UI CPU／全目標未達です。次は元nonperiodic同名damage identity、元武器のgroup対象モデル、down／復活・callback session、召喚攻撃payloadの設計へ進めます。Windowsは新依頼0、送信APIのidle制約へ同じrunを再送しないこと。現CUDA／warm cache実測は未取得のままです。
+
+## 2026-10-26 元マナ編成のdown／復活・状態解除とID分類
+
+最新 `coordinate-original-revival`3、`docs/portable-original-revival.md`／`research/portable-original-revival-checkpoint.json`。元マナ編成の全78定義、3秒のcontrol／1回down／2回downを保持。1回目は元「매터 감마」条件で96%HPへ即時復活、条件解除後の2回目は最終HP0。復活定義発火数・旧共通down/revive trace・ammo補充／再開時刻を、既存全battle／packet／RNG比較と合成しました。元public body・weapons・操作・成長を置換していません。
+
+既存world_revive_nativeをcapture/observeへ分け、旧・新でworld_revival_compareを共用。旧復活35input／26native指紋は全保持（0.991313秒、GPU0）。初期テストの架空ロスター名と、96%HPの再測定値を整数96と同一視する期待値を訂正し、元演算順によるbit単位の検査を保持。native／GPUの計算、許容幅は変えていません。元の失敗logとprobeは/tmpへ保持。
+
+GPU packet `/tmp/nikke-original-revival-develop-v1`（942ef238…）、capture `/tmp/nikke-original-revival-metal-v1` は全3一致。実GPU1回0.363236秒／PSO cache hit0.002823秒／CPU事前12.583214秒。生成cache必須hit・compiler0、旧CUDA/MSLと両方全byte一致。GPU source／numeric／wire／容量変更0、retry0。独立sealは15.100126秒、別child・live parent receiptなし・全3fresh／GPU0。同じ監査からgoldenとsource-only certificateを作成しsealed登録。現CUDA compile/link/cache/battleへ流用しないこと。
+
+最終compact `/tmp/nikke-original-revival-final-v1.zip`（691aaa80…）は機能38／制御476（Win1skip）成功。全1913payload SHAとcheckout全byte／GPU source・全input・native・output一致を終了後に検査。既存original17inputも全byte保持。全reader終了後のrawはSHA／size／inode保持で疎化し、削除0です。
+
+model-checkへ全266プロファイルの完全元編成damage-ID静的監査を追加。非周期同名衝突0、周期はハラン／クルミのみ。非周期受付guardは保ち `unobserved-restriction` と分類し、実データの未対応として優先しないこと。元編成の全定義を検査するが、battle／packing／GPUの証明ではありません。cube・成長を任意追加した場合の保証へ拡張しないこと。
+
+アンは元の敵heal_received_pct/all_enemiesが未対応でpacking拒否、効果を削らないこと。ラプンツェル6秒probeはdownあり／復活未発火で認定なし。次は復活の実burst条件／複数候補・敵回復consumer、元武器group対象モデルと召喚攻撃payloadへ進めます。静的inventoryは245/266・base185/203、全キャラ0／UI CPU／目標未達。Windows新依頼0、現CUDA／warm cache未取得。既存idle送信APIへ重複runを依頼しないこと。
+
+## 2026-10-26 元B1復活・センチの共通skill clockとentry-inventory
+
+最新 `coordinate-original-burst-revival`4、`docs/portable-original-burst-revival.md`／`research/portable-original-burst-revival-checkpoint.json`。ラプンツェルの元編成6秒4world（無down／唯一B3 down／N102 down／センチ＋2候補down）を保持。実revive試行と成功を分け、候補2人から1人の復活、81.67%HP・ammo補充／再開を旧共通比較と合成。B3 downの未発火を連鎖条件だと早合点しないこと。直接native観測は最終ゲージ96.39999999999999%、試行0であり、正本は満タンからB1へ入ります。
+
+初回GPU `/tmp/nikke-original-burst-revival-metal-v1` は3/4一致、元センチのkind22だけsampled受付status64。元効果を抜かず、新入口 `gpu/world_coordinate_original_clock_entry.slang` で既存reduceSkillCooldownを接続しました。元の実発火で次deadlineが前倒しされ、GPU発火数と全periodic due/intervalも照合。数値／wire／Runtime容量は不変。新macro未定義の旧入口はCUDA/MSL原生成物を両方全byte保持、source/transport inverse・負例あり。共有raw sourceは変わるので旧goldenのsource一致falseを隠さず、旧goldenの自動書換えもしません。
+
+修正版packet `/tmp/nikke-original-burst-revival-develop-v2`（2b3247aa…）、capture `/tmp/nikke-original-burst-revival-metal-v2` は全4一致。元全4inputと追加clock観測前nativeの指紋を保持、既存GPU3件全21,238,272byte保持。実GPU計2（source変更後の新packet含む）／同claim retry0、初失敗・raw保存。新GPU0.621067秒／初PSO92.846710秒／CPU事前96.088091秒。generation必須hit/compiler0。独立seal103.516777秒、別child・live parent receiptなし・全4fresh／GPU0。同じ監査からgoldenとsource-only証明書を作成。現CUDA/warm cache証明へ流用しません。
+
+最終compact `/tmp/nikke-original-burst-revival-final-v1.zip`（55d35cc9…）は機能39／制御476（Win1skip）成功。全1923payload SHA／checkout全byteとGPU source／input／native／output一致を終了後に確認。既存復活35input／26native指紋も保持。全reader終了後に初失敗・成功のrawをSHA／size／inode保持で疎化、削除0。
+
+新CLI `entry-inventory --out UNIQUE.json` は開発checkout／full package専用。全266元profile準備をID監査と共用し、入力変換・literal kind一覧・全元定義coverageとhashをCPU battle／GPU禁止で出します。失敗を保存／上書き拒否。結果247/266・3.71秒・禁止呼出し0で、GPU受付／計算／全キャラはfalse。legacy world245/266と座標group結合後247/266を混同しないこと。compactでのコマンド実行は拒否し、比較用の関連モジュールだけを保持します。
+
+次の実在優先候補はkind9/10の固有ゲージcharge/consume（15/12キャラ）。入力変換だけを支持せず、既存共通resource handlerのsampled受付・実増減・cap・後続通知と最終readbackを検証します。新入口を実装するときは可能なら共有capability schemaによるCPU側の受付事前検査も用意し、今回のstatus64をGPU前に検出すること。アンの敵被回復量・他kind・元武器group対象モデル・召喚攻撃も残る。全キャラ0／UI CPU／全目標未達、Windows新依頼0・現CUDA/warm cache未取得のままです。
+
+## 2026-10-26 元ゲージ9/10・共有kind受付schemaと早期停止
+
+最新 `coordinate-original-resources`3、`docs/portable-original-resources.md`／`research/portable-original-resources-checkpoint.json`。E.H.全76／ネオン：ビジョンアイ全83定義を元5人編成・weapon・操作・成長のまま保持。E.H.初期資材10→弾倉1→全消費、敵24体死亡後の弾倉4／資材10と実cap clipping、ネオンのburstで100→0を実証。新resource入口で既存共通kind9/10 handlerを接続し、数値／wire／Runtime容量変更0。最終全resourceのpresence／値／base cap／定義別発火数を全battle／packet／RNG比較へ合成。今回のevery_stack通知はnativeもGPUも0で、正の伝播を認定しません。
+
+共通decl `portable_coordinate_kind_admission` からvital guard fragmentを生成し、SlangとCPUの両方で同じkind条件を使用。fragment不一致・未解釈の条件付きprofile macroは拒否。prepare_entriesは明示subset選択後に正例だけを検査し、native基準作成／GPU実行前に止めます。旧ゲージ9/10／旧センチ22／burst-control無効5をCPUで拒否、native開始0・GPU禁止のテストあり。期待されたdomain=NoneのGPU拒否ケースは維持。kindだけの条件であり、全面GPU受付・計算成功を表しません。
+
+entry-inventoryに--suite選択とkind_admissionを追加。resource入口は全266中247入力変換、kind拒否65、禁止CPU/GPU0。247-65をGPU対応率へ変換しないこと。従来world245と座標247も入口差なので分離します。source／compiler／data hashと各元定義／入力hashを保持、compactでcommandは拒否。profile準備とkind policyの読込みは1 invocation内で共用します。
+
+packet `/tmp/nikke-original-resources-develop-v1`（95b08ccd…）、capture `/tmp/nikke-original-resources-metal-v1` はM5全3一致。実GPU1／retry0、GPU0.570817秒／初PSO90.865717秒／CPU事前17.487625秒、生成必須cache hit/compiler0。resource macro未定義の旧clock入口はCUDA/MSL原生成物を両方全byte保持、厳密inverseと負例も成功。共有raw sourceは変わるので旧source readiness falseを隠さず、旧goldenを自動更新しません。現CUDA cache hitや実計算の証明へ流用しないこと。
+
+独立seal20.138357秒、別child・全3fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成。最終compact `/tmp/nikke-original-resources-final-v1.zip`（44c51fa9…）は機能19／制御476（Win1skip）成功。全1929payload SHA／checkout全byteと実GPU source・input・native・output一致を終了後に確認。全reader終了後のrawはbyte/SHA/size/inode保持で疎化、削除0。
+
+次の候補はammo13/14等の未受付kindと、それに依存する元ゲージevery_stackの正の通知。kind受付は共有declを更新し、生成fragmentも更新してから新source/goldenを独立検証すること。既存parent source inverseも維持すること。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／全目標未達。Windows新依頼0、idle送信APIへ同じrunを繰り返さないこと。
+
+## 2026-10-26 元編成ammo13/14・正のゲージ段階通知
+
+最新 `coordinate-original-ammo`4、`docs/portable-original-ammo.md`／`research/portable-original-ammo-checkpoint.json`。元のギロチン：ウィンタースレイヤー79／ノワール74／アルカナ：フォーチュンメイト80／グレイブ83全定義を5人編成・元weapon／成長／操作のまま保持し、6／6／6／16秒。既存共通割合13／固定14 handlerを新ammo入口の受付へ接続。CPUとSlangのkind条件は同じ宣言から生成、数値／wire／Runtime容量変更0。旧resource入口は新macro未定義でCUDA／MSL原生成物全byte保持、厳密inverseと負例も維持しました。祖先baselineに無い新fragmentはinverse後に除去し、元original7検査も成功。旧goldenのraw source一致falseを隠しません。
+
+受動observerは実handler呼出し・戻りと実capacity照会の戻りだけを観測し、stat再照会0。ギロチンは実経験値10通知→レベル2と10.26%補充、ノワールは全5人の39.88%補充と上限切捨て、アルカナは実2／6発補充、グレイブは元状態終了から−100%で104→0を確認。既存全battle／packet／RNG／最終ammoと、共有resource比較器の全ゲージ／通知・定義別発火数を合成しました。正の通知を未発火のまま認定していません。
+
+packet `/tmp/nikke-original-ammo-develop-v1`（ea73aa56…）、capture `/tmp/nikke-original-ammo-metal-v1` はM5全4一致。GPU1回1.706368秒／初PSO92.190548秒／CPU事前60.414598秒、生成cache必須hit・compiler0、retry0。独立seal64.316086秒、別child・全4fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成。現CUDA compile/link/cache/battleへは流用しません。
+
+最終compact `/tmp/nikke-original-ammo-final-v1.zip`（b8fdecda…）は関連23／制御476（Win1skip）成功。全1938payload SHA／checkout全byteとGPU source・全input／native／output指紋を終了後に検査。全reader終了後にrawをSHA／size／inode保持で疎化し27,058,176byte回収、削除0。全266静的inventoryは247packing／kind拒否46（旧resource65）。残り201をGPU対応数としないこと。
+
+次は実在する現在stack増加19（11profile）、解除26（11profile）、stack追加16等を優先し、元定義の実発火とreadbackを確認します。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU・全キャラ認定も未完。全キャラ0／UI CPU／全目標未達、Windows新規実行依頼0。既存idleチャット送信APIはユーザー依頼で再試行しても同じactive-turnエラー。検証の重複runは依頼せず、手動開始または実行開始可能な状態になってから既存短い検証の状態／保存結果を取得します。
+
+## 2026-10-26 元編成stack16/17/19・実消費と再充填
+
+最新 `coordinate-original-stacks`4、`docs/portable-original-stacks.md`／`research/portable-original-stacks-checkpoint.json`。元ペッパー73／ルピー68／マルチャーナ：マリンスタディ80全定義を完全5人編成・元weapon／成長／操作のまま保持、6／10／6／6秒。既存共通16／17／19を新stack入口へ接続し、CPUとSlangのkind条件は同じ宣言から生成。数値／wire／Runtime容量変更0。19は上限増加ではなく現在stack増加です。旧ammo入口のmacro未定義CUDA/MSL原生成物を全byte保持、厳密inverseと祖先7検査も成功。
+
+ルピーの実100hitから3→4と15秒duration更新、マリンスタディ開始時1→5・idleで上限維持、宣言ADD6体存在中の3回消費5→2と退出後2→3再充填を観測。ペッパーは対象carrierなしの実無変更として保持。対象解決／stat再照会をしない受動snapshotを使い、既存全battle／packet／RNG／resourceと、全最終stack carrierのsource・membership・stack・activation・expiration、定義別dispatch数を比較。敵stack20/21・init18・shared partial-skip正例へ認定を広げないこと。
+
+初回packet `/tmp/nikke-original-stacks-develop-v1`（3f448b6e…）／capture `/tmp/nikke-original-stacks-metal-v1` は全status0、計算比較2/4。残2はhost比較器の無期限None対display sentinel1e30の誤り。原失敗・claim・raw保持。比較器は実wireの正の無限大bitsを判定し、有限1e30と区別するテストを追加。GPU source／全input／native指紋を保つpacket v2 `/tmp/nikke-original-stacks-develop-v2`（070d292e…）のGPU禁止saved replay `/tmp/nikke-original-stacks-replay-v2` がfresh全4一致。GPU計1回0.956482秒／初PSO92.513740秒／CPU事前40.028685秒、generation必須hit・compiler0、同claim retry0／訂正後GPU0。
+
+独立seal44.644305秒、別child・全4fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成。現CUDA compile/link/cache/battleへ流用しません。最終compact `/tmp/nikke-original-stacks-final-v1.zip`（4eb6f0ce…）は関連22／制御476（Win1skip）成功。全1945payload SHA／checkout全byteとGPU source・全input／native／outputを終了後に検査。全reader終了後に原／replay rawをSHA／size／inode保持で疎化し各27,148,288byte回収、削除0。
+
+全266静的inventoryは247packing／kind拒否30（旧ammo46）。残り217をGPU対応数としないこと。次の実在候補は解除26（11profile）、15、未受付stack18／20／21など。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／全目標未達。Windowsはrev78 idleのまま、新規実行依頼0。既存APIへ同じrunを再送せず、開始可能になったら既存短い検証の状態／保存結果を取得します。
+
+## 2026-10-26 元編成cleanse26・射撃／味方抽選の共有MT
+
+最新 `coordinate-original-cleanse`4、`docs/portable-original-cleanse.md`／`research/portable-original-cleanse-checkpoint.json`。元ココア71定義6秒の対象なし、ココア＋ベスティ75定義16秒の5人→3人の部分解除、ミカ＋ベスティ／ドレイク77定義26秒の全員解除、ロザンナ76定義3秒の敵world通常buff2つ解除／解除不能1つ保持。元の完全5人編成・全効果・weapon／成長／操作を保持。実在するデメリットを使い、未接続のボス攻撃debuff入力と混同しないこと。既存kind26を共通decl／Slangのsampled受付へ接続しました。
+
+初期native正例で整数抽選のRNG観測不足を検出。sampling observerはglobal Randomの実getrandbitsだけを記録し、point内の二重計数を避けます。契約は全draw前後index・値・word数と最終全624語を再現。既存sampling参照5検査成功、旧元マナ3native指紋保持11.916020秒／GPU0。CPU RNG計算・数値規約・canonical本体は変更していません。
+
+GPU前の調査では味方抽選が独立revival bank、座標射撃がCS bankだったため、新入口だけ `WORLD_ALLIED_RNG` で同じCS MTへ接続。recipient計算／診断traceも同じindexを読み、終了時に既存recipient出力へ全632語を写し、2領域を全語比較します。Runtime／wire容量不変、共通Slang／同じテストをCUDA/Metalで使います。旧stack入口は新macro未定義でCUDA/MSL原生成物が全byte一致。厳密inverseはrecipient／program final／diagnostic差分も戻し、normalizerと旧goldenは不変です。旧raw source一致falseを隠さないこと。
+
+GPU前packet v1は未実行。v2 `/tmp/nikke-original-cleanse-develop-v2`（5ac7c508…）、capture `/tmp/nikke-original-cleanse-metal-v1` は全status0、比較は全4world_nodes fields不足で停止。元失敗・claim・raw保持。共通actor-pool decoderへ解除情報を接続し、`world_overlay_node_readback` を通常overlay／actor-pool／新比較器で共用。期待fieldsを削らず、破損flagの負例を追加。GPU source／全input／native指紋を保持するv3 `/tmp/nikke-original-cleanse-develop-v3`（89538b56…）のsaved replay `/tmp/nikke-original-cleanse-replay-v3` が全4fresh一致。GPU計1回2.614522秒／初PSO92.055633秒／CPU事前62.260447秒、generation必須hit・compiler0、retry0／host訂正後GPU0。
+
+独立seal67.274981秒、別child・全4fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成し、現CUDA compile/link/cache/battleへ流用しません。最終compact `/tmp/nikke-original-cleanse-final-v1.zip`（3f2da212…）は関連28／制御476（Win1skip）成功。全1952payload SHA／checkout全byteとGPU source・全input／native／outputを終了後検査。全reader終了後に原／replay rawをSHA／size／inode保持で疎化し各27,115,520byte回収、削除0。
+
+静的全266／247packing／kind拒否22（旧stack30）。残り225をGPU対応数としないこと。次は実在する未受付15／33／23／27等をstat・target・timingまで調べ、依存をまとめて正の発火を検証します。stack18/20/21、ボス攻撃debuff payload、敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／目標未達。Windows新依頼0、idle送信APIへ重複runを依頼しません。
+
+## 2026-10-26 entry-inventoryの演算逆引き・依存分類
+
+最新 `docs/portable-entry-operators.md`／`research/portable-entry-operators-checkpoint.json`。共通CLI `entry-inventory --suite coordinate-original-cleanse --out UNIQUE.json` はcompiled rowを実bindingで元sourceへ戻し、type／stat／target／timing／condition／scaling／参照先／field一覧、owner・name・元effect SHAを記録します。`operator_priorities` はプロファイル／元定義／compiled行の数を別々に計数、`kind_dependencies` は同一profileの必要kind集合、`packing_failures` は未変換を分離。対応するsourceが壊れた場合は普通のpacking gapへ変換せず監査全体を失敗にし、失敗保存／上書き拒否を維持。6検査は行順の逆引き、複数compiled行と元定義の区別、分類漏れ、不正provenanceを検証しました。
+
+全266／247packing／未変換19／kind拒否22を26演算記述へ分類、3.790879秒・監査内CPU battle／GPU0。数値code15はresourceではなく `named_buff_duration_extend`、23は `force_reload`、27は `shield_heal_pct`、31は `decoy_heal_pct`、33は `force_skill_use` です。codeだけで次の実装を判断しないこと。33だけでJulia（율리아）の愛蔵品1/2/3、15だけでクラスト／プリカ、両方でサクラが候補になります。次のGPU入口は15＋33をまとめ、元発火と期限／phaseを検証します。
+
+別のCPU調査では元Julia（율리아）77／79／79全定義、3秒・seed3201、愛蔵品1でスキル1の1定義、2/3で3定義が時刻0に実強制発動。元サクラ74全定義もスキル2の2定義が時刻0に発動。元body・全効果・weapon・成長identityを保持し、GPU禁止で観測。observer sourceと結果は `research/entry-operator-evidence/` に保存。これらはGPU受付／計算成功やregression goldenではありません。時計は時刻0で全て未登録だったため、空の前後一致を非空時計の保持証明へしません。最初のSakura probeは非空時計があるという仮説をassertが否定し、原失敗log `/tmp/nikke-original-force-probe-sakura-v1.log` を保持。実部位破壊によるサクラ2状態の延長・最終期限・tick位相は次の未検証項目です。
+
+今回GPU／数値本体変更0、current cleanse goldenとGPU source一致。Metal再実行0／Windows新実行0。前回のMetal実証の未完了分類（ボスdebuff・敵回復・武器groupモデル・召喚攻撃・現CUDA／warm cache・公開GPU／全キャラ）は維持。全キャラ0／UI CPU／目標未達です。新CLIは開発checkout／full package用で、compactのentry-inventory拒否は維持します。
+
+最新の`coordinate-original-source`5は元Julia愛蔵品1/2/3（77/79/79定義・各3秒）と元サクラ全74定義の対照／実部位破壊（各18秒）をM5 Metalで全一致、独立fresh監査68.982秒でseal済みです。共通kind15/33の入口に加え、resident staged scopeの生成書込み欠落をbuffer scopeで修正し、wide敵DoTの対象tupleを持続延長へ接続。元の10段階DoTと旧期限後の実damageを保持。Julia3件の全21,238,272byteと全5入力/native指紋は不変。実GPU計2（失敗1保存、修正版1成功）、retry0、GPU1.538秒／PSO92.290秒。生成/cacheの共通scope検査、実生成物sliceによる負例、機能31／制御476検査成功（Windows1skip）を追加。通常UI CPU・全キャラ0・現CUDA未検証、Windows新実行0。静的packing247/266、kind拒否16で、受付をキャラ認定へ数えません。次は3プロファイルに影響するkind23 force_reloadを優先。[共通source操作と失敗・修正の証拠](portable-original-source-operations.md)。
+
+最新の`coordinate-original-reload`4はミルクのauto／元tap-hold運用を各18秒（81定義）、アスカWILLE15秒（80）、ジル6秒（78）をM5 Metal全一致・独立fresh監査89.704秒でseal済みです。共通kind23を接続し、判定用の予定チャージのfull昇格と、キャンセル充填がlast-full発射時計を更新する漏れを修正。元の期間・定義・武器・既定操作と全4入力/native指紋を保持。先に通った3ケースの21,238,272byteも不変。既存reload observer／readerを共用し、旧46native指紋をsetup観測再利用の単体検査へ追加。機能38／制御476成功（Win1skip）。実GPU計3（失敗2保存・修正版1成功）、retry0、GPU1.927秒／PSO92.539秒。最終生成cache必須hit・Slang0、Windows新実行0／現CUDA未取得。packing247/266・kind拒否13を全キャラ認定へ数えず、UI CPU・全キャラ0・未達。次はkind27盾回復（3プロファイル）を優先。[強制reloadと制御時計の境界](portable-original-forced-reload.md)。
+
+## 2026-10-26 元編成shield heal27・Python観測経路
+
+最新 `coordinate-original-shield`9、`docs/portable-original-shield-heal.md`／`research/portable-original-shield-heal-checkpoint.json`。元ラプンツェル：ピュアグレイス全73／モリ72／キロ74定義、完全5人編成・武器・成長を保持し各6秒×満タン／実損傷と回復後の再被弾／破壊。既存共通kind27を共有declへ接続、反復instantの実timer位相／無期限・全最終shield保存状態・全battle／packet／RNG等を比較。CPU schedule入力0、数値／wire／Runtime138952byte不変。
+
+初版 `/tmp/nikke-original-shield-metal-v1` は6/9一致、ラプンツェル3件はstatus64。診断stage8000／row1で、回復timerより前の「シールド中」条件付きbuffのactor-field受付不足を特定。新入口だけ引数なし・戦闘中のC_SHIELDを検査して既存hasProtectionへ接続。定義／9入力／native指紋は保持し、旧reload入口のCUDA/MSL原生成物は全byte保持、厳密inverseも追加。失敗claim／raw保持、retry0。
+
+凍結packet v2 `/tmp/nikke-original-shield-develop-v2`（9696f5eb…）、capture `/tmp/nikke-original-shield-metal-v2` はM5全9一致。GPU計2回（失敗1・成功1）、修正版GPU1.289189秒／初PSO93.107942秒／CPU事前56.256191秒。generation必須cache hit・compiler0。独立seal60.446405秒、別child・全9fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成。現CUDA compile/link/cache/battle証明へ流用しません。旧成功6出力の全42,476,544byte保持。
+
+CPU観測のC通知が12段のPython専用profile chainへ伝播することを改善。`native_python_profile`は明示opt-inだけでPython call／return順・全比較を保持し、C通知の伝播を止めます。外部／不明callback・明示C consumer拒否、例外復元あり、旧ケース既定False。凍結packetの損傷3件を非filter版と比較し、全native指紋一致、28.490→3.897／54.184→5.871／71.885→7.069秒。新caseに広げる前に同様の全観測一致確認が必要。正本とCPU数値は変更0。
+
+最終compact `/tmp/nikke-original-shield-final-v1.zip`（96d36c82…）は関連20／制御476（Win1skip）成功、全1971payload SHA／checkout全byteと実GPU source・input／native／output一致を確認。sealed generation必須cache hit・Slang0。全raw reader終了後に失敗／成功rawをSHA／size／inode保持で疎化し計99,745,792byte回収、削除0。全266静的inventoryはpacking247／kind拒否10（旧13）、残り237をGPU対応数としないこと。
+
+次の候補は元ビスケット／リリのcover_revive30。decoy heal31、敵stack20/21、init18、蓄積放出等の元定義も残る。現CUDA／warm cache、公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／目標未達。Windowsは既存idle送信APIをユーザー依頼で再試行したが同じactive-turnエラー、新GPU実行依頼0。同じrun再送・UI制約回避はせず、開始可能になったら既存短い検証の状態／保存結果を取得します。
+
+## 2026-10-26 元編成cover revival30・終端診断の乱数副作用
+
+最新 `coordinate-original-cover`6、`docs/portable-original-cover-revival.md`／`research/portable-original-cover-revival-checkpoint.json`。元ビスケット全70／リリ68定義、完全5人編成・武器・成長・autoを保持。各候補なし6秒／実1人破壊46秒／実3人破壊46秒。元再装填中11.6／14.2秒に非貫通の宣言敵攻撃、43.466秒台の次burstで実復活。ビスケットは3人から2人、リリは3人から1人。定義／期間・元効果順と独立抽選を保持し、CPUスケジュール入力0。既存共通kind30を共有declへ接続、数値／wire／Runtime138952byte不変。
+
+初版 `/tmp/nikke-original-cover-metal-v1` は全status0／ビスケット3件一致、リリ3件はMT比較停止。短いリリはnative選択779／GPU780、MT全624語は同じ・末尾1語余分。先頭128履歴全一致、6.0秒のop40診断snapshotが元CPUに無いget_buffs相当の読取りで味方late caster-ATK対象を固定していた。新入口だけ既存nativeNumericDiagnostic規約をop40へ適用し、診断敵ATKの読取りで結果に寄与しない味方late selectorを解決しない。実戦中／明示op39の元順序は維持。RNG巻戻し・比較除外0。元CPUとGPUのlate random未解決状態も検査。
+
+凍結packet v2 `/tmp/nikke-original-cover-develop-v2`（0be6d765…）、capture `/tmp/nikke-original-cover-metal-v2` はM5全6一致。全6input／native指紋は初版から保持、旧成功3出力の21,238,272byte保持。旧shield入口CUDA/MSL原生成物も全byte保持、厳密inverseを追加。実GPU2／照合失敗1保持／成功1、同claim retry0。修正版GPU6.565994秒／初PSO92.013862秒／CPU事前93.599501秒、generation必須cache hit・compiler0。独立seal104.723796秒、別child・全6fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成。CUDA実計算・compile/cache証明へ流用しないこと。
+
+既存Python観測filterを再利用。凍結46秒poolケースを非filter版と各比較、ビスケット58.954→17.435秒／リリ66.683→22.199秒、全nativeとcreation-index指紋一致。旧ケース既定False。最終compact `/tmp/nikke-original-cover-final-v1.zip`（f50db8a4…）は関連26（旧味方抽選6を含む）／制御476（Win1skip）成功。全1974payload SHA／checkout全byteと実GPU source・input／native／output一致。sealed generation必須cache hit・Slang0。全reader終了後に失敗／成功rawをSHA／size／inode保持で疎化、62,390,272byte回収・削除0。
+
+全266静的inventoryはpacking247／kind拒否8（旧10）、残り239を対応数へ数えない。次は既存handler検証用の固定入口とdata-only追加経路でkind受付だけのsource変更によるcache無効化を減らす設計、元ライのdecoy heal31を優先候補。init18、敵stack20/21、蓄積放出34、feather35、弾消費37と19packing失敗も残る。現CUDA／warm cache・公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／目標未達。Windowsは既存chatをread-only確認しrev78 idle、新規run依頼0。API idleへの同じrun再送やUI制約回避は行わないこと。
+
+## 2026-10-26 固定入口・data-only生成再利用・元分身回復31
+
+最新 `docs/portable-original-shared-entry.md`／`research/portable-original-shared-entry-checkpoint.json`。`coordinate-original-shared`6／`coordinate-original-decoy`3は同じ固定Slang入口を使用。既存handlerのkind18/20/21/31/34/35/37をまとめて受付へ接続し、今後のデータ追加によるsource変更を減らします。inventoryは全266／247packing／失敗19／kind拒否0／旧coverから拡張8profileを分離。受付は実戦認定ではなく全キャラ0です。
+
+共通CLI `source-reuse` は不変package・generation receipt・両CUDA/MSLとreflection・consumerを厳密照合し、データ6→3でsource生成pair保持／追加Slang0を確認。CUDA生成改変負例は拒否。Metalは初回PSO93.271503秒→同key/archive必須hit0.002885秒、Rei実GPU0.703215秒。CUDA実cache/launch未検証、keyとnormalizerの緩和0。
+
+元ライ72全定義・完全編成／weapon／成長・各8秒、満タン／実損傷後回復→再被弾／破壊の3ケース。初GPU全status0だがhost期限readerで2失敗。serialized index0とruntime slot2の混同を修正し、全GPU source/input/native/raw保持のsaved replayで全3一致。修正後GPU0、独立fresh3監査14.403379秒、既存6監査103.122062秒。旧cover6の全42MB／旧shield9のnativeと保存readback／旧cover CUDA/MSL全byteを保持。原失敗・claim保持、GPU計2・retry0。
+
+最終packet shared46240e73…（1981files）、decoy3b83f01d…（1993files）は関連22／27と各制御476成功（Win1skip）、全payload bytesとGPU source/input/native/output一致。reader終了後raw3つをSHA/size/inode保持で疎化し62,521,344byte回収・削除0。次は固定入口のまま元stack初期化18等を正発火で検証。残り18/20/21/34/35/37、packing19、モデル／variants、現CUDA／公開GPU／全キャラは未完、UI CPU。
+
+Windows既存chatはrev78 idle。ユーザー依頼の送信再試行もactive-turnエラーで拒否、新規CUDA実行なし。接続確認を再実行成功と数えず、APIへ同じrunを繰り返し送信しないこと。
+
+## 2026-10-26 元ソーダstack init18・固定入口の再利用
+
+最新 `coordinate-original-init`3、`docs/portable-original-stack-init.md`／`research/portable-original-stack-init-checkpoint.json`。元ソーダ：トゥインクルバニー全77定義、完全5人編成・武器・成長・autoを保持し、スキル1レベル1/4/10、各8秒・seed3701。元値表から40/45/50生成→実burst17消費→実射撃で3加算→最終26/31/36。初期作成でstack_reach通知を合成せず、後続の実再加算は通知。元期限・membership・全battle/packet/RNG/control/health比較を保持、CPU schedule入力0。
+
+同じ固定shared Slang入口を使用、GPU source・Runtime・wire・kind受付・数値変更0。既存stack observer/readerを再利用し発火数の対象operation引数だけ追加、旧既定範囲不変。共通source-reuseでCUDA/MSLと両reflection・identity・consumerの全一致、データ6→3・Slang追加0。M5 Metal全3status0・CPU一致、実GPU1回0.734364秒、pipeline同archive/key必須hit0.002836秒、retry0／失敗0。独立GPU禁止childで全3fresh41.951534秒、live parent receiptなしでseal。
+
+最終packet `/tmp/nikke-original-init-final-v1.zip`（d5274558…、1989files）は関連23／制御476成功（Windows1skip）。全payload SHA/checkout bytesとGPU source/input/native/output一致。reader終了後raw21,238,272byteをSHA/size/inode保持で疎化、15,794,176byte回収・削除0。現CUDAのcompile/cache/launchへ成功を流用しません。Windows新規依頼0。
+
+次は元ミハラ：ボンディングチェーンの敵stack追加20、アンカー：イノセントメイドのharmful stack減少21を、元条件と実対象の正例で検証。34/35/37、packing19、モデル／variant・現CUDA／公開GPU／全キャラも未完。静的247/266・kind拒否0を対応率へ読み替えず、全キャラ0／UI CPU／ゴール未達を維持します。
+
+## 2026-10-26 元ミハラenemy stack20・DoT対象接続
+
+最新 `coordinate-original-enemy-stack`4、`docs/portable-original-enemy-stacks.md`／`research/portable-original-enemy-stacks-checkpoint.json`。元ミハラ：ボンディングチェーンの完全5人編成・全77/78/77/77定義、対照4秒／命中上限11秒／実戦闘不能4秒／元burst引継ぎ8秒、seed3801。命中はDrake先頭のautoで元DoTを保持し、10→…→20と上限での再発火を比較。戦闘不能は10＋20を20へ制限、全入力/native指紋不変。CPU schedule入力0。
+
+初版GPU全status0・引継ぎ1件だけ一致。通常actor-recipientに無い専用periodic snapshotのDoT対象がstack操作から漏れ、加算2件が最終10のまま。`world_actor_stacks.slang` の固定shared macroだけ `worldPeriodicNamedMember` を照合し、周期領域へ論理slot／通常recipientへtag付きrefを渡す。変換・clamp・寿命・通知は同じ共通stack loop。旧cover CUDA/MSL原生成物は全byte保持、厳密inverse追加。host DoT期限readerも表示1e30ではなくwire doubleで比較し、無限大と有限1e30の回帰検査を追加。既存stack/source/resource観測器とreaderを共用し旧既定範囲保持。
+
+修正版packet `/tmp/nikke-original-enemy-stack-develop-v4`、capture `/tmp/nikke-original-enemy-stack-metal-v2` はM5全4一致。実GPU計2回（原比較失敗1保持・成功1）、retry0。修正版GPU1.499809秒／新PSO93.950324秒、変更のない対照／引継ぎの全14,158,848byte保持。別GPU禁止childで全4fresh48.621108秒、live parent receiptなしでseal。最終packet `/tmp/nikke-original-enemy-stack-final-v1.zip`（9dd7761e…、1997files）は関連29／制御476成功（Win1skip）、全payload byteとGPU source/input/native/output一致。
+
+初期data-only生成再利用はSlang0、実装修正はsource/keyが変わるためpaired Slang2回・新PSOが必要。共通source-reuseは変更を拒否し、最終同コードpacketはgeneration必須hit・Slang0。新PSOのファイル検査成功は実warm load／CUDA cache証明ではない。数値／wire／Runtime138952byte不変。全reader終了後、原失敗／成功rawをSHA/size/inode保持で疎化し42,074,112byte回収・削除0。静的inventory全266／247packing／19失敗／kind拒否0／受付拡張8は旧分類と全profile一致、GPU認定ではない。
+
+次はkind21。Anchor＋Mast/Moderniaの64秒CPU調査はFB開始4.316667／44.316667の2回、先頭B2 Mast・B3 Drakeの40秒待機を実notifyで確認、減算発火0。記録 `anchor-frontier.json` はPython observer filter opt-inの探索で、同条件正本とのfilter等価性は未監査・golden禁止。次は宣言burst rulesでB2/B3を交互選択する正例と、既定auto86秒候補を確認する（到達は未検証予測）。元ADD/世代に対する今回のDoT stack変更、21/34/35/37、packing19、モデル/variant・現CUDA/公開GPU/全キャラも未完。全キャラ0／UI CPU／ゴール未達。Windows新規依頼0、idle APIへ重複runを送らないこと。
+
+## 2026-10-26 元アンカーharmful stack21・全座標packet履歴
+
+最新 `coordinate-original-harmful-stack`2、`docs/portable-original-harmful-stacks.md`／`research/portable-original-harmful-stacks-checkpoint.json`。元Dora／Anchor Innocent Maid／Drake／Mast Romantic Maid／N102全82定義・完全成長／武器・auto、6秒対照と86秒、seed3901。78.783333秒の実3回目FBで有害stack3→2、membership／activation56.766667／無期限を保持し最終2、対照発火0・最終1。任意controlをgrowth profileへ入れる探索は入力境界に拒否され、その境界を変更せず既定autoを維持しました。
+
+Python観測filterは不変selected-controlコードsnapshotから両adapterケースを準備し、全native＋外側creation indicesを有効／無効で全一致。元snapshotのmanifestはcontrolのみで、whole-suite/GPU証明ではないことをreceiptへ明記。後の完全2入力packetはそのinput/native指紋と一致、86秒観測142.273／42.564秒（同時同値性検査の実測・制御benchmarkではない）。新caseだけopt-in、正本／旧case既定不変。共通CLI `cases` のm.suite不足を `case_names` APIへ集約して修正し、実列挙・simulate禁止を回帰検査。
+
+初GPU `/tmp/nikke-original-harmful-stack-metal-v1` はcontrol比較名のKeyErrorと、長期case約70秒のstatus64。CP raw trace4096が満杯で、native全5031の先頭4096は全word一致。比較器field引数を既存stack readerへ追加し、固定shared macroだけ全packet SHAを有効化。旧raw容量4096とinput109968/output1769856/Runtime138952は不変。64wordをCP_END1305752からのclear-tailに明示割当（次live1310720より前）、全12word（時計を含む）のSHAと先頭rawを共通sampled-parentで検査。raw tail935件は保持せず全件SHAに含む、digestから復元不可・上限1048576。markerありで欠けたheaderへのfallbackなし、markerなしの旧全raw比較維持。clock/prefix/hash/metadata破損・境界・arena・厳密inverseを検査。
+
+容量不足で `/tmp/nikke-original-harmful-stack-metal-v2` はGPU開始前に停止（reserve1GiBは維持）。今回作った5不変snapshotの同一payloadを共有し全hash再検査、ZIP/manifest/結果/raw/claim保持。論理共有226,592,712byte。歴史全体のcleanupはしていません。
+
+修正版packet `/tmp/nikke-original-harmful-stack-develop-v4`（97a4d4e6…）、capture `/tmp/nikke-original-harmful-stack-metal-v3` はM5全2一致。全315/5031packetのordered SHA一致、実GPU9.068120秒／新PSO91.563034秒。GPU計2（原比較失敗1保持・成功1）、storage拒否1はGPU0、retry0。両input/native指紋を保持、control全旧wordは新64word以外全一致、long先頭4096rowも全一致。旧cover CUDA/MSL原生成物も全byte保持。別GPU禁止childで全2fresh52.867548秒・live parent receiptなしでseal。
+
+最終 `/tmp/nikke-original-harmful-stack-final-v1.zip`（db9ccd15…、2010files）は関連32／制御476成功（Win1skip）、全payload hash/checkout bytesとGPU source/input/native/output一致、generation必須hit・Slang0。reader終了後に原／成功rawをSHA/size/inode保持で疎化し20,840,448byte回収・raw削除0。最初のdata-only世代では実Metal cache hit0.002942秒を確認したが計算は履歴上限で失敗、新コードの実warm PSO／CUDAへ成功を流用しません。
+
+静的全266／247packing／19失敗／kind拒否0／受付拡張8は旧全profileと一致。次は元Dorothy/Trony蓄積放出34、Ein feather35、Cinderella Crystal Wave弾消費37を既存共通handlerで正発火へ。今回のADD/世代・減算floorなどの他variant、packing19、現CUDA／warm cache、公開GPU／全キャラも未完。全キャラ0／UI CPU／ゴール未達、Windows新規依頼0。空き容量は依然小さく、次の検証もstorage gateを維持すること。
+
+## 2026-10-26 元Dorothy／Trony蓄積放出34・共有展開
+
+最新 `coordinate-original-accum`4、`docs/portable-original-accumulation.md`／`research/portable-original-accumulation-checkpoint.json`。元各73／74全定義、5人・武器／成長／auto・seed4001、各対照1秒／18秒。Dorothyは上限5.20秒でも放出せず13.366667秒expiryで1回、Tronyはcap到達5.20／8／10.766667／13.533333秒に4回、元split補正／live消費／archive zero／次carrierまで比較。通常のdamage式を通らない元単発のcreation receipt不足を共通observerで修正、着弾時の推定fallbackは増やしていません。既存accum observer/final reader/timer/全battle比較を再利用しGPU本体／数値／wire／Runtime変更0。
+
+不変dev `/tmp/nikke-original-accum-develop-v3`（bf84a224…）→M5 `/tmp/nikke-original-accum-metal-v1` は全4status0・一致、GPU1.741963秒／必須archive pipeline hit0.002726秒。GPU計1・失敗0・retry0。全4fresh独立監査55.963184秒、live parent receiptなし。全4input/nativeは先行対照限定コードsnapshotの探索値と一致。固定shared sourceのままdata-only2→4、共通source-reuseで両CUDA/MSL全byte保持／Slang0。CUDA実compile/cache/launchへ流用しないこと。
+
+最終packet `/tmp/nikke-original-accum-final-v1.zip`（bccd155a…、1990files）は関連26／制御480成功（Win1skip）、全payload SHA/checkout byteとGPU source/input/native/output一致、generation必須hit・Slang0。新共通CLI `unpack --reuse-payload-from` は既存不変packageの全hashとZIP全memberを検査して同一payloadだけhardlinkで共有（最終1986files／56,655,264byte）。manifestは別、参照コード実行0、異なるbyteは個別に展開、両payloadを絶対に編集しないこと。Macの通常644／Windows通常666を対象、Windowsでの新経路実機確認は未取得。
+
+容量reserve1GiBを維持。最初のCPU-only budget不足後、24元編成snapshotのmanifest外Python bytecodeだけを整理し全payload前後hash検査、184,180,736byte割当回収。raw/ZIP/結果/claim削除0。package CLIはsys.dont_write_bytecode、所有子はPYTHONDONTWRITEBYTECODE=1で再増加を抑制（独立import/故障注入は範囲外、最終検査後2cache・425,167byte）。rawは全reader終了後SHA/size/inode保持の疎化で21,561,344byte回収、削除0。空き容量は依然小さいので予算確認を続けること。
+
+新entry-inventory全266／247packing／19失敗／kind拒否0／拡張8は前の全profileと一致。34のBODY代表を実証、ADD/世代・全variantは未完。次は元Ein羽更新35・Cinderella Crystal Wave弾消費37、19packing失敗・モデル不足。現在CUDA／warm cache・Windows Job smoke・公開GPU／全キャラは未完、全キャラ0／UI CPU／目標未達。Windows新規依頼0、idle APIへ重複runを送らないこと。
+
+## 2026-10-26 元Ein羽35・Cinderella Crystal Wave弾換算37
+
+最新 `coordinate-original-owned`5、`docs/portable-original-owned-sources.md`／`research/portable-original-owned-checkpoint.json`。元74／88全定義・5人・成長／武器・seed4101、Ein1/12/40秒、Cinderella3/30秒（公開weapon_mode_swap=True）。Einは初期4枚→burst4.016667秒で6枚→40秒最終2枚、epoch1/2/2と次時計4.16/12.016667/44.016667。実tick・生存枚数分damageを比較、元推定寿命／間隔のLEGACY_WARNING保持。Cinderella対照0／正例8dispatch、40寄与につき追加39通知、部隊累計1737を元200発triggerのraw counterまで検査。実弾／mode／reload／damage全比較保持。CPU schedule入力0。
+
+既存ammo observerをcapture contextへ共用し旧observeは委譲。Ein40秒・Cinderella30秒でplain/observedの全nativeと外側creation indices一致（同時測定・性能benchmarkではない、全5透過性の主張なし）。別に全5fresh監査138.779740秒・live parent receiptなし。dev `/tmp/nikke-original-owned-develop-v1`（71c67141…）、M5 `/tmp/nikke-original-owned-metal-v1` 全status0／一致、実GPU1回3.254542秒、必須PSO hit.002838秒、失敗/retry0。GPU／数値／wire／Runtime変更0、既存4→5のCUDA/MSL全byte保持・Slang0。
+
+最終 `/tmp/nikke-original-owned-final-v1.zip`（25916dd1…、2004files）は関連29／制御480（Win1skip）成功、全payload SHA/checkout byteと実GPU source/input/native/output一致、generation必須hit・Slang0。owned-state readerは厳密AST同一の関数抽出だけで、元prepare/native/witness AST保持。実readbackの小さな状態fixtureでclock1ULP・population/epoch・counter1件等を壊す負例を実行し、長いnativeの重複を避けました。旧ammo referenceの25literal等・観測透過性テストも保持。1990payload／57,182,951byte共有展開、全raw reader終了後SHA/size/inode保持の疎化で26,542,080byte回収・raw削除0。
+
+静的全266/247packing/19失敗/kind拒否0/拡張8は前の全profileと一致。残り20の観測operator分類（code/message/descriptor/lane保持）はoriginal-owned-evidence/readiness-priorities.json。次はprojectile_dmg_pct／shield_dmg_pct／cover_def_pct等、reference-model-gapのtyped基盤を戦闘producer/consumerへ接続する作業を優先。単一観測分類の件数を完了予測に使わないこと。19packing失敗、移動／selector／damage-sharingモデル、ADD／世代・variant、同一現sourceでの旧suite集約、現CUDA／compile cache・Job smoke・公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／目標未達。Windows新規依頼0、idle APIに同じrunを再送しないこと。
+
+## 2026-10-26 元敵弾・HPシールド補正の共通Frame接続
+
+最新 `original-modifier-probe`19、`docs/portable-original-target-modifiers.md`／`research/portable-original-target-modifiers-checkpoint.json`。元の完全5人編成・全効果／成長／武器を保持し、every:2s・係数100の宣言攻撃を1件だけ追加。敵弾側サクラ7.74／アンカー25.6／エレグ59.66／クレイFB前0→後45.05、HP側アスカ601.01／レイ700.5／マリ100.09／ミサト回復前0→後150。別caster・他axisの非混入負例も比較。CPU射撃schedule入力0。宣言V1型付きtargetの元carrier→factor5を検証した範囲で、自動照準／座標／元武器の自動迎撃や全キャラの認定ではない。
+
+loweringとaxis packingを `portable_target_modifier_input` へ共通化し、既存modifier18／shield88と元Rei/Misato8画像のwire SHA保持。エレグ `target_and_nearby:2` はBODY1体・部位／ADD／座標なしを検査したprivate compiler内だけの特殊化。元定義と一般selector拒否を保持。HP probeは別のliteral boss damage／型／所有者／世代違いを拒否。
+
+元敵弾10は独立監査2.472478秒。HP追加初版はアスカ2件status64、元during_shieldのpredicate受付がtyped入口にないことを確認し失敗結果／claim保持。新5行入口 `destructible_original_modifier_entry.slang` が既存の共通predicate受付とhasProtection consumerを有効化。既存GPU本体・数値・wire・Runtime138952変更0。修正版dev `/tmp/nikke-original-modifier-hp-develop-v2`（1d9b9816…）、capture `/tmp/nikke-original-modifier-hp-metal-v2` は全19status0・一致、実GPU1.744037秒／新PSO65.467683秒。別GPU禁止childの全19fresh3.659128秒、live parent receiptなし。計GPU3（敵弾10成功・19失敗・19修正成功）、retry0。
+
+元10の全input/native・41,943,040byte出力完全一致。失敗19から修正したのはアスカindex10/11のみ、他17全word一致。旧typed sourceの単体監査に厳密な既知receipt inverseを追加した際、全監査合成で二重適用を検出。inverseを単体verify_retained_sourcesへ限定し、既存の全hash/literal検査を維持。失敗CPU control記録も保持。GPUの再実行不要。
+
+最終 `/tmp/nikke-original-modifier-final-v2.zip`（b7178643…、1956files）は関連45／制御480成功（Windows専用1skip）。全payload SHA/checkout byte・元GPU source/input/native/output一致。共通source-reuseで監査修正前後のCUDA/MSLと両reflection・identity・consumer全一致、generation必須hit・Slang0。初版19のPSO必須hit.002517秒は計算失敗だったため成功cache実証へ流用しない。新shaderのwarm PSO／CUDA実compile/cache/launchは未証明。
+
+全reader終了後、3rawをSHA/size/inode保持で疎化し146,669,568byte回収、削除0。manifest外の再生成可能Python bytecodeだけを93旧snapshotで整理し、payload全hash前後検査・453,578,752byte割当回収。ZIP／source／結果／raw／claim保持、reserve1GiB維持。
+
+静的coord entry全266／247packing／19失敗／kind拒否0／拡張8は保持。別のcanonical compilerは245packing、観測20分類のcode／message／descriptor／lane／件数は旧記録と完全一致し、今回の宣言probe実証を添付しただけ。20分類はreference_model_gapのまま、packingをGPU対応率へ読み替えない。次は型付き対象consumerを共通座標resident・自動aimへ合成すること、cover_def_pctのincoming-coverモデル、selector／移動／damage-sharing、ADD世代／variant、同一現sourceへの旧suite集約と現在CUDA。全キャラ0／UI CPU／目標未達。Windows新規GPU依頼0、idle APIに同じrunを繰り返し送らないこと。
+
+## 2026-10-26 共通座標Runtimeへの型付き対象Frame合成
+
+最新 `coordinate-typed`10、`docs/portable-coordinate-typed-targets.md`／`research/portable-coordinate-typed-checkpoint.json`。元マルチャーナ3秒対照と、元Sakura／Anchor／Clay／Asuka／Rei／Mari／Misatoの完全5人編成・全効果／成長／武器を保持。宣言typed targetとevery:2s・係数100の追加攻撃1件を、元の座標射撃と同じRuntime／WorldSchedule／DFSへ接続。Clay3/12秒・Misato3/30秒で条件成立前後を検査。型付きへの自動aim／座標shapeの武器迎撃は未実装、Eleggのnearby座標selectorは閉世界の特殊化を流用せず未対応保持。公開GPU／全キャラの認定ではない。
+
+入力109968＋5712＝115680word、出力1769856＋262144＝2032000word。旧座標領域は保持し、typed state／clock／128receipt／DFS scratchを末尾へ配置。Runtime138952byte不変。既存typed処理をhooks/implへ抽出し、旧入口と新 `world_coordinate_typed_entry.slang` で共有。型付き攻撃も既存sampled skill frameの共通RNGを使用、CPU schedule入力0。binary64／core_probability・正本・strict normalizer不変。旧source監査は全file hashを固定したinverseだけを追加。
+
+初CPU探索でscalarラッパーのbuffs観測不足を修正。座標body着弾を抑止した型付きpacketは、元traceの時刻／owner／source／係数／damage／完了数を型付きreceiptへ明示対応させて別比較。CLI live-parent再利用にも両receipt集合の欠落／重複／改変検査を追加。初capture v1はそのcontext検査でGPU前に停止、v2は容量gateでGPU前に停止。どちらも結果／package保持・GPU0・claim削除0。
+
+dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-coordinate-typed-metal-v3` は全10status0・CPU一致、実GPU2.299065秒／初PSO92.531390秒、generation必須hit・Slang0。別GPU禁止childで全10fresh111.541363秒、live parent receiptなしでseal。元の座標battle・physical packet・RNG・allied health／gauge・元定義／通知を比較し、typed攻撃数は対照0／3秒各1／Clay12秒5／Misato30秒14。
+
+旧座標入口のCUDA/MSLと両reflectionは既存strict比較で一致。旧typedはアドレス式の抽出等で生成コードが変わったため、保存結果へ成功を流用せず、別のMetal19入力を1回実行。全19一致、GPU1.820227秒／初PSO66.785972秒、独立fresh3.735670秒。旧19の全79,691,776byteが保存結果と完全一致。GPU計2・計算失敗0・retry0、Windows新規GPU依頼0。
+
+最終 `/tmp/nikke-coordinate-typed-final-v1.zip`（a59582ac…、1971files）は関連53／制御480成功（Windows専用1skip）。最終変更は配置ツール・分類とreserved/counter検査。prepare/native/partition AST・native producer filesの一致、比較器がreserved検査2文の追加だけであることを検査し、完了済みfresh native監査を再利用。全payload SHA/checkout bytes、全10input/native/sourceと各出力SHA、最終reserved/counter検査を保存readback全件へ適用。新nativeを再計算したCPU preflightとは主張しない。新GPU実行0で最終検査済み。
+
+`arena-check --profile coordinate-typed-v1` が新しい全領域の所有・重複・consumer sourceを検査。reserved領域／counter context破損の負例も追加。共通source-reuseは修正前後のCUDA/MSL・reflection・identity・consumer全一致、最終generation必須hit・Slang0。新PSOのwarm hit／CUDA実compile/cache/launchは未証明。caseを増やすだけの次の検証は同じ固定入口を使い、生成・pipelineの再構築を避けること。
+
+全reader終了後に両rawをSHA/size/inode保持で疎化し120,651,776byte回収・削除0。130旧snapshotのmanifest外・再生成可能Python bytecodeだけを整理、全payload前後hash検査、451,768,320byte割当回収。source／ZIP／結果／raw／claimは保持。reserve1GiBを維持すること。
+
+静的全266profileの行／packing失敗／kind依存は前記録と完全一致。coord247packing／19失敗／kind拒否0／拡張8、canonical245packing・20分類のcode／message／descriptor／lane／件数も保持。private座標typed証拠だけを分類へ添付し、20はreference_model_gapのまま。次は型付き対象のidentity／livenessと座標shape・selectorの接続、その後の自動aim／武器consumer。cover_def_pct／移動／damage-sharing、ADD世代・variant、現CUDA／公開GPUも未完。全キャラ0／UI CPU／目標未達。Windowsのidle APIへ重複runを送らないこと。
+
+
+## 2026-10-26 型付き自動照準のCPU契約
+
+共通CLI `reference --suite coordinate-typed-aim-common` を追加。元完全編成・全定義・武器・成長を保持し、明示 `typed-before-body-v1` のframe候補をcanonical調停器へ接続。fallback/期限切れ、散弾破壊後の次frame、手動canonical/typed、ADD優先、元実FB追従の6正例と、元Reiの `enemies_nearest_in_range` を最初のframe前に拒否する1件。ordinary skill geometry/cacheと元定義登録一致検査を保持。詳細 `docs/portable-coordinate-typed-aim.md`。
+
+最終CPU package `/tmp/nikke-typed-aim-cpu-v3`（620ab20e…）。全7契約30.986秒、関連unit6件32.980秒、制御49group成功。既存46/native29のCPU回帰106.740秒・関連74成功、全入力byte/golden保持。v2→v3は新CPU照準の報告・分類・テストのみ4file差分、既存producer/compiler/comparator不変をreceiptへ固定。358 Slang・正本/数値/cache等8保護fileが前Metal最終packageと全byte一致。新GPU0、旧Metal46の成功を自動照準成功とは数えない。
+
+次は共有wire/consumerへ接続。BODY0/canonical1..127/core128を保持してtyped129..256、focusの8bit packingを専用profileで9bit×5へ更新する必要がある。slot容量削減/alias禁止。frame候補固定・元timed skill/調停順・前frame照準queriesを保持。現在compilerは新policyを明示拒否し、current-enemy recipient規則は未対応のまま。classification reference_model_gap／全キャラ0／UI CPU／目標未達。Windows idle送信を再試行したがactive turn不足で拒否、開始未確認・新規検証0。
+
+
+## 2026-10-26 型付きframe照準の共通GPU consumer
+
+最新sealed `coordinate-typed-aim`59（native36／拒23）。`docs/portable-coordinate-typed-aim.md` と `research/portable-coordinate-typed-aim-gpu-checkpoint.json`。旧46をすべて保持し、CPU正例6と全128slotを使う手動最終slotを追加。型付き候補をframe開始時に固定し、元の手動／camera／実FB追従を共通Slangへ接続。BODY0／canonical1..127／core128／typed129..256／内部ADD257、専用focusは9bit×5owner。手動wireの257／未宣言／範囲外とフラグ不整合を拒否。ordinary skill geometry/cache、元の完全編成・定義／所有者／順序／武器／成長を維持。
+
+初package作成は準備済み入力を再準備する契約のKeyErrorを検出し、raw／prepared両方を扱うよう修正。GPU0。初Metal試行はsandboxでdevice不可視・CPU/GPU前に停止、claim未消費。アクセス可能な環境の実初版 `/tmp/nikke-typed-aim-metal-v2` は58一致／ADD優先1差分。focus有効時に旧論理ADD sentinel0をBODY0として読んでいたため、専用257と物理recipient decoder・比較器を同時に更新。旧GPU結果／claimを保持した。
+
+修正版dev `/tmp/nikke-typed-aim-gpu-develop-v3`（884ef54a…）、capture `/tmp/nikke-typed-aim-metal-v3` は全59一致。GPU3.877019秒／新PSO93.967664秒、生成cache必須hit・追加Slang0。別GPU禁止childの全59 fresh独立監査172.055948秒、live parent receiptなし。実GPU計2（失敗1／成功1）・retry0。修正前後59のnative全指紋保持、入力変更は境界の期限だけindex52、実readbackの変更はADD index50のみで他58全word一致。元の旧46全373888000byteも保存結果と完全一致。実最終focus ID256を確認、candidate世代／ID／stream digest／9bit focus／未使用tail／全照準frame digestの6破損をすべて拒否。
+
+最終 `/tmp/nikke-typed-aim-final-v1.zip`（36acee7f…）は論理BODY／ADD名をtyped labelへ使えない追加拒否guard・seal登録・分類を反映。3guard行を除くと実行版のCPU producer全byte保持、全CLI関数ASTとGPU／数値／transport完全一致。最終CPU-only全59/native36は137.954392秒で成功、関連78／制御488成功（Win専用1skip）。全59 input/source/native・payload byteを実行版へ固定し、新GPU0。最終generation必須hit・Slang0、sealed CUDA/MSL生成物一致。PSO archive作成を現在CUDA compile/cacheや新shaderのwarm load成功へ流用しないこと。
+
+入力115680／出力2032000word、Runtime138952byte不変。typed tail220224から544wordだけをframe候補へ割当、既存物理history／overflow／DFS所有を保持。`arena-check --profile coordinate-typed-aim-v1` で監査。全reader完了後、初失敗／成功rawをSHA/size/inode保持で疎化し、計775028736byte回収、raw／claim削除0。新しいmanifest外bytecodeの大掃除は行わない。
+
+今回の自動照準は明示typed-before-body-v1の私有モデル。分類にはscoped GPU証拠だけを追加し、ゲーム仕様reference_model_gap／全キャラ0／UI CPUを維持。次は元Rei `enemies_nearest_in_range` 等のcurrent-enemy recipientとtyped owner規則を、元定義を落とさず接続。移動形状・他caller／variant、19packing失敗・残るモデル、現CUDA／warm cache・公開GPU／全キャラも未完。Windows新規GPU依頼0。idle送信APIのactive turn不足が既知なので、重複runを送らない。
+
+
+## 2026-10-26 元Reiの現在対象ダメージ・typed照準合成
+
+最新sealed `coordinate-typed-actor`67（native40／拒27）。`docs/portable-coordinate-typed-actors.md`／`research/portable-coordinate-typed-actor-checkpoint.json`。旧59を全保持し、元Reiの完全5人・73全定義・元武器／成長で1秒対照と12秒BODY／ADD／手動typed＋ADDの4契約を追加。元S1 `선두 제압 2` の `hit_count:100`／`enemies_nearest_in_range` は0／5／5／5回実発動。BODYと手動typedはBODY、ADD autoは先頭の実生存ADDへ着弾し、元traceとpacketの全時刻・量・数・recipientを照合。定義削除／追加probe／CPU射撃scheduleは0。
+
+`typed_actor_policy={"mode":"canonical-current-damage-v1"}` とcompilerの明示opt-inで通常current damageだけを元canonical敵選択へ接続。policy無しの旧gap検査を維持、敵buff／状態変更／typed所有権継承と対象条件は未対応guardを維持。CPU validatorをnative登録／compilerで共用し、GPUにもcurrent enemy fieldの拒否を追加。typed header15=1はweapon13／frame aim14／live aim11を必要とし、旧9bit namespace・arena・input115680/output2032000/Runtime138952を保持。source監査は既知full-hash inverseだけ追加。数値・正本・strict normalizer・CUDA compile cache本体は不変。
+
+最初のCPU契約はBODYの敵選択関数query数で発動を判断して失敗。BODY直接着弾はqueryを呼ばないため、既存の実packet／元traceによる発動・着弾検査へ修正。4件reference42.011秒で成功。観測は元実resolverの受動wrapperだけ、queryの追加呼び出しは0。
+
+実行dev `/tmp/nikke-typed-actor-gpu-develop-v1`（103f948f…）、capture `/tmp/nikke-typed-actor-metal-v1` はM5全67一致。CPU preflight185.208515秒、実GPU4.069825秒／新PSO94.331620秒、生成cache必須hit・実行時Slang0。GPU1回、失敗/retry0。GPU禁止のfresh独立監査223.096155秒は全67／native40一致、live parent receiptなし。旧59の全input/nativeと479552000byte出力を保存結果へ完全一致。実readbackのrecipientを構造上一貫した生存ADDへ差し替える負例、amount/landing-clockの1ULP差、source row改変をすべて拒否。
+
+最終 `/tmp/nikke-typed-actor-final-v1.zip`（959199e6…）はseal登録とscoped分類の2file差分＋goldenだけ。全native producer／tests/data／GPU/transport全byte保持、全CLI関数ASTと全67prepared input/source/nativeを固定して同じfresh監査を再利用。最終版の新CPU preflightを実行したという主張はしない。最終関連84／制御488成功（Windows専用1skip）、最終generation必須hit・Slang0／sealed CUDA/MSL一致。全reader終了後rawのSHA/size/inodeを保持して疎化、439025664byte回収、削除0。
+
+新しい固定入口へdata-onlyケースを追加するときは、既存の生成／pipeline identityを保持して再構築を避ける。今回のarchive作成を現在CUDAのcompile/cache/launchやwarm Metal成功へ流用しない。次はcurrent enemy field／mutationとtyped event所有権・対象条件、他caller／世代・移動形状・skill/weapon同時interception。現CUDAと19packing失敗等の残るモデル／公開GPU／全キャラも未完。scoped証拠だけ分類へ追加し、reference_model_gap／全キャラ0／UI CPU／目標未達を維持。Windows新規依頼0、idle APIへ重複runを送らない。
+
+
+## 2026-10-26 型付き所有者fieldのCPU基盤
+
+`coordinate-typed-owner-common`5。詳細 `docs/portable-coordinate-typed-owner-reference.md`、`research/portable-coordinate-typed-owner-reference-checkpoint.json`。明示body-owned-current-fields-v1はbinding kind2/3とowner[0,0,1]必須。exact物理世代からlogical BODYへのqueryだけを投影し、event/impact handleを維持。未所有／ADD所有／異なるBODY世代／古いtyped世代を拒否、例外時patch復元。元Prim全71定義・完全5人・武器／成長を保持、1秒対照／8秒BODY／ADD／手動typed。別のcounter監査には原本後に明示2効果だけを追加し、実HPshield命中→counter完了→子buffを実行。camera ADDでも子fieldは所有BODY、実received query BODY17／両ADD0。元current fieldは0/1/1/1/1。
+
+不変CPU package v5 c106fbb2…の全5reference37.628665秒、最終owner unit5／関連84／制御488成功（Win1skip）。旧67/native40回帰はv4 e862a114…で181.761955秒、全prepared inputとgolden保持。最終31724c3b…はreadiness＋owner契約強化のみ、全5保存nativeとinput SHA照合後に強い契約を再監査しnative新生成0。362 Slang／保護正本・数値・cache・backend全byte保持、既存67 generation必須hit・Slang0。owner policyは旧GPU compilerで明示拒否、新GPU／Windows依頼0。共有Slang consumer/wireへ接続する前に、全ケースを保持してbounded fresh auditを分割集約できる共通CLI経路を整備すること。旧67独立監査223秒のためケース削減やguard緩和で済ませない。ゲームgap／全キャラ0／UI CPU／目標未達。
+
+
+## 2026-10-26 全範囲fresh native監査の分割実行
+
+共通CLI seal/replayに明示comparison-group-sizeを追加、既存比較器を再利用。部分結果はcalculation_verified=False、全index順序・重複／欠落・拒否・全体raw/input/generated／各native指紋・transport・immutable anchorsを集約して初めて全件成功。childはGPU禁止・ライブ親oracle0、各child上限1〜240秒、逐次。既存未指定経路は維持。最終版は各group stdout/stderr/部分JSONと失敗またはaggregateを別temp captureへ保持。
+
+実測development22d968b4…、保存Metal出力の全67/native40/拒27を24/24/19で実行し76.032/72.987/89.328秒、各180秒内。総239.598秒は旧単一child223.096秒より増加し、総短縮の主張なし。旧sealed67の全input/native/output/generated goldens完全一致、GPU新実行0。最終b58926cf…の差分はログ・失敗保存helperと追加unitのみ、native producer/比較器・他CLI関数AST保持。最終新12／seal8／関連84／制御500成功（Win1skip）、generation必須hit・Slang0。新しい全67 native再生成を最終版で行ったとは主張しない。原本/claim保持、全reader終了後の新replay raw疎化で439025664byte割当回収、raw SHA/size/inode保持・削除0。詳細docs/portable-comparison-groups.md、research/portable-comparison-groups-checkpoint.json。
+
+次はbody-owned-current-fields-v1を専用共有entry/headerへ接続し、元Prim全71と実counter完了子fieldをMetal比較。旧67はすべて保持、新ownerケースを含め全範囲group監査を実行すること。GPU本体・数値・正本・strict normalizer・CUDA cache本体は今回不変。現在CUDA、ownerのGPU、ゲームgap／全キャラ0／UI CPU／目標未達。Windowsへの新規依頼0、idle APIへ重複runを送らない。
+
+
+## 2026-10-26 BODY所有fieldを共通GPUへ接続
+
+最新sealed coordinate-typed-owner80/native45/拒35。docs/portable-coordinate-typed-owner-gpu.md、research/portable-coordinate-typed-owner-gpu-checkpoint.json。元Prim全71・完全5人・武器/成長、対照/BODY/ADD/手動typed/counterの5ケースを追加し旧67保持。body-owned-current-fields-v1はheader12=1/15=2とweapon13/aim14/live11必須、kind2/3・owner[0,0,1]を明示。物理kind/id/genは不変、field/対象条件queryだけ同世代DT→BODY。通常current damageはcaster canonical aimを維持。CPU compilerは明示owner counterの論理validator viewだけを投影、正本guard・実命令不変/例外時復元。strict full-hash inverse追加のみ、normalizer/数値/cache本体不変。Runtime138952、input115680/output2032000word保持。
+
+実GPU dev cf44aa64… capture /tmp/nikke-typed-owner-metal-v2、CPU preflight223.683332秒、Apple M5実GPU4.041898秒、library1.930172/pipeline93.763491秒、generation必須hit/実行時Slang0。初比較は新5だけCPUにnonzero_immunity_used空リストがなく失敗。全field/recipient/子fieldは既に一致。observe_actor_statusを追加し、5native再観測で追加キー以外の全hash一致、全入力/GPU/transport/正本を固定した専用migrationで保存結果を再監査。比較削除やnormalizer緩和0。
+
+修正immutable /tmp/nikke-typed-owner-gpu-replay-v4（4754c201…）の共通replay全80/native45 fresh監査294.003520秒、24/24/24/8 childが78.245/73.308/135.965/4.863秒、各180秒内、live-parent oracle0。元field0/1/1/1/1、別宣言counter監査2効果の実HP3/id10/gen1命中→完了→子fieldはcamera ADDでもBODY17/両ADD0。物理receipt/skill trace/RNGも比較。goldenは同じshared grouped auditの結果を登録、sealコマンド再計算0。旧67全input/nativeと544576000byte raw完全一致。GPU計1/retry0、追加GPU/Windows0。元failure/claim保持、reader終了後のSHA/size/inode保持疎化で525991936byte回収。replayの明示reuse-source-bytesはhardlink共有、全hash再検査、cross-device copy fallback0/失敗保存/通常copy維持。
+
+最終immutable /tmp/nikke-typed-owner-final-v1（93ea25a5…）はseal登録/golden/scoped readinessのみ、全CLI関数ASTと全native producer/tests/GPU、80golden保持。最終関連100/制御507成功（Win1skip）、旧replay6成功、generation必須hit/Slang0。最終版で新fresh native preflightを実行したという主張なし。固定migrationはv4自身のCLIから使うこと、現在の追加変更は厳密source表で拒否。
+
+次は固定同entryへdata-onlyでprojectile所有field、破壊済み同世代/再登場・古い世代counterを追加。これらは今のGPUでは未実証としてreadinessにFalseを明示。入力kind2許可をbattle実証へ数えない。新shader warm load/現CUDA compile-cache-launch、ADD所有/移動/他caller/variant、残るモデル/19packing失敗/旧suite現source集約、公開GPU/全キャラ未完。全キャラ0/UI CPU/目標未達。Windows idle APIへの重複runは送らない。
+
+
+## 2026-10-26 所有者の寿命・世代88とwarm Metal
+
+最新sealed `coordinate-typed-owner-lifecycle`88/native53/拒35。docs/portable-coordinate-typed-owner-lifecycle.md、research/portable-coordinate-typed-owner-lifecycle-checkpoint.json。旧80保持、元Prim71全定義・完全5人・武器/成長、projectile所有field・破壊済み同世代query・再登場gen2 counter・late stale marker抑止・手動projectileの8入力を同じ共有entryへ追加。物理handle／BODY論理query／実counter子field／生死観測を照合。staleは1.25sにgen1 markerを実arm、後続世代で完了しないことを証明。内部不正contextのerror64直接実証／ADD所有とは区別。GPU source/transport/数値/正本/normalizer/cache consumer不変。
+
+実dev dcd09db2… capture /tmp/nikke-owner-lifecycle-metal-v1、CPU preflight297.821087秒、M5 GPU4.110688秒、library0.005774/pipeline0.002903秒。generation必須hit/Slang0、pipeline必須hit/archive compile0。初86/88差分はcounter markerを通常fieldへ列挙したdecoder2箇所。既存enemy_buff_plan分類へ統一しcounter資源比較は維持、native計算変更0。strict comparator refreshで全88input/native/GPU保持、修正replay8d9c2cf1…から保存rawのfresh全88/native53を4group（79.901/75.157/137.232/90.120秒、各180秒内）、計384.476683秒で成功。同じ監査でgolden登録、seal二重実行0。旧80の650240000byte raw完全一致。GPU1/retry0/追加GPU0。reader完了後raw SHA/size/inode保持疎化で573636608byte回収、失敗/claim/raw削除0。
+
+最終 /tmp/nikke-owner-lifecycle-final-v1（1f1c15b6…）はseal/readiness/goldenと非Mac filesystem unitの4file差分。全CLI関数AST/native producer/comparator/GPUと全golden保持。最終関連106／制御517成功（Win専用1skip）、generation必須hit/Slang0。最終fresh native再生成は未実行。固定comparator migrationはv3自身のCLIで使うこと。
+
+容量不足対策は共通compress-generation-cacheを追加。macOS派生JSON371entryの全key/byte/SHA/4artifactを保ち、割当2651963392→534904832byte、2117058560byte回収。元generation consumer/identity不変、固定packageの必須hit確認、compiler/GPU0。sandboxコピーの不正candidateは公開前拒否し原本保持。Windows操作／driver cache／latency証明ではない。docs/portable-cache-filesystem-compression.md、research/cache-filesystem-compression-evidence/。
+
+次は未対応のADD所有／対象操作をCPU契約から共通実行器へ接続。ゲームgap/移動/他caller/variant/19packing失敗/現source全suite集約/公開GPU/全キャラは未完、全キャラ0/UI CPU/目標未達。Windows新実行0、idle API再試行もactive turn不足で失敗、coordinate-landing依頼は未送信。既存runの再送をしない。
+
+
+## 2026-10-26 ADD所有者のCPU契約
+
+`coordinate-typed-logical-owner-common`3を共通CLI referenceへ登録。docs/portable-coordinate-typed-logical-owner-reference.md、research/portable-coordinate-typed-logical-owner-reference-checkpoint.json。明示logical-owned-current-fields-v1だけ、型付きworldのproviderを実戦registry_for(manager, world.clock)へ登録し、直接BODY/ADD所有者のexact世代をquery。初v1は独立typed registryのためUnknown actorで失敗、失敗保持。旧BODY policyの意味/拒否は維持。未spawn/未知/古いADD世代は拒否、同世代の生死で所有者を消さず物理event/handle不変。root/label推測/BODY fallbackなし。
+
+元Prim全71・完全5人・武器/成長を保持し、別宣言counter2効果のHP shield/projectile/破壊済みshield3契約。通常元fieldはADD0、counter実完了のtarget_is_add子fieldは宣言ADD1[5,1,1]、receivedはBODY/ADD0/ADD1=0/0/17。v3新3は29.037947秒、旧BODY5は39.236259秒、旧寿命8は72.773368秒成功。旧13のinput/native/trace全SHA保持を前snapshot/既存結果へ照合。
+
+最終 /tmp/nikke-logical-owner-cpu-v4（8183df99…）はv3からunit fixture1fileのみ修正。typed-only初期registryを再現、実helper/producer/comparator不変。最終関連113/制御517成功（Win1skip）、generation必須hit/Slang0。Slang/upstream/正本/数値/transport/CUDA cache本体全byte保持、GPU/Windows0。最終native再生成なし、証拠はv3 producerとの全byte一致に固定。
+
+次は共有SlangのtypedOwnerContextTargetをexact logical actor pool slot/genへ接続し、counterContextAddも同ownerを使う。新wire flagと旧BODYflagを区別、compiler predicate検査viewも宣言ownerへ投影、元実命令/handleは保持。現GPUcompilerは新policyを明示拒否。旧88保持でMetalをfresh全監査。ADD Metal/CUDA/dead ADD実戦field lifetime/ADD再登場battle/ゲーム仕様/公開consumer/全キャラは未完、全キャラ0/UI CPU/目標未達。Windows idle送信を重複しない。
+
+## 2026-10-27 ADD所有者Metal99・一時領域消失と回収
+
+共通Slang logical ownerを接続し、99/native56/拒43のM5通常比較と別child5つのfresh独立監査に成功したことを観測。元Prim71/完全5人/武器/成長を保持、通常field ADD0・宣言owner ADD1、received=0/0/17。header12=3/15=2を新policyに限定、旧BODY12=1と旧拒否12=2保持。physical kind/id/genは保持し、counter条件とfield recipientを同じactor pool exact ownerへ解決。数値/正本/upstream/normalizer/CUDA compile cache本体不変、backendはentry whitelist追加のみ。
+
+初版HP guard失敗を保存rawで診断し、新logical weaponだけ受付を修正。修正版2b99038d…は全99期待値不変、旧88全715264000byte保持、変更rawは88/90/95。CPU preflight327.520719秒、GPU4.182172秒、pipeline94.638508秒、child103.824826秒。世代拒否95は実landing/counter後、owner要求2/実1で64。fresh監査418.076018秒、各180以内、同じ監査からgolden/source certificate生成。最終metadata726ddf4c…は登録等4file差分、関連117/制御517成功（Win1skip）。GPU計2/retry0、CUDA/Windows0。
+
+その後の実行環境更新後、/private/tmpのworktree・capture・ZIP・cache、TMPDIRの監査receiptが見えなくなった。原因未確定。Git indexから17fileを回収し19df7cafへコミット。golden/source certificateは元Git blobと一致。元rawとcaptureは未回収のため、現在のreplay成功やraw保持を主張しない。失われた証跡ファイルを偽って再作成せず、過去のツール観測と新しいCPU検査の出所を分ける。GPU再実行による復元はしない。
+
+現在のworktreeは /Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident。永続proofは同親のproofs/logical-owner-20261027、永続generation cacheはcaches/slang-generation-v1。source/docsの固定pinned upstreamをprimaryからコピーし、GAMEPLAY/timelineの既存source contract SHA一致を確認。現在のCPU検査とCUDA/MSL生成基準一致/必須cache hitは別記録。readinessはhistorical success/raw unavailable/current host GPU未確認を明示。詳細docs/portable-coordinate-typed-logical-owner-gpu.md、research/portable-coordinate-typed-logical-owner-recovery.json。
+
+次はADD実生死・再出現/field lifetimeの新契約へ進む。raw再監査は原本復旧まで停止。今後の新しい成果を一時領域だけに置かない。現CUDA/新sourcewarmMetal/ゲームgap/公開consumer/19packing失敗/全キャラは未完、全キャラ0/UI CPU/目標未達。Windows idleへの重複依頼なし。
+
+## 2026-10-27 ADD所有者のgraph退場・再出現CPU4契約
+
+`coordinate-typed-owner-add-lifetime-common`4を共通referenceへ追加。docs/portable-coordinate-typed-owner-add-lifetime-reference.md、research/portable-coordinate-typed-owner-add-lifetime-reference-checkpoint.json。元Prim71全定義/完全5人/武器/成長と8秒を保持。別宣言counter2効果で、発動前退場・発動後退場・旧field非継承・gen2所有者への発動を検査。再出現はuntil1s/repeat0で最終gen9が生存中、旧gen1/gen2 fieldのreceived=0。physical id10/gen1、子fieldの宣言owner世代を保持。graph終了の退場であり、HPダメージ死亡とは区別。
+
+受動observerは既存OwnerQueries.projectとDestructibleWorld.synchronizeをwrapし、carrier/recipient/current actor/visibleの変化だけを記録。数値buff query/RNG/攻撃/clock追加0、観測なし/ありの完全native・trace一致を検査。初v1は退場前にcounter完了して契約失敗。入力を退場0.5→1.25秒1回armへ修正し、比較器/実行器保持。失敗は永続proofへ残す。v2成功後、再出現を無制限として生存新世代への非継承を強化。
+
+強いv3全4契約40.211833秒成功、最終v4（2f6e0c5f…）はreadiness/CLIテスト登録/packing unitの3file差分。全CLI関数AST/native producer/comparator保持、新4件の最終再生成0。最終関連120/制御517成功（Win1skip）、全4件の共有wire packing/73定義/115680wordとgeneration必須hit/Slang0確認。旧ADD3をfresh CPUで実行しinput/native/trace全SHA保持。reference報告のlogical policy名をBODYが上書きするmetadata bugも修正、古い記録は保持。
+
+GPU/数値/正本/upstream/backend/CUDA compile cache/normalizer全byte・旧99golden保持。新GPU/Windows0、旧capture未取得の制限は維持。全proofは永続 .portable-recovery/proofs/owner-add-lifetime-20261027、要約はresearch/typed-owner-add-lifetime-reference-evidence/。次は同じ固定entryへ新4を追加し、旧99保持の新103入力をGPU検証。新しい寿命契約の検証として行い、失われたrawの再作成や旧capture再ラベルはしない。新4 Metal/CUDA/HP死亡/ゲーム仕様/公開consumer/全キャラ未完、全キャラ0/UI CPU/目標未達。
+
+
+## 2026-10-27 ADD所有者graph退場・再出現Metal103
+
+共通CLI `coordinate-typed-owner-add-lifetime` をseal済み登録。旧99保持＋4件、103/native60/拒43。元Prim71/完全5人/武器/成長、同じlogical-owner Slang entryで発動前後のgraph退場・旧field非継承・gen2発動を検証。最終gen9生存時に旧field値0。GPUの最終carrier/actor queryと戦闘履歴を照合、frame別visibilityはCPU witnessのみ。HPダメージ死亡は未検証。詳細 `docs/portable-coordinate-typed-owner-add-lifetime-gpu.md` と対応checkpoint。
+
+M5 GPU4.200283秒、CPU preflight375.653591秒、pipeline61.344455秒（miss）、child71.713265秒/180上限。fresh独立監査482.756267秒、20/20/20/20/20/3各180以内、同じ監査でgolden/certificate。新GPU1/retry0/WindowsGPU0。最終0b727fdc…は5file登録差分、全CLI関数AST/native producer/comparator/tests/GPU保持、関連120/制御517成功（Win1skip）、generation必須hit/Slang0。最終版のfresh native再生成なし。
+
+永続proof `.portable-recovery/proofs/owner-add-lifetime-gpu-20261027` に新raw/claim/全groupログ保持、reader終了後SHA/size/inode保持疎化で670760960byte回収。旧99input/native/記録output SHA保持、旧raw自体は未回収。現在の新103実証と旧capture消失を区別する。file-only Metal cache probe hitはwarm実機証明ではない。
+
+Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-landing40は固定配布・対応cacheの所在を確認できず、CUDA未実行。次の依頼は所在とsource certificateを明示した固定配布でcache triageから開始し、不足時に長いcompile/本体buildをしない。次はHPダメージによるADD死亡など実戦寿命の未対応分類。現CUDA/ゲームgap/公開consumer/全キャラ未完、UI CPU/全キャラ0/目標未達。
+
+## 2026-10-27 HPダメージ死亡CPU3とWindows固定配布
+
+共通reference `coordinate-typed-owner-hp-death-common` を追加。元Prim全71・完全5人/武器/成長・別監査2効果を保持。HP1/1000000 ADDへ実ダメージ、同一攻撃子field先行/遅い子field前死亡/可視field後死亡の3件。hit_add前後の受動観測でdealtがHPへ到達しalive→dead、graphはactive/世代1のままを検査。3件27.509402秒CPU成功。最終742c8a98…は分類/負例unitの2file差分、producer/CLI/GPU保持、22検査・制御517成功（Win1skip）、生成必須hit/Slang0。新3件GPU0、Metal/CUDA未実証。詳細docs/portable-coordinate-typed-owner-hp-death-reference.md、対応checkpoint。次は旧103保持の106へ接続。
+
+Windows c7e4d149探索では現sourceのgenerated/cache未特定、GPU0。package作成は固定upstream未導入で停止。再buildせず、Mac CPU検査済みcompiler-only ZIPを17b52569で共有。research/windows-source-packets/typed-owner-add-lifetime-a2cfc763.zip（11439568byte/SHA82e0322e…、package a2cfc763…）に固定upstream/dataを同梱。新source cache不在時に旧cacheを流用しない。現CUDAのcompile/cache/launch/readback成功は未確認。WindowsでもZIP SHA・全3497payload・pinned source certificateの確認完了。unpack62.820553秒/verify14.818706秒、各BelowNormal/2GiB/180秒以内、終了0。research/windows-source-packets/windows-receipt-a2cfc763.jsonに既存チャットの出所付き結果を保持。追加compile/driver/GPU0、現CUDA計算成功とは区別。
+
+## 2026-10-27 HPダメージ死亡Metal106・依存事前チェック
+
+最新sealed coordinate-typed-owner-hp-death106/native63/拒43。元Prim71/完全5人/武器/成長と旧103保持、同一攻撃子field先行・遅いfield前死亡・可視field後死亡を共通entryへdata-only追加。GPU/backend/数値/正本/normalizer不変。M5 GPU4.185487秒、CPU preflight411.900620秒、pipeline0.003058秒（必須hit/compile0）、child6.520327秒/180上限。fresh6群20/20/20/20/20/6の独立監査534.033338秒、各180以内、同じ監査でgolden/certificate。旧103原raw837184000byteと新prefixをbyte一致、GPU退場理由1・被ダメージ1/1/1000000・gen1/dead/field0。kill時graph activeはCPU witness、最終GPU graphはinactive。追加診断の誤ったfinal-active要求失敗も保持、native/GPU比較器変更0。
+
+最終9a30395d…は分類/登録とPython依存チェック8file差分。変更CLI関数make_package/main/cpu_test_groups、他全関数AST/native producer/comparator/GPU保持。関連123/制御525（Win1skip）、generation必須hit/Slang0。最終native全再生成0。proofは永続 .portable-recovery/proofs/owner-hp-death-gpu-20261027、全groupログもpersistent TMPDIR、reader終了後SHA/size/inode保持疎化で688259072byte回収、raw/claim削除0。小さな証跡はtyped-owner-hp-death-gpu-evidence/と対応checkpoint。
+
+以前の07e1d178の数値40goldenは共通source変更でstale。現在sourceで小さなMetal40/独立監査を行い旧input/native/output完全保持、GPU0.403115秒/child2.503813秒、全GPUコード変更0、旧raw復元ではない。compact sealed v3はWindowsでgmpy2不足によりCPU import時停止、compile/GPU0。v4はpin同梱とvalidation-depsを追加し、専用dependenciesを一時PYTHONPATHで利用。既存envへのinstall/SDK/PATH変更なし。Mac36/525成功、新Windows runは最初のCUDA GPUだけを依頼中。全本体CUDA成功へ拡大しない。
+
+現在inventoryは266profile中245入力変換/21失敗、203base中185変換、20model-gap分類。全profile input/issue/順位保持。過去の19失敗を現状として使わない。HP死亡/field寿命の私有共通契約成立と、canonical/public consumer・ゲーム仕様・全キャラ認定は別。次は本体CUDAの段階別成立と、残20分類・公開consumerへの接続を優先し、固定entryへ小ケースを足すだけで全キャラ達成へ読み替えない。全キャラ0/UI CPU/目標未達。
+
+Windows v4は依存確認・36検査・40/native26比較・NVRTC2.586690秒/ret0・module読込まで成功し、cuLaunchKernelがcode2で失敗しました。成功launch0/readbackなし/計算未認定。保存CUBIN311824byte/SHAe8550ca1…をfile-only cache-probeでhit確認（0.086559秒、compile/driver/GPU追加0）。GPU空き容量やstack/localは保存記録に無く原因未確定。内Job peak2098597888byteは上限近傍ですが因果関係は未証明です。report commit6ed21084…のJSON2blob（3367byte）をMacでhash検査、package/input/generated指紋も一致。CUBIN/Job原本のMac独立監査ではありません。次は同じcacheを必須にしてcompiler DLLを載せない実行profileを明示的に検証する候補。原失敗/claim保持、cold再試行やcap増大をしない。
+
+
+## 2026-10-27 共通本体の短い実機profileと全byte監査
+
+現在の作業checkoutは `.portable-recovery/runtime-resident`、branch `codex/runtime-resident`。全106のresident arc sourceを保持し、先頭4入力/native4の `coordinate-resident-device` をsealed登録。Marciana controlと元定義modifier3件だけの範囲で、全キャラ4件認定にはしない。M5でGPU0.419713秒、別fresh childのnative4独立監査15.297366秒に成功。全readback33,036,576byteは保存Metal106の先頭rawと全byte一致。元106/native63/rej43の登録・goldenは維持。詳細 `docs/portable-coordinate-resident-device.md`。
+
+共通runnerは現在packetのIDとhistorical compilerの別IDを区別するよう修正。元packageの全byte検査とlineage admissionはそのまま。Windowsの大きいpackage全byte検査を最大4threadへ変更、各gateで全byteを新規SHA計算。Macと128未満は逐次。並列経路は同じ長さの改変・消失・非regular・重複・unsafe pathを拒否。Mac関連49/共通591成功（Windows専用1skip）。`research/benchmark-package-byte-check.py` は逐次→並列各1回のCPU診断で、意味・GPU計算認定とは別。
+
+固定配布v3は `research/windows-source-packets/coordinate-resident-device-v3.json` と同名ZIP。前v2からCLIと回帰testの2fileだけを変更、全GPU/入力/native/goldenは同一。現CUDA実計算の結果は非公開の永続proof `.portable-recovery/proofs/resident-arc-arena-20261027` とWindowsの既存captureを確認する。終了結果・claimを確認してから次へ進み、観測不足を理由に再送しない。Windows結果の公開やraw移動は行わず、同一accountの接続内で最小原本とSHAを取得する。
+
+266profile/245入力変換/21失敗と20model-gap、全キャラ認定0/UI CPUは継続。専用Lock On/移動/範囲/対象数等の不足と、private kernelの実証を区別する。最初の4入力のdevice接続確認後も、現sourceの全106 CUDA、全特殊効果、canonical/public consumer接続は未完了。
+
+
+## 2026-10-27 resident Frame全106独立seal
+
+`coordinate-resident-frames` はsealed登録。共通Frame32個をケース別Runtime末尾4096byteへ移し、既存247field／入力115680／出力2064786／3binding・CUDA48byteを保持。全106通常Metalは28群176テスト／native63＋拒否43成功、M5 GPU4.103676秒、CPU410.717786秒、比較時はlive parent63を再利用しfresh追加0／file値cache0。旧全875469264byteも全byte一致。別6childの独立監査は513.541770秒・各180秒以内／最長134.245456秒、live parentなし、追加GPU0。同じ監査からgoldenとcompiler certificateを生成した。`research/resident-dispatch-frame-evidence/independent106.json` と `docs/portable-resident-dispatch-frames.md` を参照。
+
+次は `compiler-full--coordinate-resident-frames` の固定compact packetを検査し、Windowsで必要な短いgeneration/PTX/object/link/resource確認へ進む。新Frameの物理CUDA stack削減・起動成功はまだ未実証。未対応分類はprivate Metal基盤の成立だけを追記し、20model-gap／全キャラ0／UI CPUを保持する。古い失敗claimを消したり再送しない。原本と実行状態は永続proof `resident-frame-arena-20261027` の最新continuationと既存Windowsチャットを確認する。
+
+### 2026-10-27: fresh CPU事前検査の段階化と保存compiler owner監査
+
+`docs/portable-staged-native-preflight.md` を参照。begin→fresh native群→一度だけGPU→独立fresh native群集約を共通CLIへ追加。通常runとCPU検査は維持。値cacheや後付けcpu.jsonは作らず、hash-only transaction・全case coverage・host/manifest/claim・Windows各stage Job/180秒を検査する。GPU直後はpending/calculation=falseのまま。
+
+固定device v3のM5実機4入力はfresh preflight2+2→GPU1回→独立fresh2+2で計算一致。GPU子16.93秒、生成cache必須hit/Slang呼出0、readback33,036,576 bytes SHA d1dc8ecdd94b881503bcc588e34103103dce402fc6adbfaa56924484c0545879。初期v1/v2のcompact登録テスト失敗は保持し、検査修正後の別packetを使用。結果要約 `research/shared-native-group-evidence/metal-staged-four-v1.json`。
+
+旧compact compiler ownerは現在のテストregistryを使うと誤拒否されていた。全payloadを検査した後、検証済み旧owner自身のregistry/projectionをfresh CPUで照合するよう修正。実在7b43de12の静的監査成功、追加compile/GPU0、関連49検査成功。固定full106 packet `research/windows-source-packets/staged-native-preflight-v1.zip` (38544c0b)。GPU/保護CPU/goldenと全106入力SHAを保持。Mac選択177検査/108.65秒、共通621検査(Windows専用1skip)成功。Windows新stageはまだ未実証。既存CUBINの追加コンパイルは不要、fresh CPU全群とJob観測が成功するまでGPUへ進めない。
+
+未対応分類266profile/245入力変換/21失敗、20model-gap、全キャラ認定0/UI CPUを維持。Heavyarms空間Lock On/対象数、移動/共有damageなどのゲームgapは未解決。今回の実行器/検証経路の成立を全キャラ対応へ読み替えない。Windows保存結果はprivate readbackで受領し、公的ブランチにraw/PTX/CUBINを送らない。
+
+### 2026-10-27: 選択テストもfresh群へ分割
+
+Windowsの新CLI用smokeは622件成功したが、full106のbeginは選択177件の途中で180秒へ達した。旧packet/claim/失敗原本を保持し、GPU/native前検査は起動していない。選択テストは削らず、新しい `preflight-plan --test-group-size 2`→全 `preflight-test-group`→全native群→GPU→独立native群の経路を追加。通常run/通常beginは不変。全登録群の順序/全ログ/nonce/PID/Job終了・観測をnative前とGPU前に監査し、合成cpu-tests.jsonは作らない。`docs/portable-staged-native-preflight.md` を参照。
+
+固定full packet 7e142c00 (`research/windows-source-packets/staged-unit-tests-v1.zip`) はMacで選択177テストを14fresh群で完走、最長46.30秒/合計129.37秒、共通629テスト成功(Windows専用1skip)。同コードdevice packet e5a04816は元62テスト4群→native4件2群→M5 GPU1回→独立fresh native4件2群で完全一致。必須generation/pipeline cacheを使用しSlang呼出0、共有Swift module cache利用時のGPU子1.86秒。raw SHA d1dc8ecdd94b881503bcc588e34103103dce402fc6adbfaa56924484c0545879を維持。public要約はshared-native-group-evidence/metal-staged-tests-*.json。
+
+全106 GPU/protected CPU/golden/入力SHA7892c2b3を保持し、旧compiler owner7b43de12のownregistry監査も成功。Windowsでは新固定packetでCPU smoke/plan/選択テスト群から開始する。全群とJobが成功するまでnative/GPUへ進めない。保存済みCUBINを使い追加compile不要、GPU子60秒/各stage180秒/2GiB/BelowNormalを維持。今回の成立は新しいゲーム効果や全キャラ対応の証明ではなく、Lock On/対象数/投射物と残20分類、全キャラ0/UI CPUは継続。
+
+### 2026-10-27: Lock Onの対象数とmarker stackを分離
+
+`docs/portable-heavyarms-lock-selection.md`に次のconsumer契約と公開記述の出所を記録。元25定義のcanonical named-marker stack1..5は、異なる5体へのLock Onではない。公開記述の未ロック候補除外・通常5体/+10体・攻撃/遮蔽解除を、第三者資料/実機未検証として固定。対象種別・距離の測り方/参照点・tie・死亡/世代・sequential順は未確定のまま。classifierにmarker stackとdistinct target countの区別、除外未検証を追加し、effect_target_count_addの10体/2射撃consumerを具体化した。
+
+全266profile行、入力、issues、20順位のcode/message/descriptor、laneは前inventoryと全一致。変わったのはreadiness注記だけ。245入力変換/21失敗/全キャラ0/UI CPUを保持。関連61テスト成功。Windowsでは別固定commit48cb1f2fの630テストpacketを検証中で、今回classifier変更を実行中controllerへ混入しない。
+
+### 2026-10-27: 対象数queryの実装とWindows native8 timeout
+
+`effect_target_count_policy.query`を追加。通常reader/namespace/cache/carrierを変えず、指定target_effectの固定整数modifierだけを既存get_buffs/planのローカルviewで読む。元Heavyarms全25定義のindex20(+10/2射撃)を保持した4条件(3/30秒×本体/3ADD)を共通CLI `reference --suite heavyarms-target-count-native` へ登録。固定packet49dc4e97で13単体/透過性検査と4参照契約成功、関連58検査成功。実射撃イベントで2射撃消費・5→15→5を検査し、observer無しの全戦闘/trace/入力を完全保持。通常numeric計算と他targetの値を混ぜないことも検査。詳細はportable-heavyarms-lock-selection.mdとresearch/target-count-query-evidence/。空間選択への接続とGPU実装は未完了、20model-gap/266profile/245変換/21失敗/全キャラ0を保持。
+
+Windows固定9c825fa5の選択177テストは全14群成功。native0..7は計80入力/native45成功したが、native8が180秒timeout(case87途中、case80..86 returned記録)。群8全体は未成立、result/artifacts無し、9/10未実行。全Job post0/missing0/監視cleanup0、GPU/compile0。完了済みnative/テスト、旧失敗、claimsは保持。元packet/transactionを編集せず、group8をそのまま再送しない。まだGPUへ進めない。private-continuation-v10以降の状態を優先して確認する。
+
+
+### 2026-10-27: 同じ未実行GPU試行のnative tail継続
+
+共通CLIへ`continuation-package`/`preflight-resume`を追加（code7cbc0c58、配布0993b8fe）。元sealed packetの全数値/native/データ/選択テスト/goldenを保持し、制御3fileとhelper/test3fileだけを差し替える。元owner自身のregistryと全payload、入力、host/Python、全選択テスト、成功native連続prefix、clean timeout/Job/観測原本を照合する。未成功の部分returnedは引継がず、値cacheなし。append-only所有claimを作り、同じ未使用GPU保存先へ未完了tailだけ小分けで進む。通常の実行と独立全件fresh監査は維持。詳細docs/portable-staged-native-preflight.md。
+
+M5で実際のCPU-only timeoutを保持したまま成功prefix2入力を引継ぎ、残2入力をfresh実行→Metal1回→独立fresh4入力の全比較が成功。GPU0.413175秒/子2.118125秒、必須generation/pipeline cache、既存raw SHA d1dc8ecdd94b881503bcc588e34103103dce402fc6adbfaa56924484c0545879を維持。元失敗はfalse、元result/artifactsは不在のまま。要約research/shared-native-group-evidence/metal-native-tail-continuation-v1.json。
+
+固定full106継続capsule04515f96（research/windows-source-packets/native-tail-continuation-v1.zip）は元9c825fa5のnumerical byte-lineage監査とMac共通640テスト/66群成功（Windows専用1skip）。Windowsへ新隔離root nikke-native-tail-cont-v1-diagnosticでsmoke→resume(group_size5)→最初tail0/global80..84だけを依頼済み。成功80入力/native45と元177テストは再実行しない。各Job2GiB/BelowNormal/180秒、GPU/compiler0の依頼。現在の実行状態は既存Windowsチャットと永続proof resident-frame-arena-20261027/private-continuation-v11.json以降を優先。旧9c失敗8と全claimsは保持。全106 CUDAと保存CUBIN実行は未成立。
+
+Lock Onの既存typedAim候補順は距離順ではなくz→birth→node→slot順。typedGeometryの形状距離は包含判定用であり、その先頭候補を最近傍Lock Onとして転用できない。独自順位と既ロック集合が未接続であり、対象数queryCPU4契約だけでは全25効果/GPU認定へ昇格しない。266profile/245変換/21失敗/20model-gap/全キャラ認定0/UI CPUを保持。
+
+
+### 2026-10-27: 名前付き対象数queryの共通GPU実証
+
+code2d0167f4と後続修正で`named-target-count-query`を共通CLIへ登録。専用adapter/model・private stat93で通常compilerの拒否を保持し、共通carrier/event/recipient/stack/expiry/名前付き削除から対象数を読む。固定v4 0b13b4d1で選択17テスト→M5 Metal9入力/native6＋拒否3→独立fresh全9監査が成功、goldenを確定。GPU0.002709秒/pipeline必須hit。full106既存entryのCUDA/MSL生成は以前の厳密な正規化後ハッシュと一致（生成のみ）。詳細portable-heavyarms-lock-selection.mdとtarget-count-query-evidence/metal-shared-query-v1.json。
+
+元の2射撃durationはこの外部イベントadapterで拒否。fixtureは元+10を使う時間契約の派生であり、全25定義やLock On選択を実装済みとしない。次は実物理shot寿命への接続を優先する。通常入場/20model-gap/全キャラ0/UI CPUを保持。
+
+Windowsは既存継続tail1..5の最終結果取得時に接続不能。最後の観測はtail4/global100..104成功、tail5/case105実行中という報告で、terminal/admission未確認。再送しない。userへ接続復旧を依頼済み。復旧後は既存結果のみ取得し、全106/native63のadmission成立前にGPUを起動しない。現在のMac作業コードを実行中の04515capsuleへ混入しない。
+
+新sourceのfull106は正規化後の生成コードが一致する一方、source graph SHAはevent_runtime/program_phases/新helperで変わる。既存golden/certificateを新packetへ自動的に付け替えない。現在のWindowsは元の固定packet/CUBINを使い続け、新source full106の再sealは未実施。
+
+新sourceの共通smokeで、既存の厳密なsource逆投影監査に新しいifdef hookが未登録と判明。sealed-v1の失敗は保持。元9cとM5実証v4の実ファイルから、2変更file/2追加fileだけの完全一致deltaを独立fixtureへ記録し、既存Frame/武器監査の前段へ接続した。旧baseline/生成コードnormalizer/数値比較は変更せず、1byte mutation拒否・元Frame7検査・武器8検査・新query8検査を実行。全smokeの再確認が必要。
+
+最終query配布packet b283876eは共通66群/641検査（Windows専用1skip）と選択18検査/native6＋拒否3のCPU事前検証に成功。GPU追加0。research/windows-source-packets/named-target-count-query-v1.zip/.jsonへsourceだけを保存。Windowsにはまだ新queryの実行を依頼していない。元full106 transactionの保存結果を先に確認する。
+
+
+### 2026-10-27: 対象数queryを実物理shot寿命へ接続
+
+code30bd0d6eまでで`named-target-count-shots`を共通CLIへ追加。元source20(+10/2射撃)を変更しないauto/charge2ケースと、timing/recipient派生3ケース。既存physical consumerの前後から共通capacity readerを読み、全実射撃の残数/発動時刻/queryをGPUで記録。trace100件は明示的な観測上限であり、overflowを拒否。全戦闘/ダメージ/射撃/skill trace/counter contextの比較を維持し、CPUスケジュール入力なし。
+
+固定v3 6a7b2a2eがM5で全9入力/native5＋拒否4成功、別fresh child監査でseal済み。原定義2→1→0、scatter/muzzleが消費回数を増やさないこと、発動同frameの非bound/bound差、allied独立clockを照合。初版の空buff最適化による観測漏れとv2の静的charge待機0.2/正本0.215差は保持。全射撃比較を削らずprivate entry側観測を直し、待機は起動前に静的正本と照合。元native指紋9件全保持。
+
+quantity reader refactor後、旧query9入力/native6を新M5で再検証し、全input/readback byteを保存v4と完全一致確認。v2 goldenを別名でfresh seal。full106厳密生成ハッシュも元基準を維持。ただしsource mapは変わるため新full106のgolden/certificate付替え不可。現在Windowsの元固定ownerは変更していない。
+
+新しい分類metadataはprivate physical modelの成立だけを追加。fresh inventoryの全266profile行/input/issues/20順位/laneは旧lock-capacity inventoryと一致。全キャラ0/UI CPU/全25・空間selector・公開consumer・CUDA未完了。Windowsの接続復旧要求は未回答で、元tail1..5/admissionはterminal未取得。再依頼しない。
+
+最終物理packet2aafcadfは共通66群/641検査（Windows専用1skip）と自身の8検査/native5＋拒否4 CPU事前検証に成功。query refactor packet56286944は自身の18検査/native6＋拒否3 CPU事前検証成功。両packetの全Python/Slang/Swift code SHAは一致し、共通検査を重複実行しない。配布はwindows-source-packets/named-target-count-shots-v1.zipとnamed-target-count-query-v2.zip（sourceのみ）。Windowsへの新規依頼は送っていない。
+
+
+### 2026-10-27 Lock On公開情報調査
+
+ユーザーは実機環境の用意を待たず公開情報から判断する方針へ変更した。公式紹介・モーション動画と日英のスキル表/解説を調査したが、中心/外形/奥行き/同距離順の実装を決める根拠は得られていない。距離モデルは保留。順番攻撃の挑発への反応には一般説明とキャラ固有解説の違いがある。出所と判断は `docs/portable-heavyarms-lock-selection.md` 冒頭に保存。
+
+`app/named_generation_locks.py` と専用11テストを追加。既存ActorRegistry/ActorSnapshotと名前付きquota readerを再利用するCPU参照モデルで、外部のhandle列をその順で受け取る。距離の計算/ソートを含めない。死亡/世代更新/上限低下時の扱いは明示的なモデル上の契約に留め、ゲーム仕様へ昇格しない。11テスト成功、diff check成功。GPU接続/全25効果/全キャラ認定は未完了。GPUソース/正本は変更しておらず、今回の追加GPU/Windows実行は0。依頼済みWindows continuationの保存結果取得待ちは継続し、再依頼していない。
+
+
+### 2026-10-27 実敵poolと名前付きquotaへのLock membership接続
+
+新sealed CLI `named-generation-locks`（16入力/native10/拒否6）はM5 Metal実GPUと別fresh GPU禁止sealが成功。既存WorldSchedule/actor poolの生存・世代を参照し、名前付きquota readerから上限を読む。取得済み除外、死亡/世代更新、15体取得後の上限15→5、明示通常攻撃/ハイド解除、解除前immutable snapshot、BODY/PART/ADD、128体候補表を比較した。候補表128は24取得で検査。明示provider順のみで距離rank・ゲーム仕様は認定していない。
+
+初回v1はmodifierを空statへlowerしたkind4を0へ戻す処理がなく、正例がGPU admission拒否。新入力v2で既存query adapterと同じ変換へ修正、CPU gateを追加。失敗rawは保持、実GPU計2/同claim retry0。v2 GPU0.019384125秒、Metal pipeline必須hit。Windows新依頼0。CUDAは共通Slang生成のみ。保存先はpersistent proofsの`generation-locks-v2-package`/`generation-locks-v2-metal`/`generation-locks-v2-independent.json`。
+
+関連CPU参照/入力/逆投影/分類検査は成功。固定v2packetの共通smoke66groupも成功、GPU0。full106 CUDA/MSLの厳密正規化hashは旧基準と同一（生成のみ、新source full106のCUDA再認定とは別）。全266profile行/issue/20順位が前回inventoryと完全一致、245変換/21失敗/全キャラ認定0/UI CPUを保持。部分実証はmodel-checkの別フィールドへ記録し、公開admissionは閉じたまま。
+
+次：充填中0.2秒event→元index20の2射撃寿命→通常攻撃/ハイドevent→発射前snapshot→sequential deliveryを同じresident battleへ接続する。このentryは元index20を有限時間へ派生したfixtureであり、元全25効果認定ではない。距離式/対象種別/tie breakは保留。Windows既存continuationの保存結果は接続利用不可で未取得のまま、再送/再実行しない。
+
+
+### 2026-10-27 充填周期から実射撃snapshotへの合成
+
+sealed `physical-generation-locks`7入力（native3/拒否4）はM5 Metalと別fresh GPU禁止sealが成功。元index0の0.2秒/during_chargeをself markerへ投影した既存周期activationでmembershipを駆動し、元index20を変えない2射撃上限と同一battleへ合成した。実on_attackで解除、GPU full_charge callback後・物理着弾前の集合を保存。fixtureには敵状態を変えるfull_charge効果はなく、原全25効果のイベント順は未認定。0.45秒充填で複数取得と再取得/15→15→5、短充填で空集合の射撃、取得後の実HP死亡による発射前除外を検査。候補128/周期63/発射snapshot31、stride不変。GPU .041235208秒/cold PSO8.204335秒。
+
+共通coreの取得/snapshot関数抽出後、従来named-generation-locks16入力も新Metal・独立sealし、全input/readback byteを保持。新v2 goldenへCLIを接続し旧版は保存。実GPU計2/同claim retry0。固定packet共通smoke66group/641（skip1）成功、全266profile/issue/20順位を保持、default106 CUDA/MSL厳密正規化hash保持（生成のみ）。新sourceのCUDA認定ではない。
+
+証跡はpersistent proofsの`physical-locks-v1-package`/`physical-locks-v1-metal`/`physical-locks-v1-independent.json`、および`lock-refactor-v1-package`/`lock-refactor-v1-metal`。Windowsの既存continuation保存結果は接続利用不可で未取得、再送/再実行なし。次は実ハイドevent、full_charge effectが敵状態を変えるときのsnapshot順、sequential delivery・途中死亡・元全25効果への接続。距離モデルは依然未確定で、公開情報を実機認定へ昇格させない。
+
+
+### 2026-10-27 ロック専用arenaとキュースキルの合成
+
+最新版physical-generation-locksは10入力/native6/拒否4をMetal＋fresh独立監査でseal。出力806912wordへ専用arenaを追加し、旧786432word prefixの位置と全32生存actor set容量を保持。候補/周期receipt/snapshotはactor query/receipt/setを借りない。新3ケースはfull_chargeで全敵を倒すキューダメージ、boss限定ダメージ、死亡後の再召喚。old generation snapshotの保持と新世代取得を比較した。
+
+初版v1は再召喚の最終graph_state[0][6]だけが不一致。finish退場後のuntil_cleared観測をGPUの実poolから導出するopt-in修正でv2成功。close/death通知は不変。旧defaultの同観測の移行・再認定は別途必要。失敗raw保持。旧7入力の全input byte/全旧output wordをprefixまたは明示移設先へ照合（候補解放flag0→独立scratch flag1だけ明示変更）。従来external core16は全byte保持し新v3 golden。
+
+共通smokeでwire幅の厳密source依存登録漏れが見つかり、host wire/Swift/backend/schemaの全文inverse ledgerへ登録して修正。GPU再実行不要。default106のCUDA/MSL厳密正規化hashは保持（生成のみ）。arena GPU計2（失敗1含む）、external core GPU計2、同claim retry0。最後のexternal coreは生成Metal全byte同一を確認してpipeline必須hit。Windows保存結果は接続利用不可、再送/再実行0。全266profile/issue/20順位保持、245変換/21失敗/全キャラ認定0/UI CPU。
+
+証跡はpersistent proofs physical-lock-arena-v2-package/physical-lock-arena-v2-metal/physical-lock-arena-v2-independent.json とlock-core-arena-refactor-v2-package/-metal/-independent.json。次は実ハイドevent、順番攻撃のsnapshot consumer、元全25効果。距離・対象種別・tie順は未確定のまま。
+
+
+最終固定packet779d20cc（code b9c090ca）は自身の7群54検査と共通66群642検査（Windows専用1skip）がCPU-onlyで成功。GPU追加0。新幅806912を追加しても旧wire修復が変化しないよう、修復元・先の幅列と先SHAを歴史時点へ固定。共通CLIのGPU前必須検査にweapon source・generation separation・historical wire repairを登録し、repo内スキルにも反映。CPU-onlyの先行失敗3件は保持。証跡はresearch/target-count-query-evidence/physical-lock-arena-sealed-preflight-v4.json。全目標は未完了。
+
+
+### 2026-10-27 実ハイド通知の次接続契約
+
+共通CLI `reference --suite physical-lock-cover-native` を追加。実CharState `_enter_cover` の `event:cover` を使う5ケース（充填中、別caster、禁止、空集合、リロード待ち）が固定packet4acdadd2で成功。通知はcharging取消後。既存observerは同casterの実cover通知でmembershipを解除し、通常攻撃前snapshotと遮蔽後の再取得を検証。通知callbackは透明性比較用の2回目nativeへ漏らさず、全battle/trace/input一致検査を維持する。
+
+自身の8群59検査と共通66群642検査（Win1skip）、model-checkが成功。旧Metal10入力/native6の全指紋保持、全packaged GPU source byte保持。追加GPU0/Windows依頼0。証拠はresearch/target-count-query-evidence/physical-lock-cover-native-v1.json。cover入力は現physical GPU入口で全5ケース拒否を保持し、CPU契約をGPU成功へ昇格させない。次は既存enterManualCover/event31+tagとcaster照合、共通arenaの合成配置監査→接続→Metal。新しい状態機・CPU通知スケジュールは作らない。順番攻撃/元全25/距離とfull106 CUDA再認定は未完。Windows既存continuationのterminal取得待ちは変更せず再送しない。
+
+
+### 2026-10-27 実ハイドを共通物理実行器へ合成・Metal実証
+
+sealed physical-lock-coverは23入力/native11＋拒否12でM5 Metal＋fresh独立監査が成功。既存手動遮蔽producerと同じweapon/reload/event実行器を使用し、event31+cover tag+lock casterの一致で解除。充填取消後の通知、別caster、禁止、空集合、リロード待ち、遮蔽後の再取得と発射前snapshotを検証。手動80wordはsnapshot後804096の余白へ置き、input104400/output806912・live actor set32個を保持。全posture/padding/戦闘/skill/射撃/quota/candidateを比較。既存manual observerをcaptureとして抽出し、透明性比較用2回目nativeを観測scopeへ混ぜない。
+
+新GPU1（.046597秒）＋共有source変更後のlegacy10/16各1、同claim retry0。3packetともfresh独立seal。legacy2は旧生成CUDA/MSL全byte同一を先に確認し、pipeline必須cache hitで各約.002秒。legacy全input/readback byte保持。物理10はv3、external16はv4、cover23はv1 goldenへ接続し旧golden保持。通常配布3packet作成成功。最終cover db363dc0は専用57・共通642検査（Win1skip）成功、GPU追加0。証拠はtarget-count-query-evidenceのmetal-physical-lock-cover-v1／legacy-retention／sealed-preflight-v1等。
+
+全inventory fieldは旧arena版と一致、266profile/245変換/21失敗/20分類/全キャラ0/UI CPU。default106 CUDA/MSL厳密生成hash不変（生成のみ、現在source CUDA認定ではない）。誤ったmain entryを指定したCPU生成診断は失敗記録を残し、正しいportableEvents指定で保持を確認。Windows既存continuation statusを1回確認したがhost unavailableでterminal未取得、再送/再実行0。次はsnapshotを消費する順番攻撃と元全25効果。距離/tie/対象種別・ゲーム仕様は未確定のまま。
+
+
+### 2026-10-27 順番攻撃のsnapshot選択部品とCUDA cache専用入口
+
+実通知を追加観測し、on_attack → full_charge_fire → 元index8 named hit通知2回 → weapon hit通知を固定。元index4/8/9を変更せず加えたfixtureではhit予算2→消費後0、発射前snapshotは2対象。キューでlive membershipや消費後gaugeを読み直さず、発射時snapshot番号とhit予算を保持する必要がある。通知観測へ配送policyは注入しない。
+
+共通整数部品cycle-frozen-slot-v1をPython／Slangへ追加し、CLI lock-delivery-policy63入力（共通policy46／raw拒否17）がM5 Metal1回＋fresh独立監査で一致。全6kind/128対象/256hit、空/欠落/死亡/世代違い、整数上限/重複/予約wordを比較。死んだslotを圧縮して別対象へずらさない明示policy。ゲームの途中死亡・挑発・再対象化の実測規則とは別で、実着弾キュー/HP/全25効果へ未接続。
+
+legacy cover23/physical10/external16の全source閉包は151/150/134fileで不変、追加旧GPU/compile0。locked probeの独立sealはpackage14bf0314、Metal source/code e01389f9。最終通常package a2e38df1はpolicy/実順序5検査と共通642（Win1skip）が成功。最終cache専用efba68b8は12検査成功。lock-delivery-cache-onlyは既存compile-cache-only-v1を再利用し、required CUBIN/O1・保存source・事前file-only hitを要求、NVRTC loader禁止。immutable CLIにcache条件を渡さない負例はcapture/claim作成前に停止。実CUDA cache hit/launchは未実証、Windows新依頼0。通常probe63GPUは1回、retry0。
+
+証跡はtarget-count-query-evidence/metal-lock-delivery-policy-v1.json、lock-delivery-native-order-v1.json、lock-delivery-final-preflight-v1.json。model-check成功、public GPU/全キャラ/全目標は未達。次はLandingReceiptに発射時snapshot tokenとhit予算を結び、landWorldSkillReceiptの既存actor set/land/counter/heal経路へ接続。予約word/所有権を監査し、live32setを診断snapshotに使わない。距離/tie/挑発のゲーム規則を勝手に確定しない。Windowsの旧continuation terminal未取得・再送禁止は継続。
+
+
+### 2026-10-27 実キューのsnapshotリンク・可変hit予算をMetal実証
+
+sealed lock-packet-bindingsは8入力/native4＋拒否4でM5 Metalとfresh独立監査が成功。元index4/8/9/20を保持するpartial fixture（全25ではない）。実receiptのstore/loadにsnapshot番号・既存hit/hitsを結び、空snapshot、待機中のADD死亡→次世代再出現、ハイド後4hit/3targetを比較。選択slot/statusは診断のみで、実着弾の対象は従来named routingのまま。次はslotをactor land/counter/healへ適用するconsumer。
+
+receipt at+7は周期snapshot所有なので流用しない。別bank804176から2048token、31shot時刻、38件×16wordの診断traceを余白に配置。input104400/output806912、live set32、queue2048は保持。38件を超えると拒否、全2048同時queueをstress実証したものではない。終了時2048token全zero、全shot時刻/alignment/trace/tailを比較。native観測器の可変hitを1とする既知観測不足を新flag下で実emission listから観測し、配送後は補助id表も解放。native計算・正本4fileは変更しない。
+
+code9553193f、実GPUpacket20bc39f3、GPU .047511秒、fresh監査4.013988秒。最終normal06d01666は専用39/共通642（Win1skip）成功、cache専用06c63eafは46検査成功。CUBIN必須・NVRTC禁止の既存profileを再利用。実immutable CLIのcache要件なし負例はcapture/claim前停止。追加GPU0。default106 CUDA/MSL厳密生成hashは保持（生成のみ）。全inventory fieldは旧cover版と一致、266/245/21/20分類/全キャラ0/UI CPU。
+
+旧physical10/external16はrequired pipeline hitで新Metal＋独立sealし全shader/input/output byteを保持、新v4/v5 golden。旧cover23は、生成byteは同一だが保存cache未生成のためpipeline_lockでrequired miss。GPU dispatch前の失敗、readbackなし、失敗claimを保持し再送しない。現sourceの再認定は未完了で、現CLIの通常packageはstale golden source guardで実際に拒否を確認。旧配布physical-cover-sealed-v1-0.zipは保持。実GPU成功3/起動前失敗1/retry0/Windows新依頼0。
+
+優先する復旧：テスト付きpre-claim Metal cache確認経路を実装してこの失敗を再発させず、正規の復旧経路を検証してcover23を再認定する。旧claim削除、同packet再送、旧goldenの付替えは不可。次にsnapshot target consumerを接続する。距離/tie/挑発/再対象化のゲーム実測規則と全25/current CUDA認定は未完了。証跡はtarget-count-query-evidence/metal-lock-packet-bindings-v1、lock-packet-final-preflight-v1、lock-packet-legacy23-predevice-failure-v1等。
+
+
+### 2026-10-27 claim前Metal cache gateとcover23通常入口の復旧
+
+既存metal-cache-probeのbounded archive readerを共通化し、required Metal runのCPU tests/native/worker/claim前へgateを追加。現在device/registry/OS build（SwiftのProcessInfoから取得）、再生成MSL・Swift実行子・resident strideでnativeと同じkeyを計算。source generationはCPUのみ、pipeline compile/dispatch0。miss/破損/OS違いは記録して停止。実行子のcache lock/hash/native failOnBinaryArchiveMiss再検証は維持し、required requestの途中でwarmへfallbackしない。
+
+実修正a4f9ac2eの固定packet a92c3e17で、前回と同じ6fb2d307…のcache missがtests/native/worker/claim前に停止することを実証。旧失敗packet9553193fのsource全closure・input/native指紋一致と旧claim SHA/旧capture全artifact hashを確認。その新packetの未使用claimで明示した初回warm requestを1回だけ実行、Metal23成功＋fresh独立監査でcover v2 goldenへ復旧。旧claimは削除/再送しない。全CUDA/MSL/input/output byteが元cover23と同一。GPU .046675秒、archive作成 .006080秒。作成後はfile-only probeと現在identity gateの実正例もGPU追加0で成功。file hitはnative hit認定とは別。
+
+最終normal cover2811e20e（67検査）、packet378c39f4（49）、CUDA cache profile285cb08d（56）がCPU-only成功、共通67群652（Win1skip）成功。3通常package作成成功、cover23のstale source guard問題は解消。現在のsource model-check成功、public/full character/full goalは未達のまま。今回実GPUは新host修正packetで1回、旧claim retry0、Windows新依頼0。数値/GPUソースは変更せず、その他入口の再GPUは行わない。
+
+証跡はtarget-count-query-evidence/metal-cache-preclaim-cover23-v1.jsonとmetal-cache-preclaim-final-preflight-v1.json。private-continuation-v27.jsonが次の状態。次は発射snapshot slotを既存actor land/counter/heal処理へ適用する共通consumer。距離/tie/挑発・途中死亡再対象化のゲーム規則、元全25とcurrent CUDA実機は未認定。Windows旧continuationのterminal確認待ち・再送禁止は継続。
+
+### 2026-10-27 公開情報による配送policy再評価
+
+ユーザー指定のオンライン調査を追加。Prydwenの取得順循環と挑発例外はキャラ固有説明で、一般順番攻撃説明を無条件適用しない。新たにNIKKE.GGの索引本文（直接open403、動画/再現ログ未確認）で、予定ロック対象が配送前に死亡すると残りロック対象へ振替という記述を確認。現在の`cycle-frozen-slot-v1`の死亡dropをゲーム仕様としてconsumerへ採用しない。既存63/packet8の部分実証はそのまま保持し、ゲーム認定へ昇格しない。距離式・tie・actor種別、具体的な振替順は未確定。
+
+次の実装では既存land/counter/heal経路への接続と死亡policyを分離し、生存対象の配送と未確定死亡policyの境界を明示する。公開情報だけから振替をnext/first/randomへ決め打ちしない。調査記録は`heavyarms-online-delivery-reassessment-v1.json`、判断は`docs/portable-heavyarms-lock-selection.md`冒頭。今回は文書/出所記録のみでGPU/Windows追加0、計算/golden/公開admission変更0。旧Windows continuationを再依頼しない。
+
+### 2026-10-27 生存snapshotを実着弾へ配送
+
+共通Slangの新entry world_lock_delivery_entry、CLI live-lock-deliveryを追加。発射時のfrozen slotをtransient actor setへsingleton captureし、既存land/counter/healをそのまま使う。実queue4正例と5拒否をM5 Metal＋fresh独立監査でseal。充填/ハイド後のBODY→ADD循環、空集合でBODY fallbackしないこと、ADDのskill counter完了・吸血HP回復を全battle/traceと照合。死亡/欠落/世代違いは未確定policyとしてerror64で拒否、振替やdropをゲーム仕様にしない。元index4/8/9/20は保持、index0はself projection、元全25/距離/全キャラは未完了。
+
+実装4c0c114c、実GPU packet15aa4c45、GPU .057052秒、cold archive11.105610秒、独立監査6.390641秒。実パケットの9群57検査と共通67群652（Win1skip）が成功。観測contextを再利用可能に抽出し、従来受動packet4件のnative SHAを保持。新policyの全battle一致はfresh同policy基準との比較で、canonical equivalenceと混同しない。
+
+一度だけ追加した共有hook以外は新entryのみに実装includeを置き、今後の拡張でlegacy source閉包を不要に変えない。今回変わった従来packet8/cover23/physical10/external16はrequired pipeline hitで各1回Metal＋fresh独立seal、全shader厳密hash/input/native/readback byte保持。通常goldenをv2/v3/v5/v6へ更新、旧版を保持。本体106のCUDA/MSL厳密生成hashも不変（生成のみ）。新cache専用CLIは同じ9入力に既存CUBIN/O1/required cache/保存source/NVRTC禁止profileを適用。実CUDA未確認。今回実GPU計5、retry0。診断スクリプトのnormalizer戻り値誤用2件はCPU失敗として保持しnormalizerは未変更。
+
+全inventory fieldが従来と一致、266profile/245packing/21失敗/20分類/全キャラ0/UI CPU。model-check成功、公開admissionは閉じたまま。Windows旧continuation statusを1回確認したがhost unavailable、terminal未取得で再送しない。証跡はtarget-count-query-evidence/metal-live-lock-delivery-v1.jsonとlive-lock-delivery-legacy-retention-v1.json。次は元全25への合成・発射体consumer、距離順位providerと死亡時振替の未確定契約をそれぞれ分離して進める。
+
+最終通常source ea3e27eeから6package作成成功。新live890c43a3は9群58検査、cache専用da3dd160は10群65、共通67群652（Win1skip）がCPU-onlyで成功。実immutable cache CLIで必須flagを省略するとcapture/claim/worker前停止を確認。GPU追加0。通常legacy packet5938c31c/cover2f9036b3/physical eab0b849/external de358814もsource/golden guardを通過して作成済み。最終証跡はlive-lock-final-preflight-v1.json、private継続点はprivate-continuation-v28.json。
+
+### 2026-10-27 ロック＋元発射体攻撃の同一battle合成（開発用、履歴差分あり）
+
+新entry world_lock_projectile_entry / CLI lock-projectile-compositionは、既存typed発射体処理とlive lock配送を同一WorldSchedule/DFS stackへ配線。元index24を変更せずpartial fixtureへ追加したnative5＋拒否4。全25ではなく、index0はself projectionのまま。typed全領域を保持し、lock/manual/link全20480wordを1048576以降へ移し、既存登録stride1310720/input109536で領域衝突を解消した。32 actor sets/128 typed targets/31 snapshots/2048queue/38traceは不変。
+
+初回CPU生成はresident Runtimeの入れ子GenerationLocksを反射検証器が拒否。数値structのleafへサイズ/親子範囲/絶対offset/末尾/名前/深さ・leaf上限を厳密検証するよう拡張し、CUDA/Metalの全plan一致、sizeof/alignof assertion、48byte bindingを維持。実Runtime140008byte/locks1044byteを照合。reflection5検査（入れ子負例8種）、生成cache13検査成功。flat planは不変。現在の検証器SHAを含むpaired生成cacheについて、固定packetのrequired hit/コンパイラ0/GPU0も実証。CUDAコンパイル・実CUDA成功とは別。
+
+code76b931c6、固定packet5e895206のMetal1回は全比較失敗。rawはlock-projectile-composition-v1-metalに保持し、claim再送なし。5正例status0/4拒否64、全5battle状態とtyped全receiptは一致するが、typedが存在する4件でskill traceが異なる。native typed拡張がscalar/通知用のBODY仮HitEventを作り、実typed配送後の次frame _landでskipするのに、world_skill_native.inspectがそのwrapper呼出しをBODY receiptとして記録する。GPUは実typed receiptのみ。空対象1件だけ全比較成功。比較器から行を削除/除外しない。失敗全artifact hashを再監査済み。
+
+**次の優先作業**は実配送／抑止されたnative仮packetのdispositionを明示して両側の履歴契約を揃えること。保存rawで全項目を診断してから、必要な実装修正と新CPU契約を固定する。失敗captureへ新基準を付け替えたり同claimを再実行しない。新合成はdevelopment_onlyのまま、seal/CUDA実行/全25/公開admissionへ進めない。距離・死亡振替も未確定。
+
+共有layout変更を受けた既存live9/packet8/cover23/physical10/external16は生成厳密hash/input/nativeを先に確認、required Metal pipeline hitで各1回＋fresh独立seal、全input/readback byte保持。goldenはlivev2/packetv3/coverv4/physicalv6/externalv7へ更新し旧版を保持。本体106 CUDA/MSL厳密生成hashも保持（生成のみ）。実GPUは新失敗1＋旧成功5、同claim retry0、Windows新依頼0。共通67群652（Win1skip）と専用9群57はCPU-only成功。全inventory fieldは前回と一致、266/245packing/21失敗/20分類/全キャラ0/UI CPU。model-check成功、全目標未達。証跡はtarget-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json / lock-projectile-legacy-retention-v1.json / lock-projectile-required-generation-v1.json。private継続点はprivate-continuation-v29.json。
+
+最終source2f2458fcから従来5通常packageを作成しsource/golden guardを確認。新合成を--developなしでpackageするとnative/ファイル作成前に拒否する実CLI負例も成功。追加GPU0。最終通常入口と失敗維持の記録はlock-projectile-final-cli-v1.json。ローカルjobは残っていない。
+
+### 2026-10-27 抑止packetも共通キューへ保持し、合成12入力をseal
+
+配送履歴差分を解消。従来のnative skill trace全行（BODY要求も含む）は保持し、別receipt_fatesでsuppressed_native_bodyとordinary_world_routeを明示する。GPUは凍結数量の監査receiptを既存2048slotキューへ置き、同じdrainの次frameでlogする。抑止receiptはActor land/counter/healへ入らず二重ダメージなし。typed counter子の後・named-hit子の前にenqueueする局所wrapperでnative append順に揃えた。既存完了通知/前提queryをPROJECTILE_CHAIN/FULL_BURST_LANDINGで接続し、新handlerや第二時計を作らない。
+
+144word bank（1069056..1069200、header16＋flag128）の全word/unused/tailを比較してから旧arena projectorへ渡す。旧全word、32actor sets/128typed targets/2048queue/31snapshot/38link trace、input109536/output1310720/resident140008は不変。traceMode1必須。元index24と元4/8/9/20のpartial fixtureで、元index0はself projectionのまま。
+
+新v1 0f5e2a40/code8d3a9b33は旧5条件とcounter-childが全比較成功、named-childが完了flag未接続で64。失敗保持。8e43b374は前提query未接続でCPU生成失敗、GPU/claim0。修正3c21e08eの固定v3 8422e8a3はnative7＋拒否5の全12入力でM5 Metal成功、fresh GPU禁止監査でseal。GPU .113912秒、PSO9.358276秒、独立監査12.005718秒。履歴を除外しないテストも成功。今turn GPU2（失敗1＋成功1）/同claim retry0/legacy GPU0。前回5e895206の失敗とv1失敗は全artifact hash再検査で保持し付替えない。
+
+v3はCPU payload/inputを固定v1と監査してnative期待指紋だけ再利用、package時native0。run内部ではfresh全CPU/nativeを実行し、独立sealもfresh。GPU量や保存GPU結果の引継ぎではない。旧live9/packet8/cover23/physical10/external16と本体106の全GPU source閉包が不変のため、旧生成/GPUを繰り返さない。旧goldenは維持。
+
+通常CLI lock-projectile-compositionはsealed12へ更新。lock-projectile-cache-onlyは同じ計算・goldenに既存CUBIN/O1/保存source/required CUBIN/NVRTC禁止を適用し、さらにrequired paired generationを実行前から要求。監査も生成hit/Slang0を検査する。既存standalone profileは追加要件なし。現在のCUDA実機は未検証。Windows既存continuationのstatusを1回試したがhost unavailable、terminal未取得・再送なし。
+
+追加でtests/test_destructible_battle.pyの21件を実行し17成功、過去fixtureのsource guard4件が失敗。変更前0dc09543の隔離snapshotでも同じ4guardが失敗することを再現して記録した。既存監査課題で、fixture/guardを弱めない。新12の認定と旧履歴の全面再認定は分ける。
+
+証跡はmetal-packet-fates-v3.json、packet-fates-failure-and-default-retention-v1.json、packet-fates-legacy-source-retention-v1.json、preexisting-typed-source-guards-v1.json。次の本体機能は元全25（特に元index0の実敵carrierと順位provider）への合成。距離/死亡振替/終了frameに残る監査receipt/全2048同時queueは未検証。全キャラ0/UI CPU/公開admission falseのまま。private継続点はprivate-continuation-v30.json。
+
+最終通常source a1bef907のnormal/cache2packageを作成し、それぞれ10群62／11群71検査とnative7のfresh CPU-onlyが成功。共通67群654（Win1skip）も成功。normal固定packetのrequired generationはsealed generated baselineまで検証しhit/コンパイラ0/GPU0。実immutable cache CLIでCUBIN側の必須flagを全て与えてもpaired generation指定なしならcapture/worker/claim前に停止する負例が成功。通常CUDA cache hit/launch認定ではない。追加GPU0。packet-fates-final-preflight-v1.jsonに全manifest/receipt hashを保存。ローカルjobは残っていない。
+
+### 2026-10-28 元ヴェルヴェットの敵弾薬を実Metalへ接続
+
+共通CLI enemy-ammoの元76定義/6戦闘条件＋raw拒否14をM5 Metalとfresh GPU禁止全出力監査でseal。固定0d3bce27、packet34cbe45d、GPU0.8562025秒、cold pipeline59.394478秒、独立監査124.232063秒。既存ADD/BODY incomingの前へ世代magazine/残弾/reload gateを接続し、元射撃試行を保持。Lv1/Lv10、空対象、再出現、死亡、BODYを全battle/履歴/通知と比較。resource通知各800/合計4,800を省略せず、従来128prefix＋専用tail4,096容量で保存。味方/敵の割合・flat数値はammo_instant_numeric.slangの同じ関数（standalone713は別独立seal）。Runtime138,952byte不変。
+
+v2はkind11のactor受付漏れstatus64、v5は通知128上限status8で失敗しraw/claimを全保持。resource op3/実行flag付きkind11の専用gateと共通logの容量/offset hookで修正。CPU基準を通常経路で再計算し、現在sourceの正確なinverse ledgerを保持、厳密normalizer/保護CPUは未変更。通常CLIと必須CUBIN/O1/compile cache/paired generationのcache-only入口を登録した。Windows新run依頼0、CUDA実機未確認。
+
+次は共有numeric抽出/resource hook後の旧スイート現source再認定をまとめ、未対応の敵武器/容量変更、flat/forced reload、self-destruct/付随debuff等へ進む。旧成功を現sourceへ付替えない。全キャラ/default受付は未認定。詳細docs/portable-enemy-ammo-gpu.md、証跡target-count-query-evidence/enemy-ammo-metal-v1.json、独立receipt tests/fixtures/enemy-ammo-independent-v1.json。
+
+### 2026-10-28 弾薬4/ゲージ3の現source再認定とcompact監査修正
+
+0321513aのcoordinate-original-ammo4、coordinate-original-resources3を各1回M5 Metal実行＋fresh GPU禁止joint seal（golden/source certificate）で成功。旧全input/native/entry/readback byteを保持し、通常golden/full-compiler aliasをv2へ登録、旧ファイルも保持。GPU1.712281/0.573241秒、cold pipeline58.125915/59.786975秒、独立監査66.204694/22.437469秒。required generation hit/Slang0。実packetテスト35/28成功。
+
+先に監査の逆変換再適用、compactでの台帳Python依存漏れ、routingテストのcompact環境誤用、監査PythonをGPU一覧へ混入したテストを修正。217ファイルの復元include graph全体を旧goldenと照合し、未知/改変source拒否とcompact制限は維持。v1/v2/v3失敗はGPU/claim0、raw/log全保持、v4で各GPU1回/retry0。詳細docs/portable-ammo-resource-recertification.md、証跡original-ammo-resource-recert-v1.json。
+
+次はADD実戦17/敵回復14/logical13等の現source再認定を整理し、敵の武器/容量変更等へ進む。全179履歴を無差別再実行しない。今回Windows新依頼0、現在CUDA実機・全キャラ/default受付は未認定。
+
+### 2026-10-28 ADD17現source再認定と自爆4部品契約
+
+固定a1881e09 / packete9ce00dcの元ADD17入力をM5 Metal各1回＋fresh GPU禁止joint sealで成功。全旧input/native/entry/readback138,176,000byteを保持。元ニヒリスター70定義/6編成、284発/1,120被弾、11拒否。unit35成功、required generation hit/Slang0、Runtime138,952byte不変。GPU0.694337秒、cold pipeline58.155649秒、独立監査104.990122秒。v2 golden/certificateを登録し、旧v1は保持。通常/cache-onlyと分類のreceipt参照もv2へ。現在のCUDA実機未確認、Windows新依頼0。証跡add-attack-battle-current-recert-v2.json。
+
+次の自爆を共通CLI reference --suite add-self-destruct-nativeへ登録。canonical BossScriptを変更せず、単発/間隔3発/同時3発/飛び越し回収の4条件を検査。最後のAttackHitをqueueした同じbegin_frameでalive false・enemy_death・enemy_count1になり、queueは残る。初回CLIのcalculator import path不足失敗を保存し、正規engine_worker初期化後に成功。4unit（改変負例/fresh CLI/出所/未対応分類結合）とreadiness24成功。これはCPU部品のみでfull battle/GPU/default falseを明示。詳細portable-add-self-destruct.md、証跡add-self-destruct-native-contract-v1.json。
+
+次は自爆の元実編成full battle契約を作り、queue済み最終射撃・同frame死亡通知/敵数・until-cleared/再出現へ既存pool/時計/incomingを使って接続する。敵回復/logicalの現source再認定も残る。Lock Onの距離は保留、全キャラ/default受付は未認定。
+
+### 2026-10-28 ADD自爆を共有GPUへ接続
+
+add-self-destructの元実編成8＋不正6をM5実行1回とfresh独立sealで成功。元ニヒリスター70/E.H.76定義不変、18自爆/33射撃/165被弾、0秒/間隔/同時/再出現/BODY混在/HP先行撃破/時間切れ/E.H.死亡resourceを全比較。既存cursor/pool/clock/notices/incoming/resource consumerを使い、最終queue後のreason3/敵数更新と全spawn後・incoming前の死亡通知を接続。未発射世代のrun.opens/_Add.firedも比較。Runtime138,952byte不変。
+
+GPU49a58f13/packetd01a085d。初回38unit/CPU8/必須生成hit/Slang0後に全正例0/不正64、比較器array slice対list不一致で6case失敗。raw/claim保持。3998ad48で純receipt検査とarray/list改変負例を追加し、新packetc52145efが元golden/critical GPU/transport/canonical/input/native一致を検査、immutable hardlinkで保存出力をreplay。GPU再実行0。全14 replay成功後、fresh GPU禁止seal126.237991秒、同時source certificate。GPU0.598816秒/cold pipeline58.053059秒、dispatch1/retry0。
+
+通常/cache-only登録と分類へscoped Metal成功を追加し、CPU部品4の分類は別のまま。UTF-8台帳をCP932模擬でも検査。次は敵magazineとの合成/付随debuffと、今回hookで変わった旧ADD/敵弾薬sourceの必要な再認定。全キャラ/default/UIは未認定、CUDA実機未確認、Windows新依頼0。詳細portable-add-self-destruct.md、証跡add-self-destruct-metal-v1.json。
+
+
+## 2026-10-29 敵移動を元5戦闘の共通GPU実行器へ接続
+
+通常CLI `enemy-movement`（15入力/native5）を追加。M5実GPU1回で全位置/区間/状態と全戦闘履歴が一致、別GPU禁止8群のfresh sealも成功（348.617秒、各180秒以内、parent再利用0）。元ユニ69/ヤン71/混合69定義、武器・設定・30秒・全履歴を保持し、予定位置/発動時刻を入力しない。既存alive/end/actor field/world clock/LogicalGeometryを読む。専用wire117476word・出力2032000word内の分離bank。GPU2.926秒、PSO初回61.397秒、run前CPU301.701秒。検証root `.portable-recovery/proofs/enemy-movement-battle-20261029`、詳細 `docs/portable-enemy-movement.md`。
+
+初回sandboxのdevice不可視はclaim前失敗として保持、通常承認経路だけで実GPU実行。同claim retry0。正確な小hunk逆投影は7共有ファイルを元byteへ戻す。既存2入口のCUDA/MSL生成byteも保持（生成証明のみ）。保護CPU4/strict normalizerは変更0。通常goldenと小証跡を登録し、readinessは宣言モデルのMetal接続を示すがcanonical/default/ゲーム空間モデルの不足は消さない。全キャラ0/UI CPU/public GPU false、今回CUDA実機未検証/Windows追加依頼0。次はtyped/worldとの合成と、短いCUDA検証単位の選定。
+
+
+## 2026-10-29 GPU-only反復の小hunk台帳対応
+
+`package --develop --native-baseline-package`が移動実装等のfiles/hunks台帳に対応。現実byteから一意に逆変換し、before全本文/SHA・CPU行・schema/出所/key集合を固定する。元15入力の実CLI梱包2.632969秒/native0/GPU0、全期待hash保持。以前のCPU基準生成291.706845秒の重複を避けるが、run前fresh native/独立sealは維持する。common89検査と固定候補unit13成功。GPU/CLI/保護CPU/normalizer不変、GPU計算の追加認定なし。検査用GPU commentは復元済み、snapshot/候補packetは `.portable-recovery/proofs/movement-expectation-ledgers-20261029` に保持。詳細 `docs/portable-development-expectations.md`、小証跡 `research/portable-native-expectation-files-ledgers-v1.json`。次のtyped/移動合成でGPUのみを反復する前に、この版でCPU基準を固定して使う。
+
+
+## 2026-10-29 移動演算のCUDA43入力とCUBIN必須hit
+
+固定f20b276b/packet149d1634のenemy-movement-mathだけをWindowsでcompile1回/GPU1回。43入力・688word（status0:32/16:2/64:9）が全一致、CPU11検査成功。CUBIN/O1/2GiB/compile内側60秒・コマンド外側180秒を維持し、runは必須cache hit/NVRTC0、GPU0.003763秒。内側compile12.388/run12.187秒、外側24.811/50.135秒。Job残存/timeout/process欠落0だがservice未識別のため外側終了2・preservation/overall falseは保持する。
+
+保存結果の非個人2JSONだけをWindows report commit557e1840（codex/cuda-enemy-movement-math-v1-report）から取得、Macでfresh native全43/全word/元Metal raw2,752byteをGPU0で再比較した。原CUDA envelopeをMacで独立再監査したという意味ではない。証跡tests/fixtures/enemy-movement-math-cuda-v1.json、専用CPU検査test_enemy_movement_cuda_words.py、詳細docs/portable-enemy-movement.md。mathのscoped CUDAだけTrue、移動実戦5ケースCUDA/default/全キャラはFalse継続。今回のWindows依頼はterminalで、再実行はしない。次はtyped/worldへの位置consumer合成。
+
+
+## 2026-10-29 移動・typed物理対象を1つの射撃実行器へ合成
+
+`moving-typed`18入力/native6がM5実GPU1回とfresh独立9群sealで一致。元ユニ69/ヤン71/混合69定義、全30秒、2ADDとBODY所有の固定typed対象を保持。停止/force/重複2優先順位/再出現/同frame所有者死亡を含む。CPUはcanonical pelletを1回だけ使うgeometry merge、GPUは既存emState/DT/actor fields/clockから同じ並進/可視性を読む。owner genを再対象化せず、HP/寿命を二重化しない。packet f757ad6a、GPU3.094098秒、run前native162.230秒、fresh seal234.284秒/各群180秒以内/再利用0/GPU0。
+
+入力123188/出力2165136を専用stride登録し、typed bankとlogical skill history/scratch、motion、frame固定aim中心の所有を分離。元2048skill/2048typed-prefix+全streamSHA/4096motion履歴を縮めない。全移動frame/区間と最終中心/padding、全frameのtyped候補hash、既存battle/physical/typed比較を通す。shape query診断や過去全中心をGPU全件serializeした意味ではない。原CPU失敗v1（空groupの誤条件）/v2（frame内死亡の観測差）も保存。旧移動CPU5指紋と旧2entryのCUDA/MSL生成byte保持。保護CPU4/strict normalizer変更0、旧goldenを書換えない。
+
+小証跡tests/fixtures/moving-typed-metal-v1.json、通常goldenresearch/portable-moving-typed-v1-expected.json、詳細docs/portable-moving-typed.md。proof root `.portable-recovery/proofs/moving-typed-20261029`。今回はWindows依頼0、mathの既存CUDA43証拠は維持、合成のCUDAはFalse。次はactor数/group consumerを含む合成の拡張と、162秒のMac native costを踏まえたWindows小group選定。default/ゲームの空間規則/全キャラは未完了。
+
+## 2026-10-30 元support編成で順序観測の不足を特定
+
+開発worktree `.portable-recovery/runtime-resident` の `original-catalogue-support` を続ける。ナガ70/ティア75定義の元30秒編成、全225unit/fresh CPU2成功、M5 Metal1回。ティアの全比較と再突入event7は一致、ナガのnamed_stateだけが順序差で失敗。全体False、seal/goldenなし。同claim再実行禁止。固定packet `dcd89cbbd811915fafef7a36ba5f311ea1d994372b993d028009a40cbdcff831`、proof stem `original-catalogue-support-v5-20261030`。
+
+保存raw/native診断：54 allied carrierの49番目「우정의 서포트」、native recipients `[2,0]`、decoder `[0,2]`。recipient header `[0,0,0]` でordered metadata False、decoderがmaskをスロット順に読む。GPU内部の実順序は未観測。次は既存Runtimeのrecipient orderを独立した明示readback契約で保持する。計算executorを複製せず、比較をsortで緩めず、revival用flagも偽装しない。既存共有GPUファイルを変えずresident entry wrapperで既存executePortableEvents後に観測する案を検討できるが、wire/entryの明示登録と厳密な監査が必要。未実装の案であり実行許可の迂回に使わない。
+
+旧history/logicalの監査テストを厳密な後続inverse＋旧ファイルの完全hashへ修正。IMPL-STATUS.mdを共通CPU依存に追加、梱包漏れをnative前に止める負例を追加。開発suiteはsealedへ昇格していない。Windows host unavailableで既存結果status取得のみ、追加実行0。新規診断exportの審査拒否は未解消、別経路で公開しない。詳細 `docs/portable-original-catalogue.md`、小証跡 `research/target-count-query-evidence/original-catalogue-support-development-v1.json`。
+
+## 2026-10-30 順序観測を解消、任意元profile用CLIへ展開
+
+前節のナガ順序差は解消。GPU96816a01/packetf72077a9…の元ナガ70/ティア75定義・各30秒がM5 Metal1回＋fresh GPU禁止独立sealで一致した。ナガの実受け手順 `[2,0]` を既存Runtimeからreadbackし、旧raw約16MBは順序bank以外全byte同一。新entryは既存executeComposedCoordinateEvents後にcarrierOrderを書くだけ。共有area entryの標準kernel抑止条件1行を厳密inverseで保持し、旧入口のCUDA/MSL生成hashも従来と同一。旧source認定を無断昇格しない。初版の二重kernel定義失敗はGPU前停止、claim/診断を保存。同claim再実行0。
+
+`original-catalogue-support` はsealed2、`original-catalogue-support-cache-only` は同じ2ケースのCUBIN/O1・compile cache/paired generation必須hit。`original-catalogue-ordered` は元catalogueから1〜4ケースを選ぶdevelopment-only経路。新しいキャラ用executorを複製しない。実CLIでナガ3秒/native1の開発梱包も成功（GPU0）。台帳・hash・hunk同時改変の負例を含む監査は前後完全hashを固定。保護CPU4/strict normalizerは変更0。
+
+次は同じ選択経路で元編成の負傷/遮蔽物被弾/シールドと回復の正例を増やす。今回2worldから全条件・ゲーム空間規則・全キャラを認定しない。Windowsの既存status取得はhost unavailable、追加runなし。以前のWindows診断export拒否は別経路で回避しない。詳細 `docs/portable-original-catalogue.md`、小証跡 `research/target-count-query-evidence/original-catalogue-support-metal-v1.json`。
+
+最終コード41a4be5bのcache-only packet552bdb97…はCPU29群260＋fresh native2が成功（GPU0）。CUBIN/O1/2GiB/60秒compile-planはpolicyだけ成功。proof rootは `.portable-recovery/proofs`、実GPU/seal stem `recipient-order-support-v2-20261030`、最終CPU stem `recipient-order-final-cache-v2-20261030`。次のWindowsは接続復旧後、既存結果の取得を優先して短い検証だけにする。実CUDA/CUBIN hitの成功扱いはまだしない。
+
+
+## 2026-10-30 元supportの負傷・遮蔽物・シールドを共通経路で検証
+
+`original-support-conditions` はナガ/ティア単独の負傷、pair無被弾対照、pair負傷＋shield吸収の4条件・各30秒・元70/75/74/74定義。元効果/武器/育成は保持。既存manual sequenceと同じ共通実行器を使い、実HP/cover差分・元source効果の発動回数を追加検査する。GPU source/保護CPU4/strict normalizerは1d78fb1dから変更0。
+
+固定6b2f43c1/packet4dce0418…がM5実GPU1回と別fresh GPU禁止sealで成功。GPU2.524232秒、generation/pipeline必須hit、Slang0、独立native4/88.015379秒/parent再利用0。最終e224f1e3のcache-only packetc6cb14e5…は29群258unit成功、CUBIN/O1/2GiB/60秒compile-plan成功（実compile/GPU0）。今回CUDA実機未確認、Windows追加依頼0。保存証跡を再利用しGPUを重複実行しない。
+
+catalogue1076の追加4はsceneで、新キャラ数ではない。元266profileの静的packing254/失敗12/分類13、public GPU/全キャラ未完了を保持。Lock Onの距離式は未確定のまま、次の候補は既存consumerがある原効果の未検証条件を優先し、reference_model_gapへ推測を埋めない。詳細 [元support条件](portable-original-support-conditions.md)、証跡 `research/target-count-query-evidence/original-support-conditions-metal-v1.json`。
+
+
+## 2026-10-30 次候補：ビスケットのHP閾値と発動上限
+
+元72定義の実5人編成（ビスケット/ミランダ/ノア/センチ/ドレイク）をCPUで調査。2防御型の実被弾で元row2無敵・row3回復を起こし、3回目の閾値と後続被弾を置いた。fresh native13.225秒/GPU0。最初の保護中はHP/shield/cover被害0、2人目の後続被弾はshield吸収なので無敵の独立証拠にしない。3回目は_activateへの呼出しがあってもmax_triggerでcarrierなし、回復dispatchもなく、後続被弾がHPに入る。
+
+注意：2人目が閾値に到達した時、元instant回復は既に回復した1人目にも入る。正本のally_hp_belowは発動時any-ally判定で、buffの対象別runtime条件とは区別が必要。ゲーム仕様をこの観測だけで認定せず、保護CPU/upstreamは変更0。次は観測なしnativeとの全指紋一致、個別対象/2人目/上限消費の対照を既存ordered経路へ固定してMetal比較へ進む。新suite/golden/現在CUDAの認定はまだない。初版のimport shadowと弱い被弾量もproofへ保持。小証跡 `research/target-count-query-evidence/original-biscuit-threshold-native-triage-v1.json`。
+
+受動観測なしの別native実行とも全結果が一致した（canonical JSON SHA `63057f16736f08f604b34b88255aaf7eabd3c65e7836ea6ee12aa8df1274bcc9`）。この比較はCPUの観測非干渉の証拠で、GPU認定ではない。
+
+
+## 2026-10-30 ビスケットの元HP閾値・上限をMetalへ接続
+
+`original-threshold-conditions` の元5人72定義・各30秒4条件（被弾なし/1人目/2人目/上限消費後）がM5実GPU1回とfresh GPU禁止独立sealで一致。GPU2.444421秒、fresh native4/74.072939秒、独立85.135297秒/parent再利用0。生成/PSO必須hit、Slang0。保存rawの元row2無敵/row3回復の実発動数は0/1/2/2で、handler呼出しだけの3回目を数えない。全戦闘・状態・履歴比較も保持。
+
+元CPUのinstant回復は2人目の閾値で、既に50%超の1人目にも入る。現在の正本比較基準として保持し、ゲーム仕様と混同しない。既存support observerを拡張し、元trigger counterの実増分とattemptを区別する。共通adapter/executor/入力wireはそのまま、GPU273source/保護CPU4/normalizerは変更0。旧support4のsource/正規化CUDA/MSLも同一。
+
+`original-threshold-conditions-cache-only` は同じ4入力/golden/比較器のCUBIN O1とcompile cache/paired generation必須hit入口。現CUDA実機未確認、Windows追加依頼0。catalogue1080はscene数で、元profile静的254/266と未対応12/13分類、全キャラ未完了を保持。詳細 [HP閾値条件](portable-original-threshold-conditions.md)、証跡 `research/target-count-query-evidence/original-threshold-conditions-metal-v1.json`。次は元effectの未検証条件と既存専用証跡を照合して選び、距離式や敵数量の正本不足をno-opで埋めない。
+
+最終9ea39234/cache-only packet84ffa9b9…は29群257unit成功。CUBIN/O1/2GiB/60秒compile-plan policy成功、compiler/GPU0。fresh model-check/entry-inventoryも成功し、既知の正本5stat不足と静的12失敗を保持。Windows既存statusの読み取りはhost unavailableで、新実行依頼0。今回GPU1回・同claim retry0、独立照合後のGPU再実行なし。
+
+
+## 2026-10-30 元エマの被弾確率・回復条件を共通経路で検証
+
+`original-probability-conditions` は元エマ70定義・各30秒4条件（無被弾/本人64被弾/初期負傷＋64被弾/味方64被弾）。元received_hit_count:1/prob:5を保持し、既存sampled RNG/実行器/全戦闘比較を使用する。共通support observerを再利用して元instantの実dispatch数を読み、既存GPU timerと比較。実発動は0/6/6/0、全被弾0/64/65/64。軽傷は回復前HP90%超、初期負傷は90%未満での実回復を要求する。有限seedの一致であり、6/64から確率5%を推定した意味ではない。
+
+固定87c82125/packet50c273ee…がM5実GPU1回で全4一致、27群228テスト/fresh CPU104.170975秒/GPU3.152702秒。別fresh GPU禁止sealは117.877019秒/native4/parent再利用0で成功。generation/PSO必須hit/Slang0。GPU273source/正規化CUDA-MSL/保護CPU4/strict normalizer変更0。旧support/ビスケットを含む12テストも成功。同claim retry0/GPU追加0。初期の64別node容量超過はGPU前のCPU準備失敗として保存し、64回を減らさず既存連撃nodeへ修正した。
+
+最終23abaa93/cache-only packetba0b9c90…は29群257unit成功。CUBIN/O1/2GiB/60秒compile-plan policy成功、compiler/GPU0。静的監査は開発時517依存不変を確認して再利用し、最終テスト登録で依存1ファイルが変わったため4.49秒だけ再実行。entry-planで保存結果から順位を更新した。model-checkは記録されたroot10依存が不変。catalogue1084はscene数、静的254/266・失敗12/13分類、正本5stat不足と全キャラ未完了を保持。現CUDA実機未確認/Windows追加依頼0。詳細 [確率回復条件](portable-original-probability-conditions.md)、小証跡 `research/target-count-query-evidence/original-probability-conditions-metal-v1.json`。
+
+
+## 2026-10-30 未対応cover_def_pctの数値部品をM5で実証
+
+`cover-defense-numeric` は独立したcover base DEFと元倍率を使う共通Slang部品。本人のbody DEFへ読み替えず、元ソルジャーO.W.の10段階値、ULP/極小値/非有限結果を含む562数値＋wire拒否10の572入力を固定83be1329/packet0c6a3d09…でM5実GPU1回＋fresh GPU禁止seal。数値成功558/範囲失敗16が4/wire64が10。GPU0.000273秒、初回PSO0.034186秒（cold）、独立1.172452秒/native562/parent再利用0。元carrierの上位ATK3人・lazy解決・5秒失効はCPU unitで確認し、元scheduler/全戦闘と区別する。
+
+公開実測の著者はcover基礎量がレベル依存・body HP/DEF非継承と報告。画像も視認したが、表示31612/critical47419と著者注記47418の差があり、正確な曲線/丸めを逆算しない。既存incomingの数値形を明示モデルとして使う。係数100%でも×100÷100の省略で1ULP違うunit例を保持し、式をまとめない。新helper2 Slang以外の既存GPU/保護CPU4/normalizerは変更0、旧resident273sourceも一致。
+
+standalone probeなのでgeneration-cache/require-generation-cacheは指定しない。最初の誤指定はcapture/claim前拒否として保存し、正しい別captureでGPU1回（同claim retry0）。最終c2ab073c/cache-only packet95d02b20…は16unit成功、分類41unit成功、CUBIN O1/2GiB/60秒compile-plan policy成功（compiler/GPU0）。cache-onlyは同じ数値/goldenでCUBIN必須hit、paired generationなし。Windows read-only host確認はunavailable、新実行依頼0。
+
+分類はreference_model_gap/default拒否を維持し、numeric Metal実証・carrier readerと、未接続cover layer/元戦闘/level curve/CUDAを分けた。fresh model-check/entry-inventory成功、静的254/266・12失敗13分類は不変。次は明示base DEF5人分のwire、元ranked carrierのprivate lowering、body/cover量とshield callback前後のsnapshot規則を既存incoming/protectionへ接続し、実cover破壊/復活・全戦闘を比較する。詳細 [cover DEF数値契約](portable-cover-defense-numeric.md)、小証跡 `research/target-count-query-evidence/cover-defense-numeric-metal-v1.json`。全キャラ/全特殊効果/公開GPUは未完了。
+
+固定入力追補：元の乱数vector生成にホストpowがあったため、入力だけの128×6 hex binary64表へ固定した。元GPU input.bin全36,612byteと完全一致、native数値oracle/adapter全byteも同一。f3820a6c/packet40a8e62b…のown CLIで17unit＋fresh562 native/全572入力の元基準指紋一致（CPU0.806435秒/GPU0）。新CUBIN O1/2GiB/60秒compile-plan policy成功、最終inventory/model-check成功。旧GPU/独立sealの出所を付替えず、GPU追加0。最新小証跡には初版16unit/c2 packetと、この固定入力版のCPU結果を分けて保存する。
+
+
+## 2026-10-31 製品バースト周期と許可済みCPU consumer拡張
+
+ユーザーは残11profileの専用CPUモデル拡張を明示許可した。対象・実装済み範囲・次手は [product reference consumers](product-reference-consumers.md)。DoTだけの許可待ちへ戻さない。pinned upstreamは変更しない。アンの敵回復を明示reference_models要求から既存checked adapterへ接続し、元69定義の通常CPU評価で倍率低下と実回復を確認。新4テスト＋旧12テスト成功。CPUの動的結果をGPUへ入力せず、未接続のGPU／legacy入口は実行前拒否。ほかのconsumerと通常GPU接続は未完了。
+
+製品patternは共通BurstControlPolicyを使用し、GPUがcycle／casterを決定。wire stride変更なし、every:N最大524287、list1..19、null／空listの意味を保持。公開HTTP6条件はM5 Metal/full CPU payload一致、保存raw再投影も6一致、監査追加native/GPU0。3／6周期目の選択変更、配置順、代替なしの非該当周期も確認。通常accumulate1入力は固定92f39c13…でM5実行＋fresh GPU禁止seal。旧input/output/native entriesを保持してproduct-programs-v2のaccumulateだけ登録し、v1と他program基準は保存した。最終compact packet cddcbaae…自身で76unit＋native1成功、GPU追加0。公開集約 `research/product-burst-pattern-v1.json`。過去255/266を今回再検証した意味ではなく、残11のGPU対応完了数も増やしていない。
+
+添付設定はprivate-v2としてMac内だけに保存。実GPU到達／burst履歴一致だが1人damageが約12.5%相違し、members／total_damage不一致でGPU結果拒否・CPU fallback。元fallbackと新失敗を保存し、許容差変更0。個人設定・詳細結果・hash・rawはGitHubへ出さない。専用4384serverは終了済み、4317／4327は操作なし。
+
+Windows owner15339b24…はown70成功41.234s後、fake-only15件のうち1件で停止。fixture環境コピーにNIKKE_CUDA_SPLIT_COMPILEがなく、threads2→1でcache keyが変わったのが原因。fixture修正後のMac fake45成功（artifact15＋compileCLI14＋diagnostic16）。Windows deps／plan／generation／実SDK／driver／GPU／API未実行、新native claim未消費、再送0。missing／観測／cleanup error0だが未識別serviceのpreservation=falseは維持。旧serial timeoutとmissing7の記録も保持。最新Windows cursor 4b3eff0d-96af-48be-b3ad-b6609ae33ca8:329、turn完了。新sourceの短い検証は新固定packetで行い、古い失敗を再試行しない。
+
+
+## 2026-10-31 添付実編成の製品Metal差分を解消
+
+private-v3の保存raw＋既存CPU observerで、該当1人の発射がCPU10／GPU11、GPU初回が4frame早いと判明。CPUの同名装備状態mergeと、共有低水準quantityの独立成分規約を区別していなかった。通常製品producerにnative_equipment_carriersを明示し、既存共有carrierのmerge/search flagへ接続。全effect／value／groupを保持し、入力stride・出力stride・Slang・数量演算・CPU正本・normalizer変更0。独立成分経路の既知CPU差と旧goldenは保存した。
+
+private-v4の添付設定は通常HTTPから実Metalへ到達し、全CPU payload一致・GPU結果受付・保存raw再投影成功。旧private-v1 fallback／v2不一致／v3観測は保持。個人設定・詳細結果・hash・rawは外部共有しない。公開3profile（N102／アリス／モダニア）×装備順2条件の6件も同じ製品経路で全一致、保存監査native/GPU追加0。既存対応profileの追加条件であり、歴史的255/266へ3を加算しない。今回の製品確認数はMetal公開3profile／6条件とprivate5人編成1条件、現CUDA0profile。
+
+固定packet68e212dc…自身の77unit＋CPU native1が成功、fake SDK45もenvthreads2で成功。通常accumulate基準のinputと全shader source／生成正規化ペアは独立seal済みv2と同一。余分な基準GPU／golden更新なし。旧component quantity3unit、runtime23unit、visited source5unitとfresh model-checkも成功。小証跡 `research/product-equipment-carriers-v1.json`、仕様差の説明 [quantity runtime](portable-quantity-runtime.md)。専用4384サーバーは終了し、4317／4327は未操作。
+
+Windowsにはtransport commit4dfdfcc2（既存codex/product-current-parts-v1-packet）を共有し、新owner68e212dc…のown77→fake45→deps/plan/generation→PTX/module-object-O1/JIT linkだけを1回依頼。各native stage60秒／2GiB／BelowNormal、native pipeline180秒、driver/GPU/APIは未依頼。前回15339b24…はfixture失敗による停止でSDK claim未消費。旧serial26e timeout／missing7／preservation=falseを不変保持する。新message送信は成功、既存Windows chat 01a140bc-5f3b-7661-b720-50c945596eaa の同handleを待ち、再送しない。API用の公開3要求も輸送したが実行は未承認ではなく未依頼（artifact監査後に必要なら依頼する）。次はこの保存結果確認と、残11profileのCPU consumer／製品GPU wireを接続する。
+
+
+## 2026-10-31 Annの通常製品Metal1profile／9条件を実証
+
+最新の実装・範囲は [product reference consumers](product-reference-consumers.md) の末尾。既存product-detail familyにhealing-accumulate／healing-fixedを追加し、元69定義の敵heal_received_pctを共有consumerへ接続。新suite0・新数値演算0・pinned upstream変更0。通常の回復イベントなしもsource0の有効なbankとして扱い、fieldを無視しない。固定／蓄積30秒、技能レベル差・満HP・死亡・再出現・整数HP撃破、小数HP撃破の計9条件が通常HTTP→実M5 Metal→全CPU応答一致。保存再投影9も成功、監査追加native/GPU0。旧整数HPケースは小数creditを起こさず、HP+0.25の別条件で正しく検証した。過去の失敗・元条件を保持。
+
+新source af33511d…の回復sourceなし通常accumulate1入力もM5＋独立GPU禁止seal。product-programs-v3へhealing-accumulateのみ追加、旧16member／v2は保持。fixedはHTTP実証済みだがCLI golden未登録。finite ADD model、group／target／ADD攻撃との合成は未完了で理由付きCPUへ戻す。新public projectorは実receipt/HP/世代/hit/scoreのみを共通formatterで返し、private observerの過去carrier診断は別のまま。旧private source/certificateは現在扱いにせずsource-baselineで拒否、unitでガードを確認。数値期待値・旧14出力の書換えはない。
+
+元の残11profileを新たに静的準備・compileしAnn1通過／10拒否を確認、staticからGPUへ水増ししない。今回現在sourceの製品確認数はMetal1profile／9条件、CUDA0。歴史的255/266は今回の全件再実行ではない。残りはYuni／Yan、Soldier O.W.、Velvet、Heavy Arms、Bay4段階、Rei。CPU consumer拡張の許可は既にあり再確認不要。
+
+Windows owner68e212dc…の保存2JSONはreport commit efad536955ab37aa14fcb2c8cb5f965f6f6eba3f（codex/product-equipment-v1-report）から取得。manifest bytes/SHA・owner・Mac生成pair・options/source SHAを照合した。NVRTC34.511秒returned0、PTX9,866,019byte／SHA850523c7…、key9e89e737…がcache全byteと一致（Windowsのfile-only検査）。outer journal基準ではNVRTC entered24.925／returned59.436／cache公開観測59.720秒、正確なtimeout timer開始は未記録。outer60秒timeout／inner post未完了を不変保持。stage=false、image未admit、global preservation=false／service unverified、現missing0／旧missing7保持、object/link/driver/GPU/API0。MacはPTX原byteを未読。要約照合 `research/product-equipment-windows-v1.json`、peer原JSONはproofs/product-equipment-carriers-v1-20261031/windows-report-v1。
+
+次のCUDA手は、Ann追加後の現行normal product ownerで生成CUDA／ABI／inputの一致を確認し、元の必須cache hitを標準compile入口から再利用すること。NVRTCロード／再compileは0、旧ownerのclaim／未完了receiptを補完・削除しない。新Ann sourceのcold CUDAやGPUはまだ依頼していない。Windowsは同chat、最新cursor 4b3eff0d-96af-48be-b3ad-b6609ae33ca8:334、idle。Mac専用4384は停止済み、4317／4327未操作。
+
+
+最終追補：febf2648からsealed Ann packet c73241c2…とnormal必須warm候補2195f8bd…を作成し、双方のown CLIで79unit＋fresh native1／GPU0が成功。normalのMac旧/新生成CUDA/MSL/両reflectionは4ファイル全byte一致。Windowsとのraw equalityは仮定しない（SDK path等の差があり、既存strict正規化pairのみ一致）。輸送commit67b4f61b、ZIP11,866,804B／SHAfa9bcee0…を共有し、Windows自身のraw source SHA/key9e89…の完全一致と必須cache hit／NVRTC DLL load+compile0を条件に、新ownerのcompile receipt→未実行object/O1→linkだけを各60秒/2GiB・pipeline180秒で1回依頼した。GPU/APIは未依頼。
+
+**この新依頼は実行中ではなく、展開前observer失敗で停止した。** archive byte/SHAは一致したが、Windows process snapshot unavailable／HRESULT -2146233088、1.12秒・Job peak約7.8MB／終了後empty。unpack／tests／cache／SDK／GPUは0、新claim未消費。再送していない。既存chatへの後続は保存execution permission/sandbox modeとstderr/内部例外の読み取り専用診断のみを依頼、WMI/ACL/サービス変更や観測緩和は禁止。接続自体は利用可能で、ユーザーへ一般的な再接続依頼を繰り返さない。最新cursor335、前turn01a190cb-64dc-73d1-8251-b4d06d7297cbはterminal。次はその診断taskの同handleを確認する。pending詳細はproofs/product-enemy-healing-v1-20261031/warm-windows-request-v1.json。Macの残10consumer実装は独立に進められる。
+
+
+診断追補（cursor336）：承認経路のread-only CIM queryが0.68秒で成功した。元内部例外は未保存のためAccessDeniedとは断定しない。old2195 preflightの停止・未開放gate・unpack/SDK claim未消費を確認し、成功した標準承認経路で**別の新preflight/captureから未実行段階のみ**再開する後続を送った。旧capture/post/gateの再試行・補完はしない。標準観測が通る場合だけ新宛先unpackから、元の必須cache hit／各60秒・2GiB／NVRTC0／driver-GPU-API未依頼の条件を維持して進む。実際の新turnの状態は同Windows chatをpollし、再送しない。
+
+
+Windows continuation終了（cursor351）：承認経路で新preflightが通り、owner2195自身の79unit／fake44成功＋既定skip1、deps/plan/generationが成功。Windows生成4ファイル旧新全byte一致、指定PTX9,866,019byteは必須cache hitで標準compiler検証・post観測・containmentを通過。NVRTC load/version/compileは0。初回objectは5,676,528byteを生成したがouter62.406秒timeout、最終result/artifact未完了で未admit。JITlink／driver／GPU／API0、再実行しない。pipeline96.946秒・peak433,971,200byte。監督観測のmissing14は原因不明として保持、service未確認／preservation=false。これはpeer terminal reportでMac独立raw監査前。保存ログだけの小summary＋manifestを既存codex/product-equipment-v1-reportへ追記共有する後続を送信済み、旧reportは上書きせず、PTX/object本体・SDK再実行・新観測は依頼していない。次はその保存結果を同handleで取得し、object native return後の処理が上限へ達する内訳を確認する。新compile/linkの再依頼へ進まない。
+
+
+## 2026-10-31 通常製品Bay宣言配分4profile／7条件
+
+実装はc06a160b、登録数テスト修正9292e3fd。既存weighted CPU adapterを許可済みCPU範囲でreference_modelsへ接続し、共有Slangの同じlanding consumerをproduct wrapperから使用。GPUへliteral weightsと元marker rowだけを渡す。Bay4段階30秒＋65秒break/reburst＋inactive3秒＋fixedの通常HTTP7条件は実M5／全CPU payload一致。保存audit7追加native/GPU0。API後にCLI登録2ファイルとhistory hash定数が変わったため、その3ファイルだけを明示した再静的監査でinput全byte／GPU closure／計算応答一致を再確認。evaluator stampのcommit差は保存し、元の全応答監査とは区別。
+
+固定packet087904c1…（9292e3fd）のown82／native1／実Metal1が成功。独立GPU禁止seal成功、旧17個の登録goldenを保持したv4へweighted-accumulateだけ追加。weighted-fixedはHTTPのみ実証、CLI未seal。初版cbc110…は古いregistry count assertionでGPU前停止として保持し、旧claimを再利用しない。新suite／数値演算／pinned変更0。比率8:3:262は宣言fixtureでありゲーム確認済みではないため、既定Bayは理由付きfallbackを維持。今回Metal4profile／7条件は宣言モデルの製品条件で、既定残10を6へ減らさない。次は既定consumerと複数model合成、または移動／cover等の残consumerを同じ実行器へ接続する。
+
+Windows保存report c065f5ef（既存codex/product-equipment-v1-report）のwarm-current-summary-v1.json＋manifestを取得し、bytes/SHA／owner2195／raw CUDA sourceとPTXの既存anchorを照合。raw SDK/Job全ログやobject本体はMac未読。ptxas15.021秒、inner36.348秒／outer62.406秒で未完了。外側journal開始からnative開始まで約35.7秒、native後も観測・receipt処理が続き上限へ達した（正確なtimer開始未保存、重複時刻を加算しない）。PTX compiler_verified=trueとoriginal passed=false、object image未admit、missing14原因不明、service未確認／preservation=falseを不変保持。新SDK／GPU依頼0、peer現在idle cursor354。再実行ではなく、準備・検証・観測の重複を既存gateを維持して減らす設計が次のCUDA課題。Mac専用4384は停止、ユーザー4317／4327は未操作。
+
+最終追補：74309d9eからsealed packet b4d40911…を作成、packet自身のCLIでown82＋fresh native1／GPU0が成功。CUBIN O1／2GiB／60秒のcompile-planもpolicy成功、SDK／GPU0、Windows追加依頼なし。現在のmodel-checkもsource/dependency監査成功で、未対応canonical stat5とpublic numeric／compositionの未完了を保持。新programの基準GPUを繰り返さず、旧17goldenを保持した。個人設定／rawを共有せず、実装と小証跡のみ既存codex/runtime-residentへ共有。全キャラ・全特殊効果の目標は未完了で維持する。
+
+
+## 2026-10-31 製品の独立遮蔽DEF／manual coverを接続
+
+676b0e94の実装は通常API `reference_models.cover_defense` の5人独立基礎値と、`manual_cover_sequences` の既存checked literalを共通CPU／Slangへ渡す。元Soldier O.W.の定義・値を保持。元のentry/exit/down境界に観測hookだけを追加し、GPUの実制御時刻を既存control traceから正本formatterへ渡す。新数値演算／suite／pinned変更0。
+
+public-api-v1（7件snapshot未cleanup）、v2（6件control/control_detail不一致・指定なし1成功）、v3（6件manual init marker不足・指定なし1成功）を保持。v4aの先頭1件で全一致を確かめてからv4b残6件へ展開し、通常HTTP計7がM5／CPU全応答一致。raw再投影7件もnative/GPU追加0。v4b/capturesはv4a/capturesへの同じ保存raw参照。専用4384終了、ユーザー4317／4327未操作。
+
+owner3397d554…（676b0e94）のproduct-detail/cover-accumulateはown86／fresh native1／M5実GPU1が成功。別fresh GPU禁止sealも成功し、旧18memberの期待値を保持したv5へcover-accumulateだけ追加。共通manual/incomingの2sourceに観測hookが増えたため、旧通常／Ann／Bay等のgoldenは歴史的証拠で現sourceのsealには未更新。source historyは88cdaの完全preimageへ復元するexact ledgerを追加し、strict normalizer／数値期待値変更0。新cover以外のregistered program再sealは未完了。
+
+今回の通常製品確認は宣言独立coverモデルのMetal1profile／7条件・CUDA0。未知のlevel curveを補わないため、既定残10を9へ減らさない。fixed burst＋manualは結合header未実装、複数consumer／group-target／ADD attack合成も未対応で理由付きCPUへ戻す。次は残consumerまたはこの合成を接続し、最終的には既定profileとUI入力、全special-effect条件の完成を確認する。Windowsは追加依頼なし。旧owner2195 object未完了／missing14原因不明／preservation=falseを維持し、SDKを再実行しない。
+
+最終追補：275c3f3bからsealed packet efa7d56c…を作成し、packet自身のown86＋fresh native1／GPU0が成功。CUBIN O1／2GiB／60秒のcompile-planもpolicy成功（SDK／GPU0）。現在のmodel-checkはsource/dependency監査として成功し、canonical stat5とpublic numeric／合成未完了を保持。完成判定ではない。今回のcode／小証跡は既存codex/runtime-residentへ共有、個人設定／rawは含まない。新Windows実行依頼0。
+
+## 2026-10-31 既定Bay4段階＋Soldier O.W.の製品Metalを実証
+
+fcd0391aの実装。元effect／value／carrierを保持し、unknown weights/baseをproduct-only unavailable flagで表す。数値0の代替ではなく、使用するconsumerへ到達したらdevice status64。ホストは全attack／攻撃summon nodeを静的検査し、未指定ならdispatch前拒否。遅延／発動条件をCPU戦闘で予測して除外しない。CPU正本／数値演算／normalizer変更0。
+
+public-api-v1aのBay0が先に全一致した後、v1bでBay1〜3／Soldier0の固定30秒と、元のdeclared weighted／cover各1を検証。全7が実M5／全CPU payload一致、保存raw再投影7件もnative/GPU追加0。v1b/capturesはv1a/capturesへの同じraw参照。declared2件は旧成功とのinput/readback全byte一致も確認。device-guard2件はホスト判定を迂回した正例wireで未指定量を使用させ、初期化を通過後にstatus64／receipt0を確認。正例／負例／全失敗を別々に保持する。
+
+今回の製品確認は既定Metal5profile／5条件＋宣言保持2条件、CUDA0。元の11 gapのfresh静的compileは6通過（Ann＋Bay4＋Soldier）／5拒否（Yuni／Yan／Velvet／Heavy Arms／Rei）。静的結果をGPU数へ加算しない。歴史的255/266の現source再検証も未完了で、全キャラ／全特殊効果の完了ではない。現実worldの未知量・複数consumer・fixed＋manual・残consumerを続ける。
+
+既存product-detailの4固定owner（default-weighted-fixed e6327af3…／default-cover-fixed 8dfc6d16…／weighted-accumulate 9c497642…／cover-accumulate 8be7ab4c…）はすべてown88／fresh native1／M5実GPU1と、別fresh GPU禁止sealが成功して終了。coordinator session51875もterminalで再実行しない。v6へ既定2memberを追加し、明示2memberは旧input/output/native entriesの全一致を確認して現sourceへ再seal。旧v5と未変更17memberを保持。新suite0、Windows依頼0。source-historyはpinされた後続preimageを復元してから元added-source SHAを検査する順序に修正し、算術期待値やstrict normalizerは緩めない。共有はcodeと小JSONのみ、個人設定／rawを含めない。
+
+最終追補：cdcf5356からsealed既定2packet（weighted f023d5d6…／cover 7ec2f98b…）を作り、それぞれpacket自身のown88＋fresh native1／GPU0を確認。各CUBIN O1／2GiB／60秒のcompile-planもpolicy成功（compiler／GPU0）。model-checkはsource/dependency監査成功だがcanonical stat5／public numeric／全合成未完了を保持し、完成判定ではない。exec92360もterminal。Mac専用4384は終了済み、ユーザー4317／4327は操作なし。Windows追加依頼0、旧object未完了・環境観測falseを変更していない。
+
+
+## 2026-10-31 敵弾倉の製品Metal1profile／9条件
+
+実装d9de47b3。既存EnemyAmmo checked CPU adapterを許可済みconsumerへ接続し、同じSlang割合演算／世代／再装填／攻撃試行gateをBODYとADDの製品prefixへ接続。割合演算のoriginal code objectを再利用、CPUの残弾／時刻／発射可否をGPU入力にしない。型付きread_ammoを既存private auditorから抽出し、private compareは同じdecoded5配列を元nativeと全比較する。publicは同じ5配列を返す。
+
+public-api-v1a/v2aはburst traceの資源記録省略（0/800）で拒否、v3aは完全800記録後にADD投影／不要なretirement header共有を検出して拒否。v3aの保存rawを修正readerで再投影し、追加native／GPU0で全CPU応答一致を確認したが現sourceの実証へは付け替えない。自爆はproduct ammoでは明示拒否し、そのruntimeを組み込まずarenaを分離。v4a/bの明示6件は成功、既定fixed30が4096件上限で拒否。全旧capture／failureを保持する。
+
+最終v5aで既定fixed30の全一致後にv5b残8件をfail-fast実行、計9が通常HTTP→実M5／CPU全応答一致。既定固定／蓄積30秒の2件は宣言なしで、設定敵弾倉count0／割合の空target完了イベントを保持、資源通知各4200件を完全保存。明示7条件はlevel10/1／late-empty／renewal／dead／BODY／fixed。敵攻撃は宣言必須、迂回したBODY負例も実GPU status64。v5b/capturesはv5aへの同じraw参照。保存監査9もnative/GPU追加0。専用4384終了、ユーザー4317/4327未操作。
+
+input117632/output2032000の既存wire内で資源traceを最大15124件へ拡張。privateの元4096仕様／strideは変更せず、product専用flagで全tailを使う。上限超過時は履歴を切らずCPUへ戻す。shared dispatchの省略fastpathとresource loggerを同じtrace有効flagへ接続し、既存modeでは従来と同じ判定。旧数値期待値・normalizer・pinned／百分率演算は不変。source inverseを更新し、古いquantity helper追加も既存厳密inverseへつなぎ、旧golden/sourceを保持。112unit＋server10成功。
+
+既存CLI2owner ammo-fixed84e37e2e…／ammo-accumulate1e77a71e…（d9de47b3）はown92／fresh native1／実Metal1と別fresh GPU禁止sealがそれぞれ成功、coordinator session67655はterminal。ammo-fixedは既定30秒、accumulateは元明示6秒で、verifierのcase名は実durationから作る。旧21goldenを保持したv7へ2member追加。新suite0。その他旧programの現source再sealは未完了で、現認定へ読み替えない。
+
+今回Metal1profile／9条件、CUDA0。元11 gapのfresh静的compileは7通過／4拒否（Yuni／Yan／Heavy Arms／Rei）。静的数を実GPU数へ加算せず、歴史的255profileの現source全件再実行も未完了。未知の容量／武器変更・自爆最終queue・複数consumer・group/target specialization・長時間大量履歴を続ける。Windowsは追加依頼0、旧owner2195 object未完了／missing14原因不明／preservation=falseを保持。
+
+最終追補：b6ec340aからsealed ammo-fixed7c2aa379…／ammo-accumulate68d109ee…を作り、各packet自身のown92＋fresh native1／GPU0が成功。各CUBIN O1／2GiB／60秒のcompile-planもpolicy成功（compiler／GPU0）。exec14446はterminal。model-checkはd9de47b3段階のsource/dependency監査成功で、canonical stat5／public numeric／全合成未完了を保持する。V7の変更は登録基準／履歴inverseのみ。Windows追加依頼はなく、旧sourceのPTX/object／失敗／preservation=falseを再ラベルしない。全キャラ・全特殊効果の目標は継続。
+
+
+## 2026-11-02 武器迎撃・元Lock On・有限ADDの製品合成
+
+`reference_models.typed_targets.logical_geometry` を任意の明示フィールドとして追加。同一world／射撃snapshotで既存logical geometryとtyped physical selectionを合成し、既存landing/groupを使う。SlangのADD分岐を移動専用flagからlogical-actor flagへ接続した。新suite／新監査器／wire拡張／算術変更／CPU正本変更なし。未指定の旧リクエストは同じで、単独typed＋nonempty ADDは未接続理由付きfallback、combined lockでは全configured ADDのcollider一致が必須。
+
+不変packet72fbacbc…の実M5 CLI3case／GPU禁止独立seal3case成功。既存最初2caseのinput/output/native全anchorは不変、他41programを保持してv59へ登録。通常APIではHeavy Armsの元91定義・編成・装備を保持し、両mode×前／後／死亡／時間切れ／ADD再出現／ADDと飛翔体の同時再生成、計12条件が全CPU/GPU/HTTP一致。再出現はLock OnのADD handle generation>1を実確認。保存監査12は追加battle/GPU0、owned Node群は両方終了。実行器はCUDA/Metal同じSlangだが新sourceのCUDA実機0。
+
+最終release-v2のowner924d1499…はown175／fresh native3／deps成功、PTX・CUBIN O1 plan成功（compiler/GPU0）。最終sourceへ保存12のinput全byte／shader closure／CPU/GPU/HTTP全結果を追加battle/GPU0で再投影した。最初のrelease-v1は新baseline未追跡によるpayload不足でCPU開始前に拒否されたまま保全し、既存claimは再利用していない。静的source/dependency model-checkも成功だが全面対応を意味しない。証拠は `research/product-typed-lock-add-v1.json`、proof `product-typed-lock-add-run-v1-20261102`。
+
+今回は既存1profileの12条件を追加、new distinct profile0。直前の標準263/266＋明示3の実Metal記録はowner5f88…のまま保持し、新source全profile再認定へ読み替えない。全special-effect条件／任意合成は未完了。次は未接続consumer合成・単独typedのADD接続を優先する。Windows接続は復旧したが、residentの保存RAM1,438,969,856B<4GiB停止を保持し、SDK/API/GPU/RAMの再実行・再計測依頼0。ユーザーの外部RAM改善連絡が来るまでMac実装を進める。旧coordinate-lock v2 object/linkは成果物成功・外側終了2／環境保全falseとして保持。
+
+
+## 2026-11-02 Typed＋Lock On＋敵回復を製品経路へ接続
+
+既存の敵回復consumerを単独typed／Lock Onへ接続。元Annのheal_received_pct、元target-count、Soldierの独立cover、実incoming攻撃を保持する。入力128124word、出力2395112／2995048word。既存tailへ回復履歴を分離し、通常decodeも同じreaderを使う。元の数値・CPU正本・pinned・許容差・strict normalizerは変更0。
+
+通常APIは2編成の固定／蓄積×既定量／上限回復／部分対象、計12条件が実M5・全CPU/GPU/HTTP一致。要求先頭の異なる元profileは2、編成参加profileは7（favorite stage0）。新inventory profileの加算0。宣言回復・形状条件であり、任意sceneの全面認定ではない。最終owner7823d1c4…へ保存12を追加native/GPU0で再投影。現在source CUDA製品profile0。旧標準266profile／203キャラは過去sourceの製品成功として保持し、今回revival guard変更後の全件再認定は未完了。
+
+共通CLI4programの実Metal33＋独立seal成功、旧31のinput/raw全prefix・native完全一致、追加tailは空header／zeroのみ。v77へ4member更新、他40memberは履歴のまま保持。最終195unit相当は同一175を再利用しregistry13／ledger7を新実行。実Metal raw2件からmarker／旧alias／未使用tailの6故障を拒否。初期Lock status64と固定CPU timeoutを保全し、GPUの重複実行0。復活consumerは既存のkind0 scalar buffを初期化で許可し、enemy Lock Onにallied復活flagを付けない。実down→復活の合成実証ではない。
+
+UI http://127.0.0.1:4327/#single は所有PID/rootを確認して現版へ更新、HTTP200、個人設定変更0。Windowsの外部RAM改善後は1回測定で6.86GiB、pending0。新sealed packetのPTX生成だけをplan固定・2GiB／child60秒／全180秒で依頼する。旧residentと失敗CUBINは再試行しない。SDK前にfresh RAM gateを維持する。詳細と残件は [product-typed-healing-v1](../research/product-typed-healing-v1.json)。全目標は未完了。
+
+標準266要求の静的再準備も完了し、入力全byte・選択sourceが保存実行と一致。revival flagを持つ全行で旧／新kind guardの受理条件が同じことを確認した。追加CPU戦闘／GPU0。これは旧CPU期待値の再利用可否を絞る証拠で、新sourceの266 GPU実行数へは昇格しない。`research/product-typed-healing-standard-static-v1.json`に各profileを記録。
+
+Annの元profile0を宣言なし標準180秒で通常APIから新source Metalへ実行し、CPU全応答一致・旧GPU全raw SHA一致・独立保存監査1も成功。現在の要求profileは混在条件2＋標準Ann1＝3、条件13。標準266のうち残265は今回のfresh dispatchへ数えない。初default-api-v1は継承した保存再利用markerで0件送信だったため成功計数せず保持、v2でmarkerを除いて初実行1件を確認した。
+
+Windows新source owner7823d1c4…はPTX14,804,305B→O1 object8,120,624B→linked CUBIN7,508,944Bの成果物検査・lineage・Job containment・missing0を確認。PTX pipeline95.18秒／peak722,137,088B、object/link pipeline95.77秒／peak624,656,384B。全child60秒以内／Job2GiB以内、生成以降Slang/NVRTC再実行0、module/GPU/API0。外側exit2と識別service未確認／環境保全falseは不変。自動共有審査でホスト情報への懸念が出たため後段summaryのhost pathを記号化し、許可済み2小JSONのみを共有、元保存記録は保持した。Mac照合はpeer JSON/SHAで、PTX/object/CUBIN本体は未読。現CUDA製品profile0。
+
+
+## 2026-11-02 開発体制をClaude方針・Codex実装・Claudeチェックへ変更
+
+ユーザーの明示指示により [Claude主導の開発手順](claude-led-development.md) を現在の進め方とする。Claude Codeへの許可済み14ファイル抜粋の初回レビュー125.48秒＋事実確認35.04秒が完了。最終GPU目標をfallback達成へ狭めないことをClaudeと確認した。次はportable_detail.pyと既存製品テストだけで例外/fallback/CPU二重評価を修正する単位。CPU正本・Slang・成功decode・goldenは不変。実装後Claudeのaccept前に新しい合成や266再実行へ進まない。
+
+依頼済みWindows APIはCodexのbackend識別子cuda_detailの誤りでstatic guard停止。正規識別子はcuda_shared_detail。元requestを保持、POST/kernel/CPU戦闘0を保存report1a68dc8eから回収・SHA検証済み。まだ修正/再送していない。artifact成功/exit2/環境保全falseの過去記録は保持。
+
+
+## 2026-11-03 ゲージ／敵移動のL3静的unitをClaudeチェックで合格
+
+ユーザーがこのゴール完了までClaudeへの共有を一括許可（以後の送信ごとの確認は不要。個人設定・認証情報・生GPUバッファは除外、Claudeのツールは無効のまま）。
+
+- `gauge_charge_enabled`：Claudeの条件付き合格に対する記録修正2点が最終acceptされた。Claudeはツール無効で照合できないため、GPU anchor 6件・テスト2件のハッシュはローカルで照合済み。記録は proofs/…/gauge-acceptance-v1.json。
+- `enemy_movement_disable`／`force_move`：Claudeの7ゲートに対し4往復でaccept（record-only修正のみ）。upstream・ネイティブのreaderは0（Pythonヒット0、docs/data 6ファイルのみ）なので、宣言モデルなしでは**i（不活性）**。宣言モデル下では移動後の位置が既存のgeometry／named-range consumerへ流れ、これは**iii（宣言モデルの意味論、実機未確認）**。iiは空。cleanseは汎用経路のみで、敵を対象とする元cleanseは0件（全7行が味方側）。記録 movement-static-v1/record-v3.json の35 anchor・テスト・否定候補のハッシュはすべてローカルで再照合済み。
+- 新規の戦闘・GPU・Windows・テスト実行・製品変更はいずれも0。
+- 次unitは**storage sink**（Claudeのゲート：movement-L3-claude-v1/response.txt）。carry-forward：移動状態領域の全読み書きをbufferレベルで追跡（symbol grepだけでは直接読みを除外できないため）。
+
+
+## 2026-11-03 新体制の初回：storage sink（回復貯蔵）L3をCodex実装・Claudeチェックで合格
+
+体制は「構想・チェック＝Claude Code、実装＝Codex CLI（作業ごとに新規セッション）」。Codexは `codex exec` で7分45秒、記録2ファイルだけを書き、作業ツリーは不変。
+
+- 分類：upstreamは**i**（reader 0件）。`heal_overcharge_store`／`heal_overcharge_store_atk_pct`／`accumulate_max_scale_pct`／`heal_overcharge_discharge`／`heal_split` はすべて**iii**（宣言CPU拡張の意味論、実機未確認）。iiは空。現行CPU/GPU一致・CUDA・同時刻の順序・容量上限などはL4。
+- Claudeの独立チェック：725 anchorを全件再現（byte行基準）、counter全0、upstream不在、adapterの書込→読出を確認。
+- **移動記録への訂正**：`gpu/moving_typed_attachment_runtime.slang` の `movingTypedCenter` が移動状態を直接読む（typed geometry／weapon の距離計算）。symbol検索だけでは漏れていた。分類はiiiのまま。
+- 作業ツリーには、別のCodexセッション（ストレージ整理の依頼）による未コミット5ファイルが残っている。触れず、コミットもしていない。
+- 次：117キー台帳の残り（`buff_stack_add`、`buff_max_stack_add`）を閉じ、その後は実行レベル（L4）の作業へ移る。
+
+
+## 2026-11-03 117キー台帳の静的確認を完了（buff_stack_add／buff_max_stack_add）
+
+Codexが新規セッションで記録を作成（8分56秒、参照66件）。Claudeのチェックで1回差し戻し：初版は2項目を**iii**としたが、両方とも固定upstream自体に実装があるため**L4**（upstreamの処理経路は特定済み、現行の計算一致は未テスト。テストすればii候補）へ修正（resumeで53秒）。
+
+Claudeの独立確認：66 anchor再現、counter全0、作業ツリー不変、元データ件数（buff_stack_add＝buff 1＋instant 4、buff_max_stack_add＝buff 9）、上限時も持続時間を更新（buff_manager.py:1311-1320）、max-addは効果を残さず即時処理（3540-3542）、`partial_skips` はupstreamのみ。
+
+これで117キーすべてに静的な扱いが決まった。次は実行レベル（Metal実行＋CPU照合）でL4を埋める作業へ移る。CUDAはWindows再開の明示時にまとめて行う。
+
+
+## 2026-11-03 実行レベル：117キーの発動と効き目を、保存済みMetal 266件の上で確認
+
+標準266件（seed0・core50・BODY1・180秒）の保存Metal結果は、GPU側コードが4155099d以降CUDA用guard以外不変のため現行の証拠として再利用。Codexが同じリクエストをCPUで計測付き再実行（e04d67abのクリーンsnapshot、166回、計測なしの保存CPU結果と評価器stamp以外一致54/54）。効果ごとに外したCPU計算で効き目も確認した。新しいGPU実行は0。
+
+- **発動し結果を変えた：59キー**。Metal一致済みリクエスト内で発動している → そのリクエスト範囲でii候補。
+- **発動したが結果は不変：52キー**。多くは防御・回復・遮蔽・被弾系で、標準場面に敵の攻撃がないため効き目が出ない。
+- **標準場面で発動せず：6キー**（accumulate_max_scale_pct、burst_stage_override:1、debuff_immune、debuff_immune:소음 공해、heal_overcharge_store_atk_pct、skill_cooldown_pct）。
+
+Claudeの独立確認：独自スクリプトでprofile 5の基準値1,112,885,848とbuff_stack_add除去時の差−36,741,368、profile 159のcover_def_pct除去で差0を再現。保存Metal結果（Apple M5、CPU一致）の総ダメージとも一致。作業ツリー不変。
+
+次：敵の攻撃がある場面などを作り、未発動6キー・不変52キーが効く条件でMetal実行して照合する。

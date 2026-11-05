@@ -1,0 +1,52 @@
+[
+  {
+    "pattern": "test_destructible_weapon_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.570994334062561,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 74316
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.12587212503422052,
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 74316
+  },
+  {
+    "pattern": "test_destructible_skill_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.4461439580190927,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 74316
+  },
+  {
+    "pattern": "test_destructible_weapon_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 12.369738041074015,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 74316
+  },
+  {
+    "pattern": "test_destructible_skill_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 23.847381833009422,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 74316
+  }
+]

@@ -1,0 +1,74 @@
+{
+  "scope": "Additional four live-aim native cases only; not GPU proof",
+  "package_id": "67b5802318128d6002e3f1aeaee44c980116f18773c0eb0c3a0c12f0c852fc68",
+  "results": [
+    {
+      "name": "coordinate-typed-live-aim/auto",
+      "passed": true,
+      "seconds": 5.933307250030339,
+      "handles": [
+        [
+          2,
+          10,
+          1
+        ],
+        [
+          2,
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "coordinate-typed-live-aim/hand-before-skill",
+      "passed": true,
+      "seconds": 6.981059292098507,
+      "handles": [
+        [
+          2,
+          11,
+          1
+        ],
+        [
+          2,
+          11,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "coordinate-typed-live-aim/hand-on-skill-frame",
+      "passed": true,
+      "seconds": 6.982786958105862,
+      "handles": [
+        [
+          2,
+          10,
+          1
+        ],
+        [
+          2,
+          11,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "coordinate-typed-live-aim/shield-hand-before-skill",
+      "passed": true,
+      "seconds": 8.397164375055581,
+      "handles": [
+        [
+          3,
+          11,
+          1
+        ],
+        [
+          3,
+          11,
+          1
+        ]
+      ]
+    }
+  ]
+}

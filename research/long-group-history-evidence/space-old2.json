@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-heal-world-v1-metal",
+  "raw_bytes": 135266304,
+  "raw_sha256": "486984523ed85687fcc70b7820db3a70f39ff2c5c37f2ce05948a36c02b4871a",
+  "evidence_sha256": "935a4c5c252fb36d671113cf358fe94347172e84f91664a452279f0fa5f86482",
+  "raw_inode": 507172076,
+  "zero_ranges": 357,
+  "zero_range_bytes": 92012544,
+  "allocated_before": 135266304,
+  "allocated_after": 43253760,
+  "allocated_reclaimed": 92012544,
+  "full_hash_verified": true
+}

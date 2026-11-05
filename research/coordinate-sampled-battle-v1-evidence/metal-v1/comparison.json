@@ -1,0 +1,81 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "coordinate-sampling-common/occlusion-and-body",
+      "input_sha256": "599c6c9d1e5926f8214ddb7487f45b7a4359628f2499495b00932fa2d883b45c",
+      "output_sha256": "17521faa068813cdf6ac04b7006f362d6998b23c091886a690bd1d1aa27db1c2",
+      "native_sha256": "340a68dc34e500f5e91d752a8ec8e964a1e9cd8403749bfb9afbf9ec224933d6"
+    },
+    {
+      "name": "coordinate-sampling-common/full-front",
+      "input_sha256": "18d0d85c056812ff710124761c5f205e9199e25a21c76636b475f9688d659cd8",
+      "output_sha256": "de815ac710ffb480904590c71018af28d278030cf425fcfe15362efd2545837f",
+      "native_sha256": "a32c3e37dc6a39ceeee1cafae2f208308cd3d4b9413653e8c2781c312116a5eb"
+    },
+    {
+      "name": "coordinate-sampling-common/interrupt-front",
+      "input_sha256": "2c50e200750c1922447434a7a6413848c3b059f911e1fef4ae1d54a527293d41",
+      "output_sha256": "d04e2fc4b9d67c101432956cad37b8a6be33d0567b4fdc0d6e09b20178c2713e",
+      "native_sha256": "80ba927b9bf6673fec9585d03e322b56f4bf99a0c937a116f6137d9de0a4050f"
+    },
+    {
+      "name": "coordinate-sampling-common/two-muzzles-three-pellets",
+      "input_sha256": "b3493a57ed2754078a92295690dd929a73e13283ba3be86482f58eb53efbe38e",
+      "output_sha256": "f4992b844839655bc52b832f35603a370e5aa20e1d58f6eb7ac3ff553f39b04c",
+      "native_sha256": "e5eb9af3a7ab80e1838d269de417dad0aa2d88a55d2abf02b503e974f3a01f65"
+    },
+    {
+      "name": "coordinate-sampling-common/retirement",
+      "input_sha256": "be9004763cc59f37e172bf34eff8998779015d76b694c6a5264ad571a067b806",
+      "output_sha256": "2ae4f60f3ed3e34757c739c7544400bdcc4aed56dac6bf407e72e39d9e764131",
+      "native_sha256": "74983f220bfea799d19bb4619fe043ed166d3ab78ebd12cb7bbe3df4e0da087e"
+    },
+    {
+      "name": "coordinate-sampling-common/body-without-targets",
+      "input_sha256": "336ff95268d2c7789687b7b6cabe814162cb4d8b242d4bf3554908956f47340b",
+      "output_sha256": "a4c7d369e519477cbc53e66608c96ff2c895c401bb73bf6f15bb789e28464d74",
+      "native_sha256": "f416768da39803c10623c5a2a8752a44824d72c761326dd8cffc45b8dba1cf06"
+    },
+    {
+      "name": "coordinate-sampling-common/pierce-reach",
+      "input_sha256": "376d3aee9092312e0cd9550ebca1496bc0957db37f073513407264f65f2dac88",
+      "output_sha256": "e0ef582461a960f72c80a670632ede304670c0c40665b4006c856954058aeaf2",
+      "native_sha256": "4a4ada918176dff6ab0b8b707bfc8f78fa0bd2e79554d86137065de9dccae830"
+    },
+    {
+      "name": "coordinate-sampling-common/charge-pierce",
+      "input_sha256": "201d9136f04197127a2ec8ea79e9ce4308992ca36acec2a77f11a1389b8bd261",
+      "output_sha256": "da32dd6dd34620b7804b3a0a855d6310874dfa83c7703b9ad7e61f96d0933504",
+      "native_sha256": "be8e6790e8ec836af329be71b681dbc7868141ce73159c893c860c42dc9da23d"
+    },
+    {
+      "name": "coordinate-sampling-common/core-centered",
+      "input_sha256": "aad01f3dcb9e2bfbfb54891483c8688cbe32d1973de0d0321379c3b7e88e9334",
+      "output_sha256": "436f3c9da06d30be90a97d6795c5b4ad40abb9ee59c899523325ccc6e2e2be3d",
+      "native_sha256": "dcd3cb38fd59f9acc5b434cf6cfbf82bcceb553a1cb9b0e08faf5c40ef1ae187"
+    },
+    {
+      "name": "coordinate-sampling-common/core-offset",
+      "input_sha256": "0db762ad2a10344e6f76079bde39e4b282bed21889a8df17f48027aba07a427a",
+      "output_sha256": "3f6f8de83e8517bafc8dfcbd482140947c2cc61132ae98527868f43c05a8f2d5",
+      "native_sha256": "f74bc1e2fdb102d565b35a4393b9514cba6a9e8939675ad7a451b290dd8b18fb"
+    },
+    {
+      "name": "coordinate-sampling-common/rotated-rectangle",
+      "input_sha256": "4a50519f5076558ce8b5d32ce1e9401f1b6296451d5172a8f37dbdcceecd03ef",
+      "output_sha256": "3da52230b7f461b22e46f60c657118a254e6e98e12e69f2230c939306eef6bed",
+      "native_sha256": "4e089178a45ccac4b827e9c967fcdaa353d4f7fee6741d16074423edf8994249"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 11,
+  "native_oracles": 11,
+  "input_sha256": "f7c99e4afe96df1d2662c5e71c3aa5eb0f9a6f3dae75821f1ff5c104682df7ba",
+  "output_sha256": "b8c9c4f6eca05a8757b6a97ed1dde17002dc6fe12a21de92890b3c1ddb3e9d9c",
+  "generated_normalized": {
+    "cuda": "bc8a9bc7d2b53f524cf2a5538924b53a2f374e60254d753c06b65ea9d4baa3e3",
+    "metal": "5d0be3d7af37f207060e6f910f65e228128d9c475ee3dbf94c4c9d3440012af9"
+  },
+  "audit_gpu_calls": 0
+}

@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-original-enemy-stack-metal-v1",
+  "raw_bytes": 28317696,
+  "raw_sha256": "e88477456144be05cac2b6314f507386772ade313564a45f0273821686cfc70a",
+  "evidence_sha256": "94036eb9c0617aa28761ce13cbb879fe7784db98d3981fe8347b84016e071705",
+  "raw_inode": 511355985,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 52,
+  "zero_range_bytes": 21037056,
+  "allocated_before": 28319744,
+  "allocated_after": 7282688,
+  "allocated_reclaimed": 21037056,
+  "full_hash_verified": true
+}

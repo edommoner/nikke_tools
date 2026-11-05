@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "source_files": 158,
+  "records": [
+    {
+      "backend": "cuda",
+      "previous_sha256": "79db2d00fcc1e31b26b56c729b41b5fcf0a24814a027945b40a83f7870e39435",
+      "current_sha256": "79db2d00fcc1e31b26b56c729b41b5fcf0a24814a027945b40a83f7870e39435",
+      "all_generated_bytes_equal": true
+    },
+    {
+      "backend": "metal",
+      "previous_sha256": "e80f5ab0f92b50a45f9fe0f42f0d5e439645c1ffa2740981def4b387f6ad67f0",
+      "current_sha256": "e80f5ab0f92b50a45f9fe0f42f0d5e439645c1ffa2740981def4b387f6ad67f0",
+      "all_generated_bytes_equal": true
+    }
+  ],
+  "scope": "old HSI5 entry on changed shared sources; raw CUDA/Metal bytes, no normalizer exclusions"
+}

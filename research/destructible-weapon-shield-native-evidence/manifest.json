@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "cpu198.json",
+      "bytes": 6641,
+      "sha256": "2e334248222d024f02277e4fb0b41c486ebace226ccf1cb123557be19c1fc788"
+    },
+    {
+      "path": "guard-review.json",
+      "bytes": 629,
+      "sha256": "341250d8acc9f6bb83ee2386fc1892020898904414c064d415a75544a0d216ca"
+    },
+    {
+      "path": "inventory-preservation.json",
+      "bytes": 214,
+      "sha256": "cc58eb882d1c5ab5463be5d49fa707e387eed8214250924ac8c416f9184e767d"
+    },
+    {
+      "path": "reference22.json",
+      "bytes": 70254,
+      "sha256": "8e88740069588bd1a0c05712e1b70220e7fbcbb0bff50a063d518cacd8a51cbb"
+    },
+    {
+      "path": "sealed-generation.json",
+      "bytes": 515,
+      "sha256": "5dad5f760a969bd7cf635575ac0ebd2a5a5cde3a62e8b47ec77b714bfce19761"
+    },
+    {
+      "path": "source-preservation.json",
+      "bytes": 391,
+      "sha256": "b60145c5ef2da116b0009e2e6315512ea98fb3cd64b3b2263017d419a8db7fbb"
+    }
+  ],
+  "total_bytes": 78644,
+  "scope": "Declared native CPU contracts and preservation checks only; no GPU proof, raw, settings or toolchains"
+}

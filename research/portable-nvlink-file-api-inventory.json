@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "scope": "Static PE import inspection only; no executable launch",
+  "tool_sha256": "60d8c8bca6df7d7ec2aafef688192f46bb7d76bd94c4f82f5a520ff278ea5ceb",
+  "import_dll": "KERNEL32.dll",
+  "observed_imports": [
+    "CreateFileA",
+    "CreateFileW",
+    "WriteFile",
+    "GetLastError",
+    "GetFileInformationByHandle",
+    "GetFullPathNameW",
+    "GetFileType",
+    "SetFilePointerEx"
+  ],
+  "inference": "Imports identify available file APIs, not which call failed or its error code",
+  "new_compile_link_driver_gpu_calls": 0
+}

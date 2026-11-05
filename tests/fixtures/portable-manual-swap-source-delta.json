@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "baseline_commit": "30566a4",
+  "sources": {
+    "gpu/event_runtime.slang": {
+      "baseline_sha256": "863b2097c0ec367fa8d0a415d6d7883930b88486d2076a24a2eec51314d46a85",
+      "current_sha256": "dbfcd69a6d7acbf14ffde4f90bf22b1de9b9ae5f5a06c2cb7c357a79a63bab86",
+      "changes": [
+        {
+          "baseline": "#ifdef PORTABLE_WORLD_RELOAD\n#define WORLD_RELOAD_FORCE_KIND(kind) (kind==23)\n",
+          "current": "#ifdef PORTABLE_WORLD_RELOAD\n#define WORLD_MANUAL_SWAP(s,w,who,when) if(advanceManualSwap(s,w,who,when)) return;\n#define WORLD_MANUAL_ENABLED(s,who) manualSwapEnabled(s,who)\n#define WORLD_RELOAD_FORCE_KIND(kind) (kind==23)\n"
+        },
+        {
+          "baseline": "#else\n#define WORLD_RELOAD_FORCE_KIND(kind) false\n",
+          "current": "#else\n#define WORLD_MANUAL_SWAP(s,w,who,when)\n#define WORLD_MANUAL_ENABLED(s,who) false\n#define WORLD_RELOAD_FORCE_KIND(kind) false\n"
+        }
+      ]
+    },
+    "gpu/weapon_frame_phases.slang": {
+      "baseline_sha256": "877e116ac591ec7ca1db3610d4288db528d513e0e6cfeecf7fcf7dc401a3d8b9",
+      "current_sha256": "ff97e8bd2e49dad9c55947d2da2a41ab2fe22f9b05415abe68deea46916aeee4",
+      "changes": [
+        {
+          "baseline": "    s.target = target; selectWeapon(s,who,when,w);\n    if (s.error != 0) return; WORLD_CONTROL_TICK(s,who,when,output)\n    if(advanceModeEntry(s,w,who,when)) return;\n    if(s.modeIndex[who]>=0 && w.sentinelMode==0 && w.shotLimit>=0 && uint(w.shotLimit)==commands[s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+1]) w.shotLimit=int(w.capacity);\n    if (s.modeIndex[who] < 0 && f64Less(0,s.reloadUntil[who]) && hasInfiniteAmmo(s,who,when))\n    { s.reloadUntil[who] = F64_SIGN | ONE; s.nextShot[who] = larger(s.nextShot[who],when); }\n    if (s.modeIndex[who] < 0 && f64Less(s.reloadUntil[who],0)) s.ammo[who] = min(s.ammo[who],int(w.capacity));\n    if (WORLD_RELOAD_ACTIVE(s,who,!f64Less(s.reloadUntil[who],0)) && (s.modeIndex[who] < 0 || w.reloadAllowed != 0))\n",
+          "current": "    s.target = target; selectWeapon(s,who,when,w);\n    if (s.error != 0) return; WORLD_MANUAL_SWAP(s,w,who,when) WORLD_CONTROL_TICK(s,who,when,output)\n    if(advanceModeEntry(s,w,who,when)) return;\n    if(s.modeIndex[who]>=0 && w.sentinelMode==0 && w.shotLimit>=0 && uint(w.shotLimit)==commands[s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+1]) w.shotLimit=int(w.capacity);\n    if (!WORLD_MANUAL_ENABLED(s,who) && s.modeIndex[who] < 0 && f64Less(0,s.reloadUntil[who]) && hasInfiniteAmmo(s,who,when))\n    { s.reloadUntil[who] = F64_SIGN | ONE; s.nextShot[who] = larger(s.nextShot[who],when); }\n    if (!WORLD_MANUAL_ENABLED(s,who) && s.modeIndex[who] < 0 && f64Less(s.reloadUntil[who],0)) s.ammo[who] = min(s.ammo[who],int(w.capacity));\n    if (WORLD_RELOAD_ACTIVE(s,who,!f64Less(s.reloadUntil[who],0)) && (s.modeIndex[who] < 0 || w.reloadAllowed != 0))\n"
+        }
+      ]
+    },
+    "gpu/world_reload_runtime.slang": {
+      "baseline_sha256": "335c78cb91c0cc319a0fdfba1736281ebee733de4758b01036e90feefb68664c",
+      "current_sha256": "47889666772f867b246b63ecc2cdea98eda79b6b7e2e4b2bd67d63c3b1818090",
+      "changes": [
+        {
+          "baseline": "    if(commands[p]!=0x57524c31||commands[p+1]!=1||commands[p+2]!=s.count) { s.error=64;return; }\n    for(uint i=3;i<8;i++) if(commands[p+i]!=0) { s.error=64;return; }\n    for(uint row=0;row<P_DEFINITIONS;row++)\n",
+          "current": "    if(commands[p]!=0x57524c31||commands[p+1]!=1||commands[p+2]!=s.count) { s.error=64;return; }\n    if(commands[p+3]>=32||commands[p+4]!=(commands[p+3]!=0 ? 0x574d5331U : 0U)) { s.error=64;return; }\n    for(uint i=5;i<8;i++) if(commands[p+i]!=0) { s.error=64;return; }\n    for(uint row=0;row<P_DEFINITIONS;row++)\n"
+        },
+        {
+          "baseline": "}\n",
+          "current": "}\n\n// Authored owner flags only; readiness is resolved inside the shared GPU frame.\nbool manualSwapEnabled(inout Runtime s,uint who)\n{ return (commands[s.inputBase+P_WORLD_RELOAD_INPUT_BASE+3]&(1U<<who))!=0; }\n[noinline]\nbool manualSwapReady(inout Runtime s,uint who,uint64_t when)\n{\n    if(s.modeIndex[who]>=0) return false;\n    for(uint row=0;row<s.count&&s.error==0;row++)\n    {\n        Definition d=readDefinition(s.inputBase,row);\n        if(d.kind!=2||d.owner!=who||d.conditionCount==0) continue;\n        // Native notify indexing retains duplicate timing descriptors. Readiness\n        // checks conditions, not max_trigger, before the completion dispatcher.\n        for(uint slot=0;slot<d.triggerCount&&s.error==0;slot++)\n            if(commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8]==19&&activationConditions(s,row,when)) return true;\n    }\n    return false;\n}\n[noinline]\nbool advanceManualSwap(inout Runtime s,Weapon w,uint who,uint64_t when)\n{\n    if(!manualSwapEnabled(s,who)||s.modeIndex[who]>=0) return false;\n    if(f64Less(0,s.reloadUntil[who])&&hasInfiniteAmmo(s,who,when))\n    { s.reloadUntil[who]=F64_SIGN|ONE;s.nextShot[who]=larger(s.nextShot[who],when); }\n    if(!f64Less(0,s.reloadUntil[who])) s.ammo[who]=min(s.ammo[who],int(w.capacity));\n    if(f64Less(0,s.reloadUntil[who])||f64Less(0,s.postReloadUntil[who])) return false;\n    bool ready=manualSwapReady(s,who,when);\n    if(s.error!=0) return true;\n    if(!ready) return false;\n    beginReload(s,w,who,when);return true;\n}\n"
+        }
+      ]
+    }
+  }
+}

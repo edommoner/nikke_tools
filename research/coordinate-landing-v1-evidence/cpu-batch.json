@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_coordinate_landing_v1.py",
+    "test_coordinate_power_v1.py",
+    "test_portable_numeric_design.py"
+  ],
+  "timeout_seconds": 60,
+  "elapsed_seconds": 3.9978325000265613,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

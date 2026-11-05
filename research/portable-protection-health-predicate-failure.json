@@ -1,0 +1,17 @@
+{
+  "passed": false,
+  "reason": "Pinned effective_max_hp iterates active HP buffs without runtime predicates. At t0.1 before first shield commit, has_shield=False yet during_shield maxHP-only buff changes1000 to2000 and shield snapshot100 to200.",
+  "observed": {
+    "time": 0.1,
+    "has_shield": false,
+    "base_hp": 1000,
+    "effective_max_hp": 2000,
+    "shield_snapshot": 200
+  },
+  "specified": {
+    "hp_modifier_condition": "during_shield",
+    "effective_max_hp_before_first_shield": 1000,
+    "first_shield_snapshot": 100,
+    "refresh_shield_snapshot": 200
+  }
+}

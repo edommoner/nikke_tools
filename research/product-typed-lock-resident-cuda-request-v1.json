@@ -1,0 +1,91 @@
+{
+  "schema": "product-typed-lock-resident-cuda-request-v1",
+  "transport_commit": "f7eff2054c1ce28844a1609ef828dca9918965ca",
+  "code_review_commit": "2cb84538e3966a9d8e0e0b2f179cbf3f26c2543d",
+  "owner": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+  "snapshot_source_commit": "6ba2436f595067672b1e0aca065ea034c06df3d0",
+  "snapshot_working_tree_dirty": true,
+  "transport_manifest_sha256": "69555f5bd333e264f0b3d02afd103eb2dc4f7a471c2df37ba76043c95d678936",
+  "payload_files": 13,
+  "total_bytes": 12251346,
+  "all_git_blobs_rehashed": true,
+  "actual_managed_helper_request_selector_owner_case_ids_checked": true,
+  "selected_tests": 11,
+  "mac_own_tests": 172,
+  "windows_unselected_tests": 161,
+  "physical_conditions": 2,
+  "distinct_original_profiles": 1,
+  "new_profile_delta": 0,
+  "seconds_each": 4,
+  "max_posts": 1,
+  "max_gpu_dispatches": 1,
+  "activity": [
+    {
+      "variant": "accumulate-live",
+      "typed_attacks": 1,
+      "typed_receipts": 3,
+      "weapon_packets": 171,
+      "lock_pulses": 16,
+      "lock_shots": 2,
+      "complete_skill_rows": 14,
+      "remaining": [
+        98448172.0,
+        98448172.0,
+        93386269.0
+      ]
+    },
+    {
+      "variant": "accumulate-broken",
+      "typed_attacks": 0,
+      "typed_receipts": 0,
+      "weapon_packets": 12,
+      "lock_pulses": 16,
+      "lock_shots": 2,
+      "complete_skill_rows": 13,
+      "remaining": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "expected_physical_input_sha256": "48ed28124b0e4d8e6e32f318d4b022c71cee8a424e5cb52e30ff607f781d2d75",
+  "expected_physical_output_sha256": "9ea362eab9c008b074fa1b099fffd7661b5a283e74de9f335db10e87b5f5240a",
+  "all_expected_parent_member_bytes_are_actual_m5_bytes": true,
+  "physical_parent_source": "independent CLI2-case real M5 capture; each corresponding real API member input/output byte-identical",
+  "mac_selected_independent_seal_scope_not_promoted": true,
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "minimum_available_ram_bytes": 4294967296,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "old_failed_gates_stops_and_unknowns_retained": true,
+  "windows_thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
+  "windows_turn_id": "01a1986e-0d3d-7a43-8dc1-25e9f048f4da",
+  "dispatch_confirmed_active": false,
+  "cuda_execution_confirmed": false,
+  "comparison_passed": false,
+  "windows_memory_reduction_verified": false,
+  "full_goal_complete": false,
+  "windows_terminal_status": "stopped-at-first-sdk-before-ram-admission",
+  "result_import": {
+    "commit": "bbcba8d7b16bc8690ad829bec963302376c30544",
+    "file": "research/product-typed-lock-resident-windows-status-v1.json",
+    "bytes": 19091,
+    "sha256": "d1ed30f2f25dc442dc6ff219120c45b3b9b2b413a25eed3d8265f0199e565795",
+    "git_blob_verified": true
+  },
+  "available_physical_ram_bytes": 1438969856,
+  "required_available_ram_bytes": 4294967296,
+  "sdk_gpu_api_and_resampling_calls": 0,
+  "windows_selected11_passed": true,
+  "old_stops_and_unknowns_unchanged": true,
+  "next_windows_step": "Wait for external free-memory change; no automatic RAM resampling, old retry or limit increase"
+}

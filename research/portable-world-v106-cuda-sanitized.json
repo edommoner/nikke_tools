@@ -1,0 +1,130 @@
+{
+  "version": 106,
+  "source_share_commit": "b5ccdac5b1310eb28c859995dfac5ef515e8cf71",
+  "package_source_commit": "3918e68a07f299382c10bda1cbab50afc9eb016c",
+  "package_id": "58dd0f6caf70b06092085763c31e33809d6700ce04a7c28b436dfa18ca58d2e3",
+  "package_archive_sha256": "ec60878d02363c58d3d03e05564d147079afa24e345721824cbb52e7b715895a",
+  "bootstrap_sha256": "061888787d1554ed62eee7016751f800926206f0a4db6f6b49f743a4b27d216a",
+  "inputs": 75,
+  "native": 60,
+  "rejections": 15,
+  "cpu_tests_per_run": {
+    "compile_cache": 7,
+    "cuda_artifact": 4,
+    "gpu_cli": 23,
+    "phase_audit": 5,
+    "readiness": 9,
+    "total": 48
+  },
+  "smoke_verified": true,
+  "smoke_cpu_tests_passed": true,
+  "cuda_preflight_tests_passed": true,
+  "input_sha256": "beb2648a35badfc16580e5cb9b1f36ca6743952913d6ad8298e1e660e90fc166",
+  "output_sha256": null,
+  "expected_output_sha256": "0b9264727d9138bf2ca0068d543c4edd00606a0be703ff700ac9a89bdf613856",
+  "generated_normalized": {
+    "cuda": "876111723664c5f5c79df883703eb83cafac53437832e2ed9daff199c8b24ac0",
+    "metal": "d485576179be8b19658e517398e81d4f19fce191e75d6f02d7fca57f5b2091f2"
+  },
+  "generated_normalized_matches_golden": true,
+  "comparison_entries_count": 0,
+  "comparison_entries_cross_digest": null,
+  "expected_entries_cross_digest": "3fb3d2925f03f2cd1f9c8b576e12ca576ccbd654e0345751bd093d776442871f",
+  "gpu_name": null,
+  "cases": null,
+  "command_status": null,
+  "transport_evidence_present": false,
+  "execution_status": "timeout_in_nvrtcCompileProgram",
+  "timing_seconds": {
+    "total": 181.9282009997405,
+    "nvrtc_compile": null,
+    "nvrtc_compile_entered_to_wait_completed": 167.3101881,
+    "module_load": null,
+    "synchronize": null,
+    "readback": null
+  },
+  "timeout": true,
+  "timeout_limit_seconds": 180,
+  "api_return_validation": {
+    "nvrtcCreateProgram_returned_zero": true,
+    "nvrtcCompileProgram_returned": false,
+    "cubin_elf_verified": false,
+    "device_capability_matched": false,
+    "module_load_verified": false,
+    "launch_verified": false,
+    "sync_verified": false,
+    "readback_verified": false
+  },
+  "api_trace": [
+    {
+      "stage": "shared_gpu_execute",
+      "state": "entered"
+    },
+    {
+      "stage": "slang_build",
+      "state": "entered"
+    },
+    {
+      "stage": "slang_build",
+      "state": "returned"
+    },
+    {
+      "stage": "cuda_compile_artifact",
+      "state": "entered"
+    },
+    {
+      "stage": "nvrtcCreateProgram",
+      "state": "entered"
+    },
+    {
+      "stage": "nvrtcCreateProgram",
+      "state": "returned",
+      "return_code": 0
+    },
+    {
+      "stage": "nvrtcCompileProgram",
+      "state": "entered"
+    }
+  ],
+  "job": {
+    "smoke_pre_verified": true,
+    "smoke_post_empty": true,
+    "cuda_pre_verified": true,
+    "cuda_post_empty": false,
+    "identity_stable": true,
+    "inspection_error_present": false,
+    "cleanup_error_present": false,
+    "observation_error_present": false
+  },
+  "environment": {
+    "smoke_missing_count": 0,
+    "cuda_missing_count": 14,
+    "missing_cause": "unknown",
+    "later_residual_count": 0,
+    "original_head_status_preserved": true,
+    "service_status_before": "unverified",
+    "service_status_after": "unverified",
+    "after_observation_delay_seconds": 1.8940423
+  },
+  "calculation_verified": false,
+  "containment_verified": false,
+  "preservation_verified": false,
+  "cache_check": {
+    "executed": false,
+    "reason": "No completed CUBIN artifact or compiler receipt",
+    "hit": null,
+    "key": null,
+    "artifact_sha256": null,
+    "artifact_bytes": 0,
+    "gpu_calls": 0,
+    "nvrtc_compile_calls": 0
+  },
+  "attempts": 1,
+  "retries": 0,
+  "launch_entered_count": 0,
+  "sync_entered_count": 0,
+  "readback_entered_count": 0,
+  "original_records_retained_locally": true,
+  "v105_retained": true,
+  "github_push": false
+}

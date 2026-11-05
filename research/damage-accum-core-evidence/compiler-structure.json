@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "source_bytes": 46301,
+  "source_sha256": "a22235e9ea64199508382fe98121ed014cb7b829beae89e1cc2774217a280423",
+  "functions": 36,
+  "noinline_functions": 3,
+  "largest_functions": [
+    {
+      "name": "portableEvents",
+      "line": 1647,
+      "bytes": 8945,
+      "lines": 280,
+      "noinline": false,
+      "global_entry": true,
+      "branches": 33
+    },
+    {
+      "name": "daCollect_0",
+      "line": 1175,
+      "bytes": 4847,
+      "lines": 172,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 21
+    },
+    {
+      "name": "daRate_0",
+      "line": 904,
+      "bytes": 3685,
+      "lines": 141,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 15
+    },
+    {
+      "name": "f64Div_0",
+      "line": 1047,
+      "bytes": 2378,
+      "lines": 126,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 16
+    },
+    {
+      "name": "f64Integral_0",
+      "line": 1441,
+      "bytes": 2095,
+      "lines": 100,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 13
+    },
+    {
+      "name": "f64Add_0",
+      "line": 684,
+      "bytes": 2056,
+      "lines": 96,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 12
+    },
+    {
+      "name": "f64Pack_0",
+      "line": 553,
+      "bytes": 1803,
+      "lines": 86,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 12
+    },
+    {
+      "name": "daTake_0",
+      "line": 1364,
+      "bytes": 1791,
+      "lines": 70,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 7
+    },
+    {
+      "name": "daInitializePool_0",
+      "line": 228,
+      "bytes": 1729,
+      "lines": 83,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 10
+    },
+    {
+      "name": "daInitializeRate_0",
+      "line": 360,
+      "bytes": 1607,
+      "lines": 70,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 8
+    },
+    {
+      "name": "f64Mul_0",
+      "line": 823,
+      "bytes": 1583,
+      "lines": 79,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 9
+    },
+    {
+      "name": "daLink_0",
+      "line": 103,
+      "bytes": 1466,
+      "lines": 55,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 6
+    }
+  ],
+  "scope": "Lexical generated-CUDA spans only; not compiler time, memory attribution, performance or correctness proof",
+  "source_integrity_verified": true,
+  "analysis_complete": true,
+  "calculation_verified": false,
+  "compiler_verified": false,
+  "gpu_calls": 0,
+  "nvrtc_compile_calls": 0
+}

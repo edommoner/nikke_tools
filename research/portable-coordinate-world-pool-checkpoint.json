@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "stage": "coordinate-selector-direct-world-pool-view",
+  "passed": true,
+  "actual_metal_inputs": 16,
+  "native_full_battles": 11,
+  "rejections": 5,
+  "component21_retained": true,
+  "regression81_retained_bytes": 339738624,
+  "regression81_cpu_tests": 52,
+  "final_cpu_tests": 16,
+  "control_tests": 392,
+  "windows_only_skips": 1,
+  "gpu_dispatches_this_stage": 4,
+  "gpu_retries_per_package": 0,
+  "independent_audit_gpu_calls": 0,
+  "world_pool_gpu_seconds": 0.018451291602104902,
+  "world_pool_required_pipeline_cache_hit": true,
+  "old81_gpu_seconds": 11.655690375017002,
+  "old81_required_pipeline_cache_hit": true,
+  "new_runtime_fields": 0,
+  "software_binary64_unchanged": true,
+  "normalizer_unchanged": true,
+  "canonical_reference_unchanged": true,
+  "coordinate_input_is_literal_sidecar": true,
+  "world_state_copied_into_gpu_input": false,
+  "coordinate_state_copied_on_gpu": false,
+  "world_pool_stride": 16,
+  "world_pool_birth_offset": 8,
+  "projection_uses_canonical_apply_geom": true,
+  "full_coordinate_battle_supported": false,
+  "coordinate_packet_producer_connected": false,
+  "coordinate_public_admission": false,
+  "all_character_certifications": 0,
+  "remaining_gap_categories": 20,
+  "ui_backend": "cpu",
+  "goal_complete": false,
+  "packages": {
+    "executed16": "1c09258690c84339bd086520bb46e64a680e02107d9414058842e3b3720f4fe9",
+    "final_full": "ce54d3a6653094f8f191e48d55413ae2aa84dfc7b1117686868d3deac185936c",
+    "final_compact": "69ac993c5ab5b3546292be13a9b728198b0cf7b72a661dad6d12af949bf61ad6",
+    "old81_executed": "cb98cfdee860f4e8b3509c3cef228eaa3b10eeb05b603da1c50621b0de3e9f35",
+    "old81_final": "eb5d84cc1e1f40a922cb0ae89a40a309bcb8fbd911358f992b585a1ca899abf0",
+    "compiler": "71e79091d558d0780845d517bcddf682c402e8603efe6e8c8445bf84fce5ff86"
+  },
+  "compiler": {
+    "current_alias": "compiler-full--attack-group-mixed",
+    "source_only": true,
+    "cuda_compile_verified": false,
+    "cuda_cache_hit_verified": false,
+    "old_long_certificate": "historical; source-stale after schema extension",
+    "legacy_generated_cuda_metal_reflection_full_bytes_exact": true
+  },
+  "windows": {
+    "new_requests": 0,
+    "pending_ptx_status": "unknown",
+    "host": "unavailable",
+    "execution_retried": false
+  },
+  "preserved_failures": [
+    {
+      "capture": "/tmp/nikke-coordinate-world-pool13-metal-v1",
+      "reason": "Invalid portable word strides",
+      "gpu_calls": 0
+    },
+    {
+      "capture": "/tmp/nikke-coordinate-pool-old81-metal-v2",
+      "reason": "Unreviewed source schema in CPU historical audit",
+      "gpu_calls": 0
+    },
+    {
+      "capture": "/tmp/nikke-coordinate-pool-final-control-v4",
+      "reason": "Current full-source certificate stale; replaced current basis with independently audited mixed81",
+      "gpu_calls": 0
+    },
+    {
+      "path": "/tmp/nikke-coordinate-pool-old81-v1.zip",
+      "reason": "Package source mutation guard stopped archive publication",
+      "gpu_calls": 0
+    }
+  ],
+  "next": [
+    "Freeze canonical depth-ordered part set at coordinate skill production",
+    "Preserve same-cast stale part aggregate versus live pool accounting and typed receipt order",
+    "Connect frozen set to shared Frame landing; native coordinate battle comparison",
+    "Implement Shape.dist/contains numeric primitives separately"
+  ]
+}

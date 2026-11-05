@@ -1,0 +1,100 @@
+{
+  "schema": "original-mary-hp-condition-v1",
+  "passed": true,
+  "package_id": "718a776aca3e9d61b85eb5954721aedf28959b7c99b115f2e5c0eee7b1cf9255",
+  "source_commit": "212572970a918f12168ec2c59c1fd54941a4fbf9",
+  "cases": [
+    {
+      "name": "original-heavyarms/30s/0adds/injury/mary-first",
+      "mary_low": false,
+      "native_sha256": "a60ccb4e23817b66b4ba6e2add4f5278314cfe21b2307fe53ef06d57a1c879e0",
+      "activation_calls": [
+        {
+          "time": 2.6999999999999953,
+          "source_row": 37,
+          "name": "백의의 천사 2",
+          "owner": 1,
+          "stat": "def_pct"
+        },
+        {
+          "time": 2.6999999999999953,
+          "source_row": 37,
+          "name": "백의의 천사 2",
+          "owner": 1,
+          "stat": "def_pct"
+        }
+      ],
+      "later_attacks": [
+        {
+          "owner": 0,
+          "damage": 274368.5128,
+          "time": 4.999999999999988
+        },
+        {
+          "owner": 1,
+          "damage": 276786.354,
+          "time": 4.999999999999988
+        },
+        {
+          "owner": 2,
+          "damage": 279085.316,
+          "time": 4.999999999999988
+        },
+        {
+          "owner": 3,
+          "damage": 278349.744,
+          "time": 4.999999999999988
+        },
+        {
+          "owner": 4,
+          "damage": 278676.798,
+          "time": 4.999999999999988
+        }
+      ],
+      "healing_trace_rows": 42,
+      "unchanged_native_fingerprint": true
+    },
+    {
+      "name": "original-heavyarms/30s/0adds/injury/mary-first/low-mary",
+      "mary_low": true,
+      "native_sha256": "3108598f83d6adb685388e506113cec868920dec15dc4286e105333e2b1a5332",
+      "activation_calls": [],
+      "later_attacks": [
+        {
+          "owner": 0,
+          "damage": 277500.4768,
+          "time": 4.999999999999988
+        },
+        {
+          "owner": 1,
+          "damage": 280623.0,
+          "time": 4.999999999999988
+        },
+        {
+          "owner": 2,
+          "damage": 282542.0,
+          "time": 4.999999999999988
+        },
+        {
+          "owner": 3,
+          "damage": 281928.0,
+          "time": 4.999999999999988
+        },
+        {
+          "owner": 4,
+          "damage": 282201.0,
+          "time": 4.999999999999988
+        }
+      ],
+      "healing_trace_rows": 42,
+      "unchanged_native_fingerprint": true
+    }
+  ],
+  "actual_heal_precedes_conditional_defense": true,
+  "conditional_defense_changes_actual_later_incoming_damage": true,
+  "passive_observation_only": true,
+  "gpu_calls": 0,
+  "full_profile_verified": false,
+  "all_conditional_branches_verified": false,
+  "full_goal_complete": false
+}

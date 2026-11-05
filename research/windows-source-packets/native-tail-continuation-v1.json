@@ -1,0 +1,30 @@
+{
+  "package_id": "04515f96e6ed68a969627db49b9c6f13ffedfae3349ed2a363420a30f70e4ae5",
+  "base_package_id": "9c825fa5d6e420dbb16b684933bf7a4450af4604bdb9cdc36df23a272c703189",
+  "files": 2148,
+  "archive_bytes": 9593475,
+  "archive_sha256": "087dadc6911f997dbb8b68d7391199fb91fcd807c0778f05935d0e6768f4280b",
+  "gpu_calls": 0,
+  "schema": "native-tail-continuation-source-v1",
+  "controller_commit": "7cbc0c58",
+  "lineage_verified": true,
+  "numerical_payload_unchanged": true,
+  "source_only": true,
+  "windows_execution_verified": false,
+  "full_goal_complete": false,
+  "Mac_smoke": {
+    "groups": 66,
+    "tests": 640,
+    "skips": 1,
+    "errors": 0,
+    "failures": 0
+  },
+  "Mac_device_proof": "research/shared-native-group-evidence/metal-native-tail-continuation-v1.json",
+  "Windows_plan": {
+    "completed_inputs_retained": 80,
+    "unfinished_inputs": 26,
+    "tail_group_size": 5,
+    "first_request_groups": 1,
+    "gpu_calls": 0
+  }
+}

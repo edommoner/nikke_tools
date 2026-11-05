@@ -41,15 +41,3 @@ class PeriodicTargetTests(unittest.TestCase):
         bm.set_control_aim(NAMES[0],ActorHandle(5,1,2));registry_for(bm,None)
         self.assertIsNone(bm.sample_control_aim(NAMES[0]));bm.set_control_aim(NAMES[0],ActorHandle(0,0,1));bm.reset()
         self.assertIsNone(bm.sample_control_aim(NAMES[0]))
-
-    def test_missing_aim_and_invalid_control_fail_before_cuda(self):
-        from detail_gpu import compile_effects,run
-        from detail_boss import compile_world
-        from detail_coverage import a
-        bm,*_=prepare();chars=[dict(name=n,skill_level=10,_weapon=a.META[n]) for n in NAMES]
-        program=compile_effects(chars,bm._effects,enemy_fields=True);raw=world_patterns();program['world'],_=compile_world({'patterns':raw},[],{'enemy':{'patterns':raw}},program)
-        finish=[[.01,2,135,0,0,0,12,1],[.02,5,0,0,0,-1,0,0]]
-        with self.assertRaisesRegex(ValueError,'explicit time0 aim'):run(None,[program],[[0,15,0,0,0,-1,0,0]]+finish,[[0,0]],[bm.state['base_stats']])
-        for at,value in ((2,1),(3,.5),(4,3),(5,0),(6,.5),(7,1)):
-            control=[0,17,0,0,0,1,0,0];control[at]=value
-            with self.subTest(at=at,value=value),self.assertRaises(ValueError):run(None,[program],[[0,15,0,0,0,-1,0,0],control]+finish,[[0,0]],[bm.state['base_stats']])

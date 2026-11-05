@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-state-focus-v1-metal",
+  "raw_bytes": 201326592,
+  "raw_sha256": "06d1ac0d07b22a146c1210b436d40e606659ad134cec675a487602ff2928d6b5",
+  "evidence_sha256": "35c20e4a67750dcaf0bcdeaa9ebf788402edb2bacaea49ba4da6a095c398728e",
+  "raw_inode": 507920598,
+  "zero_ranges": 433,
+  "zero_range_bytes": 147783680,
+  "allocated_before": 201326592,
+  "allocated_after": 53542912,
+  "allocated_reclaimed": 147783680,
+  "full_hash_verified": true
+}

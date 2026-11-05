@@ -1,0 +1,93 @@
+{
+  "name": "target-stack-alias-metadata",
+  "target_state_reference": true,
+  "effects": [
+    {
+      "name": "alias",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 10,
+      "duration": -1,
+      "target": "self",
+      "max_stack": 2,
+      "trigger": {
+        "timing": [
+          "on_attack"
+        ],
+        "condition": [
+          "target_stack_above:absent:0"
+        ]
+      }
+    },
+    {
+      "name": "alias",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 20,
+      "duration": -1,
+      "target": "self",
+      "max_stack": 2,
+      "trigger": {
+        "timing": [
+          "on_attack"
+        ],
+        "condition": [
+          "target_stack_above:absent:0"
+        ]
+      }
+    }
+  ],
+  "owners": [
+    0,
+    0
+  ],
+  "combat": {
+    "weapons": [
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      }
+    ],
+    "targets": [
+      {
+        "hp": 1000
+      }
+    ]
+  },
+  "script": [
+    [
+      0,
+      0,
+      7,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "expected_queries": []
+}

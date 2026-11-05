@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_portable_damage_accum_core.py",
+    "test_portable_damage_accum_reference.py",
+    "test_portable_packet_stage.py"
+  ],
+  "timeout_seconds": 60,
+  "elapsed_seconds": 11.080669500050135,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "compile-admission-gap",
+  "source_commit": "0ae6a14ab1abec9f7c60179f5910c721d7a8d239",
+  "gpu_mismatch_observed": false,
+  "source_of_failure": "portable_runtime.compile_program infinite conditional weapon-mode guard",
+  "failed_profiles": [
+    {
+      "character": "라플라스 : 얼티밋 히어로",
+      "grown": false,
+      "duration": 180,
+      "passed": false,
+      "compile_error": "Infinite conditional weapon mode is not ported"
+    },
+    {
+      "character": "라플라스 : 얼티밋 히어로",
+      "grown": true,
+      "duration": 180,
+      "passed": false,
+      "compile_error": "Infinite conditional weapon mode is not ported"
+    }
+  ],
+  "compiled_and_verified_profiles": 134,
+  "known_native_hp_gap_profiles": 2,
+  "native_projection_exact_profiles": 132,
+  "all_prior130_profiles_preserved": true,
+  "full44_passed": false,
+  "completed_gates_before_roster": 35,
+  "unchanged_gpu_retry": false,
+  "pending": "Characterize real native infinite conditional weapon mode;do not exclude the character or remove the guard without implementing the mode lifecycle"
+}

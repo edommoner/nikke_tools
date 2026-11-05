@@ -1,0 +1,17 @@
+{
+  "passed": false,
+  "calculation_verified": true,
+  "source_commit": "51aa3399961c408889a599e1a265057469ff1bb6",
+  "existing_processes_missing": 7,
+  "termination_cause": "unknown",
+  "nikke_service_identity": "unverified",
+  "preexisting_missing_processes_outside_fresh_validation_job": true,
+  "actual_validation_job_pid": 77560,
+  "actual_wrapper_pid": 2448,
+  "phase50_pid_matches_job": true,
+  "post_members_empty": true,
+  "original_json_mutated": false,
+  "gpu_reexecutions": 0,
+  "source": "portable-cross-v102-receipt.json",
+  "strict_environment_audit_passed": false
+}

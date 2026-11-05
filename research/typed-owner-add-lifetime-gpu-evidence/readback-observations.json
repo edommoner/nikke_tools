@@ -1,0 +1,118 @@
+{
+  "old99_case_output_hashes_exact": true,
+  "old99_output_bytes": 804672000,
+  "old99_output_sha256": "3612889c652450c6e40f295cefe87355aa91f2155ca7a9cf8334ca33afc35bb3",
+  "old_original_capture_recovered": false,
+  "new_capture_only": true,
+  "new4_gpu_observations": [
+    {
+      "index": 99,
+      "name": "coordinate-typed-owner-add-lifetime/owner-dead-before-child",
+      "field_actors": [
+        [
+          5,
+          1,
+          1
+        ]
+      ],
+      "final_add_query": [
+        0,
+        5,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "received_damage_pct": 0,
+      "scope": "GPU final actor generation/alive/value and active field carrier; per-frame visibility transitions remain CPU witnesses"
+    },
+    {
+      "index": 100,
+      "name": "coordinate-typed-owner-add-lifetime/owner-dies-after-child",
+      "field_actors": [
+        [
+          5,
+          1,
+          1
+        ]
+      ],
+      "final_add_query": [
+        0,
+        5,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "received_damage_pct": 0,
+      "scope": "GPU final actor generation/alive/value and active field carrier; per-frame visibility transitions remain CPU witnesses"
+    },
+    {
+      "index": 101,
+      "name": "coordinate-typed-owner-add-lifetime/old-field-not-inherited-on-respawn",
+      "field_actors": [
+        [
+          5,
+          1,
+          1
+        ]
+      ],
+      "final_add_query": [
+        0,
+        5,
+        1,
+        9,
+        1,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "received_damage_pct": 0,
+      "scope": "GPU final actor generation/alive/value and active field carrier; per-frame visibility transitions remain CPU witnesses"
+    },
+    {
+      "index": 102,
+      "name": "coordinate-typed-owner-add-lifetime/second-generation-owner",
+      "field_actors": [
+        [
+          5,
+          1,
+          2
+        ]
+      ],
+      "final_add_query": [
+        0,
+        5,
+        1,
+        9,
+        1,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "received_damage_pct": 0,
+      "scope": "GPU final actor generation/alive/value and active field carrier; per-frame visibility transitions remain CPU witnesses"
+    }
+  ],
+  "gpu_calls": 0
+}

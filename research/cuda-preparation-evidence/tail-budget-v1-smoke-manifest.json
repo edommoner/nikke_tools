@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "package_id": "75ea07e1042f41697e76cf48d678607539e3a75c1f812bb869adb5a1e8adb65b",
+  "source_commit": "50aacfe2654cd20126cc571135d919776716b654",
+  "archive_bytes": 13440235,
+  "archive_sha256": "38336e11c53d022e3683c531d849bf6bd2aa607b29dbd83b23d0ea1528cecbae",
+  "summary_file": "tail-summary-v1.json",
+  "summary_bytes": 1906,
+  "summary_sha256": "9cd7b58f9c670b0e82f7477343953bbd0f60c4aa124cad7fbbdea02dd30327f1",
+  "public_payload": "summary-and-manifest-only",
+  "raw_included": false,
+  "logs_included": false,
+  "personal_paths_included": false
+}

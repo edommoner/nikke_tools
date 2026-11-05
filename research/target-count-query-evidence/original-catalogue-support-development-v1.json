@@ -1,0 +1,110 @@
+{
+  "schema": "original-catalogue-support-development-v1",
+  "source_commit": "c3e325da5e752ce2c9da53607a904157917df37e",
+  "source_dirty": true,
+  "package_id": "dcd89cbbd811915fafef7a36ba5f311ea1d994372b993d028009a40cbdcff831",
+  "source": "gpu/world_coordinate_typed_history_entry.slang",
+  "input_count": 2,
+  "native_cases": 2,
+  "definition_counts": [
+    70,
+    75
+  ],
+  "durations_seconds": [
+    30,
+    30
+  ],
+  "original_definitions_preserved": true,
+  "unit_groups": 26,
+  "unit_tests": 225,
+  "unit_tests_passed": true,
+  "cpu_native_seconds": 39.367821375024505,
+  "actual_device": "Apple M5",
+  "gpu_seconds": 2.5124154166551307,
+  "pipeline_compile_seconds": 62.07293200492859,
+  "pipeline_cache_hit": false,
+  "generation_cache_hit": false,
+  "gpu_executions": 1,
+  "gpu_retries": 0,
+  "calculation_verified": false,
+  "independently_sealed": false,
+  "passed_cases": [
+    "original-catalogue/hp-shield/티아/favorite-0/30s"
+  ],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "original-catalogue/hp-shield/나가/favorite-0/30s",
+      "reason": "AssertionError: ('original-catalogue/hp-shield/나가/favorite-0/30s', 0, ['named_state'])"
+    }
+  ],
+  "input_sha256": "637410915cae33b23148a5889da7bb1890b9ff1009b963783bd04f5a00ea94b4",
+  "output_sha256": "f49008be718b6cb7a5f1dd197a92a17e3234b7fe8643a6a9e20a0cd9dfb58000",
+  "readback_bytes": 16256000,
+  "diagnostic": {
+    "classification": "ordered_recipient_readback_gap",
+    "scope": "Saved raw plus unchanged native inspection; not independent seal",
+    "actual_decoded": {
+      "name": "우정의 서포트",
+      "owner": 0,
+      "recipients": [
+        0,
+        2
+      ],
+      "stack": 1,
+      "activated": 27.516666666666385,
+      "end": 32.51666666666638
+    },
+    "native": {
+      "name": "우정의 서포트",
+      "owner": 0,
+      "recipients": [
+        2,
+        0
+      ],
+      "stack": 1,
+      "activated": 27.516666666666385,
+      "end": 32.51666666666638
+    },
+    "ordered_recipients_metadata": false,
+    "recipient_header": [
+      0,
+      0,
+      0
+    ],
+    "actual_gpu_internal_order_observed": false,
+    "sort_or_discard_difference": false,
+    "gpu_calls": 0,
+    "sha256": "26bcb799c1f0db6cb69c1a989e4cb015dd0f6e009924b07fa4eaeb03ce4b202c"
+  },
+  "preserved_predevice_failures": [
+    {
+      "version": 1,
+      "reason": "Missing pinned implementation-status document"
+    },
+    {
+      "version": 2,
+      "reason": "Historical history test omitted newer exact source inverses"
+    },
+    {
+      "version": 3,
+      "reason": "Historical logical test searched newer dependency maps as old source"
+    }
+  ],
+  "unused_candidate": {
+    "version": 4,
+    "reason": "Source inspection corrected reentry receipt from event1 to event7 before GPU launch"
+  },
+  "same_claim_retries": 0,
+  "proof_root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs",
+  "capture_name": "original-catalogue-support-v5-20261030-metal",
+  "comparison_sha256": "a627817f9071da3f8463a7f0bf3c7d805a3de2ab251f68b79ba3a7c00ffe5e11",
+  "result_sha256": "710302d58a7d7a7ab4997d6e27f1032b3d9b1b0ccb7f4a5ffa3cbc2817b115e5",
+  "evidence_sha256": "3162200542abcb1db21b033bef2f56f8e6b39578d773c4213b974abec70fba7d",
+  "golden_written": false,
+  "windows_new_execution_requests": 0,
+  "current_cuda_verified": false,
+  "public_gpu_admission_added": false,
+  "full_character_certification_added": 0,
+  "next_action": "Publish the existing runtime recipient order into an explicitly registered observation contract, preserving selection and event execution. Then use a new immutable packet; retain this failed raw and claim."
+}

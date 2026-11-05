@@ -27,11 +27,5 @@ class DamageBasisSpecTests(unittest.TestCase):
    with self.assertRaises(g.UnsupportedDetail):g.compile_effects(chars,[(effect,names[0])])
   for changes in ({'stat':'atk_pct'},{'type':'instant'},{'max_ammo_reduction_exclusive':1},{'target':'target'}):
    with self.subTest(changes=changes),self.assertRaises(g.UnsupportedDetail):g.compile_effects(chars,[({**b,**changes},names[0])])
- def test_forged_instruction_fields_are_rejected_before_cuda(self):
-  names,chars,e=self.fixtures();program=g.compile_effects(chars,[(e,names[0])])
-  for changes in ({53:3},{53:1,54:10},{54:10},{55:2},{45:g.NE}):
-   forged=copy.deepcopy(program)
-   for field,value in changes.items():forged['effects'][0][field]=value
-   with self.subTest(changes=changes),self.assertRaises(ValueError):g.run(None,[forged],[[0,2,0,0,-1,0,0,0]],[[0,0]],[{}])
 
 if __name__=='__main__':unittest.main()

@@ -1,0 +1,34 @@
+{
+  "profile_count": 266,
+  "packed_profiles": 245,
+  "packed_base": 185,
+  "forbidden_calls": {
+    "cpu_battle": 0,
+    "gpu": 0
+  },
+  "classification": {
+    "method": "Independent lowered definition validation plus complete program packing",
+    "exhaustive_within_effect": false,
+    "unlock_counts_are_predictions": false,
+    "diagnostic_sources": {
+      "effect": {
+        "structured_reason": 27,
+        "message_fallback": 3
+      },
+      "program": {
+        "structured_reason": 20,
+        "message_fallback": 1
+      }
+    },
+    "reference_readiness_scope": "Conservative recorded native prerequisites; not runtime validation, exhaustive semantics or GPU support"
+  },
+  "report": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/classification-inventory-v1.json",
+  "priority_categories": 20,
+  "work_lane_counts": {
+    "gpu_lowering_candidate": 0,
+    "native_contract_extension": 0,
+    "native_consumer_research": 0,
+    "reference_model_gap": 20,
+    "reference_review": 0
+  }
+}

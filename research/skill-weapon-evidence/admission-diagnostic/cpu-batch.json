@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_portable_skill_weapon.py"
+  ],
+  "timeout_seconds": 60,
+  "elapsed_seconds": 2.988717209082097,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "suite": "coordinate-landing",
+  "inputs": 40,
+  "native_cases": 26,
+  "metal_verified": true,
+  "independently_audited": true,
+  "old40_input_native_output_retained": true,
+  "gpu_runs": 1,
+  "gpu_retries": 0,
+  "full_battle_verified": false,
+  "windows_cuda_verified": false,
+  "full_goal_complete": false,
+  "proof_path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/owner-hp-death-gpu-20261027",
+  "artifacts": {
+    "cpu-preflight.json": {
+      "bytes": 541,
+      "sha256": "045baa9c0bb45e7a3404cee5883484486cb66f05f9041b583fbcdba63ded5d61"
+    },
+    "execution.json": {
+      "bytes": 1554,
+      "sha256": "a79719a535473051fc92cc91107976189140d07bd2c82de3b4aa109c553e1cff"
+    },
+    "final-tests.json": {
+      "bytes": 67,
+      "sha256": "cba679bfb0a2afc081562777ccc2b26b0095a2bdf08cd729ae618ccd99a9b09a"
+    },
+    "independent-audit.json": {
+      "bytes": 746,
+      "sha256": "18a8cacab833f5952dac01326f4ce5e97a92d29684639a6729d33a4e74afb4cc"
+    },
+    "metal-summary.json": {
+      "bytes": 3391,
+      "sha256": "034d6b38d28f1bd9f2d2eb5f9d1a1c87ff109565b6bfb2f3182a62fc901314e1"
+    },
+    "source-update.json": {
+      "bytes": 794,
+      "sha256": "0b63401f18b3c4abaf2ebdf504ad1f928a115d69aefe5c9b87ca183d8ea86490"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "package_id": "bc5e11ad5eab7a18eb8f719333bb548ccb93bd87324988db8e0fdc289e43feb3",
+  "suite": "attack-group-battle",
+  "source_commit": "566b5cd6eb28704428fd2890f8245e60a7f59fbd",
+  "working_tree_dirty": true,
+  "payload_files": 2832,
+  "payload_verified_equal_checkout": true,
+  "archive_bytes": 9256338,
+  "archive_sha256": "4fc6bcd0eee94fee03177e6b4f6e483b64bc7d613862149a9da87056f1d39c6a",
+  "manifest_sha256": "1b4f72248f715633d5d92f468601f8d86ac95afc3a87795bd13272364e20949a"
+}

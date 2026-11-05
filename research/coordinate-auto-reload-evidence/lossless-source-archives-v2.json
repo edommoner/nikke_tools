@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "archives": [
+    {
+      "root": "/tmp/nikke-auto-reload-develop-v2",
+      "archive": "/tmp/nikke-auto-reload-staging-archives-v2/nikke-auto-reload-develop-v2.tar.gz",
+      "archive_sha256": "fcd6942cd9686d31ef6139f969ced03014bb08e542e51ace040ac3ac907173dd",
+      "uncompressed_bytes": 65273760,
+      "archive_bytes": 10531264,
+      "restore_test_all_bytes": true,
+      "gpu_calls": 0,
+      "scope": "Completed source-package expansion only; raw battle captures unchanged"
+    },
+    {
+      "root": "/tmp/nikke-auto-reload-develop-v3",
+      "archive": "/tmp/nikke-auto-reload-staging-archives-v2/nikke-auto-reload-develop-v3.tar.gz",
+      "archive_sha256": "9d421aa5dda8de635251c2175262f4f442c2b5203ba65470ff688d5820e6b353",
+      "uncompressed_bytes": 59868960,
+      "archive_bytes": 9975669,
+      "restore_test_all_bytes": true,
+      "gpu_calls": 0,
+      "scope": "Completed source-package expansion only; raw battle captures unchanged"
+    },
+    {
+      "root": "/tmp/nikke-burst-control-develop-v3",
+      "archive": "/tmp/nikke-auto-reload-staging-archives-v2/nikke-burst-control-develop-v3.tar.gz",
+      "archive_sha256": "41dc2f81c78c7bf4b0513c8e35dc89ad763006bf47a26cf73960999253071d92",
+      "uncompressed_bytes": 64634660,
+      "archive_bytes": 10352468,
+      "restore_test_all_bytes": true,
+      "gpu_calls": 0,
+      "scope": "Completed source-package expansion only; raw battle captures unchanged"
+    },
+    {
+      "root": "/tmp/nikke-mode-actions-develop-v6",
+      "archive": "/tmp/nikke-auto-reload-staging-archives-v2/nikke-mode-actions-develop-v6.tar.gz",
+      "archive_sha256": "3ffbcf608a9c7d567216bf9a77771af03413f88190d91610460693aea938b7d7",
+      "uncompressed_bytes": 66825111,
+      "archive_bytes": 11118295,
+      "restore_test_all_bytes": true,
+      "gpu_calls": 0,
+      "scope": "Completed source-package expansion only; raw battle captures unchanged"
+    },
+    {
+      "root": "/tmp/nikke-squad-develop-v2",
+      "archive": "/tmp/nikke-auto-reload-staging-archives-v2/nikke-squad-develop-v2.tar.gz",
+      "archive_sha256": "1081dca6f08af5e508ee420642de38e983e91c454895ae5cad5e072222343c7c",
+      "uncompressed_bytes": 57795568,
+      "archive_bytes": 9316408,
+      "restore_test_all_bytes": true,
+      "gpu_calls": 0,
+      "scope": "Completed source-package expansion only; raw battle captures unchanged"
+    },
+    {
+      "root": "/tmp/nikke-squad-mode-develop-v2",
+      "archive": "/tmp/nikke-auto-reload-staging-archives-v2/nikke-squad-mode-develop-v2.tar.gz",
+      "archive_sha256": "b16f1bd1ecd8a2234c51ba62ad4e7aedf383b3c66fffca97d1634070ef49d539",
+      "uncompressed_bytes": 65965969,
+      "archive_bytes": 10879288,
+      "restore_test_all_bytes": true,
+      "gpu_calls": 0,
+      "scope": "Completed source-package expansion only; raw battle captures unchanged"
+    }
+  ],
+  "raw_deleted": 0
+}

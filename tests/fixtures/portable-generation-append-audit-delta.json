@@ -1,0 +1,14 @@
+{
+  "schema": "generation-append-audit-source-delta-v1",
+  "baseline_commit": "8ca7c8dd",
+  "reviewed_change_commit": "fd15fec6",
+  "baseline_sha256": "3c7d10365ed81221060120268b682187e0bcbb3c37cecbdd1a87ed216ad21f32",
+  "current_sha256": "adbcf4d480069b0b3e35493624d6d6c4422d57c76fa2b4a3b16257b72796e6b8",
+  "hunks": [
+    {
+      "before": "        staged['cuda'].write_bytes(cuda_layout_assertions(staged['cuda'].read_bytes(),plan))\n",
+      "after": "        if b'markEntry_' in staged['cuda'].read_bytes() or b'initializeHPWatches_' in staged['cuda'].read_bytes():\n            from portable_scope_snapshot_audit import audit_resident_appends\n            audit_resident_appends(staged['cuda'].read_bytes(),staged['metal'].read_bytes())\n        staged['cuda'].write_bytes(cuda_layout_assertions(staged['cuda'].read_bytes(),plan))\n"
+    }
+  ],
+  "scope": "Historical AST extraction audit only; production generation code, compiler options and strict generated-code normalizer unchanged"
+}

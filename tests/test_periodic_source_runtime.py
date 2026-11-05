@@ -11,7 +11,10 @@ def effect(name='source',slots=(-1,2,3),base=1,step=10):
 
 class PeriodicSourceTests(unittest.TestCase):
     def manager(self):
-        events=[];manager=SimpleNamespace(notify=lambda *args:events.append(args));return manager,events
+        events=[];manager=SimpleNamespace(notify=lambda *args:events.append(args),value_version=0)
+        def bump():manager.value_version+=1
+        manager._bump_value_version=bump
+        return manager,events
     def test_population_expiry_does_not_rewrite_reserved_clock(self):
         manager,events=self.manager();refresh(manager,effect(), 'owner',0)
         record=pool(manager,'periodic_sources')['owner','source']
@@ -28,6 +31,7 @@ class PeriodicSourceTests(unittest.TestCase):
         refresh(manager,effect(slots=(-1,),base=2),'owner',1.1);tick(manager,2)
         self.assertEqual(events,[]);tick(manager,3.1);self.assertEqual(len(events),1)
         self.assertEqual(pool(manager,'periodic_sources')['owner','source'].epoch,2)
+        self.assertEqual(manager.value_version,2)
     def test_child_refresh_survives_parent_clock_commit(self):
         manager,events=self.manager();refresh(manager,effect(slots=(-1,),base=1),'owner',0)
         manager.notify=lambda *args:refresh(manager,effect(slots=(-1,),base=3),'owner',args[1])

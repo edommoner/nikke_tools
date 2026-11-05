@@ -1,0 +1,13 @@
+{
+  "all_266_profiles_exactly_identical": true,
+  "all_issue_codes_and_order_identical": true,
+  "all_priority_rows_without_readiness_metadata_identical": true,
+  "work_lanes_identical": true,
+  "only_readiness_metadata_changed": true,
+  "packed_profiles": 245,
+  "packed_base": 185,
+  "remaining_categories": 20,
+  "full_character_verified": 0,
+  "normal_ui": "CPU",
+  "gpu_calls": 0
+}

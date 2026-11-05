@@ -1,0 +1,51 @@
+{
+  "package_id": "eaa63fa389441f36982d060d43765a02b1aed33334399a44ce4fe949b5121cb1",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/logical-actor-rosters-named-admission-recert-v3-metal",
+  "schema": "independent-metal-audit-groups-v1",
+  "child_pids": [
+    66603,
+    66614,
+    66625
+  ],
+  "groups": [
+    {
+      "child_pid": 66603,
+      "case_indices": [
+        0,
+        1
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 25.885529374994803
+    },
+    {
+      "child_pid": 66614,
+      "case_indices": [
+        2,
+        3
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 25.63307620798878
+    },
+    {
+      "child_pid": 66625,
+      "case_indices": [
+        4
+      ],
+      "input_count": 1,
+      "native_cases": 1,
+      "elapsed_seconds": 64.1216863340087
+    }
+  ],
+  "input_count": 5,
+  "native_cases": 5,
+  "live_parent_receipt_present": false,
+  "per_group_timeout_seconds": 180,
+  "elapsed_seconds": 116.15758883301169,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "5d80725b6ff0b0e5a782942adb0775277e8b54a045ee84ab695cd002c493c779",
+  "output_sha256": "328b92ed276ad50d2d0a573af66ed331d69380d04034f59961900eaa68aa25bd",
+  "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups"
+}

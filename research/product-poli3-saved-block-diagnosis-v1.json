@@ -1,0 +1,320 @@
+{
+  "schema": "poli3-saved-block-diagnosis-v1",
+  "scope": "Saved file SHA comparison and immutable layout read only",
+  "owner": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+  "source_commit": "a4663e4716f46ba88460531ebfbc017375f242ae",
+  "profile": "Poli3",
+  "m5_hash_document": {
+    "transport_commit": "b795e766f674da3ecc72a3146cf6111cc250f6a8",
+    "bytes": 55846,
+    "sha256": "0c37b82ec0fd86fc6b74d3747afe88c97f7c1b9a1debe568dbea22b08fb2d203"
+  },
+  "windows_capture": "ddb247de48024e31b24f465ab4c1da85",
+  "m5_capture": "a535c51a8a35457487f52fe2a4c2463d",
+  "input_sha256": "774447605c6480cb355fed607bc94b01290e993c9139f621c0235154b3b21a0e",
+  "windows_full_sha_recomputed": true,
+  "windows_readback": {
+    "bytes": 3145728,
+    "sha256": "f0bd1d498d02416f91a44d8baf3cf907f4fa62380754b6ce4250011a5d13f231"
+  },
+  "m5_full_sha256_from_supplied_document": "657ef8fb9ec63494bd16648f45f43a287cf0b04819448744f72e7675ae278050",
+  "m5_raw_available_locally": false,
+  "block_bytes": 4096,
+  "word_bytes": 4,
+  "index_base": 0,
+  "range_end": "exclusive",
+  "blocks_total": 768,
+  "blocks_equal": 763,
+  "blocks_different": 5,
+  "differences": [
+    {
+      "block_index": 0,
+      "byte_start": 0,
+      "byte_end_exclusive": 4096,
+      "word_start": 0,
+      "word_end_exclusive": 1024,
+      "m5_sha256": "fc12d028fc86bcbfe583c3571e5ecd025882af4755dcb4faa94d491e15e4bd1c",
+      "windows_sha256": "aa00ad10d49884a35565b7771ab9ce57fc281621a8e7ac7e8bd6e1bf9c60ed04",
+      "overlapping_layout_regions": [
+        {
+          "region": "header",
+          "word_start": 0,
+          "word_end_exclusive": 16,
+          "meaning": "result status and runtime diagnostic counters"
+        },
+        {
+          "region": "QUERY_BASE",
+          "word_start": 16,
+          "word_end_exclusive": 1024,
+          "meaning": "query result arena; decoder projects the final damage query"
+        }
+      ]
+    },
+    {
+      "block_index": 3,
+      "byte_start": 12288,
+      "byte_end_exclusive": 16384,
+      "word_start": 3072,
+      "word_end_exclusive": 4096,
+      "m5_sha256": "8e835dd640478a9b975c34dc0dd490313681a0e078be23aa6535f1c2f5997a0e",
+      "windows_sha256": "86ea8f271cf717289b8576948d08684d4f5d5f086c7cf4b0e2b1b1e47c6fdede",
+      "overlapping_layout_regions": [
+        {
+          "region": "TRACE_BASE",
+          "word_start": 3072,
+          "word_end_exclusive": 3088,
+          "meaning": "event/effect trace arena"
+        },
+        {
+          "region": "STATE_BASE",
+          "word_start": 3088,
+          "word_end_exclusive": 4096,
+          "meaning": "effect timer/state records"
+        }
+      ]
+    },
+    {
+      "block_index": 5,
+      "byte_start": 20480,
+      "byte_end_exclusive": 24576,
+      "word_start": 5120,
+      "word_end_exclusive": 6144,
+      "m5_sha256": "6b7ab95022fb75c80607b7579cbbe93c7b54a3ade07601662f297800444f7b76",
+      "windows_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "overlapping_layout_regions": [
+        {
+          "region": "STATE_BASE",
+          "word_start": 5120,
+          "word_end_exclusive": 5648,
+          "meaning": "effect timer/state records"
+        },
+        {
+          "region": "TIMER_TARGET_BASE",
+          "word_start": 5648,
+          "word_end_exclusive": 6144,
+          "meaning": "timer target slot/generation pairs"
+        }
+      ]
+    },
+    {
+      "block_index": 84,
+      "byte_start": 344064,
+      "byte_end_exclusive": 348160,
+      "word_start": 86016,
+      "word_end_exclusive": 87040,
+      "m5_sha256": "7b15437c32adaef7315d907fed22263983114cd4f641638cd7de9b37cb9d1ca1",
+      "windows_sha256": "be807b9c20e35873fc2fba7967fdbc0eae0abacfa0d4fb67c9b7ac3179408c33",
+      "overlapping_layout_regions": [
+        {
+          "region": "LANDING_STATE_BASE",
+          "word_start": 86016,
+          "word_end_exclusive": 86024,
+          "meaning": "landing queue record arena"
+        },
+        {
+          "region": "REMOVAL_QUEUE_BASE",
+          "word_start": 86024,
+          "word_end_exclusive": 87040,
+          "meaning": "packed removal queue runtime bookkeeping"
+        }
+      ]
+    },
+    {
+      "block_index": 500,
+      "byte_start": 2048000,
+      "byte_end_exclusive": 2052096,
+      "word_start": 512000,
+      "word_end_exclusive": 513024,
+      "m5_sha256": "01ad2f1e343d7c30debc37d25165f669aa5628d4a10406bdd4bb30fb77ed159c",
+      "windows_sha256": "558d0a226a9c1f3da90d3dfc154d35702bf0a94520b467f0499bb46a1eb44c78",
+      "overlapping_layout_regions": [
+        {
+          "region": "COUNTER_CONTEXT_BASE",
+          "word_start": 512000,
+          "word_end_exclusive": 512176,
+          "meaning": "counter-context runtime work/state arena"
+        },
+        {
+          "region": "COUNTER_FIELD_WORK_BASE",
+          "word_start": 512176,
+          "word_end_exclusive": 512184,
+          "meaning": "counter field runtime work words"
+        },
+        {
+          "region": "WORLD_SKILL_HEAD_BASE",
+          "word_start": 512184,
+          "word_end_exclusive": 512192,
+          "meaning": "world skill history header"
+        },
+        {
+          "region": "WORLD_SKILL_TRACE_BASE",
+          "word_start": 512192,
+          "word_end_exclusive": 513024,
+          "meaning": "world skill history records"
+        }
+      ]
+    }
+  ],
+  "layout_findings": {
+    "output_words": 786432,
+    "buffer": "results",
+    "overlaps_are_block_ranges_not_identified_changed_words": true,
+    "contains_regions_with_result_state_trace_and_internal_work": true,
+    "dispatch_frame_storage": "Runtime.dispatchFrameWords[1024] in separate RWStructuredBuffer<Runtime> runtimeStates",
+    "same_declared_buffer_as_dispatch_frame_bank": false,
+    "scratch_or_padding_only_difference_verified": false,
+    "cause": "unknown",
+    "exact_changed_word_positions": "unknown; supplied M5 hashes have 4096-byte granularity",
+    "limitation": "Region overlaps identify where a differing block lies, not which field differs or whether a particular active/result/reserved word changed."
+  },
+  "source_evidence": {
+    "app/portable_specs.py": {
+      "bytes": 26944,
+      "sha256": "56f4bce83a64a6ae51ceba90d9bc7bae0196f1e8a3435d7df2e3fe6a81fcf322",
+      "lines": [
+        [
+          60,
+          69
+        ],
+        [
+          180,
+          188
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "app/portable_runtime.py": {
+      "bytes": 84504,
+      "sha256": "6773e143301efb9d908d0900d5f4c61b66fd19abfd31ff262fcda9e83a71829b",
+      "lines": [
+        [
+          716,
+          731
+        ],
+        [
+          763,
+          776
+        ],
+        [
+          859,
+          865
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "app/portable_detail.py": {
+      "bytes": 28203,
+      "sha256": "c879c6d80d27f983d59276ae459328e3c1de334b829d02457efc73cf0bdc6ada",
+      "lines": [
+        [
+          191,
+          209
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "gpu/product_fixed_battle_entry.slang": {
+      "bytes": 284,
+      "sha256": "d16d3b0b53d86817d816841d00e4d4f230d5184408efd7a2a804eea8052694d1",
+      "lines": [
+        [
+          1,
+          7
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "gpu/event_runtime.slang": {
+      "bytes": 123533,
+      "sha256": "c3ac3a0dc054c2d4ee2db814cd37108a8d7e5e640561f7991ef2dd0a6d87d78f",
+      "lines": [
+        [
+          7,
+          8
+        ],
+        [
+          173,
+          178
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "gpu/dispatch_frame_storage.slang": {
+      "bytes": 14574,
+      "sha256": "4e7eff9758ea25921444d2b2f3d680a9521af1b327440113f8a8c7740d5c8810",
+      "lines": [
+        [
+          2,
+          7
+        ],
+        [
+          14,
+          24
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "gpu/carrier_runtime.slang": {
+      "bytes": 5886,
+      "sha256": "adfab37e9a391403e5e3adcdef3fcef36302ff9f04146eea42a14ad4fbc18b39",
+      "lines": [
+        [
+          53,
+          66
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "gpu/counter_context_runtime.slang": {
+      "bytes": 3266,
+      "sha256": "abdebd4b311a96d82349520e56c81b1b92dfc3ea31fc6a3ba6948d700b9c602a",
+      "lines": [
+        [
+          1,
+          20
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "gpu/world_skill_runtime.slang": {
+      "bytes": 15810,
+      "sha256": "eeb5cfeb9a9b5ffa41abdf1ed57b53a6680ed88b5001ef99f84808b2300c15b5",
+      "lines": [
+        [
+          147,
+          153
+        ]
+      ],
+      "immutable_manifest_match": true
+    }
+  },
+  "original_poli_result": {
+    "passed": false,
+    "fresh_cpu_full_payload_matched": true,
+    "damage": 127814213,
+    "m5_damage_matched": true,
+    "m5_full_readback_sha_matched": false,
+    "not_promoted": true
+  },
+  "original_batch_status": {
+    "bytes": 14841,
+    "sha256": "76a8530bcc44f2b463b9c6813803e74d1d32029e80b65dc788b8dff2d8bb457a"
+  },
+  "original_records_unchanged": true,
+  "original_records_checked": 1152,
+  "original_claims_failure_preserved": true,
+  "d_executed": false,
+  "code_expected_values_tolerance_modified": false,
+  "additional_calls": {
+    "compilation": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "driver": 0,
+    "context": 0,
+    "kernel": 0,
+    "cpu_battle": 0,
+    "http": 0,
+    "snapshot": 0
+  }
+}

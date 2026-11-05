@@ -1,0 +1,83 @@
+{
+  "package_id": "14cdb52815159ae31fcf680d08cc2f8194c6aedf68fd1c950269f7256e8b707c",
+  "result": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "passed": false,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": null,
+    "phase": {
+      "events": 4,
+      "last_event": {
+        "exception": "FileNotFoundError",
+        "monotonic_ns": 706199531753458,
+        "pid": 24231,
+        "stage": "shared_gpu_execute",
+        "state": "raised",
+        "wall_time_ns": 1792607049713110000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "runtime": {
+    "interpreter": "/Users/edo/Documents/ChatGPT/nikke_tools/.venv/bin/python",
+    "parent_interpreter": "/Users/edo/Documents/ChatGPT/nikke_tools/.venv/bin/python",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "slang_root": null,
+    "cuda_artifact_kind": null,
+    "compile_cache_enabled": false,
+    "compile_only": false,
+    "ptxas_optimization_level": null,
+    "cache_required": "0",
+    "job_memory_limit_mb": null,
+    "launcher_variable_removed": true
+  },
+  "execution": {
+    "passed": false,
+    "timed_out": false,
+    "timeout_seconds": 180,
+    "elapsed_seconds": 6.645068874931894,
+    "child_exit_code": 1,
+    "final_child_exit_code": 1,
+    "error": null,
+    "cleanup_error": null,
+    "cleanup_wait_seconds": 5,
+    "observation_error": null,
+    "wait_completed_unix_ns": 1792607049974431000,
+    "below_normal_priority": false,
+    "phase": {
+      "events": 4,
+      "last_event": {
+        "exception": "FileNotFoundError",
+        "monotonic_ns": 706199531753458,
+        "pid": 24231,
+        "stage": "shared_gpu_execute",
+        "state": "raised",
+        "wall_time_ns": 1792607049713110000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retry_count": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false
+  },
+  "error": "Missing --slang-root. Slang subprocess creation failed with FileNotFoundError; GPU execution was not reached.",
+  "correction": "Explicit existing compiler root; new runtime capture retains original failure.",
+  "gpu_execution_calls": 0,
+  "full_goal_complete": false
+}

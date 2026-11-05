@@ -1,0 +1,67 @@
+{
+  "schema": "product-typed-healing-current-windows-request-v1",
+  "package_id": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+  "source": "gpu/product_typed_lock_battle_entry.slang",
+  "entry": "portableEvents",
+  "source_packet": "research/windows-source-packets/product-typed-healing-current-v1.zip",
+  "source_packet_bytes": 12316485,
+  "source_packet_sha256": "0c1c07abf380d62b29bf8fcc8029dcb241e9f66c02159d8629f0b4919bfb412c",
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "compile_plan_sha256": "e90f87ca417a767ceb17bda8cbb3e9d8a97f09578557d4e7ec4c2b70331fc414",
+  "compile_plan_file_bytes": 707,
+  "compile_plan_text": "{\n  \"schema\": \"compile-plan-v1\",\n  \"passed\": true,\n  \"package_id\": \"7823d1c4446a2639b8adf65962351b48835c4e417b2465eb8ba59ba64a16217b\",\n  \"suite\": \"product-detail\",\n  \"purpose\": \"sealed\",\n  \"artifact_kind\": \"ptx\",\n  \"ptxas_level\": null,\n  \"memory_limit_mb\": 2048,\n  \"timeout_seconds\": 60,\n  \"error\": null,\n  \"compiler_options\": [\n    \"--std=c++17\",\n    \"--gpu-architecture=compute_86\",\n    \"--fmad=false\"\n  ],\n  \"policy\": \"sealed-battle compile-only transport\",\n  \"gpu_calls\": 0,\n  \"compiler_calls\": 0,\n  \"claim_created\": false,\n  \"execution_claim_available\": true,\n  \"calculation_verified\": false,\n  \"scope\": \"Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified\"\n}\n",
+  "requested_stages": [
+    "paired-generation",
+    "compile-ptx"
+  ],
+  "requested_gpu_dispatches": 0,
+  "requested_object_or_link_or_cubin": 0,
+  "budget": {
+    "total_wall_seconds": 180,
+    "sdk_child_seconds": 60,
+    "memory_limit_mb": 2048,
+    "priority": "BelowNormal",
+    "serial": true
+  },
+  "ram_gate": {
+    "required_available_bytes": 4294967296,
+    "samples_per_execution_gate": 1,
+    "stop_without_resampling": true
+  },
+  "compiler_options_exact": [
+    "--std=c++17",
+    "--gpu-architecture=compute_86",
+    "--fmad=false"
+  ],
+  "require_pinned_compile_plan_arguments": true,
+  "no_battle_or_full_unit_preflight_before_compile": true,
+  "no_fallback_or_retry": true,
+  "preserve_all_previous_captures_claims_and_stops": true,
+  "old_fixed_cubin_failure_not_retried": true,
+  "scope": "New shared typed+healing/Lock On source; PTX generation only. No private configuration,raw,SDK or generated images shared.",
+  "metal_api_conditions": 12,
+  "metal_cli_cases": 33
+}

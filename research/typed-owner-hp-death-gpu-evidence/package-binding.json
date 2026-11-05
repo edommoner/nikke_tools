@@ -1,0 +1,23 @@
+{
+  "development_package_id": "44292161968aa9074e09502ab51502424a60337361a0da905480144ad907661d",
+  "final_package_id": "9a30395db65cdc0dddeae6e17365dbaf21910f3a7044d0c79201c2c852712999",
+  "changed_files": [
+    "app/portable_cpu_tests.py",
+    "app/portable_python_dependencies.py",
+    "app/portable_readiness_semantics.py",
+    "requirements-validation.txt",
+    "research/portable-compiler-full--coordinate-typed-owner-hp-death-source-certificate.json",
+    "research/portable-coordinate-typed-owner-hp-death-short-expected.json",
+    "scripts/nikke_gpu.py",
+    "tests/test_portable_python_dependencies.py"
+  ],
+  "changed_cli_functions": [
+    "cpu_test_groups",
+    "main",
+    "make_package"
+  ],
+  "all_other_cli_function_asts_identical": true,
+  "all_native_producer_comparator_and_gpu_bytes_identical": true,
+  "all_final_payload_matches_checkout": true,
+  "final_fresh_full_native_preflight_run": false
+}

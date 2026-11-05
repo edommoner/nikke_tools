@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-enemy-selection-corrected-diagnostic-metal",
+  "raw_bytes": 213909504,
+  "raw_sha256": "9cfb52e35b6ee353e79bed002d8c8db50304bc24f64989d87e5ce606a5f14d11",
+  "evidence_sha256": "86bfe42a8f7f08632375e627e2728d1c10d8ce4dd62679b1bcee830010bb4e33",
+  "raw_inode": 506803898,
+  "zero_ranges": 517,
+  "zero_range_bytes": 147456000,
+  "allocated_before": 213909504,
+  "allocated_after": 66453504,
+  "allocated_reclaimed": 147456000,
+  "full_hash_verified": true
+}

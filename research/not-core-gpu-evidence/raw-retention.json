@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "input_native_output_entries_retained": 1565,
+  "raw_parts": [
+    {
+      "inputs": 1533,
+      "raw_bytes": 4822401024,
+      "sha256": "ebd307f48dae6a80b9d7d764f5798e484d5ab9fde8fe7e40e1bcdf5ad8776be3",
+      "all_bytes_identical": true
+    },
+    {
+      "inputs": 32,
+      "raw_bytes": 100663296,
+      "sha256": "965faaac818503212504f1aa21bb45cbf9348aa1a5fda0b9f374382fcd3d98a7",
+      "all_bytes_identical": true
+    }
+  ],
+  "full_raw_bytes": 4923064320,
+  "full_output_sha256": "ff0a42bd149bc22dc6f80c518b0ac481f50ab9b682ce6ec6fae153df2c0b8193",
+  "exclusions": []
+}

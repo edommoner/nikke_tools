@@ -1,0 +1,196 @@
+{
+  "schema": "enemy-movement-metal-math-v1",
+  "scope": "Shared ordered movement math/precedence only; GPU world consumer not connected",
+  "package_id": "ff646ff25bae59305b7a7acc0a0d5ffa5b6aff26738b618d4e44dc5944d71a80",
+  "source_gpu_package_id": "9402949e33a204612a548930dca6e21cd3aaa02e75998c8b304d487d3fc6aee3",
+  "inputs": 43,
+  "native_cases": 34,
+  "rejected_cases": 9,
+  "numerical_overflow_witnesses": 2,
+  "device": "Apple M5",
+  "gpu_execution_count": 1,
+  "gpu_retries": 0,
+  "gpu_seconds": 2.3583328584209085e-05,
+  "metal_library_compile_seconds": 0.046434998512268066,
+  "pipeline_compile_seconds": 0.030815958976745605,
+  "source_sha256": {
+    "gpu/enemy_movement_math_probe.slang": "e5fd0e607f87ecca890fd12533e472ffa5293cec957b343003de787891397c5a",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/enemy_movement_math.slang": "bf4d0dbe2b901f04c766f9c1a3bde038f97448d143ae08d2b4c42249dd262cf6"
+  },
+  "generated_normalized": {
+    "cuda": "2c68475b9ba95304914611064ade42dc8c02d2c6435b556db495433643917089",
+    "metal": "4dbca1a1a619557eab6ce2a4b87cc55fdb4cf4384d4c06fc0aed1e71bacc6ac7"
+  },
+  "input_sha256": "3607973ab58361ffc255db3544f01623365aa34fbb97444e38570b2530202912",
+  "output_sha256": "1ce09e9321605f57a30a643158de1722883296c863affa6f51af34068452572c",
+  "input_bytes": 4132,
+  "output_bytes": 2752,
+  "independent_audit": {
+    "calculation_verified": true,
+    "gpu_calls": 0,
+    "inputs": 43,
+    "native_cases": 34,
+    "live_parent_receipt_present": false,
+    "elapsed_seconds": 0.5075611670035869,
+    "proof_sha256": "f28624a584aaae84788842fdc240c1c9b28d4adefb32e52a70466e3813270571"
+  },
+  "original_decode_failure_preserved": true,
+  "original_status16_bytes_preserved": true,
+  "gpu_calls_during_replay_and_seal": 0,
+  "cpu_original_contract": {
+    "cases": 5,
+    "passed": true,
+    "cpu_reference_verified": true,
+    "packing_calls": 0,
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 4.095391292008571,
+    "profiles": [
+      "유니",
+      "얀"
+    ],
+    "individual_definition_counts": [
+      69,
+      71
+    ],
+    "case_fingerprints": [
+      {
+        "name": "enemy-movement/유니/disable",
+        "input_sha256": "3e89d52d7160255fc093e650cabba8e830982656eeb79af125e722b7d6d6e239",
+        "native_sha256": "cc04476d7a8e8d4aa70f643736e35d03a27006d091e55c0210c07a866ecf0d59",
+        "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contract": {
+          "verified": true,
+          "reference_model_gap": true,
+          "original_definitions": 69,
+          "original_movement_stat": "enemy_movement_disable",
+          "real_duration_carriers": true,
+          "real_actor_generations": true,
+          "existing_shot_and_landing_executor": true,
+          "frames": 3602,
+          "generations": 2,
+          "active_segments": 1202,
+          "moving_segments": 2402,
+          "recipient_policy": "canonical-all-in-range",
+          "gpu_wire_connected": false,
+          "gpu_supported": false,
+          "default_path_installed": false,
+          "in_game_motion_policy_verified": false,
+          "full_character_verified": false
+        }
+      },
+      {
+        "name": "enemy-movement/얀/force",
+        "input_sha256": "0b76e853f1286f3e09aafccf17802576a924555f36dd9cc9834b0c47191128d6",
+        "native_sha256": "621bc29ae65bb1390790918672715658516ea49d047bb9f3061079bcf5a014f8",
+        "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contract": {
+          "verified": true,
+          "reference_model_gap": true,
+          "original_definitions": 71,
+          "original_movement_stat": "force_move",
+          "real_duration_carriers": true,
+          "real_actor_generations": true,
+          "existing_shot_and_landing_executor": true,
+          "frames": 3602,
+          "generations": 2,
+          "active_segments": 484,
+          "moving_segments": 3124,
+          "recipient_policy": "canonical-all-in-range",
+          "gpu_wire_connected": false,
+          "gpu_supported": false,
+          "default_path_installed": false,
+          "in_game_motion_policy_verified": false,
+          "full_character_verified": false
+        }
+      },
+      {
+        "name": "enemy-movement/유니/renewal",
+        "input_sha256": "3a1e4b914e664d58fcc1b9b8708844d5c5000582b632dec0578d4c6b6a21e4a6",
+        "native_sha256": "cf44308e36c0b645145050ac54a35d4be392aa0902c18e7778fbc26cdafe29ee",
+        "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contract": {
+          "verified": true,
+          "reference_model_gap": true,
+          "original_definitions": 69,
+          "original_movement_stat": "enemy_movement_disable",
+          "real_duration_carriers": true,
+          "real_actor_generations": true,
+          "existing_shot_and_landing_executor": true,
+          "frames": 3602,
+          "generations": 6,
+          "active_segments": 658,
+          "moving_segments": 2940,
+          "recipient_policy": "canonical-all-in-range",
+          "gpu_wire_connected": false,
+          "gpu_supported": false,
+          "default_path_installed": false,
+          "in_game_motion_policy_verified": false,
+          "full_character_verified": false
+        }
+      },
+      {
+        "name": "enemy-movement/유니/overlap-disable",
+        "input_sha256": "3e5908de2bb164432160c47c3ffeb5261cf05369a96f120b68f34ec001033196",
+        "native_sha256": "e13f95c57bf66bf42375387f348948eabf7ddc793b7a82100eee28e2f0b0d9f9",
+        "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contract": {
+          "verified": true,
+          "reference_model_gap": true,
+          "original_definitions": 69,
+          "original_movement_stat": "enemy_movement_disable",
+          "real_duration_carriers": true,
+          "real_actor_generations": true,
+          "existing_shot_and_landing_executor": true,
+          "frames": 3602,
+          "generations": 2,
+          "active_segments": 1206,
+          "moving_segments": 2382,
+          "recipient_policy": "canonical-all-in-range",
+          "gpu_wire_connected": false,
+          "gpu_supported": false,
+          "default_path_installed": false,
+          "in_game_motion_policy_verified": false,
+          "full_character_verified": false
+        }
+      },
+      {
+        "name": "enemy-movement/유니/overlap-force",
+        "input_sha256": "5e87a8f956e0037c3787353f1441f2eb60c15e41e83117d492c5c96919d460c3",
+        "native_sha256": "3871263cb4796a9bae057cc91a202c07ff66de1d2b7dc4dd6898b82d743286c8",
+        "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contract": {
+          "verified": true,
+          "reference_model_gap": true,
+          "original_definitions": 69,
+          "original_movement_stat": "enemy_movement_disable",
+          "real_duration_carriers": true,
+          "real_actor_generations": true,
+          "existing_shot_and_landing_executor": true,
+          "frames": 3602,
+          "generations": 2,
+          "active_segments": 1206,
+          "moving_segments": 2382,
+          "recipient_policy": "canonical-all-in-range",
+          "gpu_wire_connected": false,
+          "gpu_supported": false,
+          "default_path_installed": false,
+          "in_game_motion_policy_verified": false,
+          "full_character_verified": false
+        }
+      }
+    ]
+  },
+  "math_calculation_verified": true,
+  "metal_verified": true,
+  "cuda_verified": false,
+  "gpu_world_consumer_connected": false,
+  "actual_spatial_recipient_selection_verified": false,
+  "in_game_motion_policy_verified": false,
+  "full_character_verified": false,
+  "public_gpu_admitted": false,
+  "full_goal_complete": false
+}

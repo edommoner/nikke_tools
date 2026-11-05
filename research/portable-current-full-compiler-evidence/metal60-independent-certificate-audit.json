@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "compiler_suite": "compiler-full--attack-group-long",
+  "certificate_target": "research/portable-compiler-full--attack-group-long-source-certificate.json",
+  "baseline_suite": "attack-group-long",
+  "baseline_golden_sha256": "a42dd1331f5ad392e345aadeabe4ceac5e5226f4d7caa4b557307d2f452d21f2",
+  "certificate_sha256": "2745442b19ba414768f719e214b2abf1238ce82785528c1d6ac70d12f6dc49ef",
+  "metal_package_id": "16fbddd7acaaec163ce4bb2ef5ffd5b975ade870d58f5505fc5a60f439bf9bbe",
+  "metal_manifest_sha256": "17c69038698d2baf587d84178d8ad9305f9986d7ee7ffaf0b5ad963a3c15e224",
+  "metal_artifacts_sha256": "ef05cfdb558c0452a0d7cfa8ee72ed654f30de606425f7d35c61621dcf480793",
+  "metal_run_sha256": "7b1959ce6702d46648b20896f5dd7cf8e2e3ebc611ef04f6404a73adf31722cb",
+  "metal_input_count": 60,
+  "independent_metal_audit": true,
+  "compiler_verified": false,
+  "cache_hit_verified": false,
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "scope": "Compiler source identity only; audited Metal baseline is a separate calculation proof"
+}

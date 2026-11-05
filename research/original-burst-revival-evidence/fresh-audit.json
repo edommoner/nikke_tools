@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "2b3247aa527bae66254351c0fa070bb920900551e05768e5ecdf7abb36151a1b",
+  "capture": "/private/tmp/nikke-original-burst-revival-metal-v2",
+  "child_pid": 24878,
+  "input_count": 4,
+  "native_cases": 4,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 103.51677654101513,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "bfd387ee74547e44ae3431ad971da270a3a8b274399a33dd924c55a36ec267e3",
+  "output_sha256": "c61125103099fd1eb207eb09a96a5e0082e453c41ba3ede2485fb8437d6da9ec",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}

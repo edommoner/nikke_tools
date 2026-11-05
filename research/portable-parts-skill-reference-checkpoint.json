@@ -1,0 +1,365 @@
+{
+  "schema": 1,
+  "status": "cpu_contracts_only_gpu_admission_closed",
+  "review": "docs/claude-overall-review-8b77b1f.md",
+  "packages": [
+    {
+      "package_id": "2cd1af1903dbf72f952da9404747bf6cb3941c104cfa7f445cac7637fa63e35d",
+      "files": 1998,
+      "bytes": 5359956,
+      "archive_sha256": "66344ee146a1b9a93561eadfff7c38cac75085ccb440bc753ac2fd0d8654bcc6",
+      "source_commit": "8b77b1f33f3dc2e97ea509d6875bd3025b1a8f94"
+    },
+    {
+      "package_id": "f6afe039f26be4c8b6a273823dd6948e6b48f044485c03a09768c57b16266c7d",
+      "files": 1998,
+      "bytes": 5360146,
+      "archive_sha256": "8bc2a562d30a2dfd31c0d99933c5809462b3097c196dcdbbbc165f86d16dee8b",
+      "source_commit": "8b77b1f33f3dc2e97ea509d6875bd3025b1a8f94"
+    }
+  ],
+  "tests": {
+    "distinct": 38,
+    "passed": 38,
+    "skipped": 0,
+    "evidence": "research/portable-parts-review-test-evidence.json",
+    "scope": "Parts10, optimized CLI3, readiness9, revive5, heal7, entry reload4. v2 changes only optimization test; other affected tests run on v1."
+  },
+  "reference_suites": [
+    {
+      "suite": "parts-skill",
+      "case_count": 15,
+      "positive_contract_cases": 15,
+      "reference_model_gap_cases": 0,
+      "gpu_calls": {
+        "build": 0,
+        "execute": 0
+      },
+      "packing_calls": 0,
+      "cpu_reference_verified": true,
+      "calculation_verified": false,
+      "gpu_supported": false
+    },
+    {
+      "suite": "parts-skill-extended",
+      "case_count": 10,
+      "positive_contract_cases": 9,
+      "reference_model_gap_cases": 1,
+      "gpu_calls": {
+        "build": 0,
+        "execute": 0
+      },
+      "packing_calls": 0,
+      "cpu_reference_verified": true,
+      "calculation_verified": false,
+      "gpu_supported": false
+    }
+  ],
+  "cases": [
+    {
+      "name": "parts-skill-absent",
+      "input_sha256": "e455529a5746a658e598d38adcb76d703f502f421fa1c36c2895d3f39a7c6f70",
+      "native_sha256": "38aae6b4e7308dd226c43f90b3db6a80647575376e53198bac7028170f348752",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 1,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-false",
+      "input_sha256": "43b22c8d036db413dc08d5034f38a1d816bc6981f262e8cc9b2160633d4caedd",
+      "native_sha256": "38aae6b4e7308dd226c43f90b3db6a80647575376e53198bac7028170f348752",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 1,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-true",
+      "input_sha256": "100e3320fa5f992f4936c9faea6baf42247768385826dc8468370a05ecd21be0",
+      "native_sha256": "7f5c7d3ca52e9c699b3522402886108109510d059abe4a6d199c234ff137d101",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 3,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-static-only",
+      "input_sha256": "2dfce1dc76385d6614fb631b7a29752c7a74b96fc53ab46e8ce9b067f2a00434",
+      "native_sha256": "0c1d2e7f534d1130f3a555f829ea9fdd6019bbfcae51bbbe80681e1398573ff1",
+      "trace_sha256": "5fb7144b0db9154064c9363af76373735f97f5b81499d95b3359ec14a9f859f0",
+      "contract": {
+        "verified": true,
+        "packets": 1,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-static-false",
+      "input_sha256": "e5a3e94491a500ccb34e98a5e15b42831e0d84778bbe579ecda53220d5716382",
+      "native_sha256": "1f7fdcf4609ba78e44bd41de652342017c4b867ca1524e6469541660aabf0a62",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 1,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-no-parts",
+      "input_sha256": "26c465344c08321a478214311a8c8f893d667ac38f24a7b4e93b31e1f0f546fd",
+      "native_sha256": "1f7fdcf4609ba78e44bd41de652342017c4b867ca1524e6469541660aabf0a62",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 1,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-unbreakable-part",
+      "input_sha256": "c80391fe1cca208c3bd65ccd804e956bcde4acc15f6a45ea7ed6e86d5221690d",
+      "native_sha256": "f8bb0d3b5f2d3b70facec7db44c64ffa34b9e22874582496609e780de9bc5b78",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 3,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-interrupt-only",
+      "input_sha256": "bacb46827eceab3cf3969f620e2c059c4f3239deb0f9b50a746d0a5905d869bf",
+      "native_sha256": "4b86c52db6e2e4c6e236a53a980d62e8dbba590db66771fba15b494a9a3835a0",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 1,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-parts-and-interrupt",
+      "input_sha256": "fd2cef2af05da3bfc138fbdc5f4543680d8876b9899bd72e0e8dded81582c29f",
+      "native_sha256": "bc8a77b2dd2dcac33f50e1860c1f15f946ab66e01a7b23edf6f9612666261d04",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 3,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-two-hits",
+      "input_sha256": "56257f73505d912fd64f8adb5a0c789914b234d7f49ebeb20c1750af2fa86d3c",
+      "native_sha256": "a6861e92e68fc891bc71fd3b48d4d091f248a421edb60ed975962f82e425d621",
+      "trace_sha256": "66eee8cd92ef80f48e92410c00b74e5539476bac79d68636b5fa2b2ab80cbe5d",
+      "contract": {
+        "verified": true,
+        "packets": 6,
+        "named_notifications": 2
+      }
+    },
+    {
+      "name": "parts-skill-burst",
+      "input_sha256": "4b5a4f89d39e1dad83da276c327863c5de12774c33944704aa1f25bebfd30c3a",
+      "native_sha256": "7f5c7d3ca52e9c699b3522402886108109510d059abe4a6d199c234ff137d101",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 3,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-armor-burst",
+      "input_sha256": "243b1896f1fa508d436d17da9bf28c14124b835536a43892b1f7a0cd0a537b58",
+      "native_sha256": "7f5c7d3ca52e9c699b3522402886108109510d059abe4a6d199c234ff137d101",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 3,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-lifesteal",
+      "input_sha256": "881ed3eb978bb8937a997d0a66ae0e699f6f163e3e0530efa6a546597a47cf20",
+      "native_sha256": "4c0dbedb65c031d40929400febbfe9cb27a8da75ee2b687ea342e32087a1e6d7",
+      "trace_sha256": "16d5f6eb81963d03b50f5c80e1e8908278c204cd4259a891c3009e20377bfb01",
+      "contract": {
+        "verified": true,
+        "packets": 3,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-destroy-before-second",
+      "input_sha256": "74920447856c071b7225da3b1e6e801074554a4224054be756fe10d4c33998cd",
+      "native_sha256": "a9dd31be2dfe0e081b26e9e92ff4d8440548d1454d5d5b4a2f4a5ab86ffea5e9",
+      "trace_sha256": "bb318c76d8cffcd0a0f018d65df338b8a1d1ec43261a226a4bc933ccc8b49678",
+      "contract": {
+        "verified": true,
+        "packets": 4,
+        "named_notifications": 2
+      }
+    },
+    {
+      "name": "parts-skill-static-basis-after-destroy",
+      "input_sha256": "fca43262295397152dc669dba54323344812a79ca589702204bddd5cc09fa0fe",
+      "native_sha256": "d5a873aa4cb8fffe7634f2939e4e65091e7d88fabb9107bbba4901040d48abc2",
+      "trace_sha256": "712584874fd3db784d35277ac403a219cc4f7a49a6c517e39085d60580704a15",
+      "contract": {
+        "verified": true,
+        "packets": 4,
+        "named_notifications": 2
+      }
+    },
+    {
+      "name": "parts-skill-extra-pierce-parts",
+      "input_sha256": "e54900e9c0036b3957acd64edb91fab31f05f9203989b4d7820bea46fce01ced",
+      "native_sha256": "c8bf0a9ee40d5b75f91b489601b4b855d1639284284e75a2eb1c8e591f4d1dca",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 4,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-extra-explosion-parts",
+      "input_sha256": "9833344241ad9cf300867d41e5544851db1beca938da3c6a7ef7e610930d1eb7",
+      "native_sha256": "0bb33945c47cf1c6623d5e14ba38d56669975e6d0cf5de34d2668e7425de98a6",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 4,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-extra-explosion-range100",
+      "input_sha256": "4e91e878bd5c1c9db3d00de87f20f4473008d71b68580729802272bf92db03f2",
+      "native_sha256": "1254c5ab9ec6a0f1435c69e6f1173cde6c5e1d1bd58f5de7e70cd8d8af758c14",
+      "trace_sha256": "e115b4ec49c9160e9a7cb31c789ddc7e05606790ab89984bbcbf68b7cbb4c921",
+      "contract": {
+        "verified": true,
+        "packets": 5,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-extra-explosion-without-marker",
+      "input_sha256": "c328a202a54ccf5e019334bc8cdfd5a4e052a55ab999725d1bd973d18c678073",
+      "native_sha256": "4984e82f4ab6d3b54c74564d60d6c637c34a88252628d6719dd873914e833e10",
+      "trace_sha256": "3f00ee85f70fdb25dfcd7dad85e3fc0aef9a506a1bfc1e5cce3828253b89098c",
+      "contract": {
+        "verified": true,
+        "packets": 3,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-extra-adds-outside-body-total",
+      "input_sha256": "256d2aeb9097ba712a7754764603e390e990b200fdf406a48a0e3f6e9bf3e458",
+      "native_sha256": "ec3a3b30bca2469971d3efbc0e28902bcbc3b5496b8aa9362e6ecb7ca2687a56",
+      "trace_sha256": "63f100dc75574ea1cc39235a70d398041cc35766bdc4c496674c09c568c2a5fa",
+      "contract": {
+        "verified": true,
+        "packets": 4,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-extra-periodic-three-ticks",
+      "input_sha256": "3f6fcedc1b936479e912e145f5e1fbcc31b51b146ebed7a6adcd7fb0b48042c7",
+      "native_sha256": "ca3620997a593ba863d076874143572800192cd11256e9eee34c5e76cee3ee2d",
+      "trace_sha256": "c29fd59d609afb1c079e2d702cfba49edfed6f5c5348a7fb86f7f565bf9c4845",
+      "contract": {
+        "verified": true,
+        "packets": 9,
+        "named_notifications": 3
+      }
+    },
+    {
+      "name": "parts-skill-extra-deferred-burst3-reference-gap",
+      "input_sha256": "78cf12b7c9a5f1d73a130e8bb39daabd561a0ee9275c7e873ee36ed9948eb647",
+      "native_sha256": "2b9d648749ab819b4a6d4f4a52af544adf3acce6bd99e61bb5133a1780ec1b78",
+      "trace_sha256": "dc6b70d029b44ccb21d76144bd976ccf4020f09f5c4c991961745a7c2870fd38",
+      "contract": {
+        "verified": true,
+        "packets": 1,
+        "named_notifications": 0,
+        "reference_model_gap": true
+      }
+    },
+    {
+      "name": "parts-skill-extra-lifesteal-unsaturated",
+      "input_sha256": "6c61f097d9beb8fac9d33cebe90a8b67234ea9c938f8dc078dc16304ae19aecf",
+      "native_sha256": "d0be0e3a7a52d077640c7dc2ee77db09181d2500249804b31c46cec6c35533ac",
+      "trace_sha256": "16d5f6eb81963d03b50f5c80e1e8908278c204cd4259a891c3009e20377bfb01",
+      "contract": {
+        "verified": true,
+        "packets": 3,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-extra-interrupt-lifesteal-unsaturated",
+      "input_sha256": "e25009be9138645427a87837ad38f34667e297b7509df8ee9a4124b8b99eb0d2",
+      "native_sha256": "aa6b01260db3a1c829b4507a536ba5c47f803716622787b417e7dff7e36336c0",
+      "trace_sha256": "16d5f6eb81963d03b50f5c80e1e8908278c204cd4259a891c3009e20377bfb01",
+      "contract": {
+        "verified": true,
+        "packets": 4,
+        "named_notifications": 1
+      }
+    },
+    {
+      "name": "parts-skill-extra-shared-lifesteal-unsaturated",
+      "input_sha256": "227e1df6d25e632b2b37c45ba00e68a6df479759295a8d055e376c375652c137",
+      "native_sha256": "bf1916523321c7bf9eb7d402e246a5766cccf446656d8e5afc7ac32956235452",
+      "trace_sha256": "5fb15dfd896f3bedaf49a2e31d55009f3a345f81950fabb2678cbc55dc3144c1",
+      "contract": {
+        "verified": true,
+        "packets": 3,
+        "named_notifications": 1
+      }
+    }
+  ],
+  "old22_retention": {
+    "native_and_full_trace_equal": true,
+    "projection": "Only newly observed parts_skill_accounting removed from the two base interrupt cases. All preexisting native fields and trace hashes equal.",
+    "input_identity_changed": true,
+    "reason": "Explicit event order/gauge literals, interrupt-zero/reach/time contracts, optional accounting flag; existing stimuli/effects unchanged."
+  },
+  "fixes": [
+    "Common reference CLI rejects optimized Python before sources/native imports and preserves failure report",
+    "Direct parts verification uses explicit exceptions under -O",
+    "Positive contracts and declared reference model gaps counted separately",
+    "Literal event sequence replaces name-dispatched expected order",
+    "Two base interrupt cases check zero accounting, reach/time, gauge",
+    "Three nonsaturating lifesteal contracts include interrupt and five-member heal sharing",
+    "Readiness count and gap count match registered literal suites"
+  ],
+  "remaining": [
+    "Same-stat-dictionary snapshot across main and part child construction",
+    "Expiry, reappearance generation and child-trigger mutation at landing",
+    "Per-packet heal sharing and notification ordering under nested state changes",
+    "GPU part receipt ownership and periodic at+7 collision avoidance",
+    "Full CUDA assembly and native calculation still unverified"
+  ],
+  "gpu_source_closure_equals_existing849": true,
+  "gpu_execution_count": 0,
+  "windows_runs": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "prior_failure_preserved": "/tmp/nikke-parts-reference-v2-parts-skill-extended.json",
+  "prior_failure_reason": "Expected pending part-inclusive packets but native legacy deferred burst only lands body; retained as explicit gap, not positive intended semantics"
+}

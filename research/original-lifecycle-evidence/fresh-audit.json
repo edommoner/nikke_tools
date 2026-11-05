@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "32f78758d3d52f8bf0e99777e8b393a5225674500a6db1d5b6f82d757665ae3d",
+  "capture": "/private/tmp/nikke-original-lifecycle-replay-v2",
+  "child_pid": 21823,
+  "input_count": 3,
+  "native_cases": 3,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 47.55623524996918,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "f0c7566b413ec4a31b9daf8c182d68163d127c6dfd84ca2e899b96562c0e1d12",
+  "output_sha256": "9500ae551971e7bbb718df60439b4a84db66d725521621b7c64201d2fad8815d",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}

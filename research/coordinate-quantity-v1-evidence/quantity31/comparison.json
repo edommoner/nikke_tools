@@ -1,0 +1,201 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "coordinate-physical-reference/occlusion-and-body",
+      "input_sha256": "478af7d8cbf715ef29362e27aaf4b659c16e0f4b8a1905863f51d7da7aaa0753",
+      "output_sha256": "e4e20337eb3ba0c10b5020dfd8cc10076541529bfb17705d210b350cd3d8ddc9",
+      "native_sha256": "8df584fa23203bca9407fdc37254b90a795251ee6bc626a7617714b39ecd4fab"
+    },
+    {
+      "name": "coordinate-physical-reference/full-front",
+      "input_sha256": "42559de17b57dc2428f5d4f23564d5fe3a838501cccf0babb1b8915d48af5dbc",
+      "output_sha256": "47a92a7f0ff413a587722ef449a6985fdc44071e917fea48862371cc371e7d23",
+      "native_sha256": "413d7a0c810ea582a34a71aac5cce459db75ef4fafc6f624962d3644bde9034d"
+    },
+    {
+      "name": "coordinate-physical-reference/interrupt-front",
+      "input_sha256": "dcbb422e48dbbe08f5068579308726f4f26b14c68f18d0a4cd8b3a175eae6583",
+      "output_sha256": "9c00a3816ff908b037e79df55374439810525522576914c2e182b22cc090c27f",
+      "native_sha256": "3414a448f73c5a2c60650e7f9711c60046705339c70d98261a446cae39ba4dc1"
+    },
+    {
+      "name": "coordinate-physical-reference/two-muzzles-three-pellets",
+      "input_sha256": "6952180964aa5049c59326da75b3cabb6b0f41c503e3b00353d08709b78c5aed",
+      "output_sha256": "421856e70966b2dc2beff44572855057c9c5e354dc4a9114bddb4dec0feac801",
+      "native_sha256": "682d26a73a44fa787f07fa1efc9b71b3b6e736f24cad442cbb5ffa234a010a80"
+    },
+    {
+      "name": "coordinate-physical-reference/retirement",
+      "input_sha256": "792b1bdfc7cbe89476bd471f459da33a0dcd14c4e7638586513ade889b8934f4",
+      "output_sha256": "535b4caf9741b92deb45b863354eae96db605944cc8e6956d5b3c8accdb12f61",
+      "native_sha256": "f4bc8e1bf1ba493f6736950c7056334684a047f961e491e8f089bee90e93651a"
+    },
+    {
+      "name": "coordinate-physical-reference/body-without-targets",
+      "input_sha256": "32f5d3b578049556ae8c95ff56bb8f61b49cbd071598cec08d18d0f383a20be9",
+      "output_sha256": "379874595bdb380ba876e5ff2eddbbedd29a5a163ee6c8a16fadcace66944a37",
+      "native_sha256": "0966c759aca090fa99aaa272bb793d147f870130f5326dd2e7c0aa9d35b39cf6"
+    },
+    {
+      "name": "coordinate-physical-reference/pierce-reach",
+      "input_sha256": "861a9b657585645e57f428b5cab4f3707955b6c7c08189890a95e7d96d1336e9",
+      "output_sha256": "42dfadbc68636950c949b2b07025fa401f85d142eb7c32c137f6b52325ce8660",
+      "native_sha256": "2f61fc04539e2e50d96566e682ae4ae383eb1261d05841ca3f3a533e528d2db0"
+    },
+    {
+      "name": "coordinate-physical-reference/charge-pierce",
+      "input_sha256": "1fe1e2b57385c5f24936039332ab2cc68ee7f3912e35b1f5d228cab2be24ff70",
+      "output_sha256": "d0d3974dce94ad95a6234cec347fe484bbe677c998be15aa2b4c361acae2a7b7",
+      "native_sha256": "0a040eacdd18882929bf5a8d4b2f9c21a303aa4dfcbced6150a8515c8ff8b3e8"
+    },
+    {
+      "name": "coordinate-physical-reference/threshold-snapshot",
+      "input_sha256": "c7f57116e2858fab7b4a297fc99a0c25d66019aae07530e8b45143832f5f9bce",
+      "output_sha256": "5d787937e097f0fa208bc0c79711c911dd3a1f301877947ca750c2532c4327f9",
+      "native_sha256": "5f72c9808bfbae80559a7ff876e204d9639d5391f4e10efaddf40c1bfbb810ba"
+    },
+    {
+      "name": "coordinate-physical-gpu/rotated-rectangle",
+      "input_sha256": "ce44f6e90f5859aefdfdd1a23df73f3fe31f147e7ac8385494fbcd2df4ceff1d",
+      "output_sha256": "bb3619b71d864530c06bf8f17057b2c762eafd4aba9e707fede300f9949b997b",
+      "native_sha256": "f5369b3dfd9af115be8fb3546ae1b25ee946375734387f8aec57c12e20d15ead"
+    },
+    {
+      "name": "coordinate-physical-gpu/critical-fraction",
+      "input_sha256": "677141fe30c07c40c158841a71ec78a67c8d15b6033184767dec6ff0b4f36894",
+      "output_sha256": "10c6406a6bc803942cd3b7cefdf88618a4973914847b7001fb6a1ac06386c81f",
+      "native_sha256": "ab8ba15353c20c9a84ad131c01a1d2a4dd90a85089ea959172f6cef725fde6ac"
+    },
+    {
+      "name": "coordinate-physical-gpu/accuracy",
+      "input_sha256": "cab92bc6acdfa32ecfe482052d10ec914dec35701cca70c4cd0c54bc2ef13722",
+      "output_sha256": "7d559f43591eec384a056db66d9c0f6842723ed1d667be23acbe91d79db01c5d",
+      "native_sha256": "615f123c9af8f21331e0f24e54fbbb7a92dbb525c71cdcd49505a9e0e5c45256"
+    },
+    {
+      "name": "coordinate-physical-gpu/two-owners",
+      "input_sha256": "cd978e544241d41d7f85809827dab48cd6cb221d7aff29603ab619146bad0438",
+      "output_sha256": "76427ab14c183073036b6bdcb94b782defc63bb120a95757e6a18e700851ddd8",
+      "native_sha256": "bfbd01d584285e2782c2a36f8673b68925a66b09dfd6816032a3ab8de7392b7c"
+    },
+    {
+      "name": "coordinate-physical-gpu/unbreakable",
+      "input_sha256": "477f8963d365a3c3d3fa605991261df44139ccbaeecb0bdc03de20c909902f2b",
+      "output_sha256": "e4e20337eb3ba0c10b5020dfd8cc10076541529bfb17705d210b350cd3d8ddc9",
+      "native_sha256": "8df584fa23203bca9407fdc37254b90a795251ee6bc626a7617714b39ecd4fab"
+    },
+    {
+      "name": "coordinate-physical-gpu/same-shot-retirement",
+      "input_sha256": "90bfd9cdcc57db7a5fc080acf2a545b88b0d9a8798704ba17ca6d09a6da3de34",
+      "output_sha256": "7e269a5f305840549987a448d8c764d3026fd2f86003c4dab8852a8e8c582f36",
+      "native_sha256": "4c57b91f8fdf7a6cbfebe4c77e0acb72e3e66e40e5ca8e1cf88dc3062d7eeea8"
+    },
+    {
+      "name": "coordinate-physical-gpu/interrupt-reach",
+      "input_sha256": "711b5e7054500c8398b49c747d85ad21b62012fb288c5c6edb957b8c2d681c02",
+      "output_sha256": "1841bdc2ca2d21248e48ebd3aedf121de8134ed0bdbdd6f8061776bfff937110",
+      "native_sha256": "bf351e18022f5d30ed362dbbbd8f07cdc5d91b6b8cf36398c5a5b5f1d6b11830"
+    },
+    {
+      "name": "coordinate-physical-gpu/weapon-change",
+      "input_sha256": "2f626c486cbb22796853017cc17f0861bebe9fc47018fa457ec44b90192a1605",
+      "output_sha256": "8dd4b9b1b64d6abaa9fe99fba7f29718dbecfe5dfb863f7b900375c53b5093e1",
+      "native_sha256": "6b4e79012f31b78a9ecbb8593f3451b94da6a78d207435f2b52c0f074278512d"
+    },
+    {
+      "name": "reject/coordinate-physical/groups-enabled",
+      "input_sha256": "545ee43625838fb0e87eaed2cd3a97a0a7ed059189c381fbc74225bbb4f49564",
+      "output_sha256": "9db295543bca6a2a067d82c934a7a09484654df8f2d300e981bdbf4fa577d91c",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/coordinate-physical/scene-magic",
+      "input_sha256": "cfdcc8cce45ba9edd4e6b990cbed1865f63476c674013bd164d56adf2eef716d",
+      "output_sha256": "c7aaac028d80c0c179dedc25e6b4869953a9a15ffe9e3894bed553630b0a51f5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/coordinate-physical/scene-slot",
+      "input_sha256": "05091fbe7e3c4f318ec1d5db1312248bdf955160de328905809635ea595aaaf7",
+      "output_sha256": "c7aaac028d80c0c179dedc25e6b4869953a9a15ffe9e3894bed553630b0a51f5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/coordinate-physical/shape-nan",
+      "input_sha256": "b798523cb8c6bd873a5ae46ea09cae7301011e515f494a791dfb2b28f52cb978",
+      "output_sha256": "c7aaac028d80c0c179dedc25e6b4869953a9a15ffe9e3894bed553630b0a51f5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/coordinate-physical/radius",
+      "input_sha256": "89179a8f06128038d99bc61ee6bceebeb83057de84b64ed3a17ba7f8becaaf48",
+      "output_sha256": "c7aaac028d80c0c179dedc25e6b4869953a9a15ffe9e3894bed553630b0a51f5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/coordinate-physical/area-magic",
+      "input_sha256": "c4d357d1a32f366294496cbc7a2c3f94a7f693f59b012fcf52dce79d3421cbb0",
+      "output_sha256": "c7aaac028d80c0c179dedc25e6b4869953a9a15ffe9e3894bed553630b0a51f5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "coordinate-quantity/pierce-parent",
+      "input_sha256": "49c55af20ed95a11565738e36a93b2a6cae1852e16cd14319372082945608fea",
+      "output_sha256": "89bd397d3b47d8c857bbfd1aaafde9cdb09b4c21955b561f55fdd2ee8fa1424c",
+      "native_sha256": "856a8d3387b0da4bd972dc93d724c1e612fe3657d8ceeb85b6e7c263903bfd35"
+    },
+    {
+      "name": "coordinate-quantity/two-muzzles-seven-pellets",
+      "input_sha256": "88508f6c78d6116809303d05a348512adf50bbd0adf13e2ad25d05c22f3cd1a8",
+      "output_sha256": "be899d2f546486d76937cbf2f4625ab417d884b1a4082f8885e80ad783d3ce2a",
+      "native_sha256": "3a7e4bdefb555a237b09760dc50bb6034d51a6af688b88d1a4997c14296da535"
+    },
+    {
+      "name": "coordinate-quantity/large-parent",
+      "input_sha256": "f88818e141453db6c5010f26c54bdbe6ed9ee417affbd6b762d01f684b8d9f69",
+      "output_sha256": "e79df9f99b13dc4e604d888b9c62a15a38c9e8bbe8ee3a525335fc1d9613bbdd",
+      "native_sha256": "fe698a165a56eedebeafca630d877f3f25c478a238123e74da2a12d24659d260"
+    },
+    {
+      "name": "coordinate-quantity/including-interrupt",
+      "input_sha256": "963e768b5ce9a660ef03a3b966a4839ed61896069c2b6564db199a2a5ccdf594",
+      "output_sha256": "be2b70af506cffa9df4fb3addff9d05511dfc89c90673d40bee8f0cb0f6af57d",
+      "native_sha256": "4a73dd35353bb196cc4602d5ddf92dfee3f33add0658ca5f824cfeab3f2ffdf8"
+    },
+    {
+      "name": "coordinate-quantity/zero-child",
+      "input_sha256": "781ff58d6a9cee5aeb755abdcde687d7ad6f9ec99b8c147375f121655cba429e",
+      "output_sha256": "48186ae9a729f4e4a0ef62ef07a0b672c96c68f2f0f71697638f48ee15600ffe",
+      "native_sha256": "241f2162e916fab04f1c9ad592347e40a83d234fb007a6bb0f0438aa6bb96784"
+    },
+    {
+      "name": "coordinate-quantity/fraction-to-zero",
+      "input_sha256": "25275a79478b65d3b2bef47de8e0470e8674b9192e832489ee10e7e6c3cdc38b",
+      "output_sha256": "167897ecb55e2078b6dcc0273160b12ae3da6473b2f798d59e383c803638b3ee",
+      "native_sha256": "2680a5d54ea1dccf976f4b05b675a5e0775074177e84b8c07a060eb7b99ad8c1"
+    },
+    {
+      "name": "coordinate-quantity/last-owner",
+      "input_sha256": "d3524b0ce1c074bc40468f396a5e5523bd34b06dfc4eea47d7368022296a1c65",
+      "output_sha256": "84932bfe67db181ca9cdc14bd7835b1485481fb812b3acb681b2ef8af578e319",
+      "native_sha256": "b645d6ec76eec23c33ec278fd1f9ad52ce2c6f097a3a9db3f0724afeb0b183cc"
+    },
+    {
+      "name": "coordinate-quantity/two-shooters",
+      "input_sha256": "8ca8d4df1b8105aa50a4ef6673a702117f7801574d847a2b92babfd446422b82",
+      "output_sha256": "dea5a40a292d664daad43b44abf408927da8623c6583cceb056667009400477c",
+      "native_sha256": "dfbd37fcf36376a8701301d272aaf358805bc0d356fc92ad2b51ef0494813c40"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 31,
+  "native_oracles": 25,
+  "input_sha256": "3826ab6b185e06b4fcb1a9119c60ad352288bf7bad22a298dde9666c5b48ea09",
+  "output_sha256": "1a0d3c99ddcdf8a231d53ff51048c5a4702b6af4d0c03281cfffce2da094fad5",
+  "generated_normalized": {
+    "cuda": "aed83e770ffe904240998f00dc3d87045dbca1d42e09695faceb7fda5389a79b",
+    "metal": "017ef2e055a328189e217a7a3a7df56daa22d9433f0cf012d7dd3804fd1de9dc"
+  },
+  "audit_gpu_calls": 0
+}

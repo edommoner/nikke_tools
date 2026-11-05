@@ -1,0 +1,148 @@
+{
+  "schema": "product-boss-protection-evidence-v1",
+  "source_commit": "bb1f338b93e51b176b8197f52f5320005bef5c2d",
+  "scope": "Original startup protection and natural reload cover against attack-attached scalar debuffs through ordinary product API",
+  "primary_profiles": [
+    "Rapunzel Pure Grace",
+    "Kilo",
+    "Rei (Rai)",
+    "Miranda"
+  ],
+  "metal_profile_count": 4,
+  "metal_conditions": 4,
+  "cuda_conditions": 0,
+  "conditions": [
+    {
+      "index": 0,
+      "profile": "라푼젤 : 퓨어 그레이스 shared-shield",
+      "hits": 10,
+      "hp_positive": 8,
+      "shield_positive": 2,
+      "cover_positive": 0,
+      "decoy_positive": 0,
+      "protected_without_hp": 2
+    },
+    {
+      "index": 1,
+      "profile": "킬로 personal-shield",
+      "hits": 2,
+      "hp_positive": 0,
+      "shield_positive": 2,
+      "cover_positive": 0,
+      "decoy_positive": 0,
+      "protected_without_hp": 2
+    },
+    {
+      "index": 2,
+      "profile": "라이 decoy",
+      "hits": 2,
+      "hp_positive": 0,
+      "shield_positive": 0,
+      "cover_positive": 0,
+      "decoy_positive": 2,
+      "protected_without_hp": 2
+    },
+    {
+      "index": 3,
+      "profile": "미란다 reload-cover",
+      "hits": 29,
+      "hp_positive": 27,
+      "shield_positive": 0,
+      "cover_positive": 2,
+      "decoy_positive": 0,
+      "protected_without_hp": 2
+    }
+  ],
+  "saved_raw_reprojection": {
+    "rows": [
+      {
+        "index": 0,
+        "profile": "라푼젤 : 퓨어 그레이스 shared-shield",
+        "favorite_stage": 0,
+        "capture": "4ba9d0456ad445d3a1a54584c3c4d8b1",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 1,
+        "profile": "킬로 personal-shield",
+        "favorite_stage": 0,
+        "capture": "9740dc98fd11432b882847353cd65f9b",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 2,
+        "profile": "라이 decoy",
+        "favorite_stage": 0,
+        "capture": "08e59f50d3884de999004362960291f3",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 3,
+        "profile": "미란다 reload-cover",
+        "favorite_stage": 0,
+        "capture": "5c591e83c71c448d8b76c077c64b3a5b",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      }
+    ],
+    "audited": 4,
+    "native_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "final_carrier_dump_only": {
+    "rows": [
+      {
+        "index": 1,
+        "boss_carriers_in_final_dump": 0
+      },
+      {
+        "index": 2,
+        "boss_carriers_in_final_dump": 0
+      }
+    ],
+    "gpu_calls": 0,
+    "native_battle_calls": 0,
+    "scope": "Final carrier dump only; full product result parity and protected HP=0 are verified separately"
+  },
+  "source_snapshot_sha256": "4a83746b432926afebeb13ee768a934df17b3a6f1d7535b5aa7714a3a002cc81",
+  "current_source_primary_profiles_union_with_cast": [
+    "Miranda",
+    "Belorta",
+    "Asuka",
+    "Rapunzel Pure Grace",
+    "Kilo",
+    "Rei (Rai)"
+  ],
+  "current_source_metal_primary_profiles_union_count": 6,
+  "current_source_whole_catalogue_recertified": false,
+  "previous_255_of_266_sweep_source": "4e8613257b766bd934e68dfe25c89749906cc683",
+  "code_changed": false,
+  "canonical_cpu_changed": false,
+  "numerical_expectations_changed": false,
+  "strict_normalizer_changed": false,
+  "extra_native_battle_or_gpu_calls_in_saved_audit": 0,
+  "limits": [
+    "Four authored incoming conditions, not complete protection branch coverage",
+    "Standard30s catalogue counts remain historical",
+    "Boss DoT and eleven canonical model gap profiles remain"
+  ]
+}

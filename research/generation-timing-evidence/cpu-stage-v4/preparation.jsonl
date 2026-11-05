@@ -1,0 +1,11 @@
+{"elapsed_seconds": 0.028554458054713905, "monotonic_ns": 886182737186500, "pid": 38963, "stage": "packet_header_prepare", "state": "returned", "wall_time_ns": 1792787032898221000}
+{"monotonic_ns": 886182738665791, "pid": 38963, "stage": "packet_bounded_stage", "state": "entered", "wall_time_ns": 1792787032899700000}
+{"monotonic_ns": 886182783210166, "pid": 38971, "stage": "packet_shared_cli", "state": "entered", "wall_time_ns": 1792787032944244000}
+{"monotonic_ns": 886182786177333, "pid": 38971, "stage": "packet_verify_package", "state": "entered", "wall_time_ns": 1792787032947211000}
+{"elapsed_seconds": 0.071120584, "monotonic_ns": 886182857367458, "pid": 38971, "stage": "packet_verify_package", "state": "returned", "wall_time_ns": 1792787033018400000}
+{"monotonic_ns": 886182857834291, "pid": 38971, "stage": "packet_cpu_test_groups", "state": "entered", "wall_time_ns": 1792787033018867000}
+{"elapsed_seconds": 3.897483958, "monotonic_ns": 886186755387500, "pid": 38971, "stage": "packet_cpu_test_groups", "state": "returned", "wall_time_ns": 1792787036916386000}
+{"monotonic_ns": 886186755469458, "pid": 38971, "stage": "packet_cpu_preflight", "state": "entered", "wall_time_ns": 1792787036916468000}
+{"elapsed_seconds": 0.005775584, "monotonic_ns": 886186761303791, "pid": 38971, "stage": "packet_cpu_preflight", "state": "returned", "wall_time_ns": 1792787036922302000}
+{"elapsed_seconds": 3.979693625, "monotonic_ns": 886186762986583, "pid": 38971, "stage": "packet_shared_cli", "state": "returned", "wall_time_ns": 1792787036923985000}
+{"elapsed_seconds": 4.042328708, "monotonic_ns": 886186781055416, "pid": 38963, "stage": "packet_bounded_stage", "state": "returned", "wall_time_ns": 1792787036942054000}

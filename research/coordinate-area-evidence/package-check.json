@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "full_package_id": "809e0af88f860b58a733986ed94dffa296b4ae7fa7a261342da0fe47a99d3166",
+  "compact_package_id": "7631a5b96cd04d37e9b8f1b8eac2f2985098a6ff16caabd6af4ad2cfb47c7a7e",
+  "full_files": 2893,
+  "compact_files": 1599,
+  "all_retained_records_exact": true,
+  "all_retained_bytes_verified": true,
+  "golden_exact": true
+}

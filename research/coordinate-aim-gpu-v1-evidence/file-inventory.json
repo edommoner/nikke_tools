@@ -1,0 +1,394 @@
+{
+  "files": [
+    {
+      "path": "failed-metal190/run.json",
+      "bytes": 267,
+      "sha256": "eb3aed8282a5d4e20a3d981c75053e2d852199c900cf1faeab867770d225f831",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v1/run.json"
+    },
+    {
+      "path": "failed-metal190/result.json",
+      "bytes": 4201,
+      "sha256": "06b397684690a534e11e7e5a388ce6c2cf00a07334a432d539a5ce9c10247b8b",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v1/result.json"
+    },
+    {
+      "path": "failed-metal190/cpu.json",
+      "bytes": 548,
+      "sha256": "9e0da1f560e338f09c1864096bd651d52ca76b1facc271ed1a598b6aeef140d5",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v1/cpu.json"
+    },
+    {
+      "path": "failed-metal190/cpu-tests.json",
+      "bytes": 3672,
+      "sha256": "267211c11badcdfd43f87c2e234fe68d0dd6ec522b18cdac9c5d03632f3d4bcd",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v1/cpu-tests.json"
+    },
+    {
+      "path": "failed-metal190/evidence.json",
+      "bytes": 56918,
+      "sha256": "37c3ccb6c1e8aa9b7c52bdf260914d277cac1a39ab152c8730f329e7c5faa0a8",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v1/evidence.json"
+    },
+    {
+      "path": "failed-metal190/execution.json",
+      "bytes": 4145,
+      "sha256": "83055c80107b0778bde6a5366a338b37ac872b44e76d76e78ab4c1de3fcfb9cc",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v1/execution.json"
+    },
+    {
+      "path": "failed-metal190/comparison.json",
+      "bytes": 62223,
+      "sha256": "4a1ec1f67a70bc986d75f18118b719fb7831fa2d4f38b87bd53987d2dc8ef533",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v1/comparison.json"
+    },
+    {
+      "path": "failed-metal190/phases.jsonl",
+      "bytes": 40287,
+      "sha256": "4879899ae23b4afc3edfb618de613234d44f2a6ad17f1500bea09375bd757538",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v1/phases.jsonl"
+    },
+    {
+      "path": "failed-metal190/generation-cache.json",
+      "bytes": 33166,
+      "sha256": "24aff9e87c70a97f500371258b84dc55fbf703cce7099a3c9faafdec23a53418",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v1/generation-cache.json"
+    },
+    {
+      "path": "failed-metal190/storage.json",
+      "bytes": 254,
+      "sha256": "15efecf1e8e07931d9cd48c397fb08830140f790a23a202d78d2984cff5d544f",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v1/storage.json"
+    },
+    {
+      "path": "metal190/run.json",
+      "bytes": 267,
+      "sha256": "86552a0274cf95b0570bfe1e1b15d9376b6741f4c2aca992ffb9397f845f3ddc",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v3/run.json"
+    },
+    {
+      "path": "metal190/result.json",
+      "bytes": 3978,
+      "sha256": "72636631f26a5c156324cca7a80ee68a3eaa99c3c4fe0f54133b2ca402ec5cfb",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v3/result.json"
+    },
+    {
+      "path": "metal190/cpu.json",
+      "bytes": 547,
+      "sha256": "7206cc1c6ba1fe50fe5eb3be94bdc3745a151eeb677fed43509aedf343ee2c17",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v3/cpu.json"
+    },
+    {
+      "path": "metal190/cpu-tests.json",
+      "bytes": 3669,
+      "sha256": "f3ec749108f84f197a5e6ea7ce99dc68ba6b53d95c45924abbc7376a1bbdc25d",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v3/cpu-tests.json"
+    },
+    {
+      "path": "metal190/evidence.json",
+      "bytes": 56915,
+      "sha256": "9355a20a5b8cfd003e81111bb549c8f0ce0db7aa2bc78a459291cb562c1431e5",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v3/evidence.json"
+    },
+    {
+      "path": "metal190/execution.json",
+      "bytes": 4147,
+      "sha256": "b6ebf0a33315493269eeff034b06d3ebdc8735429442f6805bf43512bca5ef1f",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v3/execution.json"
+    },
+    {
+      "path": "metal190/comparison.json",
+      "bytes": 65243,
+      "sha256": "77fc96273b61e3bf5e000d9a3d1dbbfbd5711ec9237dd545bf5dd7ee1976dc98",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v3/comparison.json"
+    },
+    {
+      "path": "metal190/phases.jsonl",
+      "bytes": 40288,
+      "sha256": "3df889e1df7631dec25eb49f9a592d9492e19ee8e4d1373fdc1ab2328a8e580c",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v3/phases.jsonl"
+    },
+    {
+      "path": "metal190/generation-cache.json",
+      "bytes": 33166,
+      "sha256": "536ec2b45db7ffecadf55e1c0bd1e9eb6a42e7a52d630738b240448255abda7a",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v3/generation-cache.json"
+    },
+    {
+      "path": "metal190/storage.json",
+      "bytes": 254,
+      "sha256": "66ab11916d43e009a2186799f3650d0a2227a38b858e9d7053c0060af2dfd921",
+      "origin": "/tmp/nikke-coordinate-aim-metal-v3/storage.json"
+    },
+    {
+      "path": "cpu-v1/run.json",
+      "bytes": 237,
+      "sha256": "97c89e066ea818ce51f9e8bbd04034490da458dc7d3a28650a7f3b6e020b8d27",
+      "origin": "/tmp/nikke-coordinate-aim-cpu-v1/run.json"
+    },
+    {
+      "path": "cpu-v1/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+      "origin": "/tmp/nikke-coordinate-aim-cpu-v1/result.json"
+    },
+    {
+      "path": "cpu-v1/cpu.json",
+      "bytes": 249,
+      "sha256": "fdea2abe4b3418277a5008b27fdb83600fe66a5a3cb90e571c84973bf6d5602c",
+      "origin": "/tmp/nikke-coordinate-aim-cpu-v1/cpu.json"
+    },
+    {
+      "path": "cpu-v1/cpu-tests.json",
+      "bytes": 3671,
+      "sha256": "08066ad64f7943af801126dac637e5a47a132f4bce84e35d4b565fd5d3563710",
+      "origin": "/tmp/nikke-coordinate-aim-cpu-v1/cpu-tests.json"
+    },
+    {
+      "path": "cpu-v2/run.json",
+      "bytes": 237,
+      "sha256": "c2819d3b6c61fcb9aa32f97cda59592b7a84094c00d665386776df9b9eb11f3d",
+      "origin": "/tmp/nikke-coordinate-aim-cpu-v2/run.json"
+    },
+    {
+      "path": "cpu-v2/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+      "origin": "/tmp/nikke-coordinate-aim-cpu-v2/result.json"
+    },
+    {
+      "path": "cpu-v2/cpu.json",
+      "bytes": 249,
+      "sha256": "33b57d89722b8a3f2b722d64adb8164e98a6c33066ca2b04468617c21a455238",
+      "origin": "/tmp/nikke-coordinate-aim-cpu-v2/cpu.json"
+    },
+    {
+      "path": "cpu-v2/cpu-tests.json",
+      "bytes": 3669,
+      "sha256": "06964c2df36b859f24d3c3e75b4d978b92e30704c3dc6642a44ec4d6b3be65ee",
+      "origin": "/tmp/nikke-coordinate-aim-cpu-v2/cpu-tests.json"
+    },
+    {
+      "path": "cpu-v3/run.json",
+      "bytes": 237,
+      "sha256": "3b1c6f4a3f8cc05b88e284326f1e0f9ab7a62a4e2b52761fb6a778160decd54f",
+      "origin": "/tmp/nikke-coordinate-aim-cpu-v3/run.json"
+    },
+    {
+      "path": "cpu-v3/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+      "origin": "/tmp/nikke-coordinate-aim-cpu-v3/result.json"
+    },
+    {
+      "path": "cpu-v3/cpu.json",
+      "bytes": 250,
+      "sha256": "5fa18293e5521e0d0f66755724a39a540817e77e9068a3c04cab3114858aa631",
+      "origin": "/tmp/nikke-coordinate-aim-cpu-v3/cpu.json"
+    },
+    {
+      "path": "cpu-v3/cpu-tests.json",
+      "bytes": 3669,
+      "sha256": "e07f217d5f543c8fb89246737b21425013d663d54e4a01a467ab0bb188ef76fc",
+      "origin": "/tmp/nikke-coordinate-aim-cpu-v3/cpu-tests.json"
+    },
+    {
+      "path": "final-cpu/run.json",
+      "bytes": 237,
+      "sha256": "82aeb8d276dd47f729863411a51e7e789b1e08b04b0635f31c4a08a4948a3fac",
+      "origin": "/tmp/nikke-coordinate-aim-final-cpu-v1/run.json"
+    },
+    {
+      "path": "final-cpu/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+      "origin": "/tmp/nikke-coordinate-aim-final-cpu-v1/result.json"
+    },
+    {
+      "path": "final-cpu/cpu.json",
+      "bytes": 250,
+      "sha256": "cc76e891b8a07903244e7e5183e8e3c0e49dbf8c012eb0942703bd635afa7400",
+      "origin": "/tmp/nikke-coordinate-aim-final-cpu-v1/cpu.json"
+    },
+    {
+      "path": "final-cpu/cpu-tests.json",
+      "bytes": 3664,
+      "sha256": "64135588d7dd1c719da25cf40e456dfe75237a795988cc904d740d9de8f725a6",
+      "origin": "/tmp/nikke-coordinate-aim-final-cpu-v1/cpu-tests.json"
+    },
+    {
+      "path": "final-control/run.json",
+      "bytes": 237,
+      "sha256": "954bdb6ed402e40cef4efdd2dc11cc05664e6291c653bc63fb0ab6028c78d2cf",
+      "origin": "/tmp/nikke-coordinate-aim-final-control-v1/run.json"
+    },
+    {
+      "path": "final-control/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+      "origin": "/tmp/nikke-coordinate-aim-final-control-v1/result.json"
+    },
+    {
+      "path": "final-control/cpu.json",
+      "bytes": 109,
+      "sha256": "bc45e3d39298f7219da3140078d6f10d93262192126d145de384a7dcb2799e8e",
+      "origin": "/tmp/nikke-coordinate-aim-final-control-v1/cpu.json"
+    },
+    {
+      "path": "final-control/cpu-tests.json",
+      "bytes": 8934,
+      "sha256": "bd54aec78bc924981addea30348f58c29545f9e1ede4eab56e731f5b6958f41e",
+      "origin": "/tmp/nikke-coordinate-aim-final-control-v1/cpu-tests.json"
+    },
+    {
+      "path": "generation-v1/generation.json",
+      "bytes": 20198,
+      "sha256": "d0f206b7e071faab0881e511d31712342dab4a2e4b125a2cce78f5e1ab8075db",
+      "origin": "/tmp/nikke-coordinate-aim-generation-v1/generation.json"
+    },
+    {
+      "path": "generation-v1/generation-cache.json",
+      "bytes": 33167,
+      "sha256": "0b79374392085b6a0a4b355855086a00e4280aada33536976736eecf8630a6b4",
+      "origin": "/tmp/nikke-coordinate-aim-generation-v1/generation-cache.json"
+    },
+    {
+      "path": "generation-v2/generation.json",
+      "bytes": 20198,
+      "sha256": "af03ae0f5e5d30c165f73ec4977cf24b3ee446d55e4bcd056ce295702b47e7c5",
+      "origin": "/tmp/nikke-coordinate-aim-generation-v2/generation.json"
+    },
+    {
+      "path": "generation-v2/generation-cache.json",
+      "bytes": 33167,
+      "sha256": "fd4c41e7c7d53c50c51d029209e80d3559b9dd39743e4224a73881cbcf4fae26",
+      "origin": "/tmp/nikke-coordinate-aim-generation-v2/generation-cache.json"
+    },
+    {
+      "path": "generation-v3/generation.json",
+      "bytes": 20198,
+      "sha256": "e30cd71e0243badb3a2c1ca8605ccb281aac47e6051c2ea0b9baea10df8734fe",
+      "origin": "/tmp/nikke-coordinate-aim-generation-v3/generation.json"
+    },
+    {
+      "path": "generation-v3/generation-cache.json",
+      "bytes": 33167,
+      "sha256": "38c5c7af35935168e855a83a2c370e2ea9c7f393908471dde73c0b283573fab4",
+      "origin": "/tmp/nikke-coordinate-aim-generation-v3/generation-cache.json"
+    },
+    {
+      "path": "metrics.json",
+      "bytes": 34967,
+      "sha256": "267e58aafa9c777db9f4deb76ec644e3afae74160e730f234ca98d2994188dcb",
+      "origin": "/tmp/nikke-coordinate-aim-metrics-v3.json"
+    },
+    {
+      "path": "legacy-generated-retention.json",
+      "bytes": 76677,
+      "sha256": "2b65b5fe9b2a9cc98c7c76e9485541fce4e971f79df0b4a86caa03c7283dd000",
+      "origin": "/tmp/nikke-coordinate-aim-legacy-generated-retention-v3.json"
+    },
+    {
+      "path": "failed-frame-diagnosis.json",
+      "bytes": 3718,
+      "sha256": "b27251dcb1a37e67276b0eb060802fce4cf302458c661bcf2d19cb935aedaf92",
+      "origin": "/tmp/nikke-coordinate-aim-frame-diagnose-v1.json"
+    },
+    {
+      "path": "model-check.json",
+      "bytes": 203291,
+      "sha256": "7a126ba0a833f8be941967ef43dd188699679a1f618cae63418dcf1d729b6280",
+      "origin": "/tmp/nikke-coordinate-aim-model-final-v1.json"
+    },
+    {
+      "path": "windows-status.json",
+      "bytes": 272,
+      "sha256": "ffbb57500575022ff7220a5ef95642f2a6a04361026c2627d799f0ae1ac09e16",
+      "origin": "/tmp/nikke-coordinate-aim-windows-status-v1.json"
+    },
+    {
+      "path": "compiler/report.json",
+      "bytes": 1068,
+      "sha256": "cca4589be8c910702bf6b4d5c3783d5112c4810413b082f8cfbc7f3031f55c59",
+      "origin": "/tmp/nikke-coordinate-aim-compiler-certificate-v3/report.json"
+    },
+    {
+      "path": "compiler/source-certificate.json",
+      "bytes": 20329,
+      "sha256": "68e368bbb6ee6c1253c6d1f06d38bf346ce1a70cbc9a8cdae400ce0b5867bbe8",
+      "origin": "/tmp/nikke-coordinate-aim-compiler-certificate-v3/source-certificate.json"
+    },
+    {
+      "path": "storage/receipt-1.json",
+      "bytes": 702,
+      "sha256": "a9c1fd849cefbc7b9656143bd6266f710ef22b45b367dc8ad646ea12487d63f5",
+      "origin": "/tmp/nikke-coordinate-aim-storage-recovery-v1.json"
+    },
+    {
+      "path": "storage/receipt-2.json",
+      "bytes": 711,
+      "sha256": "9c61c3a13db632943761e00658b4e51863cbc0d14e2ce4a362a554666249f0bb",
+      "origin": "/tmp/nikke-coordinate-aim-storage-recovery-v2.json"
+    },
+    {
+      "path": "storage/receipt-3.json",
+      "bytes": 695,
+      "sha256": "d3ca04a2f231124d86f6a44db9d72c7810b1f485f8863187c847baf7effb0c11",
+      "origin": "/tmp/nikke-coordinate-aim-storage-failed-v1.json"
+    },
+    {
+      "path": "storage/receipt-4.json",
+      "bytes": 695,
+      "sha256": "391d59cbbc251f83d1ae7434d0bab872a113434501bcf55030a2814c3ac65c40",
+      "origin": "/tmp/nikke-coordinate-aim-storage-success-v3.json"
+    },
+    {
+      "path": "local/tests.log",
+      "bytes": 102,
+      "sha256": "2328132e9c0c76c488da2c7967f46d1c97686bbd81472ef869f725750e61ac0b",
+      "origin": "/tmp/nikke-coordinate-aim-develop-local-v1/tests.log"
+    },
+    {
+      "path": "local/updated-local-tests.log",
+      "bytes": 110,
+      "sha256": "3f847dd63e58b901d0d17624aa1d832161150b66db8d8586b6d9d9f4b9e17182",
+      "origin": "/tmp/nikke-coordinate-aim-develop-local-v1/updated-local-tests.log"
+    },
+    {
+      "path": "local/fixed-local-tests.log",
+      "bytes": 111,
+      "sha256": "f3a2a215b3cd1288721e4124d9a71f1a843e6da1c7cbe1694454455db6c12559",
+      "origin": "/tmp/nikke-coordinate-aim-develop-local-v1/fixed-local-tests.log"
+    },
+    {
+      "path": "local/frame-diagnose.log",
+      "bytes": 220,
+      "sha256": "471fd626259c929d5695ab9bf8001fe6cad1f9477ebb26adf82c81fd2cdd4db0",
+      "origin": "/tmp/nikke-coordinate-aim-develop-local-v1/frame-diagnose.log"
+    },
+    {
+      "path": "local/seal-v3.log",
+      "bytes": 207,
+      "sha256": "9d24a05b67232dcd94c965e2e12676a005ef9aa451e0d2aa19ff8b7f39e979f3",
+      "origin": "/tmp/nikke-coordinate-aim-develop-local-v1/seal-v3.log"
+    },
+    {
+      "path": "local/storage-budget.json",
+      "bytes": 234,
+      "sha256": "b70006c8a2c93ea0952880588768db66ba38ca4579098e41a0d78e0cde529572",
+      "origin": "/tmp/nikke-coordinate-aim-develop-local-v1/storage-budget.json"
+    },
+    {
+      "path": "local/storage-budget-v2.json",
+      "bytes": 233,
+      "sha256": "b1c81bb0ad591fe0b78219c0c971ac4cc76452c3ab81a36b8dc7b1b8c177c856",
+      "origin": "/tmp/nikke-coordinate-aim-develop-local-v1/storage-budget-v2.json"
+    },
+    {
+      "path": "local/storage-budget-v3.json",
+      "bytes": 233,
+      "sha256": "7cf790b91d690d072d283d9e450b90b64ab95cf750134093e1190aec17fe29c0",
+      "origin": "/tmp/nikke-coordinate-aim-develop-local-v1/storage-budget-v3.json"
+    }
+  ]
+}

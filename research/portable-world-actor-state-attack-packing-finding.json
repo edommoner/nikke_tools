@@ -1,0 +1,43 @@
+{
+  "passed": false,
+  "scope": "Literal Actor-world attack payload packing",
+  "source_commit": "8c5a09b1b92c3fa80f4ecd19ef70adc9d8fa7bc1",
+  "capture": "/Users/edo/.codex/worktrees/world-overlays/nikke_tools/research/portable-build/world-actor-state-20261020T204217895882Z",
+  "failed_case": "direct-incoming-and-body-query-have-different-context",
+  "case_index": 37,
+  "status": 64,
+  "literal_attack": {
+    "id": "attack",
+    "kind": "attack",
+    "spec": {
+      "atk": 200,
+      "coeff": 100,
+      "target": "all",
+      "hits": 4,
+      "interval": 0.1
+    }
+  },
+  "captured_payload": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "new48_native_passed": true,
+  "new18_raw_passed": true,
+  "old357_all_output_words_equal": true,
+  "gpu_retries": 0,
+  "fix": "Reuse the frame attack packer after restoring the original Actor graph;no CPU world ticks or state input"
+}

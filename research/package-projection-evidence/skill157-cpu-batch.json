@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_destructible_weapon_rosters.py",
+    "test_portable_readiness_semantics.py",
+    "test_destructible_skill_rosters.py",
+    "test_destructible_weapon_gpu.py",
+    "test_destructible_skill_gpu.py"
+  ],
+  "timeout_seconds": 90,
+  "elapsed_seconds": 48.51985512499232,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

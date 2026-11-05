@@ -1,0 +1,61 @@
+{
+  "schema": "packet-source-identity-native-v1",
+  "observed_date": "2026-10-28",
+  "package_id": "a85576248540a55b69f9f579dd79bad0c6eb22e547617334eb2581693f3d2c3d",
+  "package_source_commit": "7eb5a21bda339a2e1b6cbf4e927ed6b854ddce71",
+  "package_includes_working_tree_changes": true,
+  "tests": {
+    "groups": 10,
+    "tests": 65,
+    "passed": true
+  },
+  "cpu": {
+    "passed": true,
+    "input_count": 12,
+    "native_oracles": 7,
+    "input_sha256": "339ed880140805f7528a63cd812f9ff87de2248b011ed342abf08ee1480fd04f",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 11.051372708010604
+  },
+  "receipt_sha256": {
+    "cpu-tests.json": "01074563ad9655139ac6bca228fc704019535d1896173816f0a7347284ce70d4",
+    "cpu.json": "cf4867edb8ccf30021f695b265b0ce1f9b6618b3015120e8c53eb4137ae60661",
+    "result.json": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+    "artifacts.json": "a56e2d5c62edfe61efd805a939a4dee46514f1eb3b7a54bc7f23e5b28f44bc81"
+  },
+  "source_sha256": {
+    "app/destructible_battle_runtime.py": "f70ed88a8d88458a39fb2f9a449d12cc9bbf4acfa79d8da08c874877028070d0",
+    "app/portable_packet_fates.py": "dda1c0bde88ac9a2e69c2f18840145b4881f6d4112b0fb10dba4d2b2a6e50847",
+    "research/world_frame_native.py": "f61bc04fe12edbdf4b7c1c43f82df9f749fd31583860173d3924e21c0a24344e",
+    "research/world_skill_native.py": "93b284069defb88fdb7175754b8784798566e3f3b37268f501d06c971a91f8e0",
+    "tests/test_lock_projectile_composition.py": "5575787e67cd786902b47e1ddd2a73f7a9b16b92c98f95939ea8ddede91f7637",
+    "tests/test_packet_fates.py": "1e50ead014ff26c0202fd66c5054c694847fb8dd2a885c288dfaba0f4da7c537",
+    "tests/fixtures/portable-packet-fates-source-delta.json": "44cad4bd58f9cf78797ed003885c1c0dca8b2ea6f02840d7f025c7b523bb086d"
+  },
+  "native_source_identity_verified": true,
+  "native_same_label_distinct_creation_rows_verified": true,
+  "old_seven_case_trace_and_original_eight_battle_fingerprints_retained": true,
+  "same_label_multi_damage_gpu_packing": "rejected: Multiple named non-buff carriers are not ported",
+  "multiple_typed_definition_adapter": "rejected: One plain typed definition required",
+  "development_failures": [
+    "Initial two-typed-definition test stopped at one-definition adapter guard",
+    "Typed plus ordinary same-label packing stopped at multiple-non-buff-carrier guard",
+    "Native same-label capture exposed missing typed creation row; corrected by passive packet-return observation"
+  ],
+  "gpu_source_changes": [],
+  "gpu_calls": 0,
+  "windows_requests": 0,
+  "cuda_hardware_verified": false,
+  "full25_verified": false,
+  "public_admission": false,
+  "full_goal_complete": false,
+  "next_priority": [
+    "Connect original index0 to actual enemy carrier with explicit selection policy",
+    "Remove multi-carrier packing limitation using common source identities and explicit lifetime rules",
+    "Extend typed row routing without changing original definitions",
+    "Keep unresolved spatial/death replacement policies explicit"
+  ]
+}

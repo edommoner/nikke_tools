@@ -1,0 +1,7 @@
+{
+  "package_id": "58ecce645e040225b2fa58c09c2d9e3065f321eae7490c68f96cd48917352898",
+  "gpu_calls": 0,
+  "error": "Required normal492 golden missing from immutable test payload",
+  "resolution": "Declared support_files includes the exact normal492 golden; fresh package passed",
+  "original_capture_retained": true
+}

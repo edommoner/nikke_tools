@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "source_seal": "/tmp/nikke-native-route53-golden-v1.json",
+  "source_seal_sha256": "74a17aa8c8deb24b05b5dd03d864fb776bcb47eeb5792478af27bdc179a2881c",
+  "previous_golden_sha256": "8e0a435293ad9cc7bc0a430e6e8bf4e21803c5785ef54992b8ab1549587bfb47",
+  "current_golden_sha256": "dd3578b66975bec7e11d13127595b34268ef43aa9de311feb869f537c9701889",
+  "entries_equal_independent_seal_prefix": 32,
+  "input_output_aggregate_hashes_unchanged": true,
+  "updated_fields": [
+    "source_sha256",
+    "generated_normalized"
+  ],
+  "gpu_calls": 0
+}

@@ -1,0 +1,342 @@
+{
+  "schema": "heavy-original-lock-fixed-normal-api-status-v1",
+  "request_transport_commit": "a50bfb0aba82e8b52e82cc4bde6646d66f399f04",
+  "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+  "source_commit": "3965b3908a973a28b5c32d826dce93766454542d",
+  "code_review_commit": "996c7e9d",
+  "scope": "Original Heavy Arms profile210 favorite0 fixed30s, only explicit pre-existing Lock On declaration; other caller values unchanged; no default-model admission",
+  "status": "stopped_at_first_outer_process_preservation_failure",
+  "numeric_verification_passed": false,
+  "numeric_verification_state": "Not executed: object/link/API/GPU blocked by PTX outer observation gate",
+  "stop": {
+    "program": "lock-fixed",
+    "stage": "compile-ptx",
+    "error_type": "AssertionError",
+    "message": "Observation/missing failure",
+    "retries_allowed": false
+  },
+  "original_request_documents_unchanged": [
+    {
+      "file": "heavy-original-lock-fixed-v1-api-expected.json",
+      "bytes": 1223,
+      "sha256": "2cc90498b548135e57528f67ca798238b8f9b0867016f798493ef5bcc5a3d29b"
+    },
+    {
+      "file": "heavy-original-lock-fixed-v1-api-job.json",
+      "bytes": 7890,
+      "sha256": "e0a3fa9a615ab359cebb740d7ad0c4587262f1b42922eccc0c7fbcbb6b9ac97e"
+    },
+    {
+      "file": "heavy-original-lock-fixed-v1-o1-plan.json",
+      "bytes": 735,
+      "sha256": "3540d19c93c402ccd6b18edc38d07126bff35b3246908d08fb513e35f93c2853"
+    },
+    {
+      "file": "heavy-original-lock-fixed-v1-ptx-plan.json",
+      "bytes": 707,
+      "sha256": "be540ce7f7e4c1e63f8af9f8b082ad1ec26d84b5ea16cca6ed0f7dfdc4287094"
+    },
+    {
+      "file": "heavy-original-lock-fixed-v1-validation-deps.json",
+      "bytes": 407,
+      "sha256": "00a218bf0622e8b2c5a269895a0d598e02ec7c8ed15f56edf9051f54c21dfeb3"
+    },
+    {
+      "file": "heavy-original-lock-fixed-v1.zip",
+      "bytes": 12114544,
+      "sha256": "e0f96938547156358aa8266e5cc162a77cf27a109790f289ce153c59f91a9274"
+    },
+    {
+      "file": "heavy-original-lock-windows-request-v1.json",
+      "bytes": 3921,
+      "sha256": "c375157121a70f8184184a0a7824b64b31fe000b5eafb742988623e668cf948a"
+    }
+  ],
+  "cpu": {
+    "passed": true,
+    "tests": 87,
+    "groups": [
+      {
+        "pattern": "test_portable_detail.py",
+        "exit_code": 0,
+        "elapsed_seconds": 12.185347700025886,
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "exit_code": 0,
+        "elapsed_seconds": 4.648796200286597,
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "exit_code": 0,
+        "elapsed_seconds": 5.696315200068057,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.9480023998767138,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_fixed_lock_uses_shared_literal_header_and_preserves_all_effects",
+          "test_product_reference_models.ProductReferenceModels.test_lock_on_original_product_keeps_all_definitions_and_empty_typed_world"
+        ]
+      }
+    ],
+    "selected_case_ids": {
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_fixed_lock_uses_shared_literal_header_and_preserves_all_effects",
+        "test_product_reference_models.ProductReferenceModels.test_lock_on_original_product_keeps_all_definitions_and_empty_typed_world"
+      ]
+    },
+    "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+    "source_commit": "3965b3908a973a28b5c32d826dce93766454542d",
+    "full148_windows_claimed": false,
+    "unselected_model61_executed": false,
+    "old_source_results_reused": false,
+    "extra_native_preflight_battles": 0,
+    "sdk_calls": 0,
+    "gpu_calls": 0
+  },
+  "admitted_stages": {
+    "unpack": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 21.61057149991393,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 74653696,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "plans": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 23.53740239981562,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 69156864,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "host-tests": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 35.38688030000776,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 146702336,
+      "below_normal": true,
+      "runner_exit_code": 0
+    },
+    "generation": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "elapsed_seconds": 21.581520999781787,
+      "timeout_seconds": 59.79700000025332,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 576487424,
+      "below_normal": true,
+      "runner_exit_code": 0,
+      "artifact_verified": true,
+      "reported_stage_verified": true,
+      "reported_stage_complete": true,
+      "reported_whole_environment_preservation_verified": false
+    }
+  },
+  "compile_ptx": {
+    "compiler_verified": true,
+    "artifact_admitted_for_next_stage": false,
+    "stage_verified": false,
+    "stage_complete": false,
+    "bounded_execution_verified": false,
+    "whole_stage_process_preservation_verified": false,
+    "whole_stage_environment_preservation_verified": false,
+    "outer": {
+      "child_exit_code": 2,
+      "reported_execution_passed": false,
+      "timeout_seconds": 179.78099999995902,
+      "elapsed_seconds": 42.72142429975793,
+      "timed_out": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "comparison_error": null,
+      "missing_existing_processes_count": 7,
+      "missing_role_counts": {
+        "unrelated": 5,
+        "service_candidate": 2
+      },
+      "termination_cause": "unknown",
+      "identified_nikke_service_preservation_verified": false,
+      "pre_gate_verified": true,
+      "job_query_errors": 0,
+      "job_memory_limit_bytes": 2147483648,
+      "actual_pre_limits": [
+        2147483648
+      ],
+      "actual_post_limits": [
+        2147483648
+      ],
+      "post_wait_empty": true,
+      "job_peak_memory_bytes": 334286848,
+      "below_normal": true
+    },
+    "inner": {
+      "child_exit_code": 0,
+      "reported_execution_passed": true,
+      "timeout_seconds": 60,
+      "elapsed_seconds": 31.40408969996497,
+      "timed_out": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "comparison_error": null,
+      "missing_existing_processes_count": 0,
+      "missing_role_counts": {},
+      "termination_cause": null,
+      "identified_nikke_service_preservation_verified": false,
+      "pre_gate_verified": true,
+      "job_query_errors": 0,
+      "job_memory_limit_bytes": 2147483648,
+      "actual_pre_limits": [
+        2147483648
+      ],
+      "actual_post_limits": [
+        2147483648
+      ],
+      "post_wait_empty": true,
+      "job_peak_memory_bytes": 299589632,
+      "below_normal": true
+    },
+    "ptx_identity": {
+      "key": "2c5d3c0582b7c0b97ef13a5f23a775e1870684289504c7af8ceb957cccde9b09",
+      "artifact_sha256": "34fd27a656586a76d386d021c1fc87ac19a70eed3aecf36ba10f4b26a2eadf88",
+      "artifact_bytes": 9905613
+    },
+    "paired_cache": {
+      "key": "90f8cff07d1314ecf8dd5671464a00eff5875e1f49ee5103dd4e9114cd4f5123",
+      "hit": true,
+      "compiler_invocations": 0
+    },
+    "failure_interpretation": "Outer observer records seven pre-existing processes absent after stage; five unrelated and two generic service candidates. Termination cause unknown. Inner observer recorded zero missing. No cause or NIKKE-service identity inferred.",
+    "raw_process_details_shared": false
+  },
+  "execution_counts": {
+    "paired_generation_runs": 1,
+    "ptx_compile_runs": 1,
+    "o1_object_runs": 0,
+    "pinned_jit_link_runs": 0,
+    "posts": 0,
+    "physical_gpu_dispatches": 0,
+    "physical_cases": 0,
+    "retries": 0,
+    "additional_audit_cpu_battles": 0,
+    "additional_audit_gpu_calls": 0,
+    "standard266_runs": 0,
+    "previous_healing_group_cover_runs": 0,
+    "previous_movement_runs": 0,
+    "previous_rei_runs": 0
+  },
+  "later_stage_directories_created": {
+    "module-object-v1": false,
+    "jit-link-v1": false,
+    "batch-000": false
+  },
+  "requested_case_not_executed": {
+    "profile_index": 210,
+    "favorite_stage": 0,
+    "duration_seconds": 30,
+    "source": "gpu/product_lock_fixed_battle_entry.slang",
+    "expected_definitions": 91,
+    "expected_pulses": 110,
+    "expected_shots": 15,
+    "expected_input_sha256": "9337f726787944458cb09c19b1de2b7f955f11c149f42bd6b385a7284bb50afa",
+    "expected_output_sha256": "76fd63c5f64fd0b6fd0693e4906a4ba06f74a43e8626b7f570f3d6a757d72f2e",
+    "expected_output_bytes": 5242880,
+    "expected_readback_chunk_bytes": [
+      5242880
+    ],
+    "m5_output_comparison_performed": false,
+    "fresh_cpu_gpu_http_comparison_performed": false,
+    "node_saved_audit_performed": false
+  },
+  "preservation": {
+    "prior_protected_files": 50494,
+    "missing": 0,
+    "changed": 0,
+    "old_claims_failures_sources_and_raw_retained": true,
+    "initial7documents_unchanged": true,
+    "current_failure_receipts_and_source_retained": true,
+    "stop_receipt_sha256": "d960035c01d0232a3e8304524cdb27cac9089658dde1479d7386ed58c2dbd4b1"
+  },
+  "limits": {
+    "sdk_child_seconds": 60,
+    "api_helper_seconds": 53,
+    "cpu_audit_seconds": 60,
+    "each_outer_seconds": 180,
+    "memory_mib": 2048,
+    "priority": "BelowNormal",
+    "fresh_job_gate": true,
+    "permission_mode": "require_escalated",
+    "serial_only": true
+  },
+  "previous_cover_image_reused": false,
+  "alternative_artifact_substituted": false,
+  "limits_increased": false,
+  "no_ssh_or_os_configuration_changed": true,
+  "full148_windows_claimed": false,
+  "remaining61_model_tests_executed": false,
+  "unconfigured_standard_profile_delta": 0,
+  "configured_profile_delta_verified": 0,
+  "advisory_api_memory_observation": {
+    "performed": false,
+    "inner_job_limit_known": false,
+    "observation_complete": false
+  },
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "raw_buffers_shared": false,
+  "compiler_distributions_shared": false,
+  "settings_or_auth_shared": false
+}

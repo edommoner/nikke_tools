@@ -1,8 +1,16 @@
+現在の実行経路は CPU-native とブラウザ WASM です。[高速化のノウハウ](docs/performance-knowhow.md)。以下のGPU関連記録は履歴です。
+
 # NIKKE TOOLS — ローカル編成ラボ
+
+MacBookへの開発移行とCUDA／Metalの共通化を進めています。[移行手順と未解決事項](docs/mac-migration.md)を参照してください。現時点で通常画面のGPU計算はCUDA専用です。小さな共通ソースのMetal実証4ケースはApple M5で実GPU実行済みです。さらに共通binary64候補の14,034ケースがMetalでbit一致しました。[数値規約と残作業](docs/portable-numerics.md)を参照してください。整数変換とコア命中確率powを含む34,874件、共通イベント実行器16ケースをMetalで検証し、[ローカルAPIへ接続](docs/portable-event-runtime.md)しました。通常画面の自律戦闘と全キャラ対応は未完了です。Macでは `./Start-NikkeTools.command` で起動します。
 
 GitHubには現行のソース、GPU生成物、検証スクリプトと記録を保存しています。`research/ports/`・`research/staging/` の過去版／実験用コピー、CUDAキャッシュ、所持データ等の `local-data/`、認証情報はGit管理の対象外です。過去版との比較スクリプトには、ローカルに保存した過去版が別途必要です。計算エンジンの固定版は `powershell -File scripts/setup-engine.ps1` で取得できます。
 
 所持・育成データに基づくダメージ比較、育成条件の探索、重複なしのレイド部隊候補探索の試作です。計算はPC内のPythonプロセスで実行し、UIは127.0.0.1のみで配信します。外部サービスへの公開・育成データの送信は行いません。
+
+## 保存領域の確認ツール
+
+GPU開発CLI（`scripts/nikke_gpu.py`）と共通GPU開発スキルは削除しました（2026-11-05）。大きな計測や復元の前の空き容量確認は `python scripts/nikke_storage.py storage-check --required-bytes N` で行います（`archive-raw`／`restore-raw`／`sparsify-raw` も同じCLI）。[旧CLIの説明](docs/gpu-development-cli.md)は履歴として残しています。
 
 ## 共通仕様と既存キャラの移行
 
@@ -643,13 +651,14 @@ CUDAモジュールはコンテキスト内で保持し、入力が変わるた�
 
 - `node --test tests/*.test.mjs`
 - HTTP経由の実エンジン検証：`node scripts/smoke.mjs`（一時的に4329番ポートを使用）
+- Pythonテストの前に `python3 scripts/setup-engine.py --historical` で現行版と照合用の旧版を準備してください。取得済みZIPを使う方法は[参照エンジンの導入手順](docs/reference-engine-installation.md)を参照してください。
 - Pythonで `-W ignore::ResourceWarning -m unittest discover -s tests -p "test_*.py" -v`
 
 原本の非破壊、一時ステータスと未装着キューブ、オバロの同一IDが複数スロットに付く場合、情報不足、未知のオプション、未所持・重複の拒否、候補集合の重複制約、部隊全体の選択を検証します。リソース警告は取得元コードのファイル読込によるもので、この試作では取得元を改変していません。
 
 ## 依存と出典
 
-- 計算・育成変換：Jgaram/nikke-calc、固定コミット `23164e4a88fe46af609cc99b0de38a98313a5f4d`。MIT。著作権表示とライセンスは `THIRD_PARTY_NOTICES.md` と取得先の `LICENSE` に保持しています。
+- 計算・育成変換：Jgaram/nikke-calc、固定コミット `67835ca3033a95482749ea2db35a8ee2a0856a92`。MIT。著作権表示とライセンスは `THIRD_PARTY_NOTICES.md` と取得先の `LICENSE` に保持しています。
 - キャラID・宝もの対応表：BlaBlaLink公開CDN。日本語キャラ名・画像URL・キューブ名は leegunwoooo/nikke-api の公開レスポンスから取得しています。キャラ画像はBlaBlaLinkの公開CDNからブラウザで表示します。ゲームのマスターデータ・名称の権利は各権利者に帰属します。
 - 本ツールはNIKKE公式・公認のサービスではありません。
 
@@ -672,3 +681,5 @@ GPU内のイベント処理も、全効果の走査から、イベントに関�
 `compute.timings_ms` には、GPUカーネルをCUDAイベントで測った時間と、準備・転送・読み戻し・復元の時間を分けて記録します。複数候補の場合はグループ全体の値です。仕組みと共通パターンによる検証方針は [イベント実行の索引](docs/event-dispatch-index.md) を参照してください。
 
 召喚物の個別の期限・生存数による攻撃間隔・再召喚を扱う [共通の周期リソース](docs/periodic-sources.md) を追加しました。アインのフェザーもこの処理を使います。取得元の寿命と間隔は推定値のため、CPU・GPUの両方で注意を表示します。標準条件で入力変換が通るキャラは182/203ですが、全編成やゲーム内実測との一致を意味しません。新しい同種の効果は、キャラ名による計算分岐を追加せず、名前と枠ごとの期限・間隔をデータで指定できます。
+
+参照エンジンを `67835ca3` に更新しました。オートバーストは全段階で編成順に候補を確認し、クールタイムが終わっている最初のニケを選びます。追加された3キャラと新キューブはCPUで計算できます。GPUでは、未移植の対象・条件・ステータスや新キューブを含む要求を、該当キーを示す未対応エラーで明示的に拒否します。導入・更新と過去版の準備については、[参照エンジンのインストールと更新](docs/reference-engine-installation.md)を参照してください。

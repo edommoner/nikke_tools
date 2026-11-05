@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "baseline_commit": "cdbf2be1a6f8a19fefef0406fd13de508007957e",
+  "mechanics": 935,
+  "profiles": 52,
+  "comparison": "Complete decoded result equality after removing only the newly added empty reference_captures field; no raw wire hash parity claim",
+  "current_reports": {
+    "portable-combat-metal.json": "06985796ad50a142cf961449ae9966a54df38c370b76568fd607005222c45f8f",
+    "portable-roster-battles-metal.json": "84e5cc448d26240b098660b03035faaa362302effe249b0a6fb6e8557d8ea07d"
+  },
+  "baseline_reports": {
+    "portable-combat-metal.json": "8cfb5b85d3e83f5c444dce6b72c513e4b8ce806d20172f7292e71ab50baae2f5",
+    "portable-roster-battles-metal.json": "6a4e8ab379bc5f527a0e8a508c08a99e783713dec60c50d291f1488580fddba7"
+  }
+}

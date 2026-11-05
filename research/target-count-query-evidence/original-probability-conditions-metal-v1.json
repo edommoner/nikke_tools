@@ -1,0 +1,390 @@
+{
+  "schema": "original-probability-conditions-metal-v1",
+  "source_commit": "87c82125201862b1a077c272562940405ae77561",
+  "gpu_package_id": "50c273ee524def49300966f6b451c8a16cb08a4f5970a7695b35e717417e2817",
+  "source": "gpu/world_coordinate_typed_ordered_history_entry.slang",
+  "input_count": 4,
+  "native_cases": 4,
+  "definition_counts": [
+    70,
+    70,
+    70,
+    70
+  ],
+  "calculation_verified": true,
+  "independently_sealed": true,
+  "transport": {
+    "backend": "metal",
+    "cases": 4,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 3.152701666636858,
+    "input_bytes": 1850884,
+    "library_compile_seconds": 0.00763702392578125,
+    "output_bytes": 32512000,
+    "pipeline_cache": {
+      "archive_bytes": 9396592,
+      "archive_compile_seconds": 0,
+      "archive_sha256": "7697efe956ca3de49de941e041e9fa1206a3cc23d653b708e97464e3a2df0cfd",
+      "enabled": true,
+      "hit": true,
+      "identity": {
+        "consumer_sha256": "e4391d2ff898314bc64ab08a3e85d7f8bd18a16f733906741b1924b15ad47cbf",
+        "device": "Apple M5",
+        "entry": "portableEvents",
+        "math_mode": "safe",
+        "os_build": "Version 27.0.1 (Build 26A434)",
+        "registry_id": "4294968346",
+        "resident_stride": "138952",
+        "schema": "1",
+        "source_sha256": "1a6baa15905005f1ddcc3324ad8a6f745b70e98aa570bb276e7028d778266fc6",
+        "threads_per_threadgroup": "1"
+      },
+      "key": "c50539b9514619107dae5d9e5a716d01714f93baea4a0db1d1a8ea5292d85400",
+      "native_archive_miss_rejected": true,
+      "required": true,
+      "schema": 1
+    },
+    "pipeline_compile_seconds": 0.002964019775390625,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "pipeline_os_build": "Version 27.0.1 (Build 26A434)",
+    "registry_id": "4294968346",
+    "runtime_buffer_bytes": 555808,
+    "runtime_element_capacity": 4,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 138952,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "cpu_preflight_seconds": 104.17097516701324,
+  "gpu_child_elapsed_seconds": 4.772223041974939,
+  "run_test_groups": 27,
+  "run_tests": 228,
+  "gpu_executions": 1,
+  "same_claim_retries": 0,
+  "generation_cache_hit": true,
+  "generation_compiler_invocations": 0,
+  "independent_native_cases": 4,
+  "independent_gpu_calls": 0,
+  "independent_parent_reused": false,
+  "independent_elapsed_seconds": 117.87701933301287,
+  "independent_receipt_sha256": "19f236e15ccd48bc3302d8e5cc757753a411aa5a7a3a116753b483a70a49a512",
+  "source_certificate_sha256": "834fdf70829eef3c76c9c01dbb4101e474d0e18340fb0b2853536b291b8e9c7a",
+  "input_sha256": "16bfcec0b44b15aed6eac2ce36b0fe5de52e1d90e80f2767129a34960c99742e",
+  "output_sha256": "938b854423ba0e75be8a56703bef07cefd990d2f592c31fcd0d22d935bd43fa9",
+  "saved_gpu_counts": {
+    "schema": "original-probability-gpu-counts-v1",
+    "package_id": "50c273ee524def49300966f6b451c8a16cb08a4f5970a7695b35e717417e2817",
+    "gpu_calls": 0,
+    "input_sha256": "16bfcec0b44b15aed6eac2ce36b0fe5de52e1d90e80f2767129a34960c99742e",
+    "output_sha256": "938b854423ba0e75be8a56703bef07cefd990d2f592c31fcd0d22d935bd43fa9",
+    "cases": [
+      {
+        "name": "original-catalogue/probability/Emma-control/30s",
+        "definitions": 70,
+        "status": 0,
+        "row": 0,
+        "activations": 0,
+        "received_hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "original-catalogue/probability/Emma-self-chipped/30s",
+        "definitions": 70,
+        "status": 0,
+        "row": 0,
+        "activations": 6,
+        "received_hits": [
+          64,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "original-catalogue/probability/Emma-self-wounded/30s",
+        "definitions": 70,
+        "status": 0,
+        "row": 0,
+        "activations": 6,
+        "received_hits": [
+          65,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "original-catalogue/probability/Emma-ally-chipped/30s",
+        "definitions": 70,
+        "status": 0,
+        "row": 0,
+        "activations": 0,
+        "received_hits": [
+          0,
+          0,
+          64,
+          0,
+          0
+        ]
+      }
+    ],
+    "scope": "Saved raw activation and incoming counters only; full battle/RNG verification remains the immutable comparison and independent seal."
+  },
+  "source_closure_files": 273,
+  "prior_threshold_source_and_normalized_generation_retained": true,
+  "gpu_and_protected_cpu_unchanged_from": "9f7e3fc5",
+  "final_unit_check": {
+    "schema": "unit-check-v1",
+    "package_id": "ba0b9c90640c57ea9996db6488a7573da46696a2f0790eb5935d2eb6cfc297e6",
+    "suite": "original-probability-conditions-cache-only",
+    "passed": true,
+    "unit_tests_verified": true,
+    "full_native_preflight_executed": false,
+    "cpu_verified": false,
+    "calculation_verified": false,
+    "gpu_execution_verified": false,
+    "gpu_calls": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false,
+    "groups": 29,
+    "tests": 257
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "ba0b9c90640c57ea9996db6488a7573da46696a2f0790eb5935d2eb6cfc297e6",
+    "suite": "original-probability-conditions-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "development_audit_reuse": {
+    "schema": "saved-static-audit-anchor-check-v1",
+    "reports": [
+      {
+        "file": "original-threshold-conditions-inventory-v1-20261030.json",
+        "sha256": "178a5d14370c6049f94f27d65dfba592ca0033955a8a01834eb0a89e8bad80ec",
+        "root_source_anchors_verified": 517,
+        "source_anchors_unchanged": true
+      },
+      {
+        "file": "original-threshold-conditions-model-check-v1-20261030.json",
+        "sha256": "373e42df54c835a44666b2b2551c892224cc13ea0913a53cefe38914168c1500",
+        "root_source_anchors_verified": 10,
+        "source_anchors_unchanged": true
+      }
+    ],
+    "cpu_battle_calls": 0,
+    "gpu_calls": 0,
+    "scope": "Revalidated recorded root source anchors only; old scoped GPU certificates retain their original scope and currency limitations."
+  },
+  "final_static_inventory": {
+    "profiles": 266,
+    "packed": 254,
+    "failed": 12,
+    "categories": 13,
+    "source_anchors_verified": 517,
+    "elapsed_seconds": 4.489726458035875,
+    "sha256": "b44fa59fbbe1943d7176e2b0c462cc1fad53dea38762da33a46d339580cbd7bf",
+    "refresh_reason": "Final CPU test registration changed one recorded dependency after the earlier reuse check; refreshed static inventory only.",
+    "calculation_verified": false
+  },
+  "ranked_operator_families": [
+    {
+      "operator": {
+        "kind": "buff",
+        "stat": "received_dmg_split",
+        "category": "effect",
+        "operator": null
+      },
+      "affected_profiles": 4,
+      "targets": [
+        "all_allies",
+        "self_cover"
+      ],
+      "lanes": [
+        "reference_model_gap"
+      ]
+    },
+    {
+      "operator": {
+        "kind": "buff",
+        "stat": "effect_target_count_add",
+        "category": "effect",
+        "operator": null
+      },
+      "affected_profiles": 2,
+      "targets": [
+        "self",
+        "allies_with_buff:섬멸 태세"
+      ],
+      "lanes": [
+        "reference_model_gap"
+      ]
+    },
+    {
+      "operator": {
+        "kind": "buff",
+        "stat": "cover_def_pct",
+        "category": "effect",
+        "operator": null
+      },
+      "affected_profiles": 1,
+      "targets": [
+        "allies_top_atk:3"
+      ],
+      "lanes": [
+        "reference_model_gap"
+      ]
+    },
+    {
+      "operator": {
+        "kind": "buff",
+        "stat": "effect_range_pct",
+        "category": "effect",
+        "operator": null
+      },
+      "affected_profiles": 1,
+      "targets": [
+        "allies_with_buff:섬멸 태세"
+      ],
+      "lanes": [
+        "reference_model_gap"
+      ]
+    },
+    {
+      "operator": {
+        "kind": "buff",
+        "stat": "enemy_movement_disable",
+        "category": "effect",
+        "operator": null
+      },
+      "affected_profiles": 1,
+      "targets": [
+        "enemies_in_range"
+      ],
+      "lanes": [
+        "reference_model_gap"
+      ]
+    },
+    {
+      "operator": {
+        "kind": "buff",
+        "stat": "force_move",
+        "category": "effect",
+        "operator": null
+      },
+      "affected_profiles": 1,
+      "targets": [
+        "enemies_in_range"
+      ],
+      "lanes": [
+        "reference_model_gap"
+      ]
+    },
+    {
+      "operator": {
+        "kind": "buff",
+        "stat": "lock_on",
+        "category": "effect",
+        "operator": null
+      },
+      "affected_profiles": 1,
+      "targets": [
+        "enemies_nearest:1"
+      ],
+      "lanes": [
+        "reference_model_gap"
+      ]
+    },
+    {
+      "operator": {
+        "kind": "buff",
+        "stat": "heal_received_pct",
+        "category": "recipient",
+        "operator": null
+      },
+      "affected_profiles": 1,
+      "targets": [
+        "all_enemies"
+      ],
+      "lanes": [
+        "reference_model_gap"
+      ]
+    },
+    {
+      "operator": {
+        "kind": "damage",
+        "stat": "damage",
+        "category": "recipient",
+        "operator": null
+      },
+      "affected_profiles": 1,
+      "targets": [
+        "all_projectiles"
+      ],
+      "lanes": [
+        "reference_model_gap"
+      ]
+    },
+    {
+      "operator": {
+        "kind": "damage",
+        "stat": "split_damage",
+        "category": "recipient",
+        "operator": null
+      },
+      "affected_profiles": 1,
+      "targets": [
+        "target_and_nearby:2"
+      ],
+      "lanes": [
+        "reference_model_gap"
+      ]
+    },
+    {
+      "operator": {
+        "kind": "instant",
+        "stat": "ammo_charge_pct",
+        "category": "recipient",
+        "operator": null
+      },
+      "affected_profiles": 1,
+      "targets": [
+        "all_enemies"
+      ],
+      "lanes": [
+        "reference_model_gap"
+      ]
+    }
+  ],
+  "catalogue_scenes": 1084,
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "public_gpu_admission_added": false,
+  "cuda_verified": false,
+  "windows_new_requests": 0,
+  "scope": "Four original 30-second Emma sampled worlds; untouched probability condition, actual hits, recovery and source counters plus existing full battle/RNG comparison. Finite seeded parity, not statistical probability estimation or default/game/all-character/CUDA certification."
+}

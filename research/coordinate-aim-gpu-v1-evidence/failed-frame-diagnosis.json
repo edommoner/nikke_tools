@@ -1,0 +1,176 @@
+[
+  {
+    "index": 151,
+    "name": "coordinate-core/aim/manual-owner-only",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 152,
+    "name": "coordinate-core/aim/first-live-entry",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 153,
+    "name": "coordinate-core/aim/target-expires",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 154,
+    "name": "coordinate-core/aim/core-expires-fallback",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 155,
+    "name": "coordinate-core/aim/core-changes-manual-stays",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 156,
+    "name": "coordinate-core/aim/priority-preemption",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 157,
+    "name": "coordinate-core/aim/equal-priority-new-edge",
+    "status": 64
+  },
+  {
+    "index": 158,
+    "name": "coordinate-core/aim/warn-all-own",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 159,
+    "name": "coordinate-core/aim/layer2-interrupt",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 160,
+    "name": "coordinate-core/aim/layer1-ignores-interrupt",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 161,
+    "name": "coordinate-core/aim/shared-camera-layer2",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 162,
+    "name": "coordinate-core/aim/focus-zero-marker-expires",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 163,
+    "name": "coordinate-core/aim/full-burst-follow",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 164,
+    "name": "coordinate-core/aim/window-always",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 165,
+    "name": "coordinate-core/aim/window-burst_charge",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 166,
+    "name": "coordinate-core/aim/window-burst_chain",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 167,
+    "name": "coordinate-core/aim/window-own_full_burst",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 168,
+    "name": "coordinate-core/aim/combat-start-anchor",
+    "status": 64
+  },
+  {
+    "index": 169,
+    "name": "coordinate-core/aim/anchor-fb_end",
+    "status": 64
+  },
+  {
+    "index": 170,
+    "name": "coordinate-core/aim/anchor-own_fb_end",
+    "status": 64
+  },
+  {
+    "index": 171,
+    "name": "coordinate-core/aim/anchor-own-buff-end",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 172,
+    "name": "coordinate-core/aim/anchor-reload-minus",
+    "status": 64
+  },
+  {
+    "index": 173,
+    "name": "coordinate-core/aim/anchor-next-fb-prediction",
+    "status": 64
+  },
+  {
+    "index": 174,
+    "name": "coordinate-core/aim/gate-True",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 175,
+    "name": "coordinate-core/aim/gate-False",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 176,
+    "name": "coordinate-core/aim/same-frame-target-break",
+    "status": 0,
+    "frame_conformance": false,
+    "error": "Coordinate aim full frame conformance digests"
+  },
+  {
+    "index": 177,
+    "name": "coordinate-core/aim/default-interrupt-priority",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 178,
+    "name": "coordinate-core/aim/shared-camera-manual",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 179,
+    "name": "coordinate-core/aim/forced-camera-sequence",
+    "status": 0,
+    "frame_conformance": true
+  },
+  {
+    "index": 180,
+    "name": "coordinate-core/aim/dynamic-reload-minus",
+    "status": 64
+  }
+]

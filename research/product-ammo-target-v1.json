@@ -1,0 +1,455 @@
+{
+  "schema": 1,
+  "scope": "Original target-specific modifier carriers with enemy magazines, native shot groups, optional cover and final-queue retirement in explicit BODY/PART/ADD worlds",
+  "implementation": {
+    "common_cuda_metal_executor": true,
+    "new_suites": 0,
+    "new_auditors": 0,
+    "new_thin_target_programs": 4,
+    "group_target_uses_existing_group_programs": true,
+    "shared_exact_group_axis_validator": true,
+    "input_output_dimensions_unchanged": true,
+    "original_effects_and_axes_retained": true,
+    "typed_targets": 0,
+    "projectile_or_shield_game_admission_claimed": false,
+    "canonical_cpu_files_changed": [],
+    "numeric_rules_or_tolerances_changed": false
+  },
+  "normal_api": {
+    "successful_distinct_conditions": 16,
+    "posts": 2,
+    "successful_physical_batches": 8,
+    "rows": [
+      {
+        "variant": "ammo-cover-fixed-target-15",
+        "source": "gpu/product_ammo_cover_fixed_target_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "66d0ec40e1ca4a699b122d0f54eb7bde",
+        "input_sha256": "09db148ad807842a65d16e723f883947bd85ba0c762c1cfe04ae9a5b75a8234f",
+        "output_sha256": "53429c6ccadd869516fd28c04532b0bb56bb3b89599673ba667c7f964bd08dc6",
+        "definitions": 82,
+        "axis_rows": [
+          {
+            "row": 22,
+            "axis": 3
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 6,
+        "retirements": 0,
+        "actual_shot_groups": false,
+        "cover_receipts": 4,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-cover-fixed-target-30",
+        "source": "gpu/product_ammo_cover_fixed_target_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "3088f530f5734a839869eef819f9ff45",
+        "input_sha256": "c32eba2e3ad379c7118a2a3238a424936dab1056ca9948a471428842aa4e74a3",
+        "output_sha256": "fb3e28d88da8c5b5ed6a99fbeb0dd5d3aa7de5580704a5bba2559a2f6eb021dc",
+        "definitions": 82,
+        "axis_rows": [
+          {
+            "row": 22,
+            "axis": 3
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 9,
+        "retirements": 0,
+        "actual_shot_groups": false,
+        "cover_receipts": 4,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-cover-accumulate-target-15",
+        "source": "gpu/product_ammo_cover_target_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "9d48fd27f99b4ce6a32602c8fa091d94",
+        "input_sha256": "210ec988bd14af226bcff0a40ee26e799267ad7d3a57fd64485b03204864e1bc",
+        "output_sha256": "1629c15a856b6c189201a4921ec1300f218f6e0c0f6e6a70898b82090eb68e65",
+        "definitions": 82,
+        "axis_rows": [
+          {
+            "row": 22,
+            "axis": 3
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 6,
+        "retirements": 0,
+        "actual_shot_groups": false,
+        "cover_receipts": 4,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-cover-accumulate-target-30",
+        "source": "gpu/product_ammo_cover_target_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "a73b5280afb4494f99ac93c1f86430da",
+        "input_sha256": "e54a1f009c0b9cca5719074991dcaebdd021e4db989f3df1d2b87c6d95885279",
+        "output_sha256": "2b991090e3eeeff22630476925f7dc6416955ce8d06e500ee7d30cd91b4e7a6b",
+        "definitions": 82,
+        "axis_rows": [
+          {
+            "row": 22,
+            "axis": 3
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 9,
+        "retirements": 0,
+        "actual_shot_groups": false,
+        "cover_receipts": 4,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-fixed-group-target-ordinary",
+        "source": "gpu/product_ammo_fixed_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "c128d669fb884e208686f85896462ddb",
+        "input_sha256": "168e5578c93179baaea13817821efdce82a4666ba1c2d3bd20b832e02004c714",
+        "output_sha256": "dafce16e5b200255b0e4fe0a6e7555f47ad90a0a8c71da91ea91c8f0fb7268ff",
+        "definitions": 82,
+        "axis_rows": [
+          {
+            "row": 23,
+            "axis": 2
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 6,
+        "retirements": 0,
+        "actual_shot_groups": true,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-fixed-group-target-final-queue",
+        "source": "gpu/product_ammo_fixed_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "19055ea4172546b58d87d080cef21491",
+        "input_sha256": "c4e1c55fcb9f97e961f219000e7295b48cff8c48e8236df5eb71fd47955dfb4e",
+        "output_sha256": "ce86cc8e7e196d6ae4ba2a81334eb5e18b1739e606c382730c89812529f0b81b",
+        "definitions": 82,
+        "axis_rows": [
+          {
+            "row": 23,
+            "axis": 2
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 2,
+        "retirements": 2,
+        "actual_shot_groups": true,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-accumulate-group-target-ordinary",
+        "source": "gpu/product_ammo_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "6c9018e438ec49349dfdd2cec3b694d5",
+        "input_sha256": "eedc7a81df97d77570d671fb1f4d9096c500dfd5ee1eccbab2c8ee8fb6b66063",
+        "output_sha256": "0af1dbd71b2b8dd412a6c4695d19cdafd054cf8a59cd216ea95d0b05f43e50c6",
+        "definitions": 82,
+        "axis_rows": [
+          {
+            "row": 23,
+            "axis": 2
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 6,
+        "retirements": 0,
+        "actual_shot_groups": true,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-accumulate-group-target-final-queue",
+        "source": "gpu/product_ammo_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "da284d9a82b64080b2adeeecf143b555",
+        "input_sha256": "c351a8ab48af47641edffb600d91abde4634a48afd177c7cf55907e80d2fdd38",
+        "output_sha256": "4411b59d02834b965356e995ee1b9bc59a29d36efcc7ad0d36d05a014b0327e9",
+        "definitions": 82,
+        "axis_rows": [
+          {
+            "row": 23,
+            "axis": 2
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 2,
+        "retirements": 2,
+        "actual_shot_groups": true,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-cover-fixed-group-target-ordinary",
+        "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "f7b77cbf98f94659aab4594a1445e280",
+        "input_sha256": "f9aa96611a977fa22523d24beee544e02c8f2eb0c357b697d9d6447c85059e76",
+        "output_sha256": "25eaf037fe8f3a5015c1c679f8e7f9266ef76dcbce7e1d674843d3f69d5420c9",
+        "definitions": 77,
+        "axis_rows": [
+          {
+            "row": 23,
+            "axis": 2
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 6,
+        "retirements": 0,
+        "actual_shot_groups": true,
+        "cover_receipts": 2,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-cover-fixed-group-target-final-queue",
+        "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "a330fe6c5af647f38b3afb1a5f727b0d",
+        "input_sha256": "1f5922b8926ac0f978f599bb66bc70e84488c3186cf4f8122d1b25d45afacf8b",
+        "output_sha256": "8d6e33549f6674800344cfe3e20c281e9168328c084becdf2ca52ed81860287e",
+        "definitions": 77,
+        "axis_rows": [
+          {
+            "row": 23,
+            "axis": 2
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 2,
+        "retirements": 2,
+        "actual_shot_groups": true,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-cover-accumulate-group-target-ordinary",
+        "source": "gpu/product_ammo_cover_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "be47a1020cd6490ca51d4b604b063450",
+        "input_sha256": "349c4824c49e6b5705d827df0a6c691fae1911da8867d42a9c4fbbf537228c09",
+        "output_sha256": "46e013b7fe6d5c4490df0ef139854d6cbd1c3fcc36f8b0e0516d7757c4dd7774",
+        "definitions": 77,
+        "axis_rows": [
+          {
+            "row": 23,
+            "axis": 2
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 6,
+        "retirements": 0,
+        "actual_shot_groups": true,
+        "cover_receipts": 2,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-cover-accumulate-group-target-final-queue",
+        "source": "gpu/product_ammo_cover_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "6fb9d92ec4714744824791284ab4456f",
+        "input_sha256": "286e4a62b7c9fb1c2d6646b7e5bbbee8efac6dcc556a2182c8e0a0d5303bd713",
+        "output_sha256": "82189daaf7dfa96e379a5c23d778936b116e0d07710f451be164aebb7be20f3d",
+        "definitions": 77,
+        "axis_rows": [
+          {
+            "row": 23,
+            "axis": 2
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 2,
+        "retirements": 2,
+        "actual_shot_groups": true,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-fixed-target-15",
+        "source": "gpu/product_ammo_fixed_target_battle_entry.slang",
+        "evidence_directory": "api-v2",
+        "capture_id": "f75564464d9b4aee8f2693a60afe5ac7",
+        "input_sha256": "7833c77782b07423044442d9ab01f50a8902402f4bea54bbd8ed84473e604375",
+        "output_sha256": "ea011e01ce2462575cb380ed930b1838a2322458cf9e692d63194f5bfa826494",
+        "definitions": 84,
+        "axis_rows": [
+          {
+            "row": 22,
+            "axis": 3
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 6,
+        "retirements": 0,
+        "actual_shot_groups": false,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-fixed-target-30",
+        "source": "gpu/product_ammo_fixed_target_battle_entry.slang",
+        "evidence_directory": "api-v2",
+        "capture_id": "4639e77b2f294ada9943c9421258b17c",
+        "input_sha256": "e2e60a12c24480a1bd5d1243b32638c9926eb7005adebe884514aac638f5e1b5",
+        "output_sha256": "e1b1f8d94c15cfbcb5c5deb585800abe75775cccd092ad45ad2519acb5d26d5c",
+        "definitions": 84,
+        "axis_rows": [
+          {
+            "row": 22,
+            "axis": 3
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 9,
+        "retirements": 0,
+        "actual_shot_groups": false,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-accumulate-target-15",
+        "source": "gpu/product_ammo_target_battle_entry.slang",
+        "evidence_directory": "api-v2",
+        "capture_id": "6877f6ed53c74fa5a1e36ebcea638887",
+        "input_sha256": "f82cdecff3384644a3dceb527c6664ad382101e07b7d9522dfcf5844e4a18d9f",
+        "output_sha256": "171e71938b981c0cd74c26b0aaf69644a23580c75fdae515e0194ab745a0cf84",
+        "definitions": 84,
+        "axis_rows": [
+          {
+            "row": 22,
+            "axis": 3
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 6,
+        "retirements": 0,
+        "actual_shot_groups": false,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "ammo-accumulate-target-30",
+        "source": "gpu/product_ammo_target_battle_entry.slang",
+        "evidence_directory": "api-v2",
+        "capture_id": "39a2fb4084b7414894906b36756968ac",
+        "input_sha256": "3e8bd7ba6e9f8a1a007d2a94c297e662cdfe8aea54235f3b92d3f46e199eb75d",
+        "output_sha256": "f707b718dc34b8339ff9df3dd4c90e26596946e110fee71f920bbe1dbd6f5d3d",
+        "definitions": 84,
+        "axis_rows": [
+          {
+            "row": 22,
+            "axis": 3
+          }
+        ],
+        "typed_targets": 0,
+        "nonzero_enemy_depletion_targets": 9,
+        "retirements": 0,
+        "actual_shot_groups": false,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      }
+    ],
+    "all_full_cpu_gpu_http_payloads_equal": true,
+    "successful12_saved_gpu_source_and_input_reused_without_reexecution": true,
+    "compiler_only_fallback4_corrected_with_same_caller_values": true,
+    "saved_audits_initial16_and_corrected4_passed": true,
+    "saved_audit_extra_battles": 0,
+    "saved_audit_extra_gpu": 0,
+    "node_groups_absent": true,
+    "http_job_seconds_includes_first_compiler_failures": 137.76779679208994
+  },
+  "cli": {
+    "program": "ammo-cover-fixed-group",
+    "old_three_cases_all_input_output_native_hashes_exact": true,
+    "added_cases": 2,
+    "metal_and_fresh_native_cases": 5,
+    "independent_audit": {
+      "package_id": "a77538df962941aab97016b7aa84c40ebe151539d9cecab64a44be413eb2ceed",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-ammo-target-v1-20261101/metal-v1",
+      "child_pid": 28946,
+      "input_count": 5,
+      "native_cases": 5,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 2.689428957994096,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "344930d74ef3358db7fd138c76ed5356c9a1767fcd8d82cc81433d114ed38a5b",
+      "output_sha256": "3745f328180f61f3c7d0d5b2c7fd5f466ef1fa0454fc8622e73c4c838d6bf308",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "final_selected_source_closure_exact": true,
+    "cpu_tests": 155,
+    "cpu_groups": [
+      67,
+      11,
+      7,
+      70
+    ]
+  },
+  "raw_device_rejection": {
+    "owner": "a77538df962941aab97016b7aa84c40ebe151539d9cecab64a44be413eb2ceed",
+    "mutation": {
+      "word": 104439,
+      "old": 2,
+      "new": 4
+    },
+    "gpu_status": 64,
+    "rejected_before_battle": true,
+    "input_sha256": "b3fa0d2de5f0ef136d94f5d3715b714416d5521a99ca4f8eb6b6fba68b044201",
+    "output_sha256": "0b90d34f36255db3b33b51891b0eec7d5ba66935702c7041388e97a0dbbd055c",
+    "gpu_calls": 1,
+    "native_battles": 0,
+    "original_success_claim_unchanged": true,
+    "scope": "New invalid raw input admission only; no profile coverage or successful battle claimed",
+    "full_goal_complete": false
+  },
+  "release": {
+    "owner": "36cd5e9e60ac2f4789a8c98a68ee67d591f759fc0dec63692d9e1bc81cb677c4",
+    "own_cpu_deps_ptx_o1_plans_passed": true,
+    "calculation_files_byte_equal": 1065,
+    "changed_paths": [
+      "app/portable_product_programs.py",
+      "app/portable_weighted_incoming_source_contract.py",
+      "gpu/product_ammo_target_battle_entry.slang"
+    ],
+    "changed_shader_scope": "Only bare new target root adds existing external-ADD executor ownership flag; selected CLI and successful12 shader closures remain exact",
+    "final_reprojection_cases": 16,
+    "extra_battles": 0,
+    "extra_gpu": 0
+  },
+  "baseline": {
+    "version": 47,
+    "updated_existing_member": "ammo-cover-fixed-group",
+    "old_three_input_output_native_entries_unchanged": true,
+    "added_cases": 2,
+    "other34_members_unchanged": true,
+    "new_target_programs": "Normal API Metal verified; separate independent CLI baseline not registered"
+  },
+  "failures_retained": [
+    "Initial normal API16: bare target4 failed Slang before GPU due duplicate/absent entry; original compiler errors and CPU fallbacks retained. Other12 completed M5/CPU and were not rerun. Added existing ADD external-owner flag only to bare new target root; exact original4 bodies then all passed."
+  ],
+  "standard_metal_profiles": 263,
+  "standard_cuda_profiles": 263,
+  "configured_recorded_metal_profiles": 266,
+  "configured_recorded_cuda_profiles": 265,
+  "new_standard_profiles_added": 0,
+  "current_new_composition_cuda_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Combined enemy healing and magazines",
+    "Compositions with real typed projectile/shield targets and their declared game policies",
+    "Windows short differentials when memory permits",
+    "Unconfigured game models and unrestricted compositions"
+  ]
+}

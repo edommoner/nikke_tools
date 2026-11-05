@@ -1,0 +1,313 @@
+{
+  "schema": 1,
+  "primary_profiles": [
+    "홍련 : 흑영"
+  ],
+  "metal_primary_profile_count": 1,
+  "ordinary_http_conditions": 5,
+  "additional_python_product_conditions": 2,
+  "cpu_full_payload_matches": 7,
+  "cuda_current_profile_count": 0,
+  "scope": "Character default reload cancel_on_full control, fixed/accumulate, real growth and declared hypothetical charge-speed boundary",
+  "implementation": "Native CharState literal reload_cancel_on_full goes to existing WEAPON_QUANTITY +3 and existing shared applyAmmoInstant; no new clock/Slang/runtime fields",
+  "unchanged": [
+    "CPU reference",
+    "pinned upstream",
+    "GPU source",
+    "numerical rules",
+    "strict normalizer",
+    "old goldens",
+    "old captures"
+  ],
+  "tests": {
+    "portable_detail": 56,
+    "weighted_source_contract": 7,
+    "product_detail_packet": 7,
+    "portable_gpu_cli": 52
+  },
+  "additional_native_gpu_calls_in_saved_audits": 0,
+  "causal": {
+    "native_cancellations": [
+      {
+        "name": "홍련 : 흑영",
+        "time": 41.76666666666558,
+        "ammo": 17,
+        "reload_until": 43.21666666666561
+      }
+    ],
+    "gpu_reload_trace": [
+      {
+        "kind": 1,
+        "time": 13.600000000000255,
+        "deadline": 15.600000000000255,
+        "ammo": 0
+      },
+      {
+        "kind": 2,
+        "time": 15.600000000000355,
+        "deadline": -1.0,
+        "ammo": 12
+      },
+      {
+        "kind": 1,
+        "time": 22.78333333333332,
+        "deadline": 24.78333333333332,
+        "ammo": 0
+      },
+      {
+        "kind": 2,
+        "time": 24.799999999999873,
+        "deadline": -1.0,
+        "ammo": 12
+      },
+      {
+        "kind": 1,
+        "time": 31.999999999999464,
+        "deadline": 33.99999999999946,
+        "ammo": 0
+      },
+      {
+        "kind": 2,
+        "time": 34.01666666666602,
+        "deadline": -1.0,
+        "ammo": 12
+      },
+      {
+        "kind": 1,
+        "time": 41.21666666666561,
+        "deadline": 43.21666666666561,
+        "ammo": 0
+      }
+    ],
+    "independent_native_payload_exact": true,
+    "gpu_begin_precedes_cancellation": true,
+    "no_false_full_reload_completion": true,
+    "native_battles_in_saved_audit": 0,
+    "gpu_calls_in_saved_audit": 0
+  },
+  "non_exercising_boundaries": "The two charge30% growth boundary captures matched but had no native cancellation. Kept separately; only charge60% input exercises cancellation.",
+  "abandoned_probe": "Explicit authored cover requests are absent from current product API. Exploratory edits were restored before any GPU execution; no cover product support claim.",
+  "coverage_limit": "Existing catalogue profile, new character-default operation. Do not add 1 to historical 255 distinct profiles. Current full catalogue revalidation and CUDA product completion remain pending.",
+  "records": [
+    {
+      "proof_directory": "product-reload-cancel-v1-20261031",
+      "cases": 4,
+      "kind": "ordinary-http-api",
+      "audit_sha256": "32d8d7c556a5ea1cb2b336929bfce62635b30e8bb275694c577cfa7d97f51c3b",
+      "captures": [
+        "247ba4f5e8864429bea015800c4533ee",
+        "9091af2092564537809716b7db2166f5",
+        "c76347b93b684912bf78fe24c58f8aef",
+        "dc1b72afaee4499ab20416aeea3cde14"
+      ],
+      "source_inventory_sha256": "1657ffba2ba2ec39100f679914ba126646ebb3dd350f080c416faa79e4a995ee"
+    },
+    {
+      "proof_directory": "product-reload-cancel-boundary-v1-20261031",
+      "cases": 2,
+      "kind": "product-python-api",
+      "audit_sha256": "6193a6ee1ad47f993372572370e14488c13cca71f77e3a249bd6390d2e8ae754",
+      "captures": [
+        "7fb226a031d84a149be8b5dc5d497807",
+        "523c1e56d93b4652b85284e02943a73d"
+      ],
+      "source_inventory_sha256": "a9e5c56982fabc6d40e420c306df25c12ceec7db581ff32d4a30170026590e12"
+    },
+    {
+      "proof_directory": "product-reload-cancel-active-v1-20261031",
+      "cases": 1,
+      "kind": "ordinary-http-api",
+      "audit_sha256": "73c3147436a4b9b991509c74688709e4c03868d1124a2a338a95d536942ca670",
+      "captures": [
+        "86ce4b2af58445ea9e62c35f9d6a9828"
+      ],
+      "source_inventory_sha256": "1657ffba2ba2ec39100f679914ba126646ebb3dd350f080c416faa79e4a995ee"
+    }
+  ],
+  "cli_seal": {
+    "program": "accumulate",
+    "package_id": "838deec2780c4fa351d74c36e2af558bf14e31a395806c5d2448d655034184e4",
+    "source_commit": "f7cb388b63d01c8238f29d8bef3a1076bb9e7149",
+    "proof_directory": "product-current-reload-cuda-v1-20261031",
+    "independent_seal": true,
+    "independent_audit_gpu_calls": 0,
+    "seal_audit_sha256": "1d3971d8331cbf0cb37c1abdea9b70e1796cf4ef915442321dfa933c0469c91e",
+    "golden_sha256": "0e90b007486e8eff722156e103a6f8632ce199f411129134e83634c576105e78",
+    "old_input_output_and_entries_exact": true,
+    "changed_baseline_fields": [
+      "source_sha256",
+      "generated_normalized"
+    ],
+    "other_program_baselines_unchanged": true,
+    "product_profile_increment": 0
+  },
+  "windows_unit_attempt": {
+    "package_id": "ac35d8414bf1c57c0855a012021d6e181119699f26ab1673974bbc626a682b1d",
+    "terminal": "outer-timeout",
+    "completed_groups": 2,
+    "completed_tests": 63,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "weighted_group_complete": false,
+    "outer_seconds": 62.713,
+    "timeout_seconds": 60,
+    "peak_bytes": 201781248,
+    "worker_verification_finished_since_outer_start_seconds": 31.18,
+    "worker_package_verification_seconds": 14.504,
+    "completed_group_elapsed_seconds": [
+      23.205,
+      2.808
+    ],
+    "unittest_inner_seconds": [
+      18.72,
+      2.68
+    ],
+    "before_snapshot_seconds": 2.366,
+    "after_snapshot_seconds": 2.665,
+    "unknown_startup_breakdown": true,
+    "missing_processes": 0,
+    "observation_errors": 0,
+    "cleanup_errors": 0,
+    "jobs_closed": true,
+    "compiler_calls": 0,
+    "gpu_calls": 0,
+    "source": "Windows peer saved-only summary; not independent Mac audit of original Windows files"
+  },
+  "source_fixture_io_optimization": {
+    "scope": "Real temporary file writes, same twelve negative mutations; not Windows wall-time measurement",
+    "results": [
+      {
+        "version": "original",
+        "source_sha256": "f919082c78709b0ded24fbd3fc044752b8072808b3e866d1cdb1c2d341fcd4ec",
+        "tests_run": 2,
+        "failures": 0,
+        "errors": 0,
+        "fixture_trees": 12,
+        "write_bytes_calls": 699,
+        "write_bytes_total": 9154185,
+        "write_text_calls": 9,
+        "write_text_utf8_bytes": 493124
+      },
+      {
+        "version": "reused_fixture",
+        "source_sha256": "be37b6c3184c593dbf3380bb5b9df04d6d06064e07f7fa03de71c2c6327e9ac3",
+        "tests_run": 2,
+        "failures": 0,
+        "errors": 0,
+        "fixture_trees": 2,
+        "write_bytes_calls": 140,
+        "write_bytes_total": 2591583,
+        "write_text_calls": 0,
+        "write_text_utf8_bytes": 0
+      }
+    ],
+    "native_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "compact_v2": {
+    "package_id": "a37b8330f6e95a24dd2d2c36e47ae8552c2196ef215f9c2049c71fb5dcec6b8c",
+    "source_commit": "5f0af26cea35fa9b6227c58b29598e0007168ad5",
+    "archive_bytes": 11847063,
+    "archive_sha256": "bb6c4f8601f43a105184bbab512f1b3783a5c1f1fcad7566fd68c78ed3998267",
+    "transport_commit": "14089feb",
+    "files": 2698,
+    "omitted_python_files": 1489,
+    "added_payload_files": 0,
+    "changed_payload_files": [
+      "tests/test_weighted_source_contract.py"
+    ],
+    "entire_golden_identical": true,
+    "all_calculation_payload_identical": true,
+    "mac_own_unit_tests": 70,
+    "mac_deps_plan_sealed_generation_passed": true,
+    "mac_additional_gpu_calls": 0,
+    "mac_additional_native_calls": 0,
+    "windows_observed_state": "active CPU preparation; terminal result pending",
+    "windows_gpu_api_requested": false,
+    "peer_state_file": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-current-reload-cuda-v1-20261031/windows-compact-v2-pending.json"
+  },
+  "cuda_api_mac_references": {
+    "proof_directory": "product-current-reload-cuda-api-v1-20261031",
+    "primary_profiles": [
+      "노아",
+      "홍련 : 흑영"
+    ],
+    "conditions": 2,
+    "metal_cpu_full_payload_match": true,
+    "saved_audit_additional_gpu_native_calls": 0,
+    "noah_dot_times": [
+      3.5
+    ],
+    "scarlet_native_cancel_time": 42.79999999999885,
+    "not_cuda_proof": true
+  },
+  "windows_compact_terminal": {
+    "unit_tests": 70,
+    "unit_seconds": 54.037,
+    "unit_peak_bytes": 198148096,
+    "unit_group_seconds": [
+      22.329,
+      2.886,
+      6.09
+    ],
+    "unit_before_snapshot_seconds": 2.501,
+    "unit_worker_verify_seconds": 7.875,
+    "unit_worker_verify_finished_from_outer_start_seconds": 19.76,
+    "missing_processes": 7,
+    "termination_cause": "unknown",
+    "unit_capture_all14_files_verified": true,
+    "unit_owner_and_complete_verified": true,
+    "unit_job_direct_pre_post_identity_verified": true,
+    "unit_preservation_verified": false,
+    "unit_repeated": false,
+    "deps_passed": true,
+    "compile_plan_passed": true,
+    "sealed_generation_stage_verified": true,
+    "sealed_generation_seconds": 24.437,
+    "sealed_generation_peak_bytes": 541224960,
+    "ptx_outer_timed_out": true,
+    "ptx_outer_seconds": 62.325,
+    "ptx_outer_peak_bytes": 224788480,
+    "ptx_returned": false,
+    "ptx_artifact_present": false,
+    "serial_compile_key_prefix": "26e5657b",
+    "serial_claim_retained": true,
+    "compiler_metadata_version": "12.4.127",
+    "runtime_version_api_measured": false,
+    "nominal_stage_call_to_nvrtc_entered_seconds": 27.281,
+    "nominal60_seconds_minus_entry_seconds": 32.719,
+    "exact_deadline_remaining_unknown": true,
+    "ptx_child_verify_seconds": 8.55,
+    "ptx_generation_build_seconds": 3.461,
+    "ptx_current_missing_processes": 0,
+    "ptx_cleanup_observation_errors": 0,
+    "ptx_inner_post_record_complete": false,
+    "outer_jobs_closed": true,
+    "native_supervisor_seconds": 67.315,
+    "native_supervisor_peak_bytes": 254193664,
+    "object_link_module_gpu_api_calls": 0,
+    "provenance": "Windows peer saved-only records; no Mac independent audit of original Windows captures"
+  },
+  "parallel_compile_candidate": {
+    "flag": "NIKKE_CUDA_SPLIT_COMPILE=2",
+    "argv": "--split-compile=2",
+    "default_threads": 1,
+    "max_threads": 2,
+    "allowed_runtime": "NVRTC12.4..12.x cold-compile version check",
+    "default_argv_and_cache_identity_unchanged": true,
+    "distinct_option_cache_identity": true,
+    "old_serial_claim_not_retried": true,
+    "numeric_shader_and_metal_baseline_unchanged": true,
+    "parallel_windows_success": false,
+    "proof_pending": true,
+    "official_source": "https://docs.nvidia.com/cuda/archive/12.4.1/nvrtc/index.html",
+    "tests": {
+      "cuda_artifact": 15,
+      "compile_cache": 12,
+      "compile_cli": 14,
+      "compiler_diagnostic": 16,
+      "compile_cli_and_diagnostic_also_pass_with_threads2": true
+    }
+  }
+}

@@ -6,7 +6,7 @@ raw=json.loads((ROOT/'research/upstream/nikke-calc-master/data/parsed_skills.jso
 for n,es in raw.items():
  if not isinstance(es,list) or not any(e.get('stat')=='enemy_buff_cleanse' for e in es if isinstance(e,dict)):continue
  b=v.v.body_for([n]+[x for x in v.v.NAMES if x!=n][:4],30,True)
- try:v.a.evaluate({**b,'_compile_gpu_detail':True});row={'character':n,'accepted':True}
+ try:v.a.evaluate({**b,'_compile_detail':True});row={'character':n,'accepted':True}
  except v.g.UnsupportedDetail as e:row={'character':n,'accepted':False,'issues':e.issues}
  rows.append(row);print(json.dumps(row,ensure_ascii=True))
 (ROOT/'research/detail-enemy-cleanse-characters.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

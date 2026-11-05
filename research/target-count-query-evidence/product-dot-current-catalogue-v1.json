@@ -1,0 +1,192 @@
+{
+  "schema": "product-current-catalogue-v1",
+  "source_commit": "463d70761a61ca14904e5bb5b55308d7f855f661",
+  "device": "Apple M5",
+  "requested_profiles": 266,
+  "duration_seconds": 30,
+  "burst_gauge_mode": "fixed",
+  "metal_profiles_cpu_full_payload_matched": 255,
+  "cpu_fallback_profiles": 11,
+  "errors": 0,
+  "mismatches": 0,
+  "api_cache_hits": 0,
+  "saved_audited": 266,
+  "audit_native_battle_calls": 0,
+  "audit_gpu_calls": 0,
+  "source_files_unchanged": true,
+  "windows_current_source_gpu_profiles": 0,
+  "other_conditions": "DoT limited conditions and historical CUDA are separately recorded; this sweep does not prove all effects/conditions",
+  "timing": {
+    "case_wall_seconds_sum": 1197.370640385314,
+    "metal_case_wall_median_seconds": 3.882427083037328,
+    "metal_gpu_median_seconds": 1.9822665000101551,
+    "note": "Nested wall/device intervals are not additive; no CPU-specific timing inferred"
+  },
+  "fallbacks": [
+    {
+      "profile": "앤 : 미라클 페어리",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "앤 : 미라클 페어리",
+          "effect": "요정의 장난 2",
+          "stat": "heal_received_pct",
+          "target": "all_enemies",
+          "reason": "Unported buff recipient selector"
+        }
+      ]
+    },
+    {
+      "profile": "유니",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "유니",
+          "effect": "BDG 2",
+          "stat": "enemy_movement_disable",
+          "target": "enemies_in_range",
+          "reason": "Unported buff stat"
+        }
+      ]
+    },
+    {
+      "profile": "얀",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "얀",
+          "effect": "일확천금 2",
+          "stat": "force_move",
+          "target": "enemies_in_range",
+          "reason": "Unported buff stat"
+        }
+      ]
+    },
+    {
+      "profile": "솔져 O.W.",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "솔져 O.W.",
+          "effect": "오울 윈드",
+          "stat": "cover_def_pct",
+          "target": "allies_top_atk:3",
+          "reason": "Unported buff stat"
+        }
+      ]
+    },
+    {
+      "profile": "벨벳",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "벨벳",
+          "effect": "탄환 가져오기 2",
+          "stat": "ammo_charge_pct",
+          "target": "all_enemies",
+          "reason": "Unported health recipient selector"
+        }
+      ]
+    },
+    {
+      "profile": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "스노우 화이트 : 헤비암즈",
+          "effect": "록 온",
+          "stat": "lock_on",
+          "target": "enemies_nearest:1",
+          "reason": "Unported buff stat"
+        }
+      ]
+    },
+    {
+      "profile": "베이",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "베이",
+          "effect": "유 캔 두잇",
+          "stat": "received_dmg_split",
+          "target": "all_allies",
+          "reason": "Unported buff stat"
+        }
+      ]
+    },
+    {
+      "profile": "베이",
+      "favorite_stage": 1,
+      "unsupported": [
+        {
+          "character": "베이",
+          "effect": "치얼업 투게더",
+          "stat": "received_dmg_split",
+          "target": "self_cover",
+          "reason": "Unported buff stat"
+        }
+      ]
+    },
+    {
+      "profile": "베이",
+      "favorite_stage": 2,
+      "unsupported": [
+        {
+          "character": "베이",
+          "effect": "유 캔 두잇",
+          "stat": "received_dmg_split",
+          "target": "all_allies",
+          "reason": "Unported buff stat"
+        }
+      ]
+    },
+    {
+      "profile": "베이",
+      "favorite_stage": 3,
+      "unsupported": [
+        {
+          "character": "베이",
+          "effect": "유 캔 두잇",
+          "stat": "received_dmg_split",
+          "target": "all_allies",
+          "reason": "Unported buff stat"
+        }
+      ]
+    },
+    {
+      "profile": "레이 (가칭)",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "레이 (가칭)",
+          "effect": "섬멸 지원 4",
+          "stat": "effect_target_count_add",
+          "target": "allies_with_buff:섬멸 태세",
+          "reason": "Unported buff stat"
+        }
+      ]
+    }
+  ],
+  "evidence_sha256": {
+    "requests.json": "baa3556d17754dfe599aa0fe04d6f70f5b68deaab84f54c1ea0d386ae0aa10c8",
+    "sources.json": "9e398da114e52ca0a18e78b5b3fbd72bfbf6ed4822afa73df4a9f1c806d90a46",
+    "progress.json": "f4d21907ee3db51a1e05b5edefea27f7e59ce082e9210e12dbfa89c814bebb79",
+    "saved-audit-progress.json": "a1291202f143a5a841adc56196441b9cbdbcda8ef56b44ca44e0fbb84eff4aaa",
+    "complete.json": "f10334cae715e5e0aa2099b3434d4e2df818205c23247cd85df27931017b0eff"
+  },
+  "next_product_gap": {
+    "source_commit": "463d70761a61ca14904e5bb5b55308d7f855f661",
+    "fixture": "add-attack-battle/Nihilister/alive",
+    "duration": 6,
+    "mode": "accumulate",
+    "cpu_battle_calls": 0,
+    "gpu_calls": 0,
+    "all_effects": true,
+    "rejection": {
+      "type": "ValueError",
+      "message": "Summon attack/self-destruct requires its declared world consumer"
+    },
+    "existing_consumer": "gpu/world_add_attack_battle_runtime.slang",
+    "next_action": "Connect existing actual actor-pool cursor to product input; preserve native source identity, body/ADD shot order, bounded logs and shared incoming executor. No canonical CPU changes."
+  }
+}

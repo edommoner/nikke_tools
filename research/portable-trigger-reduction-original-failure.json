@@ -1,0 +1,21 @@
+{
+  "package_id": "ce4062c281566b7b76cedc6994ad81285ead4850239fdb3bde54cc2a6677fd84",
+  "inputs": 287,
+  "calculation_verified": false,
+  "mismatches": [
+    {
+      "index": 274,
+      "name": "trigger-reduction/trigger-reduction-counter-full_charge_fire_count:4",
+      "reason": "AssertionError: trigger-reduction-counter-full_charge_fire_count:4"
+    },
+    {
+      "index": 275,
+      "name": "trigger-reduction/trigger-reduction-counter-full_charge_hit_count:4",
+      "reason": "AssertionError: trigger-reduction-counter-full_charge_hit_count:4"
+    }
+  ],
+  "original_capture_retained": true,
+  "original_result_modified": false,
+  "diagnosis": "Two new charge fixtures supplied GPU post_delay=.1/min_cycle=.1 but native static normalization returned0/.2; reference and comparison unchanged",
+  "gpu_source_changed_for_fix": false
+}

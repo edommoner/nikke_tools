@@ -1,0 +1,286 @@
+{
+  "schema": "resident-frames-movement-api-status-v1",
+  "owner": "bc57f0d3b8875cef6d2f8e6f673f3e7990e60453e0d18ae22750157517da9a70",
+  "path_base": "Documents/Codex",
+  "source_capture": "resident-frames-movement-v1/jit-link-v2/proof",
+  "artifact": {
+    "bytes": 6816912,
+    "sha256": "c521673105e3d1b71996cd8c3e7fd6bb5b95b503aa97267178f826b4d1f03cb6"
+  },
+  "api_capture": "resident-frames-movement-v1/http-cuda-movement-fixed-four-seconds-v1/detail-captures/26d72a7337bf442eb57dce4e0bf4f2ee",
+  "capture_id": "26d72a7337bf442eb57dce4e0bf4f2ee",
+  "device": "NVIDIA GeForce RTX 3070 Ti",
+  "backend": "cuda_shared_detail",
+  "gpu_verified": true,
+  "input": {
+    "bytes": 469908,
+    "sha256": "5f0ac969a35509b188039b12cf90a6901e94d37749de2ee826d38e36909b95f9"
+  },
+  "readback": {
+    "bytes": 8128000,
+    "sha256": "b1c1e77e1a34e87f92ae6e0b058cb6e1dfbf1b03f7e8640680fbf9b55c966087"
+  },
+  "damage": 15425927,
+  "burst_seconds": {
+    "1": 3,
+    "2": 3.1,
+    "3": 3.2,
+    "full": 3.583
+  },
+  "fresh_cpu_full_payload_matched": true,
+  "differing_fields": [],
+  "passed": true,
+  "cache_hit": false,
+  "http_seconds": 17.989590799901634,
+  "job_seconds": 23.698572000022978,
+  "job_peak_bytes": 1535086592,
+  "job_limit_bytes": 2147483648,
+  "timeout": false,
+  "missing": 0,
+  "job_empty": true,
+  "owned_server_stopped": true,
+  "service": "unverified",
+  "service_preservation_verified": false,
+  "observation_error": null,
+  "phases": {
+    "product_cubin_owner": {
+      "elapsed_seconds": 4.9501956
+    },
+    "product_cubin_admission": {
+      "elapsed_seconds": 6.139402499888092,
+      "package_gate": {
+        "final_full_checks": 1,
+        "initial_full_checks": 1,
+        "reused_payload_checks": 4,
+        "scope": "Same CPU admission only; final full read precedes GPU"
+      }
+    },
+    "slang_build": {
+      "elapsed_seconds": 1.8486734
+    },
+    "cuda_linked_artifact": {
+      "elapsed_seconds": 0.0345134
+    }
+  },
+  "native": {
+    "cuInit": {
+      "calls": 1,
+      "return_code": 0,
+      "seconds": 0.0449057
+    },
+    "cuCtxCreate_v2": {
+      "calls": 1,
+      "return_code": 0,
+      "seconds": 0.0841142
+    },
+    "cuLaunchKernel": {
+      "calls": 1,
+      "return_code": 0,
+      "seconds": 0.0018562
+    },
+    "cuCtxSynchronize": {
+      "calls": 1,
+      "return_code": 0,
+      "seconds": 0.5385902
+    },
+    "cuMemcpyDtoH_v2": {
+      "calls": 1,
+      "return_code": 0,
+      "seconds": 0.0009669
+    },
+    "cuCtxDestroy_v2": {
+      "calls": 1,
+      "return_code": 0,
+      "seconds": 0.0350483
+    }
+  },
+  "host_launch_sync_readback_seconds": 0.5461629000492394,
+  "memory_observation_complete": false,
+  "memory_observation_unknown": "Job limit query is null; reason not recorded. Do not infer completion or failure cause.",
+  "memory_boundary_values": [
+    {
+      "boundary": "cuMemAlloc_v2",
+      "position": "before",
+      "own_private_bytes": 386748416,
+      "parent_private_bytes": 32395264,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 419147776,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7445938176,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "position": "after",
+      "own_private_bytes": 388849664,
+      "parent_private_bytes": 32395264,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 421249024,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7443841024,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "position": "before",
+      "own_private_bytes": 388849664,
+      "parent_private_bytes": 32395264,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 421249024,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7443841024,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "position": "after",
+      "own_private_bytes": 398893056,
+      "parent_private_bytes": 32395264,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 431292416,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7435452416,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "position": "before",
+      "own_private_bytes": 398893056,
+      "parent_private_bytes": 32395264,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 431292416,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7435452416,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "position": "after",
+      "own_private_bytes": 398893056,
+      "parent_private_bytes": 32395264,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 431292416,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7435452416,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuLaunchKernel",
+      "position": "before",
+      "own_private_bytes": 398893056,
+      "parent_private_bytes": 32395264,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 431292416,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7435452416,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuLaunchKernel",
+      "position": "after",
+      "own_private_bytes": 1474740224,
+      "parent_private_bytes": 32395264,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 1507139584,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 6409945088,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    }
+  ],
+  "allocations": [
+    {
+      "requested_bytes": 469908,
+      "return_code": 0
+    },
+    {
+      "requested_bytes": 8128000,
+      "return_code": 0
+    },
+    {
+      "requested_bytes": 167680,
+      "return_code": 0
+    }
+  ],
+  "launches": [
+    {
+      "block": [
+        1,
+        1,
+        1
+      ],
+      "dynamic_shared_bytes": 0,
+      "grid": [
+        1,
+        1,
+        1
+      ],
+      "return_code": 0
+    }
+  ],
+  "journal_sha256": "a01d245ed3a7ba382022cb9e8153752a57087256ae0fccabfe289387378fbe6d",
+  "resource_summary": {
+    "bytes": 9463,
+    "sha256": "4ce7f607bb0160fae4724bf7e015b6a3dec08364a4f08a006be857d763419e04"
+  },
+  "actual_calls": {
+    "http_post": 1,
+    "kernel": 1,
+    "sync": 1,
+    "readback": 1,
+    "memory_queries": 8,
+    "additional_kernel": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "slang_generation": 0,
+    "retry": 0
+  },
+  "old_records_unchanged": true,
+  "old_records_checked": 713,
+  "range_executed": false,
+  "range_failure_retained": {
+    "inner_missing": 7,
+    "outer_missing": 7,
+    "cause": "unknown",
+    "preservation_verified": false
+  },
+  "one_run_comparison": {
+    "old_job_peak_bytes": 2139754496,
+    "new_job_peak_bytes": 1535086592,
+    "delta_bytes": -604667904,
+    "old_http_seconds": 27.66904309997335,
+    "old_job_seconds": 34.21475900011137,
+    "background_load_controlled": false,
+    "scope": "One measured run; no general performance or physical-memory guarantee"
+  },
+  "saved_cubin_admission": "verified",
+  "artifact_key": "e19062a2a2f0b1f3cc602d6716cff54260ac8a8a3afeaf98c8072826e7b1866c",
+  "artifact_provider": "saved-module-jit-cubin",
+  "source_artifact_passed": false,
+  "source_artifact_preservation_verified": false,
+  "whole_environment_preservation_verified": false
+}

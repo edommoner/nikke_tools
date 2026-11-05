@@ -23,7 +23,7 @@ class DamageQueryTests(unittest.TestCase):
         from calculator.buff_manager import BuffManager
         def carrier(owner, name, stat, value=0, flat=0):
             return SimpleNamespace(caster=owner, effect=dict(name=name, stat=stat), target_chars=['a'],
-                                   amount=value, hp_bonus_flat=flat)
+                                   amount=value, hp_bonus_flat=flat, has_runtime_conditions=False)
         active = [carrier('a', 'earlier', 'max_hp_only_pct', 40),
                   carrier('a', 'later', 'max_hp_only_pct', 20),
                   carrier('b', 'later', 'max_hp_only_pct', 10),

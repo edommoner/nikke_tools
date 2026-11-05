@@ -1,0 +1,2897 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "enemy_code": null,
+      "predicate_code": "작열",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "작열",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "작열",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "작열",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "작열",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "수냉",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "수냉",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "수냉",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "수냉",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "수냉",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "풍압",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "풍압",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "풍압",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "풍압",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "풍압",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "전격",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "전격",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "전격",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "전격",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "전격",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "철갑",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "철갑",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "철갑",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "철갑",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "철갑",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "unknown:code",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "unknown:code",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "unknown:code",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "unknown:code",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": "unknown:code",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": " 전격 ",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": " 전격 ",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": " 전격 ",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": " 전격 ",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": null,
+      "predicate_code": " 전격 ",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "작열",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "작열",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "작열",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "작열",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "작열",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "수냉",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "수냉",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "수냉",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "수냉",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "수냉",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "풍압",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "풍압",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "풍압",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "풍압",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "풍압",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "전격",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "전격",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "전격",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "전격",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "전격",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "철갑",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "철갑",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "철갑",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "철갑",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "철갑",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "unknown:code",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "unknown:code",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "unknown:code",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "unknown:code",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": "unknown:code",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": " 전격 ",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": " 전격 ",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": " 전격 ",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": " 전격 ",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "작열",
+      "predicate_code": " 전격 ",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "작열",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "작열",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "작열",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "작열",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "작열",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "수냉",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "수냉",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "수냉",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "수냉",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "수냉",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "풍압",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "풍압",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "풍압",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "풍압",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "풍압",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "전격",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "전격",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "전격",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "전격",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "전격",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "철갑",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "철갑",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "철갑",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "철갑",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "철갑",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "unknown:code",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "unknown:code",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "unknown:code",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "unknown:code",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": "unknown:code",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": " 전격 ",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": " 전격 ",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": " 전격 ",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": " 전격 ",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "수냉",
+      "predicate_code": " 전격 ",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "작열",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "작열",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "작열",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "작열",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "작열",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "수냉",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "수냉",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "수냉",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "수냉",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "수냉",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "풍압",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "풍압",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "풍압",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "풍압",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "풍압",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "전격",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "전격",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "전격",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "전격",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "전격",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "철갑",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "철갑",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "철갑",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "철갑",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "철갑",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "unknown:code",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "unknown:code",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "unknown:code",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "unknown:code",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": "unknown:code",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": " 전격 ",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": " 전격 ",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": " 전격 ",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": " 전격 ",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "풍압",
+      "predicate_code": " 전격 ",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "작열",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "작열",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "작열",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "작열",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "작열",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "수냉",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "수냉",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "수냉",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "수냉",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "수냉",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "풍압",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "풍압",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "풍압",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "풍압",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "풍압",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "전격",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "전격",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "전격",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "전격",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "전격",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "철갑",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "철갑",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "철갑",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "철갑",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "철갑",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "unknown:code",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "unknown:code",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "unknown:code",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "unknown:code",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": "unknown:code",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": " 전격 ",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": " 전격 ",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": " 전격 ",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": " 전격 ",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "전격",
+      "predicate_code": " 전격 ",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "작열",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "작열",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "작열",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "작열",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "작열",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "수냉",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "수냉",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "수냉",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "수냉",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "수냉",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "풍압",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "풍압",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "풍압",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "풍압",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "풍압",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "전격",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "전격",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "전격",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "전격",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "전격",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "철갑",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "철갑",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "철갑",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "철갑",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "철갑",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "unknown:code",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "unknown:code",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "unknown:code",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "unknown:code",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": "unknown:code",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": " 전격 ",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": " 전격 ",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": " 전격 ",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": " 전격 ",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "철갑",
+      "predicate_code": " 전격 ",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "작열",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "작열",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "작열",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "작열",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "작열",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "수냉",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "수냉",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "수냉",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "수냉",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "수냉",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "풍압",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "풍압",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "풍압",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "풍압",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "풍압",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "전격",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "전격",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "전격",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "전격",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "전격",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "철갑",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "철갑",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "철갑",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "철갑",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "철갑",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "unknown:code",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "unknown:code",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "unknown:code",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "unknown:code",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": "unknown:code",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": " 전격 ",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": " 전격 ",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": " 전격 ",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": " 전격 ",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "",
+      "predicate_code": " 전격 ",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "작열",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "작열",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "작열",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "작열",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "작열",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "수냉",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "수냉",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "수냉",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "수냉",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "수냉",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "풍압",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "풍압",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "풍압",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "풍압",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "풍압",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "전격",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "전격",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "전격",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "전격",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "전격",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "철갑",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "철갑",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "철갑",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "철갑",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "철갑",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "unknown:code",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "unknown:code",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "unknown:code",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "unknown:code",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": "unknown:code",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": " 전격 ",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": " 전격 ",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": " 전격 ",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": " 전격 ",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": "unknown:code",
+      "predicate_code": " 전격 ",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "작열",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "작열",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "작열",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "작열",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "작열",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "수냉",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "수냉",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "수냉",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "수냉",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "수냉",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "풍압",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "풍압",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "풍압",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "풍압",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "풍압",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "전격",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "전격",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "전격",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "전격",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "전격",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "철갑",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "철갑",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "철갑",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "철갑",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "철갑",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "unknown:code",
+      "owner": 0,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "unknown:code",
+      "owner": 1,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "unknown:code",
+      "owner": 2,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "unknown:code",
+      "owner": 3,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": "unknown:code",
+      "owner": 4,
+      "activation": false,
+      "runtime_body": false,
+      "runtime_add": false
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": " 전격 ",
+      "owner": 0,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": " 전격 ",
+      "owner": 1,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": " 전격 ",
+      "owner": 2,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": " 전격 ",
+      "owner": 3,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    },
+    {
+      "enemy_code": " 전격 ",
+      "predicate_code": " 전격 ",
+      "owner": 4,
+      "activation": true,
+      "runtime_body": true,
+      "runtime_add": true
+    }
+  ],
+  "case_count": 360,
+  "native_methods": [
+    "BuffManager._condition_ok",
+    "BuffManager._runtime_condition_ok"
+  ],
+  "gpu_execution_performed": false,
+  "portable_host_admission_changed": false,
+  "scope": "Direct native predicate method probes only; not a battle, code-input implementation or GPU verification.",
+  "source_sha256": {
+    "research/verify-next-code-native.py": "e92e4130a6369ad4f1e6f9d7548b381b7cc9dd9788869ffbdeb2559430bc1678",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

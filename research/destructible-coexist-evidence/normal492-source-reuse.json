@@ -1,0 +1,8 @@
+{
+  "all147_source_hashes_identical": true,
+  "sealed_golden_sha256": "890d8fa26f5fe7be57ba3c2c1acf3d86479ce9366ba07bde32b9e2a1a8b87167",
+  "saved_output_sha256": "81097426560613d9b76ab91e30bdec3e7a2d6747dd001554cb7158ec36d5af7b",
+  "prior_actual_gpu_and_independent_seal": "research/destructible-battle-evidence/retention492-byte-preservation.json",
+  "new_normal492_gpu_runs": 0,
+  "scope": "Exact unchanged source reuse; not a new execution or current CUDA calculation proof"
+}

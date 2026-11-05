@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/check-parent-reuse-v1.py", line 52, in <module>
+    started=time.perf_counter();comparison=cli.compare_readback(current,fixture,parent_oracles=live);comparison_seconds=time.perf_counter()-started
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/parent-reuse-v1-package/scripts/nikke_gpu.py", line 1298, in compare_readback
+    audit_generation_capture(m,capture)
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/parent-reuse-v1-package/scripts/nikke_gpu.py", line 1849, in audit_generation_capture
+    result=audit_receipt(receipt,m['golden']['source_sha256'],{t:capture/('generated.'+suffix) for t,suffix in [('cuda','cu'),('metal','metal')]})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/parent-reuse-v1-package/app/portable_generation_cache.py", line 110, in audit_receipt
+    raw=p.read_bytes()
+        ^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/parent-reuse-cpu-v1/read-only-fixture/generated.cu.reflection.json'

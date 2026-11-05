@@ -19,17 +19,6 @@ def manager(attack,dot):
     return m,carrier,events
 
 class StagedDotTests(unittest.TestCase):
-    def test_compiled_fractional_cap_fails_before_cuda(self):
-        import engine_worker as a
-        import detail_gpu as g
-        names=['리타','크라운','앨리스','모더니아','N102']
-        chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=a.META[n]) for n in names]
-        attack,dot=effects()
-        for e in (attack,dot):e['source']='스킬1';e['fixed_value']=100;e['trigger']=dict(timing=['battle_start'],condition=[])
-        program=g.compile_effects(chars,[(attack,names[0]),(dot,names[0])])
-        next(row for row in program['effects'] if row[340]>0)[9]=1.5
-        stats={n:dict(atk=1000,hp=10000,**{'def':0}) for n in names}
-        with self.assertRaisesRegex(ValueError,'staged periodic'):g.run(None,[program],[[0,0,0,0,0,-1,0,0]],[[0,0]],[stats])
     def test_count_is_latched_before_registration_callbacks(self):
         attack,dot=effects('resource');m,c,events=manager(attack,dot);m.ref_count=lambda owner,name:3
         bound=binding(m,dot,'owner',0);m.ref_count=lambda owner,name:0

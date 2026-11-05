@@ -43,21 +43,6 @@ def fixtures(long=False):
   names=[name]+[n for n in v.NAMES if n!=name][:4];b=v.body_for(names,180 if long else 30,True)
   b.update(seed=12345,burst_policy='auto',shooting_policy='character',burst_gauge_mode='accumulate',_debug_random_state=True,_debug_boss_frames=True)
   b['enemy']['patterns']=[buff('cycle',.2,4,enemy={'def_mult':2,'received_dmg_pct':-30},after=['start','cycle'],repeat=0)]
-  try:a.evaluate({**b,'_compile_gpu_detail':True})
+  try:a.evaluate({**b,'_compile_detail':True})
   except g.UnsupportedDetail:continue
   yield 'raw-'+name,b,{}
-if __name__=='__main__':
- ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=['native','ptx','both'],default='both');ap.add_argument('--long',action='store_true');ap.add_argument('--fail-fast',action='store_true');ap.add_argument('--output',default='research/detail-boss-buffs-verification.json');args=ap.parse_args()
- files=['scripts/verify-boss-buffs-detail.py','scripts/verify-boss-clock-detail.py','app/detail_boss.py','app/detail_gpu.py','app/detail_world.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','app/engine_worker.py','app/gpu_service.py']
- def sha(f):return hashlib.sha256((ROOT/f).read_bytes()).hexdigest()
- hashes={f:sha(f) for f in files};d=v.Cuda();rows=[]
- planned=[(backend,n,b,e) for backend in (('native','ptx') if args.backend=='both' else (args.backend,)) for n,b,e in fixtures(args.long)]
- try:
-  for backend,n,b,e in planned:
-   rows.append(v.compare(d,n,b,e,backend))
-   if args.fail_fast and not rows[-1]['passed']:break
- finally:d.close()
- assert hashes=={f:sha(f) for f in files}
- raw_status=json.loads((ROOT/'research/detail-enemy-cleanse-characters.json').read_text(encoding='utf-8'))
- report=dict(generated_at=datetime.now(timezone.utc).isoformat(),passed=len(rows)==len(planned) and all(r['passed'] for r in rows),objective_complete=False,cases=rows,planned_cases=len(planned),not_run_cases=len(planned)-len(rows),source_sha256=hashes,cpu_trace_used_as_gpu_input=False,raw_enemy_cleanse_character_audit=raw_status,raw_character_audit_note='Compilation acceptance is reported separately from actual raw-character battle parity. Authored effects retain all original skills of the five-member squads.')
- (ROOT/args.output).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if report['passed'] else 1)

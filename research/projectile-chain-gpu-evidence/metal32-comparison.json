@@ -1,0 +1,215 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "projectile-chain-plain",
+      "input_sha256": "a7a0f54a6e85b3301a41aa1d5329f52eef4b586fb8fee926e6d0eb03b38ae652",
+      "output_sha256": "62569d6c88c3a83e043f54c5f3c4019382561085ea4297bb0a3df8fc5f0c1c0d",
+      "native_sha256": "635b1ecfbba5797fb46c375c08c1f99775e3ef9965698a7e052c42b5d312aec1"
+    },
+    {
+      "name": "projectile-chain-three-packets-one-notice",
+      "input_sha256": "9e0893417c6bf01d7f10c7c980188dd46bdd73a88b1c8383e18a9a6dfd3ac7e4",
+      "output_sha256": "113b2735f86d07a24804029f24b6c0838e97b2589f34fa1337470b49cb3c73ba",
+      "native_sha256": "a6faa53c3dcfa32d9ff4488efcf307485f248b77c4986fc387aa1690d41f6d73"
+    },
+    {
+      "name": "projectile-chain-zero-hit-count",
+      "input_sha256": "d2fa7ddcecdc1759a63f29812956fa3a8aa536253761dce166295b8acd6ababb",
+      "output_sha256": "e86c795f5586c9d3c807a4d1e6b94da745f985cd4fee13130a0f48c0ad363cc8",
+      "native_sha256": "91787a832e7283ac8f163cf10656faa42d9e4bc8208ff4e4d6e8df4d6d6993d9"
+    },
+    {
+      "name": "projectile-chain-negative-hit-count",
+      "input_sha256": "d2fa7ddcecdc1759a63f29812956fa3a8aa536253761dce166295b8acd6ababb",
+      "output_sha256": "e86c795f5586c9d3c807a4d1e6b94da745f985cd4fee13130a0f48c0ad363cc8",
+      "native_sha256": "1d438744397e0d98cd2e914310773881cc914c7f4b31e56961e81ef933e39773"
+    },
+    {
+      "name": "projectile-chain-zero-coefficient",
+      "input_sha256": "fe5c61be69eb8c3ecd6b902705d1da456de48ecb8c08d0f2b95a9ee4fbf90780",
+      "output_sha256": "0a46a905d6ada7c65f9c12df0f89fba103047b24d104ba188ab625634991b534",
+      "native_sha256": "6aabd65fca010d5fe288aa13be3e7f31d450a6f67a04b7ad3589470b49b27509"
+    },
+    {
+      "name": "projectile-chain-empty-name",
+      "input_sha256": "8f28a71befdda1f9b483a9e9ec3d7af7972b82c5a38248b09367a76d2e6c253e",
+      "output_sha256": "d5130437ac0cb3c72a60b1fe01d3527a8691cb473d5530355ab8577947342653",
+      "native_sha256": "9cf6d18a6d3ea74691bac9f5df3b995ff87d0ecf295655217b2a6db45fa7ce98"
+    },
+    {
+      "name": "projectile-chain-attachment-factor",
+      "input_sha256": "c419e4b7454673941cabb2363bbb529ce68753bbf6c800b16ab7dd4022384109",
+      "output_sha256": "d4107274c0caf3d67644569975b096faddac8b43e26808780e49cae6c57a73ef",
+      "native_sha256": "adf28faae555ada6a6aa33c6a9bae95ff39fce2c49790fcc28e5332356d9e401"
+    },
+    {
+      "name": "projectile-chain-explosion-factor",
+      "input_sha256": "0d9b4d6cf9e8d46a20d95f4341426b795a96ef03a4576b0672f29c9d7f15dcca",
+      "output_sha256": "d4107274c0caf3d67644569975b096faddac8b43e26808780e49cae6c57a73ef",
+      "native_sha256": "1939050492f7337920e3fe45a23697e3ee62e6adbe8d8213d40a2682bad8b14e"
+    },
+    {
+      "name": "projectile-chain-matching-normal-MG-annotation",
+      "input_sha256": "405616a8f2d982535efb171cfcf8a6665a15151533daf9b02b0148e43ed2751e",
+      "output_sha256": "f27b4e6a1668e5f1a9cc9016679628c55ec4bf7bfdb913a6e40e45b7fda113e5",
+      "native_sha256": "8d7c5a33d11228ae4f9cd6be7665fa10b1a0c733138d9d40b2c78bc9b97171e8"
+    },
+    {
+      "name": "projectile-chain-two-casts",
+      "input_sha256": "6b2db43f8b1a90f6bd61a6fa8cfbe729e702cfc585dd1bdc8660d55a28a438c4",
+      "output_sha256": "9f0ab446e9cc20dc4a3f71b82a6fc9c78ce4f3993b4bb0bee2cbc2ad09d84e1c",
+      "native_sha256": "698beba4c24df3fbc0f1f543f0d7602f401769ee83589257bceaf729a3dc72a6"
+    },
+    {
+      "name": "projectile-chain-exact-literal-name",
+      "input_sha256": "3956524c944d04f67a9d6d893b6e3d9d1df6d16b03f24d24bab851f3b04c224f",
+      "output_sha256": "62569d6c88c3a83e043f54c5f3c4019382561085ea4297bb0a3df8fc5f0c1c0d",
+      "native_sha256": "a5532c4ca95907d86efa043e1852afad59be23763cae789facd3b3eda48977e6"
+    },
+    {
+      "name": "projectile-chain-other-caster-listener",
+      "input_sha256": "e7fac7479349ab9aed9fb3e719fac39ce68fe4feef67475203143fdb3172b848",
+      "output_sha256": "655d21ec745b0274c1307acc793c48457e992ae8dd8e9634439c804eedcfcaef",
+      "native_sha256": "62796364f2b49f922b37e7674885ea17f0ad7c9a9c2a1692f9c70a3231670f11"
+    },
+    {
+      "name": "projectile-chain-nested-handler-order",
+      "input_sha256": "527816a2e26fb0b6088acc1c0356fb0f56b8e9f6582650cc4ca21a906e4b8b0a",
+      "output_sha256": "2f8ebf6b9df5d628127963f0b858e542e08df2fbe2a356a27aac98d3b11897cc",
+      "native_sha256": "e5ae708fb54c8b9b5ca7e5c139a74898ebb394304b539325ae1547e1f8737c0c"
+    },
+    {
+      "name": "projectile-chain-buff-kind-self-carrier",
+      "input_sha256": "995c5db847d2fe3879a35aac1b3442d9bc552f88dae59b20782370c9ff895d53",
+      "output_sha256": "6fb680a585bedea1b1a7758cde6a5f64799a586ff118a5eb5fda04eb258f3cfe",
+      "native_sha256": "36e0bec96b20ef300721fd3df88e4b0c337b46a8222d941e2d4255bf306dc9a8"
+    },
+    {
+      "name": "projectile-chain-buff-kind-enemy-carrier",
+      "input_sha256": "e14195183f854b455d08e61cd3acb019f748b9bacea5294c97d62c196d8371c2",
+      "output_sha256": "0770f4a24c39f87d506c280791e117a8df6a69cb8294af3971b07778bfd7c429",
+      "native_sha256": "742fae72fd10f92a9ec978a353b6c73537386ab247a548b02a95e6aef03e5457"
+    },
+    {
+      "name": "projectile-chain-instant-kind-stack-operation",
+      "input_sha256": "6679eb73bd0b609a36eb168085c3a4c4aae0e6dc4458c5a6e5da189717f21311",
+      "output_sha256": "516f4c36bc7bcc97fa1738d48c7c5831a245591fa4b4d16a278d081453bade4a",
+      "native_sha256": "6ec105d253a4f60760c39d98ee52f3945bc45e46805bb981223b243f316df8a4"
+    },
+    {
+      "name": "projectile-chain-periodic-handler",
+      "input_sha256": "e2d542085dd980fd56f13aa27afbb8a47ebc3a5320018d92c2e06e5c0a7ee24f",
+      "output_sha256": "c02172c71ebb71ef3ee2d95fc495e5a8b5e9c2ffe3a47e45f7720f106197f763",
+      "native_sha256": "7afabb3f3cea4957d699314c8a6c2f87fa0cec20244e790fd949d9d0912a17cd"
+    },
+    {
+      "name": "projectile-chain-empty-accumulation-early-return",
+      "input_sha256": "b65675b3fe82a6ae7fd49b0c957148088fd0d8f4a02c2204281e136460041926",
+      "output_sha256": "23da397e26e4579cded58b4b33a26e9bfe6e4262789cd4046ae497ec399dd5bd",
+      "native_sha256": "baf5733563ba1cd5f00bea1d9ac5912fd1347bee86abc24023c5237a71218496"
+    },
+    {
+      "name": "projectile-chain-parent-fixed-early-return",
+      "input_sha256": "5e51b7df092629ada195902f36782b35b129c0e32def0a7e937999384bb692e6",
+      "output_sha256": "b3589aa56b7fd2cd1226bec588b369ad44baa54a8413e32041f65d77f72a6de3",
+      "native_sha256": "b276f55327dc2509deb12711315188bf7371116b228fedd177746f063f32f307"
+    },
+    {
+      "name": "projectile-chain-named-multiplier-zero-still-notifies",
+      "input_sha256": "44241109444112ec5092e237ebcab4577f722355cd5c7cedf5ff0f320b4b3323",
+      "output_sha256": "986a8e7603fdc99bca8e2e8f08346724ae0a55a1f412fb006b62b2f3da9e02f8",
+      "native_sha256": "16db840ff4d04f66c8c9ab152e75ffc4fbe1945af060177bef6c50656fc72bb8"
+    },
+    {
+      "name": "projectile-chain-per-hit-child-before-completion",
+      "input_sha256": "7cb88815ee56c879993f9958053d84dd91b0b78cfac5b9b738cfcdc5aac75ec6",
+      "output_sha256": "1c32049dd69b58f6beecc3a8596e3602615a726c12f004a971c23500904391ce",
+      "native_sha256": "4ac8b76f1bec31d6a9a9567c1f03e9c9ac91d01360b52d36013a0debd1d3ca07"
+    },
+    {
+      "name": "projectile-chain-instant-target-does-not-select-buff-carrier",
+      "input_sha256": "3a081824163fad88387572d82a8ae563135af0ddddedb0add2fa18798dc911b6",
+      "output_sha256": "516f4c36bc7bcc97fa1738d48c7c5831a245591fa4b4d16a278d081453bade4a",
+      "native_sha256": "6ec105d253a4f60760c39d98ee52f3945bc45e46805bb981223b243f316df8a4"
+    },
+    {
+      "name": "projectile-chain-physical-hits-are-not-handler-completions",
+      "input_sha256": "c2f3b4546175df4abe332f00c8207eb651812cfc9cd7d1ee7136fff6fc7f67f3",
+      "output_sha256": "0f14d956fff6cff90d9feb65550fb88ace7d1752e2e7803a927e128be51c4713",
+      "native_sha256": "21629979566af88b88581799229595b46acaf7683fb9ac1f4d4271f9e38d63f3"
+    },
+    {
+      "name": "projectile-chain-normal-MG-attachment-factor",
+      "input_sha256": "8ca82a12011d298f4f7062fed5f6cace5ce890f9be1e75023e69140ec69c9fda",
+      "output_sha256": "ea9b4a3b0415d2454a8652400dc1aba63ee7305208d0ac42cfc23c1346d835d0",
+      "native_sha256": "e6e1f50d6b6d0ed70f4ac40629ae0af4b0531ad0986f5eab30be958e9c559e84"
+    },
+    {
+      "name": "reject/projectile-chain-source-kind",
+      "input_sha256": "8ecbe5a1261f458cc98c6cf499ec09aa70e6c3b6f077353d644e353b39921043",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/projectile-chain-source-pending",
+      "input_sha256": "3b3c4c73449fee46c8676566b932cae0f687e301771125948f5b20862fa1bda9",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/projectile-chain-event-world",
+      "input_sha256": "8d90153a4094af506085f4e35a8507db3d70e0e9463690258d95ece7b8948599",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/projectile-chain-event-threshold",
+      "input_sha256": "0b6136aeeabc0c0b8b2aae05e7bf118a617232953867af3e477fe0a58ebafe61",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/projectile-chain-event-mode",
+      "input_sha256": "116e5485da0886ad2e4dba0b7c550d4c76043b5eba9565088e8b55e329d51042",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/projectile-chain-event-name",
+      "input_sha256": "4b5bbeaa734fe376e49d4af6c1b0a94d1b8c6d1989c8cb7178d3b455031136bd",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/projectile-chain-event-payload",
+      "input_sha256": "97d2b89893492ef3f8c2ca1c92528ca76c1a4fbcb1c7cce14dfd3f3281b86dc6",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/projectile-chain-event-stage",
+      "input_sha256": "4d7a3483494cad4d4702b1c79746c1f93dbd4c3f5ed552d5be66fc68d18db17b",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 32,
+  "native_oracles": 24,
+  "input_sha256": "425c2c75332891c683f6a86e7e49bc1eca16c98d69c10f7bc0d3dcf65d658062",
+  "output_sha256": "0eea02f4714a1129d1e26cc703cc22468c58da8cab86d42f250228c6a3383251",
+  "generated_normalized": {
+    "cuda": "5141e18d3a073fe2bf714ba425a95461f8886f73cbf0f7867bcfeefbdeda99d7",
+    "metal": "d7cb6e429547a4d71b4e94d66dce21be7a2cf7c3a02aedf6f93a1fe622334989"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 24,
+    "fresh_native_cases": 0,
+    "rejection_cases": 8,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

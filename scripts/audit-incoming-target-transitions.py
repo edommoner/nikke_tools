@@ -40,7 +40,7 @@ for name,rule,extra,lethal in fixtures:
  with v.v.t.p.custom_effects(extra):
   try:sys.settrace(trace);cpu=v.a.evaluate(body)
   finally:sys.settrace(previous)
-  try:v.a.evaluate({**body,'_compile_gpu_detail':True});accepted=True;issues=[]
+  try:v.a.evaluate({**body,'_compile_detail':True});accepted=True;issues=[]
   except v.g.UnsupportedDetail as e:accepted=False;issues=e.issues
  assert not accepted,name
  chosen=[c for c in calls if c['rule'] in ('random','top_atk')] if lethal else calls

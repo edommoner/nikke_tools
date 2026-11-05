@@ -23,6 +23,11 @@ def landing(manager,event,t,boss):
         from target_counter_runtime import target_death
         target_death(manager,actor.handle,t)
 
+def target_landing(manager,event,t,boss,kind):
+    # Native accounting already ran. Preserve the original post-total,
+    # pre-lifesteal publication point and never replay hit_target.
+    if kind=='parts':landing(manager,event,t,boss)
+
 def land_add(manager,boss,event,name,t):
     if not observes_impacts(manager):return boss.hit_add(event,name,t)
     registry=registry_for(manager,boss);previous=getattr(boss,'_typed_add_callback',None)
@@ -51,11 +56,15 @@ class AddReceipt(ast.NodeTransformer):
 
 
 class Landings(ast.NodeTransformer):
-    def __init__(self):self.stack=[];self.counts=dict(body=0,part=0,target=0,add=0)
+    def __init__(self):self.stack=[];self.counts=dict(body=0,part=0,target=0,add=0,target_capture=0)
     def visit_FunctionDef(self,node):
+        if node.name=='_land_target' and any(isinstance(n,ast.Name) and n.id=='_nikke_target_kind' for n in ast.walk(node)):raise ValueError('Reserved native target receipt local already exists')
         self.stack.append(node.name);self.generic_visit(node);self.stack.pop();return node
     def visit_Call(self,node):
         self.generic_visit(node)
+        if self.stack[-1]=='_land_target' and isinstance(node.func,ast.Attribute) and isinstance(node.func.value,ast.Name) and node.func.value.id=='boss' and node.func.attr=='hit_target':
+            self.counts['target_capture']+=1
+            return ast.copy_location(ast.NamedExpr(target=ast.Name(id='_nikke_target_kind',ctx=ast.Store()),value=node),node)
         if self.stack[-1]=='_land' and isinstance(node.func,ast.Attribute) and isinstance(node.func.value,ast.Name) and node.func.value.id=='boss' and node.func.attr=='hit_add':
             self.counts['add']+=1
             return ast.copy_location(ast.Call(func=ast.Attribute(value=ast.Name(id='bm',ctx=ast.Load()),attr='land_add_with_impact',ctx=ast.Load()),args=[ast.Name(id='boss',ctx=ast.Load())]+node.args,keywords=node.keywords),node)
@@ -68,7 +77,7 @@ class Landings(ast.NodeTransformer):
         name=call.args[0].id
         key='target' if self.stack[-1]=='_land_target' else 'part' if name=='pev' else 'body'
         self.counts[key]+=1
-        statement=ast.parse(f'bm.publish_landing({name},t,boss)').body[0]
+        statement=ast.parse(f'bm.publish_target_landing({name},t,boss,_nikke_target_kind)' if key=='target' else f'bm.publish_landing({name},t,boss)').body[0]
         return [ast.copy_location(statement,node),node]
 
 
@@ -78,8 +87,9 @@ def install():
     manager=buff_manager.BuffManager
     if getattr(manager,'_nikke_typed_impacts',False):return
     assert timeline.simulate is sim.simulate and getattr(manager,'_nikke_damage_queries',False)
-    simulate=rewrite_reference(timeline.simulate,Landings(),dict(body=1,part=1,target=1,add=1),compose=True)
+    simulate=rewrite_reference(timeline.simulate,Landings(),dict(body=1,part=1,target=1,add=1,target_capture=1),compose=True)
     manager.publish_landing=landing
+    manager.publish_target_landing=target_landing
     boss_pattern.BossScript.hit_add=rewrite_reference(boss_pattern.BossScript.hit_add,AddReceipt(),dict(receipt=1))
     boss_pattern.BossScript.publish_add_receipt=add_receipt
     manager.land_add_with_impact=land_add

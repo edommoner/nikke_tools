@@ -1,0 +1,72 @@
+[
+  {
+    "pattern": "test_destructible_weapon_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.962369916960597,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 78525
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.12740241701249033,
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 78525
+  },
+  {
+    "pattern": "test_destructible_skill_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.4793786669615656,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 78525
+  },
+  {
+    "pattern": "test_destructible_weapon_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 12.41506254102569,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 78525
+  },
+  {
+    "pattern": "test_destructible_skill_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 24.119557457976043,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 78525
+  },
+  {
+    "pattern": "test_destructible_body_lifesteal.py",
+    "exit_code": 0,
+    "elapsed_seconds": 11.635494792019017,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 78525
+  },
+  {
+    "pattern": "test_destructible_aoe_burst_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 16.837199834058993,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 78525
+  }
+]

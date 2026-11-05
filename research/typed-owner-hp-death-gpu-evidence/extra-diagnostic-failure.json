@@ -1,0 +1,9 @@
+{
+  "error": "Extra diagnostic incorrectly expected the graph to remain active at final time",
+  "case_index": 103,
+  "observed_final_graph_active": false,
+  "reason": "The CPU contract observes an active graph at hit_add before/after damage, not at battle end; no GPU event-time graph trace is emitted",
+  "correction": "Keep GPU pool damage-kill reason1, actual HP/dealt/alive/generation and final query; record final graph status without treating it as a kill-time observation",
+  "native_comparator_changed": false,
+  "gpu_calls": 0
+}

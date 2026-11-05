@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "source_commit": "76dc4de509f543460a6fc369a3fa1fc413c16706",
+  "input_count": 10,
+  "native_real_squads": 6,
+  "all_effects_included": true,
+  "input_sha256": "b7476877915316b93f0a332816b1318b610669541f98fc147f20a0c37217ecbf",
+  "output_sha256": "77958d92fe52a97eff60c5b9fb2c3c0964eec6287baf59cae61157a9bfac3574",
+  "old20_generated_exact": true,
+  "history_fix_six_full_output_blocks_preserved": true,
+  "full_history_not_claimed": true,
+  "diagnostic_omitted": [
+    {
+      "team": {
+        "retained": 175,
+        "omitted": 0
+      },
+      "fraction": {
+        "retained": 350,
+        "omitted": 0
+      }
+    },
+    {
+      "team": {
+        "retained": 1024,
+        "omitted": 511
+      },
+      "fraction": {
+        "retained": 2048,
+        "omitted": 1022
+      }
+    },
+    {
+      "team": {
+        "retained": 1024,
+        "omitted": 7965
+      },
+      "fraction": {
+        "retained": 2048,
+        "omitted": 15930
+      }
+    },
+    {
+      "team": {
+        "retained": 1024,
+        "omitted": 7965
+      },
+      "fraction": {
+        "retained": 2048,
+        "omitted": 15930
+      }
+    },
+    {
+      "team": {
+        "retained": 1024,
+        "omitted": 410
+      },
+      "fraction": {
+        "retained": 2048,
+        "omitted": 820
+      }
+    },
+    {
+      "team": {
+        "retained": 1024,
+        "omitted": 410
+      },
+      "fraction": {
+        "retained": 2048,
+        "omitted": 820
+      }
+    }
+  ],
+  "cpu_checks": 531,
+  "gpu_audit_calls": 0,
+  "canonical_world_admission": false,
+  "full_character_verified": 0,
+  "normal_ui": "CPU",
+  "full_goal_complete": false
+}

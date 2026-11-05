@@ -1,0 +1,58 @@
+{
+  "source_commit": "17f207bcc01720ad4e138136c9f7de212a9a1744",
+  "captured": "/Users/edo/.codex/worktrees/world-overlays/nikke_tools/research/portable-build/world-overlay-body-20261020T183817427440Z",
+  "passed": false,
+  "failed": [
+    {
+      "name": "weapon-mode-pellets-muzzles-vanish",
+      "changed": [
+        "damage",
+        "world_nodes"
+      ],
+      "actual_damage": [
+        7750.0,
+        2150.0,
+        2364.0,
+        2580.0,
+        2796.0
+      ],
+      "native_damage": [
+        1936,
+        2150,
+        2364,
+        2580,
+        2796
+      ],
+      "actual_gauge": 7.0,
+      "native_gauge": 7.0
+    },
+    {
+      "name": "weapon-mode-charge-vanish",
+      "changed": [
+        "gauge"
+      ],
+      "actual_damage": [
+        11614.0,
+        9675.0,
+        10638.0,
+        11610.0,
+        12582.0
+      ],
+      "native_damage": [
+        11614,
+        9675,
+        10638,
+        11610,
+        12582
+      ],
+      "actual_gauge": 11.5,
+      "native_gauge": 12.0
+    }
+  ],
+  "causes": [
+    "Native sim_result._is_normal treats named single-hit weapon packets as skill,but pellet/core:pellet tags as normal even with named skill mode. Preserve the native gate classifier independently from formula/gauge/bullet-consumption skill flags.",
+    "selectWeapon mode branch always assigned gaugeMultiplier=ONE;native charge mode with static camera uses fullChargeMult. Apply the existing shared camera policy for experimental mode charges."
+  ],
+  "unchanged_gpu_retry": false,
+  "normal146_unchanged": true
+}

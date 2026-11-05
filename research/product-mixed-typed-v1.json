@@ -1,0 +1,771 @@
+{
+  "schema": "product-mixed-projectile-hp-shield-v1",
+  "scope": "Original Prim/Asuka profiles with declared mixed projectile/HP shield geometry, including ADD. Elegg8 remain explicit CPU fallback; no definition removed or unknown nearby-distance policy invented.",
+  "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-mixed-typed-v1-20261102",
+  "execution_owner": "c3471988860b9b55b3df24e372a8209e1ad8d30cb2698b48af6bdc400544350f",
+  "release_owner": "95d6cea0e45fa7e1fe6197453298f1ef2a78998f512bcd95e8d91d403bb97053",
+  "implementation": {
+    "shared_cuda_metal_slang": true,
+    "new_suites": 0,
+    "new_auditors": 0,
+    "new_shader_entry_files": 0,
+    "input_words_unchanged": 121392,
+    "output_words_unchanged": 2032000,
+    "typed_geometry_tag_zero_is_mixed_weapon_only": true,
+    "legacy_private_skill_mixed_rejection_retained": true,
+    "body_owned_only": true,
+    "per_binding_kind_used_for_damage_landing_receipts_counters": true,
+    "two_binary64_amounts_frozen_before_landing": true,
+    "parent_uses_existing_integer_packet_sum": true,
+    "mixed_pellet_words": 10,
+    "homogeneous_pellet_words_unchanged": 8,
+    "scratch_bound": 163952,
+    "scratch_next_bank": 170976,
+    "history_capacity_unchanged": 2048,
+    "shape_capacity_unchanged": 128,
+    "pellet_capacity_unchanged": 1024,
+    "canonical_cpu_changed": false,
+    "pinned_changed": false,
+    "numeric_rules_changed": false,
+    "tolerance_changes": 0,
+    "effects_ignored": 0
+  },
+  "product": {
+    "metal_profiles": 2,
+    "characters": [
+      "아스카",
+      "프림"
+    ],
+    "new_distinct_profiles": 0,
+    "metal_conditions": 16,
+    "reasoned_cpu_fallback_profiles": 1,
+    "reasoned_cpu_fallback_conditions": 8,
+    "rows": [
+      {
+        "character": "프림",
+        "variant": "fixed-projectile-front-break",
+        "capture_id": "89cccd1bff874b93b559aa3c8f80c99a",
+        "input_sha256": "c38c15626908e158c3b7a30e9dcc18154fb550d1c5db96b4cd622ed4a2f52d28",
+        "output_sha256": "bbb41a8b2385d39a784323b98a222e326f5e9b06a50217a4369bba1b98ebe181",
+        "weapon_packets": 105,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 0,
+        "self_first_packets": [
+          [
+            3,
+            143819
+          ],
+          [
+            3,
+            143819
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "프림",
+        "variant": "fixed-shield-front-break",
+        "capture_id": "c8a228e4b7f74763a59c05ded1853bfc",
+        "input_sha256": "ccc6fe444021f9b8902013bcce66eb1552935521f3c436872c71b2821283c7dd",
+        "output_sha256": "627faa2898737ced00972ada35e757b18cf6afb43cb44ba91e3ef5aca7861ace",
+        "weapon_packets": 105,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 0,
+        "self_first_packets": [
+          [
+            2,
+            143819
+          ],
+          [
+            2,
+            143819
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "프림",
+        "variant": "fixed-live-reach",
+        "capture_id": "63181a3f1eb04421a9f99b9b7e32ae59",
+        "input_sha256": "3cd11e8c95a1b2b007bcd2dce575f5afefcee9e01b6cac8d9bc293b64bae259a",
+        "output_sha256": "99bd0ddc2bda84b57332c08d505a8d95bdc81395a5b0ab6ef14a28bfa67e7db3",
+        "weapon_packets": 106,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 1,
+        "self_first_packets": [
+          [
+            2,
+            143819
+          ],
+          [
+            2,
+            143819
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "프림",
+        "variant": "fixed-renewal",
+        "capture_id": "26897b300eaa4202b78ae41a4e73eaa3",
+        "input_sha256": "0cd3fd5404d52b796a7170bf513e07780e4ff50865449dcad489207248cbb784",
+        "output_sha256": "7a8b7b9a316b2ba9c877005ba157d28651d47ac2fa20cb8b9db9a760bbe65fca",
+        "weapon_packets": 106,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 1,
+        "self_first_packets": [
+          [
+            2,
+            143819
+          ],
+          [
+            2,
+            143819
+          ]
+        ],
+        "typed_generations": [
+          3,
+          3
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "아스카",
+        "variant": "fixed-아스카-projectile-front-break",
+        "capture_id": "5190959f7e344456b5f5606572d69a22",
+        "input_sha256": "18fecfd11bbf9c0bf8eaf45f1ef3198c6451c21281fde472d22554fe0a2f0f36",
+        "output_sha256": "2cfa6321fdfbf8407166e391ee9a4a5765cdaecd910f81be823501b7c44652f3",
+        "weapon_packets": 406,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 0,
+        "self_first_packets": [
+          [
+            2,
+            53474
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "아스카",
+        "variant": "fixed-아스카-shield-front-live",
+        "capture_id": "ae19b436e1814ddbb0f3f3f97bb5b4fe",
+        "input_sha256": "14add48d7105008b263abf4b032ee6a249d77a76118667d687c91519f4d8dd53",
+        "output_sha256": "fbfe4c22a2fa9f5cfbe1097f04cff3d1651c147fb045fd1637c94ed4a6c07eb3",
+        "weapon_packets": 455,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 49,
+        "self_first_packets": [
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "프림",
+        "variant": "accumulate-projectile-front-break",
+        "capture_id": "c57836f9d07d4ef29946aa2743c13004",
+        "input_sha256": "9221c030d3cda1991826ce56b430fc17c34cd66bb047d850178beea728d07bb6",
+        "output_sha256": "39645c4c27fdd70566f3d2bd5e1602146df4acdd426cc1138099f5f540d0d36e",
+        "weapon_packets": 105,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 0,
+        "self_first_packets": [
+          [
+            3,
+            143819
+          ],
+          [
+            3,
+            143819
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "프림",
+        "variant": "accumulate-shield-front-break",
+        "capture_id": "0fa621f891064eb29229b03dd2d22426",
+        "input_sha256": "1155d04e0e8678d840f66dd3fe613d8accf403ab0cf3cd2c42f5d266a272bf6d",
+        "output_sha256": "2eb1dbb72195536b1e2b5226d29368d673a074e290f3729fb2ce733edd4aa03b",
+        "weapon_packets": 105,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 0,
+        "self_first_packets": [
+          [
+            2,
+            143819
+          ],
+          [
+            2,
+            143819
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "프림",
+        "variant": "accumulate-live-reach",
+        "capture_id": "4ec15c33bcae4f7289fb377c7a5488a8",
+        "input_sha256": "b4a586bb67f5869940ceff59d2341ae118973c9e73324cc24988f8dfcc89ef02",
+        "output_sha256": "23e6102579edbe1989a881bbe80a3437d32182a5122676fdc7d17a40bf1b1618",
+        "weapon_packets": 106,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 1,
+        "self_first_packets": [
+          [
+            2,
+            143819
+          ],
+          [
+            2,
+            143819
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "프림",
+        "variant": "accumulate-renewal",
+        "capture_id": "3ef685a1268143efac259fc1dea34983",
+        "input_sha256": "b90816fa6064e0a2f32acf3b322d89585d95ca144b13deb1af670092331bee07",
+        "output_sha256": "552a49612b415b383cb4d495c6292609ee81349a1843d541d7c41ab43f0d4818",
+        "weapon_packets": 106,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 1,
+        "self_first_packets": [
+          [
+            2,
+            143819
+          ],
+          [
+            2,
+            143819
+          ]
+        ],
+        "typed_generations": [
+          3,
+          3
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "아스카",
+        "variant": "accumulate-아스카-projectile-front-break",
+        "capture_id": "914930ad51ae4094a2a54b0c83b66cfe",
+        "input_sha256": "7dd276232e5e7035271aa1a48c8909b8d2dd4d47941b15a4a9392a0bdc3949df",
+        "output_sha256": "9a767482e65d4bd499729e104fb846113f8dd39580275cafdc28622cdff96269",
+        "weapon_packets": 406,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 0,
+        "self_first_packets": [
+          [
+            2,
+            53474
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "아스카",
+        "variant": "accumulate-아스카-shield-front-live",
+        "capture_id": "c08f51fc1b0a4b17b9e5b87c48ec533e",
+        "input_sha256": "1142201c909081a38f6615354eb05a4ae93022db995a3e07a31c05b8a7ff8088",
+        "output_sha256": "047e1e62f52c14d2c6b5432e0f4d18ef5b6e33c915f8900539f56241ed42afa6",
+        "weapon_packets": 449,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 43,
+        "self_first_packets": [
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "아스카",
+        "variant": "fixed-아스카-projectile-front-break-body-only",
+        "capture_id": "8048c419ea7a4baea4257282b6003d0b",
+        "input_sha256": "4d6ab5ef17b6f68a07e79c4ce72d5d7ce66d8d6a35aa62fc7b5d500733e3f8e7",
+        "output_sha256": "49d601c21abe60cb50719fa431016c1cc642a2ac53b84271aeada7c1087e889e",
+        "weapon_packets": 406,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 0,
+        "self_first_packets": [
+          [
+            2,
+            53474
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "아스카",
+        "variant": "fixed-아스카-shield-front-live-body-only",
+        "capture_id": "83d888f3443e47a5957277aa37b93333",
+        "input_sha256": "1062d886c37fee172aeb175010c5d4bf29570962e10552f8180fdfc2783bfc73",
+        "output_sha256": "5a9924e9e0805bd03b6e1a0e81df3434ae5b7e23fbb577762b5198d8468e15a4",
+        "weapon_packets": 455,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 49,
+        "self_first_packets": [
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "아스카",
+        "variant": "accumulate-아스카-projectile-front-break-body-only",
+        "capture_id": "e6d0bca53ae9404a83c0bb04ef8a5b3d",
+        "input_sha256": "24d8963aa72498939db7361000c54ca8737ff9c2d7cb0f4aa84e64293c7576a3",
+        "output_sha256": "bbd5b4db8d34a33d3dd8a536dbb200e34040087ff8985417fde7f1dece4d2cca",
+        "weapon_packets": 406,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 0,
+        "self_first_packets": [
+          [
+            2,
+            53474
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "character": "아스카",
+        "variant": "accumulate-아스카-shield-front-live-body-only",
+        "capture_id": "897b3661eab74d50ab9d8b2db08641bc",
+        "input_sha256": "08cafb400a61f989ad94952da3bec830e6e724581255a0d0f59ab340de006438",
+        "output_sha256": "cbaeffd320675d7b59f8923ff6e0507da5b97dffa77b32fb2a6be2292bd6a1c9",
+        "weapon_packets": 449,
+        "both_kinds_observed": true,
+        "mixed_kind_same_pellet_groups": 43,
+        "self_first_packets": [
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ],
+          [
+            3,
+            374857
+          ]
+        ],
+        "typed_generations": [
+          1,
+          1
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      }
+    ],
+    "fallback_rows": [
+      {
+        "character": "일레그",
+        "variant": "fixed-일레그-projectile-front-break",
+        "reason": [
+          {
+            "character": "일레그",
+            "effect": "쇼트 2",
+            "stat": "split_damage",
+            "target": "target_and_nearby:2",
+            "reason": "Unported enemy damage selector"
+          }
+        ],
+        "gpu_execution_verified": false
+      },
+      {
+        "character": "일레그",
+        "variant": "fixed-일레그-shield-front-live",
+        "reason": [
+          {
+            "character": "일레그",
+            "effect": "쇼트 2",
+            "stat": "split_damage",
+            "target": "target_and_nearby:2",
+            "reason": "Unported enemy damage selector"
+          }
+        ],
+        "gpu_execution_verified": false
+      },
+      {
+        "character": "일레그",
+        "variant": "accumulate-일레그-projectile-front-break",
+        "reason": [
+          {
+            "character": "일레그",
+            "effect": "쇼트 2",
+            "stat": "split_damage",
+            "target": "target_and_nearby:2",
+            "reason": "Unported enemy damage selector"
+          }
+        ],
+        "gpu_execution_verified": false
+      },
+      {
+        "character": "일레그",
+        "variant": "accumulate-일레그-shield-front-live",
+        "reason": [
+          {
+            "character": "일레그",
+            "effect": "쇼트 2",
+            "stat": "split_damage",
+            "target": "target_and_nearby:2",
+            "reason": "Unported enemy damage selector"
+          }
+        ],
+        "gpu_execution_verified": false
+      },
+      {
+        "character": "일레그",
+        "variant": "fixed-일레그-projectile-front-break-body-only",
+        "reason": [
+          {
+            "character": "일레그",
+            "effect": "쇼트 2",
+            "stat": "split_damage",
+            "target": "target_and_nearby:2",
+            "reason": "Unported enemy damage selector"
+          }
+        ],
+        "gpu_execution_verified": false
+      },
+      {
+        "character": "일레그",
+        "variant": "fixed-일레그-shield-front-live-body-only",
+        "reason": [
+          {
+            "character": "일레그",
+            "effect": "쇼트 2",
+            "stat": "split_damage",
+            "target": "target_and_nearby:2",
+            "reason": "Unported enemy damage selector"
+          }
+        ],
+        "gpu_execution_verified": false
+      },
+      {
+        "character": "일레그",
+        "variant": "accumulate-일레그-projectile-front-break-body-only",
+        "reason": [
+          {
+            "character": "일레그",
+            "effect": "쇼트 2",
+            "stat": "split_damage",
+            "target": "target_and_nearby:2",
+            "reason": "Unported enemy damage selector"
+          }
+        ],
+        "gpu_execution_verified": false
+      },
+      {
+        "character": "일레그",
+        "variant": "accumulate-일레그-shield-front-live-body-only",
+        "reason": [
+          {
+            "character": "일레그",
+            "effect": "쇼트 2",
+            "stat": "split_damage",
+            "target": "target_and_nearby:2",
+            "reason": "Unported enemy damage selector"
+          }
+        ],
+        "gpu_execution_verified": false
+      }
+    ],
+    "physical_gpu_dispatches": 4,
+    "physical_cases": 16,
+    "api_job_wall_seconds": 39.06540670897812,
+    "timing_scope": "Single observed API job with CPU fallbacks; not controlled benchmark",
+    "saved_audited_cases": 24,
+    "saved_audit_extra_gpu": 0,
+    "saved_audit_extra_battles": 0,
+    "final_projection_gpu_cases": 16,
+    "final_projection_unchanged_static_fallback_cases": 8,
+    "final_projection_extra_gpu": 0,
+    "final_projection_extra_battles": 0,
+    "owned_node_process_group_absent": true
+  },
+  "cli": {
+    "program": "typed-accumulate",
+    "actual_metal_cases": 3,
+    "independent_gpu_forbidden_audit": {
+      "package_id": "c3471988860b9b55b3df24e372a8209e1ad8d30cb2698b48af6bdc400544350f",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-mixed-typed-v1-20261102/metal-v1",
+      "child_pid": 58473,
+      "input_count": 3,
+      "native_cases": 3,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 2.0857522919541225,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "e3df8f05461796c9c16d91e39f08ffd23ab7de31b5df0f0a2e831abec6cb7788",
+      "output_sha256": "c2a3a980dcdfe40fb13ec2b1858dff3ebb2608ec49813fe9bc651e60f598a167",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "golden": "research/portable-product-programs-v61-expected.json",
+    "previous2_input_output_native_entries_exact": true,
+    "other41_programs_exact": true,
+    "release_cpu_tests": 176,
+    "release_native_cases": 3
+  },
+  "source_dependency_audit": {
+    "passed": true,
+    "sha256": "359b1165ffffd5a15477c298747c4ec7e2129d9c2c0f57ecb03d7c32d310b0a6",
+    "gpu_calls": 0,
+    "native_battle_calls": 0,
+    "scope": "Source/dependency plan only"
+  },
+  "compile_policy_plans": {
+    "ptx": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "95d6cea0e45fa7e1fe6197453298f1ef2a78998f512bcd95e8d91d403bb97053",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    },
+    "cubin": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "95d6cea0e45fa7e1fe6197453298f1ef2a78998f512bcd95e8d91d403bb97053",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "cubin",
+      "ptxas_level": 1,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "--ptxas-options",
+        "-O1"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    }
+  },
+  "failure_preservation": {
+    "first_static_api_preparation_stopped_before_gpu": true,
+    "unsupported_effect": {
+      "character": "일레그",
+      "effect": "쇼트 2",
+      "target": "target_and_nearby:2",
+      "stat": "split_damage",
+      "reason": "Unported enemy damage selector"
+    },
+    "all24_requests_and8_fallbacks_preserved": true,
+    "no_filtering_of_effects_or_claim_retries": true,
+    "legacy_negative_test_updated_to_invalid_kind4": true
+  },
+  "windows": {
+    "new_requests": 0,
+    "current_source_cuda_profiles": 0,
+    "ram_resampling": 0,
+    "prior_ram_and_process_stops_preserved": true
+  },
+  "coverage": {
+    "last_full_standard_metal_profiles": 263,
+    "total_standard_profiles": 266,
+    "last_full_declared_extra_profiles": 3,
+    "last_full_matrix_owner": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+    "full_standard_matrix_recertified_on_this_source": false,
+    "historical_cuda_standard_profiles": 263,
+    "current_source_cuda_profiles": 0,
+    "declared_model_game_verified": false,
+    "all_special_effects_verified": false,
+    "full_goal_complete": false
+  },
+  "remaining": [
+    "Prioritize original Elegg target_and_nearby:2 in typed scenes. Inspect BODY-only specialization and real CPU target semantics; do not drop coord or ADDs merely to force an old lowering guard.",
+    "Complete non-BODY ownership and other declared consumer compositions without weakening existing admission.",
+    "Current full standard matrix and necessary bounded CUDA differential validation remain incomplete."
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "old38_source_input_native_and_all_raw_blocks_retained": true,
+  "original_failed_comparator_preserved": true,
+  "changed_gpu_math_to_repair_comparison": false
+}

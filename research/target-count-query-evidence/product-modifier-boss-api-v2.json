@@ -1,0 +1,77 @@
+{
+  "source": "db519d180f54a431b62bd79186d2266025b9b83c",
+  "source_files_unchanged": true,
+  "duration_seconds": 8,
+  "actual_gpu": "Apple M5 Metal normal HTTP/API",
+  "rows": [
+    {
+      "index": 0,
+      "case": "Asuka target + boss fixed",
+      "capture": "2c9d23dbeabd452d858b2030150c78c3",
+      "source": "gpu/product_fixed_target_battle_entry.slang",
+      "input_sha256": "2dfe518bc0a21f8f6e6001852c469f077b39eabd96e88a6bf64144640c3e0911",
+      "output_sha256": "bff25af521300110a2894d2790739f9c7025dbb4aeee02d0d1e143de4738f44a",
+      "gpu_seconds": 0.4191936666611582,
+      "boss_events": 6,
+      "incoming_hits": 15,
+      "cpu_payload_matched": true
+    },
+    {
+      "index": 1,
+      "case": "Sakura Belorta group target + boss fixed",
+      "capture": "45786e3469684cfbbb64a7031f42eb69",
+      "source": "gpu/product_fixed_group_target_battle_entry.slang",
+      "input_sha256": "75a8c02e40d4f69322ac73b0633b6102cf26326e15f76e2e421e2ed688c5133e",
+      "output_sha256": "0a4d921ac156ba396178b70af4c099911c485752a54c70dd65c791039e947ea4",
+      "gpu_seconds": 0.4055952916969545,
+      "boss_events": 6,
+      "incoming_hits": 15,
+      "cpu_payload_matched": true
+    },
+    {
+      "index": 2,
+      "case": "Asuka target + boss accumulate",
+      "capture": "3dca6ffe4e284822bc457e9fdb51239e",
+      "source": "gpu/product_target_battle_entry.slang",
+      "input_sha256": "c28c9bda713d37b1755cddd28d772edd2a42820293be9bd72f22f87d2ea54b93",
+      "output_sha256": "094680b998fc060f4669454883fa1e89d5b5a13421626ff915c41da157400f4f",
+      "gpu_seconds": 0.4148728749714792,
+      "boss_events": 6,
+      "incoming_hits": 15,
+      "cpu_payload_matched": true
+    },
+    {
+      "index": 3,
+      "case": "Sakura Belorta group target + boss accumulate",
+      "capture": "4c1c2832fc5f406c994c7b10bb15265f",
+      "source": "gpu/product_group_target_battle_entry.slang",
+      "input_sha256": "125fcce4c95eb335712c0c7fdaaf65d2339e213f7ce5c05d37d49e64585b7d42",
+      "output_sha256": "15ff5cb12968fa510f4303a5020452e61b94a018f4e57d8e565f2a4f5cc2a771",
+      "gpu_seconds": 0.40351395832840353,
+      "boss_events": 6,
+      "incoming_hits": 15,
+      "cpu_payload_matched": true
+    }
+  ],
+  "excluded_response_metadata": [
+    "compute",
+    "cache_hit"
+  ],
+  "prior_failed_attempt": "product-modifier-boss-api-v1-20261031: old system Python import failed before GPU",
+  "cuda_calls": 0,
+  "distinct_profile_count_increase": 0,
+  "common_cpu": {
+    "passed": true,
+    "groups": 77,
+    "tests": 836,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "limits": [
+    "BODY-only idle/attack/buff/core scripts",
+    "Parts, shields, summons, coordinates and implicit part-break remain rejected",
+    "No additional distinct catalogue profiles",
+    "No CUDA run or current fixed CUDA proof"
+  ]
+}

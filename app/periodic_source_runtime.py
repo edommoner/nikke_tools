@@ -20,6 +20,9 @@ def refresh(manager,effect,caster,t,value=0):
     if key not in resources and len(resources)>=MAX_SOURCES:raise ValueError('Periodic source capacity exceeded')
     epoch=resources[key].epoch+1 if key in resources else 1
     resources[key]=PeriodicSource(caster,spec,tuple(math.inf if d<0 else t+d for d in spec.lifetimes),t+spec.interval(len(spec.lifetimes)),epoch)
+    # Population changes can affect live reference buffs in the same frame.
+    # Retain the structural plan; invalidate numeric aggregation by its version.
+    manager._bump_value_version()
 
 def tick(manager,t):
     resources=pool(manager,'periodic_sources')

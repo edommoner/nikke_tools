@@ -12,7 +12,7 @@ assert accepted(report)-accepted(prior)=={'아비스타'} and not accepted(prior
 loader=importlib.util.spec_from_file_location('previous_ally_compiler',old_source);old=importlib.util.module_from_spec(loader);loader.loader.exec_module(old)
 for name in sorted(accepted(prior)):
     names=[name]+[n for n in ['모더니아','루주','마스트 : 로망틱 메이드','도라','얀'] if n!=name][:4]
-    body=body_for(names);current=a.evaluate({**body,'_compile_gpu_detail':True})
+    body=body_for(names);current=a.evaluate({**body,'_compile_detail':True})
     previous=old.compile_full(current['prepared'],lambda char:current['base_stats'][char['name']],body,current['policy'],current['requested_policy'])
     assert current['program']==previous['program'],name
 assert before=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in before}

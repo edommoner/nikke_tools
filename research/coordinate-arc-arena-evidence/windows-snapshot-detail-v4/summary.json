@@ -1,0 +1,184 @@
+{
+  "schema": "snapshot-detail-v4",
+  "distribution": {
+    "distribution_commit": "83a1c368f108a1537a43cd681688300993b22ee1",
+    "archive_bytes": 9171857,
+    "archive_sha256": "50bcb69634bf667361be135eca9d36f523530c294e58c8ca99638d980cd6bd85",
+    "package_id": "6c1b600cc98d89c490416c2d84dfe8b05c9cfd3230b723002b238f86cd3e378e",
+    "archive_members": 2058,
+    "safe_paths_verified": true
+  },
+  "package_verification": {
+    "passed": true,
+    "package_id": "6c1b600cc98d89c490416c2d84dfe8b05c9cfd3230b723002b238f86cd3e378e",
+    "suite": "coordinate-arc-arena",
+    "manifest_files": 2057,
+    "payload_bytes": 57541040,
+    "gpu_calls": 0
+  },
+  "api_arguments": {
+    "command": "snapshot-check",
+    "original_workspace": "<ORIGINAL_WORKSPACE>",
+    "validation_root": "<SNAPSHOT_DETAIL_V4_DIAGNOSTIC_ROOT>",
+    "out": "<SNAPSHOT_DETAIL_V4_DIAGNOSTIC_ROOT>/snapshot.json",
+    "powershell": "powershell.exe (existing observer default)",
+    "outer_timeout_seconds": 30,
+    "query_timeout_seconds": 20
+  },
+  "result": {
+    "schema": "windows-snapshot-check-v1",
+    "snapshot_verified": false,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "scope": "One read-only process/listener snapshot; not a before/after preservation or CUDA calculation proof",
+    "error": {
+      "type": "SnapshotFailure",
+      "message": "Windows process snapshot unavailable (exit=1, stage=processes, category=0, hresult=-2146233088); no command lines retained",
+      "diagnostic": {
+        "operation": 1,
+        "type_id": 1,
+        "inner_type_id": 0,
+        "error_id_kind": 0,
+        "native_code": 2,
+        "inner_hresult": null
+      }
+    },
+    "elapsed_seconds": 0.6133828000165522
+  },
+  "failure_metadata": {
+    "stage": "processes",
+    "process_exit": 1,
+    "category": 0,
+    "hresult": -2146233088,
+    "operation": 1,
+    "type_id": 1,
+    "inner_type_id": 0,
+    "error_id_kind": 0,
+    "native_code": 2,
+    "inner_hresult": null
+  },
+  "source_table_labels": {
+    "operation_1": "process query (Get-CimInstance Win32_Process)",
+    "type_id_1": "Microsoft.Management.Infrastructure.CimException",
+    "zero_type_or_family_id": "No mapped identifier; not a root-cause conclusion"
+  },
+  "job_receipt": {
+    "schema": 1,
+    "records": [
+      {
+        "child_pid": 52112,
+        "wrapper_pid": 68824,
+        "pre_gate": {
+          "child_pid": 52112,
+          "child_ppid": 68824,
+          "parent_observation": "os_process_snapshot",
+          "observed_unix_ns": 1793046923731510200,
+          "wrapper_pid": 68824,
+          "child_creation_filetime_ticks": "134375205237111175",
+          "job_members": [
+            52112
+          ],
+          "job_peak_memory_bytes": 684032,
+          "job_memory_limit_bytes": 2147483648
+        },
+        "pre_gate_verified": true,
+        "post_wait": {
+          "child_pid": 52112,
+          "child_ppid": 68824,
+          "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+          "observed_unix_ns": 1793046924760321800,
+          "wrapper_pid": 68824,
+          "child_creation_filetime_ticks": "134375205237111175",
+          "job_members": [],
+          "job_peak_memory_bytes": 90443776,
+          "job_memory_limit_bytes": 2147483648
+        },
+        "inspection_error": null
+      }
+    ],
+    "observer_assigns_processes": false
+  },
+  "execution": {
+    "passed": false,
+    "timed_out": false,
+    "timeout_seconds": 30,
+    "elapsed_seconds": 1.0535010998137295,
+    "child_exit_code": 1,
+    "final_child_exit_code": 1,
+    "error": null,
+    "cleanup_error": null,
+    "cleanup_wait_seconds": 5,
+    "observation_error": null,
+    "wait_completed_unix_ns": 1793046924761838900,
+    "below_normal_priority": true,
+    "phase": {
+      "events": 0,
+      "last_event": null,
+      "timed_calls": [],
+      "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_linked_artifact_observed": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retry_count": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false
+  },
+  "original_byte_provenance": [
+    {
+      "path": "snapshot.json",
+      "bytes": 695,
+      "sha256": "4b480db22556e9f27718db7717f919b96d37b673c85ca46475f6750d17488b6f",
+      "original_bytes_base64": "ew0KICAic2NoZW1hIjogIndpbmRvd3Mtc25hcHNob3QtY2hlY2stdjEiLA0KICAic25hcHNob3RfdmVyaWZpZWQiOiBmYWxzZSwNCiAgImdwdV9jYWxscyI6IDAsDQogICJjYWxjdWxhdGlvbl92ZXJpZmllZCI6IGZhbHNlLA0KICAicHJlc2VydmF0aW9uX3ZlcmlmaWVkIjogbnVsbCwNCiAgInNjb3BlIjogIk9uZSByZWFkLW9ubHkgcHJvY2Vzcy9saXN0ZW5lciBzbmFwc2hvdDsgbm90IGEgYmVmb3JlL2FmdGVyIHByZXNlcnZhdGlvbiBvciBDVURBIGNhbGN1bGF0aW9uIHByb29mIiwNCiAgImVycm9yIjogew0KICAgICJ0eXBlIjogIlNuYXBzaG90RmFpbHVyZSIsDQogICAgIm1lc3NhZ2UiOiAiV2luZG93cyBwcm9jZXNzIHNuYXBzaG90IHVuYXZhaWxhYmxlIChleGl0PTEsIHN0YWdlPXByb2Nlc3NlcywgY2F0ZWdvcnk9MCwgaHJlc3VsdD0tMjE0NjIzMzA4OCk7IG5vIGNvbW1hbmQgbGluZXMgcmV0YWluZWQiLA0KICAgICJkaWFnbm9zdGljIjogew0KICAgICAgIm9wZXJhdGlvbiI6IDEsDQogICAgICAidHlwZV9pZCI6IDEsDQogICAgICAiaW5uZXJfdHlwZV9pZCI6IDAsDQogICAgICAiZXJyb3JfaWRfa2luZCI6IDAsDQogICAgICAibmF0aXZlX2NvZGUiOiAyLA0KICAgICAgImlubmVyX2hyZXN1bHQiOiBudWxsDQogICAgfQ0KICB9LA0KICAiZWxhcHNlZF9zZWNvbmRzIjogMC42MTMzODI4MDAwMTY1NTIyDQp9DQo="
+    },
+    {
+      "path": "snapshot-cli/job.json",
+      "bytes": 1088,
+      "sha256": "00efe7002f7a55a30b036f0db31c07ff5666583dd1d7bc247928cf275282ea5a",
+      "original_bytes_base64": "ew0KICAic2NoZW1hIjogMSwNCiAgInJlY29yZHMiOiBbDQogICAgew0KICAgICAgImNoaWxkX3BpZCI6IDUyMTEyLA0KICAgICAgIndyYXBwZXJfcGlkIjogNjg4MjQsDQogICAgICAicHJlX2dhdGUiOiB7DQogICAgICAgICJjaGlsZF9waWQiOiA1MjExMiwNCiAgICAgICAgImNoaWxkX3BwaWQiOiA2ODgyNCwNCiAgICAgICAgInBhcmVudF9vYnNlcnZhdGlvbiI6ICJvc19wcm9jZXNzX3NuYXBzaG90IiwNCiAgICAgICAgIm9ic2VydmVkX3VuaXhfbnMiOiAxNzkzMDQ2OTIzNzMxNTEwMjAwLA0KICAgICAgICAid3JhcHBlcl9waWQiOiA2ODgyNCwNCiAgICAgICAgImNoaWxkX2NyZWF0aW9uX2ZpbGV0aW1lX3RpY2tzIjogIjEzNDM3NTIwNTIzNzExMTE3NSIsDQogICAgICAgICJqb2JfbWVtYmVycyI6IFsNCiAgICAgICAgICA1MjExMg0KICAgICAgICBdLA0KICAgICAgICAiam9iX3BlYWtfbWVtb3J5X2J5dGVzIjogNjg0MDMyLA0KICAgICAgICAiam9iX21lbW9yeV9saW1pdF9ieXRlcyI6IDIxNDc0ODM2NDgNCiAgICAgIH0sDQogICAgICAicHJlX2dhdGVfdmVyaWZpZWQiOiB0cnVlLA0KICAgICAgInBvc3Rfd2FpdCI6IHsNCiAgICAgICAgImNoaWxkX3BpZCI6IDUyMTEyLA0KICAgICAgICAiY2hpbGRfcHBpZCI6IDY4ODI0LA0KICAgICAgICAicGFyZW50X29ic2VydmF0aW9uIjogInByZV9nYXRlX3NuYXBzaG90X3NhbWVfcHJvY2Vzc19oYW5kbGVfYWZ0ZXJfZXhpdCIsDQogICAgICAgICJvYnNlcnZlZF91bml4X25zIjogMTc5MzA0NjkyNDc2MDMyMTgwMCwNCiAgICAgICAgIndyYXBwZXJfcGlkIjogNjg4MjQsDQogICAgICAgICJjaGlsZF9jcmVhdGlvbl9maWxldGltZV90aWNrcyI6ICIxMzQzNzUyMDUyMzcxMTExNzUiLA0KICAgICAgICAiam9iX21lbWJlcnMiOiBbXSwNCiAgICAgICAgImpvYl9wZWFrX21lbW9yeV9ieXRlcyI6IDkwNDQzNzc2LA0KICAgICAgICAiam9iX21lbW9yeV9saW1pdF9ieXRlcyI6IDIxNDc0ODM2NDgNCiAgICAgIH0sDQogICAgICAiaW5zcGVjdGlvbl9lcnJvciI6IG51bGwNCiAgICB9DQogIF0sDQogICJvYnNlcnZlcl9hc3NpZ25zX3Byb2Nlc3NlcyI6IGZhbHNlDQp9DQo="
+    },
+    {
+      "path": "snapshot-cli/execution.json",
+      "bytes": 1093,
+      "sha256": "cf4f6dbbbdf481cf8af255e1fabc178ba7990f8c41c4a2a308b4b85ff70e8f5d",
+      "original_bytes_base64": "ew0KICAicGFzc2VkIjogZmFsc2UsDQogICJ0aW1lZF9vdXQiOiBmYWxzZSwNCiAgInRpbWVvdXRfc2Vjb25kcyI6IDMwLA0KICAiZWxhcHNlZF9zZWNvbmRzIjogMS4wNTM1MDEwOTk4MTM3Mjk1LA0KICAiY2hpbGRfZXhpdF9jb2RlIjogMSwNCiAgImZpbmFsX2NoaWxkX2V4aXRfY29kZSI6IDEsDQogICJlcnJvciI6IG51bGwsDQogICJjbGVhbnVwX2Vycm9yIjogbnVsbCwNCiAgImNsZWFudXBfd2FpdF9zZWNvbmRzIjogNSwNCiAgIm9ic2VydmF0aW9uX2Vycm9yIjogbnVsbCwNCiAgIndhaXRfY29tcGxldGVkX3VuaXhfbnMiOiAxNzkzMDQ2OTI0NzYxODM4OTAwLA0KICAiYmVsb3dfbm9ybWFsX3ByaW9yaXR5IjogdHJ1ZSwNCiAgInBoYXNlIjogew0KICAgICJldmVudHMiOiAwLA0KICAgICJsYXN0X2V2ZW50IjogbnVsbCwNCiAgICAidGltZWRfY2FsbHMiOiBbXSwNCiAgICAidGltaW5nX3Njb3BlIjogIk9ic2VydmVkIGZ1bmN0aW9uIHRpbWUgZXhjbHVkZXMgaXRzIG93biBlbnRyeS9leGl0IGpvdXJuYWwgd3JpdGVzOyBuZXN0ZWQgY2FsbHMgb3ZlcmxhcDsgaW5jb21wbGV0ZSBjYWxscyBoYXZlIG5vIGR1cmF0aW9uOyBsZWdhY3kgam91cm5hbHMgbWF5IGhhdmUgbm9uZSIsDQogICAgIm52cnRjX2NvbXBpbGVfcmV0dXJuZWRfc3VjY2VzcyI6IGZhbHNlLA0KICAgICJjdWRhX2NvbXBpbGVfY2FjaGVfaGl0X3ZlcmlmaWVkIjogZmFsc2UsDQogICAgImN1ZGFfbGlua2VkX2FydGlmYWN0X29ic2VydmVkIjogZmFsc2UsDQogICAgImN1ZGFfbGF1bmNoX3JldHVybmVkX3N1Y2Nlc3MiOiBmYWxzZSwNCiAgICAiY3VkYV9zeW5jaHJvbml6ZV9yZXR1cm5lZF9zdWNjZXNzIjogZmFsc2UsDQogICAgImN1ZGFfcmVhZGJhY2tfcmV0dXJuZWRfc3VjY2VzcyI6IGZhbHNlLA0KICAgICJzY29wZSI6ICJPYnNlcnZlZCBBUEkgcmV0dXJucyBvbmx5OyBmdWxsIG91dHB1dCB2ZXJpZmljYXRpb24gcmVxdWlyZXMgdGhlIHNoYXJlZCBzdWl0ZSByZXBvcnQiDQogIH0sDQogICJncHVfcmV0cnlfY291bnQiOiAwLA0KICAiZnVsbF9jaGFyYWN0ZXJfdmVyaWZpZWQiOiAwLA0KICAiZnVsbF9nb2FsX2NvbXBsZXRlIjogZmFsc2UNCn0NCg=="
+    },
+    {
+      "path": "snapshot-cli/stdout.log",
+      "bytes": 695,
+      "sha256": "4b480db22556e9f27718db7717f919b96d37b673c85ca46475f6750d17488b6f",
+      "original_bytes_base64": "ew0KICAic2NoZW1hIjogIndpbmRvd3Mtc25hcHNob3QtY2hlY2stdjEiLA0KICAic25hcHNob3RfdmVyaWZpZWQiOiBmYWxzZSwNCiAgImdwdV9jYWxscyI6IDAsDQogICJjYWxjdWxhdGlvbl92ZXJpZmllZCI6IGZhbHNlLA0KICAicHJlc2VydmF0aW9uX3ZlcmlmaWVkIjogbnVsbCwNCiAgInNjb3BlIjogIk9uZSByZWFkLW9ubHkgcHJvY2Vzcy9saXN0ZW5lciBzbmFwc2hvdDsgbm90IGEgYmVmb3JlL2FmdGVyIHByZXNlcnZhdGlvbiBvciBDVURBIGNhbGN1bGF0aW9uIHByb29mIiwNCiAgImVycm9yIjogew0KICAgICJ0eXBlIjogIlNuYXBzaG90RmFpbHVyZSIsDQogICAgIm1lc3NhZ2UiOiAiV2luZG93cyBwcm9jZXNzIHNuYXBzaG90IHVuYXZhaWxhYmxlIChleGl0PTEsIHN0YWdlPXByb2Nlc3NlcywgY2F0ZWdvcnk9MCwgaHJlc3VsdD0tMjE0NjIzMzA4OCk7IG5vIGNvbW1hbmQgbGluZXMgcmV0YWluZWQiLA0KICAgICJkaWFnbm9zdGljIjogew0KICAgICAgIm9wZXJhdGlvbiI6IDEsDQogICAgICAidHlwZV9pZCI6IDEsDQogICAgICAiaW5uZXJfdHlwZV9pZCI6IDAsDQogICAgICAiZXJyb3JfaWRfa2luZCI6IDAsDQogICAgICAibmF0aXZlX2NvZGUiOiAyLA0KICAgICAgImlubmVyX2hyZXN1bHQiOiBudWxsDQogICAgfQ0KICB9LA0KICAiZWxhcHNlZF9zZWNvbmRzIjogMC42MTMzODI4MDAwMTY1NTIyDQp9DQo="
+    }
+  ],
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "preservation_verified": null,
+  "calculation_verified": false,
+  "root_cause": "Not inferred from numeric failure metadata",
+  "actions": {
+    "query_attempts": 1,
+    "prior_process_listener_queries": 0,
+    "compile": 0,
+    "slang_build": 0,
+    "cpu_numerical_tests": 0,
+    "driver_load": 0,
+    "cuda_context": 0,
+    "module_load": 0,
+    "kernel_launch": 0,
+    "nvidia_smi": 0,
+    "retries": 0,
+    "fallbacks": 0,
+    "os_wmi_service_changes": 0
+  },
+  "command_lines_saved": false,
+  "arbitrary_error_messages_or_raw_error_ids_saved": false,
+  "previous_claims_and_failures_retained": true,
+  "shared_path_policy": "Personal absolute paths replaced by placeholders in shared copy; original paths/bytes retained locally"
+}

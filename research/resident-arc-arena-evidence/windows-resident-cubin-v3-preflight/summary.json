@@ -1,0 +1,1053 @@
+{
+  "schema": "resident-cubin-v3-prerequisite-report",
+  "distribution": {
+    "distribution_commit": "f910d8004ac605e1ab581a3081551c3eae345301",
+    "archive_bytes": 11724258,
+    "archive_sha256": "3b3a91cee975cde4a575284248744248f7c29a70d01519d377133d704e18d745",
+    "package_id": "0064f91cb961cb10c2df7d19594d9179054ed84aed7325949537149c631af5c9",
+    "archive_members": 3550,
+    "safe_paths_verified": true
+  },
+  "package_verification": {
+    "passed": true,
+    "package_id": "0064f91cb961cb10c2df7d19594d9179054ed84aed7325949537149c631af5c9",
+    "suite": "coordinate-resident-arc",
+    "purpose": "sealed",
+    "manifest_files": 3549,
+    "payload_bytes": 63199685,
+    "gpu_calls": 0
+  },
+  "v2_v3_payload_verification": {
+    "passed": true,
+    "source_package_id": "814c08b1ff0d2957b2a027736dcbddb9a5327015516c7095421259da27e64c0c",
+    "package_id": "0064f91cb961cb10c2df7d19594d9179054ed84aed7325949537149c631af5c9",
+    "changed_existing_files": [
+      "app/portable_readiness_semantics.py",
+      "tests/test_portable_metal_device.py",
+      "tests/test_portable_readiness_semantics.py"
+    ],
+    "added_files": [
+      "research/resident-arc-arena-evidence/parent-reuse-v2/check-parent-reuse-v1.py",
+      "research/resident-arc-arena-evidence/parent-reuse-v2/check-parent-reuse-v2.py",
+      "tests/fixtures/landing-arc-cuda-comparison-v4.json",
+      "tests/fixtures/landing-arc-cuda-summary-v4.json",
+      "tests/fixtures/resident-arc-independent-v2.json"
+    ],
+    "removed_files": [],
+    "cli_records_equal": true,
+    "all106_golden_equal": true,
+    "source_closure_equal": true,
+    "verification": "Manifest record diff plus verified immutable payloads; metadata equality asserted"
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "0064f91cb961cb10c2df7d19594d9179054ed84aed7325949537149c631af5c9",
+    "suite": "coordinate-resident-arc",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "plan_comparison": {
+    "passed": true,
+    "exact_plan_equal": true,
+    "package_id": "0064f91cb961cb10c2df7d19594d9179054ed84aed7325949537149c631af5c9",
+    "gpu_calls": 0
+  },
+  "device_group_precheck": {
+    "passed": true,
+    "tests": 8,
+    "gpu_calls": 0
+  },
+  "device_group_precheck_rows": [
+    {
+      "pattern": "test_portable_metal_device.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.39745529973879457,
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 146504
+    }
+  ],
+  "dependency_check": {
+    "schema": 1,
+    "passed": true,
+    "dependencies": [],
+    "requirements_file": null,
+    "installation_performed": false,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "scope": "Selected validation tests only; package metadata and import availability, not GPU or numerical correctness",
+    "suite": "coordinate-resident-arc",
+    "package_id": "0064f91cb961cb10c2df7d19594d9179054ed84aed7325949537149c631af5c9"
+  },
+  "execution_permission": "require_escalated for every bounded prerequisite stage",
+  "outcome": "Stopped after full common CPU smoke encountered a Metal wire refresh error; no compile attempt or claim",
+  "common_cpu_smoke": {
+    "complete": false,
+    "expected_groups": 60,
+    "completed_groups": 59,
+    "tests": 573,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 10,
+    "rows": [
+      {
+        "pattern": "test_package_payload_reuse.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.3815625002607703,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_windows_cleanup.py",
+        "exit_code": 0,
+        "elapsed_seconds": 2.0852883998304605,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_gpu_cli.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.2280942001380026,
+        "tests": 45,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_compile_cache.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.8976515997201204,
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_cuda_artifact.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.2462853998877108,
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_module_check.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.232538300100714,
+        "tests": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_weapon_phases.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.746203999966383,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_offline_assembly.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.3411531997844577,
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_readback_stream.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.7907050997018814,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_regression_compact.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.5385076999664307,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_file_transport.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.6058004000224173,
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_cpu_batch.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.6072931000962853,
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_query_boundaries.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.9543159999884665,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_ptx_stats.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.11592129990458488,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_compiler_diagnostic.py",
+        "exit_code": 0,
+        "elapsed_seconds": 2.2335550002753735,
+        "tests": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_compiler_certificate.py",
+        "exit_code": 0,
+        "elapsed_seconds": 4.573994200211018,
+        "tests": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_python_dependencies.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.1424258998595178,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_cuda_cached_profile.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.10941739985719323,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_input_extension.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.3228352000005543,
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_generation_cache.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.303025500383228,
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_metal_cache.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.817185299936682,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_metal_cache_probe.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.06118510011583567,
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_generation_separation.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.7191762002184987,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_definition_view.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.9219309999607503,
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_ptx_callgraph.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.7277534999884665,
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_ptx_partition.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.4592757001519203,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_partition_object.py",
+        "exit_code": 0,
+        "elapsed_seconds": 4.473429000005126,
+        "tests": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_module_object.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.365416900254786,
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_object_recovery.py",
+        "exit_code": 0,
+        "elapsed_seconds": 4.132128300145268,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_device_linker.py",
+        "exit_code": 0,
+        "elapsed_seconds": 5.4937455002218485,
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_native_process.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.383177500218153,
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_job_limits.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.026570599991828203,
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_native_output_probe.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.046874099876731634,
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_jit_link.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.0617879000492394,
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_jit_link_capture.py",
+        "exit_code": 0,
+        "elapsed_seconds": 5.054065399803221,
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_linked_artifact.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.6426488999277353,
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_packet_stage.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.6129320999607444,
+        "tests": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_generation_gate.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.6059016999788582,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_readback_blocks.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.5308349002152681,
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_sparse_raw.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.027086699847131968,
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 10,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_metal_device.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.2915284000337124,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_required_cache_preflight.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.9320908999070525,
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_test_repackage.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.7153773996978998,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_migration_receipt_reuse.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.36156449979171157,
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_scope_snapshot_audit.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.028547899797558784,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_authored_case_purity.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.18177929986268282,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_prepared_input.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.43815649999305606,
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_arena_specs.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.1647771000862122,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_package_projection.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.24619540013372898,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_storage_budget.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.17129069985821843,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_development_expectations.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.089045099914074,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_comparison_groups.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.5985807999968529,
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_typed_owner_observer_migration.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.3180325999855995,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_cache_fs_compression.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.13815530017018318,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_counter_field_decoder.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.08114840043708682,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_windows_observer.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.09432419994845986,
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_snapshot_failure.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.10772509966045618,
+        "tests": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_wire_layout.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.07462610024958849,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 114856
+      },
+      {
+        "pattern": "test_portable_metal_wire_refresh.py",
+        "exit_code": 1,
+        "elapsed_seconds": 0.6298397998325527,
+        "tests": 8,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0,
+        "runner_pid": 114856
+      }
+    ],
+    "device_group_also_passed_in_full_smoke": true,
+    "prior_device8_not_used_as_substitute_for_full_smoke": true
+  },
+  "failure_diagnostic": {
+    "group": "test_portable_metal_wire_refresh.py",
+    "test": "MetalWireRefreshTests.test_only_reviewed_swift_line_changes_and_original_claim_remains",
+    "error_type": "ValueError",
+    "safe_message": "Unreviewed Swift transport; no automatic repair",
+    "error_site": {
+      "path": "app/portable_metal_wire_refresh.py",
+      "function": "replacement",
+      "line": 15
+    },
+    "fixture_source": {
+      "path": "tests/test_portable_metal_wire_refresh.py",
+      "setup_write_line": 24,
+      "sha256": "f9bf4d21c9626d4a0f7aaca2a4ddc4db563fb5158ef0a4a09d662fca77c366b2",
+      "write_api": "Path.write_text(before)"
+    },
+    "classification": "Saved error is reviewed-byte SHA rejection; static LF/CRLF candidate analysis recorded separately; actual failed temporary fixture was cleaned up",
+    "raw_traceback_shared": false
+  },
+  "static_newline_analysis": {
+    "scope": "Static in-memory reconstruction from immutable test setUp only; no test rerun, fixture write or repair call",
+    "reviewed_sha256": "272e3dc37e0a5710e274f5ab64d9d4eaf7b280ab523ac9bbbff3d2b57f406c3b",
+    "lf_bytes": 17290,
+    "lf_sha256": "272e3dc37e0a5710e274f5ab64d9d4eaf7b280ab523ac9bbbff3d2b57f406c3b",
+    "crlf_candidate_bytes": 17560,
+    "crlf_candidate_sha256": "c4df5a45c5bed7768ae53a66afc2a4ea8e58bcd2b13cbacdd35921db7e5013fc",
+    "linefeed_count": 270,
+    "actual_failed_temporary_fixture_retained": false,
+    "test_setup_write_api": "Path.write_text(before) with default newline translation on Windows",
+    "candidate_matches_reviewed": false
+  },
+  "remaining_gates": {
+    "compile_cli_11": "not run: stop after common smoke error",
+    "native_job_smoke": "not run",
+    "compile": "not attempted",
+    "offline_resources": "not attempted"
+  },
+  "executions": {
+    "plan": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "elapsed_seconds": 14.289426300209016,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793055877233910800,
+      "below_normal_priority": true,
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "device-tests": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 0.75533950002864,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793055885555521400,
+      "below_normal_priority": true,
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "deps": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "elapsed_seconds": 13.306088200304657,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793055906295841500,
+      "below_normal_priority": true,
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "cpu": {
+      "passed": false,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 82.12667500041425,
+      "child_exit_code": 1,
+      "final_child_exit_code": 1,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793055995309672100,
+      "below_normal_priority": true,
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    }
+  },
+  "job_receipts": {
+    "plan": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 142536,
+          "wrapper_pid": 145448,
+          "pre_gate": {
+            "child_pid": 142536,
+            "child_ppid": 145448,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793055862984546300,
+            "wrapper_pid": 145448,
+            "child_creation_filetime_ticks": "134375294629481643",
+            "job_members": [
+              142536
+            ],
+            "job_peak_memory_bytes": 5840896,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 142536,
+            "child_ppid": 145448,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793055877233910800,
+            "wrapper_pid": 145448,
+            "child_creation_filetime_ticks": "134375294629481643",
+            "job_members": [],
+            "job_peak_memory_bytes": 39809024,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "device-tests": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 146504,
+          "wrapper_pid": 27644,
+          "pre_gate": {
+            "child_pid": 146504,
+            "child_ppid": 27644,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793055884844402500,
+            "wrapper_pid": 27644,
+            "child_creation_filetime_ticks": "134375294848036434",
+            "job_members": [
+              146504
+            ],
+            "job_peak_memory_bytes": 5844992,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 146504,
+            "child_ppid": 27644,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793055885555521400,
+            "wrapper_pid": 27644,
+            "child_creation_filetime_ticks": "134375294848036434",
+            "job_members": [],
+            "job_peak_memory_bytes": 48926720,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "deps": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 65204,
+          "wrapper_pid": 82096,
+          "pre_gate": {
+            "child_pid": 65204,
+            "child_ppid": 82096,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793055893031215000,
+            "wrapper_pid": 82096,
+            "child_creation_filetime_ticks": "134375294929937907",
+            "job_members": [
+              65204
+            ],
+            "job_peak_memory_bytes": 5939200,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 65204,
+            "child_ppid": 82096,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793055906295841500,
+            "wrapper_pid": 82096,
+            "child_creation_filetime_ticks": "134375294929937907",
+            "job_members": [],
+            "job_peak_memory_bytes": 40099840,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "cpu": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 114856,
+          "wrapper_pid": 143520,
+          "pre_gate": {
+            "child_pid": 114856,
+            "child_ppid": 143520,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793055913225226700,
+            "wrapper_pid": 143520,
+            "child_creation_filetime_ticks": "134375295131859920",
+            "job_members": [
+              114856
+            ],
+            "job_peak_memory_bytes": 5902336,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 114856,
+            "child_ppid": 143520,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793055995308116800,
+            "wrapper_pid": 143520,
+            "child_creation_filetime_ticks": "134375295131859920",
+            "job_members": [],
+            "job_peak_memory_bytes": 186687488,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    }
+  },
+  "preservation_verified": null,
+  "calculation_verified": false,
+  "source_certificate": {
+    "sealed_package": true,
+    "gpu_source_closure_files": 256,
+    "source_closure_map_sha256": "386c3429311f5db2c91a093c0895c434a63e1977d6b271475782d57825c8b92c",
+    "expected_generated_normalized": {
+      "cuda": "b1a97508325194ab98643d2a2c307c99a007aa6d0be17b567dfccdb5fe91efc2",
+      "metal": "c4f8eb68214aee1c999554ef205c55cb31688441e70dd9a0980fda0d51e93f5a"
+    },
+    "actual_source_generation": false
+  },
+  "generated_cuda": null,
+  "cubin": null,
+  "compile_cache_key": null,
+  "original_local_byte_provenance": [
+    {
+      "local_relative_path": "compile-plan.json",
+      "bytes": 592,
+      "sha256": "d90d174bf8e7c4fc315d740b53b59619ec404806a10e93a6958aac53f5bc0f84",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "coordinate-resident-cubin-v3-plan.json",
+      "bytes": 574,
+      "sha256": "b1179e86fd73fc218af528f6bea0ddaebb7f87610d38a9a0b2fa5fac7578ad53",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "plan-comparison.json",
+      "bytes": 157,
+      "sha256": "550352f806c020e46e73bbb863f99732ec1510d3602322d738bb55888895034e",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "validation-deps.json",
+      "bytes": 428,
+      "sha256": "f361580a1c6363d8adcb39c637628746180857480c6de21824a79c32477e9f6c",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "device-tests/cpu-tests.json",
+      "bytes": 219,
+      "sha256": "95bc20ecad186249e282d6aee13568bea77c559d151ae21fa111fc5c3ef0ea38",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "cpu/cpu-tests.json",
+      "bytes": 12909,
+      "sha256": "d6be63e07893cbada801ad6297c7c363837e6078246b38cc868de21bda5cbbad",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "cpu/test_portable_metal_wire_refresh.py.stderr.log",
+      "bytes": 2083,
+      "sha256": "abf0789cb69de51f1479fe023628e5e73c2eff269bd13fa68cb94445b10c91b6",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "cpu-cli/stdout.log",
+      "bytes": 61,
+      "sha256": "f5201d584d1805ef87fb8982e6282d21caf045f09936bfd06a21d0b400b0bb36",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "cpu-cli/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "wire-fixture-newline-analysis.json",
+      "bytes": 672,
+      "sha256": "63ae902dbe8b0a0e6ad62d8b5ea8c27cb5a70956847f7acbd9707c6cae22cd95",
+      "raw_content_shared": false
+    }
+  ],
+  "actions": {
+    "plan_runs": 1,
+    "device_group_precheck_runs": 1,
+    "dependency_checks": 1,
+    "full_common_cpu_smoke_runs": 1,
+    "compile_cli_11_runs": 0,
+    "native_job_smoke_runs": 0,
+    "compile_attempts": 0,
+    "slang_builds": 0,
+    "nvrtc_calls": 0,
+    "driver_load": 0,
+    "cuda_context": 0,
+    "module_load": 0,
+    "kernel_launch": 0,
+    "claim_creation": 0,
+    "cache_writes": 0,
+    "retries": 0,
+    "packet_edits": 0,
+    "os_wmi_acl_service_changes": 0
+  },
+  "previous_v1_v2_compile_and_claims_remain_zero": true,
+  "existing_claims_captures_and_cache_retained": true,
+  "shared_path_policy": "Personal paths omitted/placeholders; repository-relative test filenames retained; raw stderr/SDK not shared; original receipts retained locally"
+}

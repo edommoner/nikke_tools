@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "package_id": "1e54383d95d39389d10e0bfb8b9d3a037f2fa6f310ac0749da13c10c64b2abc9",
+  "summary_file": "admission-timing-summary-v1.json",
+  "summary_bytes": 2445,
+  "summary_sha256": "adea198fb569e1fc91a594e924c9e1b54a4c65ef70b7d1570112327aeedb0be7",
+  "public_payload": "summary-and-manifest-only",
+  "raw_included": false,
+  "logs_included": false,
+  "scripts_included": false,
+  "personal_paths_included": false
+}

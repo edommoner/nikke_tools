@@ -1,0 +1,305 @@
+{
+  "development_package": {
+    "package_id": "2dd84fd94f5d3eedb33034a650062149ec093736ec1da8ea06558c0ef5f4d494",
+    "files": 1798,
+    "bytes": 4579274,
+    "archive_sha256": "7f72c95f9fa79fffb4f75acb94df2efd3f342f7a09c42d1c8cc4d4b075039c3b",
+    "source_commit": "a9acb7187884f706dae7eff758baaf726e0d2509"
+  },
+  "metal": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": true,
+    "preservation_verified": null,
+    "passed": true,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": null,
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 700294000104166,
+        "pid": 11532,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792601144163369000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 588,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "gpu_seconds": 9.010939124971628,
+    "input_bytes": 245548804,
+    "library_compile_seconds": 0.001672983169555664,
+    "output_bytes": 1849688064,
+    "pipeline_compile_seconds": 0.0022240877151489258,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "bounded": {
+    "passed": true,
+    "timed_out": false,
+    "timeout_seconds": 180,
+    "elapsed_seconds": 57.574304749956354,
+    "child_exit_code": 0,
+    "final_child_exit_code": 0,
+    "error": null,
+    "cleanup_error": null,
+    "cleanup_wait_seconds": 5,
+    "observation_error": null,
+    "wait_completed_unix_ns": 1792601144337227000,
+    "below_normal_priority": false,
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 700294000104166,
+        "pid": 11532,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792601144163369000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retry_count": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false
+  },
+  "cpu_preflight": {
+    "passed": true,
+    "input_count": 588,
+    "native_oracles": 459,
+    "input_sha256": "dfdc5eeaba89e89c7492b1b7f12551034fd1e906428327a598b800f5747e0b60",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 32.98475874995347
+  },
+  "cpu_groups": [
+    {
+      "pattern": "test_portable_regression_adapter.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8503055420005694
+    },
+    {
+      "pattern": "test_portable_roster_regression.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.2153974999673665
+    },
+    {
+      "pattern": "test_portable_readiness.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.1875906659988686
+    },
+    {
+      "pattern": "test_portable_stun.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.3788738750154153
+    },
+    {
+      "pattern": "test_portable_typed_recipient_delegation.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.054122624918818474
+    },
+    {
+      "pattern": "test_portable_skill_cooldown.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.8357919999398291
+    },
+    {
+      "pattern": "test_portable_healing_storage.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.292473875102587
+    },
+    {
+      "pattern": "test_portable_trigger_reduction.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.5523047909373417
+    },
+    {
+      "pattern": "test_portable_skill_critical.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.195539665990509
+    },
+    {
+      "pattern": "test_portable_skill_interval.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.2552323340205476
+    },
+    {
+      "pattern": "test_portable_skill_interval_flat.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.0500696250237525
+    },
+    {
+      "pattern": "test_portable_lazy_bank.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.5983313330216333
+    },
+    {
+      "pattern": "test_portable_compiler_stats.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.058649708051234484
+    },
+    {
+      "pattern": "test_portable_base_copy.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.7774197090184316
+    },
+    {
+      "pattern": "test_portable_seal.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.05355774995405227
+    },
+    {
+      "pattern": "test_portable_persona.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.626738915918395
+    },
+    {
+      "pattern": "test_portable_compile_cache.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.13773058296646923
+    },
+    {
+      "pattern": "test_portable_named_magnitude.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.105345583986491
+    }
+  ],
+  "literal_package": {
+    "package_id": "7792ed8ce05488afe61fd3354e775916769dee8088cd19a7a6bc744ce6004c1d",
+    "files": 1797,
+    "bytes": 4478278,
+    "archive_sha256": "290d90037a4d40f55e682644c04eaa31e27da2249d5573c44f1fb8d8a131b288",
+    "source_commit": "a9acb7187884f706dae7eff758baaf726e0d2509"
+  },
+  "literal_transport": {
+    "backend": "metal",
+    "cases": 54,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "gpu_seconds": 0.027089625014923513,
+    "input_bytes": 22550404,
+    "library_compile_seconds": 1.0825490951538086,
+    "output_bytes": 169869312,
+    "pipeline_compile_seconds": 9.79718291759491,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "literal_passed": true,
+  "retention": "research/portable-named-magnitude-retention.json",
+  "seal": {
+    "sealed": true,
+    "gpu_calls": 0,
+    "package_id": "2dd84fd94f5d3eedb33034a650062149ec093736ec1da8ea06558c0ef5f4d494",
+    "input_count": 588,
+    "golden": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-world-named-magnitude-regression-short-expected.json"
+  },
+  "seal_fresh_independent_comparisons": 1,
+  "cpu_tests": {
+    "tests": 711,
+    "skipped": 1,
+    "failures": 0,
+    "seconds": 42.604,
+    "log": "/tmp/nikke-named-magnitude-final-all-cpu.log",
+    "log_sha256": "047fce16ddcfe7002769afa6597045ff308d9eb748ae5a37f7ec1aa838601058"
+  },
+  "inventory": {
+    "profile_count": 266,
+    "base_count": 203,
+    "packed_profiles": 201,
+    "packed_base": 142,
+    "forbidden_calls": {
+      "cpu_battle": 0,
+      "gpu": 0
+    },
+    "classification": {
+      "method": "Independent lowered definition validation plus complete program packing",
+      "exhaustive_within_effect": false,
+      "unlock_counts_are_predictions": false,
+      "diagnostic_sources": {
+        "effect": {
+          "structured_reason": 94,
+          "message_fallback": 25
+        },
+        "program": {
+          "structured_reason": 51,
+          "message_fallback": 14
+        }
+      }
+    },
+    "priority_categories": 104,
+    "report": "/tmp/nikke-named-magnitude-final-inventory.json"
+  },
+  "windows_runs_for_this_feature": 0,
+  "previous_windows_cache_smoke": "research/portable-world-v117-controller-smoke-sanitized.json",
+  "cuda_calculation_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "original_failure_record": "research/portable-named-magnitude-original-failure.json",
+  "original_pending_raw_diagnostic": {
+    "gpu_calls": 0,
+    "original_run_verified": false,
+    "scope": "Diagnostic using repaired view on unchanged saved raw; original failed package/comparison preserved.",
+    "cases": [
+      {
+        "name": "named-mag-pending-early",
+        "status": 0,
+        "full_native_equal_with_connected_observer": true,
+        "pending": {
+          "count": 0,
+          "enqueued": 1,
+          "fired": 1
+        }
+      },
+      {
+        "name": "named-mag-pending-late",
+        "status": 0,
+        "full_native_equal_with_connected_observer": true,
+        "pending": {
+          "count": 0,
+          "enqueued": 1,
+          "fired": 1
+        }
+      },
+      {
+        "name": "named-mag-pending-expired",
+        "status": 0,
+        "full_native_equal_with_connected_observer": true,
+        "pending": {
+          "count": 0,
+          "enqueued": 1,
+          "fired": 1
+        }
+      }
+    ]
+  },
+  "history_scope": "New4 real inputs have no physical-history omission. Previous persona and other captured omission limits remain; not full per-packet certification."
+}

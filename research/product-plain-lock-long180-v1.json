@@ -1,0 +1,347 @@
+{
+  "schema": "product-plain-lock-long-history-v1",
+  "scope": "One original Heavy Arms profile in the ordinary undeclared expected-value API,180s fixed and accumulate. This extends a duration condition; it does not add a distinct profile or prove all effects/scenes.",
+  "implementation_base_commit": "d874cbdb8115d5783e8698635a0b4e0be0c9328c",
+  "execution_owner": "273f80a377e1d4f4ace182f3fdbb3c1d8b5a74800123fc417953b6c89cc07df1",
+  "final_runtime_owner": "192ba0569ce02cb54aa5a3a26c5d6161b8baf6bf151f40179b204d286fcd4fbc",
+  "source_packet": "product-long-lock-run-v6-20261102/release-v2/packet",
+  "runtime_files_byte_equal_to_checkout": 1816,
+  "runtime_anchor_sha256": "cd48733510edeb18f2359278f7be7de815bc5a190eb7f5295ae01f067893495b",
+  "normal_api_current_source_metal_profiles": 1,
+  "normal_api_added_conditions": 2,
+  "new_distinct_inventory_profiles": 0,
+  "normal_api_current_source_cuda_profiles": 0,
+  "prior_standard_matrix": "research/product-current-standard-v5.json",
+  "prior_standard_scope": "266 profiles/203 data characters at30s on d874cbdb; historical for this changed source. No current all-profile recertification claimed.",
+  "current_all_profile_recertification": false,
+  "profile_results": [
+    {
+      "profile": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "mode": "fixed",
+      "duration": 180,
+      "backend": "metal_detail",
+      "capture_id": "545dfaa3cc2e4658a1d8dd4ddabc68ef",
+      "total_damage": 801709171,
+      "cpu_gpu_http_exact": true,
+      "expected_mode_preserved": true,
+      "reference_models_absent": true,
+      "input_sha256": "88a7ba2114b070593ec373028fdca21db36de05e04996df62a79a593dd46b39a",
+      "output_sha256": "f281b71f4955d0f41908bc14ac41582ddf1703db05beb4461cc75dd475738492",
+      "source": "gpu/product_lock_fixed_battle_entry.slang",
+      "counts": {
+        "pulses": 668,
+        "snapshots": 93,
+        "shot_times": 93,
+        "quotas": 4407,
+        "packets": 1150,
+        "fractions": 13224,
+        "teams": 6612,
+        "skills": 674,
+        "fates": 674
+      },
+      "complete_ordered_bank_sha256": {
+        "pulses": "7573b4bc4a1abc26401b83ddfc749b716a9be13f677923f31e793e8bb1cd2adb",
+        "snapshots": "6a34c3cefcab05dd5e5ae0dffa93f4e74459ca6c6c1843696cde3d4e7bc9699c",
+        "shot_times": "0999055187c0ef51ff9bbcff13ed6bfca4f855068f671692236d789e9c30edc2",
+        "quotas": "c906fbba2e569b46d4f02534fa1926de1cb99f4d41bdd17a651807d4ea217de0",
+        "packets": "407b8420dab21533344a6b902af279a84329237af9971b10ee9924f99d450b3b",
+        "fractions": "d3a657c7b69007bb4688d0de8a8a3df16a2a171678d805fa7ddf9ff8f5604ad8",
+        "teams": "d6a658422235d9f9c4ef2fbfacc9de0be81d9f3e572c4ce4739da7e4fce2c29a",
+        "skills": "7c8acf948ce24f8116df6f2d535528f67ab150bf21a86f1bd455708fcb647e33",
+        "fates": "3fe07f46ac6e620fe8fd1e6a88260ceb498745a031b24eb918570b68db7ef7a3"
+      },
+      "gpu_seconds": 12.806791000068188
+    },
+    {
+      "profile": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "mode": "accumulate",
+      "duration": 180,
+      "backend": "metal_detail",
+      "capture_id": "463e0c7233cc445b82c8281a00a5b445",
+      "total_damage": 799319630,
+      "cpu_gpu_http_exact": true,
+      "expected_mode_preserved": true,
+      "reference_models_absent": true,
+      "input_sha256": "795d3fe25671d9085f9a86c71ce9151c7291c76fbe5bdef437f837f38396ec9e",
+      "output_sha256": "26266fb5fbdc84159a5fa2ffc194e7417367b168de784d5f289c25511bd5fffb",
+      "source": "gpu/product_lock_battle_entry.slang",
+      "counts": {
+        "pulses": 668,
+        "snapshots": 93,
+        "shot_times": 93,
+        "quotas": 4407,
+        "packets": 1150,
+        "fractions": 13224,
+        "teams": 6612,
+        "skills": 674,
+        "fates": 674
+      },
+      "complete_ordered_bank_sha256": {
+        "pulses": "2203483d11b7e17ed6658070958792ac86b2955a413569940fe04171c80b99b0",
+        "snapshots": "6a34c3cefcab05dd5e5ae0dffa93f4e74459ca6c6c1843696cde3d4e7bc9699c",
+        "shot_times": "c948856e29ce3281ac81f2fd625cf5b22cf133c2a74635916bec1ce34ed7f4a7",
+        "quotas": "51f3886d09fa291b7bca79c3fc9ea68a21e0201b09c1a3d4424275d2ae16337c",
+        "packets": "499bcef95038c341713e2b9ed78153c16b155cc2c98ae3790f9d3cc01ea09628",
+        "fractions": "323bda31b0b913d3afeb8ec30b05c96781f66d6c009f9fb3c529c95affcf1f3d",
+        "teams": "1c5e5c8fdcd6d7248be57ec04d193815feff0fafb86cc03eee61a7b7150cb344",
+        "skills": "fe26ee0430c2789fa8e5d1f5ddd934da0e8381df18c04c9fb22d8022468e69d5",
+        "fates": "3fe07f46ac6e620fe8fd1e6a88260ceb498745a031b24eb918570b68db7ef7a3"
+      },
+      "gpu_seconds": 12.782554000033997
+    }
+  ],
+  "original_input_words": 109536,
+  "input_words_unchanged": true,
+  "old_output_words": 1310720,
+  "new_output_words": 2032000,
+  "continuation_end": 1779018,
+  "history_banks": {
+    "pulses": {
+      "prefix": 256,
+      "capacity": 1024,
+      "width": 16,
+      "base": 1069200,
+      "extra": 1310720
+    },
+    "packets": {
+      "prefix": 512,
+      "capacity": 2048,
+      "width": 16,
+      "base": 1073296,
+      "extra": 1323008
+    },
+    "quotas": {
+      "prefix": 2048,
+      "capacity": 8192,
+      "width": 20,
+      "base": 1081488,
+      "extra": 1347584
+    },
+    "fractions": {
+      "prefix": 8192,
+      "capacity": 16384,
+      "width": 8,
+      "base": 1122448,
+      "extra": 1470464
+    },
+    "teams": {
+      "prefix": 4096,
+      "capacity": 16384,
+      "width": 8,
+      "base": 1187984,
+      "extra": 1536000
+    },
+    "snapshots": {
+      "prefix": 31,
+      "capacity": 128,
+      "width": 520,
+      "base": 1050120,
+      "extra": 1634304
+    },
+    "shot_times": {
+      "prefix": 31,
+      "capacity": 128,
+      "width": 2,
+      "base": 1068368,
+      "extra": 1684744
+    },
+    "skills": {
+      "prefix": 128,
+      "capacity": 2048,
+      "width": 48,
+      "base": 512192,
+      "extra": 1684938
+    },
+    "fates": {
+      "prefix": 128,
+      "capacity": 2048,
+      "width": 1,
+      "base": 1069072,
+      "extra": 1777098
+    }
+  },
+  "old3_native_hashes_and_full_readback_prefixes_unchanged": true,
+  "old3_extra_words_all_zero": true,
+  "number_masks": 0,
+  "cli_registered_baseline": "v67",
+  "cli_existing_members_resealed": {
+    "lock-fixed": 2,
+    "lock-accumulate": 1
+  },
+  "other40_registered_baselines_unchanged": true,
+  "other40_not_recertified": true,
+  "cpu_preflight_tests_per_member": 185,
+  "final_unchanged_cpu_unit_groups_reused": 165,
+  "final_fresh_registry_and_ledger_tests": 20,
+  "final_projection_reuses_saved_raw": true,
+  "saved_audits_extra_gpu": 0,
+  "saved_audits_extra_native_battles": 0,
+  "extra_native_histories": {
+    "lock": {
+      "rows": [
+        {
+          "mode": "fixed",
+          "duration": 180,
+          "complete_native_lock_model_exact": true,
+          "ordinary_battle_fields_exact": true,
+          "pulses": 668,
+          "shots": 93,
+          "quotas": 4407,
+          "model_sha256": "25382702dabe35fbe0b2d713300f0f94965eb60fd9f49d1905259753417497a4",
+          "gpu_calls": 0
+        },
+        {
+          "mode": "accumulate",
+          "duration": 180,
+          "complete_native_lock_model_exact": true,
+          "ordinary_battle_fields_exact": true,
+          "pulses": 668,
+          "shots": 93,
+          "quotas": 4407,
+          "model_sha256": "139da2917daf3d906f72606c8a3d043c90783c37f35a806e5c9b1b610cc0fea4",
+          "gpu_calls": 0
+        }
+      ],
+      "native_observer_battles": 2,
+      "gpu_calls": 0,
+      "scope": "Independent existing singleton Lock On reference observation only; normal requests and GPU inputs remain undeclared expected=True. No coordinate/distance policy."
+    },
+    "fraction_team": {
+      "rows": [
+        {
+          "mode": "fixed",
+          "fractional_rows": 13224,
+          "team_rows": 6612,
+          "all_ordered_fractional_rows_exact": true,
+          "all_ordered_team_rows_and_final_state_exact": true,
+          "fraction_sha256": "cd6423ba02edf6ffae65dab14127490939a5923c1770fdfadb91093eb2de7467",
+          "team_sha256": "8585eaed16373c537b8476bb5184ccacda1d28964516353f587efc3f80fe517c"
+        },
+        {
+          "mode": "accumulate",
+          "fractional_rows": 13224,
+          "team_rows": 6612,
+          "all_ordered_fractional_rows_exact": true,
+          "all_ordered_team_rows_and_final_state_exact": true,
+          "fraction_sha256": "0a42867cc105b9d673956064991cb816afef15f922aa3c4d6add55747df6c144",
+          "team_sha256": "bf275b80dcd5db4d3b162812420327ec542dc597c1770e3396b280bdcc8848d8"
+        }
+      ],
+      "native_diagnostic_battles": 4,
+      "new_gpu": 0,
+      "scope": "Existing transparent native observers and unchanged fraction/team bank decoders. Only unrelated parent projection delegated to completed normal product audit."
+    }
+  },
+  "cpu_input_or_schedules_used_as_gpu_input": false,
+  "shared_cuda_metal_code_and_test": true,
+  "new_suites": 0,
+  "new_shader_entries": 0,
+  "new_modules_or_generated_layout_files": 0,
+  "canonical_cpu_and_pinned_unchanged": true,
+  "numeric_contract_or_tolerance_changes": false,
+  "storage_budget": {
+    "required_bytes": 1108006416
+  },
+  "test_node_process_group_absent": true,
+  "ui": {
+    "url": "http://127.0.0.1:4327/#single",
+    "pid": 72232,
+    "html_http200": true,
+    "root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident",
+    "prior_owned_server_group_stopped": true,
+    "user_sessions_or_settings_modified": false,
+    "persistent_ui_server_intentionally_running": true,
+    "additional_calculations": 0
+  },
+  "retained_failures": [
+    "native scout-v1: legacy named-lock observer required a BossScript absent in canonical default; no GPU. Corrected transparent counter-only scout-v2 kept normal request unchanged.",
+    "long-lock run-v1: old synthetic decoder test buffer widths; pre-device CPU failures.",
+    "long-lock run-v2: first case passed, second failed status64. Saved packets showed stores without loads; P_OUTPUT_WORDS remained old stride. No retry on consumed claim.",
+    "long-lock run-v3: system Python3.9 schema generation stopped on union annotation. Packet unused; no GPU. Corrected with project Python.",
+    "long-lock run-v4:30s2/1 Metal and independent audits passed;180s2 API requests returned CPU fallback after GPU status8, skill_history128 atframe2062. Original raw and owned server stop retained.",
+    "long-lock run-v5: extended skill reader rejected missing magic in old empty synthetic fixtures; pre-device tests stopped. Corrected focused tests passed before v6 package.",
+    "release-v1: new v67 baseline was not staged and compact package omitted it; verification stopped before dependencies/compiler/GPU. release-v2 includes the identical staged baseline."
+  ],
+  "windows_new_requests": 0,
+  "windows_new_compile_gpu_or_ram_samples": 0,
+  "windows_ram_stop_retained": true,
+  "windows_prior_environment_preservation_false_retained": true,
+  "compile_plans": {
+    "ptx": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "192ba0569ce02cb54aa5a3a26c5d6161b8baf6bf151f40179b204d286fcd4fbc",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    },
+    "cubin": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "192ba0569ce02cb54aa5a3a26c5d6161b8baf6bf151f40179b204d286fcd4fbc",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "cubin",
+      "ptxas_level": 1,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "--ptxas-options",
+        "-O1"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    }
+  },
+  "full_goal_complete": false,
+  "remaining": [
+    "Current-source all-profile long-duration certification",
+    "Other explicit scenes/compositions including incoming attacks,healing,cover,ADD-owned typed attachments",
+    "Coordinate/typed Lock On retains its own existing duration/history limits; this extension is for plain Lock On only",
+    "Current CUDA parity after Windows RAM stop is externally cleared"
+  ],
+  "proof_directory": "product-long-lock-run-v6-20261102",
+  "proof_hashes": {
+    "api-v1/complete.json": "b94c37a9a3940b43171c15fa6445d59e1649474c31b2a5fb8d73aa3174f3de9b",
+    "api-v1/saved-audit-progress.json": "ed2493e6efd32e2cbfe3e2c266e67e5ca1dcb0835225225762a07057d53d633f",
+    "api-v1/final-release-audit-progress.json": "ed2493e6efd32e2cbfe3e2c266e67e5ca1dcb0835225225762a07057d53d633f",
+    "api-v1/server-stop.json": "bcd9d73af4df62e23f14a35e76b45230926ec5326f53aada67c5ff3df2ce680f",
+    "api-v1/storage-preflight.log": "f7e79ec502b9b428f98b5be0e99a904568c89dba6c08c365cde12f37fd1f7a56",
+    "old-prefix-identity-v1.json": "0ea5a289b3b39d85b6cf72bce2411b62ebf60afa63a55e24d79da1d133cfe4fd",
+    "native-history-v1.json": "482613bb457614dddc32499e3a2d92f0d7e3e9ce0555499a7f91bed1a27e8128",
+    "fraction-history-v1.json": "70176738db699bcc71bd4065373ee93bd1a2d340f1ad12bce37ac8634ddd7fd0",
+    "independent-audit-v1.json": "4c40d87efd85f38264303942efec2807f074bf8a00f5e177bc094f60aa51b7f9",
+    "acc-independent-audit-v1.json": "be5a4643f00de58b40ee20efdfc1d4e3d91f77fa01f6a4fe244d34d98e9cae4e",
+    "release-v2/source-and-test-reuse-v1.json": "acd5bb52bf2e621bb2cf0031dd7a5290eda3167edcae714f9c3650d352f4c6ad",
+    "release-v2/compile-plan-ptx.json": "8033c0648cf4aba209e4f88a62607796d5fecad9a94984b1082b1a42ec470daa",
+    "release-v2/compile-plan-cubin.json": "85fece5a31146f45cdb4bbc3fbd9d4d8cb698ec1d67e0e8fe428ec32fe6d972d",
+    "ui-start-v1.json": "60d7a69e936352ce54e535bb8a5b94d526e9d91738b453e4e3b4cf3433092512"
+  }
+}

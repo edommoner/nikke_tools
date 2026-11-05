@@ -1,0 +1,21 @@
+{
+  "schema": "metal-wire-preflight-v1",
+  "passed": true,
+  "swift_sha256": "c791a19517aa1ffb573b0c90e322cb3bd9435cb9d7954a5c5059e72086476a74",
+  "input_word_limit": 131072,
+  "output_word_limit": 2064786,
+  "large_output_words": [
+    655360,
+    786432,
+    1048576,
+    1310720,
+    1507328,
+    1769472,
+    1769856,
+    2032000,
+    2064786
+  ],
+  "selected_output_words": 46582,
+  "gpu_calls": 0,
+  "scope": "Static exact transport guard agreement; no device access, calculation or compiled layout certification"
+}

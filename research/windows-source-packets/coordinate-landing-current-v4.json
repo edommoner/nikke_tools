@@ -1,0 +1,22 @@
+{
+  "package_id": "06c781aa387cdd2617a64abae0bb462733e874a6b045e8c5612a0953c6820102",
+  "suite": "coordinate-landing",
+  "purpose": "sealed",
+  "bytes": 9091375,
+  "sha256": "05dc5e8364df9bc956de64ba0994b6e15c1dca60c6cbfb7375a4d6a96597fb27",
+  "changed_files": [
+    "app/portable_cpu_tests.py",
+    "app/portable_python_dependencies.py",
+    "requirements-validation.txt",
+    "scripts/nikke_gpu.py",
+    "tests/test_portable_python_dependencies.py",
+    "tests/test_typed_geometry.py"
+  ],
+  "newly_included_unchanged_test": "tests/test_typed_geometry.py",
+  "numerical_golden_and_gpu_source_unchanged": true,
+  "mac_related_tests": 36,
+  "mac_control_tests": 525,
+  "mac_control_skipped": 1,
+  "validation_dependencies_command_verified": true,
+  "windows_cuda_verified": false
+}

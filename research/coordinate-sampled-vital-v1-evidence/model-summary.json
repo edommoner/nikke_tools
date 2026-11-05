@@ -1,0 +1,152 @@
+{
+  "original": "/tmp/nikke-sampled-vital-final-model-v1.json",
+  "original_sha256": "b8b8514a8b77a158c259005947bd0761e3dda9fcc1f7d159daebc1a8c79db332",
+  "passed": true,
+  "coordinate_sampled_vital": {
+    "suite": "coordinate-sampled-vital",
+    "proof_available": true,
+    "sealed_source_matches_current": true,
+    "input_count": 120,
+    "reference_kind": "deterministic-common-cpu",
+    "native_reference_cli": "coordinate-sampled-vital-common",
+    "shared_weapon_modes": true,
+    "shared_body_cover_healing": true,
+    "shared_current_hp_reduce": true,
+    "live_mode_muzzles": true,
+    "first_coefficient": true,
+    "legacy_and_optin_pending": true,
+    "automatic_reload_cover_repair": true,
+    "manual_cover_controls_packed": false,
+    "input_words": 109528,
+    "output_words": 1769472,
+    "additional_runtime_bytes": 0,
+    "remaining": [
+      "sampled group-owner and mixed effect worlds",
+      "further weapon-mode flags and control combinations",
+      "manual cover/control composition packing",
+      "further health/storage/instant combinations",
+      "original definitions and public admission"
+    ],
+    "public_gpu_admitted": false,
+    "all_characters_certified": false
+  },
+  "model_gap_audit": {
+    "passed": true,
+    "missing_stats": {
+      "enemy_movement_disable": {
+        "native_consumers": [],
+        "status_row": "| `enemy_movement_disable` | — | — | ❌ | 적 이동 불가. 적 이동 모델 없음. **첫 보유자 유니 `BDG 2`**(2026-09-21, `[5초 유지]`) — 그전까지 로스터에 보유자가 0명이었다 |",
+        "scope": [
+          "calculator/timeline.py",
+          "calculator/buff_manager.py",
+          "calculator/boss_pattern.py",
+          "calculator/damage.py"
+        ]
+      },
+      "force_move": {
+        "native_consumers": [],
+        "status_row": "| `force_move` | — | — | ❌ | `공격 범위 중심으로 강제 이동`. 적 이동 모델이 없어 `enemy_movement_disable`과 같은 자리다. **첫 보유자 얀 `일확천금 2`**(2026-09-21, `[2초 유지]`). **2026-09-21 이전에는 instant 테이블에 🚫 `_unparseable`로 있었다** — 보유자가 0명이라 드러나지 않았고, `[N초 유지]`가 붙은 원문이 실제로 나오면서 instant로는 담을 수 없음이 확인됐다(instant는 지속시간을 담지 못한다 — `targeting_exclude` → `stealth` 선례와 같은 이유). 「딜에 영향이 없어도 스킬 문구는 전부 파싱한다」(유저 지시 2026-09-05)에 따라 `_unparseable`도 걷었다 |",
+        "scope": [
+          "calculator/timeline.py",
+          "calculator/buff_manager.py",
+          "calculator/boss_pattern.py",
+          "calculator/damage.py"
+        ]
+      },
+      "effect_range_pct": {
+        "native_consumers": [],
+        "status_row": "| `effect_range_pct` | — | — | ❌ | 특정 효과의 **공격 범위** % 증가 (`target_effect` 필수). 텍스트: `[효과명] 공격 범위 N% ▲`. 거리 모델이 없어 **항상 no-op**. 레이 (가칭) `섬멸 지원 5` |",
+        "scope": [
+          "calculator/timeline.py",
+          "calculator/buff_manager.py",
+          "calculator/boss_pattern.py",
+          "calculator/damage.py"
+        ]
+      },
+      "effect_target_count_add": {
+        "native_consumers": [],
+        "status_row": "| `effect_target_count_add` | — | — | ❌ | 특정 효과의 **타격 대상 수** N 증가 (`target_effect` 필수, `fixed_value`에 증가량). 텍스트: `[효과명] 적용 대상 N ▲` · `최대 [효과명] 대상 수 N ▲`. **적이 보스 하나면 항상 no-op** — 대상이 이미 1기로 수렴해 있다(`GAMEPLAY.md §condition`). 보스 패턴 `summon`(쫄몹)이 생겼지만 **대상 수를 늘리는 쪽은 구현하지 않았다**. 레이 (가칭) `섬멸 지원 4` (→ 아스카 : WILLE `섬멸 태세 추가 효과`), 스노우 화이트 : 헤비암즈 `세븐스 드워프 풀 액티브 5` (→ `록 온`) |",
+        "scope": [
+          "calculator/timeline.py",
+          "calculator/buff_manager.py",
+          "calculator/boss_pattern.py",
+          "calculator/damage.py"
+        ]
+      },
+      "lock_on": {
+        "native_consumers": [],
+        "status_row": "| `lock_on` | `lock_on` | — | ❌ | **스노우 화이트 : 헤비암즈 전용**. 세븐스 드워프 공격 대상 지정 고유 메카닉. `values`/`fixed_value` 없음 |",
+        "scope": [
+          "calculator/timeline.py",
+          "calculator/buff_manager.py",
+          "calculator/boss_pattern.py",
+          "calculator/damage.py"
+        ]
+      }
+    },
+    "coordinate_world": {
+      "classification": "gpu_port_gap",
+      "native_model_available": true,
+      "native_selector": "_coord_skill_hits",
+      "part_inclusive": "all live parts; excludes interrupt; independent of shape distance",
+      "ordinary_area": "live shape.contains at current aim with pierce/explosion radius",
+      "native_math_calls": [
+        "acos",
+        "atan2",
+        "cos",
+        "hypot",
+        "radians",
+        "sin"
+      ],
+      "native_pow_operator": true,
+      "cpu_contract_suite": "coordinate-skill",
+      "gpu_connected": false,
+      "gpu_rejection_guard_verified": true,
+      "scope": "Public admission and all coordinate policies; private suites remain separate evidence",
+      "numeric_frontend": {
+        "classification": "gpu_numeric_implementation_gap",
+        "host_math_affects_selection": true,
+        "common_policy_selected": true,
+        "selected_policy": "deterministic-shared-numeric",
+        "policy_implemented": false,
+        "decision_fixture": "tests/fixtures/coordinate-common-numeric-decision.json",
+        "decision_sha256": "97687bf6de63db09cf104aae668fa49a44a1468cede8ddac4e8d1992b9a03212",
+        "fixture": "tests/fixtures/coordinate-native-trig-policy.json",
+        "fixture_sha256": "599397a48a82e36bd6e0ac0b613e08ff286e5e4b49721e281c27ff13aeceeea0",
+        "private_suites": [
+          "coordinate-area",
+          "coordinate-shape"
+        ],
+        "private_evidence_does_not_certify_public_admission": true
+      }
+    },
+    "target_and_nearby": {
+      "explicit_ranked_branch": false,
+      "fallback": "current aimed logical enemy only",
+      "nearby_spatial_world": false
+    },
+    "enemy_ammo": {
+      "allied_filter": true,
+      "enemy_ammunition_state": false,
+      "named_completion_outside_target_loop": true
+    },
+    "enemy_healing": {
+      "allied_heal_consumer_present": true,
+      "enemy_healing_path_verified": false
+    },
+    "historical_documents_are_not_current_instructions": true,
+    "gpu_supported": false,
+    "full_goal_complete": false,
+    "source_sha256": {
+      "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+      "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+      "research/upstream/nikke-calc-master/calculator/boss_pattern.py": "ccbfde085e5c809b07215b15177a08d725cd56a2691fd26675a9b19b01296565",
+      "research/upstream/nikke-calc-master/calculator/damage.py": "7884a1aeb2d2d03dd192434e11f21bc1af5d61d7cdb7a65bf39185899c968e2b",
+      "research/upstream/nikke-calc-master/calculator/aim.py": "fe81c6b3909a2c9db96e5c5c666deca680f4a87285e4ad18b15af2f5ccfcb1ad",
+      "research/upstream/nikke-calc-master/docs/IMPL-STATUS.md": "9a1249c6951a4d56d67061a71131289d9e6d87a64d8999fcdd7d7512ceb0f3d3",
+      "app/portable_world_roster_input.py": "ee0a2cb338fdf0488bd852f8ffdcc3f978bf06b82003f83ba431531aa785d322"
+    }
+  },
+  "public_gpu_admitted": false,
+  "full_goal_complete": false
+}

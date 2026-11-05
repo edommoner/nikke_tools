@@ -1,0 +1,69 @@
+{
+  "schema": "product-coordinate-lock-cuda-diagnostic-import-v1",
+  "artifacts": [
+    {
+      "path": "research/product-coordinate-lock-windows-status-v1.json",
+      "commit": "da4ea9d2",
+      "bytes": 43171,
+      "sha256": "c6eebb665fa958dd59a95b6bec6b95ef10a740dfca61b9425c1acd1434de4ec8"
+    },
+    {
+      "path": "research/product-coordinate-lock-trace-address-diagnostic-v1.json",
+      "commit": "dc957effa1745924966b81e89d4fff6920b354de",
+      "bytes": 8832,
+      "sha256": "eefde00043abe2650f1c220d7b68988063dfe51d0cb7a6da90f3adeaaae32f44"
+    }
+  ],
+  "hashes_verified": true,
+  "original_status": "stopped-at-first-full-readback-hash-mismatch",
+  "original_full_m5_raw_gate_passed": false,
+  "product_cpu_gpu_http_payloads_equal": true,
+  "known_internal_trace_address_only_difference": true,
+  "diagnostic_hypothesis": {
+    "batch": {
+      "capture_id": "batch-27927a0b93d147ec9908fca16c07f5b1",
+      "index": 5,
+      "cases": 6,
+      "input_words": 120816,
+      "output_words": 2558208,
+      "input_sha256": "edb52b56486b318c5c7393a6e5d2f2c592cc894d221f5462226d25c48ea96b92",
+      "output_sha256": "33650b1e8b313f829a01873ff10371906c3279b790da35c73c8a90a8e5c79e79",
+      "transport_input_sha256": "44b5749f91a3d9add8b204806d7dd67d41a5121147b06ec0076be3239ded1573",
+      "transport_output_sha256": "fcc9764a568f00500c7ad7b6d783465b57c7b76152b3d3a35d9a16f821bca960",
+      "input_scope": "single-case framing of this exact physical batch member",
+      "output_scope": "exact readback slice"
+    },
+    "original_sha256": "33650b1e8b313f829a01873ff10371906c3279b790da35c73c8a90a8e5c79e79",
+    "hypothetical_single_case_sha256": "b3d42775bbd760119d5fca7a8487dbfcd491f961ae66389233dedc4188ed331a",
+    "only_known_dfs_trace_address_words": [
+      [
+        2186642,
+        14827648,
+        2036608
+      ]
+    ],
+    "not_a_new_expectation": true,
+    "original_raw_unchanged": true
+  },
+  "windows_reverse_full_hash_check": {
+    "cuda_full_sha_equals_mac_one_word_hypothesis_sha": true,
+    "cuda_known_word_equals_logical_trace_address": true,
+    "cuda_in_memory_one_word_replaced_with_m5_absolute_address_sha256": "33650b1e8b313f829a01873ff10371906c3279b790da35c73c8a90a8e5c79e79",
+    "reverse_candidate_full_sha_equals_original_m5_expected_sha": true,
+    "bytes_in_hypothesis_substitution": 4,
+    "all_other_cuda_bytes_retained_in_memory": true,
+    "single_word_explanation_consistent_for_all_10232832_bytes": true,
+    "conclusion": "Complete-buffer hashes are consistent with the one supplied internal absolute trace-address word being the sole difference",
+    "scope_limit": "M5 original buffer was not independently read on Windows; full-buffer SHA correspondence and reverse candidate support the supplied explanation. No execution or semantic gate was rerun."
+  },
+  "api_peak_job_bytes": 2136633344,
+  "job_limit_bytes": 2147483648,
+  "raw_buffers_not_imported": true,
+  "additional_battles": 0,
+  "additional_gpu": 0,
+  "saved_audit_not_retried": true,
+  "original_stops_and_expected_hashes_unchanged": true,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}

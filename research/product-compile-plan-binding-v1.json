@@ -1,0 +1,111 @@
+{
+  "schema": "product-compile-plan-binding-v1",
+  "scope": "Reviewed compiler-plan integrity;not a new calculation implementation or compiler success",
+  "current_owner": "3ec090d809d5252fcb8574454e26ab7953e076de1557d29587ba755e296450b7",
+  "identity": {
+    "current_owner": "3ec090d809d5252fcb8574454e26ab7953e076de1557d29587ba755e296450b7",
+    "prior_owner": "30e9e40cc57796226732c0b47db1523e347a4abdd920e32fa781be98042af671",
+    "reviewed_delta": [
+      "scripts/nikke_gpu.py",
+      "scripts/run-gpu-packet.py",
+      "tests/test_portable_compile_cli.py",
+      "tests/test_portable_packet_stage.py"
+    ],
+    "all_other_sources_byte_exact": true,
+    "all_calculation_sources_and_golden_exact": true,
+    "tests": 134,
+    "extra_gpu": 0,
+    "extra_native_battles": 0
+  },
+  "immutable_cpu_tests": [
+    {
+      "pattern": "test_portable_compile_cli.py",
+      "tests": 22,
+      "exit_code": 0
+    },
+    {
+      "pattern": "test_portable_packet_stage.py",
+      "tests": 46,
+      "exit_code": 0
+    },
+    {
+      "pattern": "test_portable_cuda_artifact.py",
+      "tests": 15,
+      "exit_code": 0
+    },
+    {
+      "pattern": "test_portable_compile_cache.py",
+      "tests": 12,
+      "exit_code": 0
+    },
+    {
+      "pattern": "test_portable_module_check.py",
+      "tests": 26,
+      "exit_code": 0
+    },
+    {
+      "pattern": "test_product_detail_packet.py",
+      "tests": 13,
+      "exit_code": 0
+    }
+  ],
+  "current_standard_metal_profiles": 266,
+  "current_standard_metal_characters": 203,
+  "current_source_cuda_profiles": 0,
+  "full_goal_complete": false,
+  "implementation": [
+    "Optional compile --compile-plan PATH --compile-plan-sha256 HEX verifies exact file/owner/kind/level/budget/actual options before capture,claim or SDK",
+    "Common run-gpu-packet compile stages accept the same exact two-field pinned-plan request",
+    "Freeze actual options and bounded thread count in parent run metadata/environment;child rejects drift before generation/SDK",
+    "Post audit compares compiler receipt with frozen options and reviewed binding,independent of auditing host thread environment",
+    "Retain legacy captures and their existing audit path;no old plan or failed capture rewritten"
+  ],
+  "windows_saved_status": {
+    "path": "research/windows-results/standard-current-fixed-v1/product-standard-current-fixed-windows-status-v1.json",
+    "bytes": 18034,
+    "sha256": "7e77fea4bc96247bb59d3fdfc37c567eab7718daec19762f5ab1e5387cb6e84f",
+    "report_branch_commit": "c9f9b9479b4884384938752be99db87d260fa8bb",
+    "full_manifest_sha_verified": true,
+    "compilation_attempts": 1,
+    "nvrtc_return_code": 6,
+    "nvrtc_seconds": 28.4111118,
+    "outer_seconds": 72.39588270010427,
+    "outer_job_peak_bytes": 2147983360,
+    "job_limit_bytes": 2147483648,
+    "observed_excess_bytes": 499712,
+    "containment_not_promoted": true,
+    "option_addition_to_plan": [
+      "--split-compile=2"
+    ],
+    "saved_error_lines": [
+      "ptxas fatal   : Memory allocation failure",
+      "RuntimeError: portable.cu(275): warning #20044-D: extern declaration of the entity SLANG_globalParams is treated as a static definition",
+      "llc: Unknown command line argument '-split-compile=2'.  Try: 'llc -help'",
+      "llc: Did you mean '-debug-compile=2'?",
+      "ptxas fatal   : Ptx assembly aborted due to errors"
+    ],
+    "compiler_success": false,
+    "artifact_exists": false,
+    "new_gpu_module_battle_calls": 0,
+    "reruns": 0,
+    "fallbacks": 0,
+    "relative_error_causes_unknown": true
+  },
+  "reference_urls": [
+    "https://docs.nvidia.com/cuda/archive/12.4.0/nvrtc/index.html"
+  ],
+  "version_interpretation": "Official NVRTC12.4 documentation lists split-compile;observed llc rejection is not proof of unsupported NVRTC version or a sole failure cause",
+  "proof_receipts": {
+    "product-compile-plan-binding-v1-20261102/identity-v1.json": "bb85a127c5e1b169138b24152204a5b02dbac2ef97735193922fa666433641ef",
+    "product-compile-plan-binding-v1-20261102/cpu-tests.json": "5a32b2174050f2ce4c56ca50dd2c91a44ee7cfb548c34089b3dfecaaf772f958",
+    "product-compile-plan-binding-v2-20261102/identity-v1.json": "99b67bd3ec2f316820fe95ee43082b14c16e13a74d0584273f394df3ca03ca71",
+    "product-compile-plan-binding-v2-20261102/cpu-tests.json": "8130883cc968a5b0f184c27eb4dcee0001f18fecdf4cbab1141be577b023e31c"
+  },
+  "remaining": [
+    "Determine saved compiler/DLL and memory facts before any further Windows SDK operation",
+    "New SDK requests must bind reviewed options;no silent runner setting inheritance",
+    "Current-source CUDA ordinary API calculation still unverified",
+    "Typed healing/ammo/weighted and other mixed special-effect scenes remain incomplete"
+  ],
+  "additional_child_guard": "Actual child artifact kind and O-level,as well as split threads,are checked against frozen parent values before SDK;fault injection covers all three"
+}

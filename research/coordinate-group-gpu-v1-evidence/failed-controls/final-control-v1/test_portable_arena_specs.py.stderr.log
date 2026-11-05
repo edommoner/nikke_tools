@@ -1,0 +1,14 @@
+......F
+======================================================================
+FAIL: test_real_shader_declaration_mutations_are_rejected (test_portable_arena_specs.ArenaSpecsTests.test_real_shader_declaration_mutations_are_rejected) (name='world_coordinate_area_entry.slang')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-group-final-v1/tests/test_portable_arena_specs.py", line 82, in test_real_shader_declaration_mutations_are_rejected
+    with self.subTest(name=name),patch.object(Path,'read_bytes',changed),self.assertRaises(ValueError):audit_live_sources(ROOT)
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.182s
+
+FAILED (failures=1)

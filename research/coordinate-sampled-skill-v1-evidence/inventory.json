@@ -1,0 +1,223 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/compiler-certificate.json",
+      "bytes": 1097,
+      "sha256": "a54e9c57ffb1905ac9c7aa12a3a16b03d0ae5ca2dc4d445101bad64a6281c33f"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/compiler-package.json",
+      "bytes": 276,
+      "sha256": "bb3bdd19a15af9f278c9880fdfb1ceda5e421971bea7b82e58de4e9a5302c31b"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/domain-migration.json",
+      "bytes": 359,
+      "sha256": "c6dcd3cc4f19d9ed8b845afda23246916e4a1f594057c480d38e8d2a9f78227a"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/final-storage.json",
+      "bytes": 224,
+      "sha256": "3c1d67f93f0aea708f60981a1fe69972687720cb95a00c6ec4af9605fa7b5f16"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/generated-retention.json",
+      "bytes": 213313,
+      "sha256": "1f989c0e647acf336abe77a28caeb093e24145404daaa0aa8771f69b130abe05"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/metal-original/artifacts.json",
+      "bytes": 5799,
+      "sha256": "60ab590e6d882503f57820f20e54fb39d969393b01e320f930f8ab8d49896c0f"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/metal-original/comparison.json",
+      "bytes": 21328,
+      "sha256": "7d440fa96d9ce529bc44f020f808b7c60c212fb22899f2838ab69a3e4f0d03ba"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/metal-original/evidence.json",
+      "bytes": 58619,
+      "sha256": "2dd630597beff135002aa5dbafb37255b1270739f1a49df9324f58cb399f7844"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/metal-original/execution.json",
+      "bytes": 4145,
+      "sha256": "69bb9b23a42347e551c4bda5252abe8fb3c054ab9358c2e582047bca342d47a2"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/metal-original/result.json",
+      "bytes": 4155,
+      "sha256": "9e37744f755a58c4798c803e21a6bf7d28806be2e74f8d4cc87d501e8d7187cb"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/metal-original/run.json",
+      "bytes": 267,
+      "sha256": "bb09e7a899d801a0500921efad0a16fe8bcae0f8e5c9469da590cc921d25e0b5"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/model-summary.json",
+      "bytes": 23716,
+      "sha256": "0c638b65dd606220ba9e39ae45c866ac9ea07e3892f320b885ad2c8537bb5b03"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/native-contract-summary.json",
+      "bytes": 125934,
+      "sha256": "bdc5c270a56b9d036a8059d8af2f907cdb83baf56a0f521253b9aaf19c1558fe"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/numeric-dependency-retention.json",
+      "bytes": 718,
+      "sha256": "348b19803656baa40f001ca2ca32790dfec953dfefc3e9f143978016c66246b9"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/old39-retention.json",
+      "bytes": 1787,
+      "sha256": "63cc1ae1f56a3a35b5dc9306dab51a86189ce0e86f298e692dc3c66456420fff"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/package-projection.json",
+      "bytes": 138,
+      "sha256": "c9954bf8d889aa7ee5c3aeec31ced9db1591bbf010d8606ae88908bbad7b4d69"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/packet-ratio-standalone-final-cpu-v5/cpu-tests.json",
+      "bytes": 217,
+      "sha256": "c7f20362c27771e529b6576450d6166c07fc2ee262d43656dd0ad853eea2c217"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/packet-ratio-standalone-final-cpu-v5/cpu.json",
+      "bytes": 255,
+      "sha256": "0faad13e234a156aad945f1f3d13830693fdbfb2c20b9bf2dd5c7091e0035612"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/packet-ratio-standalone-final-cpu-v5/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/ratio/artifacts.json",
+      "bytes": 3382,
+      "sha256": "8fe06d274ac095f4986ff03dbbb5f99e0d0a01499181a8eac7dfc42d4925ee13"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/ratio/comparison-summary.json",
+      "bytes": 778,
+      "sha256": "db13ae1143d5df9edd2fba820d232d9fb3d477822f42b3c8b88a0cb88445bf9c"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/ratio/evidence.json",
+      "bytes": 2459,
+      "sha256": "7dec97a8cdb8dced5ba4112bb464e9940e8d5c6714d52a43ca6d470abd175ca4"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/ratio/execution.json",
+      "bytes": 1556,
+      "sha256": "f3d11e9db0beb661fa21c8886e264a0fca04fe1d51943d3bf71123a41b3df6c1"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/ratio/result.json",
+      "bytes": 1387,
+      "sha256": "1a2c8dec620e1309830439aa09081a4c3d7119e27a2837f36961d12e2f739d3d"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/ratio/run.json",
+      "bytes": 267,
+      "sha256": "9de6daeb5ffc0b36f12a5e67a395da6cd8ee2636861aadc34fa44aa5b9ae238b"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/replay/artifacts.json",
+      "bytes": 968,
+      "sha256": "f0504a0584ed5465a36f7bce67fb10daa59330a3681e84f5143fa5697057b815"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/replay/comparison.json",
+      "bytes": 21779,
+      "sha256": "3958c4d52f7500356d2c4d42ca827b1a031be5222acebeb2d2bf44203aee4d1a"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/replay/evidence.json",
+      "bytes": 58619,
+      "sha256": "2dd630597beff135002aa5dbafb37255b1270739f1a49df9324f58cb399f7844"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/replay/replay.json",
+      "bytes": 226,
+      "sha256": "4bcc9890d2bff40ee773c3ac7ce5ec4d6862c4b797a0f3f2273f01ded42fcb6c"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/replay/result.json",
+      "bytes": 22117,
+      "sha256": "9440e6e89b6ad417586fe6177f2a7f82ac48274ac518bbd19cf58dde554d8f18"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/replay/run.json",
+      "bytes": 192,
+      "sha256": "1bf5e8bbaa232dab8a233446b66ec866fee6fbc90437b00c2b24718a10d45832"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/replay/source-execution.json",
+      "bytes": 4145,
+      "sha256": "69bb9b23a42347e551c4bda5252abe8fb3c054ab9358c2e582047bca342d47a2"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/replay-budget-failed.json",
+      "bytes": 233,
+      "sha256": "fd79d3034c50c293de30dbecba26d0f04c42b52b4635a80ce701628ef227e3ad"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/sampled-skill-final-control-v5/cpu-tests.json",
+      "bytes": 8937,
+      "sha256": "448c2191a959ab052284c324fc9493d49299b3f95f77a58284503dfd2ccb153c"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/sampled-skill-final-control-v5/cpu.json",
+      "bytes": 109,
+      "sha256": "bc45e3d39298f7219da3140078d6f10d93262192126d145de384a7dcb2799e8e"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/sampled-skill-final-control-v5/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/sampled-skill-final-cpu-v5/cpu-tests.json",
+      "bytes": 1525,
+      "sha256": "4d2f9c23ae48422c8fdd9c2e93970db7b47fb3aee634dd97c2023645595fb895"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/sampled-skill-final-cpu-v5/cpu.json",
+      "bytes": 247,
+      "sha256": "c6ddf6e011cfd853fabaec19c0087736c88512801deb8ccbf3f5dfafd86ddc59"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/sampled-skill-final-cpu-v5/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/storage-recovery-1.json",
+      "bytes": 707,
+      "sha256": "46fce2d2c1d8f6fa881668d03f19896ae03dbceace7f4fe30ed6d633613510aa"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/storage-recovery-2.json",
+      "bytes": 694,
+      "sha256": "ed03476f9333c431f452229c810f375e1adaba6aad9c1356d060dd1d428c2e44"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/storage-recovery-3.json",
+      "bytes": 697,
+      "sha256": "911dca424b67b140d3ff4bf2bd844be8c419d19526789aa9c1c4eebc07bf226a"
+    },
+    {
+      "path": "research/coordinate-sampled-skill-v1-evidence/storage-recovery-4.json",
+      "bytes": 711,
+      "sha256": "208ccb414e5d78a75e1bca4340b40174f7b034addcfe07816b7044d1d8981dcc"
+    }
+  ],
+  "raw_included": false,
+  "personal_settings_included": false,
+  "gpu_calls": 0
+}

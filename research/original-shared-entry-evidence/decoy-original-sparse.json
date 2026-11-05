@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-original-decoy-metal-v1",
+  "raw_bytes": 21238272,
+  "raw_sha256": "e7ab967ee4190d992977ed6e73353e9e51e13b47fb285dc75faf1002806ba0c1",
+  "evidence_sha256": "3b8446213dc98cb4e2aea22738ccdbc4c44743bb0e2f885e1c0d3a3af340e647",
+  "raw_inode": 511300653,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 44,
+  "zero_range_bytes": 15663104,
+  "allocated_before": 21241856,
+  "allocated_after": 5578752,
+  "allocated_reclaimed": 15663104,
+  "full_hash_verified": true
+}

@@ -1,0 +1,151 @@
+{
+  "sealed": false,
+  "purpose": "development",
+  "calculation_verified": false,
+  "preservation_verified": null,
+  "passed": false,
+  "containment_verified": true,
+  "comparison_error": null,
+  "first_difference": {
+    "index": 10,
+    "name": "original-modifier-probe/HP/아스카/3s",
+    "reason": "ValueError: Expected GPU success status0; got status64"
+  },
+  "phase": {
+    "events": 41,
+    "last_event": {
+      "elapsed_seconds": 19.928808541,
+      "monotonic_ns": 1074378303434083,
+      "pid": 59776,
+      "stage": "shared_gpu_execute",
+      "state": "returned",
+      "wall_time_ns": 1792975228665282000
+    },
+    "timed_calls": [
+      {
+        "stage": "slang_generation_identity",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.113968458
+      },
+      {
+        "stage": "slang_generation_read_entry",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.012030083
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.001991208
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.006841458
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.013303791
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.022875334
+      },
+      {
+        "stage": "slang_generation_identity",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.113239792
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.002436958
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.000383709
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.001251042
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.000328375
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.000183167
+      },
+      {
+        "stage": "slang_build",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.282658541
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.0016095
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.006564167
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.012865875
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.021584583
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 0.001698666
+      },
+      {
+        "stage": "shared_gpu_execute",
+        "pid": 59776,
+        "state": "returned",
+        "elapsed_seconds": 19.928808541
+      }
+    ],
+    "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+    "nvrtc_compile_returned_success": false,
+    "cuda_compile_cache_hit_verified": false,
+    "cuda_linked_artifact_observed": false,
+    "cuda_launch_returned_success": false,
+    "cuda_synchronize_returned_success": false,
+    "cuda_readback_returned_success": false,
+    "scope": "Observed API returns only; full output verification requires the shared suite report"
+  },
+  "gpu_retries": 0,
+  "audit_gpu_calls": 0
+}

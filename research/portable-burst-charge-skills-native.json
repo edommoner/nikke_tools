@@ -1,0 +1,892 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "cases": [
+    {
+      "owner": 0,
+      "scenario": "initial",
+      "expected_skill_gain": 6.75,
+      "actual_skill_gain": 6.75,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "skill:packet",
+          "amount": 6.75,
+          "gauge": 6.75
+        },
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 10.75
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "scenario": "named-activation",
+      "expected_skill_gain": 6,
+      "actual_skill_gain": 6.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "skill:packet",
+          "amount": 6.0,
+          "gauge": 6.0
+        },
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 10.0
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "scenario": "named-removal",
+      "expected_skill_gain": 6.75,
+      "actual_skill_gain": 6.75,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "skill:packet",
+          "amount": 6.75,
+          "gauge": 6.75
+        },
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "weapon",
+          "amount": 2.0,
+          "gauge": 8.75
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "scenario": "mode-skill",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "scenario": "mode-remove",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "scenario": "mode-limit",
+      "expected_skill_gain": 12,
+      "actual_skill_gain": 12.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "skill:packet",
+          "amount": 12.0,
+          "gauge": 19.0
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "scenario": "mode-switch",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "scenario": "base-enter-mode",
+      "expected_skill_gain": 12,
+      "actual_skill_gain": 12.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 4.0
+        },
+        {
+          "t": 0.0,
+          "caster": "리타",
+          "source": "skill:packet",
+          "amount": 12.0,
+          "gauge": 16.0
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "initial",
+      "expected_skill_gain": 6.75,
+      "actual_skill_gain": 6.75,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "skill:packet",
+          "amount": 6.75,
+          "gauge": 6.75
+        },
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 10.75
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "named-activation",
+      "expected_skill_gain": 6,
+      "actual_skill_gain": 6.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "skill:packet",
+          "amount": 6.0,
+          "gauge": 6.0
+        },
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 10.0
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "named-removal",
+      "expected_skill_gain": 6.75,
+      "actual_skill_gain": 6.75,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "skill:packet",
+          "amount": 6.75,
+          "gauge": 6.75
+        },
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "weapon",
+          "amount": 2.0,
+          "gauge": 8.75
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "mode-skill",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "mode-remove",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "mode-limit",
+      "expected_skill_gain": 12,
+      "actual_skill_gain": 12.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "skill:packet",
+          "amount": 12.0,
+          "gauge": 19.0
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "mode-switch",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "base-enter-mode",
+      "expected_skill_gain": 12,
+      "actual_skill_gain": 12.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 4.0
+        },
+        {
+          "t": 0.0,
+          "caster": "크라운",
+          "source": "skill:packet",
+          "amount": 12.0,
+          "gauge": 16.0
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "initial",
+      "expected_skill_gain": 6.75,
+      "actual_skill_gain": 6.75,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "skill:packet",
+          "amount": 6.75,
+          "gauge": 6.75
+        },
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 10.75
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "named-activation",
+      "expected_skill_gain": 6,
+      "actual_skill_gain": 6.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "skill:packet",
+          "amount": 6.0,
+          "gauge": 6.0
+        },
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 10.0
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "named-removal",
+      "expected_skill_gain": 6.75,
+      "actual_skill_gain": 6.75,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "skill:packet",
+          "amount": 6.75,
+          "gauge": 6.75
+        },
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "weapon",
+          "amount": 2.0,
+          "gauge": 8.75
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "mode-skill",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "mode-remove",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "mode-limit",
+      "expected_skill_gain": 12,
+      "actual_skill_gain": 12.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "skill:packet",
+          "amount": 12.0,
+          "gauge": 19.0
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "mode-switch",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "base-enter-mode",
+      "expected_skill_gain": 12,
+      "actual_skill_gain": 12.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 4.0
+        },
+        {
+          "t": 0.0,
+          "caster": "앨리스",
+          "source": "skill:packet",
+          "amount": 12.0,
+          "gauge": 16.0
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "initial",
+      "expected_skill_gain": 6.75,
+      "actual_skill_gain": 6.75,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "skill:packet",
+          "amount": 6.75,
+          "gauge": 6.75
+        },
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 10.75
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "named-activation",
+      "expected_skill_gain": 6,
+      "actual_skill_gain": 6.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "skill:packet",
+          "amount": 6.0,
+          "gauge": 6.0
+        },
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 10.0
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "named-removal",
+      "expected_skill_gain": 6.75,
+      "actual_skill_gain": 6.75,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "skill:packet",
+          "amount": 6.75,
+          "gauge": 6.75
+        },
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "weapon",
+          "amount": 2.0,
+          "gauge": 8.75
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "mode-skill",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "mode-remove",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "mode-limit",
+      "expected_skill_gain": 12,
+      "actual_skill_gain": 12.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "skill:packet",
+          "amount": 12.0,
+          "gauge": 19.0
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "mode-switch",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "base-enter-mode",
+      "expected_skill_gain": 12,
+      "actual_skill_gain": 12.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 4.0
+        },
+        {
+          "t": 0.0,
+          "caster": "모더니아",
+          "source": "skill:packet",
+          "amount": 12.0,
+          "gauge": 16.0
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "initial",
+      "expected_skill_gain": 6.75,
+      "actual_skill_gain": 6.75,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "skill:packet",
+          "amount": 6.75,
+          "gauge": 6.75
+        },
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 10.75
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "named-activation",
+      "expected_skill_gain": 6,
+      "actual_skill_gain": 6.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "skill:packet",
+          "amount": 6.0,
+          "gauge": 6.0
+        },
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 10.0
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "named-removal",
+      "expected_skill_gain": 6.75,
+      "actual_skill_gain": 6.75,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "skill:packet",
+          "amount": 6.75,
+          "gauge": 6.75
+        },
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "weapon",
+          "amount": 2.0,
+          "gauge": 8.75
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "mode-skill",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "mode-remove",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "mode-limit",
+      "expected_skill_gain": 12,
+      "actual_skill_gain": 12.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "skill:packet",
+          "amount": 12.0,
+          "gauge": 19.0
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "mode-switch",
+      "expected_skill_gain": 21,
+      "actual_skill_gain": 21.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "weapon",
+          "amount": 7.0,
+          "gauge": 7.0
+        },
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "skill:packet",
+          "amount": 21.0,
+          "gauge": 28.0
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "base-enter-mode",
+      "expected_skill_gain": 12,
+      "actual_skill_gain": 12.0,
+      "gauge_log": [
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "weapon",
+          "amount": 4.0,
+          "gauge": 4.0
+        },
+        {
+          "t": 0.0,
+          "caster": "N102",
+          "source": "skill:packet",
+          "amount": 12.0,
+          "gauge": 16.0
+        }
+      ]
+    }
+  ],
+  "scope": "40 original simulate/skill-handler cases, duration0, authored metadata/effects. Not GPU certification or a complete battle.",
+  "source_sha256": {
+    "research/characterize-burst-charge-skills.py": "ed16e4a48c05ee1c10478458fd2cab26a6dc33bed9219637e8879539185644f0",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

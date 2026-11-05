@@ -1,0 +1,312 @@
+{
+  "schema": "product-parts-call-boundary-v1",
+  "hypothesis": "Keep the part/interrupt loops outside product shot callers. The combined source boundary and host audit changes now compile; their isolated causal contributions remain unmeasured.",
+  "shared_shader_change": "Only product conditional noinline on deliverCounterParts",
+  "generated_cuda_and_metal_exact_except_one_attribute": true,
+  "requests": 8,
+  "fresh_metal_captures": 7,
+  "api_cache_hits": 1,
+  "primary_characters": 5,
+  "all_product_payloads_match_cpu": true,
+  "all_prior_raw_outputs_identical": true,
+  "saved_input_rebuild_and_raw_reprojection_verified": true,
+  "independent_audit_cpu_battles": 0,
+  "independent_audit_gpu_calls": 0,
+  "windows_compile_attempts": 1,
+  "full_goal_complete": false,
+  "rows": [
+    {
+      "index": 0,
+      "character": "미란다 parts 0",
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_sha256": "274836241dcb42f6bf185f42bdfd7bd355652a908b920cd4054a7140a1fb1b9c",
+      "output_sha256": "35f2c62b2e7c45f0e3ec4dc5179a623da87317b26100bc2f53b20408aa37366d",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.5197553749894723
+    },
+    {
+      "index": 1,
+      "character": "앨리스 parts 1",
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_sha256": "8d2f56bae8c36ad871769f808615b4a60df315a03e70f50be66b246b40b0e26c",
+      "output_sha256": "f6e935c45e693c519688e7001c1f9a6020d7582d832d8d2c9278c4a0d067e4f6",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.5493455000105314
+    },
+    {
+      "index": 2,
+      "character": "벨로타 parts 2",
+      "source": "gpu/product_group_battle_entry.slang",
+      "input_sha256": "9ebed7e94dca5ca77334c8e9c350e391118004bbb0f841e6747bb1ed56453a76",
+      "output_sha256": "8e9cb750be5c89d588dfe75151f59b95e91d4a9b50548196fbd16b0afa456c36",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.5357546249870211
+    },
+    {
+      "index": 3,
+      "character": "미란다 parts 3",
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_sha256": "fba18e055cb51e5ede5316dceaf40a3358edcac3e7bdb3bf25cc78d63fae90ab",
+      "output_sha256": "7692ce3cb204ecfbb3ade75218fb91615be6964c449f01d8624d7ad9d0395e90",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.38974616664927453
+    },
+    {
+      "index": 4,
+      "character": "아스카 accumulate target parts",
+      "source": "gpu/product_target_battle_entry.slang",
+      "input_sha256": "cb1bcac79763fc361f9042eb1f53e0ebb39985ccb33500db796993aebf48340e",
+      "output_sha256": "42184ccdb517b37eff485e792e3276fd0420e50fcb3ff381d16b2171d25b0c9e",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.3829814166529104
+    },
+    {
+      "index": 5,
+      "character": "사쿠라 accumulate target parts",
+      "source": "gpu/product_group_target_battle_entry.slang",
+      "input_sha256": "d73d801f86f8b43bb2379dc3e6da46f8dbd0a267a877d634fe435bd1c3e9ad78",
+      "output_sha256": "dad6170ca33a724bb10e3a7993b399e3b83dd4432ae2264a3ac59839a46f697c",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.40405387501232326
+    },
+    {
+      "index": 6,
+      "character": "아스카 fixed target parts",
+      "source": "gpu/product_fixed_target_battle_entry.slang",
+      "input_sha256": "3c0d7b04d7b41583defcdfb486a4e7172dbbd1a73fe1d3fe336fae47b02d0a01",
+      "output_sha256": "27d16b6cd442fa94ca5afd5d5cb0233ae1bf23485f57e7bc8fbaf61a9f364311",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.4067779583274387
+    },
+    {
+      "index": 7,
+      "character": "아스카 accumulate target parts",
+      "source": "gpu/product_target_battle_entry.slang",
+      "input_sha256": "cb1bcac79763fc361f9042eb1f53e0ebb39985ccb33500db796993aebf48340e",
+      "output_sha256": "42184ccdb517b37eff485e792e3276fd0420e50fcb3ff381d16b2171d25b0c9e",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": true,
+      "gpu_seconds": 0.3829814166529104
+    }
+  ],
+  "common_cpu": {
+    "passed": true,
+    "groups": 77,
+    "tests": 846,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "registered_programs": {
+    "accumulate": {
+      "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+      "output_sha256": "bc19e1324c7f293c24367148ec8d050a506d3779ba283983641f2f53d3fb01fc",
+      "entries_retained": true,
+      "generated_normalized": {
+        "cuda": "5d305daa2bffa734dfe8385a932c2909b0973809d62038531e2c2758eb652755",
+        "metal": "e171f4a708b2ec27e03856d7d9ce569901163df2d8d21f8cf7907362c77233a2"
+      }
+    },
+    "fixed": {
+      "input_sha256": "b534ebb2f7abcf613ea7b052f0ad8b9f9bcb48ec5ece9e0c766422871ba06a6f",
+      "output_sha256": "9c72bd03cc18453a9f8c6a9cdfebd6fe126e3e0b8e5889e6668cf158c4698be2",
+      "entries_retained": true,
+      "generated_normalized": {
+        "cuda": "46ac201f8f9d656c996997ae13ef7911ec61030e5302dd69141db79d1c514420",
+        "metal": "29018fc62196b688698047a1d20292da0136cab96829d5d19835507f7b8921e8"
+      }
+    }
+  },
+  "source_before_sha256": "d84aeea5965ffd318c409f38b5a1562293ac445ad11d3ee113f539726ba733e5",
+  "source_after_sha256": "0ce6bbcfc8a63c38c82a990b7d9ba8a4006cf16286c146471e80863ec22a37fd",
+  "codegen": {
+    "cu": {
+      "before": "e7802d5f85c68efd427d3a67948bd0bf013d0fc13cb48fc541016f682d95d458",
+      "after": "e96ed65d6df3d3afdaa1153677e14c7936fbe05678e15f54da4b9bd2f4d79ee3"
+    },
+    "metal": {
+      "before": "ffbb74c5f6a196e2a20e66f6eaeceae7426ac387c8ea922aa8361d5b3a020ae3",
+      "after": "e171f4a708b2ec27e03856d7d9ce569901163df2d8d21f8cf7907362c77233a2"
+    }
+  },
+  "old_failed_nvrtc_claim_preserved": true,
+  "windows_compile_peer_report": {
+    "peer_turn": "01a18f13-b174-72c0-aa07-5d297bff06b1",
+    "cursor_revision": 212,
+    "owner": "2a3053da8b227707f5c32af35e03f1555c429af48c2c0d0a04d7d91bbde14a15",
+    "unit_tests": 49,
+    "unit_skipped": 0,
+    "sealed_generation_matched": true,
+    "nvrtc_return_code": 0,
+    "ptx_bytes": 9504650,
+    "ptx_sha256": "7bcd3dc7e9003378c8936cfd530b4812f0bab3a40925de986c302cc6a699b78c",
+    "seconds": {
+      "child_package_verification": 4.03,
+      "paired_generation": 17.574,
+      "compile_generation_cache_read": 1.374,
+      "child_created_to_nvrtc_entered": 8.077,
+      "nvrtc_entered_to_returned": 20.158,
+      "compile_inner": 30.859,
+      "compile_outer": 40.203
+    },
+    "peak_bytes": {
+      "inner": 223174656,
+      "outer": 257343488
+    },
+    "missing_existing_processes": 0,
+    "observation_errors": 0,
+    "cleanup_errors": 0,
+    "inspection_errors": 0,
+    "job_empty_after_cleanup": true,
+    "compiler_verified": true,
+    "containment_verified": true,
+    "service_identified": false,
+    "preservation_verified": false,
+    "outer_passed": false,
+    "driver_calls": 0,
+    "gpu_calls": 0,
+    "mac_independent_original_artifact_audit": false,
+    "scope": "Remote peer status only. Mac has not independently audited original Windows artifacts. Combined source boundary and host-audit optimization; isolated performance causality is unproven."
+  },
+  "next_stage": {
+    "name": "No live Windows job. Reuse saved current image; assess product workload/resource bounds before requesting further CUDA scenes. Preserve remaining 11 reference-model gaps.",
+    "requested": false,
+    "gpu_reruns_requested": false
+  },
+  "windows_module_object_peer_report": {
+    "peer_turn": "01a18f1a-cf0d-75a0-8e23-86aa7bf12004",
+    "cursor_revision": 215,
+    "owner": "2a3053da8b227707f5c32af35e03f1555c429af48c2c0d0a04d7d91bbde14a15",
+    "seconds": {
+      "ptxas": 8.366,
+      "inner": 21.307,
+      "outer": 39.164
+    },
+    "peak_bytes": {
+      "inner": 348213248,
+      "outer": 394067968
+    },
+    "object_bytes": 5444976,
+    "object_sha256": "8d173bfc22dddbd4f25da5eca028a6ba8dd46a24751bbd1808c9a6701fc70deb",
+    "input_ptx_sha256": "7bcd3dc7e9003378c8936cfd530b4812f0bab3a40925de986c302cc6a699b78c",
+    "object_verified": true,
+    "containment_verified": true,
+    "preservation_verified": false,
+    "missing_existing_processes": 0,
+    "observation_errors": 0,
+    "cleanup_errors": 0,
+    "inspection_errors": 0,
+    "job_empty_after_cleanup": true,
+    "slang_calls": 0,
+    "nvrtc_calls": 0,
+    "driver_calls": 0,
+    "gpu_calls": 0,
+    "mac_independent_original_artifact_audit": false
+  },
+  "windows_jit_link_peer_report": {
+    "peer_turn": "01a18f1c-cbe8-77b0-988a-60ce287f9359",
+    "link_verified": true,
+    "image_bytes": 5066448,
+    "image_sha256": "ad057e8bb7daa9244875671792b2aacf697a256f6056726ad4c5592f52b77cba",
+    "seconds_rounded": {
+      "link_api": 0.04,
+      "inner": 17.28,
+      "outer": 43.47
+    },
+    "missing_existing_processes": 0,
+    "cleanup_errors": 0,
+    "driver_calls": 0,
+    "gpu_calls": 0,
+    "preservation_verified": false,
+    "mac_independent_original_artifact_audit": false,
+    "peak_bytes": {
+      "inner": 112545792,
+      "outer": 237961216
+    }
+  },
+  "windows_product_api_peer_report": {
+    "peer_turn": "01a18f21-50ea-7e32-b746-e5e6e8e8aa65",
+    "cursor_revision": 235,
+    "source_commit": "9a6c3aa7a52361b40f44963b21f60afe3a9a9969",
+    "owner": "2a3053da8b227707f5c32af35e03f1555c429af48c2c0d0a04d7d91bbde14a15",
+    "route": "/api/jobs",
+    "primary_profile": "Miranda",
+    "duration_seconds": 1,
+    "requests": 1,
+    "device": "RTX 3070 Ti",
+    "gpu_execution_verified": true,
+    "cpu_fallback": false,
+    "cpu_full_product_payload_matched": true,
+    "differing_fields": [],
+    "input_sha256": "e26cf2bbb65dd20fc1b03780b24d38729a3c783b41913f1971284ca45b29c0d8",
+    "image_sha256": "ad057e8bb7daa9244875671792b2aacf697a256f6056726ad4c5592f52b77cba",
+    "driver_launch_sync_readback_return_codes": [
+      0,
+      0,
+      0
+    ],
+    "host_dispatch_seconds": 0.238034,
+    "synchronize_api_seconds": 0.231532,
+    "pure_gpu_time_measured": false,
+    "inner_seconds_rounded": 41.11,
+    "outer_seconds_rounded": 45.96,
+    "inner_peak_bytes": 1982312448,
+    "outer_peak_bytes": 2000576512,
+    "missing_existing_processes": 0,
+    "cleanup_errors": 0,
+    "observation_errors": 0,
+    "job_empty_after_cleanup": true,
+    "dedicated_server_stopped": true,
+    "protected_files_unchanged": 25,
+    "service_identified": false,
+    "preservation_verified": false,
+    "new_slang_nvrtc_ptxas_link_calls": 0,
+    "mac_independent_original_artifact_audit": false,
+    "saved_reprojection_audit_pending": false,
+    "readback_sha256": "647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f"
+  },
+  "coverage": {
+    "last_full_metal_sweep_source_commit": "4e8613257b766bd934e68dfe25c89749906cc683",
+    "last_full_metal_sweep_profiles": 255,
+    "current_source_metal_primary_characters_in_custom_conditions": 5,
+    "current_source_metal_custom_conditions": 7,
+    "current_source_cuda_profiles": 1,
+    "current_source_cuda_duration_seconds": 1,
+    "current_source_cuda_standard_30s_profiles": 0,
+    "current_source_cuda_fixed_profiles": 0,
+    "remaining_reference_model_gap_profiles": 11,
+    "full_goal_complete": false
+  },
+  "windows_saved_reprojection_peer_report": {
+    "peer_turn": "01a18f29-09b9-7bb3-ab6f-1387e6232201",
+    "cursor_revision": 239,
+    "static_input_all_bytes_matched": true,
+    "raw_hashes_match_result_evidence_api": true,
+    "raw_reprojection_matches_saved_gpu_cpu_api": true,
+    "excluded_fields": [
+      "compute execution metadata",
+      "API cache_hit"
+    ],
+    "current_source_closure_and_generation_cache_and_image_provenance_matched": true,
+    "extra_cpu_battles": 0,
+    "extra_sdk_driver_gpu_compile_calls": 0,
+    "git_metadata_actual_exit_code": 128,
+    "git_metadata_commit": null,
+    "git_metadata_dirty": null,
+    "prior_failed_audit_retained": true,
+    "prior_failed_audit_reason": "Audit invocation blocked original decoder read-only git rev-parse HEAD; numerical comparison not reached. Only the fixed original read-only Git invocation was permitted in the corrected CPU audit. No original decoder or expected value was modified.",
+    "missing_existing_processes": 0,
+    "cleanup_errors": 0,
+    "job_empty_after_cleanup": true,
+    "preservation_verified": false,
+    "mac_independent_original_artifact_audit": false,
+    "scope": "In-place saved artifact audit reported by Windows peer; original Windows artifacts were not transferred to Mac."
+  }
+}

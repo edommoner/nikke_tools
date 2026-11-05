@@ -1,0 +1,1647 @@
+{
+  "schema": 1,
+  "source_bytes": 2221708,
+  "source_sha256": "44ed50919f8e92db7da1fcab5ba58bc5842a901989c510f7561c418d42e3c838",
+  "functions": 886,
+  "noinline_functions": 256,
+  "largest_functions": [
+    {
+      "name": "admitDefinitions_0",
+      "line": 11712,
+      "bytes": 130093,
+      "lines": 4547,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 527
+    },
+    {
+      "name": "applyDefinitionFrame_0",
+      "line": 59073,
+      "bytes": 74760,
+      "lines": 1194,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 149
+    },
+    {
+      "name": "executePortableCommands_0",
+      "line": 76845,
+      "bytes": 65890,
+      "lines": 1023,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 131
+    },
+    {
+      "name": "advanceDefinitionFrame_0",
+      "line": 60269,
+      "bytes": 58725,
+      "lines": 1811,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 220
+    },
+    {
+      "name": "coreProbability_0",
+      "line": 1004,
+      "bytes": 45822,
+      "lines": 1597,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 187
+    },
+    {
+      "name": "dispatch_0",
+      "line": 62152,
+      "bytes": 44893,
+      "lines": 1331,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 170
+    },
+    {
+      "name": "actorFieldsDefinitionValid_0",
+      "line": 18765,
+      "bytes": 30342,
+      "lines": 1106,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 142
+    },
+    {
+      "name": "basicConditions_0",
+      "line": 35093,
+      "bytes": 28407,
+      "lines": 1198,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 159
+    }
+  ],
+  "scope": "Lexical generated-CUDA spans only; not compiler time, memory attribution, performance or correctness proof",
+  "call_graph": {
+    "root": "admitDefinitions_0",
+    "max_depth": 3,
+    "visited_functions": 73,
+    "truncated": false,
+    "edges": [
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_alias_get_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 216,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_alliedFlags_get_0",
+        "calls": 8,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 215,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_buffEvent_get_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 216,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_bulletBound_get_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 218,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_bulletDuration_get_0",
+        "calls": 3,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 216,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_conditionCount_get_0",
+        "calls": 3,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 163,
+        "lines": 3
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_damageCount_get_0",
+        "calls": 4,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 218,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_damageFlags_get_0",
+        "calls": 13,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 214,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_damageGauge_get_0",
+        "calls": 5,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 173,
+        "lines": 3
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_damageHits_get_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 375,
+        "lines": 13
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_damageNormal_get_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 219,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_damagePending_get_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 220,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_damageRoute_get_0",
+        "calls": 6,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 372,
+        "lines": 13
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_durationCast_get_0",
+        "calls": 3,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 219,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_durationGroup_get_0",
+        "calls": 3,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 215,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_duration_get_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 168,
+        "lines": 3
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_enemyBuff_get_0",
+        "calls": 18,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 216,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_flags_get_0",
+        "calls": 3,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 211,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_group_get_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 207,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_healthScaling_get_0",
+        "calls": 9,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 212,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_interval_get_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 169,
+        "lines": 3
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_kind_get_0",
+        "calls": 87,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 206,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_lazyGroup_get_0",
+        "calls": 6,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 226,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_name_get_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 209,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_owner_get_0",
+        "calls": 8,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 202,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_pendingHits_get_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 218,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_quantityFlags_get_0",
+        "calls": 11,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 217,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_queryResolve_get_0",
+        "calls": 3,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 236,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_recipients_get_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 216,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_stat_get_0",
+        "calls": 61,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 206,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_target_get_0",
+        "calls": 4,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 212,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_triggerCount_get_0",
+        "calls": 9,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 215,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "Definition_value_get_0",
+        "calls": 21,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 162,
+        "lines": 3
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "f64Abs_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 96,
+        "lines": 3
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "f64Equal_0",
+        "calls": 5,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 541,
+        "lines": 34
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "f64Finite_0",
+        "calls": 20,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 121,
+        "lines": 3
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "f64FromI64_0",
+        "calls": 9,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 893,
+        "lines": 41
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "f64Less_0",
+        "calls": 14,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 617,
+        "lines": 37
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "f64ToI64_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 1396,
+        "lines": 62
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "f64Zero_0",
+        "calls": 14,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 102,
+        "lines": 3
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "focusAimEnabled_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 234,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "fullBurstPendingInvalid_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 4240,
+        "lines": 189
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "hasRangeGeometry_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 212,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "loadDefinition_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": true,
+        "bytes": 254,
+        "lines": 8
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "loadNumber_0",
+        "calls": 16,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 264,
+        "lines": 6
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "namedMagnitudeStat_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 302,
+        "lines": 20
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "projectileCarrierStat_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 89,
+        "lines": 3
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "protectionPolicy_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 219,
+        "lines": 4
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "validAlliedRandomMetadata_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 2061,
+        "lines": 93
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "validDamageAccum_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 5479,
+        "lines": 284
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "validDurationExtension_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": true,
+        "bytes": 3468,
+        "lines": 160
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "validEnemyRoute_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 686,
+        "lines": 31
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "validFocusMetadata_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 304,
+        "lines": 13
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "validHealCharge_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 4068,
+        "lines": 220
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "validRecipientPlan_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 2431,
+        "lines": 127
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "validRemovalDefinition_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": true,
+        "bytes": 3149,
+        "lines": 144
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "validStatePredicate_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 1671,
+        "lines": 75
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "validUndyingPredicate_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 1180,
+        "lines": 53
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "worldEnemyAttackEnabled_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 535,
+        "lines": 23
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "worldFractionEnabled_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 496,
+        "lines": 22
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "worldInitialSpawnEnabled_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 532,
+        "lines": 23
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "worldModePolicyInvalid_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 370,
+        "lines": 20
+      },
+      {
+        "caller": "admitDefinitions_0",
+        "callee": "worldTeamEnabled_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 74,
+        "lines": 3
+      },
+      {
+        "caller": "Definition_conditionCount_get_0",
+        "callee": "definition_conditionCount_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 190,
+        "lines": 4
+      },
+      {
+        "caller": "Definition_damageGauge_get_0",
+        "callee": "loadNumber_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 264,
+        "lines": 6
+      },
+      {
+        "caller": "Definition_duration_get_0",
+        "callee": "loadNumber_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 264,
+        "lines": 6
+      },
+      {
+        "caller": "Definition_interval_get_0",
+        "callee": "loadNumber_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 264,
+        "lines": 6
+      },
+      {
+        "caller": "Definition_value_get_0",
+        "callee": "loadNumber_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 264,
+        "lines": 6
+      },
+      {
+        "caller": "f64Equal_0",
+        "callee": "f64Nan_0",
+        "calls": 2,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 118,
+        "lines": 3
+      },
+      {
+        "caller": "f64Equal_0",
+        "callee": "f64Zero_0",
+        "calls": 2,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 102,
+        "lines": 3
+      },
+      {
+        "caller": "f64FromI64_0",
+        "callee": "f64Pack_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 1781,
+        "lines": 86
+      },
+      {
+        "caller": "f64FromI64_0",
+        "callee": "shiftJam_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 535,
+        "lines": 29
+      },
+      {
+        "caller": "f64Less_0",
+        "callee": "f64Equal_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 541,
+        "lines": 34
+      },
+      {
+        "caller": "f64Less_0",
+        "callee": "f64Nan_0",
+        "calls": 2,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 118,
+        "lines": 3
+      },
+      {
+        "caller": "f64ToI64_0",
+        "callee": "f64Abs_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 96,
+        "lines": 3
+      },
+      {
+        "caller": "f64ToI64_0",
+        "callee": "f64Finite_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 121,
+        "lines": 3
+      },
+      {
+        "caller": "f64ToI64_0",
+        "callee": "f64Integral_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 2098,
+        "lines": 100
+      },
+      {
+        "caller": "fullBurstPendingInvalid_0",
+        "callee": "Definition_damageFlags_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 214,
+        "lines": 4
+      },
+      {
+        "caller": "fullBurstPendingInvalid_0",
+        "callee": "Definition_damageHits_get_0",
+        "calls": 3,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 375,
+        "lines": 13
+      },
+      {
+        "caller": "fullBurstPendingInvalid_0",
+        "callee": "Definition_damageNormal_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 219,
+        "lines": 4
+      },
+      {
+        "caller": "fullBurstPendingInvalid_0",
+        "callee": "Definition_damagePending_get_0",
+        "calls": 4,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 220,
+        "lines": 4
+      },
+      {
+        "caller": "fullBurstPendingInvalid_0",
+        "callee": "Definition_owner_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 202,
+        "lines": 4
+      },
+      {
+        "caller": "fullBurstPendingInvalid_0",
+        "callee": "Definition_pendingHits_get_0",
+        "calls": 4,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 218,
+        "lines": 4
+      },
+      {
+        "caller": "fullBurstPendingInvalid_0",
+        "callee": "worldPendingEnabled_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 526,
+        "lines": 23
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_alliedFlags_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 215,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_bulletDuration_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 216,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_damageFlags_get_0",
+        "calls": 2,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 214,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_damageGauge_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 173,
+        "lines": 3
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_damageHits_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 375,
+        "lines": 13
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_damageNormal_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 219,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_damagePending_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 220,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_enemyBuff_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 216,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_flags_get_0",
+        "calls": 2,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 211,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_healthScaling_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 212,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_interval_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 169,
+        "lines": 3
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_kind_get_0",
+        "calls": 2,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 206,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_quantityFlags_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 217,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_stat_get_0",
+        "calls": 2,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 206,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_targetName_get_0",
+        "calls": 2,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 220,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "Definition_value_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 162,
+        "lines": 3
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "f64Finite_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 121,
+        "lines": 3
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "f64Zero_0",
+        "calls": 2,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 102,
+        "lines": 3
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "referenceScaleMode_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 243,
+        "lines": 4
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "validRecipientPlan_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 2431,
+        "lines": 127
+      },
+      {
+        "caller": "validDamageAccum_0",
+        "callee": "validWorldSkillDefinition_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 5262,
+        "lines": 247
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "Definition_alliedFlags_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 215,
+        "lines": 4
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "Definition_damageFlags_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 214,
+        "lines": 4
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "Definition_enemyBuff_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 216,
+        "lines": 4
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "Definition_healthScaling_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 212,
+        "lines": 4
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "Definition_interval_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 169,
+        "lines": 3
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "Definition_kind_get_0",
+        "calls": 3,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 206,
+        "lines": 4
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "Definition_quantityFlags_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 217,
+        "lines": 4
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "Definition_stat_get_0",
+        "calls": 3,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 206,
+        "lines": 4
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "Definition_targetName_get_0",
+        "calls": 2,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 220,
+        "lines": 4
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "Definition_value_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 162,
+        "lines": 3
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "f64Finite_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 121,
+        "lines": 3
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "f64Zero_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 102,
+        "lines": 3
+      },
+      {
+        "caller": "validHealCharge_0",
+        "callee": "validRecipientPlan_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 2431,
+        "lines": 127
+      },
+      {
+        "caller": "validRecipientPlan_0",
+        "callee": "validAlliedRandomMetadata_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 2061,
+        "lines": 93
+      },
+      {
+        "caller": "validRecipientPlan_0",
+        "callee": "validRecipientLeaf_0",
+        "calls": 2,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 12907,
+        "lines": 655
+      },
+      {
+        "caller": "validStatePredicate_0",
+        "callee": "f64Zero_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 102,
+        "lines": 3
+      },
+      {
+        "caller": "validStatePredicate_0",
+        "callee": "loadNumber_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 264,
+        "lines": 6
+      },
+      {
+        "caller": "validUndyingPredicate_0",
+        "callee": "f64Zero_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 102,
+        "lines": 3
+      },
+      {
+        "caller": "validUndyingPredicate_0",
+        "callee": "loadNumber_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 264,
+        "lines": 6
+      },
+      {
+        "caller": "worldEnemyAttackEnabled_0",
+        "callee": "targetCountersEnabled_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 79,
+        "lines": 3
+      },
+      {
+        "caller": "worldEnemyAttackEnabled_0",
+        "callee": "worldInitialSpawnEnabled_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 532,
+        "lines": 23
+      },
+      {
+        "caller": "worldFractionEnabled_0",
+        "callee": "targetCountersEnabled_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 79,
+        "lines": 3
+      },
+      {
+        "caller": "worldFractionEnabled_0",
+        "callee": "worldTeamEnabled_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 74,
+        "lines": 3
+      },
+      {
+        "caller": "worldInitialSpawnEnabled_0",
+        "callee": "targetCountersEnabled_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 79,
+        "lines": 3
+      },
+      {
+        "caller": "worldInitialSpawnEnabled_0",
+        "callee": "worldFractionEnabled_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 496,
+        "lines": 22
+      },
+      {
+        "caller": "worldModePolicyInvalid_0",
+        "callee": "worldOverlayEnabled_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 208,
+        "lines": 4
+      },
+      {
+        "caller": "f64Pack_0",
+        "callee": "shiftJam_0",
+        "calls": 2,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 535,
+        "lines": 29
+      },
+      {
+        "caller": "f64Integral_0",
+        "callee": "f64Abs_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 96,
+        "lines": 3
+      },
+      {
+        "caller": "f64Integral_0",
+        "callee": "f64Nan_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 118,
+        "lines": 3
+      },
+      {
+        "caller": "worldPendingEnabled_0",
+        "callee": "targetCountersEnabled_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 79,
+        "lines": 3
+      },
+      {
+        "caller": "worldPendingEnabled_0",
+        "callee": "worldPeriodicEnabled_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 531,
+        "lines": 23
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "Definition_damageCount_get_0",
+        "calls": 2,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 218,
+        "lines": 4
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "Definition_damageFlags_get_0",
+        "calls": 5,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 214,
+        "lines": 4
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "Definition_damageHits_get_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 375,
+        "lines": 13
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "Definition_damageNormal_get_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 219,
+        "lines": 4
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "Definition_damagePending_get_0",
+        "calls": 3,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 220,
+        "lines": 4
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "Definition_damageRoute_get_0",
+        "calls": 2,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 372,
+        "lines": 13
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "Definition_enemyBuff_get_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 216,
+        "lines": 4
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "Definition_healthScaling_get_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 212,
+        "lines": 4
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "Definition_interval_get_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 169,
+        "lines": 3
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "Definition_periodicFlags_get_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 215,
+        "lines": 4
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "actorBinding_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 156,
+        "lines": 3
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "actorPoolCount_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 202,
+        "lines": 4
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "actorPoolDef_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 157,
+        "lines": 3
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "f64Zero_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 102,
+        "lines": 3
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "referenceScaleMode_0",
+        "calls": 3,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 243,
+        "lines": 4
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "validEnemyRoute_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 686,
+        "lines": 31
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "validParentFixed_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 1965,
+        "lines": 97
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "worldPendingEnabled_0",
+        "calls": 2,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 526,
+        "lines": 23
+      },
+      {
+        "caller": "validWorldSkillDefinition_0",
+        "callee": "worldPeriodicClock_0",
+        "calls": 3,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 649,
+        "lines": 32
+      }
+    ],
+    "scope": "Known lexical calls; stop at noinline or depth3. No claim about actual compiler inlining or memory cost"
+  },
+  "source_integrity_verified": true,
+  "analysis_complete": true,
+  "calculation_verified": false,
+  "compiler_verified": false,
+  "gpu_calls": 0,
+  "nvrtc_compile_calls": 0
+}

@@ -83,14 +83,14 @@ def current_label(manager):
 
 def resolve_for_effect(manager,effect,target,caster):
     registry=dynamic_registry(manager);frames=state(manager).event_stack
-    if effect.get('type')=='buff' and effect.get('stat')!='target_hit_counter' and registry is not None and target in CURRENT_TARGETS and frames and frames[-1].target is not None:
+    if effect.get('type')=='buff' and effect.get('stat')!='target_hit_counter' and registry is not None and isinstance(target,str) and target in CURRENT_TARGETS and frames and frames[-1].target is not None:
         return [registry.exact(logical_enemy(frames[-1].target)).label]
     return manager._resolve_target(target,caster)
 
 
 def resolve_mutation(manager,effect,caster):
     target=effect.get('target','self');frames=state(manager).event_stack
-    if target in CURRENT_TARGETS and frames and frames[-1].target is not None:
+    if isinstance(target,str) and target in CURRENT_TARGETS and frames and frames[-1].target is not None:
         registry=dynamic_registry(manager)
         if registry is not None:return [registry.exact(logical_enemy(frames[-1].target)).label]
     return manager._resolve_target(target,caster)
@@ -237,7 +237,8 @@ def install():
     @wraps(original_buffs)
     def buffs(self,caster,target,t,exclude_names=frozenset()):
         runtime=state(self)
-        if not runtime.resources.get('enemy_recipient_fields'):return original_buffs(self,caster,target,t,exclude_names)
+        # Explicit query targets also govern allied runtime target predicates.
+        # Their meaning cannot depend on whether an unrelated enemy field exists.
         actor=snapshot(self,target)
         if actor is None:return original_buffs(self,caster,target,t,exclude_names)
         if not hasattr(runtime,'enemy_query_stack'):runtime.enemy_query_stack=[]

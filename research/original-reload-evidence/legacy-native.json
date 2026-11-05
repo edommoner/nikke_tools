@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "package_id": "79b127f4f173087afd282e61dca6a1f0a1a583ff59ab4f169c77c4f16f92023f",
+  "baseline_commit": "34e442f5c11860ff2592232978e2b46eebb175c6",
+  "baseline_sha256": "5136c4237ca2326152ba0fece95f90d48c6b78085e22917b9977cd6efe1eca07",
+  "legacy_native_fingerprints_retained": 46,
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "elapsed_seconds": 1.4113588749896735,
+  "scope": "Immutable package ordinary reload fresh native fingerprints against pinned Git blob; not a coordinate GPU proof"
+}

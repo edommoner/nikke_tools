@@ -1,0 +1,585 @@
+{
+  "schema": 1,
+  "scope": "Declared enemy healing with magazines, shots, target carriers, optional cover and final-queue retirement in the ordinary product API",
+  "implementation": {
+    "common_cuda_metal_executor": true,
+    "new_suites": 0,
+    "new_programs": 0,
+    "new_auditors": 0,
+    "registry_programs": 68,
+    "unchanged_input_output_strides": true,
+    "healing_input_base": 111312,
+    "healing_input_end": 115680,
+    "healing_output_base": 1968368,
+    "healing_receipt_end": 2001184,
+    "healing_and_self_resource_capacity": 4096,
+    "legacy_no_healing_resource_capacity": 15124,
+    "cpu_adapter": "Checked existing healing frame wraps one original frame through magazine capture, then existing healing; exact2 frame/1 attack/1 result edits and once-only ownership checks retained",
+    "canonical_cpu_files_changed": [],
+    "numeric_rules_or_tolerances_changed": false
+  },
+  "normal_api": {
+    "successful_distinct_conditions": 24,
+    "posts": 2,
+    "physical_gpu_batches": 12,
+    "rows": [
+      {
+        "variant": "plain-fixed-ordinary",
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "f91a8496cd664380b556ea5443f0e948",
+        "input_sha256": "3fbdb4508ec2f5f9ce0aebb33fd561a7417dfd0f416853578df69e8869a723e0",
+        "output_sha256": "8635a325260f4a5d8f581e9f01aaaa3604f8ccad4dc7856afe5026cf316b2894",
+        "definitions": 82,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 3,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 2700,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-fixed-final-queue",
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "8413e8c7d84b41bdacd50f090ded39f1",
+        "input_sha256": "67596633d554fca05a0d3756c13eb71208ca36860e198858420d7e8ad5e379a3",
+        "output_sha256": "3dc330affaf89cb8b825ea311f4c510220f9d59815e1aaa5fea084ec1769ff5b",
+        "definitions": 82,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 0,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 2,
+        "enemy_ammo_attempts": 6,
+        "resource_notifications": 800,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-accumulate-ordinary",
+        "source": "gpu/product_ammo_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "f37961f50c7c49769b8615b8b3f42cac",
+        "input_sha256": "f27cd5832e164578c6be897218a191758045537dcd97715983af27154184a56e",
+        "output_sha256": "cf609655a0c2d2a378eeb53148fbedbda082d789f1c820455f8426443e55011d",
+        "definitions": 82,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 3,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 2500,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "plain-accumulate-final-queue",
+        "source": "gpu/product_ammo_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "6365fa9649464e69b75dc38422c5fb3d",
+        "input_sha256": "8a3f6fecbcc06e842bd4f38c59efcb68c0320a5168576216ef66a2b76514e6f6",
+        "output_sha256": "800df409cf00ecfc78d049067e1536b9d2da4853c0ec1e1fe3c328c6b4ac88d3",
+        "definitions": 82,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 0,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 2,
+        "enemy_ammo_attempts": 6,
+        "resource_notifications": 600,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-fixed-ordinary",
+        "source": "gpu/product_ammo_fixed_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "de86729b20124877bc8e6c320a8a715a",
+        "input_sha256": "1509bc15ae2217629c71c2912d4ff7a483e3e7185890fc2ba183c3a0aa59c2ab",
+        "output_sha256": "74984ed8c534d5b28b8d35f352b053e3b07d3386449a3767efe1c29f39d61485",
+        "definitions": 82,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 3,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 1100,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-fixed-final-queue",
+        "source": "gpu/product_ammo_fixed_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "1c43fbdb348d4706bbffd10dfac7abd8",
+        "input_sha256": "df304c841d3f7d07a0aa3526ab8510cd5c98b40eb3e628289742c28760fd3822",
+        "output_sha256": "f0ef1cf6716c5145c9b1702984a33e40f71141133378e6c740934b0c9bd134fa",
+        "definitions": 82,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 0,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 2,
+        "enemy_ammo_attempts": 6,
+        "resource_notifications": 400,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-accumulate-ordinary",
+        "source": "gpu/product_ammo_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "aacf7e700bb84d17b5da40d11766284b",
+        "input_sha256": "71b98148c24ad9c77f60a799c2427a06044131bf0964afb271c89921db11ca73",
+        "output_sha256": "f9d28897c7ee59e5a3b2586bf188eaeb4b042e4b164c7ac6f9ccdff18b5c53ae",
+        "definitions": 82,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 3,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 1100,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-accumulate-final-queue",
+        "source": "gpu/product_ammo_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "162df4598ad14968a132fdf539e392ab",
+        "input_sha256": "d9a3879c801a9677bd6c2fc1f65eaff4b7a26e62e34681845ec3c01cf4d4e52f",
+        "output_sha256": "cd4312adca8311750074b76e9a81bc6ce4eb0df297d7566c960a37cc5447e5c8",
+        "definitions": 82,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 0,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 2,
+        "enemy_ammo_attempts": 6,
+        "resource_notifications": 400,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "target-fixed-ordinary",
+        "source": "gpu/product_ammo_fixed_target_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "bf9d2d8b6e0a49b3b142fc3b03e427e9",
+        "input_sha256": "5820830c3e963dc8f7bb1d7035fae4ba44f4e38ac98b80b382be2184c206272f",
+        "output_sha256": "bbab256be52d9e194da93d1b0de39a5f12ee267b80d1ef8912576b251e078225",
+        "definitions": 85,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 3,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 1100,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "target-fixed-final-queue",
+        "source": "gpu/product_ammo_fixed_target_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "86077ee36d88489db92eb97e1cafdb91",
+        "input_sha256": "3f8221e268c292f14e2ac384a4bf706dfd1050a2723b0cdc8faf8fef2e6ff8cb",
+        "output_sha256": "2c9759fc754870c57d69a52115cabf110fa4107324c440976800228a54e00342",
+        "definitions": 85,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 0,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 2,
+        "enemy_ammo_attempts": 6,
+        "resource_notifications": 400,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "target-accumulate-ordinary",
+        "source": "gpu/product_ammo_target_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "d6dbfcf97cad4e419dd0dbcc0abaf7dc",
+        "input_sha256": "3ea3dca3747832dcde72af64db4ad1379f6c462a250d92c06c457ba2d622895d",
+        "output_sha256": "66606d808d2723ba521566c3d34e86539d36da6ed019cd50b7daf9de8bf08af6",
+        "definitions": 85,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 3,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 1100,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "target-accumulate-final-queue",
+        "source": "gpu/product_ammo_target_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "44bc865f6c5945af8908d4ec24d350f8",
+        "input_sha256": "cc4415ec6ddfa7fcb04d0d4ef0e78de027327cf2a6e26a764ca3141a201381ba",
+        "output_sha256": "e5c903e84548be1cb2fcfa9098ae707a4529e69e7c55430a2424c62ceb6204d8",
+        "definitions": 85,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 0,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 2,
+        "enemy_ammo_attempts": 6,
+        "resource_notifications": 400,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-cover-fixed-ordinary",
+        "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "8fd2add61eec4146beb1c8db02f34869",
+        "input_sha256": "cd1789391d31c4bf5adb65e5cfcdbace5caf6c9eb874a963e3e629d94df0f8fb",
+        "output_sha256": "eefd6b539a17e2746182ed3781656cf1d7fd19fcd90e6bf6852bfb181e8b85f6",
+        "definitions": 77,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 3,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 2700,
+        "cover_receipts": 2,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-cover-fixed-final-queue",
+        "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "2c4fb471b35b4e49a9e929546bd07d63",
+        "input_sha256": "7a4816172fec9c6ef0e763910a4446de6b3047c262a19578696070dc65b923b5",
+        "output_sha256": "5d60dc8df2e87786d0800ce5ab5b03988e96e68f73b1dd881321aadc3c8dc2c0",
+        "definitions": 77,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 0,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 2,
+        "enemy_ammo_attempts": 6,
+        "resource_notifications": 800,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-cover-accumulate-ordinary",
+        "source": "gpu/product_ammo_cover_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "1274afc541d64f788872280fcac9f9b2",
+        "input_sha256": "e17bba93fc6af004c8f886c16ac0ebe3285328198af586299a90ef986828c035",
+        "output_sha256": "bf52752320a4386a255dbff8c1d912add8a0a98ce730f48b702e158a3f05f716",
+        "definitions": 77,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 3,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 2500,
+        "cover_receipts": 2,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-cover-accumulate-final-queue",
+        "source": "gpu/product_ammo_cover_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "c06e4b3755704fc68e6dc71067caff0e",
+        "input_sha256": "543663626bb3defcfbdbd398e116648cd94c23e9c316412b42464d5c06c561fc",
+        "output_sha256": "ee7af82e66158796623da9212bc7ed8ea565b2446f46f41daf658e4ad967c3f7",
+        "definitions": 77,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 0,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 2,
+        "enemy_ammo_attempts": 6,
+        "resource_notifications": 600,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-target-cover-fixed-ordinary",
+        "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "fd32f7a8ade145e2b6e101e06a5add92",
+        "input_sha256": "4dad05174f90817b9bc2a7f0239f649a18a115959cc6495f41494f8d0c943acf",
+        "output_sha256": "49b090e51e16b0c1f87040f299d2da6350495bc97ddeec11d4b8ac94208657fe",
+        "definitions": 78,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 3,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 1100,
+        "cover_receipts": 2,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-target-cover-fixed-final-queue",
+        "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "dd45ef1c870a44789ca56b10144fd958",
+        "input_sha256": "56f18ffbb55058fe23242e8ce5e5166120980ef0aa321151a8939621f99ce6d4",
+        "output_sha256": "17588791f62d529e2e0b1ad7c08535d3995e53e09e41eebfcbaa2cf33721197e",
+        "definitions": 78,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 0,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 2,
+        "enemy_ammo_attempts": 6,
+        "resource_notifications": 400,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-target-cover-accumulate-ordinary",
+        "source": "gpu/product_ammo_cover_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "7f167ec4033a444eadc0b0fe68f26b5e",
+        "input_sha256": "3821b8cefeb93681195f647fe632968398e7c796349c54ecb911f9ba639c0638",
+        "output_sha256": "9e0d6d72048409697d7124bdececebaf4370ec1bb74c1c34f84443a1ccff29cb",
+        "definitions": 78,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 3,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 1100,
+        "cover_receipts": 2,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "group-target-cover-accumulate-final-queue",
+        "source": "gpu/product_ammo_cover_group_battle_entry.slang",
+        "evidence_directory": "api-v1",
+        "capture_id": "9a2ebf23672046eea533e1c2d2fd6067",
+        "input_sha256": "c9de97aa97ee3f3e37ab392fade57ebac856b54ca035efe411cde9f319fc224a",
+        "output_sha256": "36f480583e47cf8dfa05033f6cd00918fbd5c32f740bf4ca08d427f69111d192",
+        "definitions": 78,
+        "healing_receipts": 8,
+        "positive_healing_receipts": 0,
+        "healing_multipliers": [
+          1
+        ],
+        "retirements": 2,
+        "enemy_ammo_attempts": 6,
+        "resource_notifications": 400,
+        "cover_receipts": 0,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "late-fixed-level1",
+        "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+        "evidence_directory": "api-v2",
+        "capture_id": "503132a759e944b0b048bd46db670bac",
+        "input_sha256": "eecbed29ed3c3fa4f29973737f3ee4d387c4271de0af1d1e1bc7be2181425328",
+        "output_sha256": "8367d1f67b0fc28dcd0e69d50fc41f26fa2c6606689fdca89d1771a49b31f44e",
+        "definitions": 77,
+        "healing_receipts": 10,
+        "positive_healing_receipts": 5,
+        "healing_multipliers": [
+          0.5659000000000001,
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 3300,
+        "cover_receipts": 2,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "late-fixed-level10",
+        "source": "gpu/product_ammo_cover_fixed_group_battle_entry.slang",
+        "evidence_directory": "api-v2",
+        "capture_id": "b48563593187447c8ec859339a074977",
+        "input_sha256": "45e70aa8be6a095e071533b80bdf5b44b601ae674d4f43b98718417c5ac954a1",
+        "output_sha256": "73951b504421e76a4a1888728aa4d4e2c50e2688f6eb56237308f855ef310087",
+        "definitions": 77,
+        "healing_receipts": 10,
+        "positive_healing_receipts": 5,
+        "healing_multipliers": [
+          0.2106999999999999,
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 3300,
+        "cover_receipts": 2,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "late-accumulate-level1",
+        "source": "gpu/product_ammo_cover_group_battle_entry.slang",
+        "evidence_directory": "api-v2",
+        "capture_id": "565bb3a18376482982188e29f3a2b320",
+        "input_sha256": "628d95d27e09655329b18343ff6e625fdfade617e8c165ebe7a174162046ce12",
+        "output_sha256": "ada271aa047a49f9cf130ebfd8bc4d085ba16f03f0d698b0c57e8a038921c8c5",
+        "definitions": 77,
+        "healing_receipts": 10,
+        "positive_healing_receipts": 5,
+        "healing_multipliers": [
+          0.5659000000000001,
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 3100,
+        "cover_receipts": 2,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      },
+      {
+        "variant": "late-accumulate-level10",
+        "source": "gpu/product_ammo_cover_group_battle_entry.slang",
+        "evidence_directory": "api-v2",
+        "capture_id": "57e9207d6cfb41b88ba517af137153e2",
+        "input_sha256": "66471a18bdd33201582fa525149a5e1100ebab15420ec8b12f44e8384f0f5b78",
+        "output_sha256": "d813a7a74b08b9a344860aaa9c90f9f200eba4992fd84f1eaa868ae9437741c0",
+        "definitions": 77,
+        "healing_receipts": 10,
+        "positive_healing_receipts": 5,
+        "healing_multipliers": [
+          0.2106999999999999,
+          1
+        ],
+        "retirements": 0,
+        "enemy_ammo_attempts": 64,
+        "resource_notifications": 3100,
+        "cover_receipts": 2,
+        "full_cpu_gpu_http_and_final_projection_equal": true
+      }
+    ],
+    "all_full_cpu_gpu_http_payloads_equal": true,
+    "saved_audit_extra_battles": 0,
+    "saved_audit_extra_gpu": 0,
+    "node_groups_absent": true,
+    "http_job_seconds": 133.21878283302067,
+    "extra_cpu_planning_scouts": 3,
+    "planning_scout_data_never_gpu_input": true
+  },
+  "cli": {
+    "program": "ammo-cover-fixed-group",
+    "old_five_cases_all_input_output_native_hashes_exact": true,
+    "added_cases": 2,
+    "metal_and_fresh_native_cases": 7,
+    "independent_audit": {
+      "package_id": "e375ac54f0be05218cf80fea2aa02f408ba574d6ff11191c6e5d9d765fcb7635",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-ammo-healing-v1-20261101/metal-v1",
+      "child_pid": 30053,
+      "input_count": 7,
+      "native_cases": 7,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 3.1991311670280993,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "81656e71b4d7b8cc8231572b5758fa44b067494682a221b34423c565e503ca3a",
+      "output_sha256": "5821e57e22cc24860e03544467d1ed3082a34281dc2a9a976f86178cd684753c",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "final_selected_source_closure_exact": true,
+    "cpu_tests": 157,
+    "cpu_groups": [
+      67,
+      11,
+      7,
+      72
+    ],
+    "additional_root_private_self_destruct_tests": 7,
+    "additional_root_healing_model_tests": 12,
+    "additional_root_tests_passed": true
+  },
+  "raw_device_rejection": {
+    "owner": "e375ac54f0be05218cf80fea2aa02f408ba574d6ff11191c6e5d9d765fcb7635",
+    "mutation": {
+      "word": 111312,
+      "old": 1162366001,
+      "new": 0
+    },
+    "gpu_status": 64,
+    "rejected_before_battle": true,
+    "input_sha256": "85515ada80ab567262fbe4d82e8c67deddad22994e3fc7b5a79f469f0b61d9b3",
+    "output_sha256": "d71c651fec69578b482a9ddfea9d3842bb5af0f2773baebff288cdb06487fd51",
+    "gpu_calls": 1,
+    "native_battles": 0,
+    "original_success_claim_unchanged": true,
+    "scope": "New invalid raw input admission only; no profile coverage or successful battle claimed",
+    "full_goal_complete": false
+  },
+  "release": {
+    "owner": "8dfc884939c455362952ce1dea4137658e2d9e4b43f7000063ba83faebebf86b",
+    "own_cpu_deps_ptx_o1_plans_passed": true,
+    "calculation_files_byte_equal": 1066,
+    "changed_paths": [
+      "app/portable_enemy_ammo_self_destruct_source_contract.py",
+      "app/portable_product_programs.py",
+      "app/portable_weighted_incoming_source_contract.py"
+    ],
+    "changes": "GOLDEN pointer, exact ledger SHA and historical-only strict source inverse entry; no runtime calculations changed after actual Metal",
+    "final_reprojection_cases": 24,
+    "extra_battles": 0,
+    "extra_gpu": 0
+  },
+  "baseline": {
+    "version": 48,
+    "updated_existing_member": "ammo-cover-fixed-group",
+    "old_five_input_output_native_entries_unchanged": true,
+    "added_cases": 2,
+    "other34_members_unchanged": true
+  },
+  "failures_retained": [
+    "First package stopped before GPU: independent CPU healing and magazine AST frame/result hooks conflicted. Connected exact named hooks through a single original frame; kept strict edit counts, original failed package log and CPU reference files unchanged.",
+    "Direct historical self-destruct audit omitted new product CPU delta: connected existing full SHA/hunk inverse before old private ledger; all7 tests and file-specific mutation negatives now pass, original failure transcript retained.",
+    "15s planning scout showed no active enemy healing reduction. Preserved scout and assertion; saved56s scout identified25s consumer. Added4 new26s API conditions, preserving all prior20 inputs/results."
+  ],
+  "standard_metal_profiles": 263,
+  "standard_cuda_profiles": 263,
+  "configured_recorded_metal_profiles": 266,
+  "configured_recorded_cuda_profiles": 265,
+  "new_standard_profiles_added": 0,
+  "current_new_composition_cuda_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Other physical coordinate/movement/lock/weighted consumer compositions",
+    "Actual typed projectile/shield target product worlds",
+    "Short Windows CUDA differentials when memory permits",
+    "Unconfigured game models and unrestricted compositions"
+  ]
+}

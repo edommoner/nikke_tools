@@ -7,8 +7,6 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
 from detail_coverage import a, body_for, coverage
-from detail_gpu import run
-from gpu_selector import Cuda
 spec=importlib.util.spec_from_file_location('count_control',ROOT/'scripts/verify-control-detail.py')
 control=importlib.util.module_from_spec(spec);spec.loader.exec_module(control)
 spec=importlib.util.spec_from_file_location('count_oracle',ROOT/'scripts/verify-detail.py')
@@ -69,40 +67,3 @@ def full_cases():
  yield 'partial-charge-count-reduced',{owner:[r(),{**hit,'trigger':{'timing':['non_full_charge_fire_count:5'],'condition':[]}}]}, {owner:{'tap_fire':{'rate':3.6,'release':.03}}},12
  yield 'counter-reduction-during-weapon-change',{owner:[r(event='burst_cast',duration=10),hit,{'source':'스킬3','name':'changed charge weapon','type':'weapon_change','target':'self','weapon_type':'SR','max_ammo':8,'damage_coeff':{'10':251},'charge_time':.3,'duration_bullets':8,'trigger':{'timing':['burst_cast'],'condition':[]}}]}, {},30
  yield 'same-timing-sharing-in-squad',{NAMES[0]:[E('reduce shared','buff','trigger_count_reduce',3,event='burst_cast',target_effect='representative',duration=10),E('representative','buff','atk_pct',2,event='on_attack_count:20',max_stack=100),E('other shared hit','damage','damage',100,'target',event='on_attack_count:20')]}, {},30
-
-def verify(device,backend='native'):
- cases=[];stats={n:{'atk':100000,'def':20000,'hp':1000000} for n in NAMES};enemy=[31784,0]
- for name,p,script,expected in primitives():
-  cpu,totals=oracle.oracle(p,script,enemy,stats)
-  gpu=run(device,[p],script,[enemy],[stats],module_backend=backend)
-  errors=[]
-  for i,(x,y) in enumerate(zip(cpu,gpu['queries'][0])):
-   for k in list(range(32))+[36,37]:
-    if not math.isclose(x[k],y[k],rel_tol=1e-12,abs_tol=1e-8):errors.append([i,k,x[k],y[k]])
-  c={'name':name,'backend':backend,'passed':not errors and totals==gpu['totals'][0] and cpu[0][37]==expected,'expected_count':expected,'cpu_count':cpu[0][37],'gpu_count':gpu['queries'][0][0][37],'errors':errors}
-  cases.append(c);print(json.dumps(c),flush=True)
- for name,effects,controls,seconds in full_cases():
-  with control.p.custom_effects(effects),control.configured(controls),reductions() as observed:
-   c=control.compare(device,name,body_for(NAMES,seconds,True),backend)
-  c['reduction_calls']=len(observed);c['reduction_samples']=observed[:8];c['passed'] &= bool(observed)
-  cases.append(c);print(json.dumps(c,ensure_ascii=True),flush=True)
- old=json.loads((ROOT/'research/detail-coverage-control.json').read_text(encoding='utf-8'));was={r['character'] for r in old['results'] if r['supported']}
- feature=json.loads((ROOT/'research/detail-coverage-counts.json').read_text(encoding='utf-8'));expected={r['character'] for r in feature['results'] if r['supported']} - was
- current={r['character']:r for r in coverage()['results']}
- assert all(current[n]['supported'] for n in expected),'Previously verified feature character lost GPU support'
- for entry in feature['results']:
-  if entry['character'] not in expected:continue
-  name=entry['character'];names=[name]+[n for n in NAMES if n!=name][:4]
-  with reductions() as observed:c=control.compare(device,'real-'+name,body_for(names,60,True),backend)
-  c['reduction_calls']=len(observed);c['reduction_samples']=observed[:8];c['passed'] &= bool(observed)
-  cases.append(c);print(json.dumps(c,ensure_ascii=True),flush=True)
- return cases
-
-if __name__=='__main__':
- device=Cuda()
- try:cases=verify(device,'native')+verify(device,'ptx')
- finally:device.close()
- files=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','scripts/verify-counts-detail.py','app/engine_worker.py']
- report={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(c['passed'] for c in cases),'cpu_trace_used_as_gpu_input':False,'cases':cases,'scope':'Dynamic trigger reduction and partial charge counters; authored state stimuli plus complete synthetic/new real squads on native/PTX; not every character/control/effect','source_sha256':{f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files}}
- (ROOT/'research/detail-counts-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
- raise SystemExit(0 if report['passed'] else 1)

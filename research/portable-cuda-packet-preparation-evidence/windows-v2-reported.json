@@ -1,0 +1,82 @@
+{
+  "evidence_kind": "Windows task final response; saved raw receipts not independently imported",
+  "thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
+  "turn_id": "01a16d3e-49e9-7300-b32d-bcaee400a9f6",
+  "report": {
+    "package_id": "d2049b6d0efcb1e85be60c359e2b166f44f9f7925c87f1eac6ea39f366dd38a0",
+    "archive_verified": true,
+    "initial_active_validation_processes": 0,
+    "cpu": {
+      "attempts": 1,
+      "terminal": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "stage_verified": true,
+      "tests_passed": 32,
+      "failures": 0,
+      "errors": 0,
+      "inputs": 60,
+      "native_oracles": 48,
+      "preflight_passed": true,
+      "input_sha256": "d86a5392154b4e25db25a4dd53113f9a5552eb9278895a832e5934630a69f674",
+      "seconds": {
+        "package_verify": 17.7553897,
+        "worker_package_verify": 6.718885,
+        "test_groups": 21.4076763,
+        "native_preflight": 65.0907073,
+        "whole_stage": 111.9389286
+      },
+      "job_peak_bytes": 274444288
+    },
+    "generation": {
+      "attempts": 1,
+      "terminal": true,
+      "exit_code": 1,
+      "timed_out": false,
+      "stage_verified": false,
+      "generation_verified": false,
+      "compiler_verified": false,
+      "calculation_verified": false,
+      "failure": {
+        "location": "scripts/nikke_gpu.py:2459",
+        "type": "ValueError",
+        "message": "Standalone generation is Mac CPU-only; Windows requires bounded compile/run generation options",
+        "cause": "generation_captureがWindowsを明示的に拒否。Slang生成前に停止"
+      },
+      "slang_calls": 0,
+      "cache_hit": null,
+      "normalized_hashes": null,
+      "seconds": {
+        "shared_cli_before_failure": 0.0156846,
+        "whole_stage": 6.6586862
+      },
+      "job_peak_bytes": 24006656
+    },
+    "both_stages": {
+      "pre_gate_verified": true,
+      "below_normal": true,
+      "job_limit_bytes": 2147483648,
+      "post_jobs_empty": true,
+      "missing_processes": 0,
+      "cleanup_errors": null,
+      "observation_errors": null,
+      "inspection_errors": null,
+      "process_preservation_verified": true,
+      "service_before_after": "unverified",
+      "environment_preservation_verified": false
+    },
+    "env": {
+      "specified_per_owned_command": true,
+      "generation_cache_absolute": true,
+      "generation_required": "0",
+      "cuda_cache_required": "0"
+    },
+    "nvrtc_calls": 0,
+    "driver_load_calls": 0,
+    "gpu_calls": 0,
+    "retry": false,
+    "old_claims_and_captures_preserved": true,
+    "old_seven_process_termination_cause": "unknown",
+    "diagnostic_root": "C:/Users/owner/Documents/Codex/nikke-cuda-prep-v2-5944f7b-diagnostic"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "stage": "Typed128 enemy numeric fields/count and target selectors checkpoint",
+  "calculation_source": "c2425e5f7fc3b2c3f899f498d2e3249c3dad22cd",
+  "cuda_source": "8be669df1cac6e349bc676b73792b62386ac795d",
+  "metal_inputs": 357,
+  "cuda_inputs": 72,
+  "complete_native_battles": 52,
+  "raw_rejections": 20,
+  "portable_cpu_tests": 315,
+  "windows_cpu_tests": 11,
+  "old285_entire_legacy_outputs_preserved": true,
+  "old125_native_dictionaries_preserved": true,
+  "normal_generated_cuda_msl_exact": true,
+  "proofs": [
+    "portable-world-actor-fields-validation.json",
+    "portable-world-v84-cuda-validation.json"
+  ],
+  "gpu_jobs_active": 0,
+  "windows_idle": true,
+  "canonical_world_admission": false,
+  "normal_ui": "CPU",
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "efficiency_started": false,
+  "legacy_unexplained_metal14c8e2e_finding": "OPEN",
+  "remaining": [
+    "Other typed conditional states/stacks",
+    "Wide immunity/cleanse/counters/Actor-bound callbacks",
+    "Skill/pending/DoT typed recipient policies",
+    "Mixed ally/enemy selection",
+    "Interrupt and source attacks/selfdestruct",
+    "Dynamic control/revive",
+    "Pure hit-HP max-HP rank native TypeError and numeric policy",
+    "Capacity/long simulations/all203 certification",
+    "Efficiency after required validation"
+  ]
+}

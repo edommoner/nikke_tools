@@ -1,0 +1,26 @@
+F..
+======================================================================
+FAIL: test_canonical_cover_all_excludes_live_or_forced_owner_without_camera_request (test_coordinate_squad.SquadLiteralTests.test_canonical_cover_all_excludes_live_or_forced_owner_without_camera_request) (case='release-focus')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-runtime-resident/tests/test_coordinate_squad.py", line 34, in test_canonical_cover_all_excludes_live_or_forced_owner_without_camera_request
+    self.assertEqual(entered,expected[label])
+AssertionError: Lists differ: [0, 1, 3, 4] != [0, 1, 2, 3, 4]
+
+First differing element 2:
+3
+2
+
+Second list contains 1 additional elements.
+First extra element 4:
+4
+
+- [0, 1, 3, 4]
++ [0, 1, 2, 3, 4]
+?        +++
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 7.744s
+
+FAILED (failures=1)

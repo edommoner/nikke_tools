@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "1d9b98161d3f687d749aa1da61e7452fa6a428c201bc0d4e38d1879e4a6cb72f",
+  "capture": "/private/tmp/nikke-original-modifier-hp-metal-v2",
+  "child_pid": 60266,
+  "input_count": 19,
+  "native_cases": 19,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 3.659127708990127,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "519569eefe422fdd7271c949519d080b3dd5ab9083b23b30cbb6c828609e5ae2",
+  "output_sha256": "a4a23aa6f147b5c7ee7f2d0c161155dd3e890efb791693527d5b587ce5783075",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}

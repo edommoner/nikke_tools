@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-counter-battle-metal38-v1",
+  "raw_bytes": 159383552,
+  "raw_sha256": "b9819b8348a557e49805bdc87c252fbe07152386fb17db3eae226d1c95ac7a88",
+  "evidence_sha256": "569e3c2d65dbdf3b3169ba30829d6acca9bc87666593135181ab4d7048cf0a5a",
+  "raw_inode": 509017215,
+  "zero_ranges": 370,
+  "zero_range_bytes": 118816768,
+  "allocated_before": 159383552,
+  "allocated_after": 40566784,
+  "allocated_reclaimed": 118816768,
+  "full_hash_verified": true
+}

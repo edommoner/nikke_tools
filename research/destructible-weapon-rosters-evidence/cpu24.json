@@ -1,0 +1,57 @@
+{
+  "package_id": "e95f1af29addb30acb57a024efcf5e2f7271ea1c689e1c9479f5f095eb2e24bf",
+  "tests": 24,
+  "skipped": 0,
+  "groups": [
+    {
+      "pattern": "test_destructible_weapon_rosters.py",
+      "exit_code": 0,
+      "elapsed_seconds": 10.68786429206375,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_readiness_semantics.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.12814304104540497,
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "batch": {
+    "schema": 1,
+    "mode": "single-process-unittest",
+    "patterns": [
+      "test_destructible_weapon_rosters.py",
+      "test_portable_readiness_semantics.py"
+    ],
+    "timeout_seconds": 60,
+    "elapsed_seconds": 10.998493749997579,
+    "timed_out": false,
+    "exit_code": 0,
+    "gpu_calls": 0,
+    "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+  },
+  "native": {
+    "passed": true,
+    "input_count": 2,
+    "native_oracles": 2,
+    "input_sha256": "182eb790762bdb9664b9fa9962e07c9315b19883b2afe7ebfc2d1a0cae2d7ed5",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 1.0265204580500722
+  },
+  "result": {
+    "cpu_verified": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "status": "cpu-only"
+  }
+}

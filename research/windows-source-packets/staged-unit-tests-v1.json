@@ -1,0 +1,33 @@
+{
+  "schema": "staged-unit-tests-packet-v1",
+  "source_commit": "3eb9202c",
+  "package_id": "7e142c004b3120184bede6cc0981e13f2c7360e18069fbe029014d2c96879c9f",
+  "suite": "coordinate-resident-frames",
+  "archive_bytes": 9592276,
+  "archive_sha256": "0b72a53ddb3cda2f8c087de35f927cc2001ea5cedfeaea087cf79320c1b492f9",
+  "Mac_smoke": {
+    "groups": 65,
+    "tests": 629,
+    "skips": 1
+  },
+  "Mac_selected": {
+    "groups": 14,
+    "tests": 177,
+    "all_groups_verified": true,
+    "evidence": "research/shared-native-group-evidence/metal-staged-tests-full177-v1.json"
+  },
+  "Mac_real_Metal4_evidence": "research/shared-native-group-evidence/metal-staged-tests-four-v1.json",
+  "source_retention": {
+    "package_id": "7e142c004b3120184bede6cc0981e13f2c7360e18069fbe029014d2c96879c9f",
+    "old_compiler_package_id": "7b43de128c4aacaa28c78a76dc6ef5d7002b8fac50dd166bebdc01a6597b6021",
+    "historical_registry_verified": true,
+    "GPU_protected_CPU_golden_unchanged": true,
+    "full106_input_sha256": "7892c2b3f5800c602d96a92192b89094d746f1674aaa18fcac2436677c11923d",
+    "test_group_count": 14,
+    "native_group_count": 11,
+    "GPU_calls": 0,
+    "compiler_calls": 0
+  },
+  "Windows_new_stages_executed": false,
+  "full_goal_complete": false
+}

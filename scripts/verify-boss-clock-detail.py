@@ -7,8 +7,6 @@ ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/
 from detail_coverage import a,body_for
 import detail_gpu as g
 from detail_boss import WEAPONS
-from gpu_selector import Cuda
-from gpu_service import resolve_verification
 from calculator.boss_pattern import BossScript
 def load(name,path):
     s=importlib.util.spec_from_file_location(name,ROOT/path);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
@@ -56,49 +54,3 @@ def fixtures(quick=False,long=False):
         body.update(seed=12345,burst_policy='rules',shooting_policy='character',burst_gauge_mode=gauge,_debug_random_state=True,_debug_boss_frames=True)
         body['enemy'].update(core_px=0,distance=30,patterns=[pattern('core','core',.7,1.1,core_px=6,after=['start','core'],repeat=0),pattern('near','move',2,3,distance=5)],parts=[dict(name='armor',hp=200000,reach=1),dict(name='cannon',hp=100000,reach=1)])
         yield 'real-team-hits-'+gauge,body,{}
-def compare(device,name,body,extra,backend):
-    with t.raw.injected_effects(extra):
-        compiled=a.evaluate({**body,'_compile_gpu_detail':True})
-        gpu=g.evaluate_full(device,compiled,module_backend=backend)
-        from calculator.buff_manager import BuffManager
-        frames={};original=BossScript.begin_frame;ids=[p['id'] for p in compiled['patterns']];team={};team_original=BuffManager.notify_team_hit
-        def hit(self,event,*args,**kwargs):
-            team[event]=team.get(event,0)+1
-            return team_original(self,event,*args,**kwargs)
-        from calculator import timeline
-        lines,first=inspect.getsourcelines(timeline.simulate)
-        tree=ast.parse(textwrap.dedent(''.join(lines)))
-        # Bind to the pinned engine's actual time advance, not an approximate
-        # callback before shooting or its post-battle projectile flush.
-        advances=[n for n in ast.walk(tree) if isinstance(n,ast.AugAssign) and isinstance(n.target,ast.Name) and n.target.id=='t' and isinstance(n.value,ast.Name) and n.value.id=='DT']
-        assert len(advances)==1
-        end_line=first+advances[0].lineno-1;code=timeline.simulate.__code__
-        def observed(frame,event,arg):
-            if frame.f_code is not code:return None
-            if event=='line' and frame.f_lineno==end_line:
-                local=frame.f_locals;boss=local['boss'];at=local['t'];enemy=local['enm']
-                runs=[boss._run_by_id[id] for id in ids]
-                frames[at]=dict(time=at,core=enemy['core_px'],distance=-1 if enemy.get('distance') is None else enemy['distance'],weapon_mask=sum(1<<WEAPONS.index(w) for w in set(enemy.get('optimal_range_weapons') or [])),log_count=sum(e.pattern in ids and e.event in ('start','end','dispel') for e in boss.log),active_mask=sum(1<<i for i,r in enumerate(runs) if r.active),opens=[r.opens for r in runs],defense=enemy['def'],dispelled_mask=sum(1<<i for i,r in enumerate(runs) if r.dispelled))
-            return observed
-        previous_trace=sys.gettrace()
-        try:
-            with patch.object(BuffManager,'notify_team_hit',hit):
-                sys.settrace(observed);cpu=a.evaluate(body)
-        finally:sys.settrace(previous_trace)
-        rng=list(random.getstate()[1])
-    result=resolve_verification(gpu,cpu);checks=result['compute']['cpu_verification'].copy()
-    checks.update(actual_gpu=result['compute']['backend']=='cuda_detail',final_random_state=rng==gpu['_random_state'],world_frames=list(frames.values())==gpu.get('_boss_frames'))
-    if name.startswith('real-team'):checks['part_and_body_exercised']=team.get('squad_part_hit',0)>0 and team.get('squad_body_hit',0)>0 and all(p['destroyed'] for p in cpu['parts_state'])
-    diff=next(([i,x,y] for i,(x,y) in enumerate(zip(frames.values(),gpu.get('_boss_frames',[]))) if x!=y),None)
-    row=dict(name=name,backend=backend,duration=body['duration'],passed=all(checks.values()),checks=checks,cpu_total=cpu['total_damage'],gpu_total=gpu['total_damage'],frames=len(frames),gpu_frames=len(gpu.get('_boss_frames',[])),world_frame_difference=diff,cpu_timeline=cpu['boss_timeline'],gpu_timeline=gpu.get('boss_timeline'),workspace_bytes=gpu['compute']['workspace_bytes'],raw_skills_retained=True,team_notifications=team)
-    print(json.dumps(row,ensure_ascii=True),flush=True);return row
-if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=['native','ptx','both'],default='both');ap.add_argument('--quick',action='store_true');ap.add_argument('--long',action='store_true');ap.add_argument('--output',default='research/detail-boss-clock-verification.json');args=ap.parse_args()
-    files=['scripts/verify-boss-clock-detail.py','app/detail_boss.py','app/detail_gpu.py','app/detail_world.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','app/engine_worker.py','app/gpu_service.py']
-    hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files};device=Cuda()
-    try:rows=[compare(device,n,b,e,backend) for backend in (('native','ptx') if args.backend=='both' else (args.backend,)) for n,b,e in fixtures(args.quick,args.long)]
-    finally:device.close()
-    assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files}
-    report=dict(generated_at=datetime.now(timezone.utc).isoformat(),passed=bool(rows) and all(r['passed'] for r in rows),objective_complete=False,cases=rows,source_sha256=hashes,cpu_trace_used_as_gpu_input=False,scope='GPU-owned core/move/idle/groggy lifecycle, ordered emissions and exact frame state. Other boss kinds, coordinates, incoming damage and target-cleared lifecycle remain unsupported.')
-    (ROOT/args.output).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    raise SystemExit(0 if report['passed'] else 1)

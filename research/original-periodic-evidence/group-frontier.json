@@ -1,0 +1,27 @@
+{
+  "classification": "reference_model_gap",
+  "profiles": [
+    "벨로타",
+    "니힐리스타"
+  ],
+  "required_thresholds": [
+    4,
+    2
+  ],
+  "prepared_definitions": [
+    71,
+    73
+  ],
+  "static_original_coordinate_binding_connected": true,
+  "original_definitions_preserved": true,
+  "shared_lowering_with_plain_group_executor": true,
+  "legacy_group_input_cases_byte_identical": 53,
+  "legacy_original_input_cases_byte_identical": 10,
+  "prototype_worlds": 4,
+  "max_observed_group_members": 1,
+  "observed_notifications": 0,
+  "observed_children": 0,
+  "new_gpu_support_claim": false,
+  "gpu_calls": 0,
+  "scope": "Literal alive/one-HP ADD worlds only; original one-packet native routing never reached the thresholds in these observations. Do not replace routing or count packing as full character support."
+}

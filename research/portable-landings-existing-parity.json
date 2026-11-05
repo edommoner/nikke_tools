@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "baseline_commit": "782659b",
+  "mechanics": 1028,
+  "profiles": 52,
+  "comparison": "Every old decoded field equal after removing only new landing_queue diagnostics; original CPU references retained; wire dimensions changed, no raw ABI parity claim",
+  "current_reports": {
+    "portable-combat-metal": "112767f3434488f3103fc0ded7aaf782e1cd3cf27682bf8c039c775f62db2800",
+    "portable-roster-battles-metal": "dfa8f2096bb160cf6f5da85e12c6b97eb79d758e00533444b1a2a7e4c8f561d6"
+  }
+}

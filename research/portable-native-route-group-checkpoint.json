@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "objective_complete": false,
+  "scope": "Native BODY/ADD shot routing CPU contracts; shared GPU routing not yet connected",
+  "previous_commit": "566b5cd6eb28704428fd2890f8245e60a7f59fbd",
+  "package": {
+    "package_id": "bc5e11ad5eab7a18eb8f719333bb548ccb93bd87324988db8e0fdc289e43feb3",
+    "suite": "attack-group-battle",
+    "source_commit": "566b5cd6eb28704428fd2890f8245e60a7f59fbd",
+    "working_tree_dirty": true,
+    "payload_files": 2832,
+    "payload_verified_equal_checkout": true,
+    "archive_bytes": 9256338,
+    "archive_sha256": "4fc6bcd0eee94fee03177e6b4f6e483b64bc7d613862149a9da87056f1d39c6a",
+    "manifest_sha256": "1b4f72248f715633d5d92f468601f8d86ac95afc3a87795bd13272364e20949a"
+  },
+  "native_cases": 20,
+  "baseline_entire_battle_cases": 16,
+  "groups": 172,
+  "notifications": 2,
+  "child_landings": 2,
+  "native_seconds": 6.153986582998186,
+  "cpu_tests": 27,
+  "old_input_and_native_entries_retained": 32,
+  "old_native_oracles_retained": 22,
+  "old_input_sha256": "d94f45d0f1c0a5d9dc1897b9336baaa39fda82464c5b8ebe9763842e3fd24e90",
+  "gpu_source_changes": 0,
+  "gpu_builds": 0,
+  "gpu_dispatches": 0,
+  "windows_operations": 0,
+  "default_admission_changed": false,
+  "ui": "CPU",
+  "full_character_verified": 0,
+  "failures": [
+    {
+      "capture": "/tmp/nikke-native-route-cpu-v1",
+      "reason": "Exact source audit still expected only old explicit routing guard; GPU0",
+      "fixed": "Explicit dual policy audit plus three source mutation negatives; fixed v2 passed27"
+    }
+  ],
+  "remaining": [
+    "Connect native per-pellet actorPhysicalTarget selection to shared GPU group collection and compare these20 cases on Metal",
+    "Retain old32 and61 full output after GPU source changes",
+    "Long duration group history capacity64, broader mixed owners, geometry/parts/shields",
+    "Current CUDA compile cache and native execution; bounded Windows only"
+  ],
+  "evidence": {
+    "research/native-route-group-evidence/consumer-audit.json": "e2bd5596d24cb687ef8ab370da8b1945dba0a62fdffbf3844ecdc3a334426fbc",
+    "research/native-route-group-evidence/cpu-batch.json": "02f1d482f724bcd444de8489495d0589bd5550d87503a0204da3f28d2751fb52",
+    "research/native-route-group-evidence/cpu-run.json": "25452e5973ed6cc4fc9d4c7044282ad192586bad56cdd3faf384d2cdf3eff13e",
+    "research/native-route-group-evidence/cpu-tests.json": "a3faac062d8693fe008e9c452760bde7672d4ec75a923c9feec07f24d74ef9b0",
+    "research/native-route-group-evidence/cpu.json": "762314479fec71eaa43c2a8e5259a0f03877d06dd353e3ba626c69ad1c94abc3",
+    "research/native-route-group-evidence/failed-v1-cpu-tests.json": "79186a763eca5661b9545a814779c2041c518c5f70189cdc189427e5f74eb8b4",
+    "research/native-route-group-evidence/failed-v1-failure.json": "880618a8472926b844828aed5620b11bf67f92986cd0780f5af1bda6ab1eb964",
+    "research/native-route-group-evidence/failed-v1-stderr.json": "34214830fa1af3f3ee0d3cca97d05068cc7cfbff7f1bdac027e7a2eb028ec17b",
+    "research/native-route-group-evidence/native-reference-storage.json": "ef22f1d4206e5eee5efa176aaa743425acd24f457ab06ac0d56c6443da7b14ed",
+    "research/native-route-group-evidence/native-reference.json.gz": "45e60cf9d277b418345bfed3f98fbc2717036dc993c2888898af4e5142219137",
+    "research/native-route-group-evidence/package-summary.json": "6a1c8f72e1768991fa27f29cbe01fd99af744f1f5fe46a070f87e6c56c27aaba"
+  }
+}

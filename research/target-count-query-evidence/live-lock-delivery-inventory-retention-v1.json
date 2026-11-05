@@ -1,0 +1,37 @@
+{
+  "schema": "live-lock-delivery-inventory-retention-v1",
+  "passed": true,
+  "all_fields_equal": true,
+  "fields": [
+    "base_count",
+    "canonical_world_admission",
+    "classification",
+    "forbidden_calls",
+    "full_character_verified",
+    "full_goal_complete",
+    "issues",
+    "normal_ui",
+    "packed_base",
+    "packed_profiles",
+    "passed",
+    "priorities",
+    "profile_count",
+    "profiles",
+    "scope",
+    "work_lanes"
+  ],
+  "profile_count": 266,
+  "packed_profiles": 245,
+  "full_character_verified": 0,
+  "normal_ui": "CPU",
+  "full_goal_complete": false,
+  "gpu_calls": 0,
+  "issues": {
+    "Unported buff stat": 17,
+    "Unported trigger timing: multi_hit:4": 1,
+    "Unported buff recipient selector": 1,
+    "Unported trigger timing: multi_hit:2": 1,
+    "Unported health recipient selector": 1
+  },
+  "packing_failures": 21
+}

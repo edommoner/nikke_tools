@@ -1,0 +1,227 @@
+EEE.EEEEEEFEEEEEE.
+======================================================================
+ERROR: test_artifact_corruption_does_not_compile_or_replace_live_outputs (test_portable_generation_cache.GenerationCacheTests.test_artifact_corruption_does_not_compile_or_replace_live_outputs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 92, in test_artifact_corruption_does_not_compile_or_replace_live_outputs
+    self.build();before=self.live();self.corrupt(lambda v:v['artifacts']['cuda'].update(base64=base64.b64encode(b'changed').decode()))
+    ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_changed_source_compiler_prelude_or_consumer_is_required_miss (test_portable_generation_cache.GenerationCacheTests.test_changed_source_compiler_prelude_or_consumer_is_required_miss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 85, in test_changed_source_compiler_prelude_or_consumer_is_required_miss
+    self.build()
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_cli_generation_and_journal_audit_preserve_cache_boundary (test_portable_generation_cache.GenerationCacheTests.test_cli_generation_and_journal_audit_preserve_cache_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 142, in test_cli_generation_and_journal_audit_preserve_cache_boundary
+    paths,hashes=self.build();gold=dict(source_sha256=hashes,generated_normalized={k:cache.digest(p.read_bytes()) for k,p in paths.items()});self.calls.clear();shutil.rmtree(self.cached)
+                 ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_even_rehashed_bad_reflection_is_reaudited (test_portable_generation_cache.GenerationCacheTests.test_even_rehashed_bad_reflection_is_reaudited)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 100, in test_even_rehashed_bad_reflection_is_reaudited
+    self.build();before=self.live()
+    ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_identical_code_from_another_package_root_reuses_pair (test_portable_generation_cache.GenerationCacheTests.test_identical_code_from_another_package_root_reuses_pair)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 76, in test_identical_code_from_another_package_root_reuses_pair
+    self.build();other=Path(self.tmp.name)/'other';shutil.copytree(self.root,other);shutil.rmtree(other/'research')
+    ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_incomplete_pair_rejects_without_live_replacement (test_portable_generation_cache.GenerationCacheTests.test_incomplete_pair_rejects_without_live_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 96, in test_incomplete_pair_rejects_without_live_replacement
+    self.build();before=self.live();self.corrupt(lambda v:v['artifacts'].pop('metal-reflection'))
+    ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_miss_then_required_hit_never_launches_compiler (test_portable_generation_cache.GenerationCacheTests.test_miss_then_required_hit_never_launches_compiler)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 45, in test_miss_then_required_hit_never_launches_compiler
+    paths,hashes=self.build();self.assertEqual(self.calls,['cuda','metal']);first=self.live();self.assertFalse(self.receipt()['hit'])
+                 ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_observed_required_hit_keeps_exact_identity_and_artifacts (test_portable_generation_cache.GenerationCacheTests.test_observed_required_hit_keeps_exact_identity_and_artifacts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 54, in test_observed_required_hit_keeps_exact_identity_and_artifacts
+    self.build();first=self.live();identity=self.receipt()['identity']
+    ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_receipt_identity_and_artifact_faults_are_rejected (test_portable_generation_cache.GenerationCacheTests.test_receipt_identity_and_artifact_faults_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 123, in test_receipt_identity_and_artifact_faults_are_rejected
+    paths,hashes=self.build();r=self.receipt()
+                 ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_untracked_includes_imports_time_macros_or_external_env_reject (test_portable_generation_cache.GenerationCacheTests.test_untracked_includes_imports_time_macros_or_external_env_reject) (code='#include HEADER')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 118, in test_untracked_includes_imports_time_macros_or_external_env_reject
+    with self.subTest(code=code),self.assertRaises(ValueError):self.build()
+                                                               ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_untracked_includes_imports_time_macros_or_external_env_reject (test_portable_generation_cache.GenerationCacheTests.test_untracked_includes_imports_time_macros_or_external_env_reject) (code='# include "extra.slang"')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 118, in test_untracked_includes_imports_time_macros_or_external_env_reject
+    with self.subTest(code=code),self.assertRaises(ValueError):self.build()
+                                                               ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_untracked_includes_imports_time_macros_or_external_env_reject (test_portable_generation_cache.GenerationCacheTests.test_untracked_includes_imports_time_macros_or_external_env_reject) (code='import external;')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 118, in test_untracked_includes_imports_time_macros_or_external_env_reject
+    with self.subTest(code=code),self.assertRaises(ValueError):self.build()
+                                                               ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_untracked_includes_imports_time_macros_or_external_env_reject (test_portable_generation_cache.GenerationCacheTests.test_untracked_includes_imports_time_macros_or_external_env_reject) (code='export import external;')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 118, in test_untracked_includes_imports_time_macros_or_external_env_reject
+    with self.subTest(code=code),self.assertRaises(ValueError):self.build()
+                                                               ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_untracked_includes_imports_time_macros_or_external_env_reject (test_portable_generation_cache.GenerationCacheTests.test_untracked_includes_imports_time_macros_or_external_env_reject) (code='// __TIME__')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 118, in test_untracked_includes_imports_time_macros_or_external_env_reject
+    with self.subTest(code=code),self.assertRaises(ValueError):self.build()
+                                                               ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+ERROR: test_untracked_includes_imports_time_macros_or_external_env_reject (test_portable_generation_cache.GenerationCacheTests.test_untracked_includes_imports_time_macros_or_external_env_reject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 120, in test_untracked_includes_imports_time_macros_or_external_env_reject
+    with patch.dict(os.environ,SLANG_PATH='external'),self.assertRaises(ValueError):self.build()
+                                                                                    ^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 37, in build
+    with patch.dict(os.environ,NIKKE_SLANG_GENERATION_REQUIRED=str(int(required))):return backend.build('gpu/entry.slang','portableEvents')
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/scripts/nikke_gpu.py", line 1049, in stop
+    raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+======================================================================
+FAIL: test_required_miss_and_foreign_claim_never_compile (test_portable_generation_cache.GenerationCacheTests.test_required_miss_and_foreign_claim_never_compile)
+----------------------------------------------------------------------
+RuntimeError: GPU build/execute forbidden in CPU/audit stage
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/resident-ptx-v4-compact-package/tests/test_portable_generation_cache.py", line 80, in test_required_miss_and_foreign_claim_never_compile
+    with self.assertRaisesRegex(RuntimeError,'Required.*miss'):self.build(True)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "Required.*miss" does not match "GPU build/execute forbidden in CPU/audit stage"
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.032s
+
+FAILED (failures=1, errors=15)

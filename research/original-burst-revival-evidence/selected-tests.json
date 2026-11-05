@@ -1,0 +1,62 @@
+[
+  {
+    "pattern": "test_original_burst_revival.py",
+    "exit_code": 0,
+    "elapsed_seconds": 26.95924037497025,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 25039
+  },
+  {
+    "pattern": "test_original_revival.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.400242833071388,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 25039
+  },
+  {
+    "pattern": "test_portable_revival.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.1464113750262186,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 25039
+  },
+  {
+    "pattern": "test_portable_parent_oracles.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4119420410133898,
+    "tests": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 25039
+  },
+  {
+    "pattern": "test_coordinate_original.py",
+    "exit_code": 0,
+    "elapsed_seconds": 9.928785749943927,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 25039
+  },
+  {
+    "pattern": "test_original_entry_inventory.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.5622926250798628,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 25039
+  }
+]

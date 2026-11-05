@@ -1,0 +1,65 @@
+{
+  "schema": "named-target-count-shared-metal-proof-v1",
+  "package_id": "0b13b4d17eb12c2e8e1e05fe296caf1f8d6475c6e4ac8d39a997245375d0edc1",
+  "model": "named-effect-target-count-v1",
+  "suite": "named-target-count-query",
+  "inputs": 9,
+  "native_cases": 6,
+  "rejected_cases": 3,
+  "selected_tests": 17,
+  "gpu_execution_verified": true,
+  "calculation_verified": true,
+  "independent_fresh_audit_verified": true,
+  "independent_fresh_audit_seconds": 1.1768884580014856,
+  "live_parent_receipt_present": false,
+  "device": "Apple M5",
+  "gpu_seconds": 0.002709333333768882,
+  "pipeline_cache_required": true,
+  "pipeline_cache_hit": true,
+  "input_sha256": "608daedf26b3aa4af7f3fc61ef17e167bad6f10b97530d56a7e8b07a496dab11",
+  "output_sha256": "1fa9d3a24068313f194c52fa9d8c40bbcdb102ec0eb9eb499b69eaefdbd37cc1",
+  "readback_bytes": 5750784,
+  "source_payload_commit": "2d0167f4d117205eafe26ad000b796ffbd331200",
+  "working_tree_dirty": true,
+  "core106_generated_normalized_retained": true,
+  "cuda_device_verified": false,
+  "physical_shot_lifetime_verified": false,
+  "selection_consumer_connected": false,
+  "original_full25_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "scope": "Explicit external-event capacity queries on the shared carrier executor; not spatial Lock On or complete battle support",
+  "anchors": [
+    {
+      "file": "target-count-gpu-v4-independent.json",
+      "bytes": 756,
+      "sha256": "01127871175a9a33a4ff2f5c1eb6ee91a6f1c945818a220d69e01e8b66059699"
+    },
+    {
+      "file": "target-count-gpu-v4-metal/result.json",
+      "bytes": 1421,
+      "sha256": "60340b7b2b1ad3dd7d01f3b06b195b4d1d842a1f47292f80e6dbe37088281eac"
+    },
+    {
+      "file": "target-count-gpu-v4-metal/evidence.json",
+      "bytes": 15617,
+      "sha256": "d6025199a79c119b0b7c06e4c8f1920a2188903c7a00edc1e46172f70415ec4c"
+    },
+    {
+      "file": "target-count-gpu-v4-metal/artifacts.json",
+      "bytes": 4231,
+      "sha256": "5d79a593157ab88fa805bf97c280858f1bdcf5e474b8cb213d38af316812256d"
+    },
+    {
+      "file": "target-count-gpu-v4-package/gpu-package.json",
+      "bytes": 644577,
+      "sha256": "3118f15c83f6caaa29c7feb30919a0b52de48dfb14750b9825fcaac73b997175"
+    }
+  ],
+  "retained_failures": {
+    "v1": "CPU dependency document absent; GPU0",
+    "v2": "Saved Metal execution, array/list decoder mismatch and wrong attack stimulus; not calculation success",
+    "v3": "Unexecuted intermediate input snapshot",
+    "v4": "Correct input/decoder, one successful dispatch and independent fresh audit"
+  }
+}

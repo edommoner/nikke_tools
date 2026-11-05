@@ -1,0 +1,48 @@
+{
+  "schema": "heavyarms-online-reassessment-v1",
+  "observed_date": "2026-10-30",
+  "evidence_is_instructions": false,
+  "previous_decision": "research/target-count-query-evidence/heavyarms-online-selection-decision-20261028.json",
+  "sources": [
+    {
+      "url": "https://www.famitsu.com/article/202512/62211",
+      "access": "full_page_text",
+      "kind": "skill_transcription_attributed_to_official_broadcast",
+      "finding": "Charging: nearest unlocked enemy to aim reference every 0.2 seconds, five targets, normal attack/cover clears; burst adds ten. Numerical distance and ties unspecified."
+    },
+    {
+      "url": "https://nikke.gg/snow-white-heavy-arms-analysis-should-you-pull/",
+      "access": "search_index_full_article_excerpt_direct_open_403",
+      "kind": "author_gameplay_analysis",
+      "finding": "Reports crosshair-first acquisition, pre-launch death redirects within surviving locks, post-launch death wastes the attack. No controlled geometry or deterministic replacement experiment established.",
+      "media_inspected": false
+    },
+    {
+      "url": "https://www.prydwen.gg/nikke/characters/snow-white-heavy-arms",
+      "access": "full_page_text",
+      "kind": "author_character_analysis",
+      "finding": "Reports cycling through locks in acquisition order and a character-specific taunt exception. Does not resolve numerical proximity."
+    },
+    {
+      "url": "https://ore-game.com/nikke/post/snow-white-heavy-arms/",
+      "access": "full_page_text",
+      "kind": "author_skill_and_gameplay_analysis",
+      "finding": "Reproduces the aim-nearest skill rule. The single-target repeated-lock wording cannot distinguish repeated distinct locks from multiple sequential shots at one lock."
+    }
+  ],
+  "decision": {
+    "use_documented_acquisition_rule_as_design_evidence": true,
+    "numeric_distance_metric": "unresolved",
+    "equal_distance_order": "unresolved",
+    "part_eligibility": "unresolved",
+    "deterministic_death_replacement_target": "unresolved",
+    "invent_geometry_or_rewrite_explicit_provider": false,
+    "require_user_game_environment_before_other_development": false,
+    "reopen_only_with_discriminating_new_evidence": true
+  },
+  "in_game_validation_performed": false,
+  "calculation_source_changed": false,
+  "gpu_executions": 0,
+  "windows_requests": 0,
+  "public_gpu_admission_added": false
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "named-capacity-source-capsule-v1",
+  "source_commit": "ef7e72dda60366671b663d534e27bcfa4df8a8fe",
+  "package_id": "56286944addc7d3f873c7a323027968fdd0a601e7a02e153768a604492a081d5",
+  "suite": "named-target-count-query",
+  "archive_bytes": 11895493,
+  "archive_sha256": "2dd993da4d6157b968132b56c48148f07a61b350023961d955c2ddea558c7d2a",
+  "selected_tests": 18,
+  "cpu_preflight_verified": true,
+  "Mac_Metal_proof": "research/target-count-query-evidence/query-refactor-byte-retention-v1.json",
+  "Metal_independent_fresh_audit_verified": true,
+  "common_code_smoke_reference_package_id": "2aafcadfde3e7f794c3ca36732d07ffeefe5d9e738719b5ffef4606e69bcbeba",
+  "common_code_smoke_groups": 66,
+  "common_code_smoke_tests": 641,
+  "common_code_smoke_skips": 1,
+  "source_only": true,
+  "Windows_executed": false,
+  "Windows_request_sent": false,
+  "spatial_selection_verified": false,
+  "original_full25_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

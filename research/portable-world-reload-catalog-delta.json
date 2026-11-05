@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "base_before": 105,
+  "base_after": 107,
+  "profiles_before": 145,
+  "profiles_after": 148,
+  "changes": [
+    {
+      "character": "밀크 : 블루밍 바니",
+      "favorite_stage": 0,
+      "before": false,
+      "after": true
+    },
+    {
+      "character": "엑시아",
+      "favorite_stage": 3,
+      "before": false,
+      "after": true
+    },
+    {
+      "character": "질",
+      "favorite_stage": 0,
+      "before": false,
+      "after": true
+    }
+  ],
+  "forbidden_calls": {
+    "cpu_battle": 0,
+    "gpu_build": 0,
+    "gpu_execute": 0
+  },
+  "scope": "Python own-definition preflight only;not GPU admission or full character battle certification",
+  "full_character_verified": 0,
+  "canonical_world_admission": false
+}

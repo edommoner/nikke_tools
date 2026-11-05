@@ -1,0 +1,15 @@
+{
+  "manifest_sha256": "53a777dc201396bba1738c165ce10a7557efe64246dabb9f652d39ddd5173ab9",
+  "all4_member_bytes_verified": true,
+  "original_bytes_transferred": 16276,
+  "source_closure_matches": true,
+  "normalizer_matches": true,
+  "generated_cuda_metal_normalized_match": true,
+  "input_matches": true,
+  "output_available": false,
+  "calculation_verified": false,
+  "compiler_returned": false,
+  "gpu_launches": 0,
+  "claim_changed": false,
+  "gpu_rerun": false
+}

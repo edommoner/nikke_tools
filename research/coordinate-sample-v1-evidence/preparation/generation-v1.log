@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-sample-develop-v1/scripts/nikke_gpu.py", line 2850, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/private/tmp/nikke-coordinate-sample-develop-v1/scripts/nikke_gpu.py", line 2757, in main
+    result=generation_capture(a.out,development=a.develop,packet_stage=a.packet_stage)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-sample-develop-v1/scripts/nikke_gpu.py", line 2552, in generation_capture
+    paths,hashes=portable_backend.build(SUITES[m['suite']]['source'],'portableEvents')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-sample-develop-v1/research/portable_phase_audit.py", line 106, in build
+    result=journal.invoke('slang_build',original_build,*args,**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-sample-develop-v1/research/portable_phase_audit.py", line 26, in invoke
+    result = function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-sample-develop-v1/app/portable_backend.py", line 32, in build
+    return generate(ROOT,source,entry)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-sample-develop-v1/app/portable_slang_generation.py", line 32, in build
+    if not resident:raise ValueError('Slang generation cache requires paired resident reflection')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Slang generation cache requires paired resident reflection

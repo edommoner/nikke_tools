@@ -1,0 +1,15 @@
+{
+  "package_id": "814c08b1ff0d2957b2a027736dcbddb9a5327015516c7095421259da27e64c0c",
+  "suite": "coordinate-resident-arc",
+  "purpose": "sealed",
+  "bytes": 11706700,
+  "sha256": "4c12d7f9929cc78640158bd04164c1798004accd3013d9fdfabbafaa873a3695",
+  "plan_passed": true,
+  "control_tests": 580,
+  "related_tests": 162,
+  "fresh_live_parent_native_cases": 63,
+  "gpu_source_unchanged": true,
+  "previous_diagnostic_policy_stop_retained": true,
+  "windows_full_cuda_compile_verified": false,
+  "scope": "Use compile only: CUBIN/O1/2GiB/60sec; no context/module/kernel request"
+}

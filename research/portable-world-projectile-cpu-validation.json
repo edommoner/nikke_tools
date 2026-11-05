@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "full_suite_tests": 548,
+  "full_suite_seconds": 21.617,
+  "added_gpu_forbidden_verifier_import_test": 1,
+  "final_total_tests": 549,
+  "changed_projectile_module_tests": 13,
+  "binding_projection_tests": 3,
+  "gpu_calls": 0,
+  "old65_inputs_preserved": true,
+  "canonical_reference_diff_empty": true
+}

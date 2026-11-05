@@ -1,0 +1,50 @@
+{
+  "scope": "remote reported CPU-only preparation; original capture retained on Windows; not independent saved-file audit",
+  "package_id": "8f78d6b50fe7c125edff30ac582e902863a5486a2bb4618a6cda245d600cf70b",
+  "remote_turn": "01a16a69-16f2-7203-80db-37438b709cfd",
+  "capture": "C:/Users/owner/Documents/Codex/nikke-preparation-v2-b2f72e9-diagnostic/cpu",
+  "attempts": 1,
+  "execution": {
+    "exit_code": 1,
+    "timed_out": false,
+    "elapsed_seconds": 60.5811102,
+    "cleanup_error": null,
+    "observation_error": null
+  },
+  "cpu": {
+    "executed": 12,
+    "passed": 11,
+    "failures": 0,
+    "errors": 1,
+    "error": "UnicodeEncodeError cp932",
+    "test": "test_new_battle_family_requires_private_world",
+    "location": "research/characterize-world-overlays.py:118",
+    "remaining_groups_executed": false,
+    "native_preflight_reached": false
+  },
+  "seconds": {
+    "packet_header_prepare": 0.2029999997,
+    "packet_verify_package": 38.9172982,
+    "packet_cpu_test_groups_raised": 15.7021544,
+    "packet_before_observation": 3.1981437,
+    "packet_after_observation": 2.0610164,
+    "packet_shared_cli": 54.9503753,
+    "packet_bounded_stage": 60.5822896,
+    "cpu_worker_verify_package": 10.4469161,
+    "cpu_batch": 15.6574456
+  },
+  "job": {
+    "pre_gate_verified": true,
+    "below_normal": true,
+    "memory_limit_bytes": 2147483648,
+    "peak_memory_bytes": 132665344,
+    "post_wait_members": [],
+    "missing_existing_processes": 0,
+    "service_preservation": "unverified",
+    "environment_preservation": false
+  },
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "retry": false,
+  "old_timeout_cause": "unknown"
+}

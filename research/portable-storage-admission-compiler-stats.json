@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "source_bytes": 1531397,
+  "source_sha256": "cf42dd57e8a32dd282d45e6e5d1073447c8fedf473dff17635b36b856c1c6e76",
+  "functions": 941,
+  "noinline_functions": 192,
+  "largest_functions": [
+    {
+      "name": "dispatch_0",
+      "line": 39276,
+      "bytes": 154922,
+      "lines": 4180,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 549
+    },
+    {
+      "name": "portableEvents",
+      "line": 53523,
+      "bytes": 106279,
+      "lines": 1879,
+      "noinline": false,
+      "global_entry": true,
+      "branches": 232
+    },
+    {
+      "name": "admitDefinitions_0",
+      "line": 4638,
+      "bytes": 64332,
+      "lines": 2659,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 364
+    },
+    {
+      "name": "coreProbability_0",
+      "line": 1573,
+      "bytes": 45882,
+      "lines": 1597,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 187
+    },
+    {
+      "name": "basicConditions_0",
+      "line": 22167,
+      "bytes": 25092,
+      "lines": 1064,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 141
+    },
+    {
+      "name": "weaponFrameBody_0",
+      "line": 49263,
+      "bytes": 22254,
+      "lines": 848,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 123
+    },
+    {
+      "name": "initializeChargeControl_0",
+      "line": 13110,
+      "bytes": 21841,
+      "lines": 865,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 114
+    },
+    {
+      "name": "actorFieldsDefinitionValid_0",
+      "line": 10589,
+      "bytes": 18090,
+      "lines": 770,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 102
+    }
+  ],
+  "scope": "Lexical generated-CUDA spans only; not compiler time, memory attribution, performance or correctness proof",
+  "source_integrity_verified": true,
+  "analysis_complete": true,
+  "calculation_verified": false,
+  "compiler_verified": false,
+  "gpu_calls": 0,
+  "nvrtc_compile_calls": 0
+}

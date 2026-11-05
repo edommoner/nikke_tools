@@ -7,7 +7,7 @@ sp=importlib.util.spec_from_file_location('outgoing_bounds',ROOT/'scripts/verify
 class OutgoingHealingBoundaries(unittest.TestCase):
     def setUp(self):
         b=v.v.body(1);b['enemy']['patterns']=[]
-        with v.v.s.v.context('outgoing-boundary',{v.N[0]:[v.B('outgoing','outgoing_heal_pct',50)]}):self.compiled=v.v.s.v.v.a.evaluate({**b,'_compile_gpu_detail':True})
+        with v.v.s.v.context('outgoing-boundary',{v.N[0]:[v.B('outgoing','outgoing_heal_pct',50)]}):self.compiled=v.v.s.v.v.a.evaluate({**b,'_compile_detail':True})
     def test_outgoing_is_a_distinct_direct_read_buff(self):
         q=self.compiled['program']['effects'][0];self.assertEqual((q[1],q[2],q[6],q[207]),(0,73,50,0))
     def test_unknown_and_fractional_stat_codes_rejected_before_cuda(self):

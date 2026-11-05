@@ -1,0 +1,784 @@
+{
+  "schema": "product-named-range-cover-v1",
+  "initial_implementation": "79a84972af3e40790e336a143640b846a80347ae",
+  "corrected_implementation": "a6d80508e9b2330114025bb5713cf96ebf133126",
+  "registered_baseline_commit": "9317fa76",
+  "shared_contract": {
+    "input_words": 116248,
+    "named_range_prefix_words": 116224,
+    "cover_literal_words": 24,
+    "output_words": 2048912,
+    "named_range_output_end": 2032000,
+    "cover_output_start": 2032000,
+    "banks_disjoint": true,
+    "existing_coordinate_actor_state_event_executor_reused": true,
+    "original_effect_definitions_retained": true,
+    "cpu_canonical_changed": false,
+    "numeric_tolerance_changed": false,
+    "normalizer_changed": false,
+    "new_suite_count": 0
+  },
+  "initial_failure": {
+    "preserved": true,
+    "api_cases": 4,
+    "metal_cpu_matches": 2,
+    "reasoned_cpu_fallbacks": 2,
+    "reason": "Shared battle status:64",
+    "root_cause": "Named target count TC_STAT93 and cover CDF_STAT93 overlapped. Original case lacked cover DEF definitions and incoming hits, so private baseline did not exercise the conflict.",
+    "missing_engagement_test_corrected": true
+  },
+  "correction": {
+    "original_count_stat": 93,
+    "composed_cover_stat": 96,
+    "other_cover_programs_stat": 93,
+    "layout_generated_from_existing_wire": true,
+    "shared_cuda_metal": true,
+    "shader_define_checked_against_python_literal": true,
+    "meaningful_factory": "Original Asuka/Rei roster with SOW replacing Mary, explicit cover bases, authored cover at10..12, incoming10.25 x5 at0.5s; all original definitions remain"
+  },
+  "cli": {
+    "cpu_tests": [
+      {
+        "pattern": "test_portable_detail.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.482046416029334,
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 89079
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.345562125032302,
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 89079
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.26266912498977035,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 89079
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "exit_code": 0,
+        "elapsed_seconds": 18.33605737495236,
+        "tests": 46,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 89079
+      }
+    ],
+    "result": {
+      "sealed": false,
+      "purpose": "development",
+      "calculation_verified": true,
+      "passed": true,
+      "comparison_error": null,
+      "gpu_retries": 0,
+      "audit_gpu_calls": 0
+    },
+    "fresh_independent_gpu_forbidden_receipt": {
+      "package_id": "067388555f842ecf114974c02bf8443519848225221f6b952ac7f7a3f9b2edde",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-named-range-cover-v1-20261101/v2/cli-run-v2",
+      "child_pid": 89158,
+      "input_count": 1,
+      "native_cases": 1,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 2.115212790959049,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "59a9f711bc723c04c64ad232f48eefad2d05f407b17bbb62bc1e45cb2ce4ca82",
+      "output_sha256": "b19ed58b28d8b5f5b014907fe3d1ef84913ceec3aebeab8ebab217245079a230",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "registered_fixed_baseline": "research/portable-product-programs-v23-expected.json",
+    "old_members_retained": 20,
+    "registered_accumulate": false
+  },
+  "normal_api": [
+    {
+      "version": "initial",
+      "source": "79a84972af3e40790e336a143640b846a80347ae",
+      "package_id": "18cdb4a60bfd48537511456bc1790df314c20f04e245a1dede8fd66e220acfff",
+      "api_wall_seconds": 27.472383874992374,
+      "results": [
+        {
+          "index": 0,
+          "variant": "original-fixed",
+          "total_damage": 61310774,
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "9e747664f4754752888253eb8b6571d3",
+            "device": "Apple M5",
+            "elapsed_ms": 3246.941165998578,
+            "gpu_execution_verified": true,
+            "input_sha256": "b8b99b9659b97c70c709a1ab6ce7c540b8b973221c0a87111272149cda8c14a1",
+            "output_sha256": "143fdd945b57951fe04a6f95ed967114d9eeb8c4cb4ff72d0db282da4eba0ffa",
+            "source": "gpu/product_named_range_cover_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.1838739999802783,
+            "batch": {
+              "capture_id": "batch-592d7f9adbf04da1b5abc728ad353a3b",
+              "index": 0,
+              "cases": 2,
+              "input_words": 116248,
+              "output_words": 2048912,
+              "input_sha256": "b8b99b9659b97c70c709a1ab6ce7c540b8b973221c0a87111272149cda8c14a1",
+              "output_sha256": "143fdd945b57951fe04a6f95ed967114d9eeb8c4cb4ff72d0db282da4eba0ffa",
+              "transport_input_sha256": "d3e8b6ec8147d6c54b310a56674475bcd2219498113f7e4daa033023fc19c912",
+              "transport_output_sha256": "5fd4fd0f783d9a73cda2df2fdc23b67aca2da31353189642d8cb89ea4f887582",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        },
+        {
+          "index": 1,
+          "variant": "range-cover-incoming-fixed",
+          "total_damage": 56004837,
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "cpu",
+            "capture_id": "d3d1afd6edeb4bfdaf6884c1b4415763",
+            "fallback_reason": "共通GPUの未対応条件または実行エラーのため、CPUで計算しました。",
+            "unsupported": [
+              {
+                "reason": "Shared battle status: 64"
+              }
+            ],
+            "gpu_execution_verified": true
+          }
+        },
+        {
+          "index": 2,
+          "variant": "original-accumulate",
+          "total_damage": 61957910,
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "729993ef3b654ff8a933620d985f27e2",
+            "device": "Apple M5",
+            "elapsed_ms": 25055.454791057855,
+            "gpu_execution_verified": true,
+            "input_sha256": "cb0c2e85ba5c07a01704c0c5e764c257d3c21cc71841e611eb753fdc3bac7c24",
+            "output_sha256": "40b9db23cd38a0f692bb14a4b23283567678cd311727776832f075190af25111",
+            "source": "gpu/product_named_range_cover_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.3076819999841973,
+            "batch": {
+              "capture_id": "batch-beb2c0f3581a4c529881559b960251c1",
+              "index": 0,
+              "cases": 2,
+              "input_words": 116248,
+              "output_words": 2048912,
+              "input_sha256": "cb0c2e85ba5c07a01704c0c5e764c257d3c21cc71841e611eb753fdc3bac7c24",
+              "output_sha256": "40b9db23cd38a0f692bb14a4b23283567678cd311727776832f075190af25111",
+              "transport_input_sha256": "ecd6b0228dbe9b24df98aeede6bc5552619e248d5c77a7e66110473012afe82c",
+              "transport_output_sha256": "8d510ae9714692281c48df092de89a84a19252dc57f02aea296eebd07e25a47f",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        },
+        {
+          "index": 3,
+          "variant": "range-cover-incoming-accumulate",
+          "total_damage": 53216841,
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "cpu",
+            "capture_id": "714c523d5cba4169b7a81dd314c1dc91",
+            "fallback_reason": "共通GPUの未対応条件または実行エラーのため、CPUで計算しました。",
+            "unsupported": [
+              {
+                "reason": "Shared battle status: 64"
+              }
+            ],
+            "gpu_execution_verified": true
+          }
+        }
+      ],
+      "audit": {
+        "rows": [
+          {
+            "index": 0,
+            "profile": "레이 (가칭)",
+            "variant": "original-fixed",
+            "capture": "9e747664f4754752888253eb8b6571d3",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 1,
+            "profile": "레이 (가칭)",
+            "variant": "range-cover-incoming-fixed",
+            "capture": "d3d1afd6edeb4bfdaf6884c1b4415763",
+            "backend": "cpu",
+            "api_cache_hit": false,
+            "reason": [
+              {
+                "reason": "Shared battle status: 64"
+              }
+            ],
+            "gpu_execution_verified": true
+          },
+          {
+            "index": 2,
+            "profile": "레이 (가칭)",
+            "variant": "original-accumulate",
+            "capture": "729993ef3b654ff8a933620d985f27e2",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 3,
+            "profile": "레이 (가칭)",
+            "variant": "range-cover-incoming-accumulate",
+            "capture": "714c523d5cba4169b7a81dd314c1dc91",
+            "backend": "cpu",
+            "api_cache_hit": false,
+            "reason": [
+              {
+                "reason": "Shared battle status: 64"
+              }
+            ],
+            "gpu_execution_verified": true
+          }
+        ],
+        "audited": 4,
+        "native_battle_calls": 0,
+        "gpu_calls": 0
+      }
+    },
+    {
+      "version": "corrected",
+      "source": "a6d80508e9b2330114025bb5713cf96ebf133126",
+      "package_id": "067388555f842ecf114974c02bf8443519848225221f6b952ac7f7a3f9b2edde",
+      "api_wall_seconds": 32.59896024997579,
+      "results": [
+        {
+          "index": 0,
+          "variant": "original-fixed",
+          "total_damage": 61310774,
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "1a5b01f42d4d400fa60e6aa1e6c6e0a0",
+            "device": "Apple M5",
+            "elapsed_ms": 3402.9770839842968,
+            "gpu_execution_verified": true,
+            "input_sha256": "b8b99b9659b97c70c709a1ab6ce7c540b8b973221c0a87111272149cda8c14a1",
+            "output_sha256": "143fdd945b57951fe04a6f95ed967114d9eeb8c4cb4ff72d0db282da4eba0ffa",
+            "source": "gpu/product_named_range_cover_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.2547942916862667,
+            "batch": {
+              "capture_id": "batch-9ccfeb1e340e49c0aa6f57dc45964e5f",
+              "index": 0,
+              "cases": 2,
+              "input_words": 116248,
+              "output_words": 2048912,
+              "input_sha256": "b8b99b9659b97c70c709a1ab6ce7c540b8b973221c0a87111272149cda8c14a1",
+              "output_sha256": "143fdd945b57951fe04a6f95ed967114d9eeb8c4cb4ff72d0db282da4eba0ffa",
+              "transport_input_sha256": "a133016d53936e1fa98319e26d17dd08fd5cd04ab7caa18c465e1c7c917472aa",
+              "transport_output_sha256": "c896107c2adce9064e4902fcef715e7fed4e262c3c6286efe4dbe5bbc9e37844",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        },
+        {
+          "index": 1,
+          "variant": "range-cover-incoming-fixed",
+          "total_damage": 56004837,
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "a75d1d9cdae348c88ed2957d61150561",
+            "device": "Apple M5",
+            "elapsed_ms": 3844.1802079905756,
+            "gpu_execution_verified": true,
+            "input_sha256": "59a9f711bc723c04c64ad232f48eefad2d05f407b17bbb62bc1e45cb2ce4ca82",
+            "output_sha256": "b19ed58b28d8b5f5b014907fe3d1ef84913ceec3aebeab8ebab217245079a230",
+            "source": "gpu/product_named_range_cover_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.2547942916862667,
+            "batch": {
+              "capture_id": "batch-9ccfeb1e340e49c0aa6f57dc45964e5f",
+              "index": 1,
+              "cases": 2,
+              "input_words": 116248,
+              "output_words": 2048912,
+              "input_sha256": "59a9f711bc723c04c64ad232f48eefad2d05f407b17bbb62bc1e45cb2ce4ca82",
+              "output_sha256": "b19ed58b28d8b5f5b014907fe3d1ef84913ceec3aebeab8ebab217245079a230",
+              "transport_input_sha256": "a133016d53936e1fa98319e26d17dd08fd5cd04ab7caa18c465e1c7c917472aa",
+              "transport_output_sha256": "c896107c2adce9064e4902fcef715e7fed4e262c3c6286efe4dbe5bbc9e37844",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        },
+        {
+          "index": 2,
+          "variant": "original-accumulate",
+          "total_damage": 61957910,
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "c16a6a86a9cb49b98123456773fcb41a",
+            "device": "Apple M5",
+            "elapsed_ms": 24529.01970804669,
+            "gpu_execution_verified": true,
+            "input_sha256": "cb0c2e85ba5c07a01704c0c5e764c257d3c21cc71841e611eb753fdc3bac7c24",
+            "output_sha256": "40b9db23cd38a0f692bb14a4b23283567678cd311727776832f075190af25111",
+            "source": "gpu/product_named_range_cover_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.3077514999895357,
+            "batch": {
+              "capture_id": "batch-18aa23ca12ed47a1a524790481dc0c2e",
+              "index": 0,
+              "cases": 2,
+              "input_words": 116248,
+              "output_words": 2048912,
+              "input_sha256": "cb0c2e85ba5c07a01704c0c5e764c257d3c21cc71841e611eb753fdc3bac7c24",
+              "output_sha256": "40b9db23cd38a0f692bb14a4b23283567678cd311727776832f075190af25111",
+              "transport_input_sha256": "2114f983070cd50eee6102e8af4fff222ea606003d0962edd1fe7340c47e5e90",
+              "transport_output_sha256": "45ef51b996ef7d72aa337f9b3e26aaf029b070f9c56a0276e90c3f5a9c9b788c",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        },
+        {
+          "index": 3,
+          "variant": "range-cover-incoming-accumulate",
+          "total_damage": 53216841,
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "e895adf13f8142f5adcff70d6c82afd6",
+            "device": "Apple M5",
+            "elapsed_ms": 25057.447624974884,
+            "gpu_execution_verified": true,
+            "input_sha256": "8ebec7993ba998df08f1f75a08176000683abbc5b71409601ab46a304726fd2b",
+            "output_sha256": "1e2e6068f7ef93309c9e75078cb517093cae85f80d3fa6d328cee9480cecc7bc",
+            "source": "gpu/product_named_range_cover_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 2.3077514999895357,
+            "batch": {
+              "capture_id": "batch-18aa23ca12ed47a1a524790481dc0c2e",
+              "index": 1,
+              "cases": 2,
+              "input_words": 116248,
+              "output_words": 2048912,
+              "input_sha256": "8ebec7993ba998df08f1f75a08176000683abbc5b71409601ab46a304726fd2b",
+              "output_sha256": "1e2e6068f7ef93309c9e75078cb517093cae85f80d3fa6d328cee9480cecc7bc",
+              "transport_input_sha256": "2114f983070cd50eee6102e8af4fff222ea606003d0962edd1fe7340c47e5e90",
+              "transport_output_sha256": "45ef51b996ef7d72aa337f9b3e26aaf029b070f9c56a0276e90c3f5a9c9b788c",
+              "input_scope": "single-case framing of this exact physical batch member",
+              "output_scope": "exact readback slice"
+            },
+            "input_sha256_scope": "logical single-case framing; physical transfer is batch.transport_input_sha256",
+            "timing_scope": "shared batch transport; not an individual case duration",
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        },
+        {
+          "index": 4,
+          "variant": "retained-standard-SOW",
+          "total_damage": 94312529,
+          "compute": {
+            "requested": "metal_detail",
+            "backend": "metal_detail",
+            "capture_id": "43ad32551d4248abbc7e2e834b705d66",
+            "device": "Apple M5",
+            "elapsed_ms": 31253.448833012953,
+            "gpu_execution_verified": true,
+            "input_sha256": "d60bf71a008bd1601d8af5bc083f6ffcc61c3f8e537954dbcb04d5ea3282e85d",
+            "output_sha256": "ad5208a7613d552c13172bc1be00f7c02c981732afb7c24a0d93b6e2e1728fa4",
+            "source": "gpu/product_cover_fixed_battle_entry.slang",
+            "scope": "shared autonomous battle; CPU verified for this request",
+            "gpu_seconds": 1.7954307500040159,
+            "cpu_verification": {
+              "matched": true,
+              "differing_fields": []
+            }
+          }
+        }
+      ],
+      "audit": {
+        "rows": [
+          {
+            "index": 0,
+            "profile": "레이 (가칭)",
+            "favorite_stage": 0,
+            "capture": "1a5b01f42d4d400fa60e6aa1e6c6e0a0",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "old_full_readback_anchor_verified": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 1,
+            "profile": "레이 (가칭)",
+            "favorite_stage": 0,
+            "capture": "a75d1d9cdae348c88ed2957d61150561",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "old_full_readback_anchor_verified": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 2,
+            "profile": "레이 (가칭)",
+            "favorite_stage": 0,
+            "capture": "c16a6a86a9cb49b98123456773fcb41a",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "old_full_readback_anchor_verified": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 3,
+            "profile": "레이 (가칭)",
+            "favorite_stage": 0,
+            "capture": "e895adf13f8142f5adcff70d6c82afd6",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": true,
+            "old_full_readback_anchor_verified": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 4,
+            "profile": "솔져 O.W.",
+            "favorite_stage": 0,
+            "capture": "43ad32551d4248abbc7e2e834b705d66",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "physical_batch_and_exact_member_slices_verified": false,
+            "old_full_readback_anchor_verified": true,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          }
+        ],
+        "audited": 5,
+        "native_battle_calls": 0,
+        "gpu_calls": 0
+      }
+    }
+  ],
+  "corrected_active_consumers": [
+    {
+      "index": 0,
+      "backend": "metal_detail",
+      "matched": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "casts": 54,
+      "expanded_radius": 52,
+      "additional_targets": 52,
+      "incoming": 0,
+      "cover": 0,
+      "nonzero_def": 0,
+      "samples": []
+    },
+    {
+      "index": 1,
+      "backend": "metal_detail",
+      "matched": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "casts": 41,
+      "expanded_radius": 39,
+      "additional_targets": 39,
+      "incoming": 25,
+      "cover": 11,
+      "nonzero_def": 9,
+      "samples": [
+        {
+          "name": "아스카 : WILLE",
+          "divisor": 1,
+          "time": 10.250000000000089,
+          "attack": 1000,
+          "coefficient": 100,
+          "received_snapshot": 0,
+          "base_defense": 100,
+          "effective_defense": 228.57,
+          "quantity": 771.43,
+          "shared_quantity": 771.43,
+          "hp_before": 2000000,
+          "applied": 771.43,
+          "hp_after": 1999228.57
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "backend": "metal_detail",
+      "matched": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "casts": 54,
+      "expanded_radius": 52,
+      "additional_targets": 52,
+      "incoming": 0,
+      "cover": 0,
+      "nonzero_def": 0,
+      "samples": []
+    },
+    {
+      "index": 3,
+      "backend": "metal_detail",
+      "matched": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "casts": 32,
+      "expanded_radius": 30,
+      "additional_targets": 30,
+      "incoming": 25,
+      "cover": 10,
+      "nonzero_def": 8,
+      "samples": [
+        {
+          "name": "아스카 : WILLE",
+          "divisor": 1,
+          "time": 10.250000000000089,
+          "attack": 1000,
+          "coefficient": 100,
+          "received_snapshot": 0,
+          "base_defense": 100,
+          "effective_defense": 228.57,
+          "quantity": 771.43,
+          "shared_quantity": 771.43,
+          "hp_before": 2000000,
+          "applied": 771.43,
+          "hp_after": 1999228.57
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "backend": "metal_detail",
+      "matched": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "casts": 0,
+      "expanded_radius": 0,
+      "additional_targets": 0,
+      "incoming": 0,
+      "cover": 0,
+      "nonzero_def": 0,
+      "samples": []
+    }
+  ],
+  "retention": {
+    "unchanged_original_cases": {
+      "rows": [
+        {
+          "index": 0,
+          "input_same": true,
+          "full_output_same": true
+        },
+        {
+          "index": 2,
+          "input_same": true,
+          "full_output_same": true
+        }
+      ],
+      "gpu_calls": 0,
+      "native_battle_calls": 0
+    },
+    "standard_static": {
+      "total": 266,
+      "program_counts": {
+        "gpu/product_fixed_battle_entry.slang": 245,
+        "gpu/product_fixed_group_battle_entry.slang": 2,
+        "gpu/product_healing_fixed_battle_entry.slang": 1,
+        "cpu": 4,
+        "gpu/product_fixed_target_battle_entry.slang": 8,
+        "gpu/product_cover_fixed_battle_entry.slang": 1,
+        "gpu/product_ammo_fixed_battle_entry.slang": 1,
+        "gpu/product_weighted_fixed_battle_entry.slang": 4
+      },
+      "changed": [],
+      "unsupported": [
+        {
+          "index": 88,
+          "character": "유니",
+          "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected"
+        },
+        {
+          "index": 111,
+          "character": "얀",
+          "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected"
+        },
+        {
+          "index": 210,
+          "character": "스노우 화이트 : 헤비암즈",
+          "reason": "Lock On requires explicit reference_models.lock_on candidate/delivery policies and typed bindings; composition is not connected"
+        },
+        {
+          "index": 251,
+          "character": "레이 (가칭)",
+          "reason": "Named range requires explicit reference_models.named_range geometry and rules; composition is not connected"
+        }
+      ],
+      "old_full_readback_anchors": 262,
+      "gpu_calls": 0,
+      "native_battle_calls": 0
+    },
+    "standard_source": {
+      "rows": [
+        {
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "source_closure_exact": true,
+          "changed_files": [],
+          "profiles": 245
+        },
+        {
+          "source": "gpu/product_fixed_group_battle_entry.slang",
+          "source_closure_exact": true,
+          "changed_files": [],
+          "profiles": 2
+        },
+        {
+          "source": "gpu/product_healing_fixed_battle_entry.slang",
+          "source_closure_exact": true,
+          "changed_files": [],
+          "profiles": 1
+        },
+        {
+          "source": "gpu/product_fixed_target_battle_entry.slang",
+          "source_closure_exact": true,
+          "changed_files": [],
+          "profiles": 8
+        },
+        {
+          "source": "gpu/product_cover_fixed_battle_entry.slang",
+          "source_closure_exact": false,
+          "changed_files": [
+            "gpu/cover_defense_layout.slang"
+          ],
+          "profiles": 1
+        },
+        {
+          "source": "gpu/product_ammo_fixed_battle_entry.slang",
+          "source_closure_exact": true,
+          "changed_files": [],
+          "profiles": 1
+        },
+        {
+          "source": "gpu/product_weighted_fixed_battle_entry.slang",
+          "source_closure_exact": true,
+          "changed_files": [],
+          "profiles": 4
+        }
+      ],
+      "gpu_calls": 0,
+      "native_battle_calls": 0
+    },
+    "changed_standard_SOW_real_M5_same_entire_readback": true,
+    "scope": "261 unchanged standard GPU closures and262 exact input anchors; changed cover closure tested through normal SOW API with entire historical readback SHA. No new full catalogue execution or prior-owner reassignment."
+  },
+  "windows": {
+    "new_cuda_compile_or_execution_requests": 0,
+    "prior_compile_stop": "process snapshot unavailable before gate; SDK/GPU0",
+    "independent_cpu_snapshot_diagnostic_requested": true,
+    "diagnostic_purpose": "One finite-code CPU observation only, not retrying the prior compile or promoting preservation.",
+    "result": "pending"
+  },
+  "coverage": {
+    "standard_profiles": 266,
+    "metal_profiles": 262,
+    "reasoned_cpu_fallbacks": 4,
+    "new_standard_profiles": 0,
+    "declared_named_range_cover_api_cases": 4,
+    "historical_strict_cuda_profiles": 3,
+    "current_source_cuda_profiles": 0,
+    "goal_complete": false
+  },
+  "proof": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-named-range-cover-v1-20261101",
+  "cleanup": {
+    "owned_servers_stopped": true,
+    "user_servers_untouched": true
+  }
+}

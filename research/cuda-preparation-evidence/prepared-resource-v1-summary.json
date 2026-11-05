@@ -1,0 +1,168 @@
+{
+  "schema": 1,
+  "source_package_id": "ba760483dfc1f0a8f0352cba7990fde622376a9f1d4d50faec4faa95f07b492c",
+  "cubin_sha256": "0f140174582ee39efb72e289817b4257e412f4afccaafc23979f23716926978b",
+  "cubin_bytes": 6918480,
+  "ptx_sha256": "e6d83bf98e727ee989aaca68364c632ebbf9e26c259dd71161462a90184a104e",
+  "generated_cuda_sha256": "f2d15deb3281682bd16bc1a6b12600dcaf250273dea01fae65c78fbae6ff7d1f",
+  "object_sha256": "2780dc695f7a4d81c426267186e5211a1c17c1967e619079559c297db53546de",
+  "link_receipt_key": "38afced5df6b7adfb3eb8b3f00569905b5a3d860e0f604dec2b5cb17175972aa",
+  "object_receipt_key": "ed870d166adb773c98bdf1f521896be44a6202f5edb7287411b7a535d38aaef3",
+  "successful_memalloc_calls": 3,
+  "memalloc_request_bytes": [
+    null,
+    null,
+    null
+  ],
+  "memalloc_request_bytes_reason": "not recorded in saved API events",
+  "launch_attempts": 1,
+  "launch_return_code": 2,
+  "launch_grid": null,
+  "launch_block": null,
+  "launch_dynamic_shared_bytes": null,
+  "launch_shape_reason": "not recorded in saved API events",
+  "context_destroy_return_code": 0,
+  "failure_time_vram_bytes": null,
+  "failure_cause": "unresolved",
+  "device_query_calls": 0,
+  "gpu_calls": 0,
+  "driver_calls": 0,
+  "compiler_calls": 0,
+  "native_battle_calls": 0,
+  "test_calls": 0,
+  "retries": 0,
+  "calculation_verified": false,
+  "overall_verified": false,
+  "saved_input_bytes": 7391284,
+  "saved_output_bytes": 129908160,
+  "parent_elapsed_seconds": 113.16265569999814,
+  "parent_exit_code": 1,
+  "parent_timed_out": false,
+  "parent_job_peak_memory_bytes": 2185158656,
+  "parent_job_memory_limit_bytes": 2147483648,
+  "child_elapsed_seconds": 18.019093899987638,
+  "child_exit_code": 1,
+  "child_timed_out": false,
+  "child_job_peak_memory_bytes": 2088165376,
+  "child_job_memory_limit_bytes": 2147483648,
+  "saved_child_phase_times": [
+    {
+      "stage": "prepared_child_verify_package",
+      "state": "returned",
+      "elapsed_seconds": 7.7784151
+    },
+    {
+      "stage": "prepared_child_ownership",
+      "state": "returned",
+      "elapsed_seconds": 0.1411338
+    },
+    {
+      "stage": "shared_gpu_execute",
+      "state": "raised",
+      "elapsed_seconds": 3.7518004
+    }
+  ],
+  "saved_link_resource": {
+    "registers": 254,
+    "stack_bytes": 24960,
+    "shared_bytes": 0,
+    "local_bytes": 0,
+    "spill_store_bytes": null,
+    "spill_load_bytes": null
+  },
+  "saved_object_entry_resource": {
+    "stack_frame_bytes": 0,
+    "spill_store_bytes": 0,
+    "spill_load_bytes": 0,
+    "registers": 24
+  },
+  "ptx_entry_local_depot_bytes": [],
+  "ptx_local_depot_scope": "portableEvents entry only; does not measure linked callees or runtime stack",
+  "cuobjdump_calls": 1,
+  "cuobjdump_resource": {
+    "REG": 254,
+    "STACK": 24960,
+    "SHARED": 0,
+    "LOCAL": 0
+  },
+  "cuobjdump_exit_code": 0,
+  "cuobjdump_status": "completed",
+  "cuobjdump_elapsed_seconds": 0.11548890033736825,
+  "original_files_unchanged": true,
+  "monitored_files": 136,
+  "diagnostic_elapsed_seconds": 0.5870397998951375,
+  "saved_parent_phase_times": [
+    {
+      "stage": "packet_header_prepare",
+      "state": "returned",
+      "elapsed_seconds": 0.10899999970570207
+    },
+    {
+      "stage": "packet_before_observation",
+      "state": "returned",
+      "elapsed_seconds": 2.1937023
+    },
+    {
+      "stage": "packet_verify_package",
+      "state": "returned",
+      "elapsed_seconds": 7.8566397
+    },
+    {
+      "stage": "packet_verify_package",
+      "state": "returned",
+      "elapsed_seconds": 7.8423937
+    },
+    {
+      "stage": "packet_verify_package",
+      "state": "returned",
+      "elapsed_seconds": 13.5819199
+    },
+    {
+      "stage": "packet_verify_package",
+      "state": "returned",
+      "elapsed_seconds": 13.4329828
+    },
+    {
+      "stage": "packet_verify_package",
+      "state": "returned",
+      "elapsed_seconds": 7.5939138
+    },
+    {
+      "stage": "packet_run_job",
+      "state": "returned",
+      "elapsed_seconds": 18.1040574
+    },
+    {
+      "stage": "packet_shared_cli",
+      "state": "raised",
+      "elapsed_seconds": 108.7134528
+    },
+    {
+      "stage": "packet_after_observation",
+      "state": "returned",
+      "elapsed_seconds": 2.1379777
+    },
+    {
+      "stage": "packet_bounded_stage",
+      "state": "returned",
+      "elapsed_seconds": 113.1633989
+    }
+  ],
+  "new_call_count_scope": "Call counters apply to this CPU diagnostic only; launch_attempts describes the saved failed execution",
+  "diagnostic_job_elapsed_seconds": 4.95889539970085,
+  "diagnostic_exit_code": 0,
+  "diagnostic_timeout_seconds": 180,
+  "diagnostic_timed_out": false,
+  "diagnostic_below_normal_priority": true,
+  "diagnostic_gate_verified": true,
+  "diagnostic_job_post_members": 0,
+  "diagnostic_job_peak_memory_bytes": 75173888,
+  "diagnostic_job_memory_limit_bytes": 2147483648,
+  "diagnostic_missing_existing_processes": 0,
+  "diagnostic_observation_error": null,
+  "diagnostic_cleanup_error": null,
+  "diagnostic_job_inspection_error": null,
+  "service_preservation_verified": false,
+  "environment_preservation_verified": false,
+  "official_tool_reference": "https://docs.nvidia.com/cuda/cuda-binary-utilities/"
+}

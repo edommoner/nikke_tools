@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "package_id": "80c928f330b7314a382b30bcf821fbd466148efcf439abf769eb518fd8de7bab",
+  "source_commit": "b53b6bc7a528ef610edc88b70d52a7ccdcf2b35b",
+  "archive_bytes": 13498905,
+  "archive_sha256": "9ba3e0bf21395d4a80c6ba75ad4e26c2e1630905b99282b0e265e571ddb3eb44",
+  "summary_file": "authority-summary-v1.json",
+  "summary_bytes": 2415,
+  "summary_sha256": "132994205e7041d5a9abfe2d62008058fcde2b56b79177f4dd2e8a609c981c44",
+  "public_payload": "summary-and-manifest-only",
+  "snapshot_included": false,
+  "binary_included": false,
+  "raw_included": false,
+  "logs_included": false,
+  "personal_paths_included": false
+}

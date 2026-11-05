@@ -1,0 +1,60 @@
+{
+  "resident_runtime": {
+    "schema": 1,
+    "stride": 8,
+    "alignment": 8,
+    "fields": [
+      {
+        "name": "steps",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 0,
+        "size": 8
+      }
+    ],
+    "bindings": {
+      "commands": 0,
+      "results": 1,
+      "runtimeStates": 2
+    },
+    "cuda_constant_bytes": 48
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 33,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 0.01280987507198006,
+    "input_bytes": 675844,
+    "library_compile_seconds": 0.08979201316833496,
+    "output_bytes": 103809024,
+    "pipeline_compile_seconds": 0.18248093128204346,
+    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "runtime_buffer_bytes": 264,
+    "runtime_element_capacity": 33,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 8,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "source_sha256": {
+    "gpu/destructible_world_probe.slang": "50dbb9d95ff627a7c4ba3ce2e42229f73abe097e5d165ff1ea3d17b21e598bac",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+    "gpu/destructible_target_core.slang": "a76de4e9c79097db495d652cb22814691cdb12e15ebbed5f5fec7ef86032a694",
+    "gpu/destructible_world_runtime.slang": "88f7a9f571879282caba231d868a6ed2fde3f4c19dde10fd389b8fd23d4bd117"
+  },
+  "generated_sha256": {
+    "cuda": "92b103e48cc454b00c4968af9e0f3287a5194d5f2783b0f639da8a14691a1450",
+    "metal": "083eed35c2c6d914be71fe7494d69edd05dbe2527f2c31a6b964c3fab96e8567"
+  },
+  "input_sha256": "f1ce26bb2af3b078c7ee32ddf133488e6537adaa855547974e19ab9e7587e85b",
+  "output_sha256": "cd10c2c2bb885a9201995125e34f75acd9d9dee13aceb3b468f93752ded4f712",
+  "gpu_execution_verified": true,
+  "backend": "metal"
+}

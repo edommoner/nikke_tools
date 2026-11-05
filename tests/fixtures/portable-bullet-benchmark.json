@@ -1,0 +1,4161 @@
+{
+  "name": "ordered-bullet-list-with-254-ordinary-carriers",
+  "effects": [
+    {
+      "name": "no crit",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "crit_rate",
+      "fixed_value": -15,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary0",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary1",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary2",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary3",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary4",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary5",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary6",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary7",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary8",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary9",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary10",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary11",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary12",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary13",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary14",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary15",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary16",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary17",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary18",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary19",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary20",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary21",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary22",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary23",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary24",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary25",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary26",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary27",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary28",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary29",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary30",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary31",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary32",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary33",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary34",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary35",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary36",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary37",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary38",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary39",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary40",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary41",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary42",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary43",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary44",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary45",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary46",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary47",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary48",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary49",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary50",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary51",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary52",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary53",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary54",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary55",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary56",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary57",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary58",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary59",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary60",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary61",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary62",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary63",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary64",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary65",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary66",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary67",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary68",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary69",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary70",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary71",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary72",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary73",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary74",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary75",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary76",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary77",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary78",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary79",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary80",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary81",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary82",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary83",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary84",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary85",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary86",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary87",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary88",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary89",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary90",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary91",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary92",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary93",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary94",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary95",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary96",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary97",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary98",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary99",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary100",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary101",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary102",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary103",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary104",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary105",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary106",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary107",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary108",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary109",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary110",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary111",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary112",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary113",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary114",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary115",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary116",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary117",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary118",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary119",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary120",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary121",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary122",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary123",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary124",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary125",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary126",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary127",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary128",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary129",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary130",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary131",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary132",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary133",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary134",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary135",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary136",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary137",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary138",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary139",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary140",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary141",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary142",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary143",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary144",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary145",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary146",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary147",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary148",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary149",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary150",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary151",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary152",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary153",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary154",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary155",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary156",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary157",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary158",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary159",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary160",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary161",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary162",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary163",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary164",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary165",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary166",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary167",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary168",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary169",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary170",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary171",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary172",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary173",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary174",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary175",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary176",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary177",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary178",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary179",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary180",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary181",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary182",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary183",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary184",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary185",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary186",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary187",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary188",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary189",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary190",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary191",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary192",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary193",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary194",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary195",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary196",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary197",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary198",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary199",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary200",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary201",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary202",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary203",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary204",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary205",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary206",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary207",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary208",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary209",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary210",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary211",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary212",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary213",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary214",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary215",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary216",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary217",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary218",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary219",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary220",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary221",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary222",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary223",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary224",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary225",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary226",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary227",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary228",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary229",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary230",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary231",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary232",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary233",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary234",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary235",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary236",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary237",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary238",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary239",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary240",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary241",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary242",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary243",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary244",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary245",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary246",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary247",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary248",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary249",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary250",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary251",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary252",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ordinary253",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "long bullet",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "duration_bullets": 2147483647
+    }
+  ],
+  "owners": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "combat": {
+    "weapons": [
+      {
+        "enabled": true,
+        "capacity": 1000,
+        "interval": 0.016666666666666666
+      },
+      {
+        "enabled": true,
+        "capacity": 1000,
+        "interval": 0.016666666666666666
+      },
+      {
+        "enabled": true,
+        "capacity": 1000,
+        "interval": 0.016666666666666666
+      },
+      {
+        "enabled": true,
+        "capacity": 1000,
+        "interval": 0.016666666666666666
+      },
+      {
+        "enabled": true,
+        "capacity": 1000,
+        "interval": 0.016666666666666666
+      }
+    ],
+    "targets": [
+      {
+        "hp": 1e+20
+      }
+    ],
+    "trace": "summary"
+  },
+  "script": [
+    [
+      3,
+      24,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      3,
+      2,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0
+    ]
+  ]
+}

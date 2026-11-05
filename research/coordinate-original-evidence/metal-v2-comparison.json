@@ -1,0 +1,63 @@
+{
+  "calculation_verified": false,
+  "entries": [],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "coordinate-original/Marciana/control/3s",
+      "reason": "AssertionError: ('coordinate-original/Marciana/control/3s', 'skill trace')"
+    },
+    {
+      "index": 1,
+      "name": "coordinate-original/Marciana/control/30s",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 2,
+      "name": "coordinate-original/Marciana/defender/3s",
+      "reason": "AssertionError: ('coordinate-original/Marciana/defender/3s', 'skill trace')"
+    },
+    {
+      "index": 3,
+      "name": "coordinate-original/Marciana/defender/30s",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 4,
+      "name": "coordinate-original/Delta-ninja-thief/control/3s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 5,
+      "name": "coordinate-original/Delta-ninja-thief/control/30s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 6,
+      "name": "coordinate-original/Delta-ninja-thief/defender/3s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 7,
+      "name": "coordinate-original/Delta-ninja-thief/defender/30s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    }
+  ],
+  "input_count": 8,
+  "native_oracles": 8,
+  "input_sha256": "2edb42ed0995c804715b3ea24f47d3a87d08fa404b09e9c654b9f113422dab62",
+  "output_sha256": "c65256d8cd9d90eefe537a3c69bcb4836bb24f46340ac813abbfa982ed60d0b4",
+  "generated_normalized": {
+    "cuda": "745d673aa805ed3416ac701e4110be5c82c0586c32b73bf37dd104e2646fc6c8",
+    "metal": "ae070ffe60b02889578d0a06b09ae6beb6dc397af78a365ebba787182bebf3e2"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 0,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

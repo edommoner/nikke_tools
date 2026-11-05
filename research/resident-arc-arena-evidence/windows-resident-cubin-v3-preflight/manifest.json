@@ -1,0 +1,10 @@
+{
+  "schema": "resident-cubin-v3-prerequisite-shared-manifest",
+  "files": [
+    {
+      "path": "summary.json",
+      "bytes": 31368,
+      "sha256": "9b1638bd00835d8f87565e9f42f0a9eecc0ee99471158a3388fa397ce8901d29"
+    }
+  ]
+}

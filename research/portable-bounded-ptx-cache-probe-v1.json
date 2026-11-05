@@ -1,0 +1,40 @@
+{
+  "schema": "bounded-ptx-cache-probe-checkpoint-v1",
+  "base_commit": "cde661129aa0f2142731764f5ec51b8150141d0d",
+  "wrapper": "scripts/run-gpu-packet.py",
+  "stage": "probe-ptx-cache",
+  "request_fields": [
+    "generated_cuda",
+    "cuda_root",
+    "compile_cache"
+  ],
+  "reused_auditor": "nikke_gpu.cache_probe / portable_backend.probe_cuda_source_cache",
+  "tests": {
+    "development_passed": 201,
+    "frozen_passed": 201,
+    "frozen_payload_before_after_verified": true
+  },
+  "package": {
+    "path": "research/windows-source-packets/moving-group-current-ptx-probe-v1.zip",
+    "bytes": 13361646,
+    "sha256": "30d6d81e0689fb5a47c2d5d1d82f54abbce80089320fa1f526eb8fed44020cca",
+    "package_id": "54c70a1d552846c4637f39ecc2f820aae50607cc355807b8d386c63887fcecd9",
+    "suite": "moving-group-current"
+  },
+  "ptx_compile_plan_passed": true,
+  "validation_dependency_preflight_passed": true,
+  "memory_limit_mb": 2048,
+  "maximum_outer_seconds": 180,
+  "cache_and_compiler_claims_modified": false,
+  "packet_stage_claim_exclusive": true,
+  "miss_is_valid_snapshot_not_hit": true,
+  "compiler_calls": 0,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "default_admission_changed": false,
+  "gpu_source_changed": false,
+  "golden_changed": false,
+  "full_goal_complete": false,
+  "windows_stage_verified": false,
+  "next_step": "One paired generation stage then bounded file-only PTX probe on Windows; only exact hit permits one cache-required PTX producer with no NVRTC fallback. No object/link/GPU execution in this request."
+}

@@ -1,0 +1,143 @@
+{
+  "schema": "coordinate-lock-saved-trace-address-diagnostic-v1",
+  "scope": "Saved CUDA buffer SHA plus one known uint32 word; in-memory reverse hypothesis hash only",
+  "source_status_commit": "da4ea9d24c2f91fce6d72cce312baf0706629cf2",
+  "source_status_sha256": "c6eebb665fa958dd59a95b6bec6b95ef10a740dfca61b9425c1acd1434de4ec8",
+  "owner": "8abb7645fcf14ca911a1ddfa5abf36c6a74f010f68f35531525c1c66e8deb0d4",
+  "source_commit": "3d8913b6aa1d4ce531d79dfc28dfa47ccd6575bb",
+  "observed_cuda": {
+    "output_bytes": 10232832,
+    "full_sha256": "b3d42775bbd760119d5fca7a8487dbfcd491f961ae66389233dedc4188ed331a",
+    "word_index": 2186642,
+    "byte_offset": 8746568,
+    "word_uint32_little_endian": 2036608,
+    "physical_case_index": 0,
+    "output_base_words": 0
+  },
+  "mac_supplied_hypothesis": {
+    "original_m5_full_sha256": "33650b1e8b313f829a01873ff10371906c3279b790da35c73c8a90a8e5c79e79",
+    "m5_physical_case_index": 5,
+    "output_words_per_case": 2558208,
+    "m5_output_base_words": 12791040,
+    "m5_absolute_trace_address": 14827648,
+    "logical_trace_address": 2036608,
+    "m5_one_word_normalized_hypothesis_sha256": "b3d42775bbd760119d5fca7a8487dbfcd491f961ae66389233dedc4188ed331a",
+    "offset_derivation_words": [
+      2032000,
+      153568,
+      544,
+      530
+    ],
+    "m5_raw_available_on_this_host": false,
+    "m5_hypothesis_origin": "Mac saved-buffer analysis supplied in the continuation request"
+  },
+  "checks": {
+    "cuda_full_sha_equals_mac_one_word_hypothesis_sha": true,
+    "cuda_known_word_equals_logical_trace_address": true,
+    "cuda_in_memory_one_word_replaced_with_m5_absolute_address_sha256": "33650b1e8b313f829a01873ff10371906c3279b790da35c73c8a90a8e5c79e79",
+    "reverse_candidate_full_sha_equals_original_m5_expected_sha": true,
+    "bytes_in_hypothesis_substitution": 4,
+    "all_other_cuda_bytes_retained_in_memory": true,
+    "single_word_explanation_consistent_for_all_10232832_bytes": true,
+    "conclusion": "Complete-buffer hashes are consistent with the one supplied internal absolute trace-address word being the sole difference",
+    "scope_limit": "M5 original buffer was not independently read on Windows; full-buffer SHA correspondence and reverse candidate support the supplied explanation. No execution or semantic gate was rerun."
+  },
+  "preservation": {
+    "original_full_raw_gate_failure_retained": true,
+    "original_expected_sha256_unchanged": true,
+    "original_cuda_raw_not_rewritten": true,
+    "m5_raw_not_written": true,
+    "diagnostic_candidate_not_saved": true,
+    "protected_file_sha256_before": {
+      "transport/product-coordinate-lock-windows-status-v1.json": "c6eebb665fa958dd59a95b6bec6b95ef10a740dfca61b9425c1acd1434de4ec8",
+      "stop.json": "531f8273b81c01738d45f9a9d46c9f9098571437d0f8d49c02ad7935ae542121",
+      "coordinate-lock-accumulate/stop.json": "531f8273b81c01738d45f9a9d46c9f9098571437d0f8d49c02ad7935ae542121",
+      "coordinate-lock-accumulate/program.json": "c1af5dde5870c3aaa87cce92a1a60fa8c2328137eff9fefc6bb37989f0f2b2e6",
+      "coordinate-lock-accumulate/batch-000/expected.json": "8944209b27f00472cea84ee5cce7ba2e1bf04a695a3ef1ad932170ad6e40465a",
+      "coordinate-lock-v1-api-expected.json": "9a2f7f15a3df1e68a8c6a905bf54f53b6d1cd99715645b29c72e6d7cc522f417",
+      "coordinate-lock-accumulate/packet/gpu-package.json": "7bc90d2999734097618eccff11be264ed686f21e558af6553df5d08c142dddd1",
+      "coordinate-lock-accumulate/jit-link-object-verified.json": "2df071f1cd5b9c6868e6e7a4258cefd6fc8a7a6b57df689a7b97755471bc92a6",
+      "coordinate-lock-accumulate/jit-link-v1/proof/jit-link.json": "522754fb8f67b53f22e81380cc8cdb52498eabeebb11eac9c2ddc2d83c09698d",
+      "coordinate-lock-accumulate/packet/compile-claimed-cuda.json": "b351626088e7691e1ce67bef46b162b16c87c985a3dcb66fad5585519a013127",
+      "coordinate-lock-accumulate/packet/jit-link-object-claimed-cuda.json": "fb586b3af3cea60418084a428cc361a1f0283ee5b98d238392c55ca2fcd4270e",
+      "coordinate-lock-accumulate/packet/module-object-claimed-cuda.json": "9c9b563ecbab67f80c98462fab61822913ab23fc4765980978ec9c8736c9db17",
+      "coordinate-lock-accumulate/packet/packet-stage-claimed-compile-ptx-cuda.json": "b4769c8f04add2e368350376b0fcaef07209ba335924d140e3a2d28edccaa94c",
+      "coordinate-lock-accumulate/packet/packet-stage-claimed-generation-cuda.json": "48d3f325e37791b3a8d66a20b52705030c57a04b8633954632626577eee99ce5",
+      "coordinate-lock-accumulate/packet/packet-stage-claimed-jit-link-object-cuda.json": "bbe494ca22127c6dc630f6e3c9b6b6126184eeb419caba5ce47a9595b552cee8",
+      "coordinate-lock-accumulate/packet/packet-stage-claimed-module-object-cuda.json": "163bd8acb0c5de1f17138a88ca6c9453b9854891a9e65dae057e5323263c91fa"
+    },
+    "protected_file_sha256_after": {
+      "transport/product-coordinate-lock-windows-status-v1.json": "c6eebb665fa958dd59a95b6bec6b95ef10a740dfca61b9425c1acd1434de4ec8",
+      "stop.json": "531f8273b81c01738d45f9a9d46c9f9098571437d0f8d49c02ad7935ae542121",
+      "coordinate-lock-accumulate/stop.json": "531f8273b81c01738d45f9a9d46c9f9098571437d0f8d49c02ad7935ae542121",
+      "coordinate-lock-accumulate/program.json": "c1af5dde5870c3aaa87cce92a1a60fa8c2328137eff9fefc6bb37989f0f2b2e6",
+      "coordinate-lock-accumulate/batch-000/expected.json": "8944209b27f00472cea84ee5cce7ba2e1bf04a695a3ef1ad932170ad6e40465a",
+      "coordinate-lock-v1-api-expected.json": "9a2f7f15a3df1e68a8c6a905bf54f53b6d1cd99715645b29c72e6d7cc522f417",
+      "coordinate-lock-accumulate/packet/gpu-package.json": "7bc90d2999734097618eccff11be264ed686f21e558af6553df5d08c142dddd1",
+      "coordinate-lock-accumulate/jit-link-object-verified.json": "2df071f1cd5b9c6868e6e7a4258cefd6fc8a7a6b57df689a7b97755471bc92a6",
+      "coordinate-lock-accumulate/jit-link-v1/proof/jit-link.json": "522754fb8f67b53f22e81380cc8cdb52498eabeebb11eac9c2ddc2d83c09698d",
+      "coordinate-lock-accumulate/packet/compile-claimed-cuda.json": "b351626088e7691e1ce67bef46b162b16c87c985a3dcb66fad5585519a013127",
+      "coordinate-lock-accumulate/packet/jit-link-object-claimed-cuda.json": "fb586b3af3cea60418084a428cc361a1f0283ee5b98d238392c55ca2fcd4270e",
+      "coordinate-lock-accumulate/packet/module-object-claimed-cuda.json": "9c9b563ecbab67f80c98462fab61822913ab23fc4765980978ec9c8736c9db17",
+      "coordinate-lock-accumulate/packet/packet-stage-claimed-compile-ptx-cuda.json": "b4769c8f04add2e368350376b0fcaef07209ba335924d140e3a2d28edccaa94c",
+      "coordinate-lock-accumulate/packet/packet-stage-claimed-generation-cuda.json": "48d3f325e37791b3a8d66a20b52705030c57a04b8633954632626577eee99ce5",
+      "coordinate-lock-accumulate/packet/packet-stage-claimed-jit-link-object-cuda.json": "bbe494ca22127c6dc630f6e3c9b6b6126184eeb419caba5ce47a9595b552cee8",
+      "coordinate-lock-accumulate/packet/packet-stage-claimed-module-object-cuda.json": "163bd8acb0c5de1f17138a88ca6c9453b9854891a9e65dae057e5323263c91fa"
+    },
+    "all_protected_files_unchanged": true
+  },
+  "execution_counts": {
+    "gpu": 0,
+    "api": 0,
+    "sdk": 0,
+    "cpu_battles": 0,
+    "saved_audits": 0,
+    "new_observations": 0,
+    "ram_samples": 0,
+    "retries": 0
+  },
+  "evidence_files": [
+    {
+      "file": "coordinate-lock-accumulate/batch-000/api-once-v1/detail-captures/60c689e8fe024d11acdb62f774f63d45/readback.bin",
+      "bytes": 10232832,
+      "sha256": "b3d42775bbd760119d5fca7a8487dbfcd491f961ae66389233dedc4188ed331a"
+    },
+    {
+      "file": "coordinate-lock-accumulate/batch-000/api-once-v1/detail-captures/60c689e8fe024d11acdb62f774f63d45/evidence.json",
+      "bytes": 146526,
+      "sha256": "3cbea21840c98c24c3f091ccd6490bd7fe3154ca92c3b389a40119e2677171db"
+    },
+    {
+      "file": "coordinate-lock-accumulate/batch-000/api-once-v1/api-result.json",
+      "bytes": 1252,
+      "sha256": "7f8b9ac0c545a25ab6f537aecd6e71306d25e72b75990dab229e78a2b89feb3e"
+    },
+    {
+      "file": "coordinate-lock-accumulate/batch-000/expected.json",
+      "bytes": 1285,
+      "sha256": "8944209b27f00472cea84ee5cce7ba2e1bf04a695a3ef1ad932170ad6e40465a"
+    },
+    {
+      "file": "stop.json",
+      "bytes": 151,
+      "sha256": "531f8273b81c01738d45f9a9d46c9f9098571437d0f8d49c02ad7935ae542121"
+    },
+    {
+      "file": "coordinate-lock-accumulate/stop.json",
+      "bytes": 151,
+      "sha256": "531f8273b81c01738d45f9a9d46c9f9098571437d0f8d49c02ad7935ae542121"
+    },
+    {
+      "file": "transport/product-coordinate-lock-windows-status-v1.json",
+      "bytes": 43171,
+      "sha256": "c6eebb665fa958dd59a95b6bec6b95ef10a740dfca61b9425c1acd1434de4ec8"
+    }
+  ],
+  "original_api_passed": false,
+  "original_full_m5_readback_gate_passed": false,
+  "diagnostic_explanation_only": true,
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_verified": false,
+  "full_goal_complete": false
+}

@@ -1,0 +1,131 @@
+{
+  "passed": true,
+  "source": "0ae8c2d",
+  "root_cause": "World Actor field admission still rejected current_hp_reduce kind8;the added provider incorrectly allowed kind24 instead.All23 inputs begin with authored current_hp_reduce.",
+  "cases": [
+    {
+      "name": "body-completion-versus-lifesteal-order",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "add-completion-versus-lifesteal-order",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "add-survives-completion-versus-lifesteal-order",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "add-hit-hp-completion-versus-lifesteal-order",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "zero-base-attack-body-completion-versus-lifesteal-order",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "zero-base-attack-add-completion-versus-lifesteal-order",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "zero-base-attack-add-survives-completion-versus-lifesteal-order",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "second-hit-body-completion-versus-lifesteal-order",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "second-hit-add-completion-versus-lifesteal-order",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "second-hit-add-survives-completion-versus-lifesteal-order",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "part-50-completion-versus-lifesteal-order",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "part-100000-completion-versus-lifesteal-order",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "fatal-add-cancels-without-reward",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "expires-before-second-physical-shot",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "stale-body-generation-does-not-alias-live-body",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "unknown-add-identity-does-not-alias-first-add",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "nonowner-fatal-add-death-still-completes",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "vanish-does-not-synthesize-blocked-impact",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "shield-does-not-synthesize-blocked-impact",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "shotgun-three-pellets-credit-second-before-heal",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "skill-mode-1-pellets-credit-family-skill",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "skill-mode-3-pellets-credit-family-weapon",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    },
+    {
+      "name": "skill-mode-single-physical-weapon-family-positive",
+      "wound_kind": 8,
+      "rejected_by_initial_field_provider": true
+    }
+  ],
+  "actor_registry_initialized": true,
+  "pool_header_uninitialized": true,
+  "counter_header_uninitialized": true,
+  "failure_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/world-counter-landing-20261020T225823953382Z",
+  "raw14_rejected": true,
+  "old622_all_output_words_exact": true,
+  "gpu_diagnostic_executions": 0,
+  "unchanged_gpu_retries": 0,
+  "repair": "Admit the actual shared current_hp_reduce instruction(kind8) only in physical-counter mode;do not reinterpret or duplicate its arithmetic"
+}

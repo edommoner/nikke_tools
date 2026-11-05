@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-coordinate-core-metal-v1",
+  "raw_bytes": 629145600,
+  "raw_sha256": "23ecb2ea914d2bf0a8938d37fa535a367df134a2f8141d3ad604c9e2c2810473",
+  "evidence_sha256": "2805c66ad895e5108dda8459c3cb7032444d2907426fe743e2c1034380de7379",
+  "raw_inode": 510036406,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 4160,
+  "zero_range_bytes": 608342016,
+  "allocated_before": 629145600,
+  "allocated_after": 20803584,
+  "allocated_reclaimed": 608342016,
+  "full_hash_verified": true
+}

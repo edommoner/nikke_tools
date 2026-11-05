@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-body-accum-metal49-v1",
+  "raw_bytes": 205520896,
+  "raw_sha256": "c2b6288e4766636bafe4fe96497f2915298783087b059ff25f09ae0a568c4162",
+  "evidence_sha256": "f6c9f3e05c020cfb79fe6fb715227c546696e352edfb8af8fd8158c936cfc108",
+  "raw_inode": 509250535,
+  "zero_ranges": 535,
+  "zero_range_bytes": 136970240,
+  "allocated_before": 205520896,
+  "allocated_after": 68550656,
+  "allocated_reclaimed": 136970240,
+  "full_hash_verified": true
+}

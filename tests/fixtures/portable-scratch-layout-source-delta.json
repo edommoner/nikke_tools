@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "baseline_commit": "4436fbf",
+  "sources": {
+    "gpu/portable_schema.slang": {
+      "baseline_sha256": "bc65779a72ea96e71edd3e92e0deb7f2eb8f9abac48dbf5f8a0a0de13e4ded69",
+      "current_sha256": "c41363d14aea55feb55024ae10b48868166abbce83b2f063e073a2367ba54f23",
+      "changes": [
+        {
+          "baseline": "static const uint P_REVIVAL_TRACE_COUNT = 128U;\nstatic const uint P_REVIVAL_WORDS = 4224U;\nstatic const uint P_REVIVAL_MAGIC = 1381389873U;\nstatic const uint P_FOCUS_STATE_BASE = 770976U;\nstatic const uint P_FOCUS_CACHE_COUNT = 256U;\nstatic const uint P_FOCUS_STATE_WORDS = 2080U;\nstatic const uint P_NATIVE_QUERY_BASE = 773056U;\nstatic const uint P_NATIVE_QUERY_COUNT = 64U;\nstatic const uint P_NATIVE_QUERY_WORDS = 8736U;\nstatic const uint P_ORDERED_HISTORY_BASE = 781792U;\nstatic const uint P_ORDERED_HISTORY_WORDS = 64U;\nstatic const uint P_NATIVE_DIAG_BASE = 781856U;\nstatic const uint P_NATIVE_DIAG_WORDS = 4112U;\nstatic const uint D_OWNER = 0U;\nstatic const uint D_KIND = 1U;\n",
+          "current": "static const uint P_REVIVAL_TRACE_COUNT = 128U;\nstatic const uint P_REVIVAL_WORDS = 4224U;\nstatic const uint P_REVIVAL_MAGIC = 1381389873U;\nstatic const uint P_FOCUS_STATE_BASE = 258576U;\nstatic const uint P_FOCUS_CACHE_COUNT = 256U;\nstatic const uint P_FOCUS_STATE_WORDS = 2080U;\nstatic const uint P_NATIVE_QUERY_COUNT = 64U;\nstatic const uint P_NATIVE_QUERY_CELL_WORDS = 136U;\nstatic const uint P_NATIVE_QUERY_BANK_COUNT = 32U;\nstatic const uint P_NATIVE_QUERY_BANK0_BASE = 248600U;\nstatic const uint P_NATIVE_QUERY_BANK1_BASE = 518336U;\nstatic const uint P_NATIVE_QUERY_HEADER_WORDS = 32U;\nstatic const uint P_NATIVE_QUERY_BASE = 785440U;\nstatic const uint P_NATIVE_QUERY_WORDS = 8736U;\nstatic const uint P_ORDERED_HISTORY_BASE = 785472U;\nstatic const uint P_ORDERED_HISTORY_WORDS = 64U;\nstatic const uint P_NATIVE_DIAG_BASE = 770976U;\nstatic const uint P_NATIVE_DIAG_WORDS = 4112U;\nstatic const uint D_OWNER = 0U;\nstatic const uint D_KIND = 1U;\n"
+        }
+      ]
+    },
+    "gpu/event_runtime.slang": {
+      "baseline_sha256": "26e4673fee86f8ce7ae164e888fea96cf03bdc0206241896174c0850b2806d3e",
+      "current_sha256": "9f895e3504bf4df76b4d7147ef16ec0cd5dd04e233a6b0a9b44756ae08e9b82a",
+      "changes": [
+        {
+          "baseline": "#include \"binary64.slang\"\n#include \"core_probability.slang\"\n#include \"portable_schema.slang\"\n#include \"stack_numeric.slang\"\n\nStructuredBuffer<uint> commands;\n",
+          "current": "#include \"binary64.slang\"\n#include \"core_probability.slang\"\n#include \"portable_schema.slang\"\n#include \"portable_scratch_layout.slang\"\n#include \"stack_numeric.slang\"\n\nStructuredBuffer<uint> commands;\n"
+        }
+      ]
+    },
+    "gpu/native_numeric_query_runtime.slang": {
+      "baseline_sha256": "01f9a77d751f0bd09e511b3312d6a1c9872e8d09db8e5b0dcd5cd1affb7e6ef0",
+      "current_sha256": "2e979426e3b798095113e8e5f2028ce3f16af64a013fac289c89f9eb20f1ae4e",
+      "changes": [
+        {
+          "baseline": "#ifdef PORTABLE_WORLD_PROJECTILE\n    if(!enabled) return true;\n    if(s.landingPolicy==0) return false;\n    for(uint i=0;i<P_NATIVE_QUERY_WORDS;i++) results[s.resourceOutput+P_NATIVE_QUERY_BASE+i]=0;\n    s.incomingMask|=256U;s.quantityMask|=256U;\n    // Native landing reads the numeric dictionary even when lifesteal is0.\n    // Reuse that same reader/continuation so post-hit mutations consume RNG.\n",
+          "current": "#ifdef PORTABLE_WORLD_PROJECTILE\n    if(!enabled) return true;\n    if(s.landingPolicy==0) return false;\n    for(uint i=0;i<P_NATIVE_QUERY_HEADER_WORDS;i++) results[s.resourceOutput+P_NATIVE_QUERY_BASE+i]=0;\n    for(uint i=0;i<P_NATIVE_QUERY_COUNT;i++) for(uint j=0;j<P_NATIVE_QUERY_CELL_WORDS;j++) results[nativeNumericCell(s.resourceOutput,i)+j]=0;\n    s.incomingMask|=256U;s.quantityMask|=256U;\n    // Native landing reads the numeric dictionary even when lifesteal is0.\n    // Reuse that same reader/continuation so post-hit mutations consume RNG.\n"
+        },
+        {
+          "baseline": "    uint count=results[head+2],target=nativeNumericTarget(s);\n    for(uint i=0;i<count;i++)\n    {\n        uint at=head+32+i*136;\n        if(results[at]==who && results[at+1]==target && results[at+2]==s.damageExclusion && results[at+3]==epoch && results[at+4]!=0)\n        {\n            for(uint k=0;k<64;k++) values[k]=uint64_t(results[at+8+k*2])|(uint64_t(results[at+9+k*2])<<32);\n",
+          "current": "    uint count=results[head+2],target=nativeNumericTarget(s);\n    for(uint i=0;i<count;i++)\n    {\n        uint at=nativeNumericCell(s.resourceOutput,i);\n        if(results[at]==who && results[at+1]==target && results[at+2]==s.damageExclusion && results[at+3]==epoch && results[at+4]!=0)\n        {\n            for(uint k=0;k<64;k++) values[k]=uint64_t(results[at+8+k*2])|(uint64_t(results[at+9+k*2])<<32);\n"
+        },
+        {
+          "baseline": "        }\n    }\n    if(count==P_NATIVE_QUERY_COUNT) { s.error=64;return false; }\n    slot=head+32+count*136;results[head+2]=count+1;\n    results[slot]=who;results[slot+1]=target;results[slot+2]=s.damageExclusion;results[slot+3]=epoch;results[slot+4]=0;\n    results[head+4]=1;results[head+7]++;return false;\n}\n",
+          "current": "        }\n    }\n    if(count==P_NATIVE_QUERY_COUNT) { s.error=64;return false; }\n    slot=nativeNumericCell(s.resourceOutput,count);results[head+2]=count+1;\n    results[slot]=who;results[slot+1]=target;results[slot+2]=s.damageExclusion;results[slot+3]=epoch;results[slot+4]=0;\n    results[head+4]=1;results[head+7]++;return false;\n}\n"
+        }
+      ]
+    },
+    "gpu/native_query_diagnostic.slang": {
+      "baseline_sha256": "d99415f7929b37d7665f2208fb31c44d2fd3fdc278793cf1a2383c34d4b2032f",
+      "current_sha256": "f3cc80fedc4895883357a4c625cfda5500a2a125e9453e1b6eae112ed7c51108",
+      "changes": [
+        {
+          "baseline": "// Read-only semantic observation in a separate compile-time diagnostic entry.\n// No additional buff/recipient query, invalidation or arithmetic is performed.\nvoid initializeNativeQueryDiagnostic(inout Runtime s)\n",
+          "current": "#if defined(PORTABLE_NATIVE_QUERY_DIAGNOSTIC) && defined(PORTABLE_HEAL_SHARE_DIAGNOSTIC)\n#error Native-query and heal-share diagnostic logs require separate entries\n#endif\n// Read-only semantic observation in a separate compile-time diagnostic entry.\n// No additional buff/recipient query, invalidation or arithmetic is performed.\nvoid initializeNativeQueryDiagnostic(inout Runtime s)\n"
+        }
+      ]
+    },
+    "gpu/portable_scratch_layout.slang": {
+      "baseline_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "713d698693e05adc708869da6a41dfa0b49719dce5582a10def6d0c11e6f3c68",
+      "changes": [
+        {
+          "baseline": "",
+          "current": "// Two disjoint padding banks preserve all64 full binary64 dictionary cells.\nuint nativeNumericCell(uint output,uint index)\n{\n    uint bank=index<P_NATIVE_QUERY_BANK_COUNT ? P_NATIVE_QUERY_BANK0_BASE : P_NATIVE_QUERY_BANK1_BASE;\n    return output+bank+(index%P_NATIVE_QUERY_BANK_COUNT)*P_NATIVE_QUERY_CELL_WORDS;\n}\n"
+        }
+      ]
+    }
+  }
+}

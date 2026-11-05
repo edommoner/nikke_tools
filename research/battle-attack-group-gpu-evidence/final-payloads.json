@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "packages": [
+    {
+      "final_package": "a3f55db173ac1da75f0dec1e52c5017d79912e6b467e844208b3fecfbef061df",
+      "producer_package": "804f9f228d7567b38c1fe2fe887d53c7021d0e230bf40b281cdf046915ace249",
+      "files": 2828,
+      "all_payload_files_equal_checkout": true,
+      "all_input_native_output_and_generated_equal_verified_capture": true,
+      "changed_files_since_producer": [
+        "app/portable_readiness_semantics.py",
+        "research/portable-world-attack-group-battle-short-expected.json",
+        "scripts/nikke_gpu.py",
+        "tests/test_destructible_body_accum.py",
+        "tests/test_destructible_body_heal_share.py"
+      ]
+    },
+    {
+      "final_package": "607cab492d579e036c62a0212f98b45cd61a99100dca63fd518eed5108120062",
+      "producer_package": "dc7b915c6f3562aa2d6b8309218f632acec7ef7d150cbb3ba0c37cecf63bf489",
+      "files": 2840,
+      "all_payload_files_equal_checkout": true,
+      "all_input_native_output_and_generated_equal_verified_capture": true,
+      "changed_files_since_producer": [
+        "research/portable-destructible-body-heal-share-retention-short-expected.json"
+      ]
+    }
+  ],
+  "gpu_calls": 0
+}

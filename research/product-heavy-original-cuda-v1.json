@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "scope": "Existing lock-fixed program current-source refresh for original Heavy Arms30s CUDA differential",
+  "independent_seal": {
+    "package_id": "e0ff505ef244e4526e91be415fb16f56817711d356274acd6f89d02cd52d990a",
+    "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-heavy-original-cuda-v1-20261101/metal-v1",
+    "child_pid": 22705,
+    "input_count": 1,
+    "native_cases": 1,
+    "live_parent_receipt_present": false,
+    "elapsed_seconds": 1.9052172499941662,
+    "gpu_calls": 0,
+    "calculation_verified": true,
+    "input_sha256": "9337f726787944458cb09c19b1de2b7f955f11c149f42bd6b385a7284bb50afa",
+    "output_sha256": "76fd63c5f64fd0b6fd0693e4906a4ba06f74a43e8626b7f570f3d6a757d72f2e",
+    "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+    "schema": "independent-metal-audit-v1"
+  },
+  "release_owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+  "cpu_tests": 148,
+  "release_own_cpu_only_passed": true,
+  "metal_and_fresh_native_passed": true,
+  "original_api_input_and_full_readback_equal_existing_cli_case": true,
+  "baseline": {
+    "version": 43,
+    "updated": "lock-fixed",
+    "old_input_output_native_entries_unchanged": true,
+    "other33_members_unchanged": true
+  },
+  "cuda": {
+    "status": "Original configured Heavy30s first normal API and saved audit passed; new compile/CPU87 reruns0; old SDK outer/environment false retained",
+    "request": {
+      "schema": "heavy-original-lock-windows-request-v1",
+      "owner": "a0d3ea37f93a5434c02c30420e2bbb0f9eb76ba5ce387da9ad1affd3a9b09ac1",
+      "source_commit": "3965b3908a973a28b5c32d826dce93766454542d",
+      "scope": "Original Heavy Arms profile210 favorite0 fixed30s, only explicit pre-existing Lock On declaration; other caller values unchanged; no default-model admission",
+      "program": "lock-fixed",
+      "source": "gpu/product_lock_fixed_battle_entry.slang",
+      "archive": "heavy-original-lock-fixed-v1.zip",
+      "archive_bytes": 12114544,
+      "archive_sha256": "e0f96938547156358aa8266e5cc162a77cf27a109790f289ce153c59f91a9274",
+      "api_job": "heavy-original-lock-fixed-v1-api-job.json",
+      "api_job_sha256": "e0a3fa9a615ab359cebb740d7ad0c4587262f1b42922eccc0c7fbcbb6b9ac97e",
+      "api_expected": "heavy-original-lock-fixed-v1-api-expected.json",
+      "cpu_patterns": [
+        "test_portable_detail.py",
+        "test_product_detail_packet.py",
+        "test_weighted_source_contract.py",
+        "test_product_reference_models.py"
+      ],
+      "selected_case_ids": {
+        "test_product_reference_models.py": [
+          "test_product_reference_models.ProductReferenceModels.test_fixed_lock_uses_shared_literal_header_and_preserves_all_effects",
+          "test_product_reference_models.ProductReferenceModels.test_lock_on_original_product_keeps_all_definitions_and_empty_typed_world"
+        ]
+      },
+      "windows_targeted_tests": 87,
+      "mac_own_tests": 148,
+      "unselected_windows_model_tests": 61,
+      "mac_existing_program_metal_native_and_independent_seal_passed": true,
+      "mac_final_packet_cpu_only_plans_deps_passed": true,
+      "mac_original30s_normal_api_and_saved_audit_passed": true,
+      "baseline_refresh": "v43 lock-fixed source/generated only; old input/output/native entries and other33 members unchanged",
+      "saved_cover_artifact_reused": false,
+      "artifact_reuse_rejection": "Prior saved CUDA image owns cover-specific entry/history layout; not the requested bare lock entry",
+      "all_original_definitions": 91,
+      "expected_lock_pulses": 110,
+      "expected_lock_shots": 15,
+      "physical_cases": 1,
+      "input_words": 109536,
+      "output_words": 1310720,
+      "physical_input_sha256": "9337f726787944458cb09c19b1de2b7f955f11c149f42bd6b385a7284bb50afa",
+      "physical_output_sha256": "76fd63c5f64fd0b6fd0693e4906a4ba06f74a43e8626b7f570f3d6a757d72f2e",
+      "physical_output_bytes": 5242880,
+      "expected_readback_chunk_bytes": [
+        5242880
+      ],
+      "max_posts": 1,
+      "max_gpu_dispatches": 1,
+      "retries": 0,
+      "standard266_rerun": false,
+      "unconfigured_standard_profile_delta": 0,
+      "configured_profile_delta_if_verified": 1,
+      "report": "heavy-original-lock-fixed-normal-api-status-v1.json",
+      "limits": {
+        "sdk_child_seconds": 60,
+        "api_helper_seconds": 53,
+        "cpu_audit_seconds": 60,
+        "each_outer_seconds": 180,
+        "memory_mib": 2048,
+        "priority": "BelowNormal",
+        "fresh_job_gate": true,
+        "permission_mode": "require_escalated",
+        "serial_only": true
+      },
+      "steps": [
+        "Fresh immutable root and own CLI/deps/PTX/O1 plans/golden; preserve all old roots/claims/raw/failures",
+        "CPU detail67+packet11+source7+selected original lock2=87; other61 model cases not claimed as Windows execution",
+        "First exact paired generation/PTX/O1 object/pinned link once each; require all source/artifact/cache/Job gates; no NVRTC or cover image substitution",
+        "Only supplied1-case normal API onePOST/oneGPU, all M5 raw hashes and freshCPU/GPU/HTTP/Unicode exact; full110 pulses/15shots quantities",
+        "Actual Node JSON roundtrip effective request, static repack/full source/parent/member/projection saved audit; extra battle/GPU0",
+        "Stop first numeric/source/artifact/cache/timeout/query/missing/cleanup/observation error; no retry/limit increases/OS changes; export small saved JSON only"
+      ],
+      "report_policy": "Keep SDK outerexit2/inner0, advisory null/unknown, service/whole/overallfalse; no raw/compiler/settings/auth",
+      "full_goal_complete": false
+    },
+    "stop_result_commit": "38a8397c2b723f2d184625028542c9462ba61670",
+    "mac_import_report": "research/product-heavy-original-stop-import-v1.json",
+    "read_only_diagnosis_requested": "Saved receipts/source only; ownership and available memory evidence, no execution or stage continuation",
+    "latest_continuation_import": "research/product-heavy-original-continuation-import-v1.json",
+    "original_artifact_admitted_for_next_stage": false,
+    "success_import": "research/product-heavy-original-success-import-v1.json"
+  },
+  "full_goal_complete": false,
+  "overall_verified": false
+}

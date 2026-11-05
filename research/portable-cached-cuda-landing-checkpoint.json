@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "suite": "coordinate-landing-cache-only",
+  "inputs": 40,
+  "native_cases": 26,
+  "cpu_preflight_verified": true,
+  "related_tests": 43,
+  "control_tests": 532,
+  "windows_cuda_verified": false,
+  "full_battle_verified": false,
+  "full_goal_complete": false,
+  "proof_path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/cached-cuda-landing-20261027",
+  "artifacts": {
+    "binding.json": {
+      "bytes": 727,
+      "sha256": "97f6b394165c1d4021a1343a5abe16f540e06407badfb63bd9c0235979eb25e4"
+    },
+    "control-tests.json": {
+      "bytes": 11978,
+      "sha256": "7def19500db0aeebf45be59d5135a6714fedbb1cee3cfaa823f54f8c662670f9"
+    },
+    "cpu-preflight.json": {
+      "bytes": 248,
+      "sha256": "f4bb731b31375fbc67ea864bf8a7fa4a0e36df5c63af7f973c6d16ffa4de8b04"
+    },
+    "related-tests.json": {
+      "bytes": 1528,
+      "sha256": "e4214432bb5aeb34f3c2aafe5011abc83280f7878192f1d459103d7759039052"
+    }
+  }
+}

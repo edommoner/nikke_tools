@@ -4,7 +4,16 @@ import copy, hashlib, json, math, sys, zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+REVISION = '67835ca3033a95482749ea2db35a8ee2a0856a92'
 ENGINE = ROOT / 'research/upstream/nikke-calc-master'
+from engine_revision import verify_runtime as verify_engine_runtime
+try:
+    verify_engine_runtime(ENGINE, REVISION)
+except (ValueError, OSError) as error:
+    if __name__ == '__main__':
+        print(json.dumps({'error': str(error)}, ensure_ascii=True))
+        sys.exit(1)
+    raise
 sys.path.insert(0, str(ENGINE))
 from runner import sim, spec
 from calculator import base_stat, timeline
@@ -15,7 +24,6 @@ engine_compat.install()
 MAPPINGS = json.loads((ROOT / 'data/import-mappings.json').read_text(encoding='utf-8-sig'))
 META = json.loads((ENGINE / 'data/parsed_nikke.json').read_text(encoding='utf-8'))
 RESOURCE_NAMES = importer._load_resource_name_map()
-REVISION = '23164e4a88fe46af609cc99b0de38a98313a5f4d'
 PARTS = ['머리', '몸통', '팔', '다리']
 REQUIRED = ['breakthrough', 'core_enhancement', 'affinity', 'skill_levels', 'equipment', 'equip_skills', 'collection_stage', 'cube']
 
@@ -60,7 +68,7 @@ def catalog():
                'values': {str(level): float(values[0]) for level, values in cube['values'].items()}}
         for name, cube in spec.CUBES.items()
     }
-    return {'characters': chars, 'cubes': list(spec.CUBES), 'cube_labels': {c['name']['ko']: c['name']['ja'] for c in cube_display['cubes']}, 'revision': REVISION,
+    return {'characters': chars, 'cubes': list(spec.CUBES), 'cube_labels': {c['name']['ko']: c['name'].get('ja', c['name']['ko']) for c in cube_display['cubes']}, 'revision': REVISION,
             'cube_effects': cube_effects, 'enemy_presets': enemy_presets(), 'overload': {k: v['values'] for k, v in spec._EQUIP_SKILL_TABLE.items() if not k.startswith('_')}}
 
 
@@ -253,7 +261,7 @@ def demo(expanded=False):
 
 
 def detail_demo():
-    """Fictional owned roster for exercising the normal detailed GPU screen."""
+    """Fictional owned roster for exercising the normal detailed calculation screen."""
     names = ['모더니아', '루주', '마스트 : 로망틱 메이드', '도라', '맥스웰']
     cubes = [n for n, data in spec.CUBES.items() if data['stat'] in ('accuracy_pct', 'charge_speed_pct', 'reload_speed_pct', 'max_ammo_pct')]
     chars = {n: {k: copy.deepcopy(v) for k, v in spec.DEFAULT_CHAR.items() if k in spec.GROWTH_KEYS} for n in names}
@@ -265,11 +273,16 @@ def detail_demo():
     chars['루주']['equip_skills'].update(max_ammo_pct=[11.12, 11.12, 12.34], charge_speed_pct=[4.3, 4.3, 6.2])
     result = import_data({'chars': chars, '_account': {'console': spec.DEFAULT_CHAR['console']}, '_meta': {'is_demo': True}})
     result['squad'] = names
-    result['warnings'].append('GPU詳細確認用の架空育成です。マクスウェルの有限弾数チャージ武器変更、モダニアの連射武器変更、マストのスタック、装備・キューブを含みます。')
+    result['warnings'].append('詳細計算確認用の架空育成です。マクスウェルの有限弾数チャージ武器変更、モダニアの連射武器変更、マストのスタック、装備・キューブを含みます。')
     return result
 
 
 def evaluate(body):
+    verify_engine_runtime(ENGINE, REVISION)
+    from product_reference_models import normalize as reference_models,execution as reference_execution,warning as reference_warning
+    declared_models=reference_models(body.get('reference_models'))
+    if declared_models and (body.get('_compile_detail')):
+        raise ValueError('Declared reference consumer has no compiled shared producer; CPU execution is required')
     profile = copy.deepcopy(body['profile'])
     squad = body['squad']
     if not isinstance(squad, list) or len(squad) != 5 or len(set(squad)) != 5:
@@ -352,24 +365,46 @@ def evaluate(body):
         if controls:
             req['chars'] = controls
         run = sim.prepare(req)
+        if 'manual_cover_sequences' in body:
+            from portable_declared_manual_sequences import apply as manual_cover
+            run.squad=manual_cover(run.squad,body['manual_cover_sequences'])
         if part_patterns:run.enemy['patterns']=copy.deepcopy(part_patterns)
+        coordinate_model=next((declared_models[k] for k in ('enemy_movement','named_range') if k in declared_models),None)
+        if coordinate_model is not None:
+            run.enemy['coord']=copy.deepcopy(coordinate_model['coord'])
         for char in run.squad:
             if char['name'] in no_cube:
                 char['cube'] = {'name': '__none__', 'level': 1}
-        if body.get('_compile_gpu_detail'):
+        if body.get('_compile_detail') or body.get('compute_backend','cpu') != 'cpu':
+            from engine_gpu_admission import require_supported
+            manager = BuffManager(run.squad)
+            require_supported((effect for effect, owner in manager._effects),
+                              (char.get('cube', {}).get('name') for char in run.squad))
+        if body.get('_portable_static_inputs'):
+            from portable_roster_input import prepare_static_inputs
+            static=prepare_static_inputs(run, changed)
+            if declared_models:static['reference_models']=copy.deepcopy(declared_models)
+            return static
+        if body.get('_audit_portable'):
+            from portable_catalog import audit_prepared
+            return audit_prepared(run, changed, body)
+        if body.get('_compile_detail'):
             from detail_gpu import compile_full
             return compile_full(run, changed, body, policy, requested_policy)
-        if body.get('_compile_gpu'):
-            from gpu_combat import compile_run
-            return compile_run(run, changed, body)
-        executed = sim.execute(run)
+        if coordinate_model is not None:
+            run.expected=False
+            run.config['rng_mode']='random'
+        with reference_execution(declared_models,squad) as model_result:
+            executed = sim.execute(run)
         result = sim.payload(run, executed)
+        if model_result is not None:result['reference_models']=model_result
         if parts:result['parts_state']=cpu_parts_state(parts,executed)
         if body.get('enemy',{}).get('patterns'):
             result['boss_patterns']=copy.deepcopy(body['enemy']['patterns'])
             result['boss_timeline']=[dict(time=round(e.t,6),pattern=e.pattern,kind=e.kind,event=e.event,outcome=e.outcome or None) for e in executed.boss_log if e.pattern!='authored-live-parts' and e.event in ('start','end','dispel')]
             if any(p.get('kind')=='attack' or p.get('kind')=='summon' and p.get('spec',{}).get('attack') for p in body['enemy']['patterns']):
                 result['incoming_hits']=[dict(time=round(h.t,6),pattern=h.pattern,target=h.target,damage=round(h.damage,6),pierce=bool(h.pierce),decoy=round(h.decoy,6),shield=round(h.shield,6),cover=round(h.cover,6),hp=round(h.hp,6),hp_after=round(h.hp_after,6),down=bool(h.down),by=h.by or '') for h in executed.squad_hits]
+        if 'manual_cover_sequences' in body:result['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])
         result['burst_policy'] = policy
         result['shooting_policy'] = shooting_policy
         result['weapon_mode_swap'] = mode_swap
@@ -387,6 +422,7 @@ def evaluate(body):
     result['engine_revision'] = REVISION
     result['app_warnings'] = ['固定条件の静止ボスを仮定した参考値です。ボス固有パターンと生存は未検証です。']
     result['app_warnings'].extend(getattr(executed,'effect_model_warnings',[]))
+    if declared_models:result['app_warnings'].append(reference_warning(declared_models))
     if body.get('enemy',{}).get('patterns'):result['app_warnings'][0]='設定したボス行動で計算した参考値です。実機のギミックや生存の再現は未検証です。'
     if result['requested_burst_policy']=='mast3' and result['burst_policy']=='auto':
         result['app_warnings'].append('マスト：ロマンチックメイドがいないため、3の倍数指定は適用せず全員オートで計算しました。')
@@ -428,16 +464,14 @@ def candidate_scores(body):
     return {'characters': chars, 'skipped': skipped, 'templates': templates}
 
 def dispatch(body):
+    verify_engine_runtime(ENGINE, REVISION)
     action = body.get('action')
-    if action == 'gpu_probe':
-        from gpu_selector import probe
-        return probe()
-    if action == 'select':
-        from gpu_selector import select_teams
-        return select_teams(body)
+    if action == 'evaluate_portable_events':
+        from portable_runtime import evaluate as evaluate_events
+        return evaluate_events(body)
     if action == 'candidates': return candidate_scores(body)
     if action == 'catalog': return catalog()
-    if action == 'demo': return detail_demo() if body.get('gpu_detail') else demo(body.get('expanded', False))
+    if action == 'demo': return detail_demo() if body.get('detail') else demo(body.get('expanded', False))
     if action == 'import': return import_data(body['data'])
     if action == 'evaluate': return evaluate(body)
     raise ValueError('Unknown action')
@@ -450,9 +484,3 @@ if __name__ == '__main__':
     except (Exception, SystemExit) as exc:
         print(json.dumps({'error': str(exc)}, ensure_ascii=True))
         sys.exit(1)
-
-
-
-
-
-

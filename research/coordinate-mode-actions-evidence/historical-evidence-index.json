@@ -1,0 +1,126 @@
+{
+  "files": [
+    {
+      "path": "v1-run.json",
+      "bytes": 267,
+      "sha256": "117e064572f9765cede335e81bcdbc59b211e548a357d2166bf3c5928d9b56c7"
+    },
+    {
+      "path": "v1-execution.json",
+      "bytes": 4158,
+      "sha256": "70786bf961d0bea11427e78cd6511881d0cc1191ffcf9bc49c93a0d06e39b3c3"
+    },
+    {
+      "path": "v1-result.json",
+      "bytes": 3990,
+      "sha256": "7fcda423e288b12e4abf8ea244f562bd1bc09e3452fc35691fb24ee40a6745ee"
+    },
+    {
+      "path": "v1-comparison.json",
+      "bytes": 82,
+      "sha256": "3c4dad8961f4e327c2e32cc5c0e38a514c485f8020d6ecd25735b3f78ce5e53c"
+    },
+    {
+      "path": "v1-cpu-tests.json",
+      "bytes": 433,
+      "sha256": "7c24b370d1ea532113140c5709dd6d0de4e9c6f25839368622d9a6988112e07b"
+    },
+    {
+      "path": "v1-stderr.log",
+      "bytes": 2132,
+      "sha256": "7f7fa1cc7f56df11ee3cb3f7ad4cea3efd3b4a5d38ff90b46bcedc767036fd9f"
+    },
+    {
+      "path": "v2-run.json",
+      "bytes": 267,
+      "sha256": "472f0f7e1f9180a9ec6a8a184e5efbbc3cef7a4e8fb0230a7efd7cac115532f6"
+    },
+    {
+      "path": "v2-execution.json",
+      "bytes": 4117,
+      "sha256": "dce982bb944dbe6ab01164d1abefff19f48157eee67f7376a8278fc08b79ad74"
+    },
+    {
+      "path": "v2-result.json",
+      "bytes": 4123,
+      "sha256": "6d82942b516d228fe2d165cecce6e862f241c0fd5038cdd90189b902987628b0"
+    },
+    {
+      "path": "v2-comparison.json",
+      "bytes": 5372,
+      "sha256": "abab249013c3e324112a2e3c9cc6233198f2ccd2a39e97cbb3b3b64f6603897c"
+    },
+    {
+      "path": "v2-cpu-tests.json",
+      "bytes": 433,
+      "sha256": "86ca41513011245cb3f8bc3cfc6c50574d4c3d9d4a773d54f3d8694ab8a5fea6"
+    },
+    {
+      "path": "v2-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "v3-run.json",
+      "bytes": 267,
+      "sha256": "b766caf94811ffb238a058976b831b06c261aa9290f47d0c6288d08ab95fc975"
+    },
+    {
+      "path": "v3-execution.json",
+      "bytes": 4126,
+      "sha256": "69ae38ff341ea465f93b3e21524645f09dc04bbe2c3e31d2026deb8759082e35"
+    },
+    {
+      "path": "v3-result.json",
+      "bytes": 4170,
+      "sha256": "e3ac0a1b8042ec0a69e6c76108294358af1e95c2362543a7404485553a3642a5"
+    },
+    {
+      "path": "v3-comparison.json",
+      "bytes": 7304,
+      "sha256": "e15ab2ba084002fbdb8eb38c6fe57ac042ee508d9e71ed154b261498cd8c0ee3"
+    },
+    {
+      "path": "v3-cpu-tests.json",
+      "bytes": 434,
+      "sha256": "fb77771ebd7f63288e985693df0da52d0aed425cd3dbc2980b3b8b9f980fd994"
+    },
+    {
+      "path": "v3-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nikke-mode-actions-diagnostic-v2.json",
+      "bytes": 61341,
+      "sha256": "f2201a5f4c34bf55a76b2a92ee729d3e1478922642ed6a852e336a3635bb5909"
+    },
+    {
+      "path": "nikke-mode-actions-static-clock-correction-v1.json",
+      "bytes": 1211,
+      "sha256": "eda45b228dbe2fdc43e8e757693dd6c779e5e71ad428fcd21cccd53f4ddcf202"
+    },
+    {
+      "path": "nikke-mode-actions-source-retained-v1.json",
+      "bytes": 1160,
+      "sha256": "b04d8772a7c12ca9c51627b7647d79932690e787b00b2ccad29a0ee6700dc4ce"
+    },
+    {
+      "path": "nikke-mode-actions-staging-archived-v1.json",
+      "bytes": 5960,
+      "sha256": "203f62ca754f4aa8f0745cf4f6c58b88382087ec62447616e13409536d9c793e"
+    },
+    {
+      "path": "nikke-mode-actions-sparse-v2.json",
+      "bytes": 691,
+      "sha256": "fb42a8a6f62f9e220887d63f661579351fad2f5a0f3144eaf6a645a499f17fe8"
+    },
+    {
+      "path": "nikke-mode-actions-sparse-v3.json",
+      "bytes": 691,
+      "sha256": "0d897a6a4d409f8f6316541e32ab5d8aebe7a1d21599588c04ac390dc55d17e4"
+    }
+  ],
+  "raw_included": false,
+  "personal_settings_included": false
+}

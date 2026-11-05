@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "suite": "coordinate-typed-owner-add-lifetime",
+  "inputs": 103,
+  "native_cases": 60,
+  "rejections": 43,
+  "metal_verified": true,
+  "fresh_independent_audit_verified": true,
+  "source_certificate_from_same_audit": true,
+  "old99_input_native_recorded_output_hashes_retained": true,
+  "graph_exit_before_after_child_verified": true,
+  "old_field_hidden_on_live_generation9": true,
+  "second_generation_owner_verified": true,
+  "gpu_final_actor_carrier_queries_verified": true,
+  "per_frame_visibility_trace_on_gpu_verified": false,
+  "hp_damage_death_verified": false,
+  "original99_raw_recovered": false,
+  "new103_capture_retained_on_proof_host": true,
+  "persistent_proof_path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/owner-add-lifetime-gpu-20261027",
+  "gpu_dispatches": 1,
+  "gpu_retries": 0,
+  "windows_gpu_runs": 0,
+  "cuda_current_device_verified": false,
+  "metal_warm_pipeline_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "artifacts": {
+    "control-tests.json": {
+      "bytes": 211,
+      "sha256": "466892c03412ebae5f41d2c97b26a1187f866c78c0a29f268d8c8ffe9fbdd408"
+    },
+    "generation.json": {
+      "bytes": 27697,
+      "sha256": "e6f23183bf05425cc45666bac9687b79177b746e559b798cb3394862a7fbf4a9"
+    },
+    "independent-audit.json": {
+      "bytes": 3090,
+      "sha256": "271fdafa7aac209b90d5656c13a7e79a987c9e3bb8b74a24363ffbea65af9cab"
+    },
+    "independent-group-retention.json": {
+      "bytes": 3051,
+      "sha256": "607766c19273309f3e4ff6b9387bc30ae85d4a21d09bd4f25d094fc67bf4c108"
+    },
+    "metal-cache-file-probe.json": {
+      "bytes": 652,
+      "sha256": "ead81ca924e72e2c8341244a237cc2e4743ca47f9d7f6030d8e50ad45e53a238"
+    },
+    "metal-summary.json": {
+      "bytes": 11520,
+      "sha256": "384feaccc74f9097a7e39e915141d400f9735cab1b2a2bde298945b773bf8d08"
+    },
+    "package-binding.json": {
+      "bytes": 841,
+      "sha256": "82ca2812389884d5e845d75aa0e9d608841a8a5a0e39273522654dc8fbd0ad4e"
+    },
+    "raw-storage.json": {
+      "bytes": 762,
+      "sha256": "dd2bf64646445ad5ad6e4532f6ba18294258aa5a82d337b825b9c17011523c12"
+    },
+    "readback-observations.json": {
+      "bytes": 2448,
+      "sha256": "5f06eaff7cf84b9123eb89fa1fb4487038d98f7eda1ab362309c66f307cadace"
+    },
+    "related-tests.json": {
+      "bytes": 210,
+      "sha256": "5581706c46a1a9e0724f6db7dd90faeec3f6d27f808e4dfc53f76137db5e0c42"
+    },
+    "windows-package-mac-cpu-check.json": {
+      "bytes": 216,
+      "sha256": "0a88524d38ce6f4872388446a30ee0f2d6ee6bf60aa980e0a02633e761eb5079"
+    }
+  }
+}

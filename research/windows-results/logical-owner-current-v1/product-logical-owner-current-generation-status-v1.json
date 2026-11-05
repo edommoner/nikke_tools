@@ -1,0 +1,203 @@
+{
+  "schema": "product-logical-owner-current-generation-status-v1",
+  "status": "generation-verified-scope-complete",
+  "fixed_source_transport_commit": "23f633327d14dde2673d8e1139431329807734d9",
+  "archive": {
+    "file": "product-logical-owner-current-v1.zip",
+    "bytes": 12268182,
+    "sha256": "3b2cff4d6eebe0530fcf060880c94bb990a61829eab4ca40cc6d4ff722eec764",
+    "fixed_git_blob_and_supplied_sha_verified": true
+  },
+  "owner": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+  "source_commit": "4c70a7972a6a0df2736eb97913d52d467d944329",
+  "working_tree_dirty": true,
+  "purpose": "sealed",
+  "requested_source": "gpu/product_typed_battle_entry.slang",
+  "requested_input_words": 123732,
+  "requested_output_words": 2345384,
+  "source_in_verified_generation_closure": true,
+  "manifest_sha256": "68db3cc13023e560ce9b32daab5d20a2f03c2328a201a573116f3a3219070d8c",
+  "manifest_files": 2806,
+  "all_manifest_bytes_and_hashes_verified_before_and_after": true,
+  "own_packet_cli_sealed_owner_and_baseline_verified": true,
+  "authorized_and_executed_scope": "Paired Slang generation only; no CPU tests/native battles or downstream compile/execute stages",
+  "source_request_parameters": "Direct generation-only request; no later PTX plan executed",
+  "unpack": {
+    "existing_common_cli_used": true,
+    "existing_helper_bytes_unchanged": true,
+    "child_exit_code": 0,
+    "elapsed_seconds": 25.09011290036142,
+    "monitored_missing_process_count": 0
+  },
+  "ram_gate": {
+    "passed": true,
+    "gate": "Immediately before first API worker launch",
+    "observed_unix_ns": 1793584004367380500,
+    "observed_at_jst": "2026-11-02T10:46:44.367380+09:00",
+    "available_physical_bytes": 15948546048,
+    "required_available_bytes": 4294967296,
+    "ram_measurements_at_this_gate": 1,
+    "resampling_loop": false,
+    "sdk_calls": 0,
+    "gpu_calls": 0,
+    "actual_invocation_context": "Fresh gate directly before new generation; inherited API-oriented literal label left unchanged"
+  },
+  "generation": {
+    "verified": true,
+    "sealed_generated_baseline_verified": true,
+    "normalized_generated_hashes": {
+      "cuda": "9dc3e44027c554d49a46a2e062e40ac0fb75afb9d013ded20e63d69534bf4619",
+      "metal": "f09ed8e266749fe4660d58a3c38175b006b2977c268d792216bc629a52e75b11"
+    },
+    "each_language_matches_its_own_frozen_baseline": true,
+    "cache_hit": false,
+    "cache_key": "c3d4c29e6be342c78ec5dcf88d7403dea3f6f5922e1c039b447dd7f266e9f1b7",
+    "slang_actual_invocations": 2,
+    "cli_exit_code": 0,
+    "bounded_child_exit_code": 0,
+    "elapsed_seconds": 21.445090599823743,
+    "timeout_argument_seconds": 180,
+    "effective_bounded_timeout_seconds": 179.82799999974668,
+    "peak_job_memory_bytes": 643264512,
+    "configured_job_limit_bytes": 2147483648,
+    "peak_within_configured_limit": true,
+    "below_normal": true,
+    "timed_out": false,
+    "error": null,
+    "cleanup_error": null,
+    "observation_error": null,
+    "source_closure_file_count": 287,
+    "source_closure_canonical_hash_map_sha256": "ce6d68f22dc1f75f0d58293915eb054893cf8830d705d30a600f048be61b4c78"
+  },
+  "containment": {
+    "bounded_execution_verified": true,
+    "fresh_pre_gate_all_verified": true,
+    "pre_post_limit_bytes": 2147483648,
+    "post_wait_job_empty": true,
+    "owned_live_count": 0,
+    "inspection_error": null,
+    "packet_containment": {
+      "packet_stage_verified": true,
+      "package_id": "4c1bcd5a0198de5e3d3e87b92479d07be5c0537ebe899241cbd906b5b4594376",
+      "in_job": true,
+      "priority_class": 16384,
+      "job_peak_memory_bytes": 61149184,
+      "job_memory_limit_bytes": 2147483648,
+      "job_limit_flags": 8704
+    }
+  },
+  "preservation": {
+    "whole_stage_process_preservation_verified": true,
+    "whole_stage_environment_preservation_verified": false,
+    "monitored_missing_processes": 0,
+    "comparison_error": null,
+    "identified_service_preservation_verified": false,
+    "service_status_before": "unverified",
+    "service_status_after": "unverified",
+    "old_protected_sha256_before": {
+      "product-typed-lock-resident-windows-v1/stop.json": "9bb5a303b4e88f7956b3a805d693bb67c6f0e33f777c6b2df4f0312b0c17a72d",
+      "nikke-gpu-cli-3c44b97/product-typed-lock-resident-windows-status-v1.json": "d1ed30f2f25dc442dc6ff219120c45b3b9b2b413a25eed3d8265f0199e565795",
+      "nikke-gpu-cli-3c44b97/product-coordinate-lock-windows-status-v2.json": "7e9a6d9bbe47db5c985c5474eb82d4ed7ef2b3c60799d926293b47eb141aead6"
+    },
+    "old_protected_sha256_after": {
+      "product-typed-lock-resident-windows-v1/stop.json": "9bb5a303b4e88f7956b3a805d693bb67c6f0e33f777c6b2df4f0312b0c17a72d",
+      "nikke-gpu-cli-3c44b97/product-typed-lock-resident-windows-status-v1.json": "d1ed30f2f25dc442dc6ff219120c45b3b9b2b413a25eed3d8265f0199e565795",
+      "nikke-gpu-cli-3c44b97/product-coordinate-lock-windows-status-v2.json": "7e9a6d9bbe47db5c985c5474eb82d4ed7ef2b3c60799d926293b47eb141aead6"
+    },
+    "old_stop_and_result_files_unchanged": true,
+    "checkout_head_unchanged": true,
+    "checkout_branch_unchanged": true,
+    "no_reset_or_branch_switch": true
+  },
+  "reported_stage_flags": {
+    "stage_verified": true,
+    "stage_complete": true,
+    "generation_verified": true,
+    "compiler_verified": false,
+    "calculation_verified": false,
+    "cpu_verified": false,
+    "smoke_verified": false,
+    "full_goal_complete": false
+  },
+  "generation_environment": {
+    "passed_as_environment_variables_only": [
+      "NIKKE_SLANG_ROOT",
+      "NIKKE_SLANG_GENERATION_CACHE"
+    ],
+    "paired_cli_flags_not_used": true,
+    "old_ptx_cubin_object_or_link_substituted": false
+  },
+  "execution_counts": {
+    "fresh_ram_samples": 1,
+    "ram_resampling": 0,
+    "slang_actual_invocations": 2,
+    "nvrtc_calls": 0,
+    "ptx_compile_calls": 0,
+    "object_compile_calls": 0,
+    "link_calls": 0,
+    "gpu_calls": 0,
+    "api_posts": 0,
+    "cpu_unit_tests": 0,
+    "native_battles": 0,
+    "saved_battle_audits": 0,
+    "retries": 0
+  },
+  "evidence_files": [
+    {
+      "file": "archive-verification.json",
+      "bytes": 587,
+      "sha256": "cc86703d6ff9012ecbf6e12c7f5551a1888c7f5e772eeed85103cafaa32e8fe3"
+    },
+    {
+      "file": "packet/gpu-package.json",
+      "bytes": 606450,
+      "sha256": "68db3cc13023e560ce9b32daab5d20a2f03c2328a201a573116f3a3219070d8c"
+    },
+    {
+      "file": "generation-v1/stage-result.json",
+      "bytes": 33723,
+      "sha256": "2d7f9b5063382716c4dc6b63231c28f766c527d7b103f1f7acda271ac0a51ca1"
+    },
+    {
+      "file": "generation-v1/execution.json",
+      "bytes": 1178,
+      "sha256": "bcb096979f629b69ad5606109298f36a19954a3be194ef985fec066974a3cd97"
+    },
+    {
+      "file": "generation-v1/job.json",
+      "bytes": 1095,
+      "sha256": "ba0f1fec7647c5be8604a1cb263ee3c45cac3d7024aec272bf5ea3b878cbb264"
+    },
+    {
+      "file": "generation-v1/observation.json",
+      "bytes": 45388,
+      "sha256": "4761d30e73d3a7766e9ee9b7d4f8c8f7089a411c1a3b57965a2c1770fc50b204"
+    },
+    {
+      "file": "generation-v1/proof/generation.json",
+      "bytes": 32225,
+      "sha256": "f9992816ddf44efd42bcfa22989c0c91485bd50e6fb78f5f05fe7952dd71a5c2"
+    },
+    {
+      "file": "generation-v1/proof/generation-cache.json",
+      "bytes": 42947,
+      "sha256": "0ec2d639510d0486faea4f8f1d34a97826f754063942f19092c9c1c5791896e2"
+    },
+    {
+      "file": "generation-v1/proof/phases.jsonl",
+      "bytes": 53413,
+      "sha256": "b2fb24ca5f54d1eecc5dea2dc3eaadb0ec5b9a7506174cefeb1ddde6c3233f4b"
+    },
+    {
+      "file": "sdk-before-ram/verification.json",
+      "bytes": 376,
+      "sha256": "12a85ebcc3eae70551994afbfbd219fd5a462be317f66475399185405af59294"
+    }
+  ],
+  "stage_verified": true,
+  "generation_scope_verified": true,
+  "service_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "overall_calculation_verified": false,
+  "full_goal_complete": false
+}

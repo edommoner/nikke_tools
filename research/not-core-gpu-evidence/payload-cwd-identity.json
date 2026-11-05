@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "payload_files": 2397,
+  "all_current_worktree_payload_bytes_identical": true,
+  "package_id": "26c16763882cbe22fef0e6d633654e85d1b46b478f92b203632e6dd47ec17aea",
+  "scope": "Parent invocation cwd was the worktree; full payload byte identity checked. Child GPU cwd is the immutable package; final seal must use package cwd."
+}

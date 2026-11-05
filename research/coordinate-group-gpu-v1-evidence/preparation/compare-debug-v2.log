@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/tmp/nikke-coordinate-group-develop-v2/research/verify-coordinate-group-short.py", line 71, in compare
+    physical.codec.compare_expected(block[:786432],domain[:3],dict(battle=expected['battle'],skill_trace=expected['skill_trace']))
+  File "/private/tmp/nikke-coordinate-group-develop-v2/research/verify-world-heal-share-short.py", line 47, in compare_expected
+    actual['healing_storage']=storage.decoded_storage(block,metadata,case)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-group-develop-v2/research/verify-world-healing-storage-short.py", line 34, in decoded_storage
+    if not carrier['active'] or case['effects'][row].get('stat')!='heal_overcharge_store':continue
+                                ~~~~~~~~~~~~~~~^^^^^
+IndexError: list index out of range

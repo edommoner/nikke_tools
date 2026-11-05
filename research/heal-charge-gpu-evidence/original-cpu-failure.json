@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "test_portable_heal_charge_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 6.480131916934624,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 13849
+  },
+  {
+    "pattern": "test_portable_heal_charge_gpu.py",
+    "exit_code": 1,
+    "elapsed_seconds": 0.6972563330782577,
+    "tests": 6,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 13849
+  }
+]

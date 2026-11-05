@@ -1,0 +1,97 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "reject/destructible-skill/row",
+      "input_sha256": "1a9c67acbac7519894d367dba01376d0498a81c0bb31afe0b767d973dc87c3d1",
+      "output_sha256": "f9d2788302c05a31b577e11ecb8d7f6e9addbe75491404beb2276f3c16e936a8",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-skill/attack-id",
+      "input_sha256": "ab4ed1bf7cdaaa8bd9282e07bf3f4ede70fcf3c14cd6ec053c08f00eebe43d3d",
+      "output_sha256": "f9d2788302c05a31b577e11ecb8d7f6e9addbe75491404beb2276f3c16e936a8",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-skill/full-burst",
+      "input_sha256": "6f852efd1a15b6eefb5277da73e7933c48ffe567013c9e30df1a29329677ab4e",
+      "output_sha256": "f9d2788302c05a31b577e11ecb8d7f6e9addbe75491404beb2276f3c16e936a8",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-skill/magic",
+      "input_sha256": "f2d2843fec1e4e4267b994deb6db67d19998c9e402970be24ef6f60e8980d649",
+      "output_sha256": "f9d2788302c05a31b577e11ecb8d7f6e9addbe75491404beb2276f3c16e936a8",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-skill/reserved",
+      "input_sha256": "8a0d3b7c914acca52a99d3ca2c0f20af9565f2131be1aa55222bbb472a7e25d2",
+      "output_sha256": "f9d2788302c05a31b577e11ecb8d7f6e9addbe75491404beb2276f3c16e936a8",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-skill/counter-as-skill",
+      "input_sha256": "6c02ad7bfbc9c4cca7fa8fe288357b4210fc7bedb9d6a03c975e09683c669d2a",
+      "output_sha256": "f9d2788302c05a31b577e11ecb8d7f6e9addbe75491404beb2276f3c16e936a8",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "destructible-skill/original-level1",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 1,
+      "name": "destructible-skill/original-level10",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 2,
+      "name": "destructible-skill/original-full-burst",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 3,
+      "name": "destructible-skill/live-attack-buff",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 4,
+      "name": "destructible-skill/live-damage-and-critical-buffs",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 5,
+      "name": "destructible-skill/expired-buff",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 6,
+      "name": "destructible-skill/empty-selection",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 7,
+      "name": "destructible-skill/zero-coefficient",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 8,
+      "name": "destructible-skill/one-ulp-coefficient",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    }
+  ],
+  "input_count": 15,
+  "native_oracles": 9,
+  "input_sha256": "a3d0f19e4297209026379b3b5f237d515f632b6082e9f86aab28987bac117030",
+  "output_sha256": "fe4881077eab0011aac7ab48c1f6863e5e0f521cf3544827c86158e4ff513155",
+  "generated_normalized": {
+    "cuda": "82d26df8ad383d89aadfe3641899b54df8ee8003421e6e3a8a67117ed0bfdcd3",
+    "metal": "eb02b446ad917c8b144ac52114ebc76566cfce01d2a24d1540a1b6a73c6518e9"
+  },
+  "audit_gpu_calls": 0
+}

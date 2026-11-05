@@ -1,0 +1,19 @@
+{
+  "scope": "old HSI4 input/native/generated preservation; no new GPU dispatch",
+  "input_and_native_rows_exact": true,
+  "strict_generated_exact": true,
+  "raw_generated": {
+    "cu": {
+      "equal": true,
+      "old_sha256": "283c7905325108760b53b1b15c3e483295a19c4dcabf83794cda3cc9ec9919be",
+      "new_sha256": "283c7905325108760b53b1b15c3e483295a19c4dcabf83794cda3cc9ec9919be"
+    },
+    "metal": {
+      "equal": true,
+      "old_sha256": "a2c50c48bf8a74199b394a921d3e2a8a227a60319ed48529093f21c2ff0cdf20",
+      "new_sha256": "a2c50c48bf8a74199b394a921d3e2a8a227a60319ed48529093f21c2ff0cdf20"
+    }
+  },
+  "generation_compiler_invocations": 2,
+  "gpu_calls": 0
+}

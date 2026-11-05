@@ -1,0 +1,16 @@
+{
+  "package_id": "3ed9914be137ba264ea1c7568e0f07331fc34afe1640631c97d8e681c6f57091",
+  "child_pid": 51513,
+  "input_count": 11,
+  "native_cases": 4,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 88.79404708300717,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "a211360e248fa34dd78a91ac799ce93c5db7fbb6e47c66e0ff6547601a0b969f",
+  "output_sha256": "a3b5b0fd7843c3dbc4b2408fce397ef62b5e8bbfb0ebf487ffb6b41453a9d651",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1",
+  "source_receipt_sha256": "c91da477a9541108c8d486547b61f34b63c09faf41b78d14643607af47afb3fe",
+  "capture_local_name": "cover-defense-battle-v3-20261030-metal"
+}

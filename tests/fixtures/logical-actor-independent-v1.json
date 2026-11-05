@@ -1,0 +1,77 @@
+{
+  "package_id": "e4d6f280f00719475a62735a7af54cb5e66947745206d70e9555ff8b82d0d977",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/logical-actor-metal-v1-metal",
+  "schema": "independent-metal-audit-groups-v1",
+  "child_pids": [
+    57854,
+    57875,
+    57900,
+    57901,
+    57902
+  ],
+  "groups": [
+    {
+      "child_pid": 57854,
+      "case_indices": [
+        0,
+        1,
+        2
+      ],
+      "input_count": 3,
+      "native_cases": 3,
+      "elapsed_seconds": 33.778076667003916
+    },
+    {
+      "child_pid": 57875,
+      "case_indices": [
+        3,
+        4,
+        5
+      ],
+      "input_count": 3,
+      "native_cases": 3,
+      "elapsed_seconds": 85.62397087500722
+    },
+    {
+      "child_pid": 57900,
+      "case_indices": [
+        6,
+        7,
+        8
+      ],
+      "input_count": 3,
+      "native_cases": 0,
+      "elapsed_seconds": 2.9577557090087794
+    },
+    {
+      "child_pid": 57901,
+      "case_indices": [
+        9,
+        10,
+        11
+      ],
+      "input_count": 3,
+      "native_cases": 0,
+      "elapsed_seconds": 2.965384041002835
+    },
+    {
+      "child_pid": 57902,
+      "case_indices": [
+        12
+      ],
+      "input_count": 1,
+      "native_cases": 0,
+      "elapsed_seconds": 2.9687933749955846
+    }
+  ],
+  "input_count": 13,
+  "native_cases": 6,
+  "live_parent_receipt_present": false,
+  "per_group_timeout_seconds": 180,
+  "elapsed_seconds": 128.94496024999535,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "ca6538e82b5fbb42c92a788cc22e314b07388d1be35e3eaca60b94ee22b85228",
+  "output_sha256": "b3cded4818690ca4b314287a035d96455edeb0b250cc9cff8672eeb7e855900a",
+  "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups"
+}

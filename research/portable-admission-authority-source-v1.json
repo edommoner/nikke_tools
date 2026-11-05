@@ -1,0 +1,20 @@
+{
+  "schema": "portable-admission-authority-source-v1",
+  "code_commit": "6f0d7b27",
+  "package_id": "80c928f330b7314a382b30bcf821fbd466148efcf439abf769eb518fd8de7bab",
+  "archive": "research/windows-source-packets/prepared-authority-v1.zip",
+  "bytes": 13498905,
+  "sha256": "9ba3e0bf21395d4a80c6ba75ad4e26c2e1630905b99282b0e265e571ddb3eb44",
+  "fixed_tests": 105,
+  "control_groups": 69,
+  "control_tests": 719,
+  "windows_only_skip": 1,
+  "scope": "Source packet for CPU-only authority-check against the already completed preparation; no claim or GPU launch",
+  "preparation_package_id": "cad4086feda77f0e4ffa98d69153959ed2bbb7bdee191182edb8cca7abe7dfa0",
+  "snapshot_sha256": "face629b215828058612b8bfdbbb29724ff20b8f4f9f7290f89721b76524a07f",
+  "certificate_sha256": "72c08944af969905c76f7b514261912e87f4c0d612f826b17ed65fda29936e41",
+  "raw_snapshot_included": false,
+  "real_authority_verified": false,
+  "execution_claim_created": false,
+  "gpu_calls": 0
+}

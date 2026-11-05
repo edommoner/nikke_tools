@@ -1,0 +1,331 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "gpu_execution_performed": false,
+  "gpu_admission_enabled": false,
+  "character": "리타",
+  "owner": 0,
+  "original_range": [
+    15.0,
+    35.0
+  ],
+  "range_buff_cases": [
+    {
+      "minimum_pct": 0,
+      "maximum_pct": 0,
+      "distance": 14.999999998,
+      "lower": 15.0,
+      "upper": 35.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 0,
+      "maximum_pct": 0,
+      "distance": 15.0,
+      "lower": 15.0,
+      "upper": 35.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 0,
+      "maximum_pct": 0,
+      "distance": 35.0,
+      "lower": 15.0,
+      "upper": 35.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 0,
+      "maximum_pct": 0,
+      "distance": 35.000000002,
+      "lower": 15.0,
+      "upper": 35.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 50,
+      "maximum_pct": 0,
+      "distance": 7.499999998,
+      "lower": 7.5,
+      "upper": 35.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 50,
+      "maximum_pct": 0,
+      "distance": 7.5,
+      "lower": 7.5,
+      "upper": 35.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 50,
+      "maximum_pct": 0,
+      "distance": 35.0,
+      "lower": 7.5,
+      "upper": 35.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 50,
+      "maximum_pct": 0,
+      "distance": 35.000000002,
+      "lower": 7.5,
+      "upper": 35.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 100,
+      "maximum_pct": 0,
+      "distance": -2e-09,
+      "lower": 0.0,
+      "upper": 35.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 100,
+      "maximum_pct": 0,
+      "distance": 0.0,
+      "lower": 0.0,
+      "upper": 35.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 100,
+      "maximum_pct": 0,
+      "distance": 35.0,
+      "lower": 0.0,
+      "upper": 35.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 100,
+      "maximum_pct": 0,
+      "distance": 35.000000002,
+      "lower": 0.0,
+      "upper": 35.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 150,
+      "maximum_pct": 0,
+      "distance": -2e-09,
+      "lower": 0.0,
+      "upper": 35.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 150,
+      "maximum_pct": 0,
+      "distance": 0.0,
+      "lower": 0.0,
+      "upper": 35.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 150,
+      "maximum_pct": 0,
+      "distance": 35.0,
+      "lower": 0.0,
+      "upper": 35.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 150,
+      "maximum_pct": 0,
+      "distance": 35.000000002,
+      "lower": 0.0,
+      "upper": 35.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 0,
+      "maximum_pct": 20,
+      "distance": 14.999999998,
+      "lower": 15.0,
+      "upper": 42.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 0,
+      "maximum_pct": 20,
+      "distance": 15.0,
+      "lower": 15.0,
+      "upper": 42.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 0,
+      "maximum_pct": 20,
+      "distance": 42.0,
+      "lower": 15.0,
+      "upper": 42.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 0,
+      "maximum_pct": 20,
+      "distance": 42.000000002,
+      "lower": 15.0,
+      "upper": 42.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 0,
+      "maximum_pct": 100,
+      "distance": 14.999999998,
+      "lower": 15.0,
+      "upper": 70.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 0,
+      "maximum_pct": 100,
+      "distance": 15.0,
+      "lower": 15.0,
+      "upper": 70.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 0,
+      "maximum_pct": 100,
+      "distance": 70.0,
+      "lower": 15.0,
+      "upper": 70.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 0,
+      "maximum_pct": 100,
+      "distance": 70.000000002,
+      "lower": 15.0,
+      "upper": 70.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 50,
+      "maximum_pct": 20,
+      "distance": 7.499999998,
+      "lower": 7.5,
+      "upper": 42.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "minimum_pct": 50,
+      "maximum_pct": 20,
+      "distance": 7.5,
+      "lower": 7.5,
+      "upper": 42.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 50,
+      "maximum_pct": 20,
+      "distance": 42.0,
+      "lower": 7.5,
+      "upper": 42.0,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "minimum_pct": 50,
+      "maximum_pct": 20,
+      "distance": 42.000000002,
+      "lower": 7.5,
+      "upper": 42.0,
+      "marker_value": 0.0,
+      "passed": false
+    }
+  ],
+  "expiry_without_tick": [
+    {
+      "time": 0.999999,
+      "marker_value": 1.0,
+      "passed": true
+    },
+    {
+      "time": 1.0,
+      "marker_value": 0.0,
+      "passed": false
+    },
+    {
+      "time": 1.000001,
+      "marker_value": 0.0,
+      "passed": false
+    }
+  ],
+  "runtime_queries_skip_activation_geometry": [
+    {
+      "condition": "optimal_range",
+      "initial_enemy": {
+        "distance": 15.0
+      },
+      "changed_enemy": {
+        "distance": 36.0
+      },
+      "marker_value": 1.0
+    },
+    {
+      "condition": "core_hit",
+      "initial_enemy": {
+        "core_px": 1
+      },
+      "changed_enemy": {
+        "core_px": 0
+      },
+      "marker_value": 1.0
+    }
+  ],
+  "ordered_queries": [
+    {
+      "conditions": [
+        "optimal_range",
+        "prob:0"
+      ],
+      "actual_queries": 1,
+      "passed": false
+    },
+    {
+      "conditions": [
+        "prob:0",
+        "optimal_range"
+      ],
+      "actual_queries": 0,
+      "passed": false
+    }
+  ],
+  "scope": "Real BuffManager buffs and notifications;only wraps count queries,no mocked buff values;not GPU proof",
+  "source_sha256": {
+    "research/characterize-live-range.py": "1547335e82d5016850216c70bd5ccec2b126b3588aec30309980384337368709",
+    "tests/test_target_counter_runtime.py": "67aae222254b5e64d7b277dd9ba1336f1fabf08b4e9bd2a029d7bfdf72f3bacb",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

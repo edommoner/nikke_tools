@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "cpu-batch.json",
+      "bytes": 720,
+      "sha256": "18bb9b503b218426bfb1cdb6d15f60fa2940133f4b6099e045bc44330215e4b1"
+    },
+    {
+      "path": "cpu-batch.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cpu-batch.stdout.log",
+      "bytes": 59,
+      "sha256": "a6ae9d5daa7ab70360b2339e9b09e58211c3dac1b7fb60006b65f08f22d1f48a"
+    },
+    {
+      "path": "cpu-tests.json",
+      "bytes": 2549,
+      "sha256": "50b00202a127990e5c6a14b812fc63a5372155e587852cde6a76b1a7906e7e34"
+    },
+    {
+      "path": "cpu.json",
+      "bytes": 247,
+      "sha256": "75a1da688e591590c61835cf5e5b9024a8e4c1ec9456ef5a2eddd79fec60bed0"
+    },
+    {
+      "path": "preparation.jsonl",
+      "bytes": 319,
+      "sha256": "1025010e9359f6d207120cbacf6be7302edd9130520bbd971535fd2b3c36f857"
+    },
+    {
+      "path": "result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "run.json",
+      "bytes": 237,
+      "sha256": "2d367d8d8aec931dcab47cd8fd394eb68e275adafd9c8675cb75e1b4683358e8"
+    },
+    {
+      "path": "test_coordinate_area.py.stderr.log",
+      "bytes": 102,
+      "sha256": "e16e4d52c60c41a6abfeb510c88ae2b6927047b9c374208d68c486eea88f0548"
+    },
+    {
+      "path": "test_coordinate_area.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_composed.py.stderr.log",
+      "bytes": 103,
+      "sha256": "a629f68a1574e035667a4233209cf1e1ff9c36ab6466b119dff3b80dc14feb87"
+    },
+    {
+      "path": "test_coordinate_composed.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_dot.py.stderr.log",
+      "bytes": 101,
+      "sha256": "42ae691a156bba26778e7ee8fa77cf986e8e46bc19ca43c25519dff94232f3b9"
+    },
+    {
+      "path": "test_coordinate_dot.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_full_burst.py.stderr.log",
+      "bytes": 100,
+      "sha256": "68684b365fa37e98dbd7104de5b9f53b7d5715d95ff225c2abc43f2f45424224"
+    },
+    {
+      "path": "test_coordinate_full_burst.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_generation.py.stderr.log",
+      "bytes": 100,
+      "sha256": "9ca097073dd3a5b50d7ce473867be6e018750ab5524ae1ed7824df3f1905f23a"
+    },
+    {
+      "path": "test_coordinate_generation.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_math.py.stderr.log",
+      "bytes": 102,
+      "sha256": "b891b3d13a03328283fb957c6a880ae0f4585aa52723fcbf61638dcaf67d2c47"
+    },
+    {
+      "path": "test_coordinate_math.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_packets.py.stderr.log",
+      "bytes": 102,
+      "sha256": "583d8015a200d74d753c37164a0ecadb232d0d0d556b7c1de50ef94d38dd08c7"
+    },
+    {
+      "path": "test_coordinate_packets.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_pending.py.stderr.log",
+      "bytes": 100,
+      "sha256": "897f45b975b71712459b626760cd3d386690289197dc261078c90d1fbd7bf9c7"
+    },
+    {
+      "path": "test_coordinate_pending.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_skill_reference.py.stderr.log",
+      "bytes": 101,
+      "sha256": "8e6ff8ae820e9c275213b669e5263b8e4ae8b6503a1f23f741ceb9bcf500ca3f"
+    },
+    {
+      "path": "test_coordinate_skill_reference.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_world_pool.py.stderr.log",
+      "bytes": 102,
+      "sha256": "8c61704ffc61ece0de1ce6972db52faf4e2a7f492b8bded89a8465948a1b3e92"
+    },
+    {
+      "path": "test_coordinate_world_pool.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_impact_runtime.py.stderr.log",
+      "bytes": 104,
+      "sha256": "c6b9b1f09add0403cc07e90bfdf272129b1ddfa2f8f7675ea8218862f2516371"
+    },
+    {
+      "path": "test_impact_runtime.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_coordinate_scene.py.stderr.log",
+      "bytes": 101,
+      "sha256": "fd3429f6a39b0337f73fcc2e93bc92cfa556334244053e19baf5f74b054988a4"
+    },
+    {
+      "path": "test_portable_coordinate_scene.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

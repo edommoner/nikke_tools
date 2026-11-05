@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "test_coordinate_auto_reload.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.918287832988426,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 6745
+  },
+  {
+    "pattern": "test_portable_parent_oracles.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7570802919799462,
+    "tests": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 6745
+  }
+]

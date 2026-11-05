@@ -1,0 +1,49 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "coordinate-original-stacks/Pepper-no-carrier",
+      "input_sha256": "708663fe43351fb55486c02ffbd7b1cb54f2d2666924f6cef82928e047b01f3d",
+      "output_sha256": "21a0d31dcd5e40e68c1680396b0f04f4b0d841d7b2943f4461c76b8bb3b5df5f",
+      "native_sha256": "1c7dee8dd35820b3691b1efb35bd9fda8a31d4cd854c4834346cf72f5f87e3aa"
+    },
+    {
+      "name": "coordinate-original-stacks/Rupee",
+      "input_sha256": "90f667540321cf329a6a24ed6a2c86c5e1631bc611f826337b43b048b0c89e51",
+      "output_sha256": "7c38e70713c3dd5bf59921cb74682a16a13bbc705a3da095ef084a8d6621363d",
+      "native_sha256": "105a28dd5ab36c76e29a53974c6c8c46a8184d5c5a7d16bcc210efe66f8e3d72"
+    },
+    {
+      "name": "coordinate-original-stacks/Marine-cap",
+      "input_sha256": "493445494d54d2daebef83a7a41e855881a49600bf25fe5008836d1c1d7f4657",
+      "output_sha256": "a9fe42eda772379e4cfc2314d528caed2db17b55d5b5f3b55356ef5a9539f53f",
+      "native_sha256": "71eae8c0dad7463899bf8cb25a5ca40e1f820406776792292420c353774a004b"
+    },
+    {
+      "name": "coordinate-original-stacks/Marine-consume-recharge",
+      "input_sha256": "286622b8dfc20fcf9a51e5fe848f3aa3877ec31afe0af4c9e843e9d01269f3a0",
+      "output_sha256": "039bab6c6b2042a8d8997b42fbdd48f364fef5173ed9b48453e26e64ebc5fe95",
+      "native_sha256": "6b786197dad67f529759acbcd08e2b3f3c00c971a2c520f97e5d22ff39f1270e"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 4,
+  "native_oracles": 4,
+  "input_sha256": "a614f980b30c61990f5bad274d04b71ef600322ff8638ad30aa6fbaa6aa4cc0d",
+  "output_sha256": "b803ff489c1e9663ac730ff96ff4047409338ef01095a953d551846bd32fbd29",
+  "generated_normalized": {
+    "cuda": "aad7c38ecd389b5592957c1092db28f4c6d7c3aeaf174fe72e2fd680ad1ef6ec",
+    "metal": "b0eb0e385492b10363393c132fd62988b93b060249cc6a598e431ec8342b7847"
+  },
+  "audit_gpu_calls": 0,
+  "passed": true,
+  "preservation_verified": null,
+  "sealed": false,
+  "mode": "saved-metal-replay",
+  "source_package_id": "3f448b6e50ec283cff960936b675546f01dc83b98c5fcf79cc8575cee8b77c60",
+  "source_execution_passed": true,
+  "original_failure_preserved": true,
+  "gpu_calls": 0,
+  "gpu_retry_count": 0,
+  "source_gpu_dispatches": 1
+}

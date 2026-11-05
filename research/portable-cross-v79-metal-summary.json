@@ -1,0 +1,626 @@
+{
+  "passed": true,
+  "changed_keys": [],
+  "comparison": {
+    "core_input_sha256": "3e27031e3a5f2d3da03c48cba7bc5b785ad8d3af71d5511a141530f1a6d434e0",
+    "core_output_sha256": "61a3cc458ae24a897606bbcf8d3197dc88517111c17b510ccb1cefd6737ee9f4",
+    "core_source_sha256": {
+      "gpu/event_runtime.slang": "b2b2afeb055be9b6dce6103dedb6395514c6f8ad135b18e799a7576469c24f7d",
+      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+      "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+      "gpu/portable_schema.slang": "6915870da99061338204aa96cb9cebeb49091391f4608f170c20f633dcd1a055",
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+      "gpu/runtime_init.slang": "54ad60a47e8c25a48c9e3640d7610e34d5dc968b2136a4944a753d676423a123",
+      "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+      "gpu/geometry_runtime.slang": "fc0b6202a75be21dfec22dc7e1c787d3f556fb68caf2c34c5b815d1d8591e33e",
+      "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+      "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+      "gpu/reference_runtime.slang": "3ea6e2b3d617728568a4455097ae2f139466127729026b3011dbb3d930b72a05",
+      "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+      "gpu/bullet_runtime.slang": "1b0f0ffb2eaff6778e0fcab801cb7d644b83af2cb9bc8a230b9d33502bc1c324",
+      "gpu/rank_runtime.slang": "6862c849997a111e228286b553b9043a6035fbf150b9c831130da6171d271526",
+      "gpu/lazy_runtime.slang": "cfea04c172c8ee5df11341cbdb746705f7fd99b05200d24ae9e2515aa30aade1",
+      "gpu/enemy_buff_runtime.slang": "f8785fb25f492b06d4fca0fc64f4e69ea3dfb2a754dd438c4209dae7ed8c31fb",
+      "gpu/carrier_runtime.slang": "d7a14d89cefa0e73fea1a7a096fc26947221b1862ec2a73ae7eab1043c179112",
+      "gpu/quantity_runtime.slang": "843dc4d8246dc2babe7a02db51eb365883551e6aa150cf4ea661b10eb3af5a5e",
+      "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+      "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+      "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+      "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+      "gpu/hp_attack_runtime.slang": "2bb2bdcca7a86353ad8cff2de5908037fd344e4091e07eb92abcaac9093e1a21",
+      "gpu/recipient_runtime.slang": "c9a5acde13e4a7f43dcb3b5ebebdafdce5c6b730e848eeb49e26e35d1cb051bf",
+      "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+      "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+      "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+      "gpu/damage_runtime.slang": "b47310ceab078ccb38a5e1d0db8bebd6f08db0b3c66a9505e73abb19b5df8eaa",
+      "gpu/incoming_runtime.slang": "3d32bee084317b63a3c00e8b94a9397196f4a8a39efc6a78a8efd74d90f1985c",
+      "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
+      "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+      "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+      "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
+      "gpu/periodic_runtime.slang": "574670587e48ff1bfc0498e2ba7b71a86c1285b2281649e46bd9e5ef877f21b9",
+      "gpu/removal_runtime.slang": "7f96937400b9cd9b59fe750a1cca05d4dd77d310eab2a03a81eb588b8e14832b",
+      "gpu/duration_extend_runtime.slang": "028445e661b12f54a8dc48da3b3438b0c4df7b1da833a4b63a54c84ac18a1081",
+      "gpu/stack_runtime.slang": "b46417666a422f4f9fcdfd15e78295394cc1b9571a6083e46ef18f4f300031e8",
+      "gpu/status_runtime.slang": "648f7355bb38092a53a45c608eb5a95f9dd2ca8b6dc6b906712a22f8fd54e3d4",
+      "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+      "gpu/pending_burst_runtime.slang": "ebc7b917f8ce3418d7f18de6c0c07e1c67a58d6cde04156cb52d50de2388c905",
+      "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+      "gpu/world_frame_addresses.slang": "5f4f5bd1401b9db5b05a3f1b057fc1fabe72255aed612b552f3a5b4057a5cc80",
+      "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+      "gpu/protection_runtime.slang": "768eefaec94ee16a561a471c0400506f2b9c13ac3b8756693be1bbbcafc4bdd2",
+      "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+      "gpu/world_frame_runtime.slang": "705bb6a964271f70d7bb602dbfb14b190161b7bbd5901bd0630be5fefd5c1793",
+      "gpu/combat_runtime.slang": "de65fe8974c6e035a2611ed04eb5cf1e67fd3b4af532476bd355550d82cd281d",
+      "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+      "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+      "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+      "gpu/admission_runtime.slang": "06a609cf2707955d8c186b2e3e28ae5cfaefd716782606698aefd54fa3e9d44e",
+      "gpu/portable_mt19937.slang": "116f6a7ee3cf8e069db171aace0c06a1b160c3d25b0975451125929b68dd3b61",
+      "gpu/enemy_target_runtime.slang": "bb88cf05d475109cf34e6fca4099ce71096cecc8ba03c72995cce8de15a0b730"
+    },
+    "core_validation_sha256": {
+      "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
+      "scripts/portable_duration_extend_oracle.py": "6d68ed922e60c67690b613de36d74753d4ac660e35e9132519b58aff3fff2d77",
+      "tests/fixtures/portable-duration-extend.json": "32f301f32116ebf38f9ccd198240cd4efedc0afa37aaba82a0888c5e3c83d4fc",
+      "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
+      "scripts/portable_removal_oracle.py": "90df643a74a72d71c5cdb5478f5e36d343ae1aa31ecb8c33d343dae6482c9b81",
+      "tests/fixtures/portable-removal.json": "ac1eea32bed09887687c397f70348dcf9fdb08d5946e2f3d147c65af4ca81d54",
+      "app/portable_lifesteal_reference.py": "eeb7dd998fce96afbc032e95b5f9b7454cb0f408d4472bfd6dae9f23a64a1104",
+      "scripts/portable_lifesteal_oracle.py": "082a9149627a837f0efd0ff966af6de8868be3a7b776bdc7b8b21dc13ae0d531",
+      "scripts/portable_landing_oracle.py": "318d4436c3636724112025866cd8e21f692772b96a83450e7bf3fae020484b45",
+      "tests/fixtures/portable-lifesteal-prototype.json": "7cb6cc69c90263f1aacaa86d777ef52e519e1d169386eba3093bb0d38b294ac0",
+      "tests/fixtures/portable-landings.json": "351c697e09cc503a03c91910b2b902e84c20acb6ad110d8532409f4036100a1b",
+      "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
+      "app/staged_dot_specs.py": "5c38be17b5afbe79c6d7a4a0cf9d00108d97ee37822c725803944a9f6cf617d1",
+      "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",
+      "tests/fixtures/portable-staged.json": "d3da4ed61ef8be36f8d3e43a6c9a413f2f8547911eea3a913b4554dc4cf2f245",
+      "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
+      "scripts/portable_source_oracle.py": "97475bdc1a97ddb67281c08bbfb7ee95978826e3f834f271155933fc4e631970",
+      "app/periodic_source_specs.py": "4c96a26ce0d0ca987c1e057d95d9a88055e706c7bf2cadde70df6b58ec9f2444",
+      "app/periodic_source_runtime.py": "bd45e4244fd741ff053a756876253b62221f1d28cfb00e01d89d5cacb39af062",
+      "tests/fixtures/portable-sources.json": "7c67eb17ad96eff5237e1a14de38ef5f30494cba272cf56da8acb0ce7c45ec86",
+      "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",
+      "app/reference_health_runtime.py": "762ff6161a87f99d34619095264115d0f39b07efd559ae293226e31d838b7fd9",
+      "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+      "tests/fixtures/portable-reference-scales.json": "e0e26b2691affa2f30e1456c9bf49923c24f0a63667c16da45f73a31c7ad61bd",
+      "app/portable_reference_specs.py": "e0ce11eef8ee6dff7726f1dfc58798daa42003a9889a414d26ecfdac6aa4fdde",
+      "tests/fixtures/portable-hit-references.json": "3868b333fdc77e82c644c038f62b4534e84e6214be0b93a5b2448e4750e05d8e",
+      "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
+      "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
+      "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
+      "app/resource_runtime.py": "8356943f18d137bfb90d60ab2096c2505403c9156f088cf29c7aeda38fecd58c",
+      "scripts/portable_resource_oracle.py": "6e8ab20b01c41618c554779f4f41eb6a693c14893da935e1cf2b382d7b6040d8",
+      "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4",
+      "app/portable_roster_input.py": "cf569da9faababe07f9c1c16111da2f64936d5da562b123ea0ed67b7847bd024",
+      "app/portable_runtime_layout.py": "1a882b22eef68f04633c2a0fcdc542b188669e50f283dc88bf241af33c7ca0f1",
+      "app/portable_enemy_specs.py": "8155ac37162d3790d86944696849e479ab8b7ddc8aad9db28e1f1c36d080c930",
+      "app/portable_runtime.py": "4c5f298c27a65f5dfb5f391932f11c6120a76f09e70954e56bb483ac4317cee8",
+      "app/portable_combat.py": "a45776909229a03a8a7e50132507e4f6dc7bd6970cffbe28d0a84bbc515302b1",
+      "app/portable_specs.py": "6540c152be54ccdfe7f75f87463f23106c498a47045d536f0060efb567095864",
+      "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
+      "app/portable_backend.py": "36bf3011697e943eaee668a806d6c38192d676fc49508c258ee67424d427eed8",
+      "app/portable_trigger_specs.py": "c421db6cd40d3c27843c8c2fd3f62f74090c987a07aa1caecb2cd299fda17387",
+      "app/portable_recipient_specs.py": "6bd29a3e5bab623bdd3a49706395864fe9bdf0fb9e1e78dd2060487d75f9d8fd",
+      "app/portable_damage_specs.py": "d969bbf4e827e098b07df8a7813f6a9804d7f578a1009bc15b9849f730ab9546",
+      "scripts/portable_pending_oracle.py": "ece6a9c87fc4bbfdbabf0dd57071c51ffaf6122688c8990e0293c224cc80de54",
+      "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+      "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
+      "scripts/portable_health_oracle.py": "0a10670fdba64a4e5de217869efc4f763ecf1dd67713cc67d7a8a2c25a62ed4f",
+      "scripts/portable_enemy_oracle.py": "7b86436e89e946960f843c50e646802cae494502f269fbb5290b2fee806f5ba7",
+      "scripts/portable_burst_oracle.py": "f0c0059681adf96cda45df0e56926e61d9e66d5bb35bc40e99ad62653b5cdc54",
+      "scripts/portable_bullet_oracle.py": "fc57fb138d855f0fb0258c6b26278163253fb717c2781c5f45d38c0e063bf713",
+      "scripts/portable_weapon_oracle.py": "51f98ad5464fdff70e050eb9be4a973727c7ba13d27f3b5acb0f1b9e508330a6",
+      "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
+      "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+      "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+      "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+      "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
+      "scripts/verify-portable-combat.py": "365666f0ebfe697be728ab5365ac21d0fc4a94b4fb709845fb3580b1b1034a3c",
+      "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
+      "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
+      "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
+      "tests/fixtures/portable-enemy-auto-aim.json": "494d24a29f565f4cbf2243ae94de40e3e42aa37a97aa119c4b1d32c1f7508ed3",
+      "tests/fixtures/portable-periodic-targets.json": "d81c7db7e3c17527ea04738940b9cd42eb389269b762d33ad4a163944c4d6506",
+      "scripts/portable_enemy_buff_oracle.py": "4811d1c4fb66c3bd8b49bfb2e170380e68bb77bab28d8d03d74b2c53ce437cee",
+      "tests/fixtures/portable-enemy-buffs.json": "d1112e9bc6f236f1af7ec39453b7ca4e3d2ea8a548e57a38368965ff9b9cfd85",
+      "research/portable-mode-session-contract.json": "c62411b5f4809bcf01bfe1f41b6764453ad69f713962e86afec6c9722f9cd64c",
+      "tests/fixtures/portable-buff-notices.json": "234bd8ad051a89f7382b67069e0cfdf5e479cc0c9de42ba3528ae3d493265fd8",
+      "tests/fixtures/portable-mode-sessions.json": "33ae421f083331b19d8de60b4e10da3c9502c3cb6e1a64640f3102d723fa0aa3",
+      "tests/fixtures/portable-ammo-modes.json": "bcf69144ed0706a9e8f85e22b8f98824fbc2309e54c4d8ddc5a0a9c4da4365a2",
+      "tests/fixtures/portable-ammo-instants.json": "69dad6e77c9eb72c06c3178197a2d5081ef4b0072a76f0fb5ce36e471dbdebb8",
+      "tests/fixtures/portable-burst-duration.json": "43b852e0e57886272ca1de313b48022218702946d96622de9af7c0359ecdb64b",
+      "tests/fixtures/portable-pending-burst.json": "da124167496dc414248c8abd737b7410b4fa0a1d50b5899f4ba7cb1c1bd1b941",
+      "tests/fixtures/portable-cover.json": "3b2cae16148429ef53243644607f63aca167ba013ec98bbb15948533cb829fc7",
+      "tests/fixtures/portable-enemy-damage.json": "3c2bcbb04f5f39d6400b7ca8ab147c0230fc98cc4b31e4ad1aec100ce4848f52",
+      "tests/fixtures/portable-burst-resources.json": "8d0f0ff8422c6b28c0c90d318569ff278b126c6e7a935b401861df0120fa13f7",
+      "tests/fixtures/portable-bullets.json": "ade37d6cad7cbfa3587542cf2095d8ab0c107bf443bc061281412146fedc6e65",
+      "tests/fixtures/portable-lazy.json": "54676e191d5e87873a85aec15d5c990f01bbb490db6cfa187637c0df352949d8",
+      "tests/fixtures/portable-lazy-capacity-rejection.json": "a1c3ad623fc63459eaf29d0c1d4d2edfcba86d5bb284b30e0b65c7faba36324e",
+      "tests/fixtures/portable-carriers.json": "ce9c7185429262140b6e7d0fb3c4229512b6da14821bd814c0da8cf9076d1be7",
+      "tests/fixtures/portable-recipients.json": "bd64e66ab8edc35f799066a0bc619bd0ba1f86b22b7a31a83c5c86587222d5db",
+      "tests/fixtures/portable-capacity.json": "4676815cc32f2c8a6b2c4b921235fc091bd194eebdca2306905f677cc64452b1",
+      "tests/fixtures/portable-incoming.json": "fbd69208aeeba331eb5e8b73c073f03c95a16b35cbae8a1d27349fa343da60de",
+      "tests/fixtures/portable-hp-edges.json": "0275908bad038c126b2328f667c9df0b532b0015ec783fdb26eb50a334447361",
+      "tests/fixtures/portable-health.json": "4b665cdb3512dca1920c206cd0a8fbb41b9c0a3b5ff623b527af76020941c172",
+      "tests/fixtures/portable-charge-control.json": "00b643a72ad7026de9cb122386cc3dce521ae13bc5813383886e637d635f4994",
+      "tests/fixtures/portable-quantities.json": "53affbf8b6cfb6b87639a4bfe1090c3b30a44596c09f7f334ee9073daad3a9fa",
+      "tests/fixtures/portable-weapons.json": "75960cd6b9daaf1315a03af930f193df2c637bff7b845cc9f19b524561f5f7bf",
+      "tests/fixtures/portable-damage.json": "ab596e0f01bb9f94ee9813c6027d46a85415b77d5a72c36e06b32bf45b6ac5c7",
+      "tests/fixtures/portable-triggers.json": "680d8d5e212f9604e23f895b141651114e8703a4051facd37deb5ac890a403ec",
+      "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
+      "tests/fixtures/portable-combat-extensions.json": "2277883e34b033505e715674ddd81006894ab8c6d9ad52076f89c4cebed4a96b",
+      "tests/fixtures/portable-autonomous.json": "0d97f8e8a848cfaf25d08e52414f1055d6a8807625f28bce3608a1726db6a5e9",
+      "scripts/run-metal-probe.swift": "5d75cc8752fcc81d0dba18f2ebd445108ff0079d0a5c68885a0c2a697957fbcf",
+      "tests/fixtures/portable-lazy-cleanse-capacity-rejection.json": "780a9343f58142e36463cb4bcd0fbfcc0c32e7a6d040483c1d8b2916fd7ae5be",
+      "app/portable_status_specs.py": "387618cb8e46f8db81be2b9f83e7a70c167abc877868aefa21d0ebccb5d2fc2a",
+      "scripts/portable_status_oracle.py": "916860a08df128bd05096dc015e6240c0a04e2f2aee314a9704aecdfc4b753e8",
+      "scripts/portable_status_validation.py": "8de8009fd409a5db1178311446f3a4d2eb65f194e24bab483d4604db64b27c3a",
+      "tests/fixtures/portable-status.json": "3220cf466805f0f1b627c46e615e7d489451d188d234674589348ea70d80a91e",
+      "scripts/portable_carrier_observer.py": "8dd189479876fc0d0951a25fe35c3b5db2419461dcfaa22189f517a8b9701b46",
+      "app/weapon_mode_runtime.py": "dfd7b6e0cdb1b7d6e9dcb2393e57526e1b1c9c353123320bab16daed5c75474e",
+      "app/portable_stack_specs.py": "c2aae86773e268fbd375217028f140af335bb8d4704c8567881464e650c7bc32",
+      "scripts/portable_stack_oracle.py": "7f513ea20362680023031e36c52245b52e070b2634e9cc582b6cbad750fa65a2",
+      "scripts/portable_stack_validation.py": "e26299ee1feeb50774647e7cb55564b9fc4ada4685945d30e37da3b459f2c150",
+      "tests/fixtures/portable-stacks.json": "a49be6396171f6b6e67b3b4345d102a5b1bf408aacc96de63b28af78cca4473c",
+      "app/portable_protection_specs.py": "9fee0cc9f4fcdd8383545db69c9e1e9dc43f97ea2a5865c6f45353b052a3b4af",
+      "app/protection_runtime.py": "1ddbb6134b1deea1e9fee295d0171b380098ca2211f109a20224f2d369a91f92",
+      "scripts/portable_protection_oracle.py": "23f38a9340a621a738bc5f58d030489bc9c1b5c18c01fcc0f54408e8731ef70d",
+      "scripts/portable_protection_validation.py": "508687394ab8b3c93885088568e6ec651cd20e9a6ff5cd107d384bb14604027b",
+      "tests/fixtures/portable-protection.json": "51e8b658f5ba027795cb88c8f1c524aacd6aec1e41a50fa2ac211362025d5ae0",
+      "tests/fixtures/portable-split.json": "447f29a46dc51e786a3a4b3461daa81925ff896b1664a9017a6fc85fa03e3472",
+      "scripts/portable_split_validation.py": "003bb305cddc2ac95f7da6e65c6fdf8eaac311fc592229e0e76821a9d4ae4dfe",
+      "scripts/portable_instant_list_oracle.py": "942fe66cbfe2b0e8f53600922f6c42f68651d1dee9a0c05c026ecff43d316296",
+      "scripts/portable_instant_list_validation.py": "03f78be57e990c9ca9fe29e87cb21ec32209aa0cee4893317ca1cec4e8b78cb1",
+      "tests/fixtures/portable-instant-lists.json": "9347dd203f8938d7fd571d23d05c989ef819a23e736d68a8b0cc5b219c658ac0",
+      "app/portable_weapon_input.py": "f5b6a332f60bde4382f7579eb32bbf8df2e93116de443c824b8826390136e43b",
+      "scripts/portable_named_state_oracle.py": "c64b2e18eea75070357a719fb9162915898f926c6277a4c298c240926fb9a751",
+      "scripts/portable_named_state_validation.py": "f66cf70d27cef1bfcfa4a63a4c099fe1cb81d3e303f685511b37ce43fb40ee95",
+      "tests/fixtures/portable-named-states.json": "860d4edfd282b69bed16ac724a00e9a63c91a353fe1b9f98cb67ca49fffc6d3a",
+      "scripts/verify-portable-real-battle.py": "4113d9e1e26eefd5d0fb96eb02334581b5bf737889e4a177fa5c49cc5adc1ec9",
+      "app/portable_code_specs.py": "b53cd9cee83bf1cf6442c72db6a1fd65cc4408f2471c9fd504de54cb42cd86ab",
+      "scripts/portable_code_oracle.py": "8a8f989e8c4431fc52f0bf56104b7f852603a97ae3002865af5ee9a9913ef98c",
+      "scripts/portable_code_validation.py": "8626c14dfeb01c7473580608034262f893ad1846d32c4986ca797c36c67b3cc1",
+      "tests/fixtures/portable-enemy-codes.json": "04e1b4450cb8426d04aa156b71d7f2e946c55c3ec6310a2654e1d6de4782394b",
+      "app/portable_element_specs.py": "b46475dbf9ba590a8b031814b2f008224a9079aad87caff93b2ec49eab1c0af8",
+      "scripts/portable_element_oracle.py": "20e90d9f97e9a16a45d6857ea041bf8a45d3cab328d9c92e36a94518aaebd0c6",
+      "scripts/portable_element_validation.py": "bf67123df810f4eb25f4c7228f1f806e4883388bc21b91b33069afe58f395faf",
+      "tests/fixtures/portable-element-overrides.json": "4feace71e80bb2809b42ae4104a2207bac99f41ca14d2c8d0d0ace8b67d11178",
+      "scripts/portable_attack_flag_oracle.py": "8f082add07ad031ce18b2a1a3f0b305e3aa2e7147d3870b97ae1bcb4c50f7757",
+      "scripts/portable_attack_flag_validation.py": "d22c093f605f95d83d63b09c7406b392df2ab875750e4bf460cf30d8c1a77c10",
+      "tests/fixtures/portable-attack-flags.json": "aa195e95de6f84c7969e6cd54bf76e7470078ae10e8ab716ea3c74bfca30b185",
+      "app/portable_target_state_specs.py": "b85bc65b10cd396b1c4ed19a095d3c657fd2862b395cd7be1172e5d89596adb1",
+      "scripts/portable_target_state_oracle.py": "49fa8bf4f0764e19fe0be76849232e6392f120d5a4782125703292988bd8da74",
+      "scripts/portable_target_state_validation.py": "21947bcbab4c9f04ccbe42a2048d01c829706b84cf315293f84e185bec6b4c96",
+      "tests/fixtures/portable-target-states.json": "c44e5d3719f56335a733ad44a6634121a4a6d0be46cff8a52f9d7bf583a7c9d6",
+      "app/portable_geometry_specs.py": "58be59c7091a1ad2e29493e49d430f940810f57eba1c6dba539dc4efd4dee739",
+      "scripts/portable_geometry_oracle.py": "5d4bb9102776f66f8a8d188dc9f0208b835047be73713884fd0c3ce5be5b1c68",
+      "scripts/portable_geometry_validation.py": "0ce789e34136a7a38bd3ce03fe375126c81d0d19685d1374a433a004e9178784",
+      "tests/fixtures/portable-geometry.json": "53d76194e0e3b33c2b9394496b278e096700f37ad3220e22aa238c61ca1e288a",
+      "app/portable_probability_specs.py": "77becccd2a7cf2b046ad4422958952d843d76a4aa2800f9fcb6dd7ce35c75f61",
+      "scripts/portable_probability_oracle.py": "be3fd68b11ed61085248e71a385bb09b1b66777b78270aeb5b275a7b6ddb9892",
+      "scripts/portable_probability_validation.py": "67c45887c8886dbb840bf1b7203092386ad089eac485ba506ceb22c4866b3653",
+      "tests/fixtures/portable-probability.json": "5a93f6ac3f1658cbdb29c4b282067efa40c3d5d0eae2796d22872dc799718eae",
+      "app/portable_hp_attack_specs.py": "90b0e5c861eddbbce5fc51c91de9fe3208db1e19253c140e7ab133e1aa877b86",
+      "scripts/portable_hp_attack_oracle.py": "f573326b94ee5a2a59bd6c4144e1750d321e995ffc2f0908142ebbf8fb944281",
+      "scripts/portable_hp_attack_validation.py": "20d3a0976eec527f9788374da772b22f35d2d3e820b837582a3b36d86522fcec",
+      "tests/fixtures/portable-hp-attack.json": "6949e751a4fd8a87e9341a91a273847d2e735de9f28199df02ee25cf9a50a8aa",
+      "app/portable_burst_charge_specs.py": "e0a845ee4e494c726c49ff3dd366ed105d2d1e144d2f1a2352d158703c3c6bd1",
+      "scripts/portable_burst_charge_oracle.py": "b918cdd82bfeb290e1711d574860639b98acaf1b1e4df808472987a997a453a5",
+      "scripts/portable_burst_charge_skill_oracle.py": "718c1968548cddf75d869db83d163f6d4908adc1bbf519098ce8242b71c7dc29",
+      "scripts/portable_burst_charge_validation.py": "12cece006ee52a3fbded3b509da1f1d8b69b94275b9ac6d58cd1a7798a5d9f96",
+      "tests/fixtures/portable-burst-charge-speed.json": "6f6ce6cb26fd07bc8d433a36b9a989406557aa670b7a28a9af1e5b83b4e93a2d",
+      "tests/fixtures/portable-burst-charge-skills.json": "4a74e01c206b0e5d606cfd97e718adc04818c19b94653f42dfa3be3b01dbc15b",
+      "scripts/portable_mode_entry_oracle.py": "02e15dbacf302e4b798307b9b32ac483c98479e1cf38f2fdd1159e8779bdfad3",
+      "scripts/portable_mode_entry_validation.py": "d61381a3ad0d9c76972751007a9e34245af1cb766ed0a024a85b11b5ec00ba35",
+      "scripts/portable_pending_reference_oracle.py": "eb008720dd5ba2b59adf101064b5d8c3ead333577996c200c541c9100073cb3a",
+      "scripts/portable_pending_reference_context.py": "82374d1f7fc6dc32059b7152ea2fbe0675c9a0966ba8f6d6d1238e468ae8fdb8",
+      "tests/fixtures/portable-mode-entry.json": "cf253e04a906e64bd4ca6fcc41abbc85959abcaabdf8ffdc4fd1f16fef4c2bf3",
+      "tests/fixtures/portable-pending-reference.json": "5fdaba380c7bf32ae73c637d630cd6103bc635086b40a51bc12e1d2e9f42abea",
+      "app/portable_enemy_target_specs.py": "d0720e461f9b8bf2ce8a353c5da05a53d6b73f1aed9276c3124a0601b2a61b2e",
+      "scripts/portable_enemy_target_oracle.py": "4eb157de1ea01234e392c3d406ae09580a3b669bf58994c32e41cd017ce5eb9e",
+      "scripts/portable_enemy_target_validation.py": "9bc50e9e5e713cf450bf6e27ee9b221d6a86e907b2f86d6cdfe1179c937a3326",
+      "scripts/portable_target_rng_oracle.py": "10f2f195683752ef156af8dd39cbcfed9e07bb6a55617be74b6b48e0d6f549d8",
+      "tests/fixtures/portable-enemy-targets.json": "4df423928e53ec7f38b7cdcf692afcdd5627f567ba33721418918f3a4e0f4047",
+      "server.mjs": "9abb04bbdf2456f98f10aafdeda9fe461acb639374bd5aad6a831a3bdceb5545",
+      "app/portable_http_policy.mjs": "2699c8fc00422c5c14668fafe2d7f7a760247fda88fbefe8f00c90f9b3d74c5e",
+      "tests/portable-http-policy.test.mjs": "84af6ce521a0ed37c26d876374ff7bfab14a034797662f717c3e7939fc5c817a",
+      "scripts/portable_mode_enemy_name_oracle.py": "8dc7053a2357a5e9e144246a63562834474d9975b622aa87e5adea011ee6d323",
+      "tests/fixtures/portable-mode-enemy-names.json": "5f578c9f4716ce7ae334192f8ac4cc5cdc85b819dfe570c35d04b87995a8a3e6"
+    },
+    "core_semantic_fields": {
+      "cases": {
+        "sha256": "785bc9bdb14e1e35a19e95170a6ca6247602f7276f2d4b71591cdb2cd6fc2889",
+        "entries": 4112
+      },
+      "rejected_cases": {
+        "sha256": "24369e7715a298cfa6f8bcfcf6e1e7ac75e91bd6faa59b69b33a72ced1d821e1",
+        "entries": 570
+      },
+      "actual_statuses": {
+        "sha256": "4320edb5057984f82b8536007eb40a390c39488314997ca40da065a02b26470d",
+        "entries": 4682
+      },
+      "expected_statuses": {
+        "sha256": "4320edb5057984f82b8536007eb40a390c39488314997ca40da065a02b26470d",
+        "entries": 4682
+      },
+      "batch_layout": {
+        "sha256": "4cbf4d0fa7674d058acd01105eb8aada466e659169bf433d0522a49ccf2bcca2",
+        "entries": 2
+      },
+      "resolved_native_hp_differences": {
+        "sha256": "03811ced399bb6038425629efeb209a2af50f29c8072722e028427aa1f46e20e",
+        "entries": 3
+      },
+      "application_event_runtime_connected": {
+        "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+        "entries": null
+      },
+      "weapon_burst_target_connected": {
+        "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+        "entries": null
+      },
+      "autonomous_battle_connected": {
+        "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+        "entries": null
+      },
+      "gpu_timeline_connected": {
+        "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+        "entries": null
+      },
+      "cpu_trace_used_as_gpu_input": {
+        "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+        "entries": null
+      },
+      "scope": {
+        "sha256": "7c150981a90f49840eaab82859717983564089248f1707fe9a73a3dc93e64457",
+        "entries": null
+      },
+      "duplicate_results_verified": {
+        "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+        "entries": null
+      },
+      "ammo_instant_cpu_regressions": {
+        "sha256": "ffc9759216158b0b0e270a1299885a5e1bd5cc1c7c10c00439634d6ca46b40a2",
+        "entries": 96
+      },
+      "attack_flag_cpu_regressions": {
+        "sha256": "2ccaa3b38f696ee7083182ab3da22c05fc70539f479bf1b4466a9d37e1c7dae2",
+        "entries": 162
+      },
+      "bullet_cpu_regressions": {
+        "sha256": "7c6ea878e6e748485c81390ecc830d1427d3da19706366af42445e41c3a1a73e",
+        "entries": 34
+      },
+      "burst_charge_cpu_regressions": {
+        "sha256": "0a5ae926fc252402e9aca9514fdf558cde6194fdba2e89a698fe88a7d0993ab4",
+        "entries": 310
+      },
+      "burst_cpu_regressions": {
+        "sha256": "0a43b8bf7dc9d7fb1d53318d2be97f8052f006457b2a747687057f9e32ca9187",
+        "entries": 31
+      },
+      "burst_duration_cpu_regressions": {
+        "sha256": "77a55acb42a3fe7a540eb4dde80467a9bdaba3278c40db507b86bf503808a5a8",
+        "entries": 30
+      },
+      "capacity_cpu_regressions": {
+        "sha256": "5a3cf3bff1904e34009fba93958f4c58680c80b855a4b966b5682bfdc0bebd7a",
+        "entries": 12
+      },
+      "carrier_cpu_regressions": {
+        "sha256": "43d4621af5ba969609bcc8c2744c4fa6ef0bbf865be88007316ec5c40f46249e",
+        "entries": 41
+      },
+      "cover_cpu_regressions": {
+        "sha256": "bfe399142acf1cc0f3b03ab7e928b9b2820eb7ce5ec858b5461b0e307a0c923e",
+        "entries": 34
+      },
+      "damage_cpu_regressions": {
+        "sha256": "348f5b85556e0858134130b48622687069db49b67c0b21e3ceb1c478ac9468e4",
+        "entries": 37
+      },
+      "duration_extend_cpu_regressions": {
+        "sha256": "360ce1090ccc230004739355a9dcc71c0dace08c1bb8737b25c669729278dcf8",
+        "entries": 39
+      },
+      "element_override_cpu_regressions": {
+        "sha256": "143864a295f5dababf60c1cb8fa18efd1b202ad38266a6f4fc1287fcc0396c2b",
+        "entries": 156
+      },
+      "enemy_buff_cpu_regressions": {
+        "sha256": "9dc713b9e7b8c3d78025dd043def2ae6399a7c9dfdb92861322416afbee93527",
+        "entries": 55
+      },
+      "enemy_code_cpu_regressions": {
+        "sha256": "12052b588bbaca174355703544bc2988ddff49184fb7a32e23e00d7b153b5c41",
+        "entries": 103
+      },
+      "enemy_component_cpu_regressions": {
+        "sha256": "226a78f2153f47ad8a2c11a92f9da1505b3fb05526add45df1db9b745b38d1e9",
+        "entries": 224
+      },
+      "enemy_target_cpu_regressions": {
+        "sha256": "cc684e2110045369a67d7a7a8a9e5fd54f1d917df5495302bad2ac34796c10bf",
+        "entries": 548
+      },
+      "geometry_cpu_regressions": {
+        "sha256": "757deeb451e82c69591fa047096e554f811307b16230b38226b3953b6a4cc80f",
+        "entries": 190
+      },
+      "health_cpu_regressions": {
+        "sha256": "ecc1c697d491be4872f80f5c603662e358998f9f845d640ed08c2ee1f32a6c74",
+        "entries": 166
+      },
+      "hit_reference_cpu_regressions": {
+        "sha256": "c74437ecbf8ff3a5de0d56c11957fe7e7894d8e6960f2ffcf8faef0d2293806c",
+        "entries": 37
+      },
+      "hp_attack_cpu_regressions": {
+        "sha256": "93edf23d056c4e6e8d3292d18caf768ef8b6b0ddc19c84dee8b9fecdace7ee74",
+        "entries": 185
+      },
+      "instant_list_cpu_regressions": {
+        "sha256": "37f6dc31165a33c453223b45b3f0f093e78c7016613d675f7f7cd8f08d674d17",
+        "entries": 45
+      },
+      "known_cpu_differences": {
+        "sha256": "df3681e64dd1ea20fca58c7e185731d516d78e7dcc9a2c7040dc50a6db2bbf2d",
+        "entries": 1
+      },
+      "known_health_cpu_differences": {
+        "sha256": "06e295d0030f81ce1fd923b3f626c5a7b28ab04ba7c099309bccd56b5a8aa5a5",
+        "entries": 1
+      },
+      "known_mode_cpu_differences": {
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "entries": 0
+      },
+      "landing_cpu_regressions": {
+        "sha256": "a5b15070d98ffdd7edd1ca670d502379f3211663803b9978b1e703aed7a68d09",
+        "entries": 20
+      },
+      "lazy_cpu_regressions": {
+        "sha256": "bad883a6c92b9d226defcf63fea0107057e8fa9180a6b6d76d794caac347a792",
+        "entries": 26
+      },
+      "lifesteal_cpu_regressions": {
+        "sha256": "93dc895242a56825fed1e7ff0138f95b5e3039a051230ddb6405032a38a6d31f",
+        "entries": 15
+      },
+      "mode_enemy_name_cpu_regressions": {
+        "sha256": "598e2029da1cd683f13029c802890d17d52a89e56c34a08a51bd6c404012223f",
+        "entries": 24
+      },
+      "mode_entry_cpu_regressions": {
+        "sha256": "5aa47b884f8a6046ee89c72af3c8afd852bf0b016e2705e2fc188bef2b26d504",
+        "entries": 400
+      },
+      "mode_session_cpu_regressions": {
+        "sha256": "e5c24cb0b88f4e90d426cf6a9b0b7b7f4efb01b1c41ed122229c6841a2e571b6",
+        "entries": 53
+      },
+      "named_buff_cpu_regressions": {
+        "sha256": "c91951523fda3903b1a03451cd5384bc62b704c2bff268a0e7c397db3311ab85",
+        "entries": 22
+      },
+      "named_state_cpu_regressions": {
+        "sha256": "a538b889b61eb6b62ebea55a29b9ab61c865b31e2f62020708e4db37a6d8966b",
+        "entries": 65
+      },
+      "pending_controller_cpu_regressions": {
+        "sha256": "1f60098ba8997b48f90f2f3a053e74b63ca7178fd5a7c8632ab8eda6432029fa",
+        "entries": 29
+      },
+      "pending_reference_cpu_regressions": {
+        "sha256": "04cec18c9602881c0a759a7e2de8b2136896c93bc32cd4ddcc1b53cc4cd5ac10",
+        "entries": 120
+      },
+      "periodic_target_cpu_regressions": {
+        "sha256": "ae832613e5c77ac18c4abba40b03143219c717083fe2ca317a59281b49f8640e",
+        "entries": 29
+      },
+      "probability_cpu_regressions": {
+        "sha256": "ae61e83164554621ad35c6a7cf7dd63d9dc5241704409f8c18c5216ee5fd35e5",
+        "entries": 92
+      },
+      "protection_cpu_regressions": {
+        "sha256": "547175e3cdf4ba717fc767b35033a33997aa0358081cb5faf41965e1eb900849",
+        "entries": 103
+      },
+      "removal_cpu_regressions": {
+        "sha256": "0b3816bda248012f04a1a4d40102a6b2516cfcc0c19048e83899685937369af1",
+        "entries": 28
+      },
+      "resource_cpu_regressions": {
+        "sha256": "e12fa171af2c36548d582c94a9a761d13bd7ad5ced6851597a912da5969b7f6e",
+        "entries": 32
+      },
+      "scale_reference_cpu_regressions": {
+        "sha256": "cb95cf180319f61f8a406c4032e8ed98e6b2ab2836c9b038914ee368d25b7286",
+        "entries": 40
+      },
+      "source_cpu_regressions": {
+        "sha256": "25f2c30baf5186fe0b03655a9c0b17185ac591a51bb993851df32a8fe35b9eda",
+        "entries": 29
+      },
+      "stack_cpu_regressions": {
+        "sha256": "d63e628aa2b811d02d45d620c24658f3e41d28958a236c6b00629f1c4f76fb84",
+        "entries": 148
+      },
+      "staged_cpu_regressions": {
+        "sha256": "13dfec6504c463f9e1ee9425cc2cecd6cf5e3959547c18867ba848f83796d014",
+        "entries": 26
+      },
+      "status_cpu_regressions": {
+        "sha256": "a68737a5957158e4e25f7d9181fb58daa64363230b398bdaaf73fe315ff990e5",
+        "entries": 79
+      },
+      "target_state_cpu_regressions": {
+        "sha256": "b6d1086a10f9aa655d6e36e85feeaf0f57b2f4c1dce2e7da19d987268933b86a",
+        "entries": 233
+      },
+      "trigger_cpu_regressions": {
+        "sha256": "186ce1634c2c1154c63ab3009c0ff4c688dc3449cfe4f1536db3d39c71d927ac",
+        "entries": 15
+      },
+      "weapon_cpu_regressions": {
+        "sha256": "40425c7e3041dbce726aa6f4debd78745c6530a9e50c9cd8427f0e608153ab9c",
+        "entries": 87
+      }
+    },
+    "core_existing_parity": {
+      "passed": true,
+      "all_old_output_words_equal": true,
+      "prior_inputs": 4070,
+      "current_inputs": 4682,
+      "current_positive_inputs": 4112,
+      "prior_input_sha256": "eda55f7a2ff99b08120a187228bb92e3541c9a9056af72509117a2c88711c6e4",
+      "prior_output_sha256": "60428e72fd8ab201c417daeb9c0a466f15e45f503486a82350574248c1a5ae3d",
+      "projected_input_sha256": "eda55f7a2ff99b08120a187228bb92e3541c9a9056af72509117a2c88711c6e4",
+      "projected_output_sha256": "60428e72fd8ab201c417daeb9c0a466f15e45f503486a82350574248c1a5ae3d",
+      "changed": [],
+      "no_output_normalization": true,
+      "adoption4658_parity": {
+        "passed": true,
+        "source_commit": "1db1a3f46e594eca59284b0c0b32d42628fc4ee7",
+        "inputs": 4658,
+        "all_input_words_equal": true,
+        "all_output_words_equal": true,
+        "input_sha256": "e3596266cf96ecbb5bc31bed716180f1b7a5371b28730a75f5398e34ade42db8",
+        "output_sha256": "c8df4c2ebf10fa9dbe19139a16906156a37b70f4657cf48a6f125bd3ef9ece4c",
+        "changed": [],
+        "no_output_normalization": true,
+        "decoded_cases_and_rejections_preserved": true
+      }
+    },
+    "world_input_sha256": "5847f07fc130203b6233f916032b6f19438b1ac3a1ddfc43fb2f554fd3054fa9",
+    "world_output_sha256": "edc5eb8c82680ada6538ac02a81f93bd579e281c2e002675b26d8c1e51512614",
+    "world_source_sha256": {
+      "gpu/world_frame_entry.slang": "0f9f49c8225bada65d06b069f7eebbb316c72bbb00eab05fa679f9ceaf755269",
+      "gpu/event_runtime.slang": "b2b2afeb055be9b6dce6103dedb6395514c6f8ad135b18e799a7576469c24f7d",
+      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+      "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+      "gpu/portable_schema.slang": "6915870da99061338204aa96cb9cebeb49091391f4608f170c20f633dcd1a055",
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+      "gpu/runtime_init.slang": "54ad60a47e8c25a48c9e3640d7610e34d5dc968b2136a4944a753d676423a123",
+      "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+      "gpu/geometry_runtime.slang": "fc0b6202a75be21dfec22dc7e1c787d3f556fb68caf2c34c5b815d1d8591e33e",
+      "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+      "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+      "gpu/reference_runtime.slang": "3ea6e2b3d617728568a4455097ae2f139466127729026b3011dbb3d930b72a05",
+      "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+      "gpu/bullet_runtime.slang": "1b0f0ffb2eaff6778e0fcab801cb7d644b83af2cb9bc8a230b9d33502bc1c324",
+      "gpu/rank_runtime.slang": "6862c849997a111e228286b553b9043a6035fbf150b9c831130da6171d271526",
+      "gpu/lazy_runtime.slang": "cfea04c172c8ee5df11341cbdb746705f7fd99b05200d24ae9e2515aa30aade1",
+      "gpu/enemy_buff_runtime.slang": "f8785fb25f492b06d4fca0fc64f4e69ea3dfb2a754dd438c4209dae7ed8c31fb",
+      "gpu/carrier_runtime.slang": "d7a14d89cefa0e73fea1a7a096fc26947221b1862ec2a73ae7eab1043c179112",
+      "gpu/quantity_runtime.slang": "843dc4d8246dc2babe7a02db51eb365883551e6aa150cf4ea661b10eb3af5a5e",
+      "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+      "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+      "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+      "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+      "gpu/hp_attack_runtime.slang": "2bb2bdcca7a86353ad8cff2de5908037fd344e4091e07eb92abcaac9093e1a21",
+      "gpu/recipient_runtime.slang": "c9a5acde13e4a7f43dcb3b5ebebdafdce5c6b730e848eeb49e26e35d1cb051bf",
+      "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+      "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+      "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+      "gpu/damage_runtime.slang": "b47310ceab078ccb38a5e1d0db8bebd6f08db0b3c66a9505e73abb19b5df8eaa",
+      "gpu/incoming_runtime.slang": "3d32bee084317b63a3c00e8b94a9397196f4a8a39efc6a78a8efd74d90f1985c",
+      "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
+      "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+      "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+      "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
+      "gpu/periodic_runtime.slang": "574670587e48ff1bfc0498e2ba7b71a86c1285b2281649e46bd9e5ef877f21b9",
+      "gpu/removal_runtime.slang": "7f96937400b9cd9b59fe750a1cca05d4dd77d310eab2a03a81eb588b8e14832b",
+      "gpu/duration_extend_runtime.slang": "028445e661b12f54a8dc48da3b3438b0c4df7b1da833a4b63a54c84ac18a1081",
+      "gpu/stack_runtime.slang": "b46417666a422f4f9fcdfd15e78295394cc1b9571a6083e46ef18f4f300031e8",
+      "gpu/status_runtime.slang": "648f7355bb38092a53a45c608eb5a95f9dd2ca8b6dc6b906712a22f8fd54e3d4",
+      "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+      "gpu/pending_burst_runtime.slang": "ebc7b917f8ce3418d7f18de6c0c07e1c67a58d6cde04156cb52d50de2388c905",
+      "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+      "gpu/world_frame_addresses.slang": "5f4f5bd1401b9db5b05a3f1b057fc1fabe72255aed612b552f3a5b4057a5cc80",
+      "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+      "gpu/protection_runtime.slang": "768eefaec94ee16a561a471c0400506f2b9c13ac3b8756693be1bbbcafc4bdd2",
+      "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+      "gpu/world_frame_runtime.slang": "705bb6a964271f70d7bb602dbfb14b190161b7bbd5901bd0630be5fefd5c1793",
+      "gpu/combat_runtime.slang": "de65fe8974c6e035a2611ed04eb5cf1e67fd3b4af532476bd355550d82cd281d",
+      "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+      "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+      "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+      "gpu/admission_runtime.slang": "06a609cf2707955d8c186b2e3e28ae5cfaefd716782606698aefd54fa3e9d44e",
+      "gpu/portable_mt19937.slang": "116f6a7ee3cf8e069db171aace0c06a1b160c3d25b0975451125929b68dd3b61",
+      "gpu/enemy_target_runtime.slang": "bb88cf05d475109cf34e6fca4099ce71096cecc8ba03c72995cce8de15a0b730"
+    },
+    "world_cases_sha256": "48b046be51ffb05356792080d08ded146d5c570500635508812ebe9d9647765b",
+    "world_golden_sha256": "474c5518d0fb0c33fd6ae826eb93e8974da13364797c2e15ffd467a8af2b5bb3",
+    "generated_normalized_sha256": {
+      "core": {
+        "cuda": "e9c368f169736fc8282845a44ea9d0bc0c5c4ec76c4b5d6bda6ccf121b22f882",
+        "metal": "571dd80e5ec6c3d21e011f6e939b02b152f19df4d73c84403f4f23080588dd46"
+      },
+      "world": {
+        "cuda": "102785e1fed54dcfa373ce2ddfafee4fffb55cc2e6258dd0e0d3b147416ffbb5",
+        "metal": "6c8643d2c1f909c7cacee4dac1b6c3b26076d56787980b3d6ab269d577d28fbb"
+      }
+    }
+  },
+  "observed": {
+    "core_passed": true,
+    "world_passed": true,
+    "positive_cases": 4112,
+    "negative_cases": 570,
+    "world_cases": 49,
+    "core_gpu_execution_verified": true,
+    "world_gpu_execution_verified": true,
+    "core_transport": {
+      "backend": "metal",
+      "cases": 4682,
+      "command_status": "completed",
+      "configured_max_threads_per_threadgroup": 1,
+      "device": "Apple M5",
+      "gpu_seconds": 1.0724722500890493,
+      "input_bytes": 1610907660,
+      "library_compile_seconds": 0.895672082901001,
+      "output_bytes": 2991685632,
+      "pipeline_compile_seconds": 0.0033140182495117188,
+      "pipeline_lock_wait_seconds": 2.9802322387695312e-06,
+      "pipeline_max_threads_per_threadgroup": 1,
+      "registry_id": "4294968313",
+      "threads_per_threadgroup": 1,
+      "compile_timeout_seconds": 300,
+      "gpu_timeout_seconds": 120,
+      "session_dispatches": 3,
+      "pipeline_instances": 1,
+      "buffer_allocations": 2
+    },
+    "world_transport": {
+      "backend": "metal",
+      "cases": 49,
+      "command_status": "completed",
+      "configured_max_threads_per_threadgroup": 1,
+      "device": "Apple M5",
+      "gpu_seconds": 0.07173166668508202,
+      "input_bytes": 17414212,
+      "library_compile_seconds": 0.004116058349609375,
+      "output_bytes": 44154880,
+      "pipeline_compile_seconds": 0.0042999982833862305,
+      "pipeline_lock_wait_seconds": 1.9073486328125e-06,
+      "pipeline_max_threads_per_threadgroup": 1,
+      "registry_id": "4294968313",
+      "threads_per_threadgroup": 1,
+      "compile_timeout_seconds": 300,
+      "gpu_timeout_seconds": 120
+    },
+    "core_report_source_commit": "5a161e8078179db5a148883b9bd6cb99190268e2",
+    "world_report_source_commit": "9d61cbc5fc71a209ee12d76be20e4533ed528fcf"
+  },
+  "expected_sha256": "a114dfe12eb5aafe218c42907775339752ebe998c3f8f17bae7367bc5bc133ff",
+  "source_commit": "7388f1d0f7f93c01752d84913cd99a9998f33f3d",
+  "backend": "metal",
+  "scope": "Exact full-output and full semantic-dictionary SHA256 comparison. This compact report does not discard or replace detailed reports/raw retained on this host.",
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "normal_ui": "CPU"
+}

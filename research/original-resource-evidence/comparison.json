@@ -1,0 +1,42 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "coordinate-original-resources/EH-start",
+      "input_sha256": "362e35eb62230437d6c40e621b6882843b83f76f1ad4e0f5a8960b3cb17dc7b2",
+      "output_sha256": "ad0380d4eb9507f3db178af68384af7840e66e1d11bec3dc63ffb63c47ecbca0",
+      "native_sha256": "a4d4b5ed01ad75a7a4e2adc6e2f473e2777dbd7bc2915fa342298f69d9c43f79"
+    },
+    {
+      "name": "coordinate-original-resources/EH-cap",
+      "input_sha256": "2b96c51daf10dc16a1ca2011369b881d1f1b38bba442b86141a1facadf405c15",
+      "output_sha256": "fd07e64df8263125f8ce3943e02492bad2a886a0819a49e430a1057b39d646b2",
+      "native_sha256": "c9ff14cd31c2ea6cdd826f62a22f71d1db23a80b4c99e540ac0e9e9362534242"
+    },
+    {
+      "name": "coordinate-original-resources/Neon-burst",
+      "input_sha256": "bddf6fe35006992152b7482f2abbbdf31ebf7324fc833e88031101824fa480e4",
+      "output_sha256": "3267410b3795d0c27083005af352d3305babb5cfc6b5b0017505687ca53ff4cb",
+      "native_sha256": "b4acfa6151e60db8cea3af51db3b12a6583e4dd209d62d7d5caacbe90bd02bae"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 3,
+  "native_oracles": 3,
+  "input_sha256": "4e1d3c4e87143f66c67c9f96426b18e58b5f2f8bf400d1e37b96cfe1852a95bc",
+  "output_sha256": "5e34563f524a89dc1b4518673432636fce6bbfee687cf7d574f2a909fff58751",
+  "generated_normalized": {
+    "cuda": "9d222cefcb7761efe38fee0c5f611f6fa9e7c847d97af059babc469aefccfb6b",
+    "metal": "223f0f0d9a90bd971beabd9f6af3f6448e1e6d5622782598a4f81de0dc3b1617"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 3,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 3
+  }
+}

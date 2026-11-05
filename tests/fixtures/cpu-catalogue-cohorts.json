@@ -1,0 +1,70 @@
+{
+  "original-catalogue-burst": {
+    "script": "research/verify-original-catalogue.py",
+    "golden": "research/portable-original-catalogue-burst-v1-expected.json",
+    "frozen_cases": [
+      "original-catalogue/hp-shield/라피 : 레드 후드/favorite-0/30s",
+      "original-catalogue/hp-shield/홍련 : 흑영/favorite-0/30s",
+      "original-catalogue/hp-shield/레드 후드/favorite-0/30s",
+      "original-catalogue/hp-shield/신데렐라/favorite-0/30s"
+    ]
+  },
+  "original-catalogue-incoming": {
+    "script": "research/verify-original-catalogue.py",
+    "golden": "research/portable-original-catalogue-incoming-v1-expected.json",
+    "frozen_cases": [
+      "original-catalogue/incoming/Red-Hood-B2/30s",
+      "original-catalogue/incoming/Red-Hood-auto/30s",
+      "original-catalogue/incoming/Cinderella-chipped/30s",
+      "original-catalogue/incoming/Cinderella-broken/30s"
+    ]
+  },
+  "original-catalogue-roles": {
+    "script": "research/verify-original-catalogue.py",
+    "golden": "research/portable-original-catalogue-roles-v1-expected.json",
+    "frozen_cases": [
+      "original-catalogue/role/Rapi-no-B1/30s",
+      "original-catalogue/role/Rapi-with-B1/30s",
+      "original-catalogue/role/Red-Hood-123/30s",
+      "original-catalogue/role/Red-Hood-12/30s"
+    ]
+  },
+  "original-support-conditions": {
+    "script": "research/verify-original-catalogue-ordered.py",
+    "golden": "research/portable-original-support-conditions-v1-expected.json",
+    "frozen_cases": [
+      "original-catalogue/support/Naga-injured/30s",
+      "original-catalogue/support/Tia-injured/30s",
+      "original-catalogue/support/Naga-Tia-shield/30s",
+      "original-catalogue/support/Naga-Tia-injured-shield/30s"
+    ]
+  },
+  "original-threshold-conditions": {
+    "script": "research/verify-original-catalogue-ordered.py",
+    "golden": "research/portable-original-threshold-conditions-v1-expected.json",
+    "frozen_cases": [
+      "original-catalogue/threshold/Biscuit-control/30s",
+      "original-catalogue/threshold/Biscuit-first/30s",
+      "original-catalogue/threshold/Biscuit-two/30s",
+      "original-catalogue/threshold/Biscuit-exhausted/30s"
+    ]
+  },
+  "original-probability-conditions": {
+    "script": "research/verify-original-catalogue-ordered.py",
+    "golden": "research/portable-original-probability-conditions-v1-expected.json",
+    "frozen_cases": [
+      "original-catalogue/probability/Emma-control/30s",
+      "original-catalogue/probability/Emma-self-chipped/30s",
+      "original-catalogue/probability/Emma-self-wounded/30s",
+      "original-catalogue/probability/Emma-ally-chipped/30s"
+    ]
+  },
+  "original-catalogue-support": {
+    "script": "research/verify-original-catalogue-support.py",
+    "golden": "research/portable-original-catalogue-support-v1-expected.json",
+    "frozen_cases": [
+      "original-catalogue/hp-shield/나가/favorite-0/30s",
+      "original-catalogue/hp-shield/티아/favorite-0/30s"
+    ]
+  }
+}

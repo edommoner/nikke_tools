@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "gpu_execution_performed": false,
+  "cases": [
+    {
+      "programs": 1,
+      "input_sha256": "f831e7e1273daab8f45373079b6bbdeaa698fd24b80989ccab2edf4e73ce9efc",
+      "bytes": 344068
+    },
+    {
+      "programs": 20,
+      "input_sha256": "e2559979490478aed2705891b5e3fcf6ea832afa9978efdb2ad5612a188013d8",
+      "bytes": 6881284
+    },
+    {
+      "programs": 2049,
+      "input_sha256": "becbf5471a44c546f10e669d91dfb78bbbfa0b45422a77d50a6cb0f672895b3c",
+      "bytes": 704987140
+    }
+  ]
+}

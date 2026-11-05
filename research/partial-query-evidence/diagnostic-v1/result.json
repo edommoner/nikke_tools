@@ -1,0 +1,33 @@
+{
+  "sealed": false,
+  "purpose": "development",
+  "calculation_verified": false,
+  "preservation_verified": null,
+  "passed": false,
+  "containment_verified": true,
+  "comparison_error": null,
+  "first_difference": {
+    "index": 0,
+    "name": "partial-query-post-hit-mutation",
+    "reason": "AssertionError: {'gpu_misses': 56, 'native_misses': 55, 'first': [{'index': 16, 'gpu': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 0.2333333333333333, 'atk_flat': 0.0, 'atk_pct': 0.0, 'after_index': 156, 'sample_total': 90}, 'native': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 0.2333333333333333, 'atk_flat': 140.0, 'atk_pct': 0.0, 'after_index': 156, 'sample_total': 90}}, {'index': 17, 'gpu': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 0.2333333333333333, 'atk_flat': 140.0, 'atk_pct': 0.0, 'after_index': 157, 'sample_total': 91}, 'native': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 0.2333333333333333, 'atk_flat': 0.0, 'atk_pct': 0.0, 'after_index': 157, 'sample_total': 91}}, {'index': 18, 'gpu': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 0.2333333333333333, 'atk_flat': 0.0, 'atk_pct': 0.0, 'after_index': 158, 'sample_total': 92}, 'native': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 0.2333333333333333, 'atk_flat': 140.0, 'atk_pct': 0.0, 'after_index': 158, 'sample_total': 92}}, {'index': 19, 'gpu': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 0.2333333333333333, 'atk_flat': 0.0, 'atk_pct': 0.0, 'after_index': 159, 'sample_total': 93}, 'native': {'owner': 4, 'target': 0, 'exclusion': 0, 'time': 0.2333333333333333, 'atk_flat': 0.0, 'atk_pct': 0.0, 'after_index': 159, 'sample_total': 93}}, {'index': 20, 'gpu': {'owner': 4, 'target': 0, 'exclusion': 0, 'time': 0.2333333333333333, 'atk_flat': 0.0, 'atk_pct': 0.0, 'after_index': 161, 'sample_total': 94}, 'native': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 0.24999999999999997, 'atk_flat': 0.0, 'atk_pct': 0.0, 'after_index': 161, 'sample_total': 94}}, {'index': 21, 'gpu': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 0.24999999999999997, 'atk_flat': 140.0, 'atk_pct': 0.0, 'after_index': 163, 'sample_total': 95}, 'native': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 0.24999999999999997, 'atk_flat': 0.0, 'atk_pct': 0.0, 'after_index': 163, 'sample_total': 95}}, {'index': 22, 'gpu': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 0.24999999999999997, 'atk_flat': 140.0, 'atk_pct': 0.0, 'after_index': 164, 'sample_total': 96}, 'native': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 0.24999999999999997, 'atk_flat': 0.0, 'atk_pct': 0.0, 'after_index': 164, 'sample_total': 96}}, {'index': 23, 'gpu': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 0.24999999999999997, 'atk_flat': 0.0, 'atk_pct': 0.0, 'after_index': 166, 'sample_total': 97}, 'native': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 0.24999999999999997, 'atk_flat': 140.0, 'atk_pct': 0.0, 'after_index': 166, 'sample_total': 97}}]}"
+  },
+  "phase": {
+    "events": 9,
+    "last_event": {
+      "monotonic_ns": 830171759948791,
+      "pid": 69631,
+      "stage": "shared_gpu_execute",
+      "state": "returned",
+      "wall_time_ns": 1792731022003164000
+    },
+    "nvrtc_compile_returned_success": false,
+    "cuda_compile_cache_hit_verified": false,
+    "cuda_linked_artifact_observed": false,
+    "cuda_launch_returned_success": false,
+    "cuda_synchronize_returned_success": false,
+    "cuda_readback_returned_success": false,
+    "scope": "Observed API returns only; full output verification requires the shared suite report"
+  },
+  "gpu_retries": 0,
+  "audit_gpu_calls": 0
+}

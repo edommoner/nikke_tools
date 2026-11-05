@@ -1,0 +1,28 @@
+{
+  "schema": "declared-cover-defense-numeric-metal-v1",
+  "suite": "cover-defense-numeric",
+  "package_id": "0c6a3d09d6b01f4ca95c67424cd8d6a0e1a3ca3ff7e5d49c62960f226d1bdee1",
+  "inputs": 572,
+  "native_cases": 562,
+  "rejected_cases": 10,
+  "metal_verified": true,
+  "independently_audited": true,
+  "cuda_verified": false,
+  "actual_device": "Apple M5",
+  "input_sha256": "4515f8230b6a31bfca1f4000792c35fa4f36b01b17487b3b73504ca6c6fb776b",
+  "output_sha256": "88dece3ef7e6e0cd1dec8b7ddb0b4b5a6301103f37be45bca6917a0f29a1d903",
+  "source_sha256": {
+    "gpu/cover_defense_numeric_probe.slang": "5c9700bbedc9f008f80a05351b6df2bf0dfd809adf0bef9a00aa3351e376beda",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/incoming_damage_numeric.slang": "838ef566299bbfc81d3efeaf893ff71bce519562ef938eb1d8a63f0b4571725c"
+  },
+  "independent_receipt_sha256": "9a87297a56ecfe557430ffbbe5cdc1cf14235a40779767c488c5c4610ab966f6",
+  "independent_elapsed_seconds": 1.172452124999836,
+  "original_carrier_reader_unit_verified": true,
+  "original_full_battle_verified": false,
+  "cover_layer_connected": false,
+  "in_game_level_curve_verified": false,
+  "default_admission_changed": false,
+  "full_character_verified": false,
+  "scope": "Explicit independent base DEF and ordered scalar quantities only; source carrier read/expiry tested on CPU, no protection-layer or original battle integration."
+}

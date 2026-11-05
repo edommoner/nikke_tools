@@ -1,0 +1,123 @@
+{
+  "duration-scaling-mixed-passive-finite": {
+    "checks": 17,
+    "reference_reads": 17,
+    "checks_sha256": "0eaed030abef557880be9fe36f514aae406a8d97dc4977e9daba8a84534c1b96",
+    "carriers": [
+      {
+        "definition": 2,
+        "owner": 0,
+        "stack": 1,
+        "activated": 0.0,
+        "expires_at": 0.4
+      }
+    ],
+    "definitions": 3,
+    "battle_sha256": "7d31cfef1617004ec6ce981e73da3c33960911d047a7b651d591f5a479f3106a",
+    "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "duration-scaling-mixed-passive-ref-expired": {
+    "checks": 17,
+    "reference_reads": 17,
+    "checks_sha256": "c2a1b9bcd0d30ca39a2f92e7996bd70ee65e626de959f4c7049f99866761b429",
+    "carriers": [
+      {
+        "definition": 2,
+        "owner": 0,
+        "stack": 1,
+        "activated": 0.24999999999999997,
+        "expires_at": 0.24999999999999997
+      }
+    ],
+    "definitions": 3,
+    "battle_sha256": "ca7d1e3f42ae5e2bfb34949607268e86276925aa68ae87f116269f809c29a417",
+    "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "duration-scaling-mixed-passive-zero-gauge": {
+    "checks": 17,
+    "reference_reads": 17,
+    "checks_sha256": "5b1a00ef88b63f2ea7d758cd7fb097289f3a6b7d833a54322e635ca0207c1d33",
+    "carriers": [
+      {
+        "definition": 2,
+        "owner": 0,
+        "stack": 1,
+        "activated": 0.24999999999999997,
+        "expires_at": 0.24999999999999997
+      }
+    ],
+    "definitions": 3,
+    "battle_sha256": "2ebf69c1c012683b21b5b88d578156cc2d7db0180c7d1bb0d737d022b99208ff",
+    "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "duration-scaling-mixed-source-decay": {
+    "checks": 3,
+    "reference_reads": 3,
+    "checks_sha256": "4e3a9d0d3efa72e7983cf11303bd03750c917d7855de8c0187d5ded093abe5b4",
+    "carriers": [
+      {
+        "definition": 3,
+        "owner": 0,
+        "stack": 3,
+        "activated": 0.21666666666666665,
+        "expires_at": 0.26666666666666666
+      }
+    ],
+    "definitions": 4,
+    "battle_sha256": "fa543f07be28fba383f53c3a9d15f4fe47844988c10f8f83ba5cb6b55e8726cc",
+    "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "duration-scaling-mixed-source-zero-shadows-stack": {
+    "checks": 3,
+    "reference_reads": 3,
+    "checks_sha256": "4e3d3dfc21ee34c7906a920d73d61a325705bbdf67f02bf547c594e669aca46b",
+    "carriers": [],
+    "definitions": 4,
+    "battle_sha256": "4b97a03ec9b6918f130246adc8b4be7e56e9c169a8ccd0f6fd8037b3759779db",
+    "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "duration-scaling-mixed-gauge-zero-shadows-source": {
+    "checks": 3,
+    "reference_reads": 3,
+    "checks_sha256": "e8fe4ee31f0335c15bda55689c21f79160464460fda00a14d27afd0733ad0506",
+    "carriers": [],
+    "definitions": 5,
+    "battle_sha256": "4b97a03ec9b6918f130246adc8b4be7e56e9c169a8ccd0f6fd8037b3759779db",
+    "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "duration-scaling-mixed-source-caster-local": {
+    "checks": 3,
+    "reference_reads": 3,
+    "checks_sha256": "30e4f44787cf6f6731221cdd431e8b8eeec28e8e730729235896bfe57ce08507",
+    "carriers": [],
+    "definitions": 4,
+    "battle_sha256": "120bdf7af045d4894220a3f7cc3c2a0a10b0ef10d47b501a4efa1a62c1a82746",
+    "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "duration-scaling-mixed-stack-operation-raw-refresh": {
+    "checks": 1,
+    "reference_reads": 1,
+    "checks_sha256": "c031fdd8641cfc17e62d706dbff11fbf7b42e4b3f64397b82595f9c9b4b601ce",
+    "carriers": [],
+    "definitions": 4,
+    "battle_sha256": "a068df4cf5c6e5799f00f23560a76a8af210c892499970e11aa0eda9b08fc9af",
+    "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "duration-scaling-mixed-colon-reference": {
+    "checks": 3,
+    "reference_reads": 3,
+    "checks_sha256": "794787b81544108dbd119b8fb62bc751c9ab4832582c7a3bbc3f21e82251bc66",
+    "carriers": [
+      {
+        "definition": 2,
+        "owner": 0,
+        "stack": 3,
+        "activated": 0.21666666666666665,
+        "expires_at": 0.3666666666666667
+      }
+    ],
+    "definitions": 3,
+    "battle_sha256": "ffcab7720daf5ff172929364faa1ccb017cf8b003bf1b8a7595f74226849601f",
+    "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "942ef23883adb2fed94d685a6617871a476925706b1ade6054b1b9b6aef7f472",
+  "capture": "/private/tmp/nikke-original-revival-metal-v1",
+  "child_pid": 23061,
+  "input_count": 3,
+  "native_cases": 3,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 15.100125707918778,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "70a21c70d27b238931e9f9161ffc0434f179c36ac5d0174dd2348c06afd18c01",
+  "output_sha256": "428650b31a0a574024258a564b53b6b39d656c0607437762aec3921f61dc1442",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}

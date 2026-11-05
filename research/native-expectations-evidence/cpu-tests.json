@@ -1,0 +1,72 @@
+[
+  {
+    "pattern": "test_typed_geometry.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7131019160151482,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 68904
+  },
+  {
+    "pattern": "test_coordinate_typed.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.328710041940212,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 68904
+  },
+  {
+    "pattern": "test_target_modifier_input.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.948280124925077,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 68904
+  },
+  {
+    "pattern": "test_original_modifier_probe.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7976585000287741,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 68904
+  },
+  {
+    "pattern": "test_destructible_weapon_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.122527542058378,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 68904
+  },
+  {
+    "pattern": "test_portable_definition_view.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.1123559169936925,
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 68904
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.15436741593293846,
+    "tests": 19,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 68904
+  }
+]

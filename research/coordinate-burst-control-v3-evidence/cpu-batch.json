@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_coordinate_burst_control.py",
+    "test_burst_control_policy.py",
+    "test_coordinate_physical_frontier.py"
+  ],
+  "timeout_seconds": 180,
+  "elapsed_seconds": 53.366037834086455,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

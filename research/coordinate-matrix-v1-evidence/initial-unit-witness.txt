@@ -1,0 +1,1 @@
+Initial CPU unit: 5 tests, 1 failure. 30 degrees happened to produce equal historical/common coefficients, so the test demanding a difference was wrong. Changed only the witness angle to 90 degrees, where historical host cos is nonzero and common cos is exactly zero. No GPU/package execution.

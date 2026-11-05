@@ -1,0 +1,276 @@
+{
+  "schema": "product-coordinate-healing-cuda-request-v1",
+  "source_review_commit": "11ec8513",
+  "transport_commit": "9bca1b7d234b940149b477bf5ae1598a0ffd9af6",
+  "request": {
+    "limits": {
+      "sdk_child_seconds": 60,
+      "api_helper_seconds": 53,
+      "cpu_audit_seconds": 60,
+      "each_outer_seconds": 180,
+      "memory_mib": 2048,
+      "minimum_available_ram_bytes": 4294967296,
+      "priority": "BelowNormal",
+      "fresh_job_gate": true,
+      "permission_mode": "require_escalated",
+      "serial_only": true
+    },
+    "compile_recipe": {
+      "slang_generation": "Existing paired CUDA/MSL generation once, exact current owner/reflection/normalized baseline; require generation cache afterwards",
+      "ptx_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false",
+        "--split-compile=2"
+      ],
+      "object_options": [
+        "--gpu-name=sm_86",
+        "--opt-level=1",
+        "--fmad=false",
+        "--verbose",
+        "--compile-only"
+      ],
+      "runtime": "Pinned nvJitLink saved image; no full NVRTC battle rebuild or prior different-kernel image substitution",
+      "entry": "portableEvents",
+      "manual_main_cache_probe_forbidden": true
+    },
+    "report_policy": "Keep SDK outer/inner distinction, all advisory null/unknown, service/whole/overallfalse; bounded_job verified separately; no raw/PTX/compiler/auth/settings/external process details",
+    "other11_helpers_original_export_commit": "534f5601",
+    "other11_helpers_must_be_byte_unchanged": true,
+    "schema": "product-coordinate-healing-windows-request-v1",
+    "owner": "fa22d9b5406ceb73bd8fcf0924267d37835796471ccf4fa60219868ead76c47d",
+    "source_commit": "7fc655646628b41e72cec023fb096ba91b8f0b99",
+    "code_review_commit": "11ec8513",
+    "package_working_tree_dirty": true,
+    "program": "coordinate-healing-accumulate",
+    "source": "gpu/product_coordinate_healing_battle_entry.slang",
+    "scope": "One original Anne30s ordinary API condition: common coordinate sampling plus finite ADD healing, including original heal_received_pct consumption at25s. Declared model, not game rule verification; no other profile or condition rerun.",
+    "archive": "coordinate-healing-v1.zip",
+    "archive_bytes": 12166996,
+    "archive_sha256": "2b8e83c06ec2f9c5238565db9fccf980977a16bb06483c6fbca3bb2ae7547ec2",
+    "validation_deps": "coordinate-healing-v1-validation-deps.json",
+    "ptx_plan": "coordinate-healing-v1-ptx-plan.json",
+    "o1_plan": "coordinate-healing-v1-o1-plan.json",
+    "input_words": 120048,
+    "output_words": 2032000,
+    "cases": [
+      {
+        "index": 0,
+        "member_index": 0,
+        "label": "product/coordinate-healing-accumulate-30s",
+        "variant": null,
+        "expected_input_sha256": "ea3417dc886d5dbd47278867088d101213dbc03639dacf3e41cb775fcf87fd5a",
+        "expected_output_sha256": "27730cba3aacdabeafd157051c38553ab246901d7a9e04d631e20ce26141b0a4",
+        "definition_count": 69,
+        "all_original_definitions_preserved": true,
+        "saved_metal_capture": "product-coordinate-healing-v1-20261101/metal-v2"
+      }
+    ],
+    "batches": [
+      {
+        "index": 0,
+        "batch_index": 0,
+        "member_indices": [
+          0
+        ],
+        "original_profile_indices": [
+          0
+        ],
+        "case_indices": [
+          0
+        ],
+        "cases": 1,
+        "physical_cases": 1,
+        "physical_input_bytes": 480196,
+        "physical_input_sha256": "ea3417dc886d5dbd47278867088d101213dbc03639dacf3e41cb775fcf87fd5a",
+        "physical_output_bytes": 8128000,
+        "physical_output_sha256": "27730cba3aacdabeafd157051c38553ab246901d7a9e04d631e20ce26141b0a4",
+        "readback_chunks": [
+          8128000
+        ],
+        "expected_readback_chunk_bytes": [
+          8128000
+        ],
+        "api_job": "coordinate-healing-v1-api-job.json",
+        "api_job_sha256": "f40546b4bc39c4ea7e9d5fca584918b1e4441ac6d406efe469fb966d343ec998",
+        "api_expected": "coordinate-healing-v1-api-expected.json",
+        "api_expected_sha256": "a56be3685fe93e9925ad1c6e9cda833cf1a3853956b0e860ae0288e12459b31e"
+      }
+    ],
+    "unit_selection": "coordinate-healing-v1-selected11.json",
+    "unit_selection_sha256": "47f70ffedde8ff2be2215ea2de7173b0a389fb2cde78a560c8cb16345b9c7055",
+    "cpu_patterns": [
+      "test_portable_detail.py",
+      "test_product_detail_packet.py",
+      "test_weighted_source_contract.py",
+      "test_product_reference_models.py"
+    ],
+    "selected_case_ids": {
+      "test_portable_detail.py": [
+        "test_portable_detail.PortableDetail.test_product_keeps_all_equipment_rows_and_uses_native_carrier_lifecycle"
+      ],
+      "test_product_detail_packet.py": [
+        "test_product_detail_packet.ProductPacket.test_each_program_uses_the_actual_static_product_input_and_exact_wire"
+      ],
+      "test_product_reference_models.py": [
+        "test_product_reference_models.ProductReferenceModels.test_coordinate_healing_keeps_all_effects_scene_and_literal_source_bank",
+        "test_product_reference_models.ProductReferenceModels.test_coordinate_healing_requires_complete_projection_context_before_receipts"
+      ]
+    },
+    "windows_targeted_tests": 11,
+    "mac_own_cpu_tests": 164,
+    "unselected_windows_total_tests": 153,
+    "unselected_windows_model_tests": 77,
+    "mac_current_source_metal_profile_count": 263,
+    "mac_selected_metal_cases": 1,
+    "mac_selected_independent_seal_passed": true,
+    "mac_release_own_cpu_deps_plans_passed": true,
+    "mac_normal_composition_api_cases": 12,
+    "additional_material_battles": 0,
+    "additional_material_gpu": 0,
+    "max_posts": 1,
+    "max_gpu_dispatches": 1,
+    "max_cases_per_api_batch": 1,
+    "retries": 0,
+    "standard266_rerun": false,
+    "configured_profile_delta": 0,
+    "unconfigured_standard_profile_delta": 0,
+    "report": "product-coordinate-healing-windows-status-v1.json",
+    "full_goal_complete": false,
+    "activity_expectations": {
+      "healing_receipts": 4,
+      "healing_sources": 2,
+      "multipliers": [
+        0.2106999999999999,
+        1.0
+      ]
+    },
+    "prior_add_result_commit": "9d31ddae8ca0987f93643aef175a4704b26770f5",
+    "prior_weighted_add_and_ammo_results_stops_claims_must_be_retained": true,
+    "helper_install": [
+      {
+        "source": "coordinate-healing-v1-check-sdk.py",
+        "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d",
+        "destination": "check-sdk.py",
+        "destination_scope": "outer-windows-directory"
+      },
+      {
+        "source": "coordinate-healing-v1-prepare-api.py",
+        "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739",
+        "destination": "prepare-api.py",
+        "destination_scope": "outer-windows-directory"
+      },
+      {
+        "source": "coordinate-healing-v1-verify-host-tests.py",
+        "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7",
+        "destination": "verify-host-tests.py",
+        "destination_scope": "program-directory"
+      }
+    ],
+    "steps": [
+      "Prior ADD turn terminal and saved result9d31ddae imported on Mac. Preserve old roots/stops/claims/all successful artifacts and unknown statuses. This is a separate new source/condition, not a retry. No OS/SSH/reboot/service changes.",
+      "Fresh root, exact archive+manifest, own deps/plans. Existing managed verify-host-tests.py validates full request/selector/owner/ID/hash agreement and runs selected11 only. Full164 already passed on Mac; unselected153 not rerun on Windows. All original group and strict nonempty ID guards retained.",
+      "This exact new product source has no prior Windows SDK record. Use the existing bounded paired-generation -> compile-ptx -> O1 module-object -> pinned nvJitLink recipe once, exact entry portableEvents. Reuse only actual exact source/compiler/option receipt hits. Do not run legacy manual cache-probe with hardcoded main; it is not the execution entry. Keep old wrong-main failure unchanged. No legacy full NVRTC build or source partition.",
+      "Fresh RAM>=4GiB before expensive SDK and immediately before API. SDK/CPU/audit60s, API53s, each outer180s, BelowNormal/fresh startgate Job/2GiB. First numeric/timeout/missing/query/observation/cleanup failure stops; no measurement/retry loop.",
+      "Only one ordinary API POST, one real CUDA dispatch, complete parent/member input and readback SHA plus full CPU/GPU/HTTP/Unicode comparison. Actual cuInit/load/launch/sync/readback/destroy must return0. GPU admission cannot be inferred from source generation.",
+      "After API terminal/Nodegone/Jobempty/live0, reuse existing Node transport/static repack/full saved projection with extra battle/GPU0. Read activity with official metadata/decoder: healing receipts4/sources2 and multipliers in activity_expectations. Complete parent/member raw/CPU/GPU/HTTP/Unicode checks remain mandatory.",
+      "Export small saved JSON only to the same existing packet branch. Keep all outer/inner distinctions and unknown/service/whole/overallfalse. No process names/paths/commandlines/PIDs, settings, auth, PTX/raw/image in public summary. On disconnect read status/export only; never resend run."
+    ]
+  },
+  "transport_manifest": {
+    "schema": "product-transport-v1",
+    "owner": "fa22d9b5406ceb73bd8fcf0924267d37835796471ccf4fa60219868ead76c47d",
+    "files": [
+      {
+        "path": "coordinate-healing-v1-api-expected.json",
+        "bytes": 1189,
+        "sha256": "a56be3685fe93e9925ad1c6e9cda833cf1a3853956b0e860ae0288e12459b31e"
+      },
+      {
+        "path": "coordinate-healing-v1-api-job.json",
+        "bytes": 9894,
+        "sha256": "f40546b4bc39c4ea7e9d5fca584918b1e4441ac6d406efe469fb966d343ec998"
+      },
+      {
+        "path": "coordinate-healing-v1-check-sdk.py",
+        "bytes": 4875,
+        "sha256": "f33af27e982f054aef4f3275be135dcfa3fd051f5ea1fe6f61cea5f6b3961d8d"
+      },
+      {
+        "path": "coordinate-healing-v1-o1-plan.json",
+        "bytes": 735,
+        "sha256": "af8e69b2d5a22f64a5f2a24e83bf4f5f5c254f966f64cce91f4ee02c158965d0"
+      },
+      {
+        "path": "coordinate-healing-v1-prepare-api.py",
+        "bytes": 6413,
+        "sha256": "43c8af6b6368a575e5e2484f3ecfdcc05a6f0ece46b472a688fdad0114f25739"
+      },
+      {
+        "path": "coordinate-healing-v1-ptx-plan.json",
+        "bytes": 707,
+        "sha256": "4262672b5288cac4ab40aabc35c52d3296e9a63c886c0207e88b55351868a7a2"
+      },
+      {
+        "path": "coordinate-healing-v1-request-validation.json",
+        "bytes": 601,
+        "sha256": "39f19afdd17a7bc89c160b883b947777913c5cd84c22afc341c7a5ccc55770ac"
+      },
+      {
+        "path": "coordinate-healing-v1-selected11.json",
+        "bytes": 852,
+        "sha256": "47f70ffedde8ff2be2215ea2de7173b0a389fb2cde78a560c8cb16345b9c7055"
+      },
+      {
+        "path": "coordinate-healing-v1-validation-deps.json",
+        "bytes": 407,
+        "sha256": "9e12de137ba95ec9d351e010680c6d167f3a7186ad657b5d1d3ace91b8d0161b"
+      },
+      {
+        "path": "coordinate-healing-v1-verify-host-tests.py",
+        "bytes": 1924,
+        "sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7"
+      },
+      {
+        "path": "coordinate-healing-v1-windows-request.json",
+        "bytes": 8744,
+        "sha256": "6771d1740390604c1823c3b2ed3fb4aba9feec5239717b590958df01b8cfb74e"
+      },
+      {
+        "path": "coordinate-healing-v1.zip",
+        "bytes": 12166996,
+        "sha256": "2b8e83c06ec2f9c5238565db9fccf980977a16bb06483c6fbca3bb2ae7547ec2"
+      }
+    ],
+    "raw_or_settings_included": false,
+    "additional_battles": 0,
+    "additional_gpu": 0
+  },
+  "managed_helper_integration": {
+    "schema": "product-request-integration-v1",
+    "owner": "fa22d9b5406ceb73bd8fcf0924267d37835796471ccf4fa60219868ead76c47d",
+    "request_sha256": "6771d1740390604c1823c3b2ed3fb4aba9feec5239717b590958df01b8cfb74e",
+    "selector_sha256": "47f70ffedde8ff2be2215ea2de7173b0a389fb2cde78a560c8cb16345b9c7055",
+    "managed_helper_sha256": "8426d7b4e3a29806c1f721b9e29c4e0c015e1f904add9631674b551e53f699d7",
+    "managed_helper_request_selector_owner_ids_hashes_checked": true,
+    "selected11_passed": true,
+    "full164_windows_not_claimed": true,
+    "extra_native_battles": 0,
+    "sdk_calls": 0,
+    "gpu_calls": 0
+  },
+  "all_shared_git_payload_bytes_rehashed": true,
+  "mac_packet_own_selected11_passed": true,
+  "full_mac_unit_tests": 164,
+  "windows_selected_unit_tests": 11,
+  "windows_unselected": 153,
+  "prior_add_and_weighted_turns_terminal_results_imported": true,
+  "send_accepted": true,
+  "new_live_turn_confirmed": true,
+  "live_turn": "01a1979d-b6f7-7c50-ac03-69fa1bd2cdb9",
+  "live_turn_status": "inProgress",
+  "new_cuda_results_received": false,
+  "previous_runs_retried": false,
+  "standard_profile_delta": 0,
+  "full_goal_complete": false
+}

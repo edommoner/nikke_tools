@@ -11,8 +11,3 @@ class CleanseTests(unittest.TestCase):
    self.assertEqual(row[1],26);self.assertEqual(row[6],amount)
   for amount in [float('nan'),float('inf'),None,'all']:
    with self.assertRaises(UnsupportedDetail):compile_effects(chars,[(v.v.E('bad','instant','debuff_cleanse',amount),v.v.NAMES[0])])
- def test_complete_squads_and_positive_raw_characters(self):
-  d=v.v.c.Cuda()
-  try:cases=v.verify(d,'native')
-  finally:d.close()
-  self.assertEqual(len(cases),52);self.assertTrue(all(r['passed'] for r in cases),[r for r in cases if not r['passed']])

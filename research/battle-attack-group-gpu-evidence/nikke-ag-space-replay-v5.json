@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-ag-replay32-v5",
+  "raw_bytes": 134217728,
+  "raw_sha256": "76d5e574afa7ddb35d0d0437952e21e4a5caf4748f4363f43ff6e965c78e7440",
+  "evidence_sha256": "5114d764e311b549f3b930af6499676806963054a27d372795688252fcb81d47",
+  "raw_inode": 509310109,
+  "zero_ranges": 318,
+  "zero_range_bytes": 96796672,
+  "allocated_before": 134217728,
+  "allocated_after": 37421056,
+  "allocated_reclaimed": 96796672,
+  "full_hash_verified": true
+}

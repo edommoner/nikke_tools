@@ -1,0 +1,145 @@
+{
+  "cases": [
+    {
+      "name": "coordinate-physical-reference/occlusion-and-body",
+      "pellets": 1,
+      "packets": 2,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-reference/full-front",
+      "pellets": 1,
+      "packets": 1,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-reference/interrupt-front",
+      "pellets": 1,
+      "packets": 1,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-reference/two-muzzles-three-pellets",
+      "pellets": 6,
+      "packets": 12,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-reference/retirement",
+      "pellets": 3,
+      "packets": 6,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-reference/body-without-targets",
+      "pellets": 1,
+      "packets": 1,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-reference/pierce-reach",
+      "pellets": 1,
+      "packets": 3,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-reference/charge-pierce",
+      "pellets": 1,
+      "packets": 3,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-reference/threshold-snapshot",
+      "pellets": 12,
+      "packets": 18,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-gpu/rotated-rectangle",
+      "pellets": 1,
+      "packets": 3,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-gpu/critical-fraction",
+      "pellets": 1,
+      "packets": 2,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-gpu/accuracy",
+      "pellets": 1,
+      "packets": 2,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-gpu/two-owners",
+      "pellets": 2,
+      "packets": 4,
+      "owners": [
+        "\ub9ac\ud0c0",
+        "\ubaa8\ub354\ub2c8\uc544"
+      ]
+    },
+    {
+      "name": "coordinate-physical-gpu/unbreakable",
+      "pellets": 1,
+      "packets": 2,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-gpu/same-shot-retirement",
+      "pellets": 12,
+      "packets": 24,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-gpu/interrupt-reach",
+      "pellets": 1,
+      "packets": 4,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    },
+    {
+      "name": "coordinate-physical-gpu/weapon-change",
+      "pellets": 6,
+      "packets": 12,
+      "owners": [
+        "\ub9ac\ud0c0"
+      ]
+    }
+  ],
+  "total_pellets": 52,
+  "total_packets": 100,
+  "native_sha256_matches_seal": true,
+  "gpu_calls": 0
+}

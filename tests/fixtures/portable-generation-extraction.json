@@ -1,0 +1,25 @@
+{
+  "generation_functions": {
+    "source_hashes": "2d4eb08e6ae607481efef1244bd172b66b475fe06174fdd6f467d7dce26c9cf9",
+    "build": "0c31529494ad6539750c1a59f5d864101a336a411a89266fb4c31d91392e66f7",
+    "_build_resident": "0e75fe63e1d9921ee12c2914c7ceb75ca566746053d1078636704919fd55dbfb"
+  },
+  "other_backend_functions": {
+    "metal_compile_command": "33cb8d4a7160cfadeccb2af580e6af296f998fd28e5874131ef91684aeee30a8",
+    "run_metal_command": "f6e092797cb6a04dae3071f92ea50efe662b36cd959109d5e4b3f3ec888c832f",
+    "resident_plan": "29a52f8fb240f72ee36fc5d3a21574bf2b79573aad1f9248d76ed5da1a912f78",
+    "execute": "f5e361b8bfd5b0e51196ce2b4d53833c6392db22172828c266abe7b40c638f92",
+    "execute_batches": "8c19e9ea0096b7f2f8b8c695977442b917481963df331327142228fab38cc4b5",
+    "_cuda_module": "839a171a930fd6f9c86b59c3bb40bca3df4427319119edc8bee27c59b5f0b04c",
+    "execute_cuda": "1d13e589ee2ae1f9afb2f92a5e373fa87398f76875dff56e96912e5087ea0275",
+    "cuda_compiler_files": "2e10117aa0949b963110fb3c719d50f9f94fa4f58fc9468e9456dc112717d9d0",
+    "probe_cuda_source_cache": "5c53a59f5ae7d2b95f6a8a543add12a2120e68789bee94dc66906b6524e4a84a",
+    "compile_cuda_source": "41c8a4634a46a0cdd2597cc4aae8874d373500dae1454cba4d9659e4b1bea2d9",
+    "execute_cuda_batches": "94dd4bc43ee3b296ee142f4456af39cc98fdead0983a731936b02bd337819d6c",
+    "cuda_readback_file": "07d6ca987e4821f21f8385c3a8b99ce6685666790f3772425252def215d250cc",
+    "inspect_cuda_module": "2027145d92e3881589b91e74771996162d8e709b46cdb3aaf37256caa092e924",
+    "cuda_artifact_kind": "b2261aafc6ae2ab1da1fd526c1f822ea9a9a74f9c10e3a6323ca915ca1a2dd45",
+    "cuda_compile_options": "1f7e5815a15d75ca52a0435ed91bc3d99f142aea910c8c8b2864c3d4b97ad4a4",
+    "compile_cuda_artifact": "4a63168128c38d428ea8e5ba148e698725ea61f338059526667bf4dc3b1b90a3"
+  }
+}

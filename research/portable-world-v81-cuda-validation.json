@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "source_commit": "6c8aaa5a10e9baf86397675f18c3651977775c2c",
+  "inputs": 146,
+  "native_cases": 70,
+  "rejected_cases": 27,
+  "prior_world49_full_output_preserved": true,
+  "full_input_output_native_actual_source_generated_fingerprints_equal": true,
+  "cuda_elapsed_seconds": 70.92993750004098,
+  "actual_cuda_executions": 1,
+  "normal4682_execution_count": 0,
+  "gpu_retry_count": 0,
+  "cpu_preflight_gpu_calls": 0,
+  "phase_events": 50,
+  "residual_windows_verification_processes": 0,
+  "original_windows_work_and_service_preserved": true,
+  "files": {
+    "windows-portable-world-v81-summary.json": "2bcb8f721035b8d28dbf31b1ed4f4371d9766b676c5db52dd8684f324b8c107d",
+    "portable-world-v81-execution.json": "ba741e0473abf771f6da47da41f4619810aafe310407d9fe1831c7bbb21eceaa",
+    "portable-cross-v81-receipt.json": "aafcb4c415ad1b9e82d9bb8ec7bd2d5bf0bb99653450f637bd257f0f11e12bc6"
+  },
+  "audit_gpu_executions": 0,
+  "full_character_verified": 0,
+  "canonical_world_admission": false,
+  "normal_ui": "CPU",
+  "full_goal_complete": false
+}

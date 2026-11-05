@@ -1,0 +1,10 @@
+test_audit_reuses_public_and_arena_guards_without_battles (test_coordinate_physical_frontier.FrontierTests.test_audit_reuses_public_and_arena_guards_without_battles) ... ok
+test_changed_packet_probability_or_observation_requires_review (test_coordinate_physical_frontier.FrontierTests.test_changed_packet_probability_or_observation_requires_review) ... ok
+test_cli_writes_once_without_backend_or_native_execution (test_coordinate_physical_frontier.FrontierTests.test_cli_writes_once_without_backend_or_native_execution) ... ok
+test_common_policy_cannot_silently_revert_to_host_landing (test_coordinate_physical_frontier.FrontierTests.test_common_policy_cannot_silently_revert_to_host_landing) ... ok
+test_new_interval_source_reports_stale_proof_without_blocking_development (test_coordinate_physical_frontier.FrontierTests.test_new_interval_source_reports_stale_proof_without_blocking_development) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 3.409s
+
+OK

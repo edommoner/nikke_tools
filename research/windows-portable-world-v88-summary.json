@@ -1,0 +1,471 @@
+{
+  "passed": true,
+  "input_count": 61,
+  "input_sha256": "d8a69dea5826a6970e40a0c3e20cb831bcd5ca883ef8cd457e9a7098f9a69402",
+  "output_sha256": "c7c149b30e425d870f7894952d0f7946f3e27d66a11c347e481903802ddf0103",
+  "entries": [
+    {
+      "name": "native/independent-debuff_stack_add-boss",
+      "input_sha256": "cc46a8a958b9d8c0e98fab9f49f7dc17847a62cff6399d13745d19ec39b7bf63",
+      "output_sha256": "b2c44c03f2e7f19f9cca1370bdad23c41eb7ff803519c677681801f6ea3d4110",
+      "native_sha256": "41b1f53b45ea7ea47055fc3729cb6cc9c2299775f58c0b8c0c040f0ba7b924a1"
+    },
+    {
+      "name": "native/independent-debuff_stack_add-target",
+      "input_sha256": "378d8bec69b83acf116d3a50c0301cee29a1d58410adcc2615c7e576f1c04dd6",
+      "output_sha256": "3b01677949ea6c2ed8f3b65ec045d874ccd56216ab68fd49e115fcf451c7681b",
+      "native_sha256": "66d543915ec0fd156a3ce76456e7ad575b9771b11ab19fe60e1e7828cde7e383"
+    },
+    {
+      "name": "native/independent-debuff_stack_add-all_enemies",
+      "input_sha256": "d0bb665fb8284a780936823d5639dfd6d6122b69858925d519078a3c567600d5",
+      "output_sha256": "b9f3e92b66b949536b2ca99a6d21a0ca331bc821a444497a1af18b56ac38c158",
+      "native_sha256": "f1a98025d94488993e9a0b54c63a38c944663148d7e3cd7e8a9abebe2bca81a3"
+    },
+    {
+      "name": "native/independent-debuff_stack_add-enemies_top_atk:65",
+      "input_sha256": "b634a5b11409c8dedfdac56fb2bb06f7a0fea454bde4fc94216d3b07ed0d0500",
+      "output_sha256": "40318e1b6953239aa20467d9ff48844f809313b7d36f6c914923a4beeab80a7e",
+      "native_sha256": "ec686d7579d7bb24c7f6a66e6bb4e3b18b93c7bb2bf29de2f6ad3d1e604f88b2"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_add-0.0",
+      "input_sha256": "2fbcfe2e7bc19f768a901614a5c1076152962fe05fea256818640d09e83862ed",
+      "output_sha256": "b9f3e92b66b949536b2ca99a6d21a0ca331bc821a444497a1af18b56ac38c158",
+      "native_sha256": "f1a98025d94488993e9a0b54c63a38c944663148d7e3cd7e8a9abebe2bca81a3"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_add--0.0",
+      "input_sha256": "19c83949169d57f4aefc797814eb93306c78f5c890464f39de3abd17a2d6d60a",
+      "output_sha256": "b9f3e92b66b949536b2ca99a6d21a0ca331bc821a444497a1af18b56ac38c158",
+      "native_sha256": "f1a98025d94488993e9a0b54c63a38c944663148d7e3cd7e8a9abebe2bca81a3"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_add-0.5",
+      "input_sha256": "defa5c7d9d5d50c6b407c01f0e718ede9c3ce21048f84fa192159fbcac54674f",
+      "output_sha256": "dd8a8c3ca98b27c7acc755f3fd8ae9e9a55ea98dad26dd6527e9a0b391923623",
+      "native_sha256": "dd94ea44e921d2090376d89fab812b0dc52d96ebfa11ecd1c93ee6d26c15bcf8"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_add--0.5",
+      "input_sha256": "def8a0ec80ee8d401d605af6e4b64de23473c1766d8d7eff1a134bc3a6afa976",
+      "output_sha256": "dd8a8c3ca98b27c7acc755f3fd8ae9e9a55ea98dad26dd6527e9a0b391923623",
+      "native_sha256": "dd94ea44e921d2090376d89fab812b0dc52d96ebfa11ecd1c93ee6d26c15bcf8"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_add-3.9",
+      "input_sha256": "0e6f8182ab2ae7274e613f2740ab2a6cab5c7769f500ef2138b4baf6ad5425ff",
+      "output_sha256": "1d2de02284f71bbad9b395a5d96cca1548c0bc1d08b71f7f06d460a98f040a47",
+      "native_sha256": "c78655b589287fb56c1505ed292f6caef871f064bb94078ce0e8d00b33aff960"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_add--3.9",
+      "input_sha256": "728dbea942382c9cb532555e75e70ebaf640b926718063097faf2bb6cd7126a2",
+      "output_sha256": "aead95eb2a7de8db04372ae13f4c32e9fb5eaa94a44ebcbf2b6d1142df8d5e93",
+      "native_sha256": "540fa3bceb4ea74b6bf4b264be324ca39751b9f6af66f89e39dfca8d279a4daa"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_add-1e+308",
+      "input_sha256": "4ffa68a7386c2d72df5438c2c573ebc29b2ee1d22af3ca15cc597ea1b436da7b",
+      "output_sha256": "f5d574cbf28db18dcb4e4bc7c66b7b593925e3d79d9a765baa5c97d2cc7d2ecf",
+      "native_sha256": "46405aaac27b347d6a414b999e90bbc1d4a042450c05b6278dab292dca892818"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_add--1e+308",
+      "input_sha256": "2baa046d3fd10afc9206c35087ee11d8cf8b65f3acd7c651e34534ab95bab76f",
+      "output_sha256": "aead95eb2a7de8db04372ae13f4c32e9fb5eaa94a44ebcbf2b6d1142df8d5e93",
+      "native_sha256": "540fa3bceb4ea74b6bf4b264be324ca39751b9f6af66f89e39dfca8d279a4daa"
+    },
+    {
+      "name": "native/shared-once-debuff_stack_add-seed",
+      "input_sha256": "6bb43577687f0edbb7ce4882567b627e7e2192232bf67bf6bacaa41f62ed7c2b",
+      "output_sha256": "030da103f00fa2ce1888b06c955e73b8dbcf7bc7432aee6c94047b973bfb7615",
+      "native_sha256": "2c1daacdbe536ccc6bc5e70e1fd820db87d888fa8fbbe4f32819c46d032082ab"
+    },
+    {
+      "name": "native/shared-once-debuff_stack_add-None",
+      "input_sha256": "1423122aaa146609b39f1aaabafb15bd3bb150e8d0ad7e62781a61462e45ca03",
+      "output_sha256": "030da103f00fa2ce1888b06c955e73b8dbcf7bc7432aee6c94047b973bfb7615",
+      "native_sha256": "2c1daacdbe536ccc6bc5e70e1fd820db87d888fa8fbbe4f32819c46d032082ab"
+    },
+    {
+      "name": "native/independent-debuff_stack_remove-boss",
+      "input_sha256": "9842997f8dcac03e20870a4f7af78c5922beb84de85539747a3b758558a3dcc5",
+      "output_sha256": "15f55baf2fe0dfeea9981132ca59b48bd801d0bab66634a8a98c9f4d036cfc77",
+      "native_sha256": "2df4c5c794a50f7609cf510107a4911c79a3b74dfc1514fafc3c575ed5c87b97"
+    },
+    {
+      "name": "native/independent-debuff_stack_remove-target",
+      "input_sha256": "50684c1543fbdab3883aa947ce9e13ceab676128f287913d868e93cbb80df8ae",
+      "output_sha256": "5c73b4353e82e82db6d416617b8b8dacecb3dcdd1192dff82b0820096b9a69a4",
+      "native_sha256": "a98b1af18ff97226dfe9cab1b4bac1a7532223ed9efc02e27f01551b83185b0f"
+    },
+    {
+      "name": "native/independent-debuff_stack_remove-all_enemies",
+      "input_sha256": "ab8c479134ad9622c45a8b91d4f246f1f4a31baa471dd51d495b78e5efc122b8",
+      "output_sha256": "aead95eb2a7de8db04372ae13f4c32e9fb5eaa94a44ebcbf2b6d1142df8d5e93",
+      "native_sha256": "540fa3bceb4ea74b6bf4b264be324ca39751b9f6af66f89e39dfca8d279a4daa"
+    },
+    {
+      "name": "native/independent-debuff_stack_remove-enemies_top_atk:65",
+      "input_sha256": "5f58f939557f7cd6cb3fcd2b22b4a5a17d417bf6b79b91c3d1b9d97b238efb7e",
+      "output_sha256": "f23d658d38b6df9f20ea5fc9c2243da949ee525ea51047239b733ccff8a0a18d",
+      "native_sha256": "879451b0cd5aa99b53247ba6c0f58ff76ed502796731b616f14981917442e732"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_remove-0.0",
+      "input_sha256": "17aaa24c08ecedcdf8d87f99b91f3bc34ba8a69045738ae5b2808d64acc45970",
+      "output_sha256": "aead95eb2a7de8db04372ae13f4c32e9fb5eaa94a44ebcbf2b6d1142df8d5e93",
+      "native_sha256": "540fa3bceb4ea74b6bf4b264be324ca39751b9f6af66f89e39dfca8d279a4daa"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_remove--0.0",
+      "input_sha256": "a6dba5686086565338f63101f2086e51c989607868a790a4cfdd10f07294f49b",
+      "output_sha256": "aead95eb2a7de8db04372ae13f4c32e9fb5eaa94a44ebcbf2b6d1142df8d5e93",
+      "native_sha256": "540fa3bceb4ea74b6bf4b264be324ca39751b9f6af66f89e39dfca8d279a4daa"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_remove-0.5",
+      "input_sha256": "fe09d426075b2bf2ea0f97d0a83957f9ceeb7e64bad5c33b5d9c333c3de2ed1d",
+      "output_sha256": "dd8a8c3ca98b27c7acc755f3fd8ae9e9a55ea98dad26dd6527e9a0b391923623",
+      "native_sha256": "dd94ea44e921d2090376d89fab812b0dc52d96ebfa11ecd1c93ee6d26c15bcf8"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_remove--0.5",
+      "input_sha256": "4446b85eadf5fd80cf8743fe215e1a2c738b8a98f2ea15b91fcedd073690d086",
+      "output_sha256": "dd8a8c3ca98b27c7acc755f3fd8ae9e9a55ea98dad26dd6527e9a0b391923623",
+      "native_sha256": "dd94ea44e921d2090376d89fab812b0dc52d96ebfa11ecd1c93ee6d26c15bcf8"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_remove-3.9",
+      "input_sha256": "1793b9517e9213717619f631786f8c439d267f2b9a05a23372c6961e46dfee6a",
+      "output_sha256": "aead95eb2a7de8db04372ae13f4c32e9fb5eaa94a44ebcbf2b6d1142df8d5e93",
+      "native_sha256": "540fa3bceb4ea74b6bf4b264be324ca39751b9f6af66f89e39dfca8d279a4daa"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_remove--3.9",
+      "input_sha256": "edd12b310e1e4577da575ddd2997f8269d252d1e48a42cdd9f16c55ba5fc28bf",
+      "output_sha256": "1d2de02284f71bbad9b395a5d96cca1548c0bc1d08b71f7f06d460a98f040a47",
+      "native_sha256": "c78655b589287fb56c1505ed292f6caef871f064bb94078ce0e8d00b33aff960"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_remove-1e+308",
+      "input_sha256": "5e0b2b5295a28711eee868882c396a26faca1e5f647cb4ea7468ed0a030db384",
+      "output_sha256": "aead95eb2a7de8db04372ae13f4c32e9fb5eaa94a44ebcbf2b6d1142df8d5e93",
+      "native_sha256": "540fa3bceb4ea74b6bf4b264be324ca39751b9f6af66f89e39dfca8d279a4daa"
+    },
+    {
+      "name": "native/stack-delta-debuff_stack_remove--1e+308",
+      "input_sha256": "3c8fab6d13ca62b23b3013ced4af2848e155b3b58c8261cbd7c5b11c86d619f7",
+      "output_sha256": "f5d574cbf28db18dcb4e4bc7c66b7b593925e3d79d9a765baa5c97d2cc7d2ecf",
+      "native_sha256": "46405aaac27b347d6a414b999e90bbc1d4a042450c05b6278dab292dca892818"
+    },
+    {
+      "name": "native/shared-once-debuff_stack_remove-seed",
+      "input_sha256": "26f16e2944117101b7ef00dac40c633459050c48a0cab78dd9bff2292e09aa43",
+      "output_sha256": "a3185c2c27322571ee459e0019f244b8e9c73ede26da0ab3ec585a8e1065d692",
+      "native_sha256": "1d6ec3b8cee6b38f6b89cd34484459a60f162251554915535fa07fdf59c9e785"
+    },
+    {
+      "name": "native/shared-once-debuff_stack_remove-None",
+      "input_sha256": "0ba95ca60bd5b956a5c3ceacbeacf9fed5cc935768480c949755b8ce5f2aed86",
+      "output_sha256": "a3185c2c27322571ee459e0019f244b8e9c73ede26da0ab3ec585a8e1065d692",
+      "native_sha256": "1d6ec3b8cee6b38f6b89cd34484459a60f162251554915535fa07fdf59c9e785"
+    },
+    {
+      "name": "native/independent-stack-immunity-all_enemies-debuff_stack_add",
+      "input_sha256": "203f0f9db2b95d54836bb1ee1bd2c514113afd64694c80049797449e1e098ab2",
+      "output_sha256": "2f69a525105823ba530e4d2e87b62d7485c33980a1753ff030896ed25be980b9",
+      "native_sha256": "6782125a7849f9ed5310885553c023df6d8e8fde32aaff419ea6f4e6cc09dd52"
+    },
+    {
+      "name": "native/independent-stack-immunity-all_enemies-debuff_stack_remove",
+      "input_sha256": "414b4a55caad09ea343573151efbb1559275d70f7e39b34b3d8545d68d118f7c",
+      "output_sha256": "2f69a525105823ba530e4d2e87b62d7485c33980a1753ff030896ed25be980b9",
+      "native_sha256": "6782125a7849f9ed5310885553c023df6d8e8fde32aaff419ea6f4e6cc09dd52"
+    },
+    {
+      "name": "native/independent-stack-immunity-enemies_top_atk:65-debuff_stack_add",
+      "input_sha256": "5de90a48fa9b51a0dfe9d8e0b2d0e36369bf14ce1c678bbee6583b625ca85f02",
+      "output_sha256": "f8a0ac1eed17841d9a14b2877f9cf621c17243a1597cf8bcfe9760094b994b7a",
+      "native_sha256": "977ed5059a5a99640fea3a853b464dc241f3f6fa620e3f7cc0931e365c78ad1b"
+    },
+    {
+      "name": "native/independent-stack-immunity-enemies_top_atk:65-debuff_stack_remove",
+      "input_sha256": "66538d9a45704f86062fd4f7989d505e7c1e45b545666a7d89a840b0923db2d2",
+      "output_sha256": "2d99662ad00eee2db08d2d007db2f45173314395dc47772cd9f08d4e7495eec9",
+      "native_sha256": "cab4361c35a0cd0227761c8949c6b4bbc1e020b55cc2153e5d415825ba95c643"
+    },
+    {
+      "name": "native/shared-partial-immunity-does-not-split-stack",
+      "input_sha256": "46de74a11cb93338a6980d9280d2d9d109aca28114faff7e30871cf590f9f279",
+      "output_sha256": "900db87260a2a7b8ab8c4a4c0b10cec92aa3342905de33c40a6ffda033ce2519",
+      "native_sha256": "6ecabe5975df56ad3e48894f34629c3ae2af832c6202980c94a295dd8aa6e1bb"
+    },
+    {
+      "name": "native/own-stack-buff_stack_add",
+      "input_sha256": "6a7c0d1e25e3e30e374ea1f850c43ee3129a90bf56b71d7cd2567cfe19692335",
+      "output_sha256": "c2d08cc2847e1c1c720a7db958567d21c745e248a6f86baf5b1972593c11db66",
+      "native_sha256": "6eed3d44a0cc1cbf04cb60f99d8f5dd7bc9928b129cc38da0d3836e9405509fb"
+    },
+    {
+      "name": "native/own-stack-immune-buff_stack_add",
+      "input_sha256": "976b69790a716c61a0e0a4df7223525d837c43f821cbe80e7c969a7fcb5fd08b",
+      "output_sha256": "ec2e76884448c04f93ebc0655dc65cddf7e8855a48088e62e2010117031fed67",
+      "native_sha256": "08957fc35e060a118d9e736ccc1ef8606c9d98430c7c56cefbdf471e263c036c"
+    },
+    {
+      "name": "native/own-stack-buff_stack_remove",
+      "input_sha256": "7555ce9389dfadad68d2ee9dff3a6d441e1ebc0d7840c8b50299d18a92d3239e",
+      "output_sha256": "6b35f060bb153d87c59f89c0d1c4db3655d19128dd1dcf8ac8907bcbb1627770",
+      "native_sha256": "985a2b00a780124c31b818435e79696873bade960ace788683229c03830bff5b"
+    },
+    {
+      "name": "native/own-stack-immune-buff_stack_remove",
+      "input_sha256": "3f79c469aba1e0baa00431812cfbe3b897c4d692b95919d743b6dbf2c94e23e0",
+      "output_sha256": "ec2e76884448c04f93ebc0655dc65cddf7e8855a48088e62e2010117031fed67",
+      "native_sha256": "08957fc35e060a118d9e736ccc1ef8606c9d98430c7c56cefbdf471e263c036c"
+    },
+    {
+      "name": "native/maximum-shared-ally-self",
+      "input_sha256": "d02c15235724a90d4fd99e6971bc346a86e96ac49095a3afc56e842396175d76",
+      "output_sha256": "6b35f060bb153d87c59f89c0d1c4db3655d19128dd1dcf8ac8907bcbb1627770",
+      "native_sha256": "985a2b00a780124c31b818435e79696873bade960ace788683229c03830bff5b"
+    },
+    {
+      "name": "native/maximum-shared-ally-all_allies",
+      "input_sha256": "90bf703d8600e7e439da4f246e9266ea5e6f6a5ccf1beed42b1c8fdb32599fee",
+      "output_sha256": "c2d08cc2847e1c1c720a7db958567d21c745e248a6f86baf5b1972593c11db66",
+      "native_sha256": "6eed3d44a0cc1cbf04cb60f99d8f5dd7bc9928b129cc38da0d3836e9405509fb"
+    },
+    {
+      "name": "native/maximum-shared-ally-all_enemies",
+      "input_sha256": "39f595d6cda724b5f6fe3a16214fd8249b9ac42cff827bb5064df0ed3f2494de",
+      "output_sha256": "6b35f060bb153d87c59f89c0d1c4db3655d19128dd1dcf8ac8907bcbb1627770",
+      "native_sha256": "985a2b00a780124c31b818435e79696873bade960ace788683229c03830bff5b"
+    },
+    {
+      "name": "native/named-control-can-change-beneficial-enemy-field",
+      "input_sha256": "3fc7068af1bbff8dd09317c0262b1ef4b343cef4466e8a645d869685a716d168",
+      "output_sha256": "aead95eb2a7de8db04372ae13f4c32e9fb5eaa94a44ebcbf2b6d1142df8d5e93",
+      "native_sha256": "540fa3bceb4ea74b6bf4b264be324ca39751b9f6af66f89e39dfca8d279a4daa"
+    },
+    {
+      "name": "native/unnamed-control-ignores-beneficial-enemy-field",
+      "input_sha256": "d9191797de30cee8cfecc06d8ea28b7dd9f5614753a8eadd9f85b53040040bec",
+      "output_sha256": "dd8a8c3ca98b27c7acc755f3fd8ae9e9a55ea98dad26dd6527e9a0b391923623",
+      "native_sha256": "dd94ea44e921d2090376d89fab812b0dc52d96ebfa11ecd1c93ee6d26c15bcf8"
+    },
+    {
+      "name": "native/unnamed-control-ignores-irremovable-field",
+      "input_sha256": "f0d473ac10bf2b15edea23ad63ad7fd674ba92444f647d3211419405efc2d337",
+      "output_sha256": "dd8a8c3ca98b27c7acc755f3fd8ae9e9a55ea98dad26dd6527e9a0b391923623",
+      "native_sha256": "dd94ea44e921d2090376d89fab812b0dc52d96ebfa11ecd1c93ee6d26c15bcf8"
+    },
+    {
+      "name": "native/named-zero-stack-remains-present",
+      "input_sha256": "b88193d9b960e85febbccd5bf4315cc0b302d9e7f268c860cb4264377b962ac3",
+      "output_sha256": "aead95eb2a7de8db04372ae13f4c32e9fb5eaa94a44ebcbf2b6d1142df8d5e93",
+      "native_sha256": "540fa3bceb4ea74b6bf4b264be324ca39751b9f6af66f89e39dfca8d279a4daa"
+    },
+    {
+      "name": "native/unnamed-stack-floor-one",
+      "input_sha256": "84a94a2561952dcd9c1259ec0ccc78a2f50b166f41ab90ae1097a608243e3b4e",
+      "output_sha256": "dd8a8c3ca98b27c7acc755f3fd8ae9e9a55ea98dad26dd6527e9a0b391923623",
+      "native_sha256": "dd94ea44e921d2090376d89fab812b0dc52d96ebfa11ecd1c93ee6d26c15bcf8"
+    },
+    {
+      "name": "native/own-positive-refreshes-duration-and-notifies-after-change",
+      "input_sha256": "9dc01a8fe6767678a4b45ed79f6dd0152e5891380184bbf24e0037be08e64684",
+      "output_sha256": "c9b17d21e6884d710e3c7903aedec502cdcabe619bb0c1bba7ea2caf8263cc65",
+      "native_sha256": "69a7c5f508e2178a94399bd7ee8e4f55f0d525503355338092726c42d43739ab"
+    },
+    {
+      "name": "native/stale-generations-are-not-stack-mutated",
+      "input_sha256": "aa5f0791df5d6e5bfdac9ea38cd5792bfc5a5c0f252555e515502a1c9677f027",
+      "output_sha256": "b4e94abb8e7977c4c55c19bf1ad0cb39d6c56dc683fb484510638a48ecad8fb1",
+      "native_sha256": "536bf1897ba8efc7911879ac558c5fbc382ddd3fcdd1cb4905b289457763bff4"
+    },
+    {
+      "name": "native/unlimited-debuff_stack_add-seed",
+      "input_sha256": "0d8ebe3d0b331a0a8a027654218c7b03fcf04af356c00d1cd3c5cd8d93574c21",
+      "output_sha256": "1d2de02284f71bbad9b395a5d96cca1548c0bc1d08b71f7f06d460a98f040a47",
+      "native_sha256": "c78655b589287fb56c1505ed292f6caef871f064bb94078ce0e8d00b33aff960"
+    },
+    {
+      "name": "native/unlimited-debuff_stack_remove-seed",
+      "input_sha256": "1f028f0be6c21beaf2e666de7480c22e6e633d8453ea832b461a76d33979e0f0",
+      "output_sha256": "aead95eb2a7de8db04372ae13f4c32e9fb5eaa94a44ebcbf2b6d1142df8d5e93",
+      "native_sha256": "540fa3bceb4ea74b6bf4b264be324ca39751b9f6af66f89e39dfca8d279a4daa"
+    },
+    {
+      "name": "native/unlimited-debuff_stack_add-None",
+      "input_sha256": "b0c4cc1c8ee5da07cc64e086c907f06ca1080b3ad25b48e19559bf453e146e9c",
+      "output_sha256": "dd8a8c3ca98b27c7acc755f3fd8ae9e9a55ea98dad26dd6527e9a0b391923623",
+      "native_sha256": "dd94ea44e921d2090376d89fab812b0dc52d96ebfa11ecd1c93ee6d26c15bcf8"
+    },
+    {
+      "name": "native/shared-delta-from-owned-stack-reference",
+      "input_sha256": "2013b56d5a04336fe41eefae9e0b6cce95d9257f29c3d002a9567f9d52424311",
+      "output_sha256": "4da4dbfa41d32ff403f2d7ee7d5bcb55f113196d2a1d7e6766e8d6fcd2c98a2f",
+      "native_sha256": "30b2432f7a42d651319c43fbe0a2d5cb74735e1fc213197da55bc4ef9b840392"
+    },
+    {
+      "name": "native/missing-stack-reference-keeps-literal-delta",
+      "input_sha256": "e629d653871264c10620bae1a16bfd460329be0a53bf45d93aba8c8138f5d50b",
+      "output_sha256": "b9f3e92b66b949536b2ca99a6d21a0ca331bc821a444497a1af18b56ac38c158",
+      "native_sha256": "f1a98025d94488993e9a0b54c63a38c944663148d7e3cd7e8a9abebe2bca81a3"
+    },
+    {
+      "name": "native/unlimited-last-exact31bit-stack",
+      "input_sha256": "6dd816abca5cb4cd0703e921a22062b89e506ae911d523ba8364e0c16d8f300b",
+      "output_sha256": "5b4a534173509242e73ffaf8ab3b893a224a0955b046882e586633a11f10a0df",
+      "native_sha256": "d68caa36c3b80c1e76c10741d227be2741c54122ff92c45ba947321911b4278b"
+    },
+    {
+      "name": "reject/unknown-stack-policy",
+      "input_sha256": "e863fc6207d53af6b301401a446fc3d69b246febd8b457eeef1296362b3255dd",
+      "output_sha256": "3c33d31630902e9a342a1e144bbd9caa37384b998f4283553973db3ee2ebd605",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/stack-control-disabled-in-status-policy",
+      "input_sha256": "9e18fb809702f6c4eccf26d094668c75561841bb5965dfbb65199814d14f951f",
+      "output_sha256": "3c33d31630902e9a342a1e144bbd9caa37384b998f4283553973db3ee2ebd605",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/stack-nonfinite-delta",
+      "input_sha256": "6c2d8a067c3b7219c59c36bab15a833e5f3d86da70a5dc4d79da5c373edc7b7e",
+      "output_sha256": "d6812dbe07840ffbd60677dbf4cd82fa029a4cadcd63e769a70a90b1ddd71655",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/stack-route-overflow",
+      "input_sha256": "8820c6a68784c85e842418378b5e98dceb0eb8865700941841d8051ef0847a33",
+      "output_sha256": "d6812dbe07840ffbd60677dbf4cd82fa029a4cadcd63e769a70a90b1ddd71655",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/stack-scope-count-zero",
+      "input_sha256": "519b1968c0d73db72257d7164a58b474a4574666e331c81353a769a439c06f8e",
+      "output_sha256": "d6812dbe07840ffbd60677dbf4cd82fa029a4cadcd63e769a70a90b1ddd71655",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/stack-scope-count-overflow",
+      "input_sha256": "4c3c79e51a2ef230909e35eddeb94754aecff071194201b4364fd0922ab493f3",
+      "output_sha256": "d6812dbe07840ffbd60677dbf4cd82fa029a4cadcd63e769a70a90b1ddd71655",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/stack-packet-reserved",
+      "input_sha256": "9fd833f0c8b217494e3d34638e1e5720cc0bdbe7970b15f232bdcbbcf45238b9",
+      "output_sha256": "d6812dbe07840ffbd60677dbf4cd82fa029a4cadcd63e769a70a90b1ddd71655",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/unlimited-stack-exceeds31bit-storage",
+      "input_sha256": "c9ffcc7a8df49768ddeb55f2db0afd626a40bce3d89714d5f76818194dac6a69",
+      "output_sha256": "903d9915a3cac5313bd6de1562c2ff83b445721dd32cfdd4692bb14bfc78137a",
+      "native_sha256": "21c1f682de27109caabcca9016511974defcec217c0441fd3f1b50ecdf8247ed"
+    }
+  ],
+  "generated_normalized": {
+    "cuda": "c7bb6afbce761395af29105ef6487f378ab1f9cb15ee9fdebdfeba1dea633d06",
+    "metal": "a10641740827aec293f4da09f0875a4ab6976d862ee87131502763822cb3c5a6"
+  },
+  "evidence": {
+    "transport": {
+      "backend": "cuda",
+      "device": "NVIDIA GeForce RTX 3070 Ti",
+      "cases": 61,
+      "command_status": "completed",
+      "host_dispatch_seconds": 7.106901399791241
+    },
+    "source_sha256": {
+      "gpu/world_actor_stack_entry.slang": "2ef4beba61dca0494596f5b39d38cb82cf5be0a6f0cbb5233f1d2310653ac7a2",
+      "gpu/event_runtime.slang": "cd66db6505c19d434384edbeeea5d20f1848cf98006d0ef408f91cd076403988",
+      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+      "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+      "gpu/portable_schema.slang": "875c284aa8c9aeb2be9a00ff53ddb73188d81814fece251311c3f5db89a9b7a4",
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+      "gpu/runtime_init.slang": "54ad60a47e8c25a48c9e3640d7610e34d5dc968b2136a4944a753d676423a123",
+      "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+      "gpu/world_overlay_runtime.slang": "c212ded55ab5047ffbb7c30b2e6195c467482eb82109b37373b7f483a3fcac6b",
+      "gpu/geometry_runtime.slang": "8e8018af3959fde2f794c147aff2387464d4f486be17088cf260da41d48f8ef5",
+      "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+      "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+      "gpu/reference_runtime.slang": "3ea6e2b3d617728568a4455097ae2f139466127729026b3011dbb3d930b72a05",
+      "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+      "gpu/bullet_runtime.slang": "2cda4cfed0e7ffd31076ea48050b7be71cd8312779483b13d7c150c4ccd5d23a",
+      "gpu/rank_runtime.slang": "6862c849997a111e228286b553b9043a6035fbf150b9c831130da6171d271526",
+      "gpu/lazy_runtime.slang": "b85b0adbd024b0284e9d87528e353456cb02edcc92ee2b39fb0f50193bd21310",
+      "gpu/enemy_buff_runtime.slang": "2792634ce3d474f994842c0b9307270fad52bfb2f3b1c1ada7a30649c383bc9c",
+      "gpu/carrier_runtime.slang": "d9c747c32c02bc1cd4acce3a1fdc648dc1060f9edc16607146e06ae7b279da09",
+      "gpu/quantity_runtime.slang": "273b41c41a1ba5600f2bbe996e620089354d12fd861a6e0df15a57cd8788549e",
+      "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+      "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+      "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+      "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+      "gpu/hp_attack_runtime.slang": "2bb2bdcca7a86353ad8cff2de5908037fd344e4091e07eb92abcaac9093e1a21",
+      "gpu/recipient_runtime.slang": "c9a5acde13e4a7f43dcb3b5ebebdafdce5c6b730e848eeb49e26e35d1cb051bf",
+      "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+      "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+      "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+      "gpu/damage_runtime.slang": "732187295c6d98090c213dae755442a598b8a16d817272ce371817da8fdac7e7",
+      "gpu/incoming_runtime.slang": "3d32bee084317b63a3c00e8b94a9397196f4a8a39efc6a78a8efd74d90f1985c",
+      "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
+      "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+      "gpu/enemy_damage_runtime.slang": "94110711ef4f94cf0590b3ac097daaa6f3a8cc5a16ddfc92607a37234b95f82d",
+      "gpu/landing_runtime.slang": "dcb05d654e47a38980a2d72b9ae056d7d3ec84484fd0cfb72778f205a2cccad6",
+      "gpu/periodic_runtime.slang": "574670587e48ff1bfc0498e2ba7b71a86c1285b2281649e46bd9e5ef877f21b9",
+      "gpu/removal_runtime.slang": "3ceef53de6428a10ac764a5d65e6f3ea9f9fdee12003a0f4d7a9a4189d73381b",
+      "gpu/duration_extend_runtime.slang": "028445e661b12f54a8dc48da3b3438b0c4df7b1da833a4b63a54c84ac18a1081",
+      "gpu/stack_runtime.slang": "6fc751bf2eed141b8ef99beb1e38d923a3e2f29dd0c33320ab9857c9cdcd5fc0",
+      "gpu/status_runtime.slang": "6646639edfbfda07d2ef4d2b32183aa617d447621b1b17bf548f3e2b3233b6f7",
+      "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+      "gpu/pending_burst_runtime.slang": "1b3822579499e2641d5296764c133bbbf55df64bf7f4fa3b0b34c00e0315a484",
+      "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+      "gpu/world_frame_addresses.slang": "83c86b78c7e1034b70861085baceede9cf95f1f5e3620b483d6cf032a95028b2",
+      "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+      "gpu/protection_runtime.slang": "768eefaec94ee16a561a471c0400506f2b9c13ac3b8756693be1bbbcafc4bdd2",
+      "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+      "gpu/world_actor_pools.slang": "cd2b1436b6a2c332e1c1f5077a5e24bc291defce8536cf4a55306b9b7a4b4861",
+      "gpu/world_actor_fields.slang": "cb13ff9f0f4c29554c70dc61552a489296dd81711b1e5fbdfbefd5cbb5faef90",
+      "gpu/world_actor_state.slang": "85306f42ff6e057e7d82c5a0fa86d1790eee547abc438567762b4c9302ecebc9",
+      "gpu/world_actor_mutation.slang": "e866d0145e275dffd0ec17577d04177471c2d360bed0d493f6c93a2d9c12151c",
+      "gpu/world_actor_recipients.slang": "f7eb33cbe737cd6e6c729f6ca8c15d015256c2844f9d9a44fd1f6c646e34cab7",
+      "gpu/world_actor_status.slang": "296fac14e47b7ee42668d3fd2d044d05bef18fe7e4c68441d0eb0333ad5eb1b8",
+      "gpu/world_actor_stacks.slang": "38864ac1f81c3f9591f8273b318e37ee31b76a5ddf2de8a2c2a711db29323e8f",
+      "gpu/world_actor_registry.slang": "f803ee00db756eed3edd48586e3fcc94b4f750f0990f97c9ff8732da07f08477",
+      "gpu/world_frame_runtime.slang": "8738d3d4b1dc75ac918c608e8320ed62e5afe979bc4f152a4856d7dc1c5c496f",
+      "gpu/combat_runtime.slang": "adee81338b7816e4f4f3a1dd28755886622e56decfb884dac416c4ccf5f756ca",
+      "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+      "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+      "gpu/world_overlay_weapon.slang": "111d2f3569a5347e8c61752591fe0e3081be5050a521e549d1956c61e0c056f7",
+      "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+      "gpu/admission_runtime.slang": "c9f16fd54e0c81b4a5de0bbe8d44bf2ef1718d7d0e4a1306d0bc6be3ed4a9b47",
+      "gpu/portable_mt19937.slang": "116f6a7ee3cf8e069db171aace0c06a1b160c3d25b0975451125929b68dd3b61",
+      "gpu/enemy_target_runtime.slang": "bb88cf05d475109cf34e6fca4099ce71096cecc8ba03c72995cce8de15a0b730"
+    },
+    "generated_sha256": {
+      "cuda": "dd7efd138b3ad235f43e4b84bac06179541593274164f3eed67d01072b6ab0da",
+      "metal": "8b00d2a5e27e134898a65d91399289583b15ecf832bd7757b588945de94ed8cb"
+    },
+    "input_sha256": "d8a69dea5826a6970e40a0c3e20cb831bcd5ca883ef8cd457e9a7098f9a69402",
+    "output_sha256": "c7c149b30e425d870f7894952d0f7946f3e27d66a11c347e481903802ddf0103",
+    "gpu_execution_verified": true,
+    "backend": "cuda"
+  },
+  "normal4682_reexecutions": 0,
+  "old208_reexecutions": 0,
+  "old285_reexecutions": 0,
+  "old357_reexecutions": 0,
+  "old424_reexecutions": 0,
+  "old461_reexecutions": 0,
+  "old484_reexecutions": 0,
+  "old529_reexecutions": 0,
+  "full_character_verified": 0,
+  "canonical_world_admission": false
+}

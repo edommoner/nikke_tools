@@ -1,0 +1,130 @@
+{
+  "schema": "product-current-catalogue-v2",
+  "execution_owner": "09555bf012847e32bd5fc443b2c8e6f3eaf033ea8dfda87c85c11e734067e26a",
+  "execution_source_commit": "1cbe45ccd22ab61e45cd5c3ed00eb41abd248d11",
+  "request_scope": "Original 266 character/favorite-stage profiles, default growth, no cube, 30 seconds, fixed burst, original standard five-member rosters; not unrestricted settings or compositions",
+  "device": "Apple M5",
+  "requested_profiles": 266,
+  "metal_profiles_cpu_full_payload_matched": 262,
+  "cpu_fallback_profiles": 4,
+  "errors": 0,
+  "mismatches": 0,
+  "api_cache_hits": 0,
+  "source_files_unchanged_during_entire_sweep": true,
+  "current_shared_gpu_sources_exact": true,
+  "saved_audited": 266,
+  "audit_native_battle_calls": 0,
+  "audit_gpu_calls": 0,
+  "prior_source_standard_success": 255,
+  "previous_fallbacks_now_gpu_cpu_matched": [
+    {
+      "profile": "앤 : 미라클 페어리",
+      "favorite_stage": 0
+    },
+    {
+      "profile": "솔져 O.W.",
+      "favorite_stage": 0
+    },
+    {
+      "profile": "벨벳",
+      "favorite_stage": 0
+    },
+    {
+      "profile": "베이",
+      "favorite_stage": 0
+    },
+    {
+      "profile": "베이",
+      "favorite_stage": 1
+    },
+    {
+      "profile": "베이",
+      "favorite_stage": 2
+    },
+    {
+      "profile": "베이",
+      "favorite_stage": 3
+    }
+  ],
+  "fallbacks": [
+    {
+      "profile": "유니",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "유니",
+          "effect": "BDG 2",
+          "stat": "enemy_movement_disable",
+          "target": "enemies_in_range",
+          "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected"
+        }
+      ]
+    },
+    {
+      "profile": "얀",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "얀",
+          "effect": "일확천금 2",
+          "stat": "force_move",
+          "target": "enemies_in_range",
+          "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected"
+        }
+      ]
+    },
+    {
+      "profile": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "스노우 화이트 : 헤비암즈",
+          "effect": "록 온",
+          "stat": "lock_on",
+          "target": "enemies_nearest:1",
+          "reason": "Lock On requires explicit reference_models.lock_on candidate/delivery policies and typed bindings; composition is not connected"
+        }
+      ]
+    },
+    {
+      "profile": "레이 (가칭)",
+      "favorite_stage": 0,
+      "unsupported": [
+        {
+          "character": "레이 (가칭)",
+          "effect": "섬멸 지원 4",
+          "stat": "effect_target_count_add",
+          "target": "allies_with_buff:섬멸 태세",
+          "reason": "Named range requires explicit reference_models.named_range geometry and rules; composition is not connected"
+        }
+      ]
+    }
+  ],
+  "timing": {
+    "case_wall_seconds_sum": 1306.0792582037393,
+    "metal_case_wall_median_seconds": 3.8885652914759703,
+    "metal_gpu_median_seconds": 1.978379333333578,
+    "scope": "Nested intervals are not additive; not a controlled performance benchmark"
+  },
+  "cuda_new_product_profiles": 0,
+  "unrestricted_character_effect_condition_support_complete": false,
+  "full_goal_complete": false,
+  "owned_server_stopped": true,
+  "requests": {
+    "bytes": 2003022,
+    "sha256": "baa3556d17754dfe599aa0fe04d6f70f5b68deaab84f54c1ea0d386ae0aa10c8"
+  },
+  "source_snapshot": {
+    "bytes": 115798,
+    "sha256": "616f5d6efda73f86a3dae57a02131a9bad9401367cd16c7331b79725fe0ab182"
+  },
+  "progress": {
+    "bytes": 251589,
+    "sha256": "56b75b55320087251a5e61bd1d09d1cd4c3d9f26edf150e167d6047cd8b6e602"
+  },
+  "saved_raw_audit": {
+    "bytes": 97564,
+    "sha256": "4db571d3d7da6661b3c386a8957db5d8ada8833b018f8ab0a27b28b7655db1c1"
+  },
+  "normal_ui_ports_not_operated": true
+}

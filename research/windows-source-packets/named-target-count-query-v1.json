@@ -1,0 +1,30 @@
+{
+  "schema": "named-target-count-query-source-v1",
+  "source_commit": "fadd45943f74f7308b0f24be8715a60dba68a68b",
+  "package_id": "b283876e8a478bed7a3b9b0917e9fe3a861069d531ca53bfd2a7e49dc464c618",
+  "archive_bytes": 11824721,
+  "archive_sha256": "efeed0863781b4d120c39feb30535c7fada900a3497fae49b8822f1b88fb6364",
+  "Mac_smoke": {
+    "groups": 66,
+    "tests": 641,
+    "skips": 1,
+    "errors": 0,
+    "failures": 0
+  },
+  "Mac_selected_tests": 18,
+  "Mac_native_cases": 6,
+  "Mac_raw_rejections": 3,
+  "Mac_cpu_preflight_verified": true,
+  "Mac_Metal_calculation_verified": true,
+  "Mac_Metal_independent_fresh_verified": true,
+  "Mac_Metal_proof": "research/target-count-query-evidence/metal-shared-query-v1.json",
+  "source_only": true,
+  "windows_executed": false,
+  "physical_shot_lifetime_verified": false,
+  "selection_consumer_connected": false,
+  "original_full25_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "Windows_dispatch_request_sent": false,
+  "scope": "Ready source capsule only. Resolve the existing full106 CPU transaction before requesting another Windows run."
+}

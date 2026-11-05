@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "runs": {
+    "v1": {
+      "shared_gpu_execute_seconds": 68.966295917,
+      "transport": {
+        "backend": "metal",
+        "cases": 141,
+        "command_status": "completed",
+        "configured_max_threads_per_threadgroup": 1,
+        "device": "Apple M5",
+        "file_readback_chunk_bytes": 8388608,
+        "gpu_seconds": 0.06992799998261034,
+        "input_bytes": 62103172,
+        "library_compile_seconds": 1.5716379880905151,
+        "output_bytes": 591396864,
+        "pipeline_compile_seconds": 65.17235898971558,
+        "pipeline_lock_wait_seconds": 9.5367431640625e-07,
+        "pipeline_max_threads_per_threadgroup": 1,
+        "registry_id": "4294968313",
+        "runtime_buffer_bytes": 19592232,
+        "runtime_element_capacity": 141,
+        "runtime_physical_stride_verified": true,
+        "runtime_stride_bytes": 138952,
+        "threads_per_threadgroup": 1,
+        "compile_timeout_seconds": 300,
+        "gpu_timeout_seconds": 120
+      },
+      "original_phases_sha256": "bd19d70f65e339228c61854975843ad94c76a46db0ff7181d52f6b6b2ca3c1db"
+    },
+    "v2": {
+      "shared_gpu_execute_seconds": 2.191777333,
+      "transport": {
+        "backend": "metal",
+        "cases": 141,
+        "command_status": "completed",
+        "configured_max_threads_per_threadgroup": 1,
+        "device": "Apple M5",
+        "file_readback_chunk_bytes": 8388608,
+        "gpu_seconds": 0.0691574999364093,
+        "input_bytes": 62103172,
+        "library_compile_seconds": 0.0019398927688598633,
+        "output_bytes": 591396864,
+        "pipeline_compile_seconds": 0.0028570890426635742,
+        "pipeline_lock_wait_seconds": 9.5367431640625e-07,
+        "pipeline_max_threads_per_threadgroup": 1,
+        "registry_id": "4294968313",
+        "runtime_buffer_bytes": 19592232,
+        "runtime_element_capacity": 141,
+        "runtime_physical_stride_verified": true,
+        "runtime_stride_bytes": 138952,
+        "threads_per_threadgroup": 1,
+        "compile_timeout_seconds": 300,
+        "gpu_timeout_seconds": 120
+      },
+      "original_phases_sha256": "d3fc74c4ebda06db731086d1362e3e518840aa2e1b7732c52029ebbb8f1f54cb"
+    }
+  },
+  "gpu_calls": 0,
+  "scope": "Saved execution phase receipts, not an additional measurement"
+}

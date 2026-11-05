@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "baseline_commit": "97eb14a",
+  "sources": {
+    "gpu/world_actor_pools.slang": {
+      "baseline_sha256": "878527cd1903961b3146e0f3d9792213868db3707c952563deba2b14e4ec67ab",
+      "current_sha256": "522cf697276319a84b80a1563c6987bc51532994c11002b7b7dd36d0a1578bdb",
+      "changes": [
+        {
+          "baseline": "        if(kind==1||kind==6 ? mode!=1 : mode<2||mode>4) return false;\n        if(mode<=2 && (commands[d+1]!=0 || !f64Zero(after)) || mode==2 && !f64Less(0,hp)) return false;\n        if(mode>=3 && commands[d+1]==0 || mode==3 && (!f64Zero(hp)||!f64Zero(after)) || mode==4 && (!f64Less(0,hp)||!f64Less(0,after))) return false;\n        if(focusAimEnabled(s) && kind==6) for(uint who=0;who<5;who++) if(s.weaponEnabled[who]!=0 && s.weaponMode[who]==0) return false;\n        uint n=commands[d+6],packed=commands[d+7];if(n>8 || (packed>>(n*3))!=0 || kind!=1 && kind!=6 && (n!=0||commands[d+8]!=0)) return false;\n        for(uint i=0;i<n;i++) if(((packed>>(i*3))&7)==0||((packed>>(i*3))&7)>4) return false;\n        #ifdef PORTABLE_WORLD_ACTOR_FIELDS\n",
+          "current": "        if(kind==1||kind==6 ? mode!=1 : mode<2||mode>4) return false;\n        if(mode<=2 && (commands[d+1]!=0 || !f64Zero(after)) || mode==2 && !f64Less(0,hp)) return false;\n        if(mode>=3 && commands[d+1]==0 || mode==3 && (!f64Zero(hp)||!f64Zero(after)) || mode==4 && (!f64Less(0,hp)||!f64Less(0,after))) return false;\n        uint n=commands[d+6],packed=commands[d+7];if(n>8 || (packed>>(n*3))!=0 || kind!=1 && kind!=6 && (n!=0||commands[d+8]!=0)) return false;\n        for(uint i=0;i<n;i++) if(((packed>>(i*3))&7)==0||((packed>>(i*3))&7)>4) return false;\n        #ifdef PORTABLE_WORLD_ACTOR_FIELDS\n"
+        },
+        {
+          "baseline": "    uint head=actorPoolHead(s),scratch=head+18,p=actorPoolAt(s,slot),d=actorPoolDef(s,slot),kind=commands[actorBinding(s,slot)],gen=results[p];\n    for(uint i=0;i<6;i++) results[scratch+i]=0;\n    uint64_t took=0,overkill=0,when=actorNumber(head+2);bool killed=false,live=results[p+1]!=0;\n    if(kind==0 || kind==1)\n    { s.total[who]=f64Add(s.total[who],amount);s.scoredDamage[who]=f64Add(s.scoredDamage[who],amount); }\n    if(kind==0)\n",
+          "current": "    uint head=actorPoolHead(s),scratch=head+18,p=actorPoolAt(s,slot),d=actorPoolDef(s,slot),kind=commands[actorBinding(s,slot)],gen=results[p];\n    for(uint i=0;i<6;i++) results[scratch+i]=0;\n    uint64_t took=0,overkill=0,when=actorNumber(head+2);bool killed=false,live=results[p+1]!=0;\n#ifdef PORTABLE_WORLD_PROJECTILE\n    uint interruptReceipt=0;\n    if(kind==6) { interruptReceipt=beginInterruptAimReceipt(s,who,slot,amount);if(s.error!=0) return;accumulateInterruptAimDamage(s,who,amount);if(s.error!=0) return; }\n#endif\n    bool directTarget=kind==1 || kind==6;\n    if(kind==0 || kind==1)\n    { s.total[who]=f64Add(s.total[who],amount);s.scoredDamage[who]=f64Add(s.scoredDamage[who],amount); }\n    if(kind==0)\n"
+        },
+        {
+          "baseline": "    else if(live)\n    {\n        uint mode=commands[d];bool counting=mode==3 || mode==4 && !f64Less(when,f64Add(f64Add(actorNumber(p+8),loadNumber(d+4)),WS_EPS^F64_SIGN));\n        if(COUNTER_PART_DIRECT(s,kind,kind==1 || counting))\n        { if(results[p+3]==0x7fffffff) { s.error=2;return; }results[p+3]++; }\n        took=kind==1 ? amount : counting ? smaller(amount,ONE) : smaller(amount,f64Add(loadNumber(d+2),actorNumber(p+4)^F64_SIGN));\n        uint64_t dealt=COUNTER_PART_DEALT(s,kind,d,p,f64Add(actorNumber(p+4),took));storeNumber(p+4,dealt);\n        if(COUNTER_PART_DIRECT(s,kind,kind==1)) storeNumber(p+6,f64Add(actorNumber(p+6),amount));\n        killed=kind==1 ? f64Less(0,loadNumber(d+2))&&!f64Less(dealt,loadNumber(d+2)) : counting ? results[p+3]>=commands[d+1] : !f64Less(dealt,loadNumber(d+2));\n        if(kind==5) { s.addScoredDamage[who]=f64Add(s.addScoredDamage[who],took);overkill=f64Add(amount,took^F64_SIGN);actorPoolAddOverkill(s,who,overkill); }\n        results[scratch]=1;\n        if(killed)\n",
+          "current": "    else if(live)\n    {\n        uint mode=commands[d];bool counting=mode==3 || mode==4 && !f64Less(when,f64Add(f64Add(actorNumber(p+8),loadNumber(d+4)),WS_EPS^F64_SIGN));\n        if(COUNTER_PART_DIRECT(s,kind,directTarget || counting))\n        { if(results[p+3]==0x7fffffff) { s.error=2;return; }results[p+3]++; }\n        took=directTarget ? amount : counting ? smaller(amount,ONE) : smaller(amount,f64Add(loadNumber(d+2),actorNumber(p+4)^F64_SIGN));\n        uint64_t dealt=COUNTER_PART_DEALT(s,kind,d,p,f64Add(actorNumber(p+4),took));storeNumber(p+4,dealt);\n        if(COUNTER_PART_DIRECT(s,kind,directTarget)) storeNumber(p+6,f64Add(actorNumber(p+6),amount));\n        killed=directTarget ? f64Less(0,loadNumber(d+2))&&!f64Less(dealt,loadNumber(d+2)) : counting ? results[p+3]>=commands[d+1] : !f64Less(dealt,loadNumber(d+2));\n        if(kind==5) { s.addScoredDamage[who]=f64Add(s.addScoredDamage[who],took);overkill=f64Add(amount,took^F64_SIGN);actorPoolAddOverkill(s,who,overkill); }\n        results[scratch]=1;\n        if(killed)\n"
+        },
+        {
+          "baseline": "    else if(kind==5) { overkill=amount;actorPoolAddOverkill(s,who,amount); }\n    results[scratch+1]=uint(killed);storeNumber(scratch+2,took);storeNumber(scratch+4,overkill);results[head+15]++;\n    if(!f64Finite(actorNumber(p+4))||!f64Finite(actorNumber(p+6))||!f64Finite(actorNumber(head+16))||!f64Finite(s.total[who])||!f64Finite(s.scoredDamage[who])||!f64Finite(s.addScoredDamage[who])||!f64Finite(s.addOverkill[who])) s.error=16;\n    worldActorsApply(s);\n}\nuint actorPhysicalTarget(inout Runtime s,uint who,uint legacy)\n",
+          "current": "    else if(kind==5) { overkill=amount;actorPoolAddOverkill(s,who,amount); }\n    results[scratch+1]=uint(killed);storeNumber(scratch+2,took);storeNumber(scratch+4,overkill);results[head+15]++;\n    if(!f64Finite(actorNumber(p+4))||!f64Finite(actorNumber(p+6))||!f64Finite(actorNumber(head+16))||!f64Finite(s.total[who])||!f64Finite(s.scoredDamage[who])||!f64Finite(s.addScoredDamage[who])||!f64Finite(s.addOverkill[who])) s.error=16;\n#ifdef PORTABLE_WORLD_PROJECTILE\n    if(kind==6) endInterruptAimReceipt(s,interruptReceipt,who,slot);\n#endif\n    worldActorsApply(s);\n}\nuint actorPhysicalTarget(inout Runtime s,uint who,uint legacy)\n"
+        },
+        {
+          "baseline": "{\n    if(!actorPoolsEnabled(s)) return worldOverlayLand(s,who,target,amount,worldPhysicalNormal(s,who));\n    storeNumber(actorPoolHead(s)+2,when);uint ref=actorPhysicalTarget(s,who,target),slot=ref&127;\n    if(focusAimEnabled(s) && commands[actorBinding(s,slot)]==6) { s.error=64;return false; }\n    return commands[actorBinding(s,slot)]==5 || worldOverlayLand(s,who,0,amount,worldPhysicalNormal(s,who));\n}\n[noinline]\n",
+          "current": "{\n    if(!actorPoolsEnabled(s)) return worldOverlayLand(s,who,target,amount,worldPhysicalNormal(s,who));\n    storeNumber(actorPoolHead(s)+2,when);uint ref=actorPhysicalTarget(s,who,target),slot=ref&127;\n    return commands[actorBinding(s,slot)]==5 || worldOverlayLand(s,who,0,amount,worldPhysicalNormal(s,who));\n}\n[noinline]\n"
+        }
+      ]
+    },
+    "gpu/counter_landing_runtime.slang": {
+      "baseline_sha256": "503f3185902080d920f6613f69325e302cdf5a6fdefb839230aecc50059423a4",
+      "current_sha256": "2f7387df4aeab58150af413f1f23276249158435b8e2bd6a4920ec78d0478a8f",
+      "changes": [
+        {
+          "baseline": "void publishCounterLanding(inout Runtime s,uint who,uint target,uint64_t amount,uint64_t when,uint output)\n{\n    uint slot=target&127U,receipt=actorPoolHead(s)+18;\n    if(results[receipt]==0) return;\n    uint binding=actorBinding(s,slot),generation=results[actorPoolAt(s,slot)];bool killed=results[receipt+1]!=0;\n    uint64_t damage=commands[binding]==5 ? actorNumber(receipt+2) : amount;\n",
+          "current": "void publishCounterLanding(inout Runtime s,uint who,uint target,uint64_t amount,uint64_t when,uint output)\n{\n    uint slot=target&127U,receipt=actorPoolHead(s)+18;\n    if(commands[actorBinding(s,slot)]==6) return; // Private interrupt has no canonical hit credit.\n    if(results[receipt]==0) return;\n    uint binding=actorBinding(s,slot),generation=results[actorPoolAt(s,slot)];bool killed=results[receipt+1]!=0;\n    uint64_t damage=commands[binding]==5 ? actorNumber(receipt+2) : amount;\n"
+        }
+      ]
+    },
+    "gpu/world_interrupt_runtime.slang": {
+      "baseline_sha256": "e3ddc91c7048e382a5548aa8495e603216d40d7a86d92c44f8f96f0037f6a2d3",
+      "current_sha256": "fc5e2710322737504c1d2e3abdaa21f0a106eb6a7d61d51e7957c4678302215d",
+      "changes": [
+        {
+          "baseline": "// Private interruption extras: no canonical ActorHandle, total, gauge or hit credit.\nstatic const uint WORLD_INTERRUPT_TOTAL_BASE=785424;\nvoid storeWorldSkillReachPacket(inout Runtime s,uint at,LandingReceipt r)\n{\n    if(r.interruptReach==0) return;\n",
+          "current": "// Private interruption extras: no canonical ActorHandle, total, gauge or hit credit.\nstatic const uint WORLD_INTERRUPT_TOTAL_BASE=785424;\nstatic const uint INTERRUPT_AIM_DIAG_BASE=785536;\nstatic const uint INTERRUPT_AIM_DIAG_COUNT=16;\n#if defined(PORTABLE_INTERRUPT_AIM_DIAGNOSTIC) && (defined(PORTABLE_NATIVE_QUERY_DIAGNOSTIC) || defined(PORTABLE_HEAL_SHARE_DIAGNOSTIC))\n#error Interrupt aim diagnostics require a separate entry\n#endif\nvoid initializeInterruptAimDiagnostics(inout Runtime s)\n{\n#ifdef PORTABLE_INTERRUPT_AIM_DIAGNOSTIC\n    for(uint i=0;i<16+INTERRUPT_AIM_DIAG_COUNT*32;i++) results[s.resourceOutput+INTERRUPT_AIM_DIAG_BASE+i]=0;\n    results[s.resourceOutput+INTERRUPT_AIM_DIAG_BASE]=0x49415231U;\n#endif\n}\nvoid accumulateInterruptAimDamage(inout Runtime s,uint who,uint64_t amount)\n{\n    uint at=s.resourceOutput+WORLD_INTERRUPT_TOTAL_BASE+who*2;\n    uint64_t sum=f64Add(actorNumber(at),amount);if(!f64Finite(sum)) { s.error=16;return; }storeNumber(at,sum);\n}\nuint beginInterruptAimReceipt(inout Runtime s,uint who,uint slot,uint64_t amount)\n{\n#ifdef PORTABLE_INTERRUPT_AIM_DIAGNOSTIC\n    uint head=s.resourceOutput+INTERRUPT_AIM_DIAG_BASE,count=results[head+1];\n    if(count>=INTERRUPT_AIM_DIAG_COUNT) { s.error=64;return 0; }\n    uint at=head+16+count*32,p=actorPoolAt(s,slot),binding=actorBinding(s,slot);\n    results[at]=who;results[at+1]=commands[binding+1];results[at+2]=results[p];\n    results[at+3]=results[p+1];results[at+5]=results[p+3];\n    storeNumber(at+8,actorNumber(actorPoolHead(s)+2));storeNumber(at+10,amount);\n    storeNumber(at+12,actorNumber(p+4));storeNumber(at+16,actorNumber(p+6));\n    storeNumber(at+20,actorNumber(s.resourceOutput+WORLD_INTERRUPT_TOTAL_BASE+who*2));\n    return at;\n#else\n    return 0;\n#endif\n}\nvoid endInterruptAimReceipt(inout Runtime s,uint at,uint who,uint slot)\n{\n#ifdef PORTABLE_INTERRUPT_AIM_DIAGNOSTIC\n    uint p=actorPoolAt(s,slot);results[at+4]=results[p+1];results[at+6]=results[p+3];\n    storeNumber(at+14,actorNumber(p+4));storeNumber(at+18,actorNumber(p+6));\n    storeNumber(at+22,actorNumber(s.resourceOutput+WORLD_INTERRUPT_TOTAL_BASE+who*2));\n    results[s.resourceOutput+INTERRUPT_AIM_DIAG_BASE+1]++;\n#endif\n}\nvoid storeWorldSkillReachPacket(inout Runtime s,uint at,LandingReceipt r)\n{\n    if(r.interruptReach==0) return;\n"
+        }
+      ]
+    },
+    "gpu/world_charge_control_runtime.slang": {
+      "baseline_sha256": "2c9339c35e4a48eecf16fb4168ed99d829f0bbc11e187cf1e26396c564f48b99",
+      "current_sha256": "6e1887e818bd3b8571ade7c7848c0bce04aba17251b1a20f662c8a0e5ca46b20",
+      "changes": [
+        {
+          "baseline": "    for(uint who=0;who<5;who++)\n    {\n        uint a=controlOwnerInput(s,who),nc=commands[a],ns=commands[a+1],first=commands[a+2],count=commands[a+3],kind=commands[a+4];\n        if(nc>8||ns>8||first!=offset||first+count>total||count>256||kind>2||kind==0&&nc!=0||kind==2&&ns!=0) { s.error=64;return; }\n        for(uint j=5;j<8;j++) if(commands[a+j]!=0) { s.error=64;return; }\n        for(uint i=0;i<8;i++)\n",
+          "current": "    for(uint who=0;who<5;who++)\n    {\n        uint a=controlOwnerInput(s,who),nc=commands[a],ns=commands[a+1],first=commands[a+2],count=commands[a+3],kind=commands[a+4];\n        if(kind!=0 && s.weaponMode[who]!=1) { s.error=64;return; } // Static charge controls require a charge base weapon.\n        if(nc>8||ns>8||first!=offset||first+count>total||count>256||kind>2||kind==0&&nc!=0||kind==2&&ns!=0) { s.error=64;return; }\n        for(uint j=5;j<8;j++) if(commands[a+j]!=0) { s.error=64;return; }\n        for(uint i=0;i<8;i++)\n"
+        }
+      ]
+    },
+    "gpu/world_team_runtime.slang": {
+      "baseline_sha256": "5aa92e46e7c3944631951ae141d01d3f296c086c8d5af1bcbc3a5999b2b1eb56",
+      "current_sha256": "4ac04376ed7a2f5a623b9b0f493aeb91a3e147b679e887829301e0a51a5902c4",
+      "changes": [
+        {
+          "baseline": "    if(focusAimEnabled(s) && (commands[s.inputBase+P_WORLD_META_BASE+4]&1U)!=0)\n    {\n        uint target=actorPhysicalTarget(s,who,0)&127U;\n        if(commands[actorBinding(s,target)]==1)\n        {\n            // Native stage pellets notify part then body, including zero.\n",
+          "current": "    if(focusAimEnabled(s) && (commands[s.inputBase+P_WORLD_META_BASE+4]&1U)!=0)\n    {\n        uint target=actorPhysicalTarget(s,who,0)&127U;\n        if(commands[actorBinding(s,target)]==6)\n        {\n            // Aimed interrupt packets publish both native zero-fraction observations.\n            notifyWorldTeamFraction(s,who,0,0,when,output);\n            if(s.error==0) notifyWorldTeamFraction(s,who,1,0,when,output);\n            return;\n        }\n        if(commands[actorBinding(s,target)]==1)\n        {\n            // Native stage pellets notify part then body, including zero.\n"
+        }
+      ]
+    },
+    "gpu/focus_aim_runtime.slang": {
+      "baseline_sha256": "08fc324936860b760d8e25710992ef329a81c4e3b226dee8ae67e820426215bf",
+      "current_sha256": "ea88f70ce33815e69b3b5074b5cc321d5bbc08c9b693deeef75ed1556b2b9a73",
+      "changes": [
+        {
+          "baseline": "void initializeFocusState(inout Runtime s)\n{\n#ifdef PORTABLE_WORLD_PROJECTILE\n    bool numeric=false;\n    for(uint row=0;row<s.count;row++) for(uint i=0;i<definition_conditionCount(s.inputBase,row);i++)\n        numeric |= commands[s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4]==C_FOCUSING;\n",
+          "current": "void initializeFocusState(inout Runtime s)\n{\n#ifdef PORTABLE_WORLD_PROJECTILE\n    initializeInterruptAimDiagnostics(s); // After recipient/counter tail clearing.\n    bool numeric=false;\n    for(uint row=0;row<s.count;row++) for(uint i=0;i<definition_conditionCount(s.inputBase,row);i++)\n        numeric |= commands[s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4]==C_FOCUSING;\n"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "package_id": "0544e1749dae9322667e9dd0b2e535c93b3bbf377f75ee094a95899c2d7ed31c",
+  "backend": "cuda",
+  "mode": "cpu-only",
+  "status": "failed",
+  "gpu_retry_count": 0
+}

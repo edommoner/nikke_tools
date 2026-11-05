@@ -1,0 +1,135 @@
+{
+  "schema": "quantity-visited-metal-v1",
+  "source_storage_before_bytes": 1024,
+  "source_storage_after_bytes": 32,
+  "source_storage_reduction_bytes": 992,
+  "numeric_and_filter_bytes_unchanged_by_exact_five_hunk_inverse": true,
+  "source_delta": "tests/fixtures/quantity-visited-source-change-v1.json",
+  "scope": "Shared CUDA/Metal quantityTotals visited membership; first-seen order, values, flags, numeric expressions, clock and effect definitions retained",
+  "sealed_suites": [
+    {
+      "suite": "quantity-visited",
+      "package_id": "a6b39ff1d158a9a4a8facfd6bda1212014a81722248e2a110786050afe7f612c",
+      "inputs": 16,
+      "native_cases": 9,
+      "input_sha256": "afe3ac98b2e69971212a99230126918e2ae92541be145c78c9b91eed81d2823f",
+      "output_sha256": "f90685d92f1226f58d7631b00b81bb184f12f76909d875f15e8386615a301dd8",
+      "output_bytes": 67584,
+      "gpu_seconds": 0.00041408336255699396,
+      "independent_audit": {
+        "package_id": "a6b39ff1d158a9a4a8facfd6bda1212014a81722248e2a110786050afe7f612c",
+        "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/quantity-visited-v3-20261030-metal",
+        "child_pid": 37523,
+        "input_count": 16,
+        "native_cases": 9,
+        "live_parent_receipt_present": false,
+        "elapsed_seconds": 0.4098577909753658,
+        "gpu_calls": 0,
+        "calculation_verified": true,
+        "input_sha256": "afe3ac98b2e69971212a99230126918e2ae92541be145c78c9b91eed81d2823f",
+        "output_sha256": "f90685d92f1226f58d7631b00b81bb184f12f76909d875f15e8386615a301dd8",
+        "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+        "schema": "independent-metal-audit-v1"
+      },
+      "independent_receipt_sha256": "1a00d35a8216ddf6ded2b3a44f346c934f24ca70cd563f9ed7ff2d1f783f1540",
+      "golden_sha256": "263b5a888c7dfeaf42cca65e38aec4f35d4a79f5fb5b904f2027ef95a83e6e9d",
+      "all_prior_input_output_native_fingerprints_retained": false
+    },
+    {
+      "suite": "max-ammo-visited",
+      "package_id": "9d9f029febde5a119ba11b4d497efd20ccd7ac9b127cf7f309b3d2f152b39579",
+      "inputs": 28,
+      "native_cases": 20,
+      "input_sha256": "e955a7cc3d3043cf34d875b2ff331196ed4ecdaf1368a4d2cfc3a39269701a34",
+      "output_sha256": "3c681c3cd4b313f6d8bf0bfa419201c8d3b9ab4bad01075fb83679ac1c4e4b37",
+      "output_bytes": 88080384,
+      "gpu_seconds": 0.05173200002172962,
+      "independent_audit": {
+        "package_id": "9d9f029febde5a119ba11b4d497efd20ccd7ac9b127cf7f309b3d2f152b39579",
+        "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/max-ammo-visited-v3-20261030-metal",
+        "child_pid": 37583,
+        "input_count": 28,
+        "native_cases": 20,
+        "live_parent_receipt_present": false,
+        "elapsed_seconds": 2.4381357500096783,
+        "gpu_calls": 0,
+        "calculation_verified": true,
+        "input_sha256": "e955a7cc3d3043cf34d875b2ff331196ed4ecdaf1368a4d2cfc3a39269701a34",
+        "output_sha256": "3c681c3cd4b313f6d8bf0bfa419201c8d3b9ab4bad01075fb83679ac1c4e4b37",
+        "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+        "schema": "independent-metal-audit-v1"
+      },
+      "independent_receipt_sha256": "d3376a0cf00e212b85350669c8eb467dc3c679a3a4af0d5b0955ae7dad8968ff",
+      "golden_sha256": "50c6599ad3b62bb2a534fe9fab31e00933d0452e146461352ce683bf26561706",
+      "all_prior_input_output_native_fingerprints_retained": true
+    },
+    {
+      "suite": "moving-visited",
+      "package_id": "6f087939f3359a318dd3d1fb9a1be3dd575316293e791c8acb5cb515a0a8e78f",
+      "inputs": 15,
+      "native_cases": 3,
+      "input_sha256": "4978db79cda22a362d49192d68534434cbf20c8ba985da0db9988e13e78ed8aa",
+      "output_sha256": "3765a8c5662b1a6cb7ba57abbbf11f42642d2e6192e41df0b9b220253ebb8f7a",
+      "output_bytes": 129908160,
+      "gpu_seconds": 2.2277924999943934,
+      "independent_audit": {
+        "package_id": "6f087939f3359a318dd3d1fb9a1be3dd575316293e791c8acb5cb515a0a8e78f",
+        "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/moving-visited-v1-20261030-metal",
+        "child_pid": 37770,
+        "input_count": 15,
+        "native_cases": 3,
+        "live_parent_receipt_present": false,
+        "elapsed_seconds": 84.36042645899579,
+        "gpu_calls": 0,
+        "calculation_verified": true,
+        "input_sha256": "4978db79cda22a362d49192d68534434cbf20c8ba985da0db9988e13e78ed8aa",
+        "output_sha256": "3765a8c5662b1a6cb7ba57abbbf11f42642d2e6192e41df0b9b220253ebb8f7a",
+        "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+        "schema": "independent-metal-audit-v1"
+      },
+      "independent_receipt_sha256": "a307cb4b48acc8b321da5c9ad773c338cb45ab238d968a8ddd9c63f9cb96a8a0",
+      "golden_sha256": "6c1141b55a41eda2769d4d437026f7414ce55d7f3d53cff779f884848dd47737",
+      "all_prior_input_output_native_fingerprints_retained": true
+    }
+  ],
+  "old_goldens_retained": true,
+  "old_profiles_are_not_current_source_certificates": true,
+  "new_successful_gpu_runs": 3,
+  "new_failed_comparison_gpu_runs": 1,
+  "pre_device_slang_failures": 1,
+  "same_claim_retries": 0,
+  "failed_claims_and_readbacks_retained": true,
+  "failure_details": [
+    {
+      "package_id": "dd2820902d09517b7a22c4ea4f63a60cd6900cb5062752ba9e4ba1e37bb6dad1",
+      "reason": "Missing mutating methods; Slang failed before device; GPU0"
+    },
+    {
+      "package_id": "4d98341e6b0d02f6fe0a658f37f3e46a7ca83caec40e49ed4abdce5a8bd4a338",
+      "reason": "Bounds witnesses incorrectly registered as normal status0 domains; actual GPU readback equals corrected-contract readback; original failed comparison retained",
+      "replay_not_used": "Correcting raw rejection classification changed native fingerprints; existing identical-baseline replay gate retained"
+    }
+  ],
+  "windows_requests": 0,
+  "cuda_ptx_resource_reduction_verified": false,
+  "cuda_physical_stack_reduction_verified": false,
+  "cuda_launch_failure_resolved": false,
+  "protected_cpu_and_pinned_upstream_changed": false,
+  "normalizer_changed": false,
+  "public_gpu_admitted": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "final_local_tests_passed": 76,
+  "sealed_distribution": {
+    "package_id": "fb2c7719ce6517df3c81640876f9cf8fd01e0bead32015cd96b3299cfb6bff15",
+    "bytes": 13669201,
+    "sha256": "98610c759ca823a59492b44262de1bed3c3353f338ac96aacd5adedbb53b2e37"
+  },
+  "final_distribution_controls": {
+    "groups": 8,
+    "tests": 42,
+    "passed": true,
+    "gpu_calls": 0
+  },
+  "pre_package_dependency_gate_failure": "max-ammo-visited initially omitted a required pinned readiness audit file; inherited CPU audit dependency union was declared before native/GPU execution"
+}

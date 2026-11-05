@@ -1,0 +1,15 @@
+{
+  "case": "coordinate-original/Marciana/control/30s",
+  "battle_fields_verified": true,
+  "changed": [],
+  "fractional_native": 3870,
+  "fractional_retained": 2048,
+  "fractional_omitted": 1822,
+  "team_native": 3870,
+  "team_retained": 1024,
+  "team_omitted": 2846,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "elapsed_seconds": 39.17693154094741,
+  "scope": "Saved failed capture battle/history diagnosis only; missing skill trace and Delta admission remain"
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "resident-frames-device-packet-v1",
+  "package_id": "e72cdb496df94fadffac8e5e3bd4e581d20039c571df547a8ab5ba74f904c895",
+  "suite": "resident-frames-device",
+  "archive_bytes": 9593282,
+  "archive_sha256": "939070d74c2eab212e72ceab3e00ed14e892a122372ea46e8f148080c3d128c3",
+  "source_commit": "11db5f2da76f39f87c8f875669179a887449e782",
+  "inputs": 4,
+  "native_domains": 4,
+  "full_source_baseline_inputs": 106,
+  "full_source_baseline_native": 63,
+  "retention": {
+    "full_files": 3574,
+    "compact_files": 2143,
+    "all_retained_bytes_and_golden_equal": true,
+    "only_unselected_python_omitted": 1431
+  },
+  "Mac_selected_tests": 55,
+  "Mac_smoke_tests": 591,
+  "Mac_CPU_preflight_passed": true,
+  "scope": "Four original cases; same complete full106 source and comparator, no full106 CUDA or full-character claim"
+}

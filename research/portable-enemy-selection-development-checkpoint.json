@@ -1,0 +1,397 @@
+{
+  "package": {
+    "package_id": "9b476e64ad2e320d0d6c7d600f1fd97f053428dbbb5cc178ff3600c4944fe990",
+    "archive_bytes": 4538616,
+    "archive_sha256": "9c045891c54c38e6c9a7b9868f406616a21547900e3e98334d88e08f5b243de6",
+    "source_commit": "bf052865bc6dce970cbafbc631ec1528851904c1"
+  },
+  "metal": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": true,
+    "preservation_verified": null,
+    "passed": true,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": null,
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 704129765921916,
+        "pid": 20691,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792604977916225000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 664,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "gpu_seconds": 14.951133124995977,
+    "input_bytes": 277286404,
+    "library_compile_seconds": 1.1162599325180054,
+    "output_bytes": 2088763392,
+    "pipeline_compile_seconds": 10.375038981437683,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "bounded": {
+    "passed": true,
+    "timed_out": false,
+    "timeout_seconds": 180,
+    "elapsed_seconds": 83.52174683299381,
+    "child_exit_code": 0,
+    "final_child_exit_code": 0,
+    "error": null,
+    "cleanup_error": null,
+    "cleanup_wait_seconds": 5,
+    "observation_error": null,
+    "wait_completed_unix_ns": 1792604978068338000,
+    "below_normal_priority": false,
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 704129765921916,
+        "pid": 20691,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792604977916225000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retry_count": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false
+  },
+  "cpu_preflight": {
+    "passed": true,
+    "input_count": 664,
+    "native_oracles": 526,
+    "input_sha256": "bdb8ba843cdd5605a9dab8104814d9899b5d01704a4f05fb0ad6da4010b4d66e",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 39.65817533398513
+  },
+  "cpu_groups": [
+    {
+      "pattern": "test_portable_regression_adapter.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8515030000125989
+    },
+    {
+      "pattern": "test_portable_roster_regression.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.3021112920250744
+    },
+    {
+      "pattern": "test_portable_readiness.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.193740207934752
+    },
+    {
+      "pattern": "test_portable_stun.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.365269791916944
+    },
+    {
+      "pattern": "test_portable_typed_recipient_delegation.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.05445241602137685
+    },
+    {
+      "pattern": "test_portable_skill_cooldown.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.815646959003061
+    },
+    {
+      "pattern": "test_portable_healing_storage.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.2656767501030117
+    },
+    {
+      "pattern": "test_portable_trigger_reduction.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.55271558300592
+    },
+    {
+      "pattern": "test_portable_skill_critical.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.174937207950279
+    },
+    {
+      "pattern": "test_portable_skill_interval.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.232056707958691
+    },
+    {
+      "pattern": "test_portable_skill_interval_flat.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.9338991249678656
+    },
+    {
+      "pattern": "test_portable_lazy_bank.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.528287541004829
+    },
+    {
+      "pattern": "test_portable_compiler_stats.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.059438415919430554
+    },
+    {
+      "pattern": "test_portable_base_copy.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.7590021670330316
+    },
+    {
+      "pattern": "test_portable_seal.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.05370549997314811
+    },
+    {
+      "pattern": "test_portable_persona.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.6270411249715835
+    },
+    {
+      "pattern": "test_portable_compile_cache.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.13320633303374052
+    },
+    {
+      "pattern": "test_portable_named_magnitude.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.078672291012481
+    },
+    {
+      "pattern": "test_portable_enemy_selection.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.8403518330305815
+    },
+    {
+      "pattern": "test_portable_capture_storage.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.06770899996627122
+    }
+  ],
+  "cpu_tests": {
+    "tests": 719,
+    "skipped": 1,
+    "failures": 0,
+    "seconds": 46.758,
+    "log_sha256": "eea40b72519f54d8a5966c0bda847c082fc8a63278423f47e5078cecdff4d411"
+  },
+  "literal": {
+    "package_id": "b2eacb58fbf6b92d06c60ac72adf702ac18584bf6bc5f4b9e5c0d734f0bf56e0",
+    "result": {
+      "sealed": false,
+      "purpose": "development",
+      "calculation_verified": true,
+      "preservation_verified": null,
+      "passed": true,
+      "containment_verified": true,
+      "comparison_error": null,
+      "first_difference": null,
+      "phase": {
+        "events": 6,
+        "last_event": {
+          "monotonic_ns": 703882322560166,
+          "pid": 20445,
+          "stage": "shared_native_compare",
+          "state": "returned",
+          "wall_time_ns": 1792604730467535000
+        },
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retries": 0,
+      "audit_gpu_calls": 0
+    },
+    "gpu_inputs": 60,
+    "positive_gpu_inputs": 51,
+    "native_alias_cases": 61,
+    "rejections": 9,
+    "rejection_stages_verified": true
+  },
+  "retention": "research/portable-enemy-selection-retention.json",
+  "development_runs": "research/portable-enemy-selection-development-runs.json",
+  "inventory": {
+    "packed_profiles": 209,
+    "profile_count": 266,
+    "packed_base": 149,
+    "base_count": 203,
+    "priority_categories": 87,
+    "classification": {
+      "method": "Independent lowered definition validation plus complete program packing",
+      "exhaustive_within_effect": false,
+      "unlock_counts_are_predictions": false,
+      "diagnostic_sources": {
+        "effect": {
+          "structured_reason": 87,
+          "message_fallback": 13
+        },
+        "program": {
+          "structured_reason": 51,
+          "message_fallback": 6
+        }
+      }
+    }
+  },
+  "compiler_delta": {
+    "baseline_source_sha256": "90dbb0df9e1c1fd377d714bf1088a7dbbe0aadd8dd67e5f9519ee7e9ef093ba2",
+    "candidate_source_sha256": "152d7375a74c71009699af5a1ec346538a02572b95a840a7d4097126eb91755d",
+    "delta": {
+      "source_bytes": 13619,
+      "functions": 10,
+      "noinline_functions": 2
+    },
+    "runtime_declared_fields_identical": true,
+    "runtime_size_estimate_bytes": 138928,
+    "actorSetCapture_noinline": true,
+    "gpu_calls": 0,
+    "nvrtc_compile_calls": 0,
+    "compiler_memory_improvement_verified": false,
+    "scope": "Saved generated CUDA lexical difference only; not measured compiler memory, registers or execution performance"
+  },
+  "raw_storage": {
+    "schema": 1,
+    "capture": "/private/tmp/nikke-enemy-selection-regression-metal",
+    "raw_bytes": 2082471936,
+    "raw_sha256": "594cdb117fc9d6df47b8cce368acbcadb6cbe4f323067b4925f256474afdabb2",
+    "evidence_sha256": "3a4e088cf3ed2308db0d96ba67b3e8c056c25b5f1b04663536ce9d17d3f1b8db",
+    "archive_bytes": 5849675,
+    "archive_sha256": "6c7604323df01a8e106aa54b2a11dcbee0b78c62ba54052e6018a96da33ad556",
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "archive": "/private/tmp/nikke-enemy-selection-regression-readback.bin.gz",
+    "original_removed": true
+  },
+  "windows_runs_for_this_feature": 0,
+  "cuda_calculation_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "physical_history_scope": "New Mihara30 records2048 and omits32. Other new15 omit0. Previous persona omissions remain. Full battle state, prefix and exact omitted count checked; omitted physical packets not individually certified.",
+  "new_real_physical_history": [
+    {
+      "name": "roster/real/브리드 : 사일런트 트랙/favorite-0/3s",
+      "recorded": 88,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/브리드 : 사일런트 트랙/favorite-0/30s",
+      "recorded": 792,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/율리아/favorite-3/3s",
+      "recorded": 116,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/율리아/favorite-3/30s",
+      "recorded": 1058,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/미하라 : 본딩 체인/favorite-0/3s",
+      "recorded": 112,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/미하라 : 본딩 체인/favorite-0/30s",
+      "recorded": 2048,
+      "omitted": 32
+    },
+    {
+      "name": "roster/real/소다/favorite-0/3s",
+      "recorded": 45,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/소다/favorite-0/30s",
+      "recorded": 1472,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/마르차나 : 마린 스터디/favorite-0/3s",
+      "recorded": 116,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/마르차나 : 마린 스터디/favorite-0/30s",
+      "recorded": 1063,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/헬름 : 아쿠아마린/favorite-0/3s",
+      "recorded": 119,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/헬름 : 아쿠아마린/favorite-0/30s",
+      "recorded": 1085,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/아인/favorite-0/3s",
+      "recorded": 82,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/아인/favorite-0/30s",
+      "recorded": 747,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/신데렐라/favorite-0/3s",
+      "recorded": 87,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/신데렐라/favorite-0/30s",
+      "recorded": 807,
+      "omitted": 0
+    }
+  ],
+  "seal": {
+    "sealed": true,
+    "gpu_calls": 0,
+    "package_id": "9b476e64ad2e320d0d6c7d600f1fd97f053428dbbb5cc178ff3600c4944fe990",
+    "input_count": 664,
+    "golden": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-world-enemy-selection-regression-short-expected.json"
+  },
+  "seal_fresh_independent_comparisons": 1,
+  "post_seal_cli_tests": {
+    "tests": 27,
+    "failures": 0,
+    "seconds": 1.168
+  },
+  "cli_source_ready": true
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "add-attack-battle-final-cli-v2",
+  "source_commit": "ffb0dbd2",
+  "cache_package_id": "d1108e35cbd4169552fb690176f2673b6d8335ccdda34aeab3e8cf3374cba014",
+  "source_current": true,
+  "sealed_generated_baseline_verified": true,
+  "required_generation_cache_hit": true,
+  "slang_compiler_invocations": 0,
+  "compile_plan": {
+    "passed": true,
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false
+  },
+  "immutable_packet_source_proof_tests": 6,
+  "post_seal_compiler_certificate_tests": 24,
+  "canonical_self_destruct_tests": 4,
+  "readiness_tests": 24,
+  "windows_requests": 0,
+  "cuda_verified": false,
+  "gpu_calls": 0,
+  "full_goal_complete": false,
+  "model_check_passed": true,
+  "model_check_sha256": "a0160bf75322951994035fd3bb16bcc40dfdbb81fc33d14ffdb8539c1c5187a8",
+  "public_gpu_admitted": false
+}

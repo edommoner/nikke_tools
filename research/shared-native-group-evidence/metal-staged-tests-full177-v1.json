@@ -1,0 +1,153 @@
+{
+  "schema": "all-staged-unit-tests-v1",
+  "package_id": "7e142c004b3120184bede6cc0981e13f2c7360e18069fbe029014d2c96879c9f",
+  "unit_tests_verified": true,
+  "groups": [
+    {
+      "index": 0,
+      "patterns": [
+        "test_typed_geometry.py",
+        "test_coordinate_typed.py"
+      ],
+      "tests": 14,
+      "seconds": 5.8747388330011745,
+      "result_sha256": "3b10b9e8c6d7a919def1030a6f84d235ed18d23774a8212ad0ea3bb3c97b17d8"
+    },
+    {
+      "index": 1,
+      "patterns": [
+        "test_target_modifier_input.py",
+        "test_original_modifier_probe.py"
+      ],
+      "tests": 8,
+      "seconds": 2.9626060830050847,
+      "result_sha256": "4f271fe7a58e37b9fd8e57036f7786855041817468b14b1db8d725ec4748f109"
+    },
+    {
+      "index": 2,
+      "patterns": [
+        "test_destructible_weapon_rosters.py",
+        "test_portable_definition_view.py"
+      ],
+      "tests": 19,
+      "seconds": 12.611490875002346,
+      "result_sha256": "9cbb5d17264e0bbcc01a91021f8de29c62c13ca329623e4c072ba811622e89fa"
+    },
+    {
+      "index": 3,
+      "patterns": [
+        "test_portable_readiness_semantics.py",
+        "test_coordinate_typed_weapon.py"
+      ],
+      "tests": 26,
+      "seconds": 7.994386958001996,
+      "result_sha256": "77160c0ef9ab56698d6a3c3f7367dec4d71ce9c80acfb400549671ad7aeb0ff4"
+    },
+    {
+      "index": 4,
+      "patterns": [
+        "test_coordinate_typed_weapon_gpu.py",
+        "test_native_python_profile.py"
+      ],
+      "tests": 10,
+      "seconds": 13.368091082993487,
+      "result_sha256": "a38b3c2432ea0603fd8cd383e41bbfb6e0b9ff97eccce0e6908f2a72fb5fe575"
+    },
+    {
+      "index": 5,
+      "patterns": [
+        "test_coordinate_typed_aim_gpu.py",
+        "test_coordinate_typed_actor_policy.py"
+      ],
+      "tests": 7,
+      "seconds": 1.2904223340010503,
+      "result_sha256": "ca906f57db6056fa1626bfeb75016e3e410998eb92eff4695fdc7a36d77ab7a6"
+    },
+    {
+      "index": 6,
+      "patterns": [
+        "test_coordinate_typed_actor_gpu.py",
+        "test_coordinate_typed_owner_policy.py"
+      ],
+      "tests": 8,
+      "seconds": 1.2042407920016558,
+      "result_sha256": "13a87b0073c4a96633568036a92f94ad9673ac151fd4303071cc26a66bd8367e"
+    },
+    {
+      "index": 7,
+      "patterns": [
+        "test_coordinate_typed_owner_gpu.py",
+        "test_typed_owner_observer_migration.py"
+      ],
+      "tests": 11,
+      "seconds": 1.2018255830043927,
+      "result_sha256": "68c970cbe5ce41c3e591ea8c303504b0ac5d8e2b73db4cd0525cfbe52f312254"
+    },
+    {
+      "index": 8,
+      "patterns": [
+        "test_coordinate_typed_owner_lifecycle.py",
+        "test_counter_field_decoder.py"
+      ],
+      "tests": 6,
+      "seconds": 23.75529191699752,
+      "result_sha256": "0af2afc4358285ec6b4758555ff0ace7e691f825ed37d5692c03f72baf3087a1"
+    },
+    {
+      "index": 9,
+      "patterns": [
+        "test_coordinate_typed_logical_owner.py",
+        "test_coordinate_typed_logical_owner_gpu.py"
+      ],
+      "tests": 11,
+      "seconds": 1.2148799169954145,
+      "result_sha256": "8ff62765c8577d1e9ec136878c1baee0f5c845067768b5c8417f1a1ad8d0d4c9"
+    },
+    {
+      "index": 10,
+      "patterns": [
+        "test_coordinate_typed_owner_add_lifetime.py",
+        "test_coordinate_typed_owner_hp_death.py"
+      ],
+      "tests": 6,
+      "seconds": 46.298202915997535,
+      "result_sha256": "933d51688b9eb1f6b3cbec428a7f2d60c7f986ca9840e392f854ed603a410305"
+    },
+    {
+      "index": 11,
+      "patterns": [
+        "test_coordinate_arc_arena.py",
+        "test_coordinate_landing_arena.py"
+      ],
+      "tests": 11,
+      "seconds": 1.1705872079983237,
+      "result_sha256": "2a2f92be4cf5bef2e6a0548268a3fab3f9eaa014a8df7601f381f09a3e388f92"
+    },
+    {
+      "index": 12,
+      "patterns": [
+        "test_coordinate_resident_arc.py",
+        "test_portable_parent_oracles.py"
+      ],
+      "tests": 28,
+      "seconds": 5.2495100000014645,
+      "result_sha256": "11f641834eda40f241dde35e366942a01a001f1ccd95b82cc37f3be7bc5df5af"
+    },
+    {
+      "index": 13,
+      "patterns": [
+        "test_heavyarms_lock_reference.py",
+        "test_dispatch_frame_storage.py"
+      ],
+      "tests": 12,
+      "seconds": 5.1740542909974465,
+      "result_sha256": "2ee09e66484ff3b7f0199dd599833aeee05f0fa535d908810c98cbe2db286f03"
+    }
+  ],
+  "tests": 177,
+  "max_stage_seconds": 46.298202915997535,
+  "total_stage_seconds": 129.3703287899989,
+  "gpu_calls": 0,
+  "native_preflight_calls": 0,
+  "calculation_verified": false
+}

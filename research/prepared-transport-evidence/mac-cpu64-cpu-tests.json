@@ -1,0 +1,82 @@
+[
+  {
+    "pattern": "test_destructible_counter.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.2515519160078838,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 42975
+  },
+  {
+    "pattern": "test_destructible_world.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.03280283301137388,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 42975
+  },
+  {
+    "pattern": "test_target_counter_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.01066283299587667,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 42975
+  },
+  {
+    "pattern": "test_portable_authored_case_purity.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.034016875084489584,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 42975
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.13099466601852328,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 42975
+  },
+  {
+    "pattern": "test_destructible_target_state.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.020921416929922998,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 42975
+  },
+  {
+    "pattern": "test_portable_prepared_input.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.017287250026129186,
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 42975
+  },
+  {
+    "pattern": "test_portable_packet_stage.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.026005292078480124,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 42975
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "input_sha256": "608daedf26b3aa4af7f3fc61ef17e167bad6f10b97530d56a7e8b07a496dab11",
+  "output_sha256": "1fa9d3a24068313f194c52fa9d8c40bbcdb102ec0eb9eb499b69eaefdbd37cc1",
+  "all_original_input_and_output_bytes_identical": true,
+  "inputs": 9,
+  "native": 6,
+  "new_shader_source_verified": true,
+  "scope": "Actual new Metal dispatch plus whole saved readback byte comparison; CUDA still unverified",
+  "independent_fresh_audit_verified": true,
+  "independent_fresh_audit_seconds": 1.1411189169957652,
+  "audit_receipt_sha256": "d251c99534093423bd046350addd28c3621c85a403aaa2a75e4332be6c8022ed",
+  "gpu_seconds": 0.002558416672400199,
+  "golden": "research/portable-named-target-count-query-v2-expected.json",
+  "original_golden_preserved": true
+}

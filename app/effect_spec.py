@@ -23,6 +23,7 @@ COMPAT_LAYERS = (
     'staged_dot_runtime',
     'enemy_recipient_runtime',
     'periodic_target_runtime',
+    'boss_dot_clock_compat',
 )
 
 def install_reference_layers():
@@ -37,7 +38,7 @@ RECOVERY_ORDER = ('source_and_recipient_modifiers', 'sharing_allocation',
 FAMILIES = {
     'damage': 'damage split_damage bonus_damage burst_damage sequential_damage projectile_attachment_damage projectile_explosion_damage dot_damage armor_break_damage armor_break_burst_damage core_damage accum_split_damage dealt_fixed_damage auto_damage',
     'damage_modifiers': 'atk_pct atk_flat atk_caster_based_pct atk_from_hp_pct atk_copy def_pct def_caster_based_pct enemy_def_down_pct enemy_def_down_flat def_ignore_pct crit_rate crit_dmg core_dmg_pct atk_dmg_pct normal_atk_dmg_pct received_dmg_pct split_dmg_pct sequential_dmg_pct projectile_attachment_dmg_pct projectile_explosion_dmg_pct projectile_dmg_pct element_bonus element_bonus_pct intercept_dmg_pct part_dmg_pct armor_break_dmg_pct shield_dmg_pct dot_dmg_pct burst_dmg_pct burst_dmg_aoe_pct burst_dmg_single_pct normal_atk_crit_rate normal_atk_crit_dmg crit_rate_skill crit_dmg_skill dmg_scale_mag_pct atk_buff_mag_pct received_dmg_buff_mag_pct damage_reduction_pct',
-    'weapon': 'accuracy_pct pierce_enabled pierce_dmg_pct armor_break_enabled pierce_range explosion_range effect_range_pct pellet_count pellet_count_fixed attack_speed_pct mg_warmup_speed_pct element_code_override lock_on focus_fire weapon_change optimal_range_min optimal_range_max_pct',
+    'weapon': 'normal_atk_width_pct accuracy_pct pierce_enabled pierce_dmg_pct armor_break_enabled pierce_range explosion_range effect_range_pct pellet_count pellet_count_fixed attack_speed_pct mg_warmup_speed_pct element_code_override lock_on focus_fire weapon_change optimal_range_min optimal_range_max_pct',
     'charge': 'charge_dmg_pct charge_dmg_mag_pct charge_speed_pct charge_time_flat charge_time_fixed charge_speed_caster_based_pct burst_charge_speed_pct charge_speed_overflow_conversion_pct charge_speed_buff_immune charge_speed_debuff_immune',
     'ammo_reload': 'max_ammo_pct max_ammo_flat ammo_charge_pct ammo_charge_flat reload_speed_pct reload_ratio_pct reload_time_fixed force_reload infinite_ammo gauge_consume_as_ammo squad_ammo_consume_as',
     'burst_cooldown': 'burst_cooldown burst_cooldown_reduce burst_charge_pct burst_stage_override burst_reentry fullburst_duration skill_cooldown skill_cooldown_pct skill_cooldown_reduce_pct force_skill_use',
@@ -48,7 +49,7 @@ FAMILIES = {
     'protection': 'shield_from_max_hp_pct shared_shield_from_max_hp_pct next_shield_hp_pct shield_heal_pct shield_invincible cover_def_pct cover_hp_pct cover_disabled cover_heal_pct cover_revive decoy decoy_heal_pct received_dmg_split received_dmg_split_even',
     'control_survival': 'stun stun_immune stealth taunt invincible undying force_move enemy_movement_disable possessed',
     'effect_lifecycle': 'remove_named_buff named_buff_duration_extend buff_stack_add buff_stack_remove buff_stack_init buff_max_stack_add debuff_stack_add debuff_stack_remove debuff_immune debuff_immune_count debuff_cleanse enemy_buff_cleanse trigger_count_reduce effect_interval effect_target_count_add stack_change_immune',
-    'character_state': 'periodic_source_refresh feather_refresh persona_state',
+    'character_state': 'periodic_source_refresh feather_refresh persona_state engaged_state',
 }
 _FAMILY_BY_STAT = {stat:family for family,stats in FAMILIES.items() for stat in stats.split()}
 assert sum(len(s.split()) for s in FAMILIES.values()) == len(_FAMILY_BY_STAT), 'Duplicate taxonomy entry'

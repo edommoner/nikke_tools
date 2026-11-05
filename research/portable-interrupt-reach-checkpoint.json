@@ -1,0 +1,232 @@
+{
+  "schema": 1,
+  "scope": "Shared non-coordinate skill part/interruption reach snapshot, receipt, group HP, external accounting and lifesteal",
+  "full_goal_complete": false,
+  "full_character_certifications": 0,
+  "proofs": [
+    {
+      "suite": "parts-skill-world",
+      "package_id": "db6bec04d91c28b1ea6120ae63539d8bd7bd69df454f8e6f7b8094aab2c43313",
+      "package": "/tmp/nikke-interrupt-reach-v3",
+      "capture": "/tmp/nikke-interrupt-reach-v3-metal",
+      "seal": "/tmp/nikke-interrupt-reach-v3-sealed.json",
+      "inputs": 46,
+      "native": 41,
+      "source_files": 114,
+      "input_sha256": "f4ffa43514a0f76f07e568a2b6ccffc50321e99c6f0a92f3aaf5e06182101b0e",
+      "output_sha256": "7e29c8869d0276b51f487ca26fc038cdf0c7f825a8fb9f738c7cc0cd8ef6bc45",
+      "device": "Apple M5",
+      "gpu_seconds": 0.04574041662272066,
+      "native_preflight_seconds": 2.736441708984785,
+      "cpu_tests": {
+        "tests": 51,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cpu_tests_seconds": 5.924780625035055,
+      "independent_seal": true,
+      "rejected": 5
+    },
+    {
+      "suite": "heal-share-regression",
+      "package_id": "e8b273ca1c9448d3f1ca807cca4253218640648c94fd1b6b7878bb2defdbb109",
+      "package": "/tmp/nikke-interrupt-reach-regression-v3",
+      "capture": "/tmp/nikke-interrupt-reach-regression-v3-metal",
+      "seal": "/tmp/nikke-interrupt-reach-regression-v3-sealed.json",
+      "inputs": 849,
+      "native": 676,
+      "source_files": 114,
+      "input_sha256": "010b72c5120af825d2326a1504a4d7e111ac36807ed39652190c5e91880096f0",
+      "output_sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1",
+      "device": "Apple M5",
+      "gpu_seconds": 10.421571041690186,
+      "native_preflight_seconds": 44.99167158303317,
+      "cpu_tests": {
+        "tests": 311,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cpu_tests_seconds": 44.233361125108786,
+      "independent_seal": true,
+      "rejected": 173
+    },
+    {
+      "suite": "heal-share-rosters",
+      "package_id": "ccffc94f6ce925654caf5696c5272b1aa39aa41629a41919107e87459560f7a7",
+      "package": "/tmp/nikke-interrupt-reach-rosters-v2",
+      "capture": "/tmp/nikke-interrupt-reach-rosters-v2-metal",
+      "seal": "/tmp/nikke-interrupt-reach-rosters-v2-sealed.json",
+      "inputs": 4,
+      "native": 4,
+      "source_files": 114,
+      "input_sha256": "b3f6051d7254403e8655998a049ce5f8d532a43afe82d26b3d5effbd50d60957",
+      "output_sha256": "f83a45b0297cf2f46a2232c9d2469e3148665c79337899562c1e56f8d043de97",
+      "device": "Apple M5",
+      "gpu_seconds": 3.1748313333373517,
+      "native_preflight_seconds": 1.4579497500089929,
+      "cpu_tests": {
+        "tests": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cpu_tests_seconds": 1.1295319159980863,
+      "independent_seal": true,
+      "rejected": 0
+    }
+  ],
+  "retention": {
+    "parts": {
+      "old_cases": 40,
+      "new_cases": 46,
+      "retained_cases": 26,
+      "input_native_output_fingerprints_equal": true,
+      "all_retained_case_raw_bytes_equal": true,
+      "compared_bytes": 81788928,
+      "intentionally_changed_cases": [
+        "native/parts-skill-interrupt-only",
+        "native/parts-skill-parts-and-interrupt",
+        "reject/parts-skill-extra-pierce-parts",
+        "reject/parts-skill-extra-explosion-parts",
+        "reject/parts-skill-extra-explosion-range100",
+        "reject/parts-skill-extra-explosion-without-marker",
+        "reject/parts-skill-extra-interrupt-lifesteal-unsaturated",
+        "native/interrupt-source-delayed-reopen",
+        "native/interrupt-source-unbreakable",
+        "native/interrupt-source-capacity127",
+        "reject/interrupt-physical-reach-not-ported",
+        "reject/interrupt-source-projectile-alias",
+        "reject/interrupt-source-part-alias",
+        "reject/interrupt-source-noncanonical-id"
+      ],
+      "gpu_calls": 0
+    },
+    "regression": {
+      "old": "/tmp/nikke-interrupt-source-regression-v3-metal/readback.bin",
+      "new": "/tmp/nikke-interrupt-reach-regression-v3-metal/readback.bin",
+      "bytes": 2670723072,
+      "sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1",
+      "all_bytes_equal": true,
+      "gpu_calls": 0
+    },
+    "rosters": {
+      "old": "/tmp/nikke-interrupt-source-rosters-v2-metal/readback.bin",
+      "new": "/tmp/nikke-interrupt-reach-rosters-v2-metal/readback.bin",
+      "bytes": 12582912,
+      "sha256": "f83a45b0297cf2f46a2232c9d2469e3148665c79337899562c1e56f8d043de97",
+      "all_bytes_equal": true,
+      "gpu_calls": 0
+    }
+  },
+  "runtime": {
+    "stride_bytes": 138952,
+    "cuda_constant_bytes": 48,
+    "fields_unchanged": true,
+    "local_Frame_metadata_added": true
+  },
+  "guard": {
+    "verified": true,
+    "properties": 55,
+    "local_override_properties": [
+      "damageRoute",
+      "damageHits"
+    ],
+    "wire_immutable": true,
+    "other_shared_sources_unchanged": false,
+    "other_sources_outside_reviewed_delta_unchanged": true,
+    "reviewed_scope_snapshot_sources": [
+      "gpu/world_actor_state.slang"
+    ],
+    "reviewed_damage_factor_sources": [
+      "gpu/damage_runtime.slang",
+      "gpu/damage_factors.slang"
+    ],
+    "reviewed_part_receipt_sources": [
+      "gpu/landing_runtime.slang",
+      "gpu/dispatch_phases.slang",
+      "gpu/counter_landing_runtime.slang",
+      "gpu/world_skill_runtime.slang",
+      "gpu/skill_part_receipt.slang"
+    ],
+    "reviewed_interrupt_sources": [
+      "gpu/world_enemy_attack_runtime.slang",
+      "gpu/world_actor_pools.slang",
+      "gpu/world_actor_fields.slang",
+      "gpu/world_actor_registry.slang"
+    ],
+    "reviewed_interrupt_reach_sources": [
+      "gpu/damage_runtime.slang",
+      "gpu/world_periodic_runtime.slang",
+      "gpu/world_interrupt_runtime.slang",
+      "gpu/interrupt_packet_codec.slang"
+    ],
+    "reviewed_interrupt_frame_metadata": true,
+    "gpu_calls": 0,
+    "scope": "Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution"
+  },
+  "paired_commands": {
+    "path": "/tmp/nikke-interrupt-reach-final-commands-codegen.json",
+    "source_files": 115,
+    "gpu_calls": 0
+  },
+  "earlier_tier_codegen": [
+    {
+      "source": "gpu/world_skill_entry.slang",
+      "source_files": 102,
+      "generated_bytes": {
+        "cuda": 1566129,
+        "metal": 1638511
+      },
+      "gpu_calls": 0
+    },
+    {
+      "source": "gpu/world_periodic_entry.slang",
+      "source_files": 104,
+      "generated_bytes": {
+        "cuda": 1590281,
+        "metal": 1665153
+      },
+      "gpu_calls": 0
+    }
+  ],
+  "windows": {
+    "new_runs": 0,
+    "preservation_verified": false,
+    "service": "unverified",
+    "seven_exit_cause": "unknown"
+  },
+  "unresolved": [
+    "physical weapon interrupt extras",
+    "coordinate reach",
+    "deferred burst reference gap",
+    "random periodic final tick battle boundary",
+    "actual CUDA equivalence for corrected runtime",
+    "CUDA generated source/cache improvement",
+    "Windows seven process exit cause",
+    "all character/effect certification"
+  ],
+  "retained_intermediate": [
+    "/tmp/nikke-interrupt-reach-v1-metal",
+    "/tmp/nikke-interrupt-reach-v2-metal",
+    "/tmp/nikke-interrupt-reach-regression-v1-metal",
+    "/tmp/nikke-interrupt-reach-rosters-v1-metal"
+  ],
+  "pre_gpu_corrections": [
+    "Extra range stat index is outside64-stat array; use required existing plainQuantity range consumer at capture time, with no additional reads in legacy path",
+    "regression-v2 package preparation rejected source mutation while baseline was being prepared; no archive/capture/claim/GPU execution; final regression-v3 built after source freeze"
+  ],
+  "compiler_controller": {
+    "package_id": "4149030cdd5bd355efdf1358ec5b7da62075359ae37b9c9b37d26e406c661da1",
+    "capture": "/tmp/nikke-interrupt-reach-controller-v1-cpu",
+    "cpu": {
+      "tests": 277,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    "gpu_calls": 0,
+    "calculation_verified": false
+  }
+}

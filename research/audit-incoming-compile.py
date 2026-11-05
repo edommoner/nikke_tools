@@ -6,7 +6,7 @@ rows=[]
 for name,b,extra in v.fixtures():
  with v.context(name,extra):
   try:
-   p=v.v.a.evaluate({**b,'_compile_gpu_detail':True});r=dict(name=name,compiled=True,effects=len(p['program']['effects']))
+   p=v.v.a.evaluate({**b,'_compile_detail':True});r=dict(name=name,compiled=True,effects=len(p['program']['effects']))
   except Exception as e:r=dict(name=name,compiled=False,error=repr(e))
  rows.append(r)
 (ROOT/'research/detail-incoming-compile.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

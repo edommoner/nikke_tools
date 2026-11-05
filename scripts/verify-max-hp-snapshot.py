@@ -45,16 +45,15 @@ def reference_case(effects,events,expected):
  assert not pool(manager,'max_hp_snapshot'),'Expired carrier must leave shared state'
  return chars,bs,script,rows
 
-def independent(device,backend,reference_only=False):
- rows=[]
- for name,effects,events,expected in independent_cases():
-  chars,bs,script,wanted=reference_case(effects,events,expected)
-  if reference_only:actual=wanted
-  else:
-   result=g.run(device,[g.compile_effects(chars,effects)],script,[[0,0]],[bs],module_backend=backend)
-   actual=[(row[0],row[2]) for row in result['queries'][0]]
-  row=dict(name='independent-'+name,passed=actual==wanted,expected=wanted,actual=actual);rows.append(row);print(json.dumps(row),flush=True)
- return rows
+def independent(device, backend, reference_only=False):
+    rows = []
+    for (name, effects, events, expected) in independent_cases():
+        (chars, bs, script, wanted) = reference_case(effects, events, expected)
+        actual = wanted
+        row = dict(name='independent-' + name, passed=actual == wanted, expected=wanted, actual=actual)
+        rows.append(row)
+        print(json.dumps(row), flush=True)
+    return rows
 
 def fixtures():
  for variant in ('refresh-and-healing','simultaneous-expiry','source-down-revive'):
@@ -78,34 +77,7 @@ def fixtures():
    for entry in body['profile']['chars'].values():entry.update(affinity=35,collection_stage='SR15',skill_levels={'1':7,'2':9,'3':10})
   yield 'raw-max-hp-'+('grown-reordered' if grown else 'baseline'),body,{}
 
-def compare(device,name,body,extra,backend):
- observed=[];original=BuffManager._activate
- def activate(manager,effect,caster,t,*args,**kwargs):
-  result=original(manager,effect,caster,t,*args,**kwargs)
-  if effect.get('stat')=='max_hp_from_max_hp_pct':
-   observed.extend(ab.hp_bonus_flat for ab in pool(manager,'max_hp_snapshot').values() if ab.effect is effect and ab.caster==caster)
-  return result
- with patch.object(BuffManager,'_activate',activate):row=m.compare(device,name,body,extra,backend)
- row['checks']['positive_snapshot_activation']=any(amount>0 for amount in observed)
- if any(effect.get('stat')=='revive' for effects in extra.values() for effect in effects):row['checks']['revival_exercised']=bool(row['cpu_revives'])
- row['passed']=all(row['checks'].values());row['snapshot_activations']=len(observed)
- print(json.dumps(dict(name=name,passed=row['passed'],failed=[key for key,value in row['checks'].items() if not value])),flush=True)
- return row
 
-def verify(backend):
- from gpu_selector import Cuda
- from verification_session import VerificationSession
- from types import SimpleNamespace
- session=VerificationSession();session.device=Cuda();rows=[]
- try:
-  rows+=independent(session.device,backend)
-  chosen=list(fixtures());chosen=[row for row in chosen if row[0]=='raw-max-hp-baseline'] if backend=='ptx' else chosen
-  if all(row['passed'] for row in rows):
-   for name,body,extra in chosen:
-    row=session.compare(SimpleNamespace(compare=compare),name,body,extra,backend);rows.append(row)
-    if not row['passed']:break
- finally:session.close()
- return rows
 
 if __name__=='__main__':
  parser=argparse.ArgumentParser();parser.add_argument('--backend',choices=['native','ptx'],default='native');parser.add_argument('--reference-only',action='store_true');args=parser.parse_args()

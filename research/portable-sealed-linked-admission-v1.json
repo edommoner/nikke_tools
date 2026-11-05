@@ -1,0 +1,33 @@
+{
+  "schema": "sealed-linked-admission-checkpoint-v1",
+  "base_commit": "dbc99d51d1d4411da4a9aa30a75455c3594176ba",
+  "changed_cli_definitions": [
+    "saved_linked_admission"
+  ],
+  "changed_admission_module": "app/portable_linked_artifact.py",
+  "tests": {
+    "development_passed": 125,
+    "frozen_passed": 125,
+    "frozen_payload_before_after_verified": true
+  },
+  "package_id": "3443f8bf7a859e9ce9c683aaa5cbb1dc5aaabf04cd058764846577f496b0ba4e",
+  "archive_bytes": 13360044,
+  "archive_sha256": "8f219f06a2181d071cbc747d0bb681e3bccb59f28d7b8ec20472fe747211482b",
+  "packet_transported_to_windows": false,
+  "eligibility": [
+    "Receiver, link controller and actual source producer must be sealed and unfiltered",
+    "Actual source producer independently verifies its own payload, registered world entry and full native golden",
+    "Actual source full golden equals receiver full golden, including input/output fingerprints and entries",
+    "Source producer ID/manifest SHA and link controller ID/receipt key have separate anchors",
+    "Nested object producer equals audited actual source producer",
+    "Source closure and normalized pair agree across native golden, producer and compiler",
+    "Original header/CUDA and artifact verification, full link/object/Job/observation audit and live NVRTC prohibition remain"
+  ],
+  "legacy_full_compiler_path_retained": true,
+  "default_admission_changed": false,
+  "numerical_gpu_or_protected_cpu_changed": false,
+  "real_saved_cubin_admission_verified": false,
+  "calculation_verified": false,
+  "full_goal_complete": false,
+  "scope": "CPU-tested private linked execution admission, not current CUDA calculation proof. Current Metal small-suite recertification is running separately."
+}

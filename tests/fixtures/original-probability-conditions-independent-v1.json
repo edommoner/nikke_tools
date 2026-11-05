@@ -1,0 +1,15 @@
+{
+  "package_id": "50c273ee524def49300966f6b451c8a16cb08a4f5970a7695b35e717417e2817",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/original-probability-conditions-v1-20261030-metal",
+  "child_pid": 47175,
+  "input_count": 4,
+  "native_cases": 4,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 117.87701933301287,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "16bfcec0b44b15aed6eac2ce36b0fe5de52e1d90e80f2767129a34960c99742e",
+  "output_sha256": "938b854423ba0e75be8a56703bef07cefd990d2f592c31fcd0d22d935bd43fa9",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "lock-packet-legacy23-predevice-failure-v1",
+  "source_commit": "9553193f",
+  "package_id": "6a541313106f4a14da50d8152f7be0eaf01c93f3bbce3cf6fc4764a99058da85",
+  "failure_stage": "pipeline_lock",
+  "failure": "Required Metal pipeline cache miss",
+  "cache_key": "6fb2d3072f958f70d832f1a5e05226e3b25ea39b61d4e6b359646ae4d10ccfc0",
+  "generated_bytes_identical_to_old": true,
+  "readback_present": false,
+  "calculation_verified": false,
+  "current_source_recertification_complete": false,
+  "failed_capture_preserved": true,
+  "same_claim_retries": 0,
+  "old_sealed_cover_packet_preserved": "physical-cover-sealed-v1-0.zip",
+  "next": "Implement a tested pre-claim Metal cache inspection/recovery path; do not delete the old claim, retry the failed packet, or rebind the old golden"
+}

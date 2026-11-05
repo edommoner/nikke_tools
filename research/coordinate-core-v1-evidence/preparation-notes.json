@@ -1,0 +1,9 @@
+{
+  "gpu_calls": 0,
+  "notes": [
+    "Initial local assembly put composed header before area extension; complete-wire assertion rejected it. Corrected assembly before immutable package.",
+    "Reopen authored interval field is not a pattern field; canonical validation rejected it. Used existing after self/until/repeat/delay schema before package.",
+    "Source and native baselines in initial failed immutable package and capture are preserved; no same-claim retry.",
+    "Core fractional-hit and accumulator comparisons already come from inherited native observer; no replacement numeric oracle."
+  ]
+}

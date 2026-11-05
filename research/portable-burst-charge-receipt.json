@@ -1,0 +1,341 @@
+{
+  "passed": true,
+  "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+  "validation": "portable-burst-charge-validation.json",
+  "full_goal_complete": false,
+  "normal_ui": "CPU",
+  "initial_unlocalized_metal_finding_open": true,
+  "files": {
+    "docs/mac-handoff.md": {
+      "bytes": 109409,
+      "sha256": "dbbf26dd7e3a34dd34061a30d4b70ecd4f5629d0f91432e5a1843fd45787fb66"
+    },
+    "docs/mac-migration.md": {
+      "bytes": 18914,
+      "sha256": "2851ab7e9bc53b520af0f9de59492476396b47dcff716db65cb810cc9a3d7a28"
+    },
+    "docs/portable-atk-from-hp-design.md": {
+      "bytes": 3595,
+      "sha256": "ed8f39804f1a5f4772dff84b419ca16c073d4f30eb312e7c0625469f7f518b3e"
+    },
+    "docs/portable-burst-charge-speed-design.md": {
+      "bytes": 7797,
+      "sha256": "795ccd257dc245fe4cc5f0e696d2547435bf82a1c65c66003e6ab5c8088a1280"
+    },
+    "docs/portable-combat-runtime.md": {
+      "bytes": 119001,
+      "sha256": "306d8a111dd187d84ac1eb3f54d0f87b12375b3b2894b931ae11b42662370190"
+    },
+    "research/benchmark-burst-charge.py": {
+      "bytes": 8639,
+      "sha256": "557890eb87a02c90b216e85ee8191d4340c7d1bdb8997709a67fab15ea09bdd5"
+    },
+    "research/characterize-atk-from-hp-order.py": {
+      "bytes": 2826,
+      "sha256": "4347bc85b38628aaab4c599e4b8ad5c56b07623e9436032f24c31b4a673f1bb3"
+    },
+    "research/characterize-atk-from-hp.py": {
+      "bytes": 3769,
+      "sha256": "f0d7d374e0fbafa283fcdcdf8bb6b7fed6aed62de34acec1abfea77660ddd25f"
+    },
+    "research/finalize-burst-charge-checkpoint.py": {
+      "bytes": 6305,
+      "sha256": "ff0540692d8cec7dc4138c27d36f6adf0ff6b83749aa899f3bb431e084dd47bd"
+    },
+    "research/portable-api-metal.json": {
+      "bytes": 7931199,
+      "sha256": "23f57e8ff721d8e26f380f866aa0b2651e2157f87449f45da100675dbe9cf9f8"
+    },
+    "research/portable-atk-from-hp-native-study.json": {
+      "bytes": 83538,
+      "sha256": "cd78624e694f5f208b82b5af368ee0b0bb8706d129538d7f64452bab3331696a"
+    },
+    "research/portable-atk-from-hp-order-native.json": {
+      "bytes": 65656,
+      "sha256": "173935f652765894395fb8d6393bd79cfaec72b2d5a0fb34ec8a3cde5dcdb1d2"
+    },
+    "research/portable-attack-flags-native.json": {
+      "bytes": 136915,
+      "sha256": "1f586f820139cce10b0ac656120d17f5a6e1b0a32d9a30914f60d417e017d2ea"
+    },
+    "research/portable-burst-charge-benchmark-plan.json": {
+      "bytes": 716,
+      "sha256": "cfe4231450f8e58e2a630bd5190aa32230106d27b2a1933250959f4f0da078ce"
+    },
+    "research/portable-burst-charge-benchmark.json": {
+      "bytes": 430398,
+      "sha256": "90b06d27921bf76f7aa9336f815ad00f02aad9de353447903ce6900cbb7bec68"
+    },
+    "research/portable-burst-charge-broad-validation.json": {
+      "bytes": 87753,
+      "sha256": "2df8a6089acb91f349a2a7e9d786a3998d767e7ea14680da37abadbcbbcbb480"
+    },
+    "research/portable-burst-charge-candidate-parity.json": {
+      "bytes": 69721,
+      "sha256": "de1ec3694b3290974571acd704984950e7a3074db714db5f99863768951ec6a7"
+    },
+    "research/portable-burst-charge-efficiency-decision.json": {
+      "bytes": 1177,
+      "sha256": "1ec532f3308a5b740d878404497669914e34a8895311b6005144ae23131b0614"
+    },
+    "research/portable-burst-charge-firing-native.json": {
+      "bytes": 209328,
+      "sha256": "1207f5b3b204d8f1eaa22c1682c5100f865f82808c09fd33eb3625eb70f364a2"
+    },
+    "research/portable-burst-charge-first-full-metal.json": {
+      "bytes": 56178974,
+      "sha256": "50686c8d7c599612185939cfe9168076b5845347a81d8fcb9789c3b3b437ffa8"
+    },
+    "research/portable-burst-charge-first-gates-stop-plan.json": {
+      "bytes": 7935,
+      "sha256": "36e1692045bb000c451231f46691a9c2bfce60e51437a3f3c42aa90a78a6dd73"
+    },
+    "research/portable-burst-charge-first-gates-stopped.json": {
+      "bytes": 8183,
+      "sha256": "691fd6ead91ff3edcd01bf7925f97e69df7bd821fd3eb5109334957de0e01093"
+    },
+    "research/portable-burst-charge-first-roster-metal.json": {
+      "bytes": 16360196,
+      "sha256": "8bba55a8381cd4e20e344a0b9455bb7fa5879bb4fec6420c54ce428d95cc90e5"
+    },
+    "research/portable-burst-charge-fractional-candidate-inputs.json": {
+      "bytes": 140800,
+      "sha256": "d081e0957840fbddc8d2cb841305a789b90ae55f8f87beb68141532a8537c155"
+    },
+    "research/portable-burst-charge-fractional-metal.json": {
+      "bytes": 864395,
+      "sha256": "032068c904315155a93c8e40374df2430b363782dfc263879b06ce15c10a3d15"
+    },
+    "research/portable-burst-charge-global-gates.json": {
+      "bytes": 10040,
+      "sha256": "ae9de84c0d04fa12718a75240f19d910077084b658c6c6a0c63f85142bcf2783"
+    },
+    "research/portable-burst-charge-initialization-finding.json": {
+      "bytes": 1318,
+      "sha256": "877dc9f3c20c40404a4f64a72f0afa0c3a8581e01be1cec0385bce8bc68f704a"
+    },
+    "research/portable-burst-charge-mode-fix-existing-parity.json": {
+      "bytes": 1221,
+      "sha256": "90da3a2b8c48cb648d359114d5c80b0dcc63fbc0abe9731c03751d7b52dcb6e3"
+    },
+    "research/portable-burst-charge-native-fixture-finding.json": {
+      "bytes": 1393,
+      "sha256": "8b0585844aa2bdc94bfc6260c6ff24568b0558d043760ac36c34c36d71662534"
+    },
+    "research/portable-burst-charge-skill-candidate.json": {
+      "bytes": 813859,
+      "sha256": "fd02290d7bbdf4c916b5329e6c9faa6501fa0b93b33aed3e07ee79e6efd992d3"
+    },
+    "research/portable-burst-charge-skill-diagnostic.json": {
+      "bytes": 83945,
+      "sha256": "592e51c73ee3857bb86d7e13e1f4b3f3fe16cc5f9cdfd3db71eb050f53dc34e9"
+    },
+    "research/portable-burst-charge-skill-finding.json": {
+      "bytes": 13874,
+      "sha256": "b95cff8c07b2ce9c931ba4804e20eadca091ff33627cb3039b3d1a229f50a2c9"
+    },
+    "research/portable-burst-charge-skill-fixtures.json": {
+      "bytes": 122945,
+      "sha256": "9cb87ba5ffc9e97541a67a358eb3886e941af5be9e1626789e8acbd63ed09664"
+    },
+    "research/portable-burst-charge-skills-first-native.json": {
+      "bytes": 10003,
+      "sha256": "293fc039d62687ea48d1a23e526b7a6a5f8b059b4cf963258eb5eefbc767f566"
+    },
+    "research/portable-burst-charge-skills-native.json": {
+      "bytes": 19378,
+      "sha256": "c894dcdbcd968a120c8f88ffffdb35fe0ee9fb8d97d5b06cae6a8baa20bae8b7"
+    },
+    "research/portable-burst-charge-speed-first-expanded-metal.json": {
+      "bytes": 1412341,
+      "sha256": "001d729c7625b2a9da7bb914780bffabe8e60344891897896e6b873c50eebf79"
+    },
+    "research/portable-burst-charge-speed-initial-metal.json": {
+      "bytes": 1199555,
+      "sha256": "16b2d955708a64e311ceb753717cdb5b7393571c0e7840318974d842e03bd07c"
+    },
+    "research/portable-burst-charge-speed-initial-native.json": {
+      "bytes": 30262,
+      "sha256": "59429fdf6e52937915518d1fd4d2591d061727f755afc0f256b26ef0fd6ab1bd"
+    },
+    "research/portable-burst-charge-speed-metal.json": {
+      "bytes": 2085688,
+      "sha256": "1394475612fb176950cb5ba35012a196889fba7f977bdf2a5c75b286cfb0c8d5"
+    },
+    "research/portable-burst-charge-speed-native.json": {
+      "bytes": 51219,
+      "sha256": "7789452bdc46590bc4374638fb0c076d16825edf9277c4bef181034456698ad2"
+    },
+    "research/portable-burst-charge-timing-order.json": {
+      "bytes": 3940,
+      "sha256": "c062a558c0569375199a5349afc946cb325a8b9a2971a245854171ea6480162f"
+    },
+    "research/portable-burst-charge-transfer-completed.json": {
+      "bytes": 3405,
+      "sha256": "f5032bbd36fdb7410d2c3e1590137ac81b9207b19766d19f74ee83de0a887783"
+    },
+    "research/portable-burst-charge-validation.json": {
+      "bytes": 3891,
+      "sha256": "a36683abab5d12bdcc1fbb0ee0fc4209ac0043857eb900b0067930f80dea14b9"
+    },
+    "research/portable-burst-charge-work-state.json": {
+      "bytes": 2182,
+      "sha256": "2be5f8dce81f1b2a0fe79f5da6061df6362333e814fb683a47dc0288b0b0f694"
+    },
+    "research/portable-burst-charges-existing-metal-parity.json": {
+      "bytes": 20319,
+      "sha256": "d582ac87c193cf3d49c66b6ba33ec0896fbe87bd2ac24f6a5984f5dd059fc896"
+    },
+    "research/portable-burst-charges-v75-execution.json": {
+      "bytes": 19615,
+      "sha256": "7e4c86b2c584821982736371c3519de6282a017c26943f36a3bbbaee654db9b4"
+    },
+    "research/portable-burst-reference-catalog-audit.json": {
+      "bytes": 48241,
+      "sha256": "6ad7bd8ce3da5d8205e961a463ee245ad2476f35fc25622711a69261ad9d4a22"
+    },
+    "research/portable-catalog-readiness.json": {
+      "bytes": 1871561,
+      "sha256": "c0a107831b7cedebdf35ecff93d125523a40fff57bbcb6a6117c62bc5f5da0a0"
+    },
+    "research/portable-catalog-weapons-metal.json": {
+      "bytes": 2945583,
+      "sha256": "a9ff6c0db77fc71136e959d8554335e8ba08f782ed499973d1553654b64e9f9e"
+    },
+    "research/portable-combat-checkpoint.json": {
+      "bytes": 5956,
+      "sha256": "7ecd26fd0d737be0435dda7d80b39f29438c19de74b5983b12c44f623d09bc40"
+    },
+    "research/portable-combat-metal.json": {
+      "bytes": 57513076,
+      "sha256": "734677d065303d111accc0898dabe82c930b82ae7f9bf7a54edd0a695f0bb2f4"
+    },
+    "research/portable-definition-input-metal.json": {
+      "bytes": 6345,
+      "sha256": "a1850774c6fe1131ecb1d01e66db9b9144f7420b0d7bc7772046ee12f07dbdb0"
+    },
+    "research/portable-definition-out-metal.json": {
+      "bytes": 6337,
+      "sha256": "e7b8e77fa72928174ff5e7039c3f153398667084a96b41548b7bc96eb8b041ca"
+    },
+    "research/portable-definition-scalar-metal.json": {
+      "bytes": 6349,
+      "sha256": "0ca03704d9f7686b45be78c4445c2fec1a77d811e21d72d05b9b6ab719c28b26"
+    },
+    "research/portable-duration-extend-metal.json": {
+      "bytes": 1103894,
+      "sha256": "870ae07654e6f50dfb01967438ab27b648a52759c6a5b851976f15bd7451ac5c"
+    },
+    "research/portable-element-overrides-native.json": {
+      "bytes": 590477,
+      "sha256": "3152d48e275453a9128f33191b288166794d1db200f8cadda3b6216c7a746810"
+    },
+    "research/portable-enemy-code-real-metal.json": {
+      "bytes": 823585,
+      "sha256": "b589cbc4610fcc55870b8f2fc8c5f328cc48e87334c2a9bef2255d9e3c3c0d6c"
+    },
+    "research/portable-enemy-codes-native.json": {
+      "bytes": 541384,
+      "sha256": "35e8bfaf3363b3f47091412b827cf136755337efa0708834f7a842591e6628a0"
+    },
+    "research/portable-events-metal.json": {
+      "bytes": 737434,
+      "sha256": "f2f48ffe70c697b94417ec37bf555dc5af8df158176e317d5388e16ffe92227f"
+    },
+    "research/portable-favorite-readiness.json": {
+      "bytes": 936409,
+      "sha256": "a1e15eafa77285b4abea5177efc7fee2889c7f21f4dd0ee0896b0a58fbc96e40"
+    },
+    "research/portable-geometry-native.json": {
+      "bytes": 73204,
+      "sha256": "2496eb262ffb8842db62406643b995ea5aa481a3409c76b3db8bc7ea2f228872"
+    },
+    "research/portable-health-runtime-metal.json": {
+      "bytes": 373363,
+      "sha256": "bf02c716d2bac9c648eb1e3eb9b47cf8d635fd211304fcd1a667a7401fa2cbc3"
+    },
+    "research/portable-instant-lists-native.json": {
+      "bytes": 205279,
+      "sha256": "c58292e2874ca46b88a5ea1af18835dbd9bbacb216df05495422e2ce2b61e2e3"
+    },
+    "research/portable-metal-pipeline-lock.json": {
+      "bytes": 6294,
+      "sha256": "51a15f887ca24b80ecadebc1903a01193d512384984cd17d00a51408fce59811"
+    },
+    "research/portable-named-states-native.json": {
+      "bytes": 459382,
+      "sha256": "1a5a5e73352a77a1ff6e713d50b5c58c2331d95a47776763ed21b1145f59a23c"
+    },
+    "research/portable-numeric-metal.json": {
+      "bytes": 3604,
+      "sha256": "e26cb4557292938176a9c5225eb4a5c0dda473c6aafa5e0dee27b1008b039c87"
+    },
+    "research/portable-probability-native.json": {
+      "bytes": 3129072,
+      "sha256": "bc592f33bd6c006863e6f19494c486aa5ded88c70273f5c8084c7e2dd529ac53"
+    },
+    "research/portable-probe-metal.json": {
+      "bytes": 2903,
+      "sha256": "beec275b8c067ef55c87e1e66663530eb3a177468edb154832926355eb7ebb2a"
+    },
+    "research/portable-protection-native.json": {
+      "bytes": 602416,
+      "sha256": "a80b00d08c388555d4e92bcf4194cf3415d388ec03386d1041f9e016db0cc707"
+    },
+    "research/portable-real-battle-metal.json": {
+      "bytes": 946221,
+      "sha256": "ddc4db60c73877eecc46a790f7f225fbabd2b04ab4aa258cd8a8f9068a0e573d"
+    },
+    "research/portable-real-equipment-metal.json": {
+      "bytes": 12629940,
+      "sha256": "71e4bbb74e8bef3342e7bdc7c198781683b6f95f5c6ad37894d90cf71ff66655"
+    },
+    "research/portable-removal-queue-metal.json": {
+      "bytes": 6522,
+      "sha256": "a76878887b80651a1e9c8fdb674cd087f9894bafc0f66784391822072c64d29e"
+    },
+    "research/portable-roster-battles-metal.json": {
+      "bytes": 16360304,
+      "sha256": "419a67ff74b048e8996fa9002b802557d1eded48d83a52845eed3be7428891ee"
+    },
+    "research/portable-split-native.json": {
+      "bytes": 362682,
+      "sha256": "c5e2ad5d6b6dc9cbad3c3866657b51dfa7de014ca95b1b979322aa79a973006d"
+    },
+    "research/portable-stack-notices-metal.json": {
+      "bytes": 7100,
+      "sha256": "d3c7949f5fa97ccca0b0d6533229332dc71ac7b995e6b62349aad6198bd64ab7"
+    },
+    "research/portable-stack-numeric-metal.json": {
+      "bytes": 1619,
+      "sha256": "294e480ecb269aaa4c238166ceb5106f6d527405b5404964aa752f253290ffa1"
+    },
+    "research/portable-target-states-native.json": {
+      "bytes": 311365,
+      "sha256": "7503430fc7a2142e58dce4f26a8dc872489ebc7d2ab3959e53065c2030be40b1"
+    },
+    "research/seal-burst-charge-cuda.py": {
+      "bytes": 7056,
+      "sha256": "c92650631bae0d65624d3a3dd17dccafa15686dc8ee4cd1b6022c4407e693b8e"
+    },
+    "research/seal-burst-charge-gates.py": {
+      "bytes": 7048,
+      "sha256": "4f539123e66c061dbd4ce280de980c306186281c872f584cb2b2bb5f19ae3697"
+    },
+    "research/seal-burst-charge-validation.py": {
+      "bytes": 4616,
+      "sha256": "379dca78f0822078a9a29186dce3880c0d95fe0fd814d9750e749bbd26b19864"
+    },
+    "research/windows-portable-burst-charge-v75.json": {
+      "bytes": 28973741,
+      "sha256": "e19f7e652c7b65603d8f052597c372404b9f23edfcd5cf60e1df91c7985a5032"
+    }
+  },
+  "file_count": 81,
+  "file_bytes": 220377894,
+  "excludes": [
+    "private local-data/session settings",
+    "raw GPU input and readback binaries",
+    "ignored build archives"
+  ]
+}

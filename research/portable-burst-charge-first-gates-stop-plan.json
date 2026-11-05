@@ -1,0 +1,224 @@
+{
+  "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+  "completed_gates": [
+    {
+      "name": "burst-charge-firing-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7869451250880957,
+      "log": "/tmp/nikke-burst-charge-gate-burst-charge-firing-native.log"
+    },
+    {
+      "name": "burst-charge-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9692772919079289,
+      "log": "/tmp/nikke-burst-charge-gate-burst-charge-native.log"
+    },
+    {
+      "name": "health-runtime",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 2.5056008329847828,
+      "log": "/tmp/nikke-burst-charge-gate-health-runtime.log"
+    },
+    {
+      "name": "attack-flag-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 1.000540875014849,
+      "log": "/tmp/nikke-burst-charge-gate-attack-flag-native.log"
+    },
+    {
+      "name": "target-state-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9926960000302643,
+      "log": "/tmp/nikke-burst-charge-gate-target-state-native.log"
+    },
+    {
+      "name": "geometry-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.937644416000694,
+      "log": "/tmp/nikke-burst-charge-gate-geometry-native.log"
+    },
+    {
+      "name": "probability-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 1.7743388330563903,
+      "log": "/tmp/nikke-burst-charge-gate-probability-native.log"
+    },
+    {
+      "name": "element-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.839851540978998,
+      "log": "/tmp/nikke-burst-charge-gate-element-native.log"
+    },
+    {
+      "name": "core",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 16.208436332992278,
+      "log": "/tmp/nikke-burst-charge-gate-core.log"
+    },
+    {
+      "name": "enemy-code-real",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 71.28278804093134,
+      "log": "/tmp/nikke-burst-charge-gate-enemy-code-real.log"
+    },
+    {
+      "name": "enemy-code-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7645314160035923,
+      "log": "/tmp/nikke-burst-charge-gate-enemy-code-native.log"
+    },
+    {
+      "name": "named-state-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7810497909085825,
+      "log": "/tmp/nikke-burst-charge-gate-named-state-native.log"
+    },
+    {
+      "name": "instant-list-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7550232079811394,
+      "log": "/tmp/nikke-burst-charge-gate-instant-list-native.log"
+    },
+    {
+      "name": "split-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7627232499653473,
+      "log": "/tmp/nikke-burst-charge-gate-split-native.log"
+    },
+    {
+      "name": "protection-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8095471250126138,
+      "log": "/tmp/nikke-burst-charge-gate-protection-native.log"
+    },
+    {
+      "name": "status-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7784070000052452,
+      "log": "/tmp/nikke-burst-charge-gate-status-native.log"
+    },
+    {
+      "name": "stack-foundation",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 5.181408250005916,
+      "log": "/tmp/nikke-burst-charge-gate-stack-foundation.log"
+    },
+    {
+      "name": "staged-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7239603749476373,
+      "log": "/tmp/nikke-burst-charge-gate-staged-native.log"
+    },
+    {
+      "name": "source-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.03327474999241531,
+      "log": "/tmp/nikke-burst-charge-gate-source-native.log"
+    },
+    {
+      "name": "native-mode-spec",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7410077920649201,
+      "log": "/tmp/nikke-burst-charge-gate-native-mode-spec.log"
+    },
+    {
+      "name": "native-mode-input",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7525710830232129,
+      "log": "/tmp/nikke-burst-charge-gate-native-mode-input.log"
+    },
+    {
+      "name": "reference-rewrite",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.03487237496301532,
+      "log": "/tmp/nikke-burst-charge-gate-reference-rewrite.log"
+    },
+    {
+      "name": "duration-native",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 2.596764042042196,
+      "log": "/tmp/nikke-burst-charge-gate-duration-native.log"
+    },
+    {
+      "name": "definition-input",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0716475839726627,
+      "log": "/tmp/nikke-burst-charge-gate-definition-input.log"
+    },
+    {
+      "name": "definition-scalar",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0950343329459429,
+      "log": "/tmp/nikke-burst-charge-gate-definition-scalar.log"
+    },
+    {
+      "name": "definition-out",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 1.1121470829239115,
+      "log": "/tmp/nikke-burst-charge-gate-definition-out.log"
+    },
+    {
+      "name": "removal-queue",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9585357500473037,
+      "log": "/tmp/nikke-burst-charge-gate-removal-queue.log"
+    },
+    {
+      "name": "numeric",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.729042665916495,
+      "log": "/tmp/nikke-burst-charge-gate-numeric.log"
+    },
+    {
+      "name": "probe",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 0.35956283297855407,
+      "log": "/tmp/nikke-burst-charge-gate-probe.log"
+    },
+    {
+      "name": "events",
+      "source_commit": "85b8b190ec9d9fa8ebd66058947bccfcda72e489",
+      "exit_code": 0,
+      "elapsed_seconds": 3.8746367080602795,
+      "log": "/tmp/nikke-burst-charge-gate-events.log"
+    }
+  ],
+  "complete": false,
+  "global_validation_passed": false,
+  "reason": "New retained native/GPU mode-skill diagnostic disproved a case outside the3231 corpus. Prevented scheduler from starting further old-source jobs; in-flight roster child is allowed to finish with source frozen.",
+  "scheduler_pid": 5595,
+  "scheduler_signal": "SIGSTOP",
+  "roster_pid": 6237,
+  "roster_was_interrupted": false,
+  "diagnostic": "research/portable-burst-charge-skill-diagnostic.json",
+  "candidate": "research/portable-burst-charge-skill-candidate.json"
+}

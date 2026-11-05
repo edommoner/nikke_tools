@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "package_id": "76fbe7c3c06307e6c1fd07329e0f129b6bc9433a1f4fbff5732b59dc8b0e0557",
+  "archive_bytes": 13307322,
+  "archive_sha256": "06cdf64599232cefdfc4296ffbb73ec41231ce9a2fe8e00d6bcbbd7aaa3a74f3",
+  "summary_file": "ptx-summary-v1.json",
+  "summary_bytes": 2703,
+  "summary_sha256": "e680efd6ff1d879be05e6f598a3fd2190d6f4729436af9a3dffdc002899a7d63",
+  "public_payload": "summary-and-manifest-only",
+  "ptx_included": false,
+  "raw_included": false,
+  "personal_paths_included": false
+}

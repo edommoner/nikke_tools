@@ -1,0 +1,15 @@
+{
+  "package_id": "4dce0418486e6842d43405bfdb2f856f2150ca2a3edd1796bd9b9a6d16d53a6b",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/original-support-conditions-v1-20261030-metal",
+  "child_pid": 44491,
+  "input_count": 4,
+  "native_cases": 4,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 88.01537866698345,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "02e81766e8d605f1e8a75e122897549206adff83872e4888157e4151599453d8",
+  "output_sha256": "527c247bc033ce31442018c47f4005e8754d54771c7fc8b1835e954c54f242c2",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}

@@ -1,3 +1,4 @@
+from detail_gpu import STAT,EVENT,compile_effects
 """Differential oracle: real pinned effects, independent CPU BuffManager state.
 Event scripts are authored stimuli, not traces captured from a CPU combat run.
 The tests deliberately do not certify the unfinished autonomous full-squad GPU loop.
@@ -10,7 +11,6 @@ import engine_worker as adapter
 from calculator.buff_manager import BuffManager,char_effects
 from calculator.damage import calc_damage,default_hit_type
 from calculator.timeline import _core_hit_prob,CharState
-from detail_gpu import STAT,EVENT,compile_effects,run
 
 
 def characters(names,level=10):
@@ -134,31 +134,3 @@ def cases():
     for who in (0,1):script.append([t,2,0,who,-1,qi,0,0]);qi+=1
   p['_core']=core;output.append((f'autonomous-modernia-mast-180s-core{core}',p,script))
  return output
-
-def verify(device):
- reports=[]
- for name,p,script in cases():
-  bs={c['name']:{'atk':100000+i*1234,'def':1000,'hp':1000000} for i,c in enumerate(p['chars'])};enemy=[31784,p.get('_core',50)]
-  expected,totals=oracle(p,script,enemy,bs);gpu=run(device,[p],script,[enemy],[bs]);actual=gpu['queries'][0]
-  mismatches=[];maxerr=0
-  for qi,(left,right) in enumerate(zip(expected,actual)):
-   for k,(a,b) in enumerate(zip(left,right)):
-    if k==26:continue # caster-based raw percent is internal; atk_flat is compared.
-    err=abs(a-b);maxerr=max(maxerr,err)
-    if (a!=b if k in (34,35,36,37,38,39,40,41,42,43,44) else not math.isclose(a,b,rel_tol=1e-12,abs_tol=1e-8)):mismatches.append({'query':qi,'field':k,'cpu':a,'gpu':b})
-  reports.append({'case':name,'queries':len(expected),'matched':not mismatches,'max_abs_error':maxerr,'mismatches':mismatches[:8],'total_damage_equal':gpu['totals'][0]==totals,'cpu_total_damage':totals,'gpu_total_damage':gpu['totals'][0],'gpu_ms':gpu['elapsed_ms'],'per_frame_checked':name.startswith('autonomous-'),'individual_hit_damage_exact':all(a[36]==b[36] for a,b in zip(expected,actual)),'shot_counts_exact':all(a[43]==b[43] for a,b in zip(expected,actual))})
- signature_files=['calculator/buff_manager.py','calculator/timeline.py','calculator/damage.py','data/parsed_skills.json','data/parsed_nikke.json','data/weapon_mechanics.json','data/weapon_delays.json']
- return {'scope':'real effect state, autonomous MG shooting and per-frame damage; fixed external burst commands, not autonomous full-squad burst scheduling',
-  'generated_at':datetime.now(timezone.utc).isoformat(),'device':device.name,'cpu_revision':adapter.REVISION,
-  'engine_files':{f:hashlib.sha256((adapter.ENGINE/f).read_bytes()).hexdigest() for f in signature_files},
-  'gpu_build':json.loads((Path(__file__).resolve().parents[1]/'app/detail_effects-build.json').read_text()),
-  'oracle_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-  'full_squad_verified':False,'profile_growth_verified':False,'automatic_burst_scheduler_verified':False,
-  'passed':all(r['matched'] and r['total_damage_equal'] for r in reports),'cases':reports}
-
-if __name__=='__main__':
- from gpu_selector import Cuda
- device=Cuda()
- try:
-  result=verify(device);print(json.dumps(result,ensure_ascii=True,indent=2));sys.exit(0 if result['passed'] else 1)
- finally:device.close()

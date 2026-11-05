@@ -1,0 +1,128 @@
+{
+  "commit": "6c8aaa5a10e9baf86397675f18c3651977775c2c",
+  "parent": "86f66858e24f051fe3a617ddb13661adc5af9614",
+  "source_snapshot": "1c7eeb3ca6a68ba1ca0e512f40fa87d2a4ba3a67",
+  "branch": "codex/cuda-world-v81-source",
+  "files": 22,
+  "total_bytes": 299196,
+  "rows": [
+    {
+      "path": "app/portable_specs.py",
+      "bytes": 11177,
+      "sha256": "f7f6e267206be35f537b909c734e2f4f3abb22067fbcb389139ed877b73c6c87"
+    },
+    {
+      "path": "app/portable_world_overlay_specs.py",
+      "bytes": 2692,
+      "sha256": "0ac13bb67e8326ea7ab77b5e6b9eec0b6ccdecf103a253c913c85a6e80265744"
+    },
+    {
+      "path": "gpu/combat_runtime.slang",
+      "bytes": 24757,
+      "sha256": "7c0ac2543af532ac0eb5b1e1ef813fe2ebb5f508b2ad34a9d10e23acaa652b86"
+    },
+    {
+      "path": "gpu/enemy_buff_runtime.slang",
+      "bytes": 2940,
+      "sha256": "5190985f8b9a72b4aa4bbd1e89eb1b7291f4c16652d5f476806168c639ca7dbb"
+    },
+    {
+      "path": "gpu/event_runtime.slang",
+      "bytes": 99877,
+      "sha256": "0744b0e291ca6b3c505eff4af173ed009594abe59b5478d624db1bd2502a5270"
+    },
+    {
+      "path": "gpu/geometry_runtime.slang",
+      "bytes": 2983,
+      "sha256": "8e8018af3959fde2f794c147aff2387464d4f486be17088cf260da41d48f8ef5"
+    },
+    {
+      "path": "gpu/landing_runtime.slang",
+      "bytes": 5987,
+      "sha256": "dcb05d654e47a38980a2d72b9ae056d7d3ec84484fd0cfb72778f205a2cccad6"
+    },
+    {
+      "path": "gpu/pending_burst_runtime.slang",
+      "bytes": 6278,
+      "sha256": "1b3822579499e2641d5296764c133bbbf55df64bf7f4fa3b0b34c00e0315a484"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "bytes": 15030,
+      "sha256": "fdd08e39bc7f02da1c97df88cc725e1999e9de6888795ca9b8423cee9eee0fe3"
+    },
+    {
+      "path": "gpu/world_frame_runtime.slang",
+      "bytes": 2583,
+      "sha256": "0d26eff7e5aacecc21a818b3951161ffc85c06734aad37c051b2236272308f9f"
+    },
+    {
+      "path": "gpu/world_overlay_entry.slang",
+      "bytes": 92,
+      "sha256": "e36d17734aede95e572e3e19b52bc3dd6ccb3b338c2303e3fcda75d3b2adbafd"
+    },
+    {
+      "path": "gpu/world_overlay_runtime.slang",
+      "bytes": 10776,
+      "sha256": "3bc3e644f66926a700e416294de12654736cb70345f55cbdde5312390f2839a3"
+    },
+    {
+      "path": "gpu/world_overlay_weapon.slang",
+      "bytes": 1233,
+      "sha256": "4b2995c5f92cfe681b4581fe012727385044309e90232ccc2077989d9d5bc4ad"
+    },
+    {
+      "path": "research/characterize-world-overlays.py",
+      "bytes": 10564,
+      "sha256": "ceb37f9f7059b26cd94380aac23acae4ca399fe1fc9ab296d1e41c099e2e5006"
+    },
+    {
+      "path": "research/world_frame_native.py",
+      "bytes": 5718,
+      "sha256": "c8aea0b0e32bc64456f974081fa54f1f0e656a2e6705379eb784c52f0dab7d79"
+    },
+    {
+      "path": "research/world_overlay_gate_cases.py",
+      "bytes": 4652,
+      "sha256": "7e4551b33a0143fd4144bcad99092209c847e16429ccc257b2ea0fe0c3e5ad6e"
+    },
+    {
+      "path": "research/world_overlay_cleanse_cases.py",
+      "bytes": 2930,
+      "sha256": "5fb384dafa495afa4720ea4a64ad0e16cb9542131ec411dbeeac0e72d22a890d"
+    },
+    {
+      "path": "research/verify-world-overlay-body.py",
+      "bytes": 15505,
+      "sha256": "2e08fa9761e7c4f262e4446dbf61a3c6b74254135daa6393b9d9d936cbea8bfa"
+    },
+    {
+      "path": "research/summarize-world-overlay.py",
+      "bytes": 3437,
+      "sha256": "f6867d2c195419a7e73fc8c0e960375d8eaeb87bcf943cfe9fe179001f6b2a41"
+    },
+    {
+      "path": "research/run-world-overlay-bounded.py",
+      "bytes": 2595,
+      "sha256": "b63955e3e0d17a00f7c41f27f7c06f463746ac89866e0c49b91d4f17a1bff31d"
+    },
+    {
+      "path": "research/portable-world-cleanse-expected.json",
+      "bytes": 57472,
+      "sha256": "1e566996f6f5d3742955334bb71c5832e7e51f65221d16ca79bf67c6ff0f1bd2"
+    },
+    {
+      "path": "docs/portable-world-overlays.md",
+      "bytes": 9918,
+      "sha256": "52d2d992c9026dabeec71ae47ab2506b268b095f47a0de93bec4eba5802ddd05"
+    }
+  ],
+  "contains_private_settings": false,
+  "contains_raw": false,
+  "contains_large_reports": false,
+  "user_approval": "\u4eca\u5f8cgithub\u3078\u306e\u5171\u6709\u3092\u3053\u306e\u30b4\u30fc\u30eb\u3092\u9054\u6210\u3059\u308b\u307e\u3067\u8a31\u53ef\u3057\u307e\u3059",
+  "validation": "CPU containment5 and complete146 packing first;only if passed one shared146 CUDA run BelowNormal180s;no normal4682 rerun;no GPU retry",
+  "shared": true,
+  "approval_context": "Direct reply to exact6c8aaa5 22-file299196-byte destination question after auto-review rejection",
+  "windows_request_dispatched": true
+}

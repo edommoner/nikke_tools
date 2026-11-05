@@ -1,0 +1,75 @@
+{
+  "candidate_package_id": "4bfd9078daf49c5707f23e516c8d1c937c307883a48079eca958425a14883203",
+  "candidate_inputs": 530,
+  "gpu_calls": 0,
+  "raw_reread_sha_verified": true,
+  "full_goal_complete": false,
+  "baselines": {
+    "old481": {
+      "package_id": "2452a6a2f8751b1b08d889abb7322f66e8d7a4c8edb0302954618344f5379221",
+      "checked": 481,
+      "original_calculation_verified": true,
+      "input_all_raw_and_native_equal": true
+    },
+    "persona33": {
+      "package_id": "32eb77e232399c8ec29efdc078b77f084c514d4d4d504c8ffb7a2d0786fefff4",
+      "checked": 33,
+      "original_calculation_verified": true,
+      "input_all_raw_and_native_equal": true
+    },
+    "original522_success518": {
+      "package_id": "32b26a3a50f091466c95a4a8d0bf3e9857859f9fe47495c9858a80830303db3f",
+      "checked": 518,
+      "original_calculation_verified": false,
+      "input_all_raw_and_native_equal": true
+    }
+  },
+  "sets_overlap_do_not_sum": true,
+  "new_or_corrected_inputs": [
+    "roster/real/퀸(마코토)/favorite-0/3s",
+    "roster/real/퀸(마코토)/favorite-0/30s",
+    "roster/real/유키코/favorite-0/3s",
+    "roster/real/유키코/favorite-0/30s",
+    "roster/real/persona-triad/favorite-0/3s",
+    "roster/real/persona-triad/favorite-0/30s",
+    "persona/persona-target-code-persona-code",
+    "persona/persona-target-code-different-code",
+    "persona/reject/persona-code-zero-name",
+    "persona/reject/persona-code-name-overflow",
+    "persona/reject/persona-code-nonzero-value",
+    "persona/reject/persona-code-nan-value"
+  ],
+  "lazy_bank_zero_inputs": 530,
+  "new_roster_physical_history": [
+    {
+      "name": "roster/real/퀸(마코토)/favorite-0/3s",
+      "recorded": 85,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/퀸(마코토)/favorite-0/30s",
+      "recorded": 770,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/유키코/favorite-0/3s",
+      "recorded": 112,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/유키코/favorite-0/30s",
+      "recorded": 2048,
+      "omitted": 32
+    },
+    {
+      "name": "roster/real/persona-triad/favorite-0/3s",
+      "recorded": 213,
+      "omitted": 0
+    },
+    {
+      "name": "roster/real/persona-triad/favorite-0/30s",
+      "recorded": 2048,
+      "omitted": 2123
+    }
+  ]
+}

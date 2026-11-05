@@ -1,0 +1,1694 @@
+{
+  "schema": "product-typed-modifier-verification-v1",
+  "rows": [
+    {
+      "label": "shield-front",
+      "capture": "1dadf6d9cf53456e9adcda3e95b5e788",
+      "input_sha256": "38fc174f5c2f606d50ab4b0b475771f145cc1a756a8f92ba062221c93f77fd4f",
+      "readback_sha256": "07829d2e8f2cebeb276b53c95e4463bafe4fb5bc02dc77f40330f42ea1cea0ce",
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "gpu_execution_verified": true,
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "packet_counts": {
+        "Asuka_kind3": 84,
+        "Anchor_kind2": 12
+      },
+      "full_GPU_packet_scalar_multiset_exact": true,
+      "fresh_CPU_full_public_equals_preflight_plain": true,
+      "final_snapshot": {
+        "last_owner": "앵커",
+        "last_time": 7.999999999999977,
+        "projectile": 25.6,
+        "shield": 0.0,
+        "scope": "Final Anchor shot only, not Asuka history"
+      },
+      "counterfactual_changed_all_positive_holder_packets": true
+    },
+    {
+      "label": "projectile-front",
+      "capture": "0410809c7b254bb6b6fe6089377649f7",
+      "input_sha256": "831fb289d6b8ecc599c5661c18ae4f46cda5700aa50cb29fdb54f3aad266c339",
+      "readback_sha256": "36d28ab2b2b0928ef23ae86863ccf6093b3b30c02d05a922415b02d83be0aa8a",
+      "source": "gpu/product_typed_lock_battle_entry.slang",
+      "gpu_execution_verified": true,
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "packet_counts": {
+        "Asuka_kind3": 0,
+        "Anchor_kind2": 12
+      },
+      "full_GPU_packet_scalar_multiset_exact": true,
+      "fresh_CPU_full_public_equals_preflight_plain": true,
+      "final_snapshot": {
+        "last_owner": "앵커",
+        "last_time": 7.999999999999977,
+        "projectile": 25.6,
+        "shield": 0.0,
+        "scope": "Final Anchor shot only, not Asuka history"
+      },
+      "counterfactual_changed_all_positive_holder_packets": true,
+      "Asuka_counterfactual_scope": "vacuous: zero positive kind3 packets; this row is Asuka negative control"
+    }
+  ],
+  "physical_dispatches": 1,
+  "GPU_cases": 2,
+  "CPU_started": 7,
+  "CPU_completed": 6,
+  "CPU_failure_retained": 1,
+  "independent_saved_audit": {
+    "rows": [
+      {
+        "index": 0,
+        "profile": "shield-front",
+        "favorite_stage": 0,
+        "capture": "1dadf6d9cf53456e9adcda3e95b5e788",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": true,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      },
+      {
+        "index": 1,
+        "profile": "projectile-front",
+        "favorite_stage": 0,
+        "capture": "0410809c7b254bb6b6fe6089377649f7",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "physical_batch_and_exact_member_slices_verified": true,
+        "old_full_readback_anchor_verified": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      }
+    ],
+    "audited": 2,
+    "native_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "pre_device_gates": {
+    "Claude_response_sha256": "cf1d6937188e590efa5e70270778d6eb867f7c223fd6e4046c05e14a4fa7a2e1",
+    "frozen_packet_counts": {
+      "shield-front": {
+        "Asuka_kind3": 84,
+        "Anchor_kind2": 12
+      },
+      "projectile-front": {
+        "Asuka_kind3": 0,
+        "Anchor_kind2": 12
+      }
+    },
+    "shield_positive_scope": "shield-front only; projectile-front Asuka kind3 zero is negative control",
+    "static_input_carriers": [
+      {
+        "label": "shield-front",
+        "carriers": [
+          {
+            "definition": 51,
+            "owner": "앵커",
+            "owner_slot": 2,
+            "raw_stat": "projectile_dmg_pct",
+            "value": 25.6,
+            "axis": 2,
+            "kind": 4,
+            "stat": 0
+          },
+          {
+            "definition": 62,
+            "owner": "아스카",
+            "owner_slot": 3,
+            "raw_stat": "shield_dmg_pct",
+            "value": 601.01,
+            "axis": 3,
+            "kind": 4,
+            "stat": 0
+          }
+        ]
+      },
+      {
+        "label": "projectile-front",
+        "carriers": [
+          {
+            "definition": 51,
+            "owner": "앵커",
+            "owner_slot": 2,
+            "raw_stat": "projectile_dmg_pct",
+            "value": 25.6,
+            "axis": 2,
+            "kind": 4,
+            "stat": 0
+          },
+          {
+            "definition": 62,
+            "owner": "아스카",
+            "owner_slot": 3,
+            "raw_stat": "shield_dmg_pct",
+            "value": 601.01,
+            "axis": 3,
+            "kind": 4,
+            "stat": 0
+          }
+        ]
+      }
+    ],
+    "CPU_started_before_GPU": 5,
+    "API_fresh_CPU_cap": 2,
+    "GPU_batches_cap": 1
+  },
+  "source_files_unchanged": true,
+  "owned_server_stop": {
+    "pid": 9894,
+    "process_group_absent": true,
+    "driver_exit": 0,
+    "elapsed_seconds": 6.996612832997926,
+    "clock_difference_seconds": -1.292035449296236e-05
+  },
+  "CUDA_verified": false,
+  "Windows_calls": 0,
+  "production_changes": 0,
+  "claude_final_accept_pending": false,
+  "full_goal_complete": false,
+  "source_commit": "3dcb5e496023fbc7c3e2d269a925e0b050159227",
+  "scope": "Original Asuka and Anchor battle_start/self modifiers in two authored8 typed front-order product Metal conditions, not all producers/conditions/backends",
+  "requests": [
+    {
+      "old_index": 0,
+      "character": "shield-front",
+      "favorite_stage": 0,
+      "body": {
+        "profile": {
+          "chars": {
+            "스노우 화이트 : 헤비암즈": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "도라": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "메어리": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "솔져 O.W.": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "라푼젤": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "아스카": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "앵커": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            }
+          },
+          "_account": {
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            }
+          }
+        },
+        "squad": [
+          "스노우 화이트 : 헤비암즈",
+          "라푼젤",
+          "앵커",
+          "아스카",
+          "솔져 O.W."
+        ],
+        "duration": 8,
+        "level": 400,
+        "enemy": {
+          "def": 31784,
+          "code": "풍압",
+          "core_px": 50,
+          "distance": 25,
+          "patterns": [
+            {
+              "id": "coordinate-projectiles",
+              "kind": "idle",
+              "until": {
+                "time": 37
+              }
+            },
+            {
+              "id": "logical-owners",
+              "kind": "summon",
+              "until": {
+                "time": 37
+              },
+              "spec": {
+                "count": 2,
+                "hp": 1e+30
+              }
+            },
+            {
+              "id": "typed-incoming",
+              "kind": "attack",
+              "delay": 0.75,
+              "spec": {
+                "atk": 1000000,
+                "coeff": 100,
+                "target": "slot:5",
+                "hits": 55,
+                "interval": 0.5,
+                "debuffs": [
+                  {
+                    "stat": "atk_pct",
+                    "value": -10,
+                    "duration": 2
+                  },
+                  {
+                    "stat": "dot",
+                    "coeff": 10,
+                    "interval": 0.5,
+                    "duration": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "typed-heal-0",
+              "kind": "idle",
+              "delay": 1
+            },
+            {
+              "id": "typed-heal-1",
+              "kind": "idle",
+              "delay": 6
+            },
+            {
+              "id": "typed-heal-2",
+              "kind": "idle",
+              "delay": 25
+            },
+            {
+              "id": "typed-heal-3",
+              "kind": "idle",
+              "delay": 35
+            }
+          ]
+        },
+        "burst_policy": "auto",
+        "burst_gauge_mode": "accumulate",
+        "seed": 2427,
+        "reference_models": {
+          "typed_targets": {
+            "coord": {
+              "auto_aim": [
+                0,
+                0
+              ],
+              "pierce_px": 10,
+              "explosion_scale": 1
+            },
+            "bindings": [
+              {
+                "node": "coordinate-projectiles",
+                "kind": 2,
+                "identity": 10,
+                "capacity": 1000000000000.0,
+                "owner": [
+                  5,
+                  1,
+                  1
+                ],
+                "label": "projectile-0"
+              },
+              {
+                "node": "coordinate-projectiles",
+                "kind": 3,
+                "identity": 11,
+                "capacity": 1000000000000.0,
+                "owner": [
+                  0,
+                  0,
+                  1
+                ],
+                "label": "projectile-1"
+              },
+              {
+                "node": "coordinate-projectiles",
+                "kind": 2,
+                "identity": 12,
+                "capacity": 1000000000000.0,
+                "owner": [
+                  5,
+                  0,
+                  1
+                ],
+                "label": "projectile-2"
+              }
+            ],
+            "geometry": {
+              "point_source": "caster_aim",
+              "shapes": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1000,
+                  "z": 3
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1000,
+                  "z": 4
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1000,
+                  "z": 1
+                }
+              ]
+            },
+            "aim_policy": {
+              "mode": "typed-before-body-v1"
+            },
+            "actor_policy": {
+              "mode": "logical-owned-current-fields-v1"
+            },
+            "logical_geometry": [
+              {
+                "label": "__enemy__:logical-owners#1",
+                "shape": {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1,
+                  "z": -3
+                }
+              },
+              {
+                "label": "__enemy__:logical-owners#2",
+                "shape": {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1,
+                  "z": -3
+                }
+              }
+            ]
+          },
+          "lock_on": {
+            "owner": "스노우 화이트 : 헤비암즈",
+            "marker": "록 온",
+            "packet_skill": "오토 파이어 2",
+            "candidate_order": "body-then-add-spawn-v1",
+            "delivery": "require-live-frozen-slot-v1",
+            "typed_bindings": [
+              {
+                "node": "coordinate-projectiles",
+                "kind": 2,
+                "identity": 10,
+                "capacity": 1000000000000.0,
+                "owner": [
+                  5,
+                  1,
+                  1
+                ],
+                "label": "projectile-0"
+              },
+              {
+                "node": "coordinate-projectiles",
+                "kind": 3,
+                "identity": 11,
+                "capacity": 1000000000000.0,
+                "owner": [
+                  0,
+                  0,
+                  1
+                ],
+                "label": "projectile-1"
+              },
+              {
+                "node": "coordinate-projectiles",
+                "kind": 2,
+                "identity": 12,
+                "capacity": 1000000000000.0,
+                "owner": [
+                  5,
+                  0,
+                  1
+                ],
+                "label": "projectile-2"
+              }
+            ]
+          },
+          "cover_defense": [
+            {
+              "name": "스노우 화이트 : 헤비암즈",
+              "base_defense": 1000
+            },
+            {
+              "name": "라푼젤",
+              "base_defense": 1100
+            },
+            {
+              "name": "앵커",
+              "base_defense": 1200
+            },
+            {
+              "name": "아스카",
+              "base_defense": 1300
+            },
+            {
+              "name": "솔져 O.W.",
+              "base_defense": 1400
+            }
+          ],
+          "enemy_healing": [
+            {
+              "node": "typed-heal-0",
+              "targets": [
+                "__enemy__:logical-owners#1",
+                "__enemy__:logical-owners#2"
+              ],
+              "amount": 1000000
+            },
+            {
+              "node": "typed-heal-1",
+              "targets": [
+                "__enemy__:logical-owners#1",
+                "__enemy__:logical-owners#2"
+              ],
+              "amount": 1000000
+            },
+            {
+              "node": "typed-heal-2",
+              "targets": [
+                "__enemy__:logical-owners#1",
+                "__enemy__:logical-owners#2"
+              ],
+              "amount": 1000000
+            },
+            {
+              "node": "typed-heal-3",
+              "targets": [
+                "__enemy__:logical-owners#1",
+                "__enemy__:logical-owners#2"
+              ],
+              "amount": 1000000
+            }
+          ]
+        },
+        "manual_cover_sequences": {
+          "스노우 화이트 : 헤비암즈": [
+            {
+              "action": "cover",
+              "t": 0.5,
+              "duration": 3
+            }
+          ],
+          "솔져 O.W.": [
+            {
+              "action": "cover",
+              "t": 1,
+              "duration": 1
+            }
+          ]
+        },
+        "compute_backend": "metal_detail",
+        "verify_detail": true
+      },
+      "preflight": {
+        "source": "gpu/product_typed_lock_battle_entry.slang",
+        "input_words": 128124,
+        "output_words": 2995048,
+        "input_sha256": "38fc174f5c2f606d50ab4b0b475771f145cc1a756a8f92ba062221c93f77fd4f"
+      }
+    },
+    {
+      "old_index": 1,
+      "character": "projectile-front",
+      "favorite_stage": 0,
+      "body": {
+        "profile": {
+          "chars": {
+            "스노우 화이트 : 헤비암즈": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "도라": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "메어리": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "솔져 O.W.": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "라푼젤": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "아스카": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            },
+            "앵커": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 30,
+              "skill_levels": {
+                "1": 10,
+                "2": 10,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "없음",
+              "favorite_stage": 0
+            }
+          },
+          "_account": {
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            }
+          }
+        },
+        "squad": [
+          "스노우 화이트 : 헤비암즈",
+          "라푼젤",
+          "앵커",
+          "아스카",
+          "솔져 O.W."
+        ],
+        "duration": 8,
+        "level": 400,
+        "enemy": {
+          "def": 31784,
+          "code": "풍압",
+          "core_px": 50,
+          "distance": 25,
+          "patterns": [
+            {
+              "id": "coordinate-projectiles",
+              "kind": "idle",
+              "until": {
+                "time": 37
+              }
+            },
+            {
+              "id": "logical-owners",
+              "kind": "summon",
+              "until": {
+                "time": 37
+              },
+              "spec": {
+                "count": 2,
+                "hp": 1e+30
+              }
+            },
+            {
+              "id": "typed-incoming",
+              "kind": "attack",
+              "delay": 0.75,
+              "spec": {
+                "atk": 1000000,
+                "coeff": 100,
+                "target": "slot:5",
+                "hits": 55,
+                "interval": 0.5,
+                "debuffs": [
+                  {
+                    "stat": "atk_pct",
+                    "value": -10,
+                    "duration": 2
+                  },
+                  {
+                    "stat": "dot",
+                    "coeff": 10,
+                    "interval": 0.5,
+                    "duration": 1
+                  }
+                ]
+              }
+            },
+            {
+              "id": "typed-heal-0",
+              "kind": "idle",
+              "delay": 1
+            },
+            {
+              "id": "typed-heal-1",
+              "kind": "idle",
+              "delay": 6
+            },
+            {
+              "id": "typed-heal-2",
+              "kind": "idle",
+              "delay": 25
+            },
+            {
+              "id": "typed-heal-3",
+              "kind": "idle",
+              "delay": 35
+            }
+          ]
+        },
+        "burst_policy": "auto",
+        "burst_gauge_mode": "accumulate",
+        "seed": 2427,
+        "reference_models": {
+          "typed_targets": {
+            "coord": {
+              "auto_aim": [
+                0,
+                0
+              ],
+              "pierce_px": 10,
+              "explosion_scale": 1
+            },
+            "bindings": [
+              {
+                "node": "coordinate-projectiles",
+                "kind": 2,
+                "identity": 10,
+                "capacity": 1000000000000.0,
+                "owner": [
+                  5,
+                  1,
+                  1
+                ],
+                "label": "projectile-0"
+              },
+              {
+                "node": "coordinate-projectiles",
+                "kind": 3,
+                "identity": 11,
+                "capacity": 1000000000000.0,
+                "owner": [
+                  0,
+                  0,
+                  1
+                ],
+                "label": "projectile-1"
+              },
+              {
+                "node": "coordinate-projectiles",
+                "kind": 2,
+                "identity": 12,
+                "capacity": 1000000000000.0,
+                "owner": [
+                  5,
+                  0,
+                  1
+                ],
+                "label": "projectile-2"
+              }
+            ],
+            "geometry": {
+              "point_source": "caster_aim",
+              "shapes": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1000,
+                  "z": 4
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1000,
+                  "z": 2
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1000,
+                  "z": 1
+                }
+              ]
+            },
+            "aim_policy": {
+              "mode": "typed-before-body-v1"
+            },
+            "actor_policy": {
+              "mode": "logical-owned-current-fields-v1"
+            },
+            "logical_geometry": [
+              {
+                "label": "__enemy__:logical-owners#1",
+                "shape": {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1,
+                  "z": -3
+                }
+              },
+              {
+                "label": "__enemy__:logical-owners#2",
+                "shape": {
+                  "x": 0,
+                  "y": 0,
+                  "r": 1,
+                  "z": -3
+                }
+              }
+            ]
+          },
+          "lock_on": {
+            "owner": "스노우 화이트 : 헤비암즈",
+            "marker": "록 온",
+            "packet_skill": "오토 파이어 2",
+            "candidate_order": "body-then-add-spawn-v1",
+            "delivery": "require-live-frozen-slot-v1",
+            "typed_bindings": [
+              {
+                "node": "coordinate-projectiles",
+                "kind": 2,
+                "identity": 10,
+                "capacity": 1000000000000.0,
+                "owner": [
+                  5,
+                  1,
+                  1
+                ],
+                "label": "projectile-0"
+              },
+              {
+                "node": "coordinate-projectiles",
+                "kind": 3,
+                "identity": 11,
+                "capacity": 1000000000000.0,
+                "owner": [
+                  0,
+                  0,
+                  1
+                ],
+                "label": "projectile-1"
+              },
+              {
+                "node": "coordinate-projectiles",
+                "kind": 2,
+                "identity": 12,
+                "capacity": 1000000000000.0,
+                "owner": [
+                  5,
+                  0,
+                  1
+                ],
+                "label": "projectile-2"
+              }
+            ]
+          },
+          "cover_defense": [
+            {
+              "name": "스노우 화이트 : 헤비암즈",
+              "base_defense": 1000
+            },
+            {
+              "name": "라푼젤",
+              "base_defense": 1100
+            },
+            {
+              "name": "앵커",
+              "base_defense": 1200
+            },
+            {
+              "name": "아스카",
+              "base_defense": 1300
+            },
+            {
+              "name": "솔져 O.W.",
+              "base_defense": 1400
+            }
+          ],
+          "enemy_healing": [
+            {
+              "node": "typed-heal-0",
+              "targets": [
+                "__enemy__:logical-owners#1",
+                "__enemy__:logical-owners#2"
+              ],
+              "amount": 1000000
+            },
+            {
+              "node": "typed-heal-1",
+              "targets": [
+                "__enemy__:logical-owners#1",
+                "__enemy__:logical-owners#2"
+              ],
+              "amount": 1000000
+            },
+            {
+              "node": "typed-heal-2",
+              "targets": [
+                "__enemy__:logical-owners#1",
+                "__enemy__:logical-owners#2"
+              ],
+              "amount": 1000000
+            },
+            {
+              "node": "typed-heal-3",
+              "targets": [
+                "__enemy__:logical-owners#1",
+                "__enemy__:logical-owners#2"
+              ],
+              "amount": 1000000
+            }
+          ]
+        },
+        "manual_cover_sequences": {
+          "스노우 화이트 : 헤비암즈": [
+            {
+              "action": "cover",
+              "t": 0.5,
+              "duration": 3
+            }
+          ],
+          "솔져 O.W.": [
+            {
+              "action": "cover",
+              "t": 1,
+              "duration": 1
+            }
+          ]
+        },
+        "compute_backend": "metal_detail",
+        "verify_detail": true
+      },
+      "preflight": {
+        "source": "gpu/product_typed_lock_battle_entry.slang",
+        "input_words": 128124,
+        "output_words": 2995048,
+        "input_sha256": "831fb289d6b8ecc599c5661c18ae4f46cda5700aa50cb29fdb54f3aad266c339"
+      }
+    }
+  ],
+  "CPU_observer_provenance": {
+    "passed": true,
+    "cpu_battles": 4,
+    "rows": [
+      {
+        "label": "shield-front",
+        "observed": true,
+        "cpu_battles": 1,
+        "elapsed_seconds": 0.6620373330079019,
+        "native_sha256": "e90df53b00dcd66fd0e741c8d70b5ab2126c792656118659fb822820e737c233",
+        "public_sha256": "2cbd6325fe83b6aea446425b3c31f7dd3d87a6a9f11afd4f22e1c03e91e26b4e",
+        "scalar_samples": 196
+      },
+      {
+        "label": "shield-front",
+        "observed": false,
+        "cpu_battles": 1,
+        "elapsed_seconds": 0.6202553330222145,
+        "native_sha256": "e90df53b00dcd66fd0e741c8d70b5ab2126c792656118659fb822820e737c233",
+        "public_sha256": "2cbd6325fe83b6aea446425b3c31f7dd3d87a6a9f11afd4f22e1c03e91e26b4e",
+        "scalar_samples": 0
+      },
+      {
+        "label": "projectile-front",
+        "observed": true,
+        "cpu_battles": 1,
+        "elapsed_seconds": 0.6228821669938043,
+        "native_sha256": "e90df53b00dcd66fd0e741c8d70b5ab2126c792656118659fb822820e737c233",
+        "public_sha256": "5517d08e87f2184b82fc96e330c6a077df119729c2f07f42b45a02a7f2331772",
+        "scalar_samples": 196
+      },
+      {
+        "label": "projectile-front",
+        "observed": false,
+        "cpu_battles": 1,
+        "elapsed_seconds": 0.600757958018221,
+        "native_sha256": "e90df53b00dcd66fd0e741c8d70b5ab2126c792656118659fb822820e737c233",
+        "public_sha256": "5517d08e87f2184b82fc96e330c6a077df119729c2f07f42b45a02a7f2331772",
+        "scalar_samples": 0
+      }
+    ],
+    "observer_full_native_and_public_exact": true,
+    "GPU_calls": 0,
+    "Windows_calls": 0
+  },
+  "failure_retained": {
+    "terminal": true,
+    "CPU_battles_started": 1,
+    "CPU_battles_completed": 0,
+    "GPU_calls": 0,
+    "error": "Counterfactual consumed random draws; stopped first observed case",
+    "fix": "Replay actual is_crit as explicit crit_override only inside counterfactual; preserve real battle RNG",
+    "production_changes": 0
+  },
+  "static_trace": {
+    "schema": "typed-modifier-registry-reader-trace-v1",
+    "source_commit": "3dcb5e496023fbc7c3e2d269a925e0b050159227",
+    "calculation_snapshot": "b771f9b92e56363f944576ec60304d6a1fec4709",
+    "source_hashes": {
+      "app/product_reference_models.py": "9473543ca26dfc0ee3517d34403c3f02869ca5e6b878de7ca982e422c0eef99b",
+      "app/product_typed_model.py": "7a62dede6a5527c553da39dd5eaa96db1904ba62c9f3307f6443ab343b6f6515",
+      "app/destructible_battle_runtime.py": "b055d14e3e816c2f8469a3e182efcc59512772e8e1eaa310810cf1dc0e995d2f",
+      "app/destructible_damage_policy.py": "ffc46d330c2ece938c8b1a4770397e51a9f8d2c6b3ddf3b89ad5e89f5804740a",
+      "app/portable_target_modifier_input.py": "6fec6471dbee10a42042d569d64176df16bda543ae7e7beba5745c42c1d61aae",
+      "app/portable_destructible_roster_input.py": "1727516aeca816571d2b457c854587803fbbe2cc1bd2d8ff4bd0efdafdc7a31c",
+      "gpu/destructible_modifier_runtime.slang": "0dd86bfd36c325db29c274e7b4aba3574fc10eb556c6d859c08a9e1ea1b0b501",
+      "gpu/destructible_shield_frame_impl.slang": "c3d818cfb26a1a2faf8fea29c77bb11fae4c7367d7d4efc5e998cce7741d72d0",
+      "gpu/coordinate_typed_weapon_runtime.slang": "b1d0f143242a913cd1f4cd4a769ee6406106258169ce62861a2f246d236bb86c",
+      "gpu/product_typed_battle_entry.slang": "3b9711d16e82756b2f325ff8c6a3bdae0fe5b6c3fa867e6c2faa5c6f31ec4c6b"
+    },
+    "path": [
+      "product_reference_models.execution(typed_targets)",
+      "product_typed_model.execution -> typed_battle(modifier_model=True)",
+      "destructible_battle_runtime.typed_battle -> local manager_type and scalar scope",
+      "actual local get_buffs/_plan_step closure globals include both modifier keys",
+      "destructible_damage_policy.calculate -> cloned _factor5 adds percent by actor kind",
+      "pack_axes keeps target axis separately and changes carrier kind to4/stat0",
+      "shared Slang destructibleModifierQuantity -> destructibleModifierDamage factors[4] -> damageFromFactors"
+    ],
+    "actual_reader_bindings": [
+      {
+        "method": "get_buffs",
+        "actual_closure_readers": [
+          {
+            "source": "research/upstream/nikke-calc-master/calculator/buff_manager.py",
+            "line": 4498,
+            "projection": {
+              "projectile_dmg_pct": "projectile_dmg_pct",
+              "shield_dmg_pct": "shield_dmg_pct"
+            }
+          }
+        ]
+      },
+      {
+        "method": "_plan_step",
+        "actual_closure_readers": [
+          {
+            "source": "research/upstream/nikke-calc-master/calculator/buff_manager.py",
+            "line": 4425,
+            "projection": {
+              "projectile_dmg_pct": "projectile_dmg_pct",
+              "shield_dmg_pct": "shield_dmg_pct"
+            }
+          }
+        ]
+      }
+    ],
+    "global_projection_unchanged": true,
+    "not_in_ordinary_STATS": {
+      "projectile_dmg_pct": true,
+      "shield_dmg_pct": true
+    },
+    "ordinary_STATS_absence_is_not_missing_support": true,
+    "remaining": "Inspect source-matched saved normal Metal captures for nonzero projectile/shield modifiers; only then choose missing product condition with Claude. No new GPU run authorized by this static trace.",
+    "CPU_battles": 0,
+    "GPU_calls": 0,
+    "Windows_calls": 0,
+    "full_effect_support": false,
+    "physical_path_correction": [
+      "ctwSnapshot -> destructibleModifierQuantity (query both live modifier sums)",
+      "ctwSampleAmount adds kind-specific sum/100 to sampled factors[4]",
+      "damageFromFactors; separate existing physical entrance from generic destructibleModifierDamage"
+    ]
+  },
+  "physical_source_sha256": "b1d0f143242a913cd1f4cd4a769ee6406106258169ce62861a2f246d236bb86c",
+  "comparison_exclusions_added": false,
+  "public_payload_exclusions": [],
+  "HTTP_wrapper_fields": [
+    "compute",
+    "cache_hit"
+  ],
+  "new_suites": 0,
+  "new_auditors": 0,
+  "new_original_inventory_profiles": 0,
+  "new_ordinary_Metal_conditions": 2,
+  "remaining": [
+    "Other producers: all_allies and conditional modifier activation",
+    "Arbitrary typed composition, lifecycle and capacities",
+    "Current CUDA execution explicitly deferred",
+    "Remaining L3 and L4 inventory/implementation units"
+  ],
+  "claude_decision": "accept",
+  "claude_review_response_sha256": "f5dd4548996704ef5c3d72e15736c9074a563f1020e2eaa2f59fe8d06ec84c4c",
+  "claude_scope": "Original Asuka/Anchor battle_start/self two keys, authored two8s normal HTTP Metal conditions only",
+  "next_Claude_priority": "buff_stack_add type=buff: inspect existing source/captures before any execution",
+  "evidence_version": "v1"
+}

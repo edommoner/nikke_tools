@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "status": "shared_lifetime_and_conditional_real_rosters_independently_verified",
+  "source_parent": "4d4d7d5563fcd51c4909bcdc86cc7cec4999093a",
+  "gpu_source_files": 143,
+  "metal": {
+    "inputs": 398,
+    "native": 302,
+    "rejected": 96,
+    "new_lifetime_contracts": 12,
+    "declared_contract_total": 41,
+    "device": "Apple M5",
+    "gpu_seconds": 4.560913208290003,
+    "independent_seal": true,
+    "package_id": "ca7ae60fac96f3a4dca40f6e769e35e11ad362a8b5eccd4b9ded0e60ea287281",
+    "runtime_stride": 138952,
+    "all_runtime_fields_unchanged": true
+  },
+  "cpu": {
+    "groups": 36,
+    "tests": 248,
+    "seconds": 85.07871045800857,
+    "native_seconds": 28.240470458054915
+  },
+  "real_profiles": {
+    "inputs": 4,
+    "definition_counts": [
+      79,
+      81
+    ],
+    "durations": [
+      3,
+      30
+    ],
+    "control": "Original standard79 definitions; no defender, no healing-charge activation",
+    "consumer": "Original81 definitions including Noah defender; at30s snapshot7/take2/positive takes2",
+    "quantitative_records": 1272,
+    "raw_records": 512,
+    "hash_only_suffix": 760,
+    "all_order_quantities_and_clocks_verified": true,
+    "final_pool_state_verified": true,
+    "independent_seal": true,
+    "gpu_seconds": 3.4343464584089816,
+    "package_id": "6ea8583d1e041fa84680e29223529e56a2c8798c8e56f8e46d6db6899d2af138"
+  },
+  "old_preservation": {
+    "input_native_all386_identical": true,
+    "raw385_all_bytes_identical": 1211105280,
+    "raw_one_intentional_correction": {
+      "name": "heal-charge/heal-charge-down-discards",
+      "word_offsets": [
+        109249,
+        109270
+      ],
+      "meaning": "discard stale quantity1000 and kind10 immediately on down"
+    }
+  },
+  "shared_sha": {
+    "probe_inputs": 13,
+    "native_cases": 10,
+    "rejected": 3,
+    "max_ordered_records": 8192,
+    "all_historical_input_native_raw_hashes_identical": true,
+    "independent_seal": true
+  },
+  "compiler": {
+    "package_id": "771f4aa1a9bf44a4ab83b09596b0812b994c3906f3c672c861831783bcb87a70",
+    "package_files": 2582,
+    "zip_bytes": 6533654,
+    "certificate_independent_Metal_inputs": 398,
+    "cpu_groups": 32,
+    "cpu_tests": 323,
+    "cpu_passed": 322,
+    "cpu_skipped": 1,
+    "cpu_seconds": 4.815845749923028,
+    "required_generation_cache_hit": true,
+    "Slang_invocations": 0,
+    "gpu_calls": 0,
+    "CUDA_MSL_and_reflections_all_bytes_preserved": true,
+    "CUDA_compiler_and_cache_speed_verified": false,
+    "CUDA_numerical_execution_verified": false
+  },
+  "final_cli": {
+    "package_id": "29ac1ed5d10cfb7cd0b59247f67164c0166f56d407d7f37d21dd117aab7ee9e6",
+    "sealed_package": true,
+    "groups": 5,
+    "tests": 31,
+    "seconds": 10.539330666069873,
+    "native_inputs": 12,
+    "gpu_calls": 0
+  },
+  "static": {
+    "packed": 242,
+    "total": 266,
+    "base": 182,
+    "base_total": 203,
+    "remaining_categories": 30,
+    "all242_input_sha256_preserved": true
+  },
+  "storage": {
+    "raw_deleted": false,
+    "all_bytes_SHA_path_inode_preserved": true,
+    "reclaimed_bytes": 2479095808
+  },
+  "windows": {
+    "additional_operations": 0,
+    "seven_process_exit_cause": "unknown",
+    "environment_preservation_verified": false
+  },
+  "limits": [
+    "Healing charge is a declared reference model, not all in-game interactions verified",
+    "1024 object capacity and1048576 history cap not GPU stressed",
+    "Broader lazy/heal-share/parent-callback combinations and remaining30 categories",
+    "Current CUDA compiler resource/cache-speed and numerical execution unverified"
+  ],
+  "full_character_verified": 0,
+  "ui_backend": "cpu",
+  "full_goal_complete": false,
+  "next_unsupported_focus": {
+    "stats": [
+      "dmg_accum_dealt_atk_pct",
+      "dmg_accum_received_atk_pct",
+      "dmg_accum_rate_pct",
+      "accum_split_damage"
+    ],
+    "source_anchors": [
+      "app/damage_accum_runtime.py",
+      "app/effect_spec.py:installed compatibility list",
+      "calculator/buff_manager.py:accumulation methods",
+      "calculator/timeline.py:accum_split_damage"
+    ],
+    "next_action": "Audit installed native producer/collector/discharge semantics and create literal native contracts before GPU admission",
+    "warning": "Damage archive/name ownership and post-defense damage basis differ from healing pools; do not copy healing semantics blindly",
+    "new_contract_cases": 0,
+    "gpu_supported": false
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "schema": "original-catalogue-development-v1",
+  "source_commit": "94eb6df1ad92fb95742403b2b7d0987280b70646",
+  "package_id": "3591b6f8797fce04b3a2f6916e851c3fffe394e059e26b0fb29602f5c820436a",
+  "catalogue_names": 1064,
+  "original_profiles": 266,
+  "max_selected_cases": 4,
+  "listing_prepares_profiles": false,
+  "selection_before_compilation": true,
+  "original_inventory_retained": {
+    "profiles": 266,
+    "packed_profiles": 254,
+    "failures": 12,
+    "categories": 13,
+    "all_profile_records_exactly_equal": true,
+    "previous_sha256": "bd4df6904c506f818ab0623d3af0f29002d9b9c9f5dc98c7aeb8617ee96a7ff3",
+    "current_sha256": "9348d161dc7ad425284b6e02e7a1f7ea6522d0dc1813a3f42e25c77081ad9730",
+    "forbidden_calls": {
+      "cpu_battle": 0,
+      "gpu": 0
+    }
+  },
+  "cpu_native_cases": 4,
+  "cpu_native_seconds": 77.38596366699494,
+  "unit_groups": 13,
+  "unit_tests": 129,
+  "gpu_execution_verified": true,
+  "device": "Apple M5",
+  "gpu_seconds": 2.369976083340589,
+  "pipeline_compile_seconds": 0.002969026565551758,
+  "pipeline_cache": {
+    "archive_bytes": 9387760,
+    "archive_compile_seconds": 0,
+    "archive_sha256": "06355e7c3e84d50bb5fc4137068673398038c74e4d9be590cb83318dc3daf3b9",
+    "enabled": true,
+    "hit": true,
+    "identity": {
+      "consumer_sha256": "80ad3f35e458e2f3a3f48a3997243e0906ac0719a04c352c4e901aeb753e268f",
+      "device": "Apple M5",
+      "entry": "portableEvents",
+      "math_mode": "safe",
+      "os_build": "Version 27.0.1 (Build 26A434)",
+      "registry_id": "4294968346",
+      "resident_stride": "138952",
+      "schema": "1",
+      "source_sha256": "8e66dd2a28f1794166794a29b64fb2c6efecefa853dee22ff21b86b35cdd09d4",
+      "threads_per_threadgroup": "1"
+    },
+    "key": "0baeeeb86ab2be1bc9366a17ddc24c7a8754325e88bf7c14a03a7b3cac94b393",
+    "native_archive_miss_rejected": true,
+    "required": true,
+    "schema": 1
+  },
+  "generated_sha256": {
+    "cuda": "db726509fdd602b691a497d3bc92e1859483971e16df5af657243d87640b57a1",
+    "metal": "8e66dd2a28f1794166794a29b64fb2c6efecefa853dee22ff21b86b35cdd09d4"
+  },
+  "generated_bytes_equal_previous_shield": true,
+  "slang_compiler_invocations": 0,
+  "readback_headers": [
+    [
+      0,
+      1,
+      0,
+      3,
+      9,
+      0,
+      2,
+      9
+    ],
+    [
+      0,
+      1,
+      0,
+      3,
+      0,
+      0,
+      32,
+      0
+    ],
+    [
+      8,
+      0,
+      0,
+      3,
+      5,
+      0,
+      129,
+      5
+    ],
+    [
+      0,
+      1,
+      0,
+      3,
+      9,
+      0,
+      17,
+      9
+    ]
+  ],
+  "matched_entries": [
+    {
+      "name": "original-catalogue/projectile/앨리스/favorite-0/30s",
+      "input_sha256": "8b3d1fa0c559a7f62a8a78a456939d57162b6e7df7aae10c372807e15a62c90d",
+      "output_sha256": "6eb0401c20c9ba59ede2475d16d04d013aaa52ef387be38441eaef67e85d91bd",
+      "native_sha256": "57b26ba4f607a4e2a23ace949fcb5f1c7de41b1051460b04178f656d9f768867"
+    },
+    {
+      "name": "original-catalogue/hp-shield/모더니아/favorite-0/3s",
+      "input_sha256": "c527e616a622cb0c94796461555ba42e18dc4e26e38755a3750554febf0703bb",
+      "output_sha256": "6cbec02a1eef6b5a5ea9b691895dd4eb62bd2340a4ff613ae6cdeaf75baf8b95",
+      "native_sha256": "9fadbc10dd91b82ac451093bd63f8e5790de66318366c476f1793001679cfe85"
+    },
+    {
+      "name": "original-catalogue/hp-shield/프리바티 : 언카인드 메이드/favorite-0/30s",
+      "input_sha256": "6dfc51807170c9c2d72613f9a8fad60dd5ba1c7c8c07f51cfc8a5ec0f04a45c9",
+      "output_sha256": "fcf23221b219987cc8f0ee4782e15f4b0464aabf6d2b89d2982f09cc10e44ca6",
+      "native_sha256": "0562454121d96aad2f911d6e5404e04d6d776b9fb7986d242d4d588acb8de012"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 2,
+      "name": "original-catalogue/hp-shield/모더니아/favorite-0/30s",
+      "reason": "ValueError: Expected GPU success status0; got status8"
+    }
+  ],
+  "calculation_verified": false,
+  "independently_sealed": false,
+  "successful_entries_are_not_independent_certifications": true,
+  "modernia_diagnostic": {
+    "schema": "original-catalogue-modernia-capacity-diagnostic-v1",
+    "case": "original-catalogue/hp-shield/모더니아/favorite-0/30s",
+    "skill_history_rows": 1618,
+    "current_skill_capacity": 128,
+    "own_weapon_packets": 1616,
+    "coefficient_transitions": [
+      {
+        "time": 0.0,
+        "coefficient": 7.71,
+        "weapon_mode_skill": false
+      },
+      {
+        "time": 4.016666666666658,
+        "coefficient": 2.24,
+        "weapon_mode_skill": false
+      },
+      {
+        "time": 19.01666666666687,
+        "coefficient": 7.71,
+        "weapon_mode_skill": false
+      }
+    ],
+    "calculation_source_changed": false,
+    "gpu_calls": 0
+  },
+  "next_required_extension": "Complete shared skill-landing history beyond128; preserve all1618 rows and full comparison, not duration reduction or traceMode suppression",
+  "pre_gpu_capacity_guard_added_after_failure": true,
+  "capacity_guard_boundaries": [
+    0,
+    127,
+    128,
+    129,
+    2048
+  ],
+  "capacity_guard_unit_tests_total": 15,
+  "gpu_executions": 1,
+  "gpu_retries": 0,
+  "windows_new_run_requests": 0,
+  "windows_status_observation": "host unavailable; existing transaction not terminal",
+  "full_character_certification_added": 0,
+  "public_gpu_admission_added": false,
+  "full_goal_complete": false,
+  "private_capture_anchors": {
+    "comparison.json": "2588843132d48dad9fbc280e7540a35ffb410f27a987384214eafd6f972930d3",
+    "cpu.json": "1c5c42c9f12e3d69a069b096dd410d86515120239ce71e4d435af5f511b7a696",
+    "result.json": "2944159e327800958606e2e679d21e5ece2d6626e87e1e13400e80e798380491",
+    "evidence.json": "172beb93df3079490c77af8f9c402aa90f19ef7bbd1836b02dda9582b6dea2c1",
+    "readback.bin": "72962e90e4caafb88b9646fbf83b120504514c9f6af798d6ae6aefe681f6a1e4"
+  },
+  "final_controller_tests": 49,
+  "final_capacity_and_catalogue_tests": 15,
+  "readiness_tests": 15,
+  "gpu_source_and_canonical_cpu_files_changed": false
+}

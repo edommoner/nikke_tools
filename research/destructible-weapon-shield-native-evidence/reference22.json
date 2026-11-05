@@ -1,0 +1,2914 @@
+{
+  "source_report_sha256": "0d811764beac8c56197c43c9af0e1f4b3edc475f1c3d52a7bd12f439e7484784",
+  "passed": true,
+  "case_count": 22,
+  "reference_model_gap_cases": 22,
+  "positive_contract_cases": 0,
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "packing_calls": 0,
+  "elapsed_seconds": 1.9964225000003353,
+  "cases": [
+    {
+      "name": "destructible-weapon-shield/auto-hp-factor",
+      "input_sha256": "90e45720f1eabc82be13991c3511e81665e73a19fc1f0b2ce422f74ba453a1e1",
+      "native_sha256": "7638a7075bfecbc5d9eb79d453ad9dfc68367f00bcf3bef5faa35266d32b2633",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 1.0,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        4196.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/auto-hit-credit",
+      "input_sha256": "c5aea662cfd0ff1e9bfd1f312a4bc8955a8411bb53e249caf9864fc84dbcfc82",
+      "native_sha256": "8f8b1b6b6018d804e5457e06127979e460e7a3e2d8c54f4e8f0a600ab7598e25",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        1936,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 1.0,
+      "attacks": [
+        {
+          "damage": 968.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 968.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/auto-break-no-overflow",
+      "input_sha256": "f8954cbf9a94a27a2e6a0c91c968dd14ea0375b0fd7a926cb30d764fdd4a3337",
+      "native_sha256": "da8c66e3fb0a3cd1b6bf397e47e8c635b24037bfebd64f49fd9587f09a48d22d",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        2904,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 1.0,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 500.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/scatter-hp-factor",
+      "input_sha256": "bcb037898913b0e941fc5dc372c7f7197f9f3425b21a979b9b2d396b3b2193e8",
+      "native_sha256": "b8cf82a773d1af5e93820f4ee972f6d9e5255cf00ac979feda74802ceb969797",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 3.0,
+      "attacks": [
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        4192.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/scatter-hit-break-before-third",
+      "input_sha256": "689549984fad33f378789163cffa3ae96235a4ec05105f90d3275eb15af0d75d",
+      "native_sha256": "7f9aa743e44b1df8b0f2ed329d53b7787eb3c7c2b51fb73958740fc0cec2ade9",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        3230,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 3.0,
+      "attacks": [
+        {
+          "damage": 323.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 323.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/scatter-hp-then-hit-then-body",
+      "input_sha256": "b2cec986cf2c60401db0858f312f6fdfc413fe2c769974d8f3a00f8356f2ba7d",
+      "native_sha256": "608db36ec88f275942887599e445bee8b53568436f9ecdc02f618becd14c374c",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        3230,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 3.0,
+      "attacks": [
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 300.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 323.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                4,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/scatter-hit-then-hp",
+      "input_sha256": "40740807a3e8de04f3ccfab752bc170bbc0d6fa0b3163585cc7b004a5e974289",
+      "native_sha256": "8ff4314c65c0330c94aa1e4fd6e459c8b56b979fa9ef47818f799e004b971908",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 3.0,
+      "attacks": [
+        {
+          "damage": 323.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                3,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                3,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                3,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                3,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                3,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                3,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                3,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                3,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                3,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                3,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                3,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        0.0,
+        4676.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/scatter-counter-child-keeps-shot-buff-snapshot",
+      "input_sha256": "3be3fc57bd821ea20f56968dd70ab144f7296f80ae36aa481f2d241502a78849",
+      "native_sha256": "6d00a44a410c58d9e32b17c16124f1630d6d4dd4453a41a580f8531ee47589cc",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 3.0,
+      "attacks": [
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 484.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1021.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1021.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1021.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1021.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1021.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1021.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1021.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1021.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1021.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1021.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1021.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1021.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1021.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1021.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1021.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1021.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1021.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 380.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/scatter-counter-skill-consumes-separate-credit",
+      "input_sha256": "11eb2aedd3cb694755f053a70c8d185e6da180bdaad2953dd2e7cf1ee1f0b5fc",
+      "native_sha256": "b19edcbf761f989527136f0b53d45c51580b15409c3c5fa9841f0172c4819f24",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        3553,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 3.25,
+      "attacks": [
+        {
+          "damage": 323.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 484.0,
+          "coefficient": 50.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 1.0
+            }
+          ],
+          "family": 1,
+          "owner": 0,
+          "hit_tag": "normal_skill",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/full-charge-hp-context",
+      "input_sha256": "d3405a65ad6fe635985f234d584e5cee1114d904da0e94502617870e29f8bfdb",
+      "native_sha256": "ac8ac96d412307a799386e81544c08c320e66569d63d539d53ab83206c79b907",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        998,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 0.5,
+      "attacks": [
+        {
+          "damage": 2902.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2902.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "full_charge_hit",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 2902.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.44999999999999996,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2902.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "full_charge_hit",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        4196.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/charge-scatter-hp-context",
+      "input_sha256": "d639222920e68c86f559b1d7a8c2badf6bd3964013dcbaa648aa38a65e1e167e",
+      "native_sha256": "4034dcbe53bdfd703ac93c4dc31989a31864e33bce73ab9da491c99c736687ba",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        998,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 1.5,
+      "attacks": [
+        {
+          "damage": 968.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 968.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 968.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 968.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 968.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 968.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 968.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.44999999999999996,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 968.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 968.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.44999999999999996,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 968.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 968.0,
+          "coefficient": 33.333333333333336,
+          "completed": true,
+          "time": 0.44999999999999996,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 968.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:2",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        4192.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/tap-hit-credit",
+      "input_sha256": "e8dbff415e6aea0dd103bc65efb94e8ae40d075dc26c572915a236f8fa140b8e",
+      "native_sha256": "791161c27b352de6a408f8b732844bd5bc92ecb6aa954c38cc1769ff644f2aec",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        968,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        997,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 0.75,
+      "attacks": [
+        {
+          "damage": 968.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.2333333333333333,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 968.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.5166666666666666,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/weapon-change-False",
+      "input_sha256": "bd55169d01258d695bbc5381efe96606f3d563c2c0b7369f32ec8276b63f1cd5",
+      "native_sha256": "630eb27ae9c9fea31c1a5eaea182d84ec01c67820565ba791e25ae6da9cd594d",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        998,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 1.0,
+      "attacks": [
+        {
+          "damage": 2902.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2902.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 2902.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2902.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 2902.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2902.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 2902.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 1294.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/weapon-change-True",
+      "input_sha256": "d5be5f755d7e0f0b10cb129141674bf92fa3ac7dc649c69aadd58aba99d437f2",
+      "native_sha256": "3fe5b33ce717360b37185308ca994e7131861a32cd6ee2021e1d2bc17a4d16fe",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        998,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 1.0,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": true
+        },
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": true
+        },
+        {
+          "damage": 2902.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2902.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 2902.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2902.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        1294.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/empty-owner-keeps-body",
+      "input_sha256": "1ae2baf7b3ca5e54d552da6b6375dc5f46d0cc3f42e31b655ace186b83d8282e",
+      "native_sha256": "e69480382e79653b2297250fa8801b8ebf4f55d208eb4ffbe251a935aa66a61e",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        3872,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 1.0,
+      "attacks": [],
+      "remaining": [
+        10000.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/world-expiry-keeps-later-body",
+      "input_sha256": "61d72b83151e23960af72e874bb05a97ce380bf97b9b6d1e3130041ab696e2fb",
+      "native_sha256": "a1772b27f1169a12db858cd346fc8b9a95f4cbaced01e269ff7495f8a0829280",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        1936,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 1.0,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        7098.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/core-context-is-preserved",
+      "input_sha256": "6d3837911ea8c33cf6e8974bb32615f743110e8ccfc5d275c7df84a35b92ff5c",
+      "native_sha256": "104a0f476be740cc66f363fd66a438c540a025e4c9be5b8df79da9e1b5c3c70c",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 1.0,
+      "attacks": [
+        {
+          "damage": 2801.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2801.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "core",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 2801.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2801.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "core",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 2801.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2801.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "core",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 2801.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 1597.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "core",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/two-muzzles-hit-credit",
+      "input_sha256": "c674614a76dfc43ceba8effa263b0cdf1b5e727617ef44a1f916ecbdb45444a9",
+      "native_sha256": "48d52c73e7bec12af485d8fd5d1369187ec1e83d11d1996a84fa450bca611dba",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        4840,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 2.0,
+      "attacks": [
+        {
+          "damage": 968.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 968.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:1",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 968.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "pellet:0",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/last-squad-owner",
+      "input_sha256": "bc652f8bd452f763ae253996e493097b4701880a756be7ebeebcfa05c48897cf",
+      "native_sha256": "21631a6d5121691a42d9c48344bd6d636d9f44792137a3ac3c4e1c0c16c093a0",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        0,
+        0,
+        0,
+        0,
+        4
+      ],
+      "ammo": [
+        1000,
+        1000,
+        1000,
+        1000,
+        996
+      ],
+      "gauge": 1.0,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ],
+          "family": 0,
+          "owner": 4,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ],
+          "family": 0,
+          "owner": 4,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ],
+          "family": 0,
+          "owner": 4,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.31666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ],
+          "family": 0,
+          "owner": 4,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        4196.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/two-allied-attackers",
+      "input_sha256": "2a5c97d398b346248a3efd198f8f046cde815c12d862838d7a622c047319ae9b",
+      "native_sha256": "6f533fe54f5820dc49e331094eedaa4bdaaa00b754a82d5496832281b70193bc",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        2904,
+        3872,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        4,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        996,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 2.0,
+      "attacks": [
+        {
+          "damage": 968.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                4,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 1.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "normal",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/rl-explosion-charge-context",
+      "input_sha256": "a51eebb7e97f92275464847ff9de7c9f898a246be939bcc81d269166f2fda631",
+      "native_sha256": "32ac9346893392cf60a83594eca10ce1f04f2243b9bfc0363d8e90d6ec802560",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        998,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 0.5,
+      "attacks": [
+        {
+          "damage": 4838.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 4838.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "full_charge_hit",
+          "weapon_mode_skill": false
+        },
+        {
+          "damage": 4838.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.44999999999999996,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 4838.0
+            }
+          ],
+          "family": 0,
+          "owner": 0,
+          "hit_tag": "full_charge_hit",
+          "weapon_mode_skill": false
+        }
+      ],
+      "remaining": [
+        324.0
+      ]
+    },
+    {
+      "name": "destructible-weapon-shield/hp-policy-skips-hit-shield",
+      "input_sha256": "ce01ea0dcc6e906e68c1d02c13650f17a6308b436c3fbd7b798369658a6fada6",
+      "native_sha256": "5e397b21c50269c990a90ac904d7fd90ed5b98b3a50a8a8cf703492935fc6662",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "actual_weapon_methods": true,
+        "native_per_shot_buff_snapshot": true,
+        "pellet_target_selection": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": [
+        3872,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shots": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ammo": [
+        996,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "gauge": 1.0,
+      "attacks": [],
+      "remaining": [
+        2.0
+      ]
+    }
+  ]
+}

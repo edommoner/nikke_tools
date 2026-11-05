@@ -1,0 +1,99 @@
+{
+  "passed": true,
+  "full_goal_complete": false,
+  "source_commit": "21e03a0fdd974c7e4a485746d1ddc087e9809666",
+  "windows_gpu_runs": 1,
+  "windows_execution_and_transfer_turn": "01a15409-8e1d-7fd0-bed9-21266d01501c",
+  "windows_saved_parts": 20,
+  "windows_saved_only_retry_turn": "01a15412-5b3d-7173-b6f5-c09f87ebf2e9",
+  "windows_gpu_rerun_for_transfer": false,
+  "final_timing_after_all_verification_and_transfers_terminal": true,
+  "windows_elapsed_seconds": 66.97557559981942,
+  "current_dependency_counts": {
+    "portable-combat-metal": 149,
+    "portable-combat-cuda": 115,
+    "windows-portable-combat-v38": 115,
+    "portable-staged-index-reference-metal": 151,
+    "portable-staged-index-equivalence": 2,
+    "portable-roster-battles-metal": 838,
+    "portable-catalog-weapons-metal": 429,
+    "portable-real-equipment-metal": 429,
+    "portable-real-battle-metal": 430,
+    "portable-events-metal": 79,
+    "portable-api-metal": 3835,
+    "portable-metal-pipeline-lock": 38,
+    "portable-numeric-metal": 10,
+    "portable-probe-metal": 4,
+    "portable-catalog-readiness": 83,
+    "portable-staged-index-unit-tests": 18,
+    "portable-staged-index-existing-parity": 0,
+    "portable-generated-v38-comparison": 0,
+    "portable-staged-index-workload-smoke-metal": 34,
+    "portable-staged-index-preliminary-timing": 418,
+    "portable-staged-index-33-before": 106,
+    "portable-staged-index-33-after": 103,
+    "portable-staged-index-256-before": 106,
+    "portable-staged-index-256-after": 103
+  },
+  "artifact_sha256": {
+    "research/portable-combat-metal.json": "cc60d16a72d8f31abb8cbb5c55df883aa5e31ad7808c83b1234a655f7c6dd9ef",
+    "research/portable-combat-cuda.json": "1a411c967e173d250cf2609283241f56c55337ede3a836e21224b8787116d14b",
+    "research/windows-portable-combat-v38.json": "6fc869f81f42e35f0e5ac85b2eb135cd7861d2c19714ea9ce05b70797f934289",
+    "research/portable-staged-index-reference-metal.json": "64c6c1585930fde7cc6a76c4aa3d77577ff3a7318045e76a3e4abb98600d17df",
+    "research/portable-staged-index-equivalence.json": "e8e8a59de52f3aa27895f2ba52433940e7a7473adbbb3efc61244752de3c76ad",
+    "research/portable-roster-battles-metal.json": "8fa849c237f18f4b9dd596d6978a9fb7ff77b46e32ee018031548b0c8617b849",
+    "research/portable-catalog-weapons-metal.json": "658264b740bd8f765df05b8ac5a1e173c8ba77f567a4724ce24c48f110825cd6",
+    "research/portable-real-equipment-metal.json": "f43d74c564291bf10949a2e3c456fbb33f66def50a6abb38aaf53070059a4d53",
+    "research/portable-real-battle-metal.json": "e1d02575c353c076fde5f9019f0c389b13dce91be27b42a813d3b20b5edac3e0",
+    "research/portable-events-metal.json": "f0a4860f26aad9219fe80738dd93eebd6e36d44f9aa7fa035b49d2c81822a4f4",
+    "research/portable-api-metal.json": "7d042b6e9e2971dc9927a1c48371e3ccb3580d42796296e05934cefb01503dc3",
+    "research/portable-metal-pipeline-lock.json": "cc6f0667d3f55b6fd6e9aa19850e61e3cb3cfc0cc30591c66bab5f6662c1c8e7",
+    "research/portable-numeric-metal.json": "a82e163a30ff32b39dff193a21ebb92ee9eff4744cf70f67c3c941d18b92ed5a",
+    "research/portable-probe-metal.json": "693b113c902077fca70c1b59fab8a48a2f47fcf75ba566d5319f2275da2f3dbc",
+    "research/portable-catalog-readiness.json": "b1059c33dc88d441919a5325d2a1949779c885f0ae3f1ed2f7d294f569313847",
+    "research/portable-staged-index-unit-tests.json": "4539e779fa7bc25db2d8e0f4c532db09958ba0e9c005dbe0fe814b9e46b7020e",
+    "research/portable-staged-index-existing-parity.json": "c57bb0236112c92fb09efc765582be635abaf504069ada4e7f1d4a1ae7a2712b",
+    "research/portable-generated-v38-comparison.json": "593f5f9fe9dc7d085d3ec1aa972e724731342009ec9fb1fa07509c11eed45328",
+    "research/portable-staged-index-workload-smoke-metal.json": "37de1d61541d79a7167aa62d55c81a2b2c787d83de382a9843087f96cbdaa53c",
+    "research/portable-staged-index-preliminary-timing.json": "f4f24b166e60cd69d54d846e6141808c21b4de50174c47d2f90a8f89cf62bbf0",
+    "research/portable-staged-index-33-before.json": "a886a43a3cf5a6d29b4a688b9e7fc97a809680d55de2f57aaa72683f71310667",
+    "research/portable-staged-index-33-after.json": "a0937ec6ef13b63ef1c44cec4b715f336a01255b842756da236ebc766bde1ad3",
+    "research/portable-staged-index-256-before.json": "ebec5c330a10e0b5ea7b2e3caca521fc36a52ac6c67ce548ecad808c6a2f2b58",
+    "research/portable-staged-index-256-after.json": "16c8dc069a53aa96518743206c10fa883006069a11b06d3f1e96cd1d10a0af68",
+    "research/portable-combat-checkpoint.json": "48bc794aff928c679c5f5a14ec107c60a7d9c80032564fedc62aa1271692d00b",
+    "research/portable-combat-v37-checkpoint.json": "9c4f842b0e0d1d35a5c5186ed3ea7923a95fb92ce94d02419bafeb123a580d7e"
+  },
+  "benchmark": {
+    "33": {
+      "before_median_seconds": 0.15392604167573154,
+      "after_median_seconds": 0.14911408338230103,
+      "ratio": 0.9687385042774788,
+      "before_range": [
+        0.14430129167158157,
+        0.1558836666517891
+      ],
+      "after_range": [
+        0.14711829170119017,
+        0.18707537499722093
+      ],
+      "sample_ranges_overlap": true,
+      "scope": "Bounded synthetic load; unrelated desktop GPU contention not excluded"
+    },
+    "256": {
+      "before_median_seconds": 1.0360691249952652,
+      "after_median_seconds": 1.0228293749969453,
+      "ratio": 0.9872211711758321,
+      "before_range": [
+        1.0353497916948982,
+        1.0424975416390225
+      ],
+      "after_range": [
+        1.022456000035163,
+        1.0266703333472833
+      ],
+      "sample_ranges_overlap": false,
+      "scope": "Bounded synthetic load; unrelated desktop GPU contention not excluded"
+    }
+  },
+  "scope": "Indexed staged selection, complete scan/control output equivalence, bounded profiles, one fixed-source CUDA run; no full-catalog or general performance certification"
+}

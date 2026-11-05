@@ -1,0 +1,234 @@
+{
+  "schema": 1,
+  "status": "cpu_partition_tool_verified_windows_v135_candidate_pending",
+  "package": {
+    "package_id": "0fa83675dc2134df5b9c908a9f411d47e3c6a0c0e8fe676d5dd4169005f906b0",
+    "files": 2005,
+    "bytes": 5291251,
+    "archive_sha256": "f69982663b698bb387324640ed58edf2d032a8057b230452e5d7aab57460310f",
+    "source_commit": "056b76b5e6c35765fbf06d8f5233d5949e6e0dd9"
+  },
+  "cpu": {
+    "discovered": 170,
+    "passed": 169,
+    "skipped": 1,
+    "failures": 0,
+    "batch": {
+      "schema": 1,
+      "mode": "single-process-unittest",
+      "patterns": [
+        "test_portable_windows_cleanup.py",
+        "test_portable_gpu_cli.py",
+        "test_portable_compile_cache.py",
+        "test_portable_cuda_artifact.py",
+        "test_portable_module_check.py",
+        "test_portable_weapon_phases.py",
+        "test_portable_offline_assembly.py",
+        "test_portable_readback_stream.py",
+        "test_portable_regression_compact.py",
+        "test_portable_file_transport.py",
+        "test_portable_cpu_batch.py",
+        "test_portable_query_boundaries.py",
+        "test_portable_ptx_stats.py",
+        "test_portable_compiler_diagnostic.py",
+        "test_portable_definition_view.py",
+        "test_portable_ptx_callgraph.py",
+        "test_portable_ptx_partition.py"
+      ],
+      "timeout_seconds": 60,
+      "elapsed_seconds": 3.2428447500569746,
+      "timed_out": false,
+      "exit_code": 0,
+      "gpu_calls": 0,
+      "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+    },
+    "groups": [
+      {
+        "pattern": "test_portable_windows_cleanup.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.018085708026774228,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_gpu_cli.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.2145711660850793,
+        "tests": 39,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_compile_cache.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.0769491670653224,
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_cuda_artifact.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.013012290932238102,
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_module_check.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.07562054204754531,
+        "tests": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_weapon_phases.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.06631699996069074,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_offline_assembly.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.0902265829499811,
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_readback_stream.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.08245866699144244,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_regression_compact.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.0217476669931784,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_file_transport.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.06573970906902105,
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_cpu_batch.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.027842957992106676,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_query_boundaries.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.007625916041433811,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_ptx_stats.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.004138707998208702,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_compiler_diagnostic.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.023868874995969236,
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_definition_view.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.11781595798674971,
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_ptx_callgraph.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.11611587507650256,
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      },
+      {
+        "pattern": "test_portable_ptx_partition.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.06868241599295288,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 67312
+      }
+    ]
+  },
+  "capsule": {
+    "source_manifest": "research/portable-ptx-partition-source-manifest.json",
+    "tests": 16,
+    "output": "test_direct_calls_cycles_repeated_edges_and_entry_closure (test_portable_ptx_callgraph.PTXCallgraphTests.test_direct_calls_cycles_repeated_edges_and_entry_closure) ... ok\ntest_indirect_named_pointer_external_and_unknown_are_never_complete (test_portable_ptx_callgraph.PTXCallgraphTests.test_indirect_named_pointer_external_and_unknown_are_never_complete) ... ok\ntest_lexical_strings_comments_and_body_hashes_do_not_add_calls (test_portable_ptx_callgraph.PTXCallgraphTests.test_lexical_strings_comments_and_body_hashes_do_not_add_calls) ... ok\ntest_malformed_unsupported_calls_and_duplicate_symbols_fail_closed (test_portable_ptx_callgraph.PTXCallgraphTests.test_malformed_unsupported_calls_and_duplicate_symbols_fail_closed) ... ok\ntest_real_cli_saved_cache_receipt_integrity_and_no_output_overwrite (test_portable_ptx_callgraph.PTXCallgraphTests.test_real_cli_saved_cache_receipt_integrity_and_no_output_overwrite) ... ok\ntest_abi_mismatch_weak_external_or_unknown_module_state_fail_closed (test_portable_ptx_partition.PTXPartitionTests.test_abi_mismatch_weak_external_or_unknown_module_state_fail_closed) ... ok\ntest_all_bodies_and_definition_parameter_names_remain_in_one_owner (test_portable_ptx_partition.PTXPartitionTests.test_all_bodies_and_definition_parameter_names_remain_in_one_owner) ... ok\ntest_audit_does_not_trust_rehashed_candidate_or_edited_plan (test_portable_ptx_partition.PTXPartitionTests.test_audit_does_not_trust_rehashed_candidate_or_edited_plan) ... ok\ntest_constant_and_initialized_global_have_only_remainder_definitions (test_portable_ptx_partition.PTXPartitionTests.test_constant_and_initialized_global_have_only_remainder_definitions) ... ok\ntest_function_pointer_table_follows_prototypes_and_has_single_data_owner (test_portable_ptx_partition.PTXPartitionTests.test_function_pointer_table_follows_prototypes_and_has_single_data_owner) ... ok\ntest_real_cli_makes_only_local_cpu_candidate_and_report (test_portable_ptx_partition.PTXPartitionTests.test_real_cli_makes_only_local_cpu_candidate_and_report) ... ok\ntest_saved_integrity_failure_is_retained_and_cannot_be_overwritten (test_portable_ptx_partition.PTXPartitionTests.test_saved_integrity_failure_is_retained_and_cannot_be_overwritten) ... ok\ntest_cache_and_receipt_bytes_are_required_and_remain_unchanged (test_portable_ptx_stats.PTXStatisticsTests.test_cache_and_receipt_bytes_are_required_and_remain_unchanged) ... ok\ntest_global_maxima_are_not_limited_by_the_top_local_storage_list (test_portable_ptx_stats.PTXStatisticsTests.test_global_maxima_are_not_limited_by_the_top_local_storage_list) ... ok\ntest_optional_percent_vectors_nested_scope_and_call_prototype (test_portable_ptx_stats.PTXStatisticsTests.test_optional_percent_vectors_nested_scope_and_call_prototype) ... ok\ntest_unknown_or_malformed_input_never_returns_partial_estimates (test_portable_ptx_stats.PTXStatisticsTests.test_unknown_or_malformed_input_never_returns_partial_estimates) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.201s\n\nOK\n"
+  },
+  "legacy_scope": "Two existing legacy PTX candidate constructions checked in memory; disjoint has no device function and is explicitly skipped. Not v135 or assembler proof.",
+  "gpu_source_changed": false,
+  "nvrtc_calls": 0,
+  "ptxas_calls": 0,
+  "link_calls": 0,
+  "driver_calls": 0,
+  "gpu_calls": 0,
+  "partition_legal_verified": false,
+  "compiler_verified": false,
+  "calculation_verified": false,
+  "full_goal_complete": false
+}

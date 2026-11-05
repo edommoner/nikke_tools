@@ -1,0 +1,40 @@
+{
+  "schema": "add-attack-metal-component-v1",
+  "source_commit": "39a1908bc9fdff5448162586021203f651a2959b",
+  "package_id": "468ff5fb20a4a9f6774c6da1766b249974468c1293476d8139d8162525001d59",
+  "inputs": 19,
+  "native_cases": 8,
+  "rejections": 11,
+  "queued_attacks": 187,
+  "metal_device": "Apple M5",
+  "gpu_seconds": 0.0082482083234936,
+  "pipeline_compile_seconds": 0.11579406261444092,
+  "independent_audit_seconds": 1.4879863749956712,
+  "independent_audit_gpu_calls": 0,
+  "calculation_verified": true,
+  "source_sha256": {
+    "gpu/world_add_attack_probe.slang": "86d11ea0db3b3674a04c8b1153a02ca0a300b4e057f1bd060b57c0cc9183a000",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+    "gpu/world_add_attack_cursor.slang": "6766b9c4d40c4677f4894edaf937fd1d03626dab6b2ec39381f0606917e3231d",
+    "gpu/world_add_attack_layout.slang": "afc386e081d1c716fd793cd33cd4db59701891a0c1d5ac1ff842b3807f9dbc81"
+  },
+  "input_sha256": "fe8c1bb1c50fa2fd0e578a25281af92c22dcbf22ca615e1ce712420c2096ef7b",
+  "output_sha256": "90d8c197ea58d0036b90ba4394a40e0b42cd05ea956dc2b1f44eab324a11d73a",
+  "readback_bytes": 5643456,
+  "cuda_verified": false,
+  "full_battle_actor_pool_connected": false,
+  "enemy_ammo_connected": false,
+  "default_admission_added": false,
+  "old_shared_gpu_sources_modified": 0,
+  "windows_new_run_requests": 0,
+  "initial_failure": {
+    "package_id": "1724c08b3755b79c0057310c0e7bf070a2a294a052d9e01e683d91c6b47d4c0e",
+    "calculation_verified": false,
+    "all187_queue_records_equal": true,
+    "first_difference": "final node0 cleared predicate after finish: GPU0/native1",
+    "raw_preserved": true
+  },
+  "pre_device_rejection": "Resident-only generation cache flag rejected before capture creation; removed for standalone probe",
+  "full_goal_complete": false
+}

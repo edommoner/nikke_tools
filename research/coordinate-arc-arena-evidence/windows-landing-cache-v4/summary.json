@@ -1,0 +1,730 @@
+{
+  "schema": "landing-cache-v4-cuda-calculation-report",
+  "distribution": {
+    "distribution_commit": "0bf55b5f76b3d5595d590c7fe9418974076e2d81",
+    "archive_bytes": 9181752,
+    "archive_sha256": "69cbb0f9dc753f56da14e38ceb21b1de9aae06115848f5eb1fcdd2c833b10ac2",
+    "package_id": "6195042722501093978c6dd832e7cf9c9fd6e38ce61bf7a5fae5186e09d77306",
+    "archive_members": 2067,
+    "safe_paths_verified": true
+  },
+  "package_verification": {
+    "passed": true,
+    "package_id": "6195042722501093978c6dd832e7cf9c9fd6e38ce61bf7a5fae5186e09d77306",
+    "suite": "coordinate-landing-arena-cache-only",
+    "manifest_files": 2066,
+    "payload_bytes": 57597134,
+    "gpu_calls": 0
+  },
+  "paired_packet_verification": {
+    "passed": true,
+    "payload_records_identical": true,
+    "golden_identical": true,
+    "package_id": "6195042722501093978c6dd832e7cf9c9fd6e38ce61bf7a5fae5186e09d77306",
+    "normal_package_id": "696e3194ade89645e4c218f071c80793be6023525474b317ae3258d82d152f7c",
+    "saved_cuda_bytes": 178872,
+    "saved_cuda_sha256": "401cdcbe8ea12d66149885a529e9cd4afbf2c0f381e52d5f44b60c716179931a",
+    "saved_cubin_bytes": 365392,
+    "saved_cubin_sha256": "9096f45e0c1dfe2abafac736ff2e5bd3ff1525bf017092f4665a282d061de23e",
+    "expected_cache_key": "4d0fd1686e9653dc86a07d052cbed81d69aa5727e82d84f04dafd4a46467acde",
+    "driver_gpu_nvrtc_calls": 0
+  },
+  "configuration": {
+    "execution_permission": "require_escalated",
+    "python": "Existing base Python 3.12.14 with private gmpy2 2.2.1",
+    "slang": "Existing Slang 2026.20",
+    "cuda_compiler_files": "Existing isolated NVRTC12.4 fingerprints inspected file-only; compiler DLL loading forbidden by profile",
+    "required_flags": [
+      "--require-cache",
+      "--compile-cache <EXISTING_COMPILE_CACHE>",
+      "--cached-cuda-source <NORMAL_PACKET_COMPILE>/generated.cu",
+      "--artifact-kind cubin",
+      "--ptxas-level 1"
+    ],
+    "generation_cache": false,
+    "timeout_seconds": 180,
+    "job_memory_limit_bytes": 2147483648,
+    "priority": "BelowNormal"
+  },
+  "cpu_tests": {
+    "verified": true,
+    "tests": 54,
+    "groups": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_seconds": 39.80710730003193,
+    "rows": [
+      {
+        "pattern": "test_coordinate_landing_v1.py",
+        "exit_code": 0,
+        "elapsed_seconds": 8.136708499863744,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 28000
+      },
+      {
+        "pattern": "test_coordinate_power_v1.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.0778367999009788,
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 28000
+      },
+      {
+        "pattern": "test_portable_numeric_design.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.01084219990298152,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 28000
+      },
+      {
+        "pattern": "test_coordinate_physical_common.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.5505672004073858,
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 28000
+      },
+      {
+        "pattern": "test_coordinate_physical_reference.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.16593570029363036,
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 28000
+      },
+      {
+        "pattern": "test_coordinate_physical_frontier.py",
+        "exit_code": 0,
+        "elapsed_seconds": 22.21508050011471,
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 28000
+      },
+      {
+        "pattern": "test_coordinate_arc_arena.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.1641085003502667,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 28000
+      },
+      {
+        "pattern": "test_coordinate_landing_arena.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.11804130021482706,
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 28000
+      },
+      {
+        "pattern": "test_portable_cuda_cached_profile.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.13680890016257763,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 28000
+      }
+    ]
+  },
+  "cpu_preflight": {
+    "passed": true,
+    "input_count": 40,
+    "native_oracles": 26,
+    "input_sha256": "5d14272715fb7c14d09c3a9a17da5e1fbfa4295fb54f3d9300c6a8523924a410",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 3.9912065002135932
+  },
+  "cache_preflight": {
+    "passed": true,
+    "stage": "before-cpu-preflight",
+    "elapsed_seconds": 0.07567610032856464,
+    "saved_source_sha256": "401cdcbe8ea12d66149885a529e9cd4afbf2c0f381e52d5f44b60c716179931a",
+    "saved_source_normalized": "64055091da834e60a0eadae0e39acec082a08ed94f7609423280dfc4f5fe58ad",
+    "forbidden_attempts": [],
+    "cache": {
+      "enabled": true,
+      "hit": true,
+      "key": "4d0fd1686e9653dc86a07d052cbed81d69aa5727e82d84f04dafd4a46467acde",
+      "artifact_sha256": "9096f45e0c1dfe2abafac736ff2e5bd3ff1525bf017092f4665a282d061de23e",
+      "artifact_bytes": 365392,
+      "probe_only": true,
+      "claim_present": false,
+      "identity_metadata": {
+        "schema": 1,
+        "artifact": "cubin",
+        "source_sha256": "401cdcbe8ea12d66149885a529e9cd4afbf2c0f381e52d5f44b60c716179931a",
+        "options": [
+          "--std=c++17",
+          "--gpu-architecture=sm_86",
+          "--fmad=false",
+          "--ptxas-options",
+          "-O1"
+        ],
+        "compiler_files": {
+          "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+          "nvrtc64_120_0.dll": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+        },
+        "headers": {
+          "slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+        },
+        "header_paths_redacted": true,
+        "original_identity_sha256": "4d0fd1686e9653dc86a07d052cbed81d69aa5727e82d84f04dafd4a46467acde",
+        "identity_scope": "Exact original identity retained locally; local absolute header paths omitted from shared metadata"
+      }
+    }
+  },
+  "result": {
+    "sealed": true,
+    "purpose": "sealed",
+    "calculation_verified": true,
+    "preservation_verified": false,
+    "passed": false,
+    "containment_verified": true,
+    "transport_verified": false,
+    "comparison_error": null,
+    "first_difference": null,
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0,
+    "cuda_cache_only_profile": {
+      "profile": "compile-cache-only-v1",
+      "required_cache_hit_verified": true,
+      "nvrtc_calls": 0,
+      "compiler_library_requests": 0,
+      "calculation_verified": false,
+      "scope": "Compiler-free cached transport policy only; full calculation still requires the existing readback comparison and native trace audit"
+    }
+  },
+  "actual_cache": {
+    "enabled": true,
+    "hit": true,
+    "key": "4d0fd1686e9653dc86a07d052cbed81d69aa5727e82d84f04dafd4a46467acde",
+    "artifact_sha256": "9096f45e0c1dfe2abafac736ff2e5bd3ff1525bf017092f4665a282d061de23e",
+    "artifact_bytes": 365392,
+    "identity_metadata": {
+      "schema": 1,
+      "artifact": "cubin",
+      "source_sha256": "401cdcbe8ea12d66149885a529e9cd4afbf2c0f381e52d5f44b60c716179931a",
+      "options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "--ptxas-options",
+        "-O1"
+      ],
+      "compiler_files": {
+        "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+        "nvrtc64_120_0.dll": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+      },
+      "headers": {
+        "slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+      },
+      "header_paths_redacted": true,
+      "original_identity_sha256": "4d0fd1686e9653dc86a07d052cbed81d69aa5727e82d84f04dafd4a46467acde",
+      "identity_scope": "Exact original identity retained locally; local absolute header paths omitted from shared metadata"
+    }
+  },
+  "gpu_api_returns": [
+    {
+      "stage": "cuLaunchKernel",
+      "state": "entered",
+      "pid": 39256
+    },
+    {
+      "stage": "cuLaunchKernel",
+      "state": "returned",
+      "pid": 39256,
+      "return_code": 0,
+      "elapsed_seconds": 0.0011465
+    },
+    {
+      "stage": "cuCtxSynchronize",
+      "state": "entered",
+      "pid": 39256
+    },
+    {
+      "stage": "cuCtxSynchronize",
+      "state": "returned",
+      "pid": 39256,
+      "return_code": 0,
+      "elapsed_seconds": 0.3533012
+    },
+    {
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "entered",
+      "pid": 39256
+    },
+    {
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "returned",
+      "pid": 39256,
+      "return_code": 0,
+      "elapsed_seconds": 0.0006538
+    },
+    {
+      "stage": "cuCtxDestroy_v2",
+      "state": "entered",
+      "pid": 39256
+    },
+    {
+      "stage": "cuCtxDestroy_v2",
+      "state": "returned",
+      "pid": 39256,
+      "return_code": 0,
+      "elapsed_seconds": 0.0262097
+    }
+  ],
+  "phase_timings": [
+    {
+      "stage": "slang_build",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 1.6742588
+    },
+    {
+      "stage": "cuda_compile_artifact",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 0.0543528
+    },
+    {
+      "stage": "cuInit",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 0.0399754
+    },
+    {
+      "stage": "cuDeviceGet",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 2.23e-05
+    },
+    {
+      "stage": "cuDeviceComputeCapability",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 1.59e-05
+    },
+    {
+      "stage": "cuDeviceGetName",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 1.15e-05
+    },
+    {
+      "stage": "cuCtxCreate_v2",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 0.0797923
+    },
+    {
+      "stage": "cuModuleLoadData",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 0.0024117
+    },
+    {
+      "stage": "cuModuleGetFunction",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 0.0002644
+    },
+    {
+      "stage": "cuModuleGetGlobal_v2",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 1.36e-05
+    },
+    {
+      "stage": "cuMemAlloc_v2",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 0.0002217
+    },
+    {
+      "stage": "cuMemAlloc_v2",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 0.0002007
+    },
+    {
+      "stage": "cuMemcpyHtoD_v2",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 8.94e-05
+    },
+    {
+      "stage": "cuMemsetD8_v2",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 7.06e-05
+    },
+    {
+      "stage": "cuMemcpyHtoD_v2",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 4.69e-05
+    },
+    {
+      "stage": "cuLaunchKernel",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 0.0011465
+    },
+    {
+      "stage": "cuCtxSynchronize",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 0.3533012
+    },
+    {
+      "stage": "cuMemcpyDtoH_v2",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 0.0006538
+    },
+    {
+      "stage": "cuCtxDestroy_v2",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 0.0262097
+    },
+    {
+      "stage": "shared_gpu_execute",
+      "pid": 39256,
+      "state": "returned",
+      "elapsed_seconds": 2.4786311
+    }
+  ],
+  "transport_metadata": {
+    "backend": "cuda",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "cases": 40,
+    "command_status": "completed",
+    "host_dispatch_seconds": 0.3586375000886619,
+    "input_bytes": 330244,
+    "output_bytes": 7453120
+  },
+  "full_output_fingerprint": {
+    "common_comparison_file": "comparison.json",
+    "input_count": 40,
+    "native_oracles": 26,
+    "input_sha256": "5d14272715fb7c14d09c3a9a17da5e1fbfa4295fb54f3d9300c6a8523924a410",
+    "output_bytes": 7453120,
+    "output_sha256": "1968d8b50d19b2cd966eeba164c486996fa6f56422c5b5e223bcb70bce9d4ffc",
+    "all_40_entry_fingerprints_match_sealed_metal": true,
+    "all_output_words_compared": true,
+    "mismatches": [],
+    "audit_gpu_calls": 0
+  },
+  "monitoring": {
+    "before_service_status": "unverified",
+    "after_service_status": "unverified",
+    "all_monitored_processes_preserved": true,
+    "missing_existing_process_count": 0,
+    "identified_nikke_service_preservation_verified": false,
+    "termination_cause": null,
+    "raw_snapshot_shared": false
+  },
+  "environment_preservation": {
+    "status": "unverified",
+    "cli_preservation_verified": false,
+    "whole_stage_passed": false,
+    "cli_exit_code": 2,
+    "reason": "Service identification unverified; monitored process loss count zero. Calculation and containment flags retained separately."
+  },
+  "executions": {
+    "run-cli/execution.json": {
+      "passed": false,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 74.43826809991151,
+      "child_exit_code": 2,
+      "final_child_exit_code": 2,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793051431557211800,
+      "below_normal_priority": true,
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "gpu/execution.json": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 13.931133800186217,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793051419911757200,
+      "below_normal_priority": true,
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "export-cli/execution.json": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "elapsed_seconds": 0.543064100202173,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793051486633158200,
+      "below_normal_priority": true,
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    }
+  },
+  "job_receipts": {
+    "run-cli/job.json": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 145008,
+          "wrapper_pid": 134228,
+          "pre_gate": {
+            "child_pid": 145008,
+            "child_ppid": 134228,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793051357159062400,
+            "wrapper_pid": 134228,
+            "child_creation_filetime_ticks": "134375249571216045",
+            "job_members": [
+              145008
+            ],
+            "job_peak_memory_bytes": 5869568,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 145008,
+            "child_ppid": 134228,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793051431556153600,
+            "wrapper_pid": 134228,
+            "child_creation_filetime_ticks": "134375249571216045",
+            "job_members": [],
+            "job_peak_memory_bytes": 607002624,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "gpu/job.json": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 39256,
+          "wrapper_pid": 145008,
+          "pre_gate": {
+            "child_pid": 39256,
+            "child_ppid": 145008,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793051408227387600,
+            "wrapper_pid": 145008,
+            "child_creation_filetime_ticks": "134375250081892990",
+            "job_members": [
+              39256
+            ],
+            "job_peak_memory_bytes": 5885952,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 39256,
+            "child_ppid": 145008,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793051419910748500,
+            "wrapper_pid": 145008,
+            "child_creation_filetime_ticks": "134375250081892990",
+            "job_members": [],
+            "job_peak_memory_bytes": 524947456,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "export-cli/job.json": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 70424,
+          "wrapper_pid": 27300,
+          "pre_gate": {
+            "child_pid": 70424,
+            "child_ppid": 27300,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793051486131826400,
+            "wrapper_pid": 27300,
+            "child_creation_filetime_ticks": "134375250860929845",
+            "job_members": [
+              70424
+            ],
+            "job_peak_memory_bytes": 5791744,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 70424,
+            "child_ppid": 27300,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793051486632149500,
+            "wrapper_pid": 27300,
+            "child_creation_filetime_ticks": "134375250860929845",
+            "job_members": [],
+            "job_peak_memory_bytes": 37117952,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    }
+  },
+  "saved_common_export": {
+    "bytes": 31266,
+    "sha256": "d1ebc7698ce5dee3ebfb57e583ba923adc98bbaaa59dba505604172bd3cff13e",
+    "gpu_calls": 0,
+    "zip_shared": false,
+    "scope": "Packet common export checked saved artifact records; local archive retained; no comparison/GPU rerun"
+  },
+  "original_local_byte_provenance": [
+    {
+      "local_relative_path": "gpu/result.json",
+      "bytes": 4303,
+      "sha256": "b44a290c918912603c37c4eef1ca4272f6525d6759edebf7a05712a9450eba06",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "gpu/comparison.json",
+      "bytes": 13980,
+      "sha256": "666f29181dc43bd7bdabdd4287b6f3a267ee1195e7f3348711f2b96b02af60b2",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "gpu/evidence.json",
+      "bytes": 16964,
+      "sha256": "2f688ed478eac8be5c90fc043d56d5eff380f2436ba215b62f5cc68ba056ad62",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "gpu/cache-preflight.json",
+      "bytes": 1665,
+      "sha256": "ed53b84552027f71a52598348159463a3edfed1b8c3db62db7892c571f7de7f1",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "gpu/observation.json",
+      "bytes": 22212,
+      "sha256": "fa7ac07724002fb944cd3d7a5deaa5723700bcb245a5558133f9d17eaf9f0682",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "gpu/phases.jsonl",
+      "bytes": 8339,
+      "sha256": "679bdfbf5b2281f900a998c0bdcfb053862da92035cc56856048998b80e5b490",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "gpu/runtime.json",
+      "bytes": 1207,
+      "sha256": "7aaaf90232d46b159d79160f0382b91b93d2fa8670e31d623d34da0097fb041f",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "gpu/cpu-tests.json",
+      "bytes": 1960,
+      "sha256": "d9079547a8855459fb7ca0db90eab451e6068756afdac375a5b42cad99923216",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "gpu/cpu.json",
+      "bytes": 541,
+      "sha256": "a7df9b968324a635e5ddd38dc3825d442f72996048690af2e29ba2de1814e536",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "gpu/input.bin",
+      "bytes": 330244,
+      "sha256": "5d14272715fb7c14d09c3a9a17da5e1fbfa4295fb54f3d9300c6a8523924a410",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "gpu/readback.bin",
+      "bytes": 7453120,
+      "sha256": "1968d8b50d19b2cd966eeba164c486996fa6f56422c5b5e223bcb70bce9d4ffc",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "run-cli/stdout.log",
+      "bytes": 4465,
+      "sha256": "780f3875730940b328fe554a67ba20f0135f356eaa4392149a533833905d92ec",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "run-cli/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_content_shared": false
+    }
+  ],
+  "actions": {
+    "cuda_execution_attempts": 1,
+    "kernel_launches": 1,
+    "nvrtc_calls": 0,
+    "nvrtc_or_builtins_load_requests": 0,
+    "retries": 0,
+    "post_run_audit_gpu_calls": 0,
+    "os_wmi_acl_service_changes": 0
+  },
+  "claims_and_previous_failures_retained": true,
+  "full_character_verified": 0,
+  "scope": "Sealed standalone landing-arena40/native26 probe; not full battle or full-character completion",
+  "shared_path_policy": "Personal paths omitted/placeholders; raw input/readback/SDK/process snapshots/local export not shared",
+  "observed_library_requests": [
+    {
+      "loader": "WinDLL",
+      "name": "nvcuda.dll",
+      "state": "allowed"
+    }
+  ],
+  "compiler_library_requests": 0
+}

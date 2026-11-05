@@ -1,0 +1,71 @@
+{
+  "name": "body-only-score-accounting",
+  "effects": [
+    {
+      "name": "no crit",
+      "source": "\uc2a4\ud0ac1",
+      "type": "buff",
+      "stat": "crit_rate",
+      "fixed_value": -15,
+      "target": "all_allies",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    }
+  ],
+  "combat": {
+    "weapons": [
+      {
+        "enabled": true,
+        "capacity": 10000,
+        "interval": 1e-06,
+        "pellets": 10,
+        "muzzles": 2
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      }
+    ],
+    "targets": [
+      {
+        "hp": 1e+20
+      }
+    ],
+    "trace": "summary"
+  },
+  "script": [
+    [
+      20,
+      24,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      20,
+      2,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0
+    ]
+  ]
+}

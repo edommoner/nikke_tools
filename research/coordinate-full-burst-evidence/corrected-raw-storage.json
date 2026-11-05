@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-coordinate-full-burst76-metal-v2",
+  "raw_bytes": 318767104,
+  "raw_sha256": "355a75a4354318e4fcc0b5d7daa9f0c0df0685d1ccdfd9bddcf93b5a50f77cf8",
+  "evidence_sha256": "b88868d8167bbaeebcca55d579c16dc780dd4782a047cbe73a7da1b57ceec7c4",
+  "raw_inode": 509725159,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 2303,
+  "zero_range_bytes": 307822592,
+  "allocated_before": 318767104,
+  "allocated_after": 10944512,
+  "allocated_reclaimed": 307822592,
+  "full_hash_verified": true
+}

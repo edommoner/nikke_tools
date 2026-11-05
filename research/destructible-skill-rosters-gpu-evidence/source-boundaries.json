@@ -1,0 +1,43 @@
+{
+  "old_closure_files": 155,
+  "new_closure_files": 157,
+  "existing_shader_changes": [
+    "gpu/destructible_weapon_runtime.slang",
+    "gpu/destructible_shield_battle_entry.slang",
+    "gpu/destructible_frame_runtime.slang",
+    "gpu/destructible_battle_runtime.slang"
+  ],
+  "new_shader_files": [
+    "gpu/destructible_roster_skill_entry.slang",
+    "gpu/destructible_roster_skill_runtime.slang"
+  ],
+  "protected_sources_unchanged": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "app/portable_backend.py",
+    "app/portable_slang_generation.py",
+    "app/portable_generation_cache.py",
+    "research/summarize-portable-cross-gpu.py",
+    "gpu/binary64.slang",
+    "gpu/destructible_target_core.slang",
+    "gpu/destructible_modifier_runtime.slang"
+  ],
+  "runtime_stride_bytes": 138952,
+  "runtime_fields_changed": false,
+  "historical_projection_used_for_numeric_normalization": false,
+  "normal_full492_rerun": false,
+  "final_package_all_input_native_and_source_identical_to_producer": true,
+  "comparison_base_commit": "b094700b75990107092a8b07e1900c25689328d4",
+  "additional_source_closures": {
+    "gpu/world_projectile_chain_entry.slang": {
+      "files": 147,
+      "unchanged": true
+    },
+    "gpu/destructible_modifier_probe.slang": {
+      "files": 119,
+      "unchanged": true
+    }
+  }
+}

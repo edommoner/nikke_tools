@@ -6,9 +6,7 @@ from contextlib import contextmanager
 from collections import Counter
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
-from detail_gpu import run
 from detail_coverage import a,body_for
-from gpu_selector import Cuda
 
 def load(name,file):
  s=importlib.util.spec_from_file_location(name,ROOT/'scripts'/file);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
@@ -70,36 +68,3 @@ def full_scenarios():
  from calculator.buff_manager import char_effects
  modes=[copy.deepcopy(e) for e in char_effects('모더니아') if e.get('type')=='weapon_change'];mode_name=modes[0]['name']
  yield 'full-weapon-mode-named-broadcast',{'모더니아':modes,n[0]:[E('mode witness','buff','atk_pct',100,event='event:'+mode_name,duration=8)]},25,['event:'+mode_name]
-
-def verify(device,backend='auto',include_real=True):
- cases=[]
- for name,p,script,expected in primitives():
-  bs={n:{'atk':100000+i*10000,'hp':1000000,'def':1000} for i,n in enumerate(NAMES)};cpu,totals=oracle.oracle(p,script,[31784,50],bs);gpu=run(device,[p],script,[[31784,50]],[bs],module_backend=backend);errors=[]
-  for i,(x,y) in enumerate(zip(cpu,gpu['queries'][0])):
-   if x[0]!=expected[i] or y[0]!=expected[i]:errors.append([i,'expected ATK',expected[i],x[0],y[0]])
-   for k in (0,6,27,28,37):
-    if not math.isclose(x[k],y[k],rel_tol=1e-12,abs_tol=1e-8):errors.append([i,k,x[k],y[k]])
-  case={'name':name,'passed':not errors,'errors':errors,'backend':gpu['module_backend']};cases.append(case);print(json.dumps(case),flush=True)
- for name,es,seconds,required in full_scenarios():
-  squad=['리타','크라운','모더니아','도라','얀'] if name=='full-weapon-mode-named-broadcast' else periodic.NAMES
-  with periodic.custom_effects(es),notifications() as observed:case=periodic.full.compare(device,name,body_for(squad,seconds,True),module_backend=backend)
-  case['required_notifications']={event:observed[event] for event in required};case['passed'] &= all(case['required_notifications'].values());case['backend']=backend;cases.append(case);print(json.dumps({'name':name,'passed':case['passed'],'cpu':case['cpu_total'],'gpu':case['gpu_total'],'notifications':case['required_notifications']},ensure_ascii=True),flush=True)
- old=json.loads((ROOT/'research/detail-coverage-events.json').read_text(encoding='utf-8'));new=json.loads((ROOT/'research/detail-coverage-chains.json').read_text(encoding='utf-8'));was={r['character'] for r in old['results'] if r['supported']}
- for record in (new['results'] if include_real else []):
-  name=record['character']
-  if record['supported'] and name not in was:
-   squad=[name]+[n for n in NAMES if n!=name][:4]
-   try:
-    with notifications() as observed:case=periodic.full.compare(device,'real-'+name,body_for(squad,60,True),module_backend=backend)
-    case['named_notification_count']=sum(value for event,value in observed.items() if event.startswith('event:'));case['backend']=backend
-   except (Exception,SystemExit) as error:case={'name':name,'passed':False,'error':str(error)}
-   cases.append(case);print(json.dumps({'name':name,'passed':case['passed'],**({'error':case['error']} if 'error' in case else {'cpu':case['cpu_total'],'gpu':case['gpu_total'],'named_events':case['named_notification_count']})},ensure_ascii=True),flush=True)
- return cases
-
-if __name__=='__main__':
- d=Cuda()
- try:cases=verify(d,'native')+verify(d,'ptx')
- finally:d.close()
- sources=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','app/engine_worker.py','scripts/verify-chains-detail.py']
- r={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(c['passed'] for c in cases),'cpu_trace_used_as_gpu_input':False,'scope':'named application/refresh chains in authored notifications and independent static five-member combat; not every live-state instance combination','cases':cases,'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sources}}
- (ROOT/'research/detail-chains-verification.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if r['passed'] else 1)

@@ -1,0 +1,165 @@
+{
+  "source": "83480d91740d4c96fb948e94407143787b923664",
+  "scope": "Original target-specific carriers plus BODY/PART actors, retained boss actions, fixed and accumulated burst modes; no invented typed target semantics",
+  "normal_api_rows": [
+    {
+      "index": 0,
+      "original_index": 0,
+      "capture": "003e97f24a6d4d529e3354ea8fad9031",
+      "input_sha256": "3c0d7b04d7b41583defcdfb486a4e7172dbbd1a73fe1d3fe336fae47b02d0a01",
+      "output_sha256": "27d16b6cd442fa94ca5afd5d5cb0233ae1bf23485f57e7bc8fbaf61a9f364311",
+      "input_matches_original_failed_capture": true,
+      "complete_payload_matched": true,
+      "gpu_seconds": 0.40576704166596755,
+      "parts_state": [
+        {
+          "name": "breakable",
+          "damage": 47098.0,
+          "hits": 1,
+          "destroyed": true,
+          "destroyed_at": 3.35
+        },
+        {
+          "name": "durable",
+          "damage": 0.0,
+          "hits": 0,
+          "destroyed": false,
+          "destroyed_at": null
+        }
+      ],
+      "total_damage": 8814232
+    },
+    {
+      "index": 1,
+      "original_index": 2,
+      "capture": "0fa5ab3f8fc84b63ad0c1be33cb79cb1",
+      "input_sha256": "cb1bcac79763fc361f9042eb1f53e0ebb39985ccb33500db796993aebf48340e",
+      "output_sha256": "42184ccdb517b37eff485e792e3276fd0420e50fcb3ff381d16b2171d25b0c9e",
+      "input_matches_original_failed_capture": true,
+      "complete_payload_matched": true,
+      "gpu_seconds": 0.3820045000175014,
+      "parts_state": [
+        {
+          "name": "breakable",
+          "damage": 0.0,
+          "hits": 0,
+          "destroyed": false,
+          "destroyed_at": null
+        },
+        {
+          "name": "durable",
+          "damage": 0.0,
+          "hits": 0,
+          "destroyed": false,
+          "destroyed_at": null
+        }
+      ],
+      "total_damage": 5857602
+    }
+  ],
+  "group_api_rows": [
+    {
+      "index": 1,
+      "capture": "008c6e65760b4f0fa3bf28630e1ad90e",
+      "backend": "metal_detail",
+      "input_sha256": "7b6f176e65ff5040fb1a2c8e48e06f4523a5e2401e8eb2ba3b094574f56db0c1",
+      "output_sha256": "70621ec097667e7cc45998c94814fdb63e7b7ad5e91b14ff9e27765328feb8b7",
+      "complete_payload_matched": true,
+      "gpu_seconds": 0.41054787498433143,
+      "current_gpu_source_exact_match": true,
+      "source_commit": "55cdbdc9"
+    },
+    {
+      "index": 3,
+      "capture": "e7597fac37374174bc3fffc8ac5a7a49",
+      "backend": "metal_detail",
+      "input_sha256": "d73d801f86f8b43bb2379dc3e6da46f8dbd0a267a877d634fe435bd1c3e9ad78",
+      "output_sha256": "dad6170ca33a724bb10e3a7993b399e3b83dd4432ae2264a3ac59839a46f697c",
+      "complete_payload_matched": true,
+      "gpu_seconds": 0.4039452082943171,
+      "current_gpu_source_exact_match": true,
+      "source_commit": "55cdbdc9"
+    }
+  ],
+  "original_failure_rows": [
+    {
+      "index": 0,
+      "capture": "65335bb8cff04f6b84bd60e2b7af42f6",
+      "backend": "cpu",
+      "input_sha256": "3c0d7b04d7b41583defcdfb486a4e7172dbbd1a73fe1d3fe336fae47b02d0a01",
+      "output_sha256": "f03a866f502832cff3700dad2712a6a8c74a2a82ed68c41a901cfdbb0bd48413",
+      "error": "Shared battle status: 64"
+    },
+    {
+      "index": 2,
+      "capture": "07eab6e018dd46b9a490ec18108348e5",
+      "backend": "cpu",
+      "input_sha256": "cb1bcac79763fc361f9042eb1f53e0ebb39985ccb33500db796993aebf48340e",
+      "output_sha256": "f03a866f502832cff3700dad2712a6a8c74a2a82ed68c41a901cfdbb0bd48413",
+      "error": "Shared battle status: 64"
+    }
+  ],
+  "failure_records_unchanged": true,
+  "numerical_expectations_changed": false,
+  "cpu_baseline_changed": false,
+  "strict_normalizer_changed": false,
+  "common_cpu_before_last_gpu_initializer_fix": {
+    "passed": true,
+    "groups": 77,
+    "tests": 842,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "final_changed_product_groups": {
+    "passed": true,
+    "groups": 3,
+    "tests": 48,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "normal_auto_saved_replay": {
+    "rows": [
+      {
+        "program": "accumulate",
+        "reused_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-parts-regression-v1-20261031/accumulate/metal-after-generation",
+        "source_exact_current": true,
+        "input_bytes_exact": true,
+        "raw_output_hash_verified": true,
+        "full_current_cpu_payload_matched": true,
+        "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+        "output_sha256": "bc19e1324c7f293c24367148ec8d050a506d3779ba283983641f2f53d3fb01fc",
+        "gpu_calls": 0
+      },
+      {
+        "program": "fixed",
+        "reused_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-parts-regression-v1-20261031/fixed/metal",
+        "source_exact_current": true,
+        "input_bytes_exact": true,
+        "raw_output_hash_verified": true,
+        "full_current_cpu_payload_matched": true,
+        "input_sha256": "b534ebb2f7abcf613ea7b052f0ad8b9f9bcb48ec5ece9e0c766422871ba06a6f",
+        "output_sha256": "9c72bd03cc18453a9f8c6a9cdfebd6fe126e3e0b8e5889e6668cf158c4698be2",
+        "gpu_calls": 0
+      }
+    ],
+    "additional_gpu_calls": 0,
+    "numerical_expectations_changed": false
+  },
+  "normal_auto_generation_compiler_calls": 0,
+  "normal_auto_additional_gpu_calls": 0,
+  "normal_auto_registered_source_current": true,
+  "windows_additional_gpu_calls": 0,
+  "windows_additional_compiler_calls": 0,
+  "windows_report_share_status": "waiting for direct Windows user approval after auto-review rejected delegated authorization",
+  "coverage": {
+    "metal_historical_profiles": 255,
+    "metal_additional_compositions": 1,
+    "cuda_historical_profiles": 1,
+    "cuda_historical_duration_seconds": 1,
+    "cuda_fixed_profiles": 0,
+    "new_distinct_profiles": 0,
+    "full_goal_complete": false
+  }
+}

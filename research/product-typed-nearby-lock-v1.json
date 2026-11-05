@@ -1,0 +1,354 @@
+{
+  "schema": "product-typed-nearby-lock-v1",
+  "scope": "Original Elegg plus Heavy Arms profile,90 retained definitions; shared typed physical interception, projectile-only original skill, original Lock On, logical ADD geometry and declared primary-nearby selection.",
+  "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-nearby-lock-run-v1-20261102",
+  "execution_owner": "5cbd5cdbffd9f0643b84fde74591c01c600cc4876dbc15ce449063e582ff3893",
+  "release_owner": "8c595b512f4929215b0dfda073d03f5a5eaa1cdbe3f236a6eb02d50cbe2081d0",
+  "implementation": {
+    "shared_cuda_metal_slang": true,
+    "new_suites": 0,
+    "new_auditors": 0,
+    "new_shader_entries": 0,
+    "new_wire_banks": 0,
+    "input_words": 121936,
+    "output_words": 2558208,
+    "mixed_projectile_and_hp_shield_world": true,
+    "projectile_only_original_skill_filter": true,
+    "empty_projectile_subset_supported": true,
+    "exact_ordered_binding_match_required": true,
+    "nearby_existing_runtime_reused": true,
+    "strict_separate_output_ownership": true,
+    "one_cpu_world": true,
+    "canonical_cpu_changed": false,
+    "pinned_changed": false,
+    "numerical_rules_changed": false,
+    "effects_omitted": false,
+    "tolerances_changed": false
+  },
+  "product": {
+    "metal_profiles": 1,
+    "conditions": 6,
+    "new_distinct_profiles": 0,
+    "rows": [
+      {
+        "variant": "fixed-23",
+        "duration": 12.0,
+        "typed_kinds": [
+          2,
+          3
+        ],
+        "original_effects": 90,
+        "nearby_casts": 5,
+        "lock_shots": 5,
+        "weapon_packets": 1049,
+        "skill_attacks": 1,
+        "skill_receipts": 1,
+        "skill_receipt_kinds": [
+          2
+        ],
+        "one_typed_state": true,
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "01417524a24c44218617cd771318bbbe",
+        "input_sha256": "d1ef8472d240ad8b8bb07cd7ea46db895352846afa88e92fd101a2b06b26a8dc",
+        "output_sha256": "a59907b1c1ad141319b55b105c83a45d210f31d60153e24c61002788785c8b4f"
+      },
+      {
+        "variant": "fixed-22",
+        "duration": 12.0,
+        "typed_kinds": [
+          2,
+          2
+        ],
+        "original_effects": 90,
+        "nearby_casts": 5,
+        "lock_shots": 5,
+        "weapon_packets": 1049,
+        "skill_attacks": 1,
+        "skill_receipts": 2,
+        "skill_receipt_kinds": [
+          2
+        ],
+        "one_typed_state": true,
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "37fc89faaed4432eb3ca58f3e3c5f2af",
+        "input_sha256": "f3091c244594946ab0fab945a5506e0b0b2d2d99a75ba6de823cd596dd8692af",
+        "output_sha256": "d3f9d4571111c9f2b06da5273fc3eaae30331d905095fe3e4d15fd0a2610cc4e"
+      },
+      {
+        "variant": "fixed-33",
+        "duration": 12.0,
+        "typed_kinds": [
+          3,
+          3
+        ],
+        "original_effects": 90,
+        "nearby_casts": 5,
+        "lock_shots": 5,
+        "weapon_packets": 1049,
+        "skill_attacks": 0,
+        "skill_receipts": 0,
+        "skill_receipt_kinds": [],
+        "one_typed_state": true,
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "0f89bdc036264515ad214b82a8d9f6d3",
+        "input_sha256": "0c48c4cf8b2609522db178238e3da04c4839bd63c4a7731297bd4fc84f370d4e",
+        "output_sha256": "619c674c27b0dab58b95791a7a92220a9216a8951d50b91d7e73dfba9ba1d527"
+      },
+      {
+        "variant": "accumulate-23",
+        "duration": 12.0,
+        "typed_kinds": [
+          2,
+          3
+        ],
+        "original_effects": 90,
+        "nearby_casts": 4,
+        "lock_shots": 5,
+        "weapon_packets": 1049,
+        "skill_attacks": 1,
+        "skill_receipts": 1,
+        "skill_receipt_kinds": [
+          2
+        ],
+        "one_typed_state": true,
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "197b0a07954343f4a7b43f829a1bb350",
+        "input_sha256": "9f408970988a71fede97b7dc9b491239f4440383f92d426a6d4277a0efe5279c",
+        "output_sha256": "402300397f6e4cc6349bd65c6ace3aee74f1d6249fa0dbc18ac36cbe7b45ccac"
+      },
+      {
+        "variant": "accumulate-22",
+        "duration": 12.0,
+        "typed_kinds": [
+          2,
+          2
+        ],
+        "original_effects": 90,
+        "nearby_casts": 4,
+        "lock_shots": 5,
+        "weapon_packets": 1049,
+        "skill_attacks": 1,
+        "skill_receipts": 2,
+        "skill_receipt_kinds": [
+          2
+        ],
+        "one_typed_state": true,
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "6647778bf1fe4856acbe24cb730e6e85",
+        "input_sha256": "3270d817154df9d1dc415ced46128c8eadf6f5ce0e3ae75be480972e805a194f",
+        "output_sha256": "0327e1dfe0fd6342a61b79d7c85081559bbc43961583d0109208a309d4ebb296"
+      },
+      {
+        "variant": "accumulate-33",
+        "duration": 12.0,
+        "typed_kinds": [
+          3,
+          3
+        ],
+        "original_effects": 90,
+        "nearby_casts": 4,
+        "lock_shots": 5,
+        "weapon_packets": 1049,
+        "skill_attacks": 0,
+        "skill_receipts": 0,
+        "skill_receipt_kinds": [],
+        "one_typed_state": true,
+        "full_cpu_gpu_http_equal": true,
+        "capture_id": "16b85a68cab543e8b621976da7486ea3",
+        "input_sha256": "83d4d52404fbd865b473c6de355def216401875c9ddf040bec412cbd95226722",
+        "output_sha256": "41e4bc9a8876b1b2e452552b29bddbc4cb3b90940bd3aadb9b659f332ac13902"
+      }
+    ],
+    "physical_dispatches": 2,
+    "physical_cases": 6,
+    "all_six_nearby_and_lock_active": true,
+    "saved_audits": 6,
+    "final_saved_projections": 6,
+    "extra_audit_battles": 0,
+    "extra_audit_gpu": 0,
+    "owned_node_process_group_absent": true
+  },
+  "cli": {
+    "program": "typed-lock-accumulate",
+    "real_metal_cases": 4,
+    "independent_gpu_forbidden_audit": {
+      "package_id": "5cbd5cdbffd9f0643b84fde74591c01c600cc4876dbc15ce449063e582ff3893",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-nearby-lock-run-v1-20261102/metal-v1",
+      "child_pid": 62716,
+      "input_count": 4,
+      "native_cases": 4,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 4.036650458001532,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "fe6311ae373fe95d2b0016da60c204893c9cdd949130f170d9857eabbc18a0a1",
+      "output_sha256": "9580b41ca3d2bf83a930fa478b80cf6bb92e3a4efee9e9709941c87e3f58b190",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "old3_native_hashes_exact": true,
+    "old3_byte_comparison": {
+      "rows": [
+        {
+          "index": 0,
+          "input_prefix_exact": true,
+          "raw_delta": [
+            {
+              "word": 1867648,
+              "old": 0,
+              "new": 1314013745
+            },
+            {
+              "word": 1867649,
+              "old": 0,
+              "new": 1
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "input_prefix_exact": true,
+          "raw_delta": [
+            {
+              "word": 1867648,
+              "old": 0,
+              "new": 1314013745
+            },
+            {
+              "word": 1867649,
+              "old": 0,
+              "new": 1
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "input_prefix_exact": true,
+          "raw_delta": [
+            {
+              "word": 1867648,
+              "old": 0,
+              "new": 1314013745
+            },
+            {
+              "word": 1867649,
+              "old": 0,
+              "new": 1
+            }
+          ]
+        }
+      ],
+      "numerical_raw_values_masked": false
+    },
+    "golden": "research/portable-product-programs-v63-expected.json",
+    "other41_programs_unchanged": true,
+    "release_cpu_tests": 178,
+    "release_native_cases": 4
+  },
+  "compile_policy_plans": {
+    "ptx": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "8c595b512f4929215b0dfda073d03f5a5eaa1cdbe3f236a6eb02d50cbe2081d0",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    },
+    "cubin": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "8c595b512f4929215b0dfda073d03f5a5eaa1cdbe3f236a6eb02d50cbe2081d0",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "cubin",
+      "ptxas_level": 1,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "--ptxas-options",
+        "-O1"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    }
+  },
+  "source_dependency_audit": {
+    "passed": true,
+    "sha256": "616d9810a60a459440705bca24b0a3c383e67b36bb41aa0d4f082af1ae3dc74d"
+  },
+  "retained_failures": [
+    {
+      "path": "product-nearby-lock-scout-v1-20261102",
+      "stage": "CPU-only",
+      "error": "Exact route AST did not recognize previously composed named-range predicate",
+      "resolution": "Compose both pending predicates; retain exact expected route count1",
+      "gpu": 0
+    },
+    {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-nearby-lock-run-v1-20261102/api-v1",
+      "stage": "Ordinary API request",
+      "error": "Harness omitted compute_backend; all6 ran CPU only",
+      "resolution": "Preserved initial result; api-v2 explicitly requests metal_detail",
+      "gpu": 0
+    },
+    {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-nearby-lock-run-v1-20261102/release-v1/compile-plan-ptx.json",
+      "stage": "Static compile policy only",
+      "error": "PTX request incorrectly included CUBIN-only ptxas level",
+      "resolution": "Separate PTX plan-v2 omits level; original failure retained",
+      "compiler": 0,
+      "gpu": 0
+    }
+  ],
+  "windows": {
+    "restored_connection_status_read_only": true,
+    "new_requests": 0,
+    "new_gpu": 0,
+    "new_ram_samples": 0,
+    "resident_ram_stop_retained": true,
+    "prior_coordinate_object_link_artifact_verified": true,
+    "prior_environment_preservation_verified": false
+  },
+  "coverage": {
+    "last_full_standard_metal": 263,
+    "total_standard_profiles": 266,
+    "last_full_declared_extra": 3,
+    "full_matrix_recertified_on_this_source": false,
+    "historical_standard_cuda": 263,
+    "current_composite_cuda": 0,
+    "game_distance_rules_verified": false,
+    "all_special_effect_branches_verified": false,
+    "full_goal_complete": false
+  },
+  "remaining": [
+    "Typed movement composition still rejected; nearby currently uses explicit static colliders.",
+    "Game radius and nearby ordering remain declared and unverified; no automatic model is chosen.",
+    "Incoming and other consumer combinations and full special-effect branches remain incomplete.",
+    "Current composite CUDA needs external RAM improvement before any bounded execution; connection restoration alone is not RAM clearance."
+  ]
+}

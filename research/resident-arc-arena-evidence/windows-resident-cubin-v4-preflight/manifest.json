@@ -1,0 +1,20 @@
+{
+  "schema": "resident-cubin-v4-shared-manifest",
+  "files": [
+    {
+      "path": "summary.json",
+      "bytes": 19726,
+      "sha256": "a712722a4a37b3e18950a5397e034bf25cf5ee8bea6f37c5ea1ec1a50ea942af"
+    },
+    {
+      "path": "cpu-tests.json",
+      "bytes": 13064,
+      "sha256": "1160440b9dfcfc4b8684d3dd0a02dd232a61cb057086200b9573d2b713698537"
+    },
+    {
+      "path": "compile-timeline.json",
+      "bytes": 5576,
+      "sha256": "08840cabfca833aa260c533ed83ff5e0745100276bd22855be7d6562be1c40ff"
+    }
+  ]
+}

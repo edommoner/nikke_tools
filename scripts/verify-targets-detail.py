@@ -1,11 +1,10 @@
+from detail_gpu import compile_effects
 """Independent state-recipient and filtered-rank CPU/GPU checks."""
 import copy,hashlib,importlib.util,json,math,sys
 from pathlib import Path
 from datetime import datetime,timezone
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
-from detail_gpu import run,compile_effects
-from gpu_selector import Cuda
 from detail_coverage import body_for,coverage
 spec=importlib.util.spec_from_file_location('target_time_oracle',ROOT/'scripts/verify-time-detail.py');base=importlib.util.module_from_spec(spec);spec.loader.exec_module(base)
 oracle=base.oracle;periodic=base.periodic;E=base.E;NAMES=periodic.NAMES
@@ -67,31 +66,3 @@ def primitive_oracle(name,p,script,bs):
  if name=='zero-stack-state-is-still-a-recipient':assert any(ab['stack']==0 and ab['targets'] for o in observations for ab in o['mark_states']), 'zero-stack stimulus did not occur'
  if name=='unresolved-state-is-not-forced-by-membership':assert any(ab['targets'] is None for o in observations for ab in o['mark_states']), 'unresolved stimulus did not occur'
  return cpu,totals,observations
-
-def verify(device,backend='auto',include_real=True):
- cases=[]
- for name,p,script,expected in primitives():
-  bs={n:{'atk':100000+i*10000,'hp':1000000,'def':1000} for i,n in enumerate(NAMES)};cpu,totals,observations=primitive_oracle(name,p,script,bs);gpu=run(device,[p],script,[[31784,50]],[bs],module_backend=backend);errors=[]
-  assert len(cpu)==len(expected)==len(gpu['queries'][0])
-  for i,(x,y,z) in enumerate(zip(cpu,gpu['queries'][0],expected)):
-   if x[0]!=z or y[0]!=z:errors.append([i,'expected atk',z,x[0],y[0]])
-   for k in list(range(32))+[36,37]:
-    if not math.isclose(x[k],y[k],rel_tol=1e-12,abs_tol=1e-8):errors.append([i,k,x[k],y[k]])
-  case={'name':name,'passed':not errors and totals==gpu['totals'][0],'errors':errors,'backend':backend,'cpu_target_observations':observations};cases.append(case);print(json.dumps({k:x for k,x in case.items() if k!='cpu_target_observations'}),flush=True)
- for name,effects,seconds in full_scenarios():
-  with periodic.custom_effects(effects):c=periodic.full.compare(device,name,body_for(NAMES,seconds,True),module_backend=backend)
-  c['backend']=backend;cases.append(c);print(json.dumps({'name':name,'passed':c['passed'],'total':c['gpu_total']}),flush=True)
- if include_real:
-  old=json.loads((ROOT/'research/detail-coverage-time.json').read_text(encoding='utf-8'));was={r['character'] for r in old['results'] if r['supported']};now=coverage()
-  for r in now['results']:
-   if not r['supported'] or r['character'] in was:continue
-   name=r['character'];names=[name]+[n for n in NAMES if n!=name][:4];c=periodic.full.compare(device,'real-'+name,body_for(names,60,True),module_backend=backend);c['backend']=backend;cases.append(c);print(json.dumps({'name':name,'passed':c['passed'],'total':c['gpu_total']},ensure_ascii=True),flush=True)
- return cases
-
-if __name__=='__main__':
- device=Cuda()
- try:cases=verify(device,'native')+verify(device,'ptx')
- finally:device.close()
- files=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','scripts/verify-targets-detail.py']
- report={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(c['passed'] for c in cases),'cases':cases,'cpu_trace_used_as_gpu_input':False,'scope':'authored state/filtered-rank cases and newly accepted fixed real squads; static boss, not all targets or combinations','source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files}}
- (ROOT/'research/detail-targets-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if report['passed'] else 1)

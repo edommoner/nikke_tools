@@ -1,0 +1,5616 @@
+{
+  "cases": [
+    {
+      "name": "cooldown-passive-applied-at-cast-not-twice",
+      "effects": [
+        {
+          "name": "cd",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_cooldown",
+          "fixed_value": 5,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 15
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ],
+            "cooldown_applied": [
+              5,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 15
+              },
+              {
+                "ready": 15.125
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 15
+              },
+              {
+                "ready": 15.125
+              },
+              {
+                "ready": 15.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 15
+              },
+              {
+                "ready": 15.125
+              },
+              {
+                "ready": 15.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ],
+            "cooldown_applied": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "cast-buff-retroactively-reduces-at-full-start",
+      "effects": [
+        {
+          "name": "cd",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_cooldown",
+          "fixed_value": 7,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "burst_cast"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 20
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 20
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 20
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 20.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 13
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 20.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "cast-instant-reduces-new-ready-time",
+      "effects": [
+        {
+          "name": "cd",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_cooldown_reduce",
+          "fixed_value": 5,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "burst_cast"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 15
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 15
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 15
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 20.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 15
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 20.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "precast-instant-and-additional-full-start-buff",
+      "effects": [
+        {
+          "name": "pre",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_cooldown",
+          "fixed_value": 5,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "instant",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_cooldown_reduce",
+          "fixed_value": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "burst_cast"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "full",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_cooldown",
+          "fixed_value": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "full_burst_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 13
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 13
+              },
+              {
+                "ready": 15.125
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 13
+              },
+              {
+                "ready": 15.125
+              },
+              {
+                "ready": 15.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 11
+              },
+              {
+                "ready": 15.125
+              },
+              {
+                "ready": 15.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "full-start-allied-buff-reduces-each-caster",
+      "effects": [
+        {
+          "name": "full",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_cooldown",
+          "fixed_value": 6,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "full_burst_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        4
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 20
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 20
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 20
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 20.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 14
+              },
+              {
+                "ready": 14.125
+              },
+              {
+                "ready": 14.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "expired-cast-reduction-is-not-refunded",
+      "effects": [
+        {
+          "name": "short",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_cooldown",
+          "fixed_value": 5,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": 0.2
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 15
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 15
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 15
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 20.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 15
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 20.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "negative-cooldown-buff-extends-only-at-cast",
+      "effects": [
+        {
+          "name": "penalty",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_cooldown",
+          "fixed_value": -5,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 25
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 25
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 20.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 25
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 20.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "negative-instant-extends-new-cooldown",
+      "effects": [
+        {
+          "name": "penalty",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_cooldown_reduce",
+          "fixed_value": -5,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "burst_cast"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 25
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 25
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 20.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 25
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 20.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "cooldown-clamps-to-zero-duration",
+      "effects": [
+        {
+          "name": "large",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_cooldown",
+          "fixed_value": 100,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0.125
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0.125
+              },
+              {
+                "ready": 0.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0.125
+              },
+              {
+                "ready": 0.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "cooldown-wait-is-recalculated-after-instant",
+      "effects": [
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "cut",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_cooldown_reduce",
+          "fixed_value": 10,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ],
+        [
+          10.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          10.625,
+          2,
+          0,
+          0,
+          -1,
+          4,
+          0,
+          0
+        ],
+        [
+          11,
+          0,
+          7,
+          4,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          11,
+          2,
+          0,
+          0,
+          -1,
+          5,
+          0,
+          0
+        ],
+        [
+          12,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          12,
+          2,
+          0,
+          0,
+          -1,
+          6,
+          0,
+          0
+        ],
+        [
+          13,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          13,
+          2,
+          0,
+          0,
+          -1,
+          7,
+          0,
+          0
+        ],
+        [
+          13,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          13,
+          2,
+          0,
+          0,
+          -1,
+          8,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {
+            "phase": 0
+          }
+        },
+        {
+          "combat": {
+            "gauge": 100
+          }
+        },
+        {
+          "combat": {
+            "phase": 1,
+            "action": 20,
+            "cooldown_wait_mask": 1
+          }
+        },
+        {
+          "combat": {
+            "phase": 1,
+            "weapons": [
+              {
+                "ready": 13
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "phase": 2,
+            "weapons": [
+              {
+                "ready": 33
+              }
+            ],
+            "casts": [
+              2,
+              1,
+              1,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "instant-shortening-does-not-cancel-stage-delay",
+      "effects": [
+        {
+          "name": "cut",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_cooldown_reduce",
+          "fixed_value": 100,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.05,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.05,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.05,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.05,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {}
+        },
+        {
+          "combat": {
+            "phase": 2,
+            "action": 0.1
+          }
+        },
+        {
+          "combat": {
+            "phase": 2,
+            "casts": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "combat": {
+            "phase": 3,
+            "casts": [
+              1,
+              1,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "instant-ranked-recipient-uses-current-attack",
+      "effects": [
+        {
+          "name": "rank",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_cooldown_reduce",
+          "fixed_value": 5,
+          "target": "allies_top_atk:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ],
+        [
+          0.75,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2,
+          0,
+          0,
+          -1,
+          4,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 20
+              },
+              {
+                "ready": 20.125
+              },
+              {
+                "ready": 15.25
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        }
+      ],
+      "base_atk": [
+        1000,
+        2000,
+        3000,
+        2000,
+        1000
+      ]
+    },
+    {
+      "name": "empty-instant-recipient-preserves-budget",
+      "effects": [
+        {
+          "name": "empty",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_cooldown_reduce",
+          "fixed_value": -5,
+          "target": "all_allies_burst_casted",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "max_trigger": 1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.05,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.05,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "phase": 2
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ready": 25
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        }
+      ],
+      "expected_timers": [
+        {
+          "activations": 1
+        }
+      ]
+    },
+    {
+      "name": "gauge-allied-instant-25",
+      "effects": [
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 25,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 0,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          4,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 25,
+            "phase": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "gauge-allied-instant-150",
+      "effects": [
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 150,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 0,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          4,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 100,
+            "phase": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "gauge-allied-instant-0",
+      "effects": [
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 0,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 0,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          4,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 0,
+            "phase": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "gauge-allied-instant--20",
+      "effects": [
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": -20,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 0,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          4,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 0,
+            "phase": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "gauge-empty-recipient-does-not-charge",
+      "effects": [
+        {
+          "name": "empty",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 100,
+          "target": "all_allies_burst_casted",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "max_trigger": 1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 0,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 0
+          }
+        }
+      ],
+      "expected_timers": [
+        {
+          "activations": 0
+        }
+      ]
+    },
+    {
+      "name": "gauge-instant-discarded-during-chain-and-full",
+      "effects": [
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 100,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.05,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.05,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          4,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          5,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {}
+        },
+        {
+          "combat": {
+            "gauge": 0,
+            "phase": 2
+          }
+        },
+        {
+          "combat": {
+            "phase": 3
+          }
+        },
+        {
+          "combat": {
+            "phase": 4
+          }
+        },
+        {
+          "combat": {
+            "phase": 5
+          }
+        },
+        {
+          "combat": {
+            "gauge": 0,
+            "phase": 5
+          }
+        }
+      ]
+    },
+    {
+      "name": "gauge-entry-notification-uses-latched-gate",
+      "effects": [
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "burst_enter:1"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 100,
+            "phase": 2,
+            "gauge_charging": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "full-end-notification-keeps-previous-gauge-gate",
+      "effects": [
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "full_burst_end"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ],
+        [
+          10.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          10.625,
+          2,
+          0,
+          0,
+          -1,
+          4,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {
+            "phase": 0,
+            "gauge": 0,
+            "gauge_charging": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "cooldown-reduction-survives-reentry-and-retroactive-sync",
+      "effects": [
+        {
+          "name": "reenter",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_reentry",
+          "fixed_value": 1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "burst_cast"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "cut",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_cooldown",
+          "fixed_value": 2,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0,
+        4
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 0
+          },
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.5,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.75,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ],
+        [
+          1.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.125,
+          2,
+          0,
+          0,
+          -1,
+          4,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {
+            "phase": 5,
+            "casts": [
+              2,
+              0,
+              1,
+              1,
+              0
+            ],
+            "weapons": [
+              {
+                "ready": 0.5
+              },
+              {
+                "ready": 0
+              },
+              {
+                "ready": 18.625
+              },
+              {
+                "ready": 18.75
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "noncasting-b3-receives-each-full-start-1",
+      "effects": [
+        {
+          "name": "full",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_cooldown",
+          "fixed_value": 5,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "full_burst_start"
+            ],
+            "condition": []
+          },
+          "duration": -1,
+          "max_stack": 1
+        },
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        4
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 0
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 0
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 40
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 40
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ],
+        [
+          10.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          10.625,
+          2,
+          0,
+          0,
+          -1,
+          4,
+          0,
+          0
+        ],
+        [
+          11,
+          0,
+          7,
+          4,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          11,
+          2,
+          0,
+          0,
+          -1,
+          5,
+          0,
+          0
+        ],
+        [
+          11,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          11,
+          2,
+          0,
+          0,
+          -1,
+          6,
+          0,
+          0
+        ],
+        [
+          11.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          11.125,
+          2,
+          0,
+          0,
+          -1,
+          7,
+          0,
+          0
+        ],
+        [
+          11.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          11.25,
+          2,
+          0,
+          0,
+          -1,
+          8,
+          0,
+          0
+        ],
+        [
+          11.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          11.625,
+          2,
+          0,
+          0,
+          -1,
+          9,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {
+            "phase": 0
+          }
+        },
+        {
+          "combat": {
+            "gauge": 100
+          }
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {
+            "phase": 5,
+            "casts": [
+              2,
+              2,
+              1,
+              1,
+              0
+            ],
+            "weapons": [
+              {
+                "ready": 11
+              },
+              {
+                "ready": 11.125
+              },
+              {
+                "ready": 30.25
+              },
+              {
+                "ready": 46.25
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "noncasting-b3-receives-each-full-start-2",
+      "effects": [
+        {
+          "name": "full",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_cooldown",
+          "fixed_value": 5,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "full_burst_start"
+            ],
+            "condition": []
+          },
+          "duration": -1,
+          "max_stack": 2
+        },
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        4
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 0
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 0
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 40
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 40
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ],
+        [
+          10.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          10.625,
+          2,
+          0,
+          0,
+          -1,
+          4,
+          0,
+          0
+        ],
+        [
+          11,
+          0,
+          7,
+          4,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          11,
+          2,
+          0,
+          0,
+          -1,
+          5,
+          0,
+          0
+        ],
+        [
+          11,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          11,
+          2,
+          0,
+          0,
+          -1,
+          6,
+          0,
+          0
+        ],
+        [
+          11.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          11.125,
+          2,
+          0,
+          0,
+          -1,
+          7,
+          0,
+          0
+        ],
+        [
+          11.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          11.25,
+          2,
+          0,
+          0,
+          -1,
+          8,
+          0,
+          0
+        ],
+        [
+          11.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          11.625,
+          2,
+          0,
+          0,
+          -1,
+          9,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {
+            "phase": 0
+          }
+        },
+        {
+          "combat": {
+            "gauge": 100
+          }
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {}
+        },
+        {
+          "combat": {
+            "phase": 5,
+            "casts": [
+              2,
+              2,
+              1,
+              1,
+              0
+            ],
+            "weapons": [
+              {
+                "ready": 11
+              },
+              {
+                "ready": 11.125
+              },
+              {
+                "ready": 25.25
+              },
+              {
+                "ready": 41.25
+              },
+              {
+                "ready": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "battle-start-allied-gauge-adds-once",
+      "effects": [
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 25,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 0,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 25,
+            "phase": 0,
+            "gauge_charging": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "independent-gauge-instants-saturate-shared-resource",
+      "effects": [
+        {
+          "name": "first",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 70,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "second",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 60,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 0,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 100,
+            "phase": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "negative-and-zero-gauge-do-not-remove-existing-charge",
+      "effects": [
+        {
+          "name": "zero",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "negative",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": -20,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 12,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 12
+          }
+        }
+      ]
+    },
+    {
+      "name": "gpu-timeline-thirty-seconds-of-cooldown-and-periodic-gauge",
+      "effects": [
+        {
+          "name": "cd",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "burst_cooldown",
+          "fixed_value": 3,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "every:1.0s"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        4
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "summary"
+      },
+      "script": [
+        [
+          30,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          30,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "phase": 1,
+            "casts": [
+              2,
+              2,
+              2,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "cast-cooldown-query-resolves-unrelated-pending-buff",
+      "effects": [
+        {
+          "name": "rank",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 100,
+          "target": "allies_top_atk:1",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "late",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": -100,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "burst_cast"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "phase": 2,
+            "weapons": [
+              {
+                "ready": 20
+              }
+            ]
+          }
+        }
+      ],
+      "base_atk": [
+        2000,
+        1000,
+        1000,
+        1000,
+        1000
+      ]
+    },
+    {
+      "name": "full-start-cooldown-query-resolves-unrelated-pending-buff",
+      "effects": [
+        {
+          "name": "rank",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 100,
+          "target": "allies_top_atk:1",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "full_burst_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "late",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 200,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        1
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 1,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 100,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.625,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.75,
+          0,
+          7,
+          1,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            100,
+            200,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "phase": 5
+          }
+        }
+      ],
+      "base_atk": [
+        2000,
+        1000,
+        1000,
+        1000,
+        1000
+      ]
+    },
+    {
+      "name": "physical-pellet-gain-and-on-attack-instant-share-gauge",
+      "effects": [
+        {
+          "name": "fill",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "burst_charge_pct",
+          "fixed_value": 50,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "burst_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "stage": 1,
+            "cooldown": 20,
+            "capacity": 10,
+            "interval": 1,
+            "pellets": 10,
+            "muzzles": 2,
+            "gauge": 1
+          },
+          {
+            "enabled": false,
+            "stage": 2,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 3,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          },
+          {
+            "enabled": false,
+            "stage": 0,
+            "cooldown": 20
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+20
+          }
+        ],
+        "initial_gauge": 0,
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          1.125,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.125,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "gauge": 70,
+            "phase": 0
+          }
+        },
+        {
+          "combat": {
+            "gauge": 100,
+            "phase": 0
+          }
+        },
+        {
+          "combat": {
+            "gauge": 0,
+            "phase": 2
+          }
+        }
+      ]
+    }
+  ]
+}

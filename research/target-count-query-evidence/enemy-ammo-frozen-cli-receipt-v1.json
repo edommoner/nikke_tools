@@ -1,0 +1,19 @@
+{
+  "schema": "enemy-ammo-frozen-cli-receipt-v1",
+  "passed": true,
+  "package_id": "39a7382f16180a6093586e63a83dee0fb9ff2ca60632f028c1ce8e866ecce1dd",
+  "source_commit": "b8416750017c05771bc7d17f4b8d9c353bff470f",
+  "payload_files": 3816,
+  "payload_verified_after_tests": true,
+  "case_count": 6,
+  "all_input_native_trace_contract_fingerprints_retained": true,
+  "reference_report_sha256": "d30a8194396683054b92a101cf663236d6fc154e55ea159ed19fb5de56d613e2",
+  "reference_elapsed_seconds": 2.6405603750026785,
+  "packet_unit_tests": 8,
+  "packet_unit_tests_passed": true,
+  "gpu_calls": 0,
+  "packing_calls": 0,
+  "metal_verified": false,
+  "cuda_verified": false,
+  "full_goal_complete": false
+}

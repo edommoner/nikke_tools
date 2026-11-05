@@ -1,0 +1,4 @@
+{
+  "calculation_verified": false,
+  "comparison_error": "AttributeError: module has no attribute 'calc_damage'"
+}

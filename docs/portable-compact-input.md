@@ -1,0 +1,11 @@
+# 共通回帰入力のcompact化
+
+全件readback監査を分割した後もMac最大RSSは2,365,014,016byteでした。新しい独立processで入力準備だけを計測し、import後145,162,240byteからprepare終了までに2,354,872,320byteへ達することを確認。796行のPython listのshallow sizeは729,868,352byte、32bit word payloadは332,409,600byteです。これはnative domain/整数objectの所有量を含まない測定です。
+
+共通regression combineはfamilyごとの返却wireとheader/strideを各行で照合し、保持するwordsをnative-endian array('I')へ変換します。最後の入力は従来のlittle-endianです。family/label順、domain objectのidentity、None拒否、重複名、範囲外wordと不正wireの拒否は維持します。family全体の検証用packed/tobytes重複も除きました。native計算本体・GPU source・数値規約・比較項目を変更していません。
+
+新しいfresh packageで全796を準備し、実行済みMetalの2,503,999,488byteをnative633と再比較。入力332,409,604byteとSHA21080fdf79eca41ed2da2dff3ba4d6337d219e9cc29f7e4cb7efd81e094f0276、旧comparison.json全内容が一致しました。全出力SHAb9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637も同じです。GPU実行0、元captureの変更0。
+
+候補のword行shallow sizeは332,473,280byte、prepare時peak1,808,695,296byte、全監査peak1,812,381,696byteでした。同一機での各1回の観測であり、速度ベンチマークやWindowsの全実行2GiB保証ではありません。CUDAの全長zero/readback/output.rawは未修正なので、この改善だけでfullCUDAへ進めません。
+
+全portable812件の初回は810成功・Windows1skip・list型を固定した既存テスト1件が失敗。既存テストを内容/domain/wireと正確なarray型を検査する契約へ更新し、別fresh packageで関連5件全成功。候補本体とgoldenは修正前の保存796再監査時からbyte同一です。GPU本体に合わせて期待値やnormalizerを変更していません。詳細checkpointに失敗と補正検査を保持しています。

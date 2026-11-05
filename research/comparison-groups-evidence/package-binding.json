@@ -1,0 +1,15 @@
+{
+  "execution_package_id": "22d968b40e6bd1a43c2b38f08100fb928b1bc13badbd8e01975a133e6a162c70",
+  "final_package_id": "b58926cf77a6fbfba2e2601790f9191f8fcdfd63d5a70b65a0f4356d11ea2cbc",
+  "verified_payload_files": 3467,
+  "changed_files": [
+    "scripts/nikke_gpu.py",
+    "tests/test_portable_comparison_groups.py"
+  ],
+  "changed_cli_functions": [
+    "audit_saved_metal_groups"
+  ],
+  "native_producers_and_comparators_exact": true,
+  "final_difference": "Preserved group logs/failure diagnostics and extra fresh-process/timeout/seal unit tests only; actual all67 audit ran on execution package",
+  "new_native_or_gpu_calls": 0
+}

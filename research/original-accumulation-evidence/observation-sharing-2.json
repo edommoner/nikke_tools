@@ -1,0 +1,11 @@
+{
+  "scope": "Only destination immutable package payload; source retained, no raw/results/ZIP/manifest/claim edits",
+  "source_package_id": "8d32d0a3a6bc4d145626ab281a58495204698395fd2e7fe0eba339d9c8d62660",
+  "destination_package_id": "4ba4348b54edc755b109f813b608bfde9cf6ae403600b2da1bfbad3f1a11714a",
+  "files_linked": 1983,
+  "logical_bytes_shared": 56937851,
+  "free_before": 1083383808,
+  "free_after": 1145577472,
+  "all_destination_hashes_verified": true,
+  "gpu_calls": 0
+}

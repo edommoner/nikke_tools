@@ -1,0 +1,19 @@
+# フルバースト着弾の容量境界と次回待機分
+
+共通Slangのprivate出力codecで、新形式の保留着弾を終了時に観測できるようにした。P_PENDING_STATE_BASEのword0..2は旧形式の件数・enqueue数・fire数を保ち、予約済みword3に新形式の件数を格納する。既存512×8wordのentry領域は旧形式を先、新形式を後に格納する。途中queryのword3は変更しない。計算本体、入出力容量、Runtime配置、旧counterの意味は変えない。
+
+正本観測器は実際の_handle_damage_effのcode identityでBurstControllerを保持し、simulate終了後の_pending_landing_dmgを直接読む。追加のget_buffs/ref_count/notify/sampleは呼ばない。別表での再現や、処理を一度実行してからの再生ではない。観測なしとの全native値・trace・RNGの一致を5ケースで確認し、照会・通知回数も混在ケースで照合した。最終待機列のowner・name・latched hit countをGPUの実出力と比較する。
+
+追加5ケースは、着弾通知による新形式の次回残存、旧形式との混在、live512、live512を生成してから着弾通知で次回分を追加、live513の容量超過である。live512は親1項目と子511項目から514packetを生成し、総ダメージ654278になる。live513の正本は515packetで有限に終了するが、共有実行器では宣言済み512枠を超えるためstatus64で拒否する。これは不正な定義の拒否ではなく実行時容量制約である。両入力はloop-childのBUDGET word317が511→512になる1wordだけ異なる。
+
+大きな2成功ケースはsummary履歴を使う。処理や入力を減らさず、128件の個別trace上限と待機列容量を区別するためである。GPUでは全514packetの総数、共通decodeが公開するbattle/state/RNG/会計と最終待機列を比較する。514件の個別GPUpacket列まで観測したとは扱わない。CPU側は全packetの名前・数量・対象・created/landed時刻をliteral契約で固定する。枠解放ケースでは生成済み512枠の消費後に追加されたlate-child1項目が次回分として残り、誤った容量超過や同回消費がないことを確認する。
+
+固定package `94f64a5028b04d1e94afcb34b8f9d9cff6e9d4f7f714583596fbef15ca3becd1` のMetal272入力（native199、以前の拒否72、容量超過1）とGPU禁止の独立sealが成功した。旧267入力はinput/native指紋と全839,909,376byteのreadbackが同一。Runtime全field layoutも同一、stride138952である。新private codecの逆投影を独立した完全一致source deltaとして、前のqueue/landing/source証明より先に適用する。
+
+CPU25群180検査、skip0、63.867秒。既存24群約53秒と新しい6検査約11秒のため、この保持suiteのCPU上限を事前に90秒へ設定し、群は省略していない。正本199ケースの事前準備17.885秒。Apple M5のGPU4.410秒、library1.433秒、pipeline8.303秒。CUDAとMSLは同じSlangから事前生成し、実runは生成cache必須hit、追加Slang0。Windows追加操作0、現CUDAの実行証明はない。過去2readbackの内容・SHA・inodeを保持したsparse化で1,538,392,064byteの割当を回収し、raw削除0で容量を確保した。
+
+CLI suiteは `full-burst-capacity`（5入力、native4）と `full-burst-capacity-retention`（272入力、native199）。保持suiteの独立sealから短いsuiteの入力・出力部分とfingerprintを抽出し、現adapterの入力全SHAと名前を再検査した。固定packageの展開先をcwdにしてgeneration、run、sealを行う。
+
+残件は0hitの照会専用処理、HP basisの照会順と保留との組合せ、周期snapshotの移動、広い実編成および現CUDA。終了時のowner/name/hitsを確認しただけで未検証の全処理を対応済みとしない。全キャラ認証0、UI CPU、development_only、全目標未達を維持する。Windows7プロセス終了の原因はunknown、環境保全falseのままである。
+
+記録は `research/portable-full-burst-capacity-checkpoint.json` と `research/full-burst-capacity-evidence/`。固定package、raw、生成物、入力、claimは `/tmp/nikke-full-burst-capacity-*` に保持する。

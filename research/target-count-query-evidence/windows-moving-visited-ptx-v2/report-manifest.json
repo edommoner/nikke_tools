@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "source_commit": "a2a87eb4cb1da7807244cb72341f56d7b2ed9bd0",
+  "source_package_id": "f73375329f28425b68de14fa7cebeb0bb470c50eba36efeeec39f9a45fef7778",
+  "files": {
+    "visited-ptx-summary-v2.json": {
+      "bytes": 11725,
+      "sha256": "c5a6cd6d0010e7e71f11922726e59a89edfbe1d67baa2841089118e95ddc240c"
+    }
+  },
+  "compiler_verified": true,
+  "cache_check_passed": true,
+  "required_all_stage_2gib_limit_verified": false,
+  "calculation_verified": false,
+  "environment_preservation_verified": false,
+  "overall_verified": false,
+  "private_diagnostics_published": false
+}

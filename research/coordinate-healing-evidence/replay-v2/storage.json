@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "required_bytes": 2561797878,
+  "reserve_bytes": 1073741824,
+  "free_bytes": 3820367872,
+  "copied_files": [
+    {
+      "path": "input.bin",
+      "bytes": 149556484
+    },
+    {
+      "path": "readback.bin",
+      "bytes": 2407004160
+    },
+    {
+      "path": "evidence.json",
+      "bytes": 60624
+    },
+    {
+      "path": "generated.cu",
+      "bytes": 2507458
+    },
+    {
+      "path": "generated.metal",
+      "bytes": 2663502
+    },
+    {
+      "path": "execution.json",
+      "bytes": 5650
+    }
+  ],
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

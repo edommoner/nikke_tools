@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "test_coordinate_arcs.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7673177500000747,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 10428
+  },
+  {
+    "pattern": "test_coordinate_arc_arena.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.08040358400103287,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 10428
+  }
+]

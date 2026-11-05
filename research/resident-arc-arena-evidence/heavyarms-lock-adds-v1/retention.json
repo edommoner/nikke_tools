@@ -1,0 +1,53 @@
+{
+  "schema": "heavyarms-lock-adds-v1",
+  "passed": true,
+  "package_id": "e7ba31890ce889f444dd9ec7541a347969123ecbaf8335dbac6aafc9f2530683",
+  "reference_cases": 4,
+  "old_two_inputs_native_results_and_shot_traces_retained": true,
+  "three_add_natural_queries": [
+    88,
+    820
+  ],
+  "natural_queries_exclude_diagnostic_probes": true,
+  "passive_observer_transparent": true,
+  "original_definitions_per_profile": 25,
+  "default266_profiles_inputs_issues_and_priority_order_retained": true,
+  "packed_profiles": 245,
+  "priority_categories": 20,
+  "gpu_sources_upstream_and106golden_unchanged": true,
+  "gpu_calls": 0,
+  "gpu_supported": false,
+  "full_character_verified": false,
+  "remaining": [
+    "dedicated_spatial_lock_selection",
+    "effect_target_count_add_consumer",
+    "full25_typed_projectile_battle"
+  ],
+  "files": [
+    {
+      "path": "inventory.json",
+      "bytes": 313713,
+      "sha256": "9996215acff41f45feba49f515d0ae5a20693b03c2ac6c7ec0c9f9c22315af43"
+    },
+    {
+      "path": "marker-tests.log",
+      "bytes": 103,
+      "sha256": "9234af513f8a6b0f03365be721e718d91de8445cb4d50140e991bc8ad4480009"
+    },
+    {
+      "path": "readiness-tests.log",
+      "bytes": 732,
+      "sha256": "b59f87d9d4141618494d34e321479936bda2268034e64a5c10fc028e71846877"
+    },
+    {
+      "path": "reference.json",
+      "bytes": 544709,
+      "sha256": "0a80fee31feeddc3049b49eb2e8d49f7e44ffdfdaf1878f38921cf98d3e09ce9"
+    },
+    {
+      "path": "reference.log",
+      "bytes": 394,
+      "sha256": "73f3550d4a3e5115644d61045d7f72a63c3771392fbae2596c586e6c92ca5b3c"
+    }
+  ]
+}

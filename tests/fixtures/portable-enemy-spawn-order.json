@@ -1,0 +1,7564 @@
+{
+  "cases": [
+    {
+      "name": "enemy-spawn-all-after-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            2,
+            3,
+            1
+          ],
+          "target_mask": 15,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-all-warm-then-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            8000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            8000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "target_mask": 15,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            2,
+            3,
+            1
+          ],
+          "target_mask": 15,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-all-same-time-respawns",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          2,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            3,
+            1,
+            2
+          ],
+          "target_mask": 15,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-all-inactive-then-spawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0,
+            "active": false
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            7000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            7000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            0,
+            2,
+            3
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            2,
+            3,
+            1
+          ],
+          "target_mask": 15,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-maximum-after-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_top_hp:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            2,
+            3
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-maximum-warm-then-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_top_hp:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            0,
+            1,
+            2
+          ],
+          "target_mask": 7,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            2,
+            3
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-maximum-same-time-respawns",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_top_hp:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          2,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            3,
+            1
+          ],
+          "target_mask": 11,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-maximum-inactive-then-spawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_top_hp:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0,
+            "active": false
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            0,
+            2,
+            3
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            2,
+            3
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-current-after-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_highest_hp:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            2,
+            3
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-current-warm-then-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_highest_hp:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            0,
+            1,
+            2
+          ],
+          "target_mask": 7,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            3,
+            1
+          ],
+          "target_mask": 11,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-current-same-time-respawns",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_highest_hp:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          2,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            3,
+            1
+          ],
+          "target_mask": 11,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-current-inactive-then-spawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_highest_hp:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0,
+            "active": false
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            0,
+            2,
+            3
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            1,
+            2
+          ],
+          "target_mask": 7,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-lowest-after-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_lowest_hp:2",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            2,
+            3
+          ],
+          "target_mask": 12,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-lowest-warm-then-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_lowest_hp:2",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            1,
+            2
+          ],
+          "target_mask": 6,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            2,
+            3
+          ],
+          "target_mask": 12,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-lowest-same-time-respawns",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_lowest_hp:2",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          2,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            3,
+            1
+          ],
+          "target_mask": 10,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-lowest-inactive-then-spawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_lowest_hp:2",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0,
+            "active": false
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            2,
+            3
+          ],
+          "target_mask": 12,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            2,
+            3
+          ],
+          "target_mask": 12,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-nearest-after-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          20,
+          0,
+          0,
+          2,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            2,
+            3,
+            1
+          ],
+          "target_mask": 14,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-nearest-warm-then-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          20,
+          0,
+          0,
+          2,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            1,
+            2,
+            3
+          ],
+          "target_mask": 14,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            2,
+            3,
+            1
+          ],
+          "target_mask": 14,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-nearest-same-time-respawns",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          2,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          20,
+          0,
+          0,
+          3,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            3,
+            1,
+            2
+          ],
+          "target_mask": 14,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-nearest-inactive-then-spawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0,
+            "active": false
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          20,
+          0,
+          0,
+          2,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            2,
+            3,
+            0
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            2,
+            3,
+            1
+          ],
+          "target_mask": 14,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-defense-high-after-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_top_def:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            2,
+            3
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-defense-high-warm-then-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_top_def:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            0,
+            1,
+            2
+          ],
+          "target_mask": 7,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            2,
+            3
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-defense-high-same-time-respawns",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_top_def:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          2,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            3,
+            1
+          ],
+          "target_mask": 11,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-defense-high-inactive-then-spawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_top_def:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0,
+            "active": false
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            0,
+            2,
+            3
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            2,
+            3
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-defense-low-after-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_lowest_def:2",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            2,
+            3
+          ],
+          "target_mask": 12,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-defense-low-warm-then-respawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_lowest_def:2",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            1,
+            2
+          ],
+          "target_mask": 6,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            2,
+            3
+          ],
+          "target_mask": 12,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-defense-low-same-time-respawns",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_lowest_def:2",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          2,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            3,
+            1
+          ],
+          "target_mask": 10,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-defense-low-inactive-then-spawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_lowest_def:2",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0,
+            "active": false
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            2,
+            3
+          ],
+          "target_mask": 12,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            2,
+            3
+          ],
+          "target_mask": 12,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-maximum-new-max-hp",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_top_hp:2",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000
+          },
+          {
+            "kind": 5,
+            "hp": 2000
+          },
+          {
+            "kind": 5,
+            "hp": 3000
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          4000,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            0,
+            1
+          ],
+          "target_mask": 3,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-current-hp-reorders-after-damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_highest_hp:2",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1500
+          },
+          {
+            "kind": 5,
+            "hp": 2000
+          },
+          {
+            "kind": 5,
+            "hp": 3000
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0,
+          "target_order": [
+            0,
+            3
+          ],
+          "target_mask": 9,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.1,
+          "target_order": [
+            0,
+            2
+          ],
+          "target_mask": 5,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-lowest-hp-filters-killed-add",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_lowest_hp:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 900
+          },
+          {
+            "kind": 5,
+            "hp": 1100
+          },
+          {
+            "kind": 5,
+            "hp": 1100
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          2000,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.3,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.4,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.4,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            1100,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            900,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            2100,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            900,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            2
+          ],
+          "target_mask": 4,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.3,
+          "target_order": [
+            2
+          ],
+          "target_mask": 4,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        },
+        {
+          "effect": "strike",
+          "time": 0.4,
+          "target_order": [
+            3
+          ],
+          "target_mask": 8,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-nearest-in-range-damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest_in_range",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          20,
+          0,
+          0,
+          2,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            2
+          ],
+          "target_mask": 4,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-nearest-in-range-armor_break_damage",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "armor_break_damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest_in_range",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0,
+            "defense": 5000
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          20,
+          0,
+          0,
+          2,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            2
+          ],
+          "target_mask": 4,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-explicit-live-aim-is-preserved",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.2,
+          "target_order": [
+            1,
+            2,
+            3
+          ],
+          "target_mask": 14,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ],
+      "reference_scope": "Explicit common-API aim is an exact slot; native BossScript auto-add aim is a bucket"
+    },
+    {
+      "name": "enemy-spawn-dead-explicit-aim-falls-back-by-birth",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          2,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          22,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "add_overkill": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "effect": "strike",
+          "time": 0.3,
+          "target_order": [
+            3,
+            2,
+            0
+          ],
+          "target_mask": 13,
+          "hit_index": 1,
+          "hit_count": 1,
+          "delivered_amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-buff-all",
+      "effects": [
+        {
+          "name": "Reordered",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "all_enemies",
+          "source": "스킬1",
+          "duration": 1,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "enemy_buff_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          3,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-buff-maximum",
+      "effects": [
+        {
+          "name": "Reordered",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "enemies_top_hp:2",
+          "source": "스킬1",
+          "duration": 1,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "enemy_buff_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          3,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-buff-current",
+      "effects": [
+        {
+          "name": "Reordered",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "enemies_highest_hp:2",
+          "source": "스킬1",
+          "duration": 1,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "enemy_buff_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          3,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-buff-lowest",
+      "effects": [
+        {
+          "name": "Reordered",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "enemies_lowest_hp:1",
+          "source": "스킬1",
+          "duration": 1,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "enemy_buff_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          3,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-buff-nearest",
+      "effects": [
+        {
+          "name": "Reordered",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "enemies_nearest:2",
+          "source": "스킬1",
+          "duration": 1,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "enemy_buff_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          20,
+          0,
+          0,
+          2,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          3,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-buff-defense-high",
+      "effects": [
+        {
+          "name": "Reordered",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "enemies_top_def:2",
+          "source": "스킬1",
+          "duration": 1,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "enemy_buff_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          3,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "enemy-spawn-buff-defense-low",
+      "effects": [
+        {
+          "name": "Reordered",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "enemies_lowest_def:1",
+          "source": "스킬1",
+          "duration": 1,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "enemy_buff_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          3,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ]
+    }
+  ]
+}

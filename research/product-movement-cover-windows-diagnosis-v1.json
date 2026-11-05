@@ -1,0 +1,94 @@
+{
+  "schema": "movement-cover-fixed-observation-diagnosis-v1",
+  "scope": "Read saved records and used observer implementation only; no re-execution or new process observations.",
+  "package_id": "de7eae326ff99ab4da1c28b0dca653e01da2c5abbc4ad8d1e6a9bf1d6211b988",
+  "status_commit": "150049a7442b5b383e9dd66ebb3e72c60dc9de35",
+  "saved_failure": {
+    "python_exception_type": "SnapshotFailure",
+    "python_exception_base": "RuntimeError",
+    "message": "Windows process snapshot unavailable (exit=1, stage=processes, category=0, hresult=-2146233088); no command lines retained",
+    "powershell_exit_code": 1,
+    "stage": "processes",
+    "category": 0,
+    "hresult": -2146233088,
+    "powershell_dotnet_exception_type": null,
+    "powershell_dotnet_exception_message": null,
+    "inner_exception_type": null,
+    "inner_exception_message": null,
+    "inner_hresult": null,
+    "native_error_code": null,
+    "operation_id": null,
+    "error_id_kind": null,
+    "unknown_reason": "Not retained in saved records; HRESULT alone does not establish an exception type or cause."
+  },
+  "saved_observation_attempts": [
+    {
+      "stage": "before_snapshot",
+      "exception": "SnapshotFailure",
+      "elapsed_seconds": 0.6294452
+    },
+    {
+      "stage": "after_snapshot",
+      "exception": "SnapshotFailure",
+      "elapsed_seconds": 0.4279978
+    }
+  ],
+  "saved_streams": {
+    "child_stdout_bytes": 0,
+    "child_stderr_bytes": 0,
+    "snapshot_subprocess_raw_stdout_saved": false,
+    "snapshot_subprocess_raw_stderr_saved": false,
+    "saved_observation_object_empty": true
+  },
+  "implementation_findings": {
+    "observer": "research/windows_validation_observer.py",
+    "powershell_executable_default": "powershell.exe",
+    "failure_stage_scope": "processes includes enumeration and row conversion; exact operation unknown because operation ID was not saved.",
+    "subprocess_stream_handling": "capture_output captures the snapshot subprocess streams in memory; raw streams are not written by this implementation.",
+    "exception_detail_handling": "SnapshotFailure.diagnostic retains finite numeric operation/type/inner/error/native IDs in memory. The saved wrapper records only exception type plus str(error); the phase journal records exception type and elapsed time.",
+    "bound_wrapper": "research/run-world-bounded.py",
+    "journal": "research/portable_phase_audit.py",
+    "files_sha256": {
+      "research/windows_validation_observer.py": "97d7405ff8771cf413f5e58c14ebea98037afb8a3691417d12e7b21d2d45fdd3",
+      "research/run-world-bounded.py": "10ef875f8157d85b44ecc28e868c2cc95330eb9b4c59ad22723840533fa8074c",
+      "research/portable_phase_audit.py": "5d32f06a3c932b8a72d41ac303e5be2483c4eaa838084510b5e9c28c336dd804"
+    }
+  },
+  "saved_environment": {
+    "execution_permission_mode": null,
+    "python_version": null,
+    "powershell_version": null,
+    "unknown_reason": "These fields were not captured in the saved stage records. No live version or permission queries performed."
+  },
+  "preserved_stop": {
+    "start_gate_released": false,
+    "packet_unpacked": false,
+    "cpu_tests": 0,
+    "sdk_calls": 0,
+    "gpu_calls": 0,
+    "driver_calls": 0,
+    "http_calls": 0,
+    "retry_count": 0,
+    "passed": false,
+    "preservation_verified": false,
+    "missing_process_count": null,
+    "service_status": "unverified",
+    "limit_query": null,
+    "original_claim_retained": true,
+    "original_failure_retained": true
+  },
+  "cause_assessment": {
+    "root_cause": "unknown",
+    "permission_failure_confirmed": false,
+    "same_cause_as_prior_seven_process_disappearance": "not_established",
+    "prior_missing_event_reinterpreted": false
+  },
+  "diagnosis_actions": {
+    "new_snapshot": 0,
+    "os_wmi_queries": 0,
+    "permission_changes": 0,
+    "sdk_calls": 0,
+    "files_modified_in_original_capture": 0
+  },
+  "preserved_original_files_checked": 13
+}

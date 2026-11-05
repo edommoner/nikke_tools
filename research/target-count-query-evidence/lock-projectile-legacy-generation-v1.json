@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "source": "world_lock_delivery_entry",
+      "old_golden": "portable-live-lock-delivery-v1-expected.json",
+      "generated_normalized": {
+        "cuda": "e39a566d9001544892b313e98852bf9887539c90e34110f011759e182fc3462e",
+        "metal": "535ca6dd7edb961a224c80f8addfc93d1d65384f967c57c9bd1eb7ba7e97d407"
+      }
+    },
+    {
+      "source": "world_lock_packet_entry",
+      "old_golden": "portable-lock-packet-bindings-v2-expected.json",
+      "generated_normalized": {
+        "cuda": "f2c620cb5d07e7030c6af03db87d99e27a7c00516013f44bb2889143fffa5707",
+        "metal": "99a056e146573bd4b42ddb40ae867ea5e71efec9b665657b62437d256d2dba79"
+      }
+    },
+    {
+      "source": "world_physical_lock_cover_entry",
+      "old_golden": "portable-physical-lock-cover-v3-expected.json",
+      "generated_normalized": {
+        "cuda": "36dc4bb04f6091b9933162ba4c4aa400b477416b114d7d65bbd553ebf57aeea8",
+        "metal": "994dffe260c4d39055b599cb514b92603952235f46011fb3849402fe002d4f65"
+      }
+    },
+    {
+      "source": "world_physical_locks_entry",
+      "old_golden": "portable-physical-generation-locks-v5-expected.json",
+      "generated_normalized": {
+        "cuda": "7e457c94fa1c1940a32ca57d3cf46c48125d75f87362a15940e63667b4773d8b",
+        "metal": "47a322a29d5fcc0b7099a71c6563d8d535e396647ea72cfdc6ca460f06d86025"
+      }
+    },
+    {
+      "source": "world_generation_locks_entry",
+      "old_golden": "portable-named-generation-locks-v6-expected.json",
+      "generated_normalized": {
+        "cuda": "9652988007f3118e31932d14a202f0c84dfa29ffd55ce56d3de2058cf4db2de7",
+        "metal": "7e2602ef2eafdc7bf35df1e3ecbd0e0f87845ce10834a6f69df9af3167261d7e"
+      }
+    }
+  ],
+  "gpu_calls": 0
+}

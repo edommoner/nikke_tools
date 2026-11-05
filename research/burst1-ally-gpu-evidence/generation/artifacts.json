@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "generated.cu.reflection.json",
+      "bytes": 415556,
+      "sha256": "e8ba84d9985924cb994674784ec6d10760400a18f1996cf53109e6b68de7cf60"
+    },
+    {
+      "path": "generated.metal.reflection.json",
+      "bytes": 415093,
+      "sha256": "24267df732b4fda279ba3a76f2c088a448156df36fbe3809a6c5d2cefd8f12b0"
+    },
+    {
+      "path": "generation-cache.json",
+      "bytes": 27363,
+      "sha256": "5022ae24a66bbda8e9e7cfd29e1dd05127ba6ea671f339caa428ba1106ecdd3d"
+    },
+    {
+      "path": "generation.json",
+      "bytes": 14188,
+      "sha256": "66b5b4eaa78539f50a8e00b0d74629db372f19ea79c13844eba2edaf30a1a934"
+    },
+    {
+      "path": "phases.jsonl",
+      "bytes": 28305,
+      "sha256": "362fa6acd3382a537f65f4dbc16429d56243c27ff06c537c800a2f9580806f07"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

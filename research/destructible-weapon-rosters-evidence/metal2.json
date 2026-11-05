@@ -1,0 +1,70 @@
+{
+  "package_id": "aeb6742a8f319fc7146843f14e832d3324c879798c36b115e9660d31d8c745be",
+  "comparison": {
+    "calculation_verified": true,
+    "entries": [
+      {
+        "name": "destructible-weapon-roster/Misato/3s",
+        "input_sha256": "214e60fec03bf758220db6cafcae25ca995dd899ff01268fde2fcc820b918f5b",
+        "output_sha256": "75e8379f0d0c13b806fa8a173748c8718f88dfd6215e54243c8c011a9f54c1f3",
+        "native_sha256": "871718ef8926f7612688b443535d288f13835e691455f069e03468e712834305"
+      },
+      {
+        "name": "destructible-weapon-roster/Misato/30s",
+        "input_sha256": "85b6433de9187314aa3c6785126848bf7d834f6c2ac72efa68bce0c09758ff0f",
+        "output_sha256": "7697d93cc94c49ad69e872e08586cbbbf9e884a126d52a7df6b2a8bcf4ae04d4",
+        "native_sha256": "5b9b024f98487613c13954cdf0cd13d32a583b9b1e87bee3063911f83c7eb7c6"
+      }
+    ],
+    "mismatches": [],
+    "input_count": 2,
+    "native_oracles": 2,
+    "input_sha256": "182eb790762bdb9664b9fa9962e07c9315b19883b2afe7ebfc2d1a0cae2d7ed5",
+    "output_sha256": "5ca151c183b24b9b50afcde2a4d4f5b59dc45ff34e932c4a45f99fa0db9c5e84",
+    "generated_normalized": {
+      "cuda": "fc1f6727d95d88e82093730b5ea3bc6cd9bfb292ff80acc96aa233e7db4654d6",
+      "metal": "04406371271dff43c1348fb0e0c38ff5c5d7946dd10b2dd329ea7da536b9b417"
+    },
+    "audit_gpu_calls": 0
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 2,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 1.75861745828297,
+    "input_bytes": 880900,
+    "library_compile_seconds": 0.006168961524963379,
+    "output_bytes": 8388608,
+    "pipeline_compile_seconds": 0.007626056671142578,
+    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "runtime_buffer_bytes": 277904,
+    "runtime_element_capacity": 2,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 138952,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "gpu_execution_verified": true,
+  "independent_seal": true,
+  "seal_sha256": "d57ceec9d66bad19df0f56166c407954a6ecb60d4052c79d013e8aaaa2d19c65",
+  "seal_gpu_calls": 0,
+  "new_gpu_dispatches": 1,
+  "identical_claim_retries": 0,
+  "phase": [
+    {
+      "stage": "shared_gpu_execute",
+      "state": "entered"
+    },
+    {
+      "stage": "shared_gpu_execute",
+      "state": "returned",
+      "elapsed_seconds": 2.645708125
+    }
+  ]
+}

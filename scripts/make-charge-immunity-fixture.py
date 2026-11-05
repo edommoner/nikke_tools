@@ -13,7 +13,7 @@ session=dict(format='nikke-tools-session-v1',snapshot=snapshot,profile=body['pro
     teams=[body['squad']],singleMode=True,raidCount=1,activeTeam=0,patches=body['patches'],deltas=body['stat_deltas'],
     settings={'duration':body['duration'],'level':400,'enemy-def':31784,'enemy-code':'풍압','core':50,'distance':25,
               'burst-policy':'rules','shooting-policy':'character','burst-gauge-mode':'accumulate',
-              'random-seed':12345,'detail-backend':'cuda_verified'})
+              'random-seed':12345,'detail-backend':'native_detail'})
 for kind,data in [('api',body),('ui',session)]:
     (ROOT/f'research/detail-charge-immunity-{kind}-fixture.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print('Created fictional Liberalio owned growth fixtures, core enabled; no omitted source skills')

@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-owner-lifecycle-metal-v1",
+  "raw_bytes": 715264000,
+  "raw_sha256": "c547151a3740c7d16be64e82320f69d06044caec709e303dc0ecaaac9c731201",
+  "evidence_sha256": "b46669c2fa5691b7d07d6b0b46d693581e5f1991dd73a1cbdeb54580556a383f",
+  "raw_inode": 511865124,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 1257,
+  "zero_range_bytes": 573636608,
+  "allocated_before": 715264000,
+  "allocated_after": 141627392,
+  "allocated_reclaimed": 573636608,
+  "full_hash_verified": true
+}

@@ -1,0 +1,801 @@
+{
+  "schema": "product-ammo-cover-v1",
+  "implementation_source": "23c4804415b579750af10a443ebc6ed75020057f",
+  "release_source": "95e04e51d8f0c325548a3b78da4c993245eda947",
+  "development_owner": "b58087fc3eb5ccb62364482b6e5dd896b3a5517c7d65ea59b170434ec841a32f",
+  "release_owner": "2b99db5dcbcf6fff1c7c03e23c14189a1872a21080fb543113d3c626fedf4b04",
+  "shared_contract": {
+    "input_words": 117656,
+    "output_words": 2048912,
+    "ammo_input": [
+      116464,
+      117632
+    ],
+    "cover_input": [
+      117632,
+      117656
+    ],
+    "cover_output_start": 2032000,
+    "existing_ammo_output_end": 2032000,
+    "bank_overlap": false,
+    "existing_state_scheduler_and_effect_operators_reused": true,
+    "cpu_state_or_schedule_supplied": false,
+    "all_original_effect_definitions_preserved": true,
+    "cpu_canonical_changed": false,
+    "numeric_tolerance_changed": false,
+    "normalizer_changed": false,
+    "new_suite_count": 0,
+    "declared_models_not_game_verification": true
+  },
+  "cli": {
+    "cpu_tests": [
+      {
+        "pattern": "test_portable_detail.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.450625957979355,
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 84008
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.2582085420144722,
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 84008
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.24910241697216406,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 84008
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "exit_code": 0,
+        "elapsed_seconds": 16.572538290987723,
+        "tests": 44,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 84008
+      }
+    ],
+    "run": {
+      "sealed": false,
+      "purpose": "development",
+      "calculation_verified": true,
+      "preservation_verified": null,
+      "passed": true,
+      "containment_verified": true,
+      "transport_verified": true,
+      "comparison_error": null,
+      "first_difference": null,
+      "phase": {
+        "events": 62,
+        "last_event": {
+          "elapsed_seconds": 17.543029875,
+          "monotonic_ns": 449849348574166,
+          "pid": 84038,
+          "stage": "shared_gpu_execute",
+          "state": "returned",
+          "wall_time_ns": 1793481293562476000
+        },
+        "timed_calls": [
+          {
+            "stage": "slang_generation_identity",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.128760709
+          },
+          {
+            "stage": "slang_compiler",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 1.342581875
+          },
+          {
+            "stage": "slang_compiler",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 1.592697625
+          },
+          {
+            "stage": "slang_reflection_plan",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.0024195
+          },
+          {
+            "stage": "slang_scope_snapshot_audit",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.014532125
+          },
+          {
+            "stage": "slang_reflection_plan",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.002101625
+          },
+          {
+            "stage": "slang_layout_assertions",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.007375417
+          },
+          {
+            "stage": "slang_scope_snapshot_audit",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.013086209
+          },
+          {
+            "stage": "slang_generation_validate_pair",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.029728875
+          },
+          {
+            "stage": "slang_generation_identity",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.128497917
+          },
+          {
+            "stage": "slang_generation_atomic",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.001547542
+          },
+          {
+            "stage": "slang_generation_read_entry",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.013079
+          },
+          {
+            "stage": "slang_reflection_plan",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.0022905
+          },
+          {
+            "stage": "slang_layout_assertions",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.007198542
+          },
+          {
+            "stage": "slang_scope_snapshot_audit",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.012062167
+          },
+          {
+            "stage": "slang_generation_validate_pair",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.027802083
+          },
+          {
+            "stage": "slang_generation_identity",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.128577375
+          },
+          {
+            "stage": "slang_generation_atomic",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.00065575
+          },
+          {
+            "stage": "slang_generation_atomic",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.000235083
+          },
+          {
+            "stage": "slang_generation_atomic",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.000592917
+          },
+          {
+            "stage": "slang_generation_atomic",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.000221209
+          },
+          {
+            "stage": "slang_generation_atomic",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.000155958
+          },
+          {
+            "stage": "slang_build",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 3.503612958
+          },
+          {
+            "stage": "slang_reflection_plan",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.002030375
+          },
+          {
+            "stage": "slang_layout_assertions",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.007165791
+          },
+          {
+            "stage": "slang_scope_snapshot_audit",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.011978
+          },
+          {
+            "stage": "slang_generation_validate_pair",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.027574084
+          },
+          {
+            "stage": "slang_reflection_plan",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 0.002014083
+          },
+          {
+            "stage": "shared_gpu_execute",
+            "pid": 84038,
+            "state": "returned",
+            "elapsed_seconds": 17.543029875
+          }
+        ],
+        "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retries": 0,
+      "audit_gpu_calls": 0
+    },
+    "fresh_independent_gpu_forbidden_receipt": {
+      "package_id": "b58087fc3eb5ccb62364482b6e5dd896b3a5517c7d65ea59b170434ec841a32f",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-ammo-cover-v1-20261101/cli-run-v1",
+      "child_pid": 84058,
+      "input_count": 1,
+      "native_cases": 1,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 1.562823957996443,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "2183f54d2ff5922a1a83e653e38cfeaaf7e1d2d28216b756a05ae2b399184c61",
+      "output_sha256": "3ec4f7e87bb4c7c2c4c7c50a7c77bdc31f073e79a940a77b867f739d037a57db",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "seal": {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-ammo-cover-v1-20261101/independent-seal-v1.json",
+      "sha256": "6bf7d58248c3cfd97a37d3d64f1480f3404b32f063a781d580a62399274c4804"
+    },
+    "old_registered_members_retained": 18,
+    "registered_fixed_member": true,
+    "registered_accumulate_member": false
+  },
+  "normal_api": [
+    {
+      "variant": "original-empty-world-fixed",
+      "duration": 30,
+      "squad": [
+        "벨벳",
+        "솔져 O.W.",
+        "미란다",
+        "도라",
+        "드레이크"
+      ],
+      "total_damage": 116357258,
+      "compute": {
+        "requested": "metal_detail",
+        "backend": "metal_detail",
+        "capture_id": "0b3e503de2f24493b15edca4dc40bd5a",
+        "device": "Apple M5",
+        "elapsed_ms": 3706.002624996472,
+        "gpu_execution_verified": true,
+        "input_sha256": "8d74120d905379bf0a8e8648aabf7c2fff9bf3eee3cde9e863fae275625e9f7d",
+        "output_sha256": "ff4fe68cea04bc11d1ffba8d4eca53298df47453151343c80e2ed164b121e44f",
+        "source": "gpu/product_ammo_cover_fixed_battle_entry.slang",
+        "scope": "shared autonomous battle; CPU verified for this request",
+        "gpu_seconds": 2.7275613750098273,
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        }
+      },
+      "incoming_hits": 0,
+      "cover_receipts": 0,
+      "ammo_charges": 0,
+      "ammo_attempts": 0,
+      "ammo_reloads": 0,
+      "nonzero_charge_transitions": [],
+      "app_warnings": [
+        "固定条件の静止ボスを仮定した参考値です。ボス固有パターンと生存は未検証です。"
+      ]
+    },
+    {
+      "variant": "original-empty-world-accumulate",
+      "duration": 30,
+      "squad": [
+        "벨벳",
+        "솔져 O.W.",
+        "미란다",
+        "도라",
+        "드레이크"
+      ],
+      "total_damage": 117037547,
+      "compute": {
+        "requested": "metal_detail",
+        "backend": "metal_detail",
+        "capture_id": "ac2068474d2445f694fef0f45fd92c6a",
+        "device": "Apple M5",
+        "elapsed_ms": 16735.891665972304,
+        "gpu_execution_verified": true,
+        "input_sha256": "e8e0c932f81e0293dbe492c699b453a6f1b33c0acbef4810bd982bc765115ac6",
+        "output_sha256": "114363e358eb9e437007a9289a6b5cbaea450e47e01efa84f091d05dc9dec000",
+        "source": "gpu/product_ammo_cover_battle_entry.slang",
+        "scope": "shared autonomous battle; CPU verified for this request",
+        "gpu_seconds": 2.7091037916834466,
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        }
+      },
+      "incoming_hits": 0,
+      "cover_receipts": 0,
+      "ammo_charges": 0,
+      "ammo_attempts": 0,
+      "ammo_reloads": 0,
+      "nonzero_charge_transitions": [],
+      "app_warnings": [
+        "固定条件の静止ボスを仮定した参考値です。ボス固有パターンと生存は未検証です。"
+      ]
+    },
+    {
+      "variant": "declared-magazine-incoming-fixed",
+      "duration": 30,
+      "squad": [
+        "벨벳",
+        "솔져 O.W.",
+        "미란다",
+        "도라",
+        "드레이크"
+      ],
+      "total_damage": 116357258,
+      "compute": {
+        "requested": "metal_detail",
+        "backend": "metal_detail",
+        "capture_id": "9b54c04e8caa4d449898132b5579113f",
+        "device": "Apple M5",
+        "elapsed_ms": 3684.8811660311185,
+        "gpu_execution_verified": true,
+        "input_sha256": "2a2275cef06556c5a4628af4dd7720f787ae676c1d0d2921d72c7f5c5cf563ec",
+        "output_sha256": "f15ba8b0681dd1a8687615c5bbcf84e041782745791836291545c9b4b83489ce",
+        "source": "gpu/product_ammo_cover_fixed_battle_entry.slang",
+        "scope": "shared autonomous battle; CPU verified for this request",
+        "gpu_seconds": 2.7530363333644345,
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        }
+      },
+      "incoming_hits": 90,
+      "cover_receipts": 18,
+      "ammo_charges": 3,
+      "ammo_attempts": 24,
+      "ammo_reloads": 8,
+      "nonzero_charge_transitions": [],
+      "app_warnings": [
+        "設定したボス行動で計算した参考値です。実機のギミックや生存の再現は未検証です。",
+        "宣言した独立遮蔽DEFモデルを使用しています。実ゲームの遮蔽基礎DEF・レベル曲線を確認した意味ではありません。 宣言した敵弾倉モデルを使用しています。実ゲームの弾数・再装填規則を確認した意味ではありません。"
+      ]
+    },
+    {
+      "variant": "declared-magazine-incoming-accumulate",
+      "duration": 30,
+      "squad": [
+        "벨벳",
+        "솔져 O.W.",
+        "미란다",
+        "도라",
+        "드레이크"
+      ],
+      "total_damage": 117037547,
+      "compute": {
+        "requested": "metal_detail",
+        "backend": "metal_detail",
+        "capture_id": "0a86180ccbec4d50a537a3922760eb19",
+        "device": "Apple M5",
+        "elapsed_ms": 3665.724041988142,
+        "gpu_execution_verified": true,
+        "input_sha256": "ffb048b4d40b2d82485d32bf5d22baedeec9f2bdd6be045f1cfd3e568c925a63",
+        "output_sha256": "f655867670cdce95300625820d51c82466f130fb67944f7d2a54c08169928e1c",
+        "source": "gpu/product_ammo_cover_battle_entry.slang",
+        "scope": "shared autonomous battle; CPU verified for this request",
+        "gpu_seconds": 2.7335603749961592,
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        }
+      },
+      "incoming_hits": 90,
+      "cover_receipts": 18,
+      "ammo_charges": 3,
+      "ammo_attempts": 24,
+      "ammo_reloads": 8,
+      "nonzero_charge_transitions": [],
+      "app_warnings": [
+        "設定したボス行動で計算した参考値です。実機のギミックや生存の再現は未検証です。",
+        "宣言した独立遮蔽DEFモデルを使用しています。実ゲームの遮蔽基礎DEF・レベル曲線を確認した意味ではありません。 宣言した敵弾倉モデルを使用しています。実ゲームの弾数・再装填規則を確認した意味ではありません。"
+      ]
+    },
+    {
+      "variant": "nonzero-declared-magazine-incoming-fixed",
+      "duration": 30,
+      "squad": [
+        "벨벳",
+        "솔져 O.W.",
+        "미란다",
+        "도라",
+        "드레이크"
+      ],
+      "total_damage": 116357258,
+      "compute": {
+        "requested": "metal_detail",
+        "backend": "metal_detail",
+        "capture_id": "a2d59ed5d2544537918f1fc415b1719a",
+        "device": "Apple M5",
+        "elapsed_ms": 3679.371916980017,
+        "gpu_execution_verified": true,
+        "input_sha256": "3a1352d8ed11920b8d7f303f12236616eef822d6968be12d3f38022de30ea0c2",
+        "output_sha256": "a2298cd3e5e09f8ea31fc0e3dc5180f08017f8b93c4f99f1e700f7834f51084e",
+        "source": "gpu/product_ammo_cover_fixed_battle_entry.slang",
+        "scope": "shared autonomous battle; CPU verified for this request",
+        "gpu_seconds": 2.7615001249941997,
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        }
+      },
+      "incoming_hits": 120,
+      "cover_receipts": 27,
+      "ammo_charges": 3,
+      "ammo_attempts": 24,
+      "ammo_reloads": 0,
+      "nonzero_charge_transitions": [
+        {
+          "time": 0,
+          "before": 100,
+          "after": 95
+        },
+        {
+          "time": 2.9999999999999942,
+          "before": 91,
+          "after": 86
+        },
+        {
+          "time": 21.18333333333341,
+          "before": 68,
+          "after": 63
+        }
+      ],
+      "app_warnings": [
+        "設定したボス行動で計算した参考値です。実機のギミックや生存の再現は未検証です。",
+        "宣言した独立遮蔽DEFモデルを使用しています。実ゲームの遮蔽基礎DEF・レベル曲線を確認した意味ではありません。 宣言した敵弾倉モデルを使用しています。実ゲームの弾数・再装填規則を確認した意味ではありません。"
+      ]
+    },
+    {
+      "variant": "nonzero-declared-magazine-incoming-accumulate",
+      "duration": 30,
+      "squad": [
+        "벨벳",
+        "솔져 O.W.",
+        "미란다",
+        "도라",
+        "드레이크"
+      ],
+      "total_damage": 117037547,
+      "compute": {
+        "requested": "metal_detail",
+        "backend": "metal_detail",
+        "capture_id": "994ac5ca18fe485aa46c28753683156d",
+        "device": "Apple M5",
+        "elapsed_ms": 3651.5115840011276,
+        "gpu_execution_verified": true,
+        "input_sha256": "3d3257d448ffd700ed0d852514786632242a15a0138362c3b2edcc29a76eee8e",
+        "output_sha256": "8f48c68ae923d9cda9ad4da1ceb6013785d9ad3bb43f5aac3653429277e093e7",
+        "source": "gpu/product_ammo_cover_battle_entry.slang",
+        "scope": "shared autonomous battle; CPU verified for this request",
+        "gpu_seconds": 2.7363954582833685,
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        }
+      },
+      "incoming_hits": 120,
+      "cover_receipts": 27,
+      "ammo_charges": 3,
+      "ammo_attempts": 24,
+      "ammo_reloads": 0,
+      "nonzero_charge_transitions": [
+        {
+          "time": 0,
+          "before": 100,
+          "after": 95
+        },
+        {
+          "time": 3.816666666666658,
+          "before": 91,
+          "after": 86
+        },
+        {
+          "time": 22.000000000000032,
+          "before": 67,
+          "after": 62
+        }
+      ],
+      "app_warnings": [
+        "設定したボス行動で計算した参考値です。実機のギミックや生存の再現は未検証です。",
+        "宣言した独立遮蔽DEFモデルを使用しています。実ゲームの遮蔽基礎DEF・レベル曲線を確認した意味ではありません。 宣言した敵弾倉モデルを使用しています。実ゲームの弾数・再装填規則を確認した意味ではありません。"
+      ]
+    }
+  ],
+  "saved_audits": [
+    {
+      "rows": [
+        {
+          "index": 0,
+          "profile": "벨벳 + 솔져 O.W.",
+          "favorite_stage": 0,
+          "capture": "0b3e503de2f24493b15edca4dc40bd5a",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 1,
+          "profile": "벨벳 + 솔져 O.W.",
+          "favorite_stage": 0,
+          "capture": "ac2068474d2445f694fef0f45fd92c6a",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 2,
+          "profile": "벨벳 + 솔져 O.W.",
+          "favorite_stage": 0,
+          "capture": "9b54c04e8caa4d449898132b5579113f",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 3,
+          "profile": "벨벳 + 솔져 O.W.",
+          "favorite_stage": 0,
+          "capture": "0a86180ccbec4d50a537a3922760eb19",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        }
+      ],
+      "audited": 4,
+      "native_battle_calls": 0,
+      "gpu_calls": 0
+    },
+    {
+      "rows": [
+        {
+          "index": 0,
+          "profile": "벨벳 + 솔져 O.W.",
+          "favorite_stage": 0,
+          "capture": "a2d59ed5d2544537918f1fc415b1719a",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 1,
+          "profile": "벨벳 + 솔져 O.W.",
+          "favorite_stage": 0,
+          "capture": "994ac5ca18fe485aa46c28753683156d",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        }
+      ],
+      "audited": 2,
+      "native_battle_calls": 0,
+      "gpu_calls": 0
+    }
+  ],
+  "historical_generation_preservation": {
+    "before_source": "eeea5606",
+    "after_source": "23c48044",
+    "scope": "Generated bytes only; no historical capture owner promotion or new calculation proof",
+    "rows": [
+      {
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "generated": {
+          "cuda": {
+            "before_sha256": "cf0936f484e290228269f6e1beb34c7b5fff2c72f274793b64c64b089efc2c9f",
+            "after_sha256": "cf0936f484e290228269f6e1beb34c7b5fff2c72f274793b64c64b089efc2c9f",
+            "bytes": 2322518,
+            "identical": true
+          },
+          "metal": {
+            "before_sha256": "4c81c20172587672c4865bfe3f4753a1f5227600dec9861c3f7c0833ea8b7cd6",
+            "after_sha256": "4c81c20172587672c4865bfe3f4753a1f5227600dec9861c3f7c0833ea8b7cd6",
+            "bytes": 2461625,
+            "identical": true
+          }
+        }
+      },
+      {
+        "source": "gpu/product_ammo_battle_entry.slang",
+        "generated": {
+          "cuda": {
+            "before_sha256": "bb74361ae86d4413f47b6f3b8d78c871736b6422658a98afa9c2d613b62bf1ea",
+            "after_sha256": "bb74361ae86d4413f47b6f3b8d78c871736b6422658a98afa9c2d613b62bf1ea",
+            "bytes": 2320831,
+            "identical": true
+          },
+          "metal": {
+            "before_sha256": "4600a4188c1c391910d98839fbbaec49e6b037ee8463f8a6a52182bf8813320b",
+            "after_sha256": "4600a4188c1c391910d98839fbbaec49e6b037ee8463f8a6a52182bf8813320b",
+            "bytes": 2459672,
+            "identical": true
+          }
+        }
+      },
+      {
+        "source": "gpu/product_cover_fixed_battle_entry.slang",
+        "generated": {
+          "cuda": {
+            "before_sha256": "516bcc274bb1349341facfab5ee84c8986ed644ffefac3ae45c38a3da08f4086",
+            "after_sha256": "516bcc274bb1349341facfab5ee84c8986ed644ffefac3ae45c38a3da08f4086",
+            "bytes": 2297020,
+            "identical": true
+          },
+          "metal": {
+            "before_sha256": "5a409a1aeb2a48140da7cb771568d40cb4b4b886b268a319de86c38d4e1c2c08",
+            "after_sha256": "5a409a1aeb2a48140da7cb771568d40cb4b4b886b268a319de86c38d4e1c2c08",
+            "bytes": 2434395,
+            "identical": true
+          }
+        }
+      },
+      {
+        "source": "gpu/product_healing_cover_fixed_battle_entry.slang",
+        "generated": {
+          "cuda": {
+            "before_sha256": "08913f927fd81697d6b2cb1198efe24ac8d12b71aa4ea092e2fc4db5dc3c8101",
+            "after_sha256": "08913f927fd81697d6b2cb1198efe24ac8d12b71aa4ea092e2fc4db5dc3c8101",
+            "bytes": 2314496,
+            "identical": true
+          },
+          "metal": {
+            "before_sha256": "52ef58de2873126d8f0547a0aea23e1eeb2b451a9b6ce4c6d17ce85285743067",
+            "after_sha256": "52ef58de2873126d8f0547a0aea23e1eeb2b451a9b6ce4c6d17ce85285743067",
+            "bytes": 2452494,
+            "identical": true
+          }
+        }
+      }
+    ],
+    "gpu_calls": 0,
+    "native_battle_calls": 0,
+    "cuda_sdk_calls": 0
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "2b99db5dcbcf6fff1c7c03e23c14189a1872a21080fb543113d3c626fedf4b04",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=sm_86",
+      "--fmad=false",
+      "--ptxas-options",
+      "-O1"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "windows": {
+    "additional_requests": 0,
+    "additional_sdk_calls": 0,
+    "additional_gpu_calls": 0,
+    "current_cuda_calculation_verified": false,
+    "reason": "Existing corrected Poli object has unresolved process disappearance and fails its own link observation gate; no retry or bypass"
+  },
+  "coverage": {
+    "last_full_standard_metal_profiles": 262,
+    "total_standard_profiles": 266,
+    "strict_standard_cuda_profiles": 3,
+    "new_standard_profiles": 0,
+    "new_normal_product_composition_conditions": 6,
+    "full_goal_complete": false
+  },
+  "packaging_failure": {
+    "initial_archive_created": false,
+    "reason": "Output parent directory absent; no execution claim or GPU call; parent created before second package command",
+    "development_native_seconds_before_failure": 0.3018856249982491
+  },
+  "cleanup": {
+    "cli_and_seal_terminal": true,
+    "api_coordinators_terminal": true,
+    "owned_server_sessions": [
+      77740,
+      31398
+    ],
+    "owned_server_exit_codes": [
+      130,
+      130
+    ],
+    "user_servers_modified": false
+  },
+  "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-ammo-cover-v1-20261101",
+  "remaining": [
+    "Four default geometry/delivery-dependent profiles remain conditional; no inferred defaults",
+    "Other effect/model compositions and current-source complete catalogue verification",
+    "Actual CUDA product coverage and common batching remain incomplete"
+  ]
+}

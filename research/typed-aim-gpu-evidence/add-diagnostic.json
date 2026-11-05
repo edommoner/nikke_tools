@@ -1,0 +1,65 @@
+{
+  "case": "coordinate-typed-aim/adds-first",
+  "gpu_status": 0,
+  "native_targets": {
+    "__enemy__:adds#1": 105
+  },
+  "gpu_target_slot_kind_counts": {},
+  "canonical_bindings": [
+    {
+      "slot": 0,
+      "kind": 0,
+      "label": "__enemy__"
+    },
+    {
+      "slot": 1,
+      "kind": 5,
+      "label": "__enemy__:adds#1"
+    }
+  ],
+  "native_last_aim": [
+    {
+      "point": [
+        0.0,
+        0.0
+      ],
+      "target": "__enemy__:*"
+    },
+    {
+      "point": [
+        0.0,
+        0.0
+      ],
+      "target": "__enemy__:*"
+    },
+    {
+      "point": [
+        0.0,
+        0.0
+      ],
+      "target": "__enemy__:*"
+    },
+    {
+      "point": [
+        0.0,
+        0.0
+      ],
+      "target": "__enemy__:*"
+    },
+    {
+      "point": [
+        0.0,
+        0.0
+      ],
+      "target": "__enemy__:*"
+    }
+  ],
+  "gpu_last_aim_ids": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "scope": "Saved failed capture diagnostic; source/golden unchanged, GPU0"
+}

@@ -1,0 +1,35 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "partial-query-post-hit-mutation",
+      "input_sha256": "97095a7a1a736e114020f6dae31d5558a7349cd27b28b77999c49c5829c62f94",
+      "output_sha256": "46e297fbf57557f3cdba001de957221aea413a562b10d1029d9fe58452dd2d69",
+      "native_sha256": "f279f15390ea72f7d1fb3abb3c45ac8e165352ec179a38bd4565dbfe495b845d"
+    },
+    {
+      "name": "partial-query-callback-mode",
+      "input_sha256": "3ed0c2118d383d8009d9d665f3a0824e7a03152a3e6d5ba473aceaef345461ad",
+      "output_sha256": "687b538898ae1eaae0032bacf5c6e11d2a05016c46f3d677c2344a49d4d2ea5c",
+      "native_sha256": "6f626730731fec689fe5f78e3c63266f19d2574b77033828371051db58f1024e"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 2,
+  "native_oracles": 2,
+  "input_sha256": "ba9642e9340ae5db31b2e1e8eaa24111c5df51b19b65e80f0df36df1dc43e5da",
+  "output_sha256": "21e65b5017f2fa490537166e4bbdb56f388c8032f59b2c7c8dd6c148b445f9b2",
+  "generated_normalized": {
+    "cuda": "5d9ac3f3e69cf08c7ff699f87b36b8f0c96e4f5b465a0130f0e4396cc49e7955",
+    "metal": "6e7301c688c60f46d4100e641f9c9c36a65f452e9d03a5bb0cd2ead9df4663ff"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 2,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

@@ -5,8 +5,6 @@ from datetime import datetime,timezone
 from collections import defaultdict
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
-from gpu_selector import Cuda
-from detail_gpu import run
 from detail_coverage import body_for
 spec=importlib.util.spec_from_file_location('time_stack_oracle',ROOT/'scripts/verify-stackops-detail.py');base=importlib.util.module_from_spec(spec);spec.loader.exec_module(base)
 E=base.E;NAMES=base.NAMES;oracle=base.oracle;periodic=base.periodic
@@ -70,48 +68,3 @@ def full_scenarios():
  yield 'full-burst-recipient-targets-outside-boundaries',{n[0]:[E('all casts','buff','atk_pct',7,'all_allies_burst_casted',event='on_attack_count:3',duration=25,max_stack=3),E('b3 casts','buff','crit_dmg',11,'allies_burst_casted_burst3',event='on_attack_count:5',duration=25,max_stack=2)]},30
 
 # Independent CPU observations verify effective periodic changes, never GPU input.
-def compare(device,name,body,backend,effects=None,require_change=False,require_owner=None):
- from calculator.buff_manager import BuffManager
- tick=BuffManager.tick;seen=defaultdict(set)
- def tracked(manager,t):
-  result=tick(manager,t)
-  for eff,owner in manager._effects:
-   current=manager._next_fire.get(id(eff))
-   if current:seen[owner+' / '+eff.get('name','')].add(round(current[1],9))
-  return result
- if effects is None:
-  with patch.object(BuffManager,'tick',tracked):c=periodic.full.compare(device,name,body,module_backend=backend)
- else:
-  with periodic.custom_effects(effects),patch.object(BuffManager,'tick',tracked):c=periodic.full.compare(device,name,body,module_backend=backend)
- c['cpu_observed_periods']={k:sorted(v) for k,v in seen.items()};c['backend']=backend
- if require_change:c['passed'] &= any(len(v)>1 for k,v in seen.items() if require_owner is None or k.startswith(require_owner+' / '))
- return c
-
-def verify(device,backend='auto',include_real=True):
- cases=[]
- for name,p,script,checks in primitives():
-  bs={n:{'atk':100000+i*10000,'hp':1000000,'def':1000} for i,n in enumerate(NAMES)};cpu,totals=oracle.oracle(p,script,[31784,50],bs);gpu=run(device,[p],script,[[31784,50]],[bs],module_backend=backend);errors=[]
-  for i,(x,y,expected) in enumerate(zip(cpu,gpu['queries'][0],checks)):
-   for key,value in [(0,expected[2]),(37,expected[3])]:
-    if x[key]!=value or y[key]!=value:errors.append([i,'expected',key,value,x[key],y[key]])
-   for key in list(range(32))+[36,37]:
-    if not math.isclose(x[key],y[key],rel_tol=1e-12,abs_tol=1e-8):errors.append([i,key,x[key],y[key]])
-  c={'name':name,'passed':not errors and totals==gpu['totals'][0],'errors':errors,'backend':backend};cases.append(c);print(json.dumps(c),flush=True)
- for name,effects,seconds in full_scenarios():
-  c=compare(device,name,body_for(periodic.NAMES,seconds,True),backend,effects,require_change='phase' in name);cases.append(c);print(json.dumps({'name':name,'passed':c['passed'],'cpu':c['cpu_total'],'gpu':c['gpu_total']}),flush=True)
- if include_real:
-  old=json.loads((ROOT/'research/detail-coverage-stackops.json').read_text(encoding='utf-8'));now=json.loads((ROOT/'research/detail-coverage-time.json').read_text(encoding='utf-8'));was={r['character'] for r in old['results'] if r['supported']}
-  for r in now['results']:
-   name=r['character']
-   if not r['supported'] or name in was:continue
-   names=[name]+[n for n in NAMES if n!=name][:4];c=compare(device,'real-'+name,body_for(names,60,True),backend,require_change=name=='에이다');cases.append(c);print(json.dumps({'name':name,'passed':c['passed'],'cpu':c['cpu_total'],'gpu':c['gpu_total']},ensure_ascii=True),flush=True)
-  names=['아르카나','이사벨','루주','마스트 : 로망틱 메이드','도라'];c=compare(device,'real-arcana-isabel-effective-period',body_for(names,60,True),backend,require_change=True,require_owner='이사벨');cases.append(c);print(json.dumps({'name':c['name'],'passed':c['passed'],'cpu':c['cpu_total'],'gpu':c['gpu_total']}),flush=True)
- return cases
-
-if __name__=='__main__':
- d=Cuda()
- try:cases=verify(d,'native')+verify(d,'ptx')
- finally:d.close()
- files=['app/detail_gpu.py','app/detail_effects.cu','app/detail_effects.ptx','app/detail_effects-build.json','app/detail_effects-sm86.cubin','app/detail_effects-sm86.json','scripts/verify-time-detail.py']
- r={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':all(c['passed'] for c in cases),'cpu_trace_used_as_gpu_input':False,'scope':'authored lifetimes/clocks, independent full squads, and newly accepted real squads in static-boss mode; not all effects/characters/combinations','cases':cases,'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files}}
- (ROOT/'research/detail-time-verification.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');raise SystemExit(0 if r['passed'] else 1)

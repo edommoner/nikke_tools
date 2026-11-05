@@ -1,0 +1,266 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "reject/duration-scaling-key",
+      "input_sha256": "6eac38f595354f087d63517c70f76f1c1f87a8ac9e5d4bf579beefa7a3f69284",
+      "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/duration-scaling-name",
+      "input_sha256": "911545ddc1fd3611a47be3949a470a7feeb91b43d2f9b86e96b0b10370b42c28",
+      "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/duration-scaling-reserved",
+      "input_sha256": "b9268b469387f1b6b85a5e050c4b29562eba427a39bef6ad55a2fb25a590b67f",
+      "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/duration-scaling-kind",
+      "input_sha256": "0cb3cdf8fdc02d2ea867a6da7e3e81ee93d96f6924adcaedd8f7f89e83921244",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/duration-scaling-duration-nan",
+      "input_sha256": "1e09e055eb0b28396c745c6fabeb9db7ec73d4850eaef903f444ddc58ae9d111",
+      "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/duration-scaling-no-world",
+      "input_sha256": "fe7148cdb01b799326bb2198d7e156aea8a86355cce6889c2bae909efad4f389",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/duration-scaling-no-combat",
+      "input_sha256": "789b6a554e78a375a072678ec4b030b06371843995602d07f7e7ac5c1a6280a3",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "duration-scaling-three",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 1,
+      "name": "duration-scaling-one",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 2,
+      "name": "duration-scaling-missing",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 3,
+      "name": "duration-scaling-empty-reference",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 4,
+      "name": "duration-scaling-zero-duration",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 5,
+      "name": "duration-scaling-negative-finite-duration",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 6,
+      "name": "duration-scaling-infinite-sentinel",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 7,
+      "name": "duration-scaling-infinite-absent",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 8,
+      "name": "duration-scaling-fractional-duration",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 9,
+      "name": "duration-scaling-gauge-zero",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 10,
+      "name": "duration-scaling-gauge-fraction",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 11,
+      "name": "duration-scaling-zero-gauge-shadows-stack",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 12,
+      "name": "duration-scaling-last-owner",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 13,
+      "name": "duration-scaling-caster-local",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 14,
+      "name": "duration-scaling-growing-before",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 15,
+      "name": "duration-scaling-growing-after",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 16,
+      "name": "duration-scaling-ref-expired",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 17,
+      "name": "duration-scaling-self-reference-before-increment",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 18,
+      "name": "duration-scaling-value-scaling-independent",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 19,
+      "name": "duration-scaling-level-duration",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 20,
+      "name": "duration-scaling-explicit-duration-precedes-level",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 21,
+      "name": "duration-scaling-two-independent-definitions",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 22,
+      "name": "duration-scaling-same-name-alias-source-duration",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 23,
+      "name": "duration-scaling-same-name-alias-distinct-reference",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 24,
+      "name": "duration-scaling-stealth",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 25,
+      "name": "duration-scaling-stun",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 26,
+      "name": "duration-scaling-allied-target",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 27,
+      "name": "duration-scaling-real/레이블/3s/baseline",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 28,
+      "name": "duration-scaling-real/레이블/3s/shield-break",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 29,
+      "name": "duration-scaling-real/레이블/30s/baseline",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 30,
+      "name": "duration-scaling-real/레이블/30s/shield-break",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 31,
+      "name": "duration-scaling-mixed-passive-finite",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 32,
+      "name": "duration-scaling-mixed-passive-ref-expired",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 33,
+      "name": "duration-scaling-mixed-passive-zero-gauge",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 34,
+      "name": "duration-scaling-mixed-source-decay",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 35,
+      "name": "duration-scaling-mixed-source-zero-shadows-stack",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 36,
+      "name": "duration-scaling-mixed-gauge-zero-shadows-source",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 37,
+      "name": "duration-scaling-mixed-source-caster-local",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 38,
+      "name": "duration-scaling-mixed-stack-operation-raw-refresh",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 39,
+      "name": "duration-scaling-mixed-colon-reference",
+      "reason": "AssertionError: "
+    }
+  ],
+  "input_count": 47,
+  "native_oracles": 40,
+  "input_sha256": "6165cd6a71b193268f169bc160a1278491393900eb33ef91fef36f6d77d785a1",
+  "output_sha256": "7b5a0c79aaabf062773d6e4667c17d9d4bb4a1ad6678c74c0659e79cc58ab3d6",
+  "generated_normalized": {
+    "cuda": "a828f82f4ce7e3a928afb79bc9398df732fb048ea03e50a97bf6e4f634667704",
+    "metal": "14d315b49a9f5c62b67e5accd1710c7a8fe4b3604d06abb2c8657a64e6aa0663"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 0,
+    "fresh_native_cases": 40,
+    "rejection_cases": 7,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

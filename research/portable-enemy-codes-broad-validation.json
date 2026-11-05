@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "source_commit": "dd7d62b98a63f9fa99892dd964809775b136a9d6",
+  "mac_gates": 29,
+  "unit_tests": 212,
+  "real_profiles": 86,
+  "old_profiles_preserved": 84,
+  "all_source_frozen": true,
+  "full_character_verified": 0
+}

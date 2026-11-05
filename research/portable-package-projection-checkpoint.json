@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "goal_complete": false,
+  "change": "opt-in selected-suite immutable Python payload projection",
+  "base_commit": "47b3ee2b5a66909db91df00710d035dd24e32a94",
+  "packages": {
+    "full": {
+      "package_id": "42a8803ba8645e992050d957a1b6a8d262fd5c6408dfe545ea8e52bb334e5764",
+      "files": 2795,
+      "bytes": 8459705,
+      "sha256": "0d79a8935ad7df9df8a871dabaf130d710302368e77f35a727aee9ffa5441ddd"
+    },
+    "compact": {
+      "package_id": "4ed53fa49af73f9f1c468b2ff33ae48fc78c13b613451bb1e74737a6a59a7337",
+      "files": 1550,
+      "bytes": 6394966,
+      "sha256": "6d94a8812e847cde7d3aa1b2e63b07c3f516cc4ac74148c8ad1f6bc7b0f627b8"
+    }
+  },
+  "proofs": {
+    "gpu_sources_and_math_unchanged": true,
+    "all_retained_bytes_and_records_exact": true,
+    "golden_exact": true,
+    "cpu_tests": 43,
+    "input_count": 157,
+    "native_oracles": 102,
+    "cpu_seconds": 8.254958166973665,
+    "cpu_batch_seconds": 48.51985512499232,
+    "controller_tests": 372,
+    "controller_skipped_windows_only": 1,
+    "controller_groups": 37,
+    "controller_seconds": 6.3932351670227945,
+    "generation_required_hit": true,
+    "additional_slang_calls": 0,
+    "saved_metal_replay_inputs": 2,
+    "additional_gpu_calls": 0,
+    "windows_commands": 0
+  },
+  "coverage": {
+    "packing": 245,
+    "profiles": 266,
+    "base": 185,
+    "base_profiles": 203,
+    "model_gap_categories": 20,
+    "full_character_certifications": 0,
+    "ui": "cpu",
+    "current_full_battle_cuda_verified": false,
+    "previous_windows_process_exit_cause": "unknown",
+    "environment_preservation_verified": false
+  },
+  "windows_speed_verified": false,
+  "historical_generation_fixture_preserved": true,
+  "evidence_manifest_sha256": "8be43ad64e4d039df920ecb79d41eaf60787deb99df1177cac384cade592368f",
+  "next": [
+    "positive AoE burst flags with shield mixtures",
+    "piercing/lifesteal/accumulation mixtures in the common Frame",
+    "CPU-only bounded Windows preparation timing before any new compile decision"
+  ]
+}

@@ -1,0 +1,367 @@
+{
+  "schema": 1,
+  "stage": "cpu-native-contract",
+  "suite": "heal-share",
+  "status": "native20_verified_gpu_not_admitted",
+  "package": {
+    "package_id": "f4d1576f9d9cc6a2335787935b2e0087decaa1b002ea3db2cc092a1df71f7cae",
+    "files": 1959,
+    "bytes": 5289781,
+    "archive_sha256": "c04d7dfac3ba77a1dd70414e28d21e951ddb511b44cb59dea00e547dba974805",
+    "source_commit": "e630078800caa29779ba277a4f258fdab7eb7d25"
+  },
+  "reference": {
+    "cpu_reference_verified": true,
+    "calculation_verified": false,
+    "gpu_supported": false,
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "packing_calls": 0,
+    "case_count": 20,
+    "elapsed_seconds": 2.222815042012371
+  },
+  "cases": [
+    {
+      "name": "heal-share-no-link",
+      "input_sha256": "4e4a68cbd16880b15044db1ff30dca81434bd0c6396250ddf5484f7be67452cc",
+      "native_sha256": "953db597704d389b33cd5e583c09b82fc206c2b52e423b3d606ec327659753a9",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 1,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-presence-0",
+      "input_sha256": "50f87db1a093b8a373919ebb597d31ab90d7d9b537b65e36ad1022d202c1edf9",
+      "native_sha256": "b3c77426e8a0a01c9936e68b6ae65ef418ab5e757e791bc440a6819632c2b05c",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-presence-1",
+      "input_sha256": "971bb323ff05ab04222cbcea9c4a3cd7c4a577a8e94bc7f985d806193d89a1e4",
+      "native_sha256": "b3c77426e8a0a01c9936e68b6ae65ef418ab5e757e791bc440a6819632c2b05c",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-presence--7",
+      "input_sha256": "5987366c58643c8ad5cf2801da0d10197ad904bfcb36016259286603c2b5bc27",
+      "native_sha256": "b3c77426e8a0a01c9936e68b6ae65ef418ab5e757e791bc440a6819632c2b05c",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-same-owner-two-carriers",
+      "input_sha256": "2d270a7a35890eb483066048eca349531587e3bb436b5f2c0c48b5cd1bdbcdfa",
+      "native_sha256": "ec6cd564bbf59c8a9c924f55e0c2bbb479c1c8b75033ee8fb38eebfdd0e3192e",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-self-two-carriers",
+      "input_sha256": "6a21e9af98b121aa513cdeb63d6948786fc5871dd1887ccb6afbd08caa786a6e",
+      "native_sha256": "e2c9f1e4bed5d8745a98a1ea5c7d0d23c48a13d656674533a7490949aaff238f",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 1,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-overlap-ranked",
+      "input_sha256": "64d5e03b07fa9bb08f03e1cea93806df7a037434c9fb7c8ba53aed173d0b2fe5",
+      "native_sha256": "12135142207ca748f9b2b4f223b21407dff8dc8be26d3e5362ffa0799162bd2e",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 3,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-chain-connectivity",
+      "input_sha256": "8bc127f4427ee868b874726ac3f5d5411fe3caeee3eeadc6adaaf04b76067065",
+      "native_sha256": "121918b2d1178a02b374d45321e5b601a8bcf285618bd1b9306289d2531fe7b0",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-duplicate-authored-members",
+      "input_sha256": "1dac3bd493a9f6d03445da7f4ad5e0e4992375fc3fba177bab1437d7cb7e3b6f",
+      "native_sha256": "3883e31bd6c80da9ae7eb246d533fbc185089a775d339258accaebe86ff787f2",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 2,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-full-member-not-redistributed",
+      "input_sha256": "0802a2abd4cdbbb54298163bfc4da52e93bd9e04deed6b7d77fa653334233da5",
+      "native_sha256": "774fec78f7f9952ff9a177dd3ee5c022330b2f3a8af8490142f8e429c7ce0dc4",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-full-member-storage",
+      "input_sha256": "96055633e8b99933913a5e9b29f04c8d1184eb815ba0ec0dc12e990a7b58e7f5",
+      "native_sha256": "d3c3a82e7b4cb125a2c06db7da289982468a9bb19ae105ab10961195b0cbb89e",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-recipient-multiplier-once",
+      "input_sha256": "3ad20a1120ceaef86acba4407df48a0b55b692566b4308a165b4d881b128eab8",
+      "native_sha256": "62f0b5fc00b531dbb22c4dc5149360734e168831b0666e0cfa0e34dc9fa70905",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-all-original-recipients",
+      "input_sha256": "0529ae5b51bd168fc0df9d7705b51436ec405c84e448a42106f8f7b4bf6b59c4",
+      "native_sha256": "118cf183dc5adc1a02faa8bbc1810b8a502f81df9632082196e48c1cf6a6c962",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 5,
+        "original_heals": 5,
+        "portions": 25,
+        "original_notifications": 5
+      }
+    },
+    {
+      "name": "heal-share-negative-not-shared",
+      "input_sha256": "986465e777a494feeb5d61eafae9b5108a69622d3fedebf8bc0a2c8c89a2c3fe",
+      "native_sha256": "229857ab6722da1fdf1b2657de14a47d89d911ebffe17d7cbef2a2a33a466c3c",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 0,
+        "original_heals": 1,
+        "portions": 1,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-zero-not-shared",
+      "input_sha256": "6e17fd6f3c872c6c1988ed2f2b75716ce939ea6ef5256f14772db4477d87c2ce",
+      "native_sha256": "67e51bda50f6139308c4938de8dcbe62026e1b9fbeb1fc355fa3716017d96955",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 0,
+        "original_heals": 1,
+        "portions": 1,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-expired-link",
+      "input_sha256": "2414e3556121035aaaee4d022f863270d5cbbed084b70109e9838cb4d324537f",
+      "native_sha256": "4cc9a078bdc33af30e30bce9443e01901d3678d64228892b6bee8db66cff4850",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 1,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-down-member-excluded",
+      "input_sha256": "af2c60d770606d702fc4d0a97f717548c971ad855887eed3ba82d5ca34435ef1",
+      "native_sha256": "e795a522d9272589a291acdf08d13d397868367e4df6ad510c84aefb74f99a6c",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 4,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-stack-count-does-not-weight",
+      "input_sha256": "a5f0427bf09e5d4ad126e0d7c3570c47c8bc4ff8fc7a881f600b965b38b2e673",
+      "native_sha256": "0b62cb78c82238d81ac544368b992976aa36358866ec656da7aa9021ed57e0c6",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-adjacent-full-edges",
+      "input_sha256": "cec2b50cbc88566f260d21a004fd1577a7f6c6755017fb9d94bedd3495babc42",
+      "native_sha256": "b08d6125b2cb2249751caa0067a57e6a08cd53c86e1eb084995f044cedcaeab2",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-nested-mask-snapshot",
+      "input_sha256": "bad2b3716bde8cd54ace64844342dead25aeac4c3ca42eeffc6ed1fd4fa46df5",
+      "native_sha256": "a25f21ec56976267df2fdc971801ad08b750e3699e635eed119463b1a351ea6c",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 2,
+        "original_heals": 2,
+        "portions": 6,
+        "original_notifications": 2
+      }
+    }
+  ],
+  "tests": {
+    "focused": {
+      "passed": 7,
+      "seconds": 4.651
+    },
+    "full": {
+      "discovered": 846,
+      "passed": 844,
+      "errors": 1,
+      "skipped": 1,
+      "seconds": 59.817,
+      "error": "Sandbox denied ps in existing descendant-cleanup test"
+    },
+    "affected_group_recheck": {
+      "passed": 5,
+      "seconds": 1.014,
+      "scope": "Same immutable package; OS process observation permitted; CPU/GPU source unchanged"
+    },
+    "all_required_nonwindows_tests_passed": true
+  },
+  "old796_retained": {
+    "passed": true,
+    "input_count": 796,
+    "native_oracles": 633,
+    "input_sha256": "21080fdf79eca41ed2da2dff3ba4d6337d219e9cc29f7e4cb7efd81e094f0276",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 41.92078479193151
+  },
+  "observer_transparency": {
+    "all20_existing_native_fields_and_traces_equal": true,
+    "prior_profile_chained": true,
+    "periodic_nested_profile_chained": true,
+    "profile_restored_on_success_and_exception": true
+  },
+  "gpu_implementation_added": false,
+  "gpu_support_claim_added": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "numerical_model": "Existing declared CPU heal_sharing_compat model; general model assumptions still pending in-game confirmation",
+  "protected_or_arithmetic_source_changes": false,
+  "logs": [
+    {
+      "path": "/tmp/nikke-heal-share-tests-v1.log",
+      "bytes": 1370,
+      "sha256": "5c81563f726800fced262f6654acbc0ccd464f6562bd4d15a876555229fb8a94"
+    },
+    {
+      "path": "/tmp/nikke-heal-reference-v1-full-cpu.log",
+      "bytes": 2419,
+      "sha256": "ef5ebe61d44e578d5baa36b081398957065be1249330bcb3d774fb17ba27d518"
+    },
+    {
+      "path": "/tmp/nikke-heal-reference-v1-phase-audit-escalated.log",
+      "bytes": 968,
+      "sha256": "3a02d2d19709a0ae55b3a183edd6a7c13f2ebab1828b503e5bb7038bd00d5cfe"
+    },
+    {
+      "path": "/tmp/nikke-heal-reference-v1-native.json",
+      "bytes": 977510,
+      "sha256": "ae2e044ae3e85aae75870c6a8b124e5109dbbf4ffeb6c880670add8d893839cf"
+    },
+    {
+      "path": "/tmp/nikke-heal-reference-v1-retained796.json",
+      "bytes": 249,
+      "sha256": "fc52afd7b390f7ce83d1a63976d79cef7471dcb3ed480f65599350d09325ed30"
+    },
+    {
+      "path": "/tmp/nikke-heal-share-contract-attempt2.log",
+      "bytes": 4044,
+      "sha256": "c31643a680dee1cf601c9b7bb92450461f7c03b2ca90be1ed7826132ebebeaac"
+    },
+    {
+      "path": "/tmp/nikke-heal-contract-inspect.log",
+      "bytes": 8687,
+      "sha256": "e1774516ea453fabf4cb271afb30a3b93b21a6ac5b1634d1ba772c005d541c52"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "schema": "product-typed-lock-native-v1",
+  "scope": "Shared native reference consumer and ordinary product CPU fallback; composed GPU consumer remains unsupported",
+  "previous_goal_turn_classification": "progress: recovered saved CUDA parity and independent observation failure evidence",
+  "source_base_commit": "f5d6c16c5189556505e3ddfb7af76a0840989ed7",
+  "source_working_tree_dirty": true,
+  "package_id": "ed76941de354effdc33f1dfd53882c96ebad11a866e86281ce60414877e02e7b",
+  "one_shared_typed_world": true,
+  "nested_typed_worlds_removed_for_composition": true,
+  "canonical_cpu_and_pinned_sources_modified": false,
+  "declared_models_are_game_rules": false,
+  "new_suite_count": 0,
+  "new_auditor_count": 0,
+  "gpu_source_changes": 0,
+  "distinct_original_profiles": 1,
+  "new_gpu_profile_delta": 0,
+  "standard_metal_last_verified_profiles": 263,
+  "standard_cuda_historically_verified_profiles": 263,
+  "standard_total_profiles": 266,
+  "current_full_matrix_recertified": false,
+  "native_contract": {
+    "conditions": 4,
+    "modes": [
+      "fixed",
+      "accumulate"
+    ],
+    "capacities": [
+      100000000.0,
+      1.0
+    ],
+    "all_original_effects_preserved": true,
+    "live_weapon_packets": 171,
+    "broken_weapon_packets": 12,
+    "live_original_skill_activations": 1,
+    "broken_original_skill_activations": 0,
+    "lock_pulses": 16,
+    "lock_shots": 2,
+    "weapon_hp_and_lock_typed_hp_identical": true,
+    "shared_weapon_damage_reduces_same_hp_beyond_standalone_lock": true,
+    "invalid_worlds_rejected_before_battle": true,
+    "exception_and_rng_restore_checked": true
+  },
+  "tests": [
+    {
+      "pattern": "test_portable_detail.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.4822503339964896,
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 50687
+    },
+    {
+      "pattern": "test_product_detail_packet.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.5044783749617636,
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 50687
+    },
+    {
+      "pattern": "test_weighted_source_contract.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.3168215419864282,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 50687
+    },
+    {
+      "pattern": "test_product_reference_models.py",
+      "exit_code": 0,
+      "elapsed_seconds": 25.729296166915447,
+      "tests": 85,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runner_pid": 50687
+    }
+  ],
+  "legacy_cpu_preflight": {
+    "passed": true,
+    "input_count": 2,
+    "native_oracles": 2,
+    "input_sha256": "78f6d4bf904a8e34feadc2e50d477933f874144fc1051bfa71318050ded56f73",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 2.4481862080283463
+  },
+  "ordinary_api": {
+    "passed": true,
+    "scope": "Ordinary API CPU fallback for unfinished composed GPU consumer; no GPU coverage",
+    "post_count": 1,
+    "conditions": 4,
+    "results": [
+      {
+        "mode": "fixed",
+        "capacity": 100000000.0,
+        "backend": "cpu",
+        "reason": "Typed weapon and Lock On composition requires its matching checked shared GPU consumer",
+        "state_equal": true,
+        "weapon_packets": 171,
+        "skill_attacks": 1,
+        "lock_typed_attacks": 1,
+        "pulses": 16,
+        "shots": 2
+      },
+      {
+        "mode": "fixed",
+        "capacity": 1.0,
+        "backend": "cpu",
+        "reason": "Typed weapon and Lock On composition requires its matching checked shared GPU consumer",
+        "state_equal": true,
+        "weapon_packets": 12,
+        "skill_attacks": 0,
+        "lock_typed_attacks": 0,
+        "pulses": 16,
+        "shots": 2
+      },
+      {
+        "mode": "accumulate",
+        "capacity": 100000000.0,
+        "backend": "cpu",
+        "reason": "Typed weapon and Lock On composition requires its matching checked shared GPU consumer",
+        "state_equal": true,
+        "weapon_packets": 171,
+        "skill_attacks": 1,
+        "lock_typed_attacks": 1,
+        "pulses": 16,
+        "shots": 2
+      },
+      {
+        "mode": "accumulate",
+        "capacity": 1.0,
+        "backend": "cpu",
+        "reason": "Typed weapon and Lock On composition requires its matching checked shared GPU consumer",
+        "state_equal": true,
+        "weapon_packets": 12,
+        "skill_attacks": 0,
+        "lock_typed_attacks": 0,
+        "pulses": 16,
+        "shots": 2
+      }
+    ],
+    "gpu_calls": 0,
+    "raw_readback_files": 0
+  },
+  "owned_server_stop": {
+    "pid": 50735,
+    "exit_code": -15,
+    "process_group_absent": true
+  },
+  "model_check": {
+    "passed": true,
+    "scope": "Source audit and dependency plan only",
+    "gpu_calls": 0,
+    "native_battle_calls": 0
+  },
+  "preserved_failures": [
+    {
+      "path": "native-tests-v1.log",
+      "reason": "Initial nonprojectile guard missing at normalize boundary; corrected and all85 tests passed in v2"
+    },
+    {
+      "path": "model-check-v1.log",
+      "reason": "Compact packet excludes historical docs/IMPL-STATUS.md; existing model-check run on full worktree succeeded in v2"
+    }
+  ],
+  "proof_hashes": {
+    "native-tests-v1.log": "a191d2d5d55c065af16256db8196d1892b1c1fb9d22f8ebd6438ac2267a6326f",
+    "native-tests-v2.log": "2a070b127ed93b3fc119592d8dbb9aeec365cf2b3a693bb34a68bd79542b1ac3",
+    "cpu-v1/cpu.json": "23ff38a7545501b34c137f6fdc76f374624c0300adf3f90bb21c292f5e4c1e73",
+    "cpu-v1/cpu-tests.json": "70d30d49763e5f3a9ab427d0e052226789ddb9d45001bc8a2cb57e0a0e2c0d65",
+    "api-fallback-v1/summary.json": "1d08520f3e4f2962032766ab129ec0253154b59f501905e3077261684d868a11",
+    "api-fallback-v1/result.json": "1c82a0ae631751d52482d59aa325ff437f4118e756f34aa4449a5a79986e3182",
+    "api-fallback-v1/owned-server-stop.json": "e73a38971a2120c4db7784c44d1f9290b1d1afaca67ee92a7bfc03cc63ffe350",
+    "model-check-v2.json": "a715fb27e60c12fb69b66ac03047ecc1da8dd03576b035bd34b85afcece62258"
+  },
+  "next_gpu_work": [
+    "Reuse existing coordinate-lock and typed weapon consumers in one Runtime, WorldSchedule and typed state bank",
+    "Keep typed skill DFS scratch disjoint from physical pellet scratch; current weapon-only reuse must not overwrite a synchronous skill child",
+    "Preserve complete2048 skill history,128 typed attack histories, typed weapon2048 packet history, aim frames and original Lock On banks",
+    "Use existing product-detail CLI family and saved result auditors; no per-feature suite or new numerical rules",
+    "Verify real ordinary Metal API complete payload and raw against the shared native contract before short CUDA request"
+  ],
+  "gpu_calls_this_step": 0,
+  "windows_runs_this_step": 0,
+  "full_goal_complete": false
+}

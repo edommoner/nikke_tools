@@ -18,7 +18,7 @@ for name,body,extra in v.battles():
         return register(self,damage)
     configured=body.pop('_named_controls',None)
     with v.t.raw.injected_effects(extra),v.ctrl.configured(configured) if configured is not None else v.nullcontext():
-        compiled=v.t.a.evaluate({**body,'_compile_gpu_detail':True})
+        compiled=v.t.a.evaluate({**body,'_compile_detail':True})
         with patch.object(BuffManager,'register_damage_handler',hook),patch.object(BuffManager,'_dispatch_instant',observe):cpu=v.t.a.evaluate(body)
     rows.append(dict(name=name,effects=len(compiled['program']['effects']),states=len(compiled['program']['states']),state_index=compiled['program']['states']['마이야르' if name.startswith('real-') else 'high '+name.split('-')[0]],total=cpu['total_damage'],dot_times=dots,extension_times=calls))
 (ROOT/'research/detail-named-capacity-cpu-preflight.json').write_text(json.dumps(rows,indent=2)+'\n',encoding='utf-8')

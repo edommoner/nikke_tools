@@ -1,0 +1,6 @@
+# Saved report fixtures are byte-addressed evidence across Windows and macOS.
+# Preserve original generated CRLF/spacing; manifest hashes check these data.
+tests/fixtures/cuda-core-report-v4/** -text -whitespace
+research/destructible-counter-evidence/windows-sanitized-v1/** -text -whitespace
+# Archive-derived identity manifests must keep identical bytes on every checkout.
+data/engine-revisions.json -text -whitespace

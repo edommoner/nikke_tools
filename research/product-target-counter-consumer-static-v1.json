@@ -1,0 +1,150 @@
+{
+  "schema": "product-target-counter-consumer-static-v1",
+  "source_commit": "56cb15a2",
+  "registry_actual_identity_checks": true,
+  "source_sites": {
+    "registered_prepare": {
+      "source": "app/target_counter_runtime.py",
+      "line": 23,
+      "source_sha256": "0679ee9062123f3f6f61423f1af255836958e6ab16727f9634e0263f3883c2b5",
+      "ast_sha256": "23ed37dbb12db88daf571f069cdeef7d6409d23f28af7020a70c168a63dfcecc"
+    },
+    "specification": {
+      "source": "app/target_counter_specs.py",
+      "line": 29,
+      "source_sha256": "554e22881d3a5d66d23a4a1e99c94ea74f6b929d5c48586e9bc31e493860865e",
+      "ast_sha256": "2eb92617f2e5020c59918be4f2d6fa3b73a3cf9aa83004fe04b452600e27828d"
+    },
+    "registered_impact": {
+      "source": "app/target_counter_runtime.py",
+      "line": 75,
+      "source_sha256": "0679ee9062123f3f6f61423f1af255836958e6ab16727f9634e0263f3883c2b5",
+      "ast_sha256": "7e380d28c326f842af8ed4b4c2d7b3fa0d2d30adb5e2fa997ed7f78a838e81d4"
+    },
+    "numeric_collect": {
+      "source": "app/target_counter_runtime.py",
+      "line": 58,
+      "source_sha256": "0679ee9062123f3f6f61423f1af255836958e6ab16727f9634e0263f3883c2b5",
+      "ast_sha256": "cc4941eece4f8ba1d29837a15160e4dfcbbeb676495aa7ce385a305d5ab76088"
+    },
+    "wire_policy": {
+      "source": "app/portable_target_counter_specs.py",
+      "line": 43,
+      "source_sha256": "2411c13efe96d86874cf8704da0c5ef0129f0b7b1535c7877eb9f160dc412e0f",
+      "ast_sha256": "44d0d25757d9aaf73919147af4bcff9a8ec79161344455c8f2eead875d2876a7"
+    }
+  },
+  "key_binding": {
+    "operation_stat": "target_hit_counter",
+    "config_key": "target_counter",
+    "threshold_key": "threshold",
+    "threshold_range": "finite0<threshold<=1e12",
+    "threshold_unit": "binary64 impact-credit units, not integer hit count and not scalar buff potency",
+    "spec_assignment": "CounterSpec.threshold receives validated value directly",
+    "prepare_storage": "Counter(carrier,spec,...,credit), stored in pool target_hit_counter by carrier.uid",
+    "impact_consumption": "impact -> _collect -> record.spec; credit=min(threshold,credit+impact.credit); complete when credit>=threshold",
+    "routing": "exact actor kind/identity/generation + family/outcome masks + squad/owner policy"
+  },
+  "wire": {
+    "policy_words": 16,
+    "threshold_word_offset": 4,
+    "threshold_words": 2,
+    "encoding": "binary64 little endian",
+    "GPU_reader": "counterPolicy+4 loadNumber -> smaller(threshold, prior+packet credit) -> f64Less(credit,threshold)",
+    "offset_unit": "uint32 words; counterPolicy+4 and policy_words[4:6] share the policy-relative base",
+    "threshold_2_5_LE_words": [
+      0,
+      1074003968
+    ],
+    "threshold_2_5_LE_hex": "0000000000000440"
+  },
+  "existing_evidence": {
+    "file": "research/portable-world-target-counter-metal.json",
+    "sha256": "6db2403e83831f11bf90088322a42b1851b5649e33f81b5386b475c2a51b630f",
+    "backend": "metal",
+    "device": "Apple M5",
+    "case_name": "credit-families-outcomes-and-actor-generation",
+    "current_declared_threshold": 2.5,
+    "current_wire_threshold": 2.5,
+    "historical_progress": 0.75,
+    "historical_completion_credit": 2.5,
+    "historical_completion_reason": "threshold",
+    "old_unit_component_source_matches": {
+      "app/target_counter_runtime.py": true,
+      "app/target_counter_specs.py": true
+    },
+    "historical_full_closure_changed_files": [
+      "gpu/event_runtime.slang",
+      "gpu/portable_schema.slang",
+      "gpu/runtime_init.slang",
+      "gpu/definition_runtime.slang",
+      "gpu/world_overlay_runtime.slang",
+      "gpu/resource_runtime.slang",
+      "gpu/reference_runtime.slang",
+      "gpu/staged_runtime.slang",
+      "gpu/rank_runtime.slang",
+      "gpu/lazy_runtime.slang",
+      "gpu/enemy_buff_runtime.slang",
+      "gpu/carrier_runtime.slang",
+      "gpu/quantity_runtime.slang",
+      "gpu/health_runtime.slang",
+      "gpu/lifesteal_runtime.slang",
+      "gpu/hp_edge_runtime.slang",
+      "gpu/hp_attack_runtime.slang",
+      "gpu/recipient_runtime.slang",
+      "gpu/damage_runtime.slang",
+      "gpu/incoming_runtime.slang",
+      "gpu/burst_runtime.slang",
+      "gpu/landing_runtime.slang",
+      "gpu/periodic_runtime.slang",
+      "gpu/removal_runtime.slang",
+      "gpu/duration_extend_runtime.slang",
+      "gpu/stack_runtime.slang",
+      "gpu/status_runtime.slang",
+      "gpu/pending_burst_runtime.slang",
+      "gpu/incoming_descriptor_runtime.slang",
+      "gpu/world_frame_addresses.slang",
+      "gpu/protection_runtime.slang",
+      "gpu/bullet_consume.slang",
+      "gpu/world_actor_pools.slang",
+      "gpu/world_actor_fields.slang",
+      "gpu/world_actor_state.slang",
+      "gpu/world_actor_mutation.slang",
+      "gpu/world_actor_recipients.slang",
+      "gpu/world_actor_status.slang",
+      "gpu/world_actor_stacks.slang",
+      "gpu/target_counter_runtime.slang",
+      "gpu/world_actor_registry.slang",
+      "gpu/world_frame_runtime.slang",
+      "gpu/combat_runtime.slang",
+      "gpu/ammo_instant_runtime.slang",
+      "gpu/weapon_runtime.slang",
+      "gpu/world_overlay_weapon.slang",
+      "gpu/admission_runtime.slang",
+      "gpu/portable_mt19937.slang",
+      "gpu/enemy_target_runtime.slang"
+    ],
+    "claims": "Historical numerical evidence only; source-local L3 linking is current, historical complete GPU closure is not upgraded"
+  },
+  "source_hashes": {
+    "app/target_counter_runtime.py": "0679ee9062123f3f6f61423f1af255836958e6ab16727f9634e0263f3883c2b5",
+    "app/target_counter_specs.py": "554e22881d3a5d66d23a4a1e99c94ea74f6b929d5c48586e9bc31e493860865e",
+    "app/portable_target_counter_specs.py": "2411c13efe96d86874cf8704da0c5ef0129f0b7b1535c7877eb9f160dc412e0f",
+    "gpu/target_counter_runtime.slang": "a68e2f3208eac9f9b58a8680fe2b021df94159750cfd58edf6433b465e41205c",
+    "scripts/target_counter_cases.py": "94389d3948959be45f9a6b94d37f653fb106c1c86de4ef4bac8cc21b23f68596"
+  },
+  "L3_proposed": "A connected with existing historical value evidence",
+  "L4_unverified": [
+    "Current normal API counter-specific nonzero values and full native GPU comparison",
+    "Current full closure threshold boundary/fractional credit/routing execution",
+    "Arbitrary original profiles/typed counter combinations and lifecycle"
+  ],
+  "CPU_battles": 0,
+  "GPU_calls": 0,
+  "Windows_calls": 0,
+  "full_goal_complete": false,
+  "claude_decision": "accept L3 static connection only",
+  "claude_review_sha256": "9225ade4a32ecdb88c39747b14163bb716046847764cc05d8a52b997a430ec3f",
+  "claude_review": "# target_hit_counter 静的単位：最終チェック\n\n## 判定：合格（L3静的接続のみ受理）\n\n静的終了条件Aを満たしています。1〜3は同一の実関数で連結しており、4の配線と5の既存証拠もそろっています。必須修正はありません。\n\n### 確認した点\n- **1 registry**：prepare、impact、wire の三経路が同じ `specification` 実関数を参照しています。各参照地点に filename/line、FunctionDef AST SHA、source SHA が記録されており、同一性は検証可能です。\n- **2 spec**：threshold は有限で 0 < threshold ≤ 1e12 です。CounterSpec に直接格納され、変換段はありません。値の種類を明示的に拒否しているため、別の単位が混入する経路は閉じています。\n- **3 consumer**：`min(threshold, prior + credit)` で上限を抑えたあと、`credit < threshold` で待機し、それ以外で完了します。上限処理によって完了時の credit は threshold と厳密に等しくなります。保存記録の completion credit 2.5 と threshold 2.5 はこの性質と整合します。単位を「binary64命中credit、整数packet数とは限らない」と定義した点も正しいです。\n- **4 wire**：CPU は `credit < threshold`、GPU は `f64Less(credit, threshold)` で、比較の向きと境界の扱いが一致しています。LE binary64 を2ワードで持つ方式は値を正確に保持します。\n- **5 証拠**：resource_step の 0.75 と completion の 2.5 は、上限処理つきの累積として矛盾しません。現在の builder、spec、wire の静的値 2.5 とも一致します。\n\n### 任意の補強（受理条件ではない）\n- `counterPolicy+4` がワード単位のオフセットで、policy_words の offset 4..5 と同じ基準であることを、記録上で一行明示しておくとよいです。\n- policy_words から取り出した 2.5 を unpack した値が bit 単位で一致することを記録に添えると、「保持」の主張がより強くなります。\n\n### 証拠境界（現行記載のまま妥当）\n- 旧 Metal の数値は GPU closure に49ファイルの差分があるため、歴史証拠としてのみ扱います。\n- 次の項目は **L4 に残件**として保持します。\n  - current-source の普通API／原キャラにおける非ゼロ値の parity\n  - 端数境界、routing、lifecycle\n- 旧 actual を再計算したとは主張していません。\n- L4 と全キャラ全効果の完成は未了のままです。\n\n---\n\n## 次の優先1項目：`cover_def_pct`\n\n### 選定理由\n- 単位が pct（0〜100）か fraction（0〜1）かという取り違えは、二重スケールやスケール漏れを生みやすい種類の不具合です。静的単位監査の価値が最も高い候補です。\n- 単一 stat なので、target_hit_counter と同じ1〜5の型をそのまま適用できます。\n- 対の項目（effect_range_pct/target_count_add、movement_disable/force_move）や、構造が複雑な項目（received_dmg_split、lock_on、storage sink）より範囲が閉じています。\n- gauge_charge_enabled は真偽値に近く、単位リスクが低いため後回しにします。\n\n### 静的終了条件（条件A準拠）\n1. **registry**：`cover_def_pct` のハンドラについて、prepare、impact/apply、wire が同一の spec 実関数を参照していることを確認します。各地点に filename/line、AST SHA、source SHA を記録します。\n2. **spec**：次の三点を確定します。\n   - STAT/type\n   - 入力値のスケール（pct か fraction か）\n   - 範囲制約と拒否される値の種類\n\n   さらに、`/100` 等の換算が **どこで正確に1回だけ**行われるかを特定します。\n3. **numeric consumer**：遮蔽物の防御力、または被ダメ計算に適用される地点を特定し、次を確認します。\n   - 加算か乗算か\n   - スタック規則\n   - 上限処理の有無\n\n   そのうえで、spec から consumer まで換算が二重にも欠落にもならないことを静的に連結します。\n4. **wire**：policy／resource のオフセット、数値型、GPU 側の load から適用式までを接続します。CPU と GPU で換算の位置が一致していることを確認します。\n5. **既存証拠**：保存済みの Metal／M5 記録から、`cover_def_pct` が非ゼロの case を探します。現在の builder と spec と wire に静的に通した値が一致するか照合します。戦闘は再実行しません。\n   - 該当する保存記録がない場合は「既存証拠なし」と明記します。その時点で条件A不成立として打ち切り、`gauge_charge_enabled` に切り替えます。\n\n### 維持事項\n- Windows 0、CPU 戦闘／GPU 実行 0 を維持します。\n- 計算 source と suite／CLI／effect の定義は変更しません。\n- source SHA は作業の前後で照合します。",
+  "next_Claude_priority": "cover_def_pct static registry/unit/consumer/wire/evidence trace; no battles or GPU"
+}

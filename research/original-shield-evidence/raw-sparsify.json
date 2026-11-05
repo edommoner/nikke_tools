@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-original-shield-metal-v2",
+  "raw_bytes": 63714816,
+  "raw_sha256": "1934d1d5d75e8ed19524145a36c9cea427158282f43c6fa26198ac7bf99d7931",
+  "evidence_sha256": "02113be59b0291981c6ec11deffffeee45cc9dc1e746978221cb829c50036c4b",
+  "raw_inode": 511242139,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 129,
+  "zero_range_bytes": 47513600,
+  "allocated_before": 63717376,
+  "allocated_after": 16203776,
+  "allocated_reclaimed": 47513600,
+  "full_hash_verified": true
+}

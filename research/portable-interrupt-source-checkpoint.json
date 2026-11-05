@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "scope": "Private interrupt source and lifecycle only; reach damage/accounting unimplemented",
+  "calculation_verified_for_listed_cases": true,
+  "full_character_certifications": 0,
+  "full_goal_complete": false,
+  "proofs": [
+    {
+      "name": "parts-skill",
+      "seal": "/tmp/nikke-interrupt-source-v4-sealed.json",
+      "capture": "/tmp/nikke-interrupt-source-v4-metal",
+      "inputs": 40,
+      "source_files": 112,
+      "cpu_tests": 51,
+      "cpu_failures": 0,
+      "input_sha256": "e1adb459f3058cd1947bde3aed4663a958ae1ea77f2fae284d9c8a33f8d424d0",
+      "output_sha256": "aa56b6bbcb8d57e7e4060ac519b9d1725deb7dc3a29969e83cf585e941fdac23"
+    },
+    {
+      "name": "heal-share-regression",
+      "seal": "/tmp/nikke-interrupt-source-regression-v3-sealed.json",
+      "capture": "/tmp/nikke-interrupt-source-regression-v3-metal",
+      "inputs": 849,
+      "source_files": 112,
+      "cpu_tests": 310,
+      "cpu_failures": 0,
+      "input_sha256": "010b72c5120af825d2326a1504a4d7e111ac36807ed39652190c5e91880096f0",
+      "output_sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1"
+    },
+    {
+      "name": "heal-share-rosters",
+      "seal": "/tmp/nikke-interrupt-source-rosters-v2-sealed.json",
+      "capture": "/tmp/nikke-interrupt-source-rosters-v2-metal",
+      "inputs": 4,
+      "source_files": 112,
+      "cpu_tests": 19,
+      "cpu_failures": 0,
+      "input_sha256": "b3f6051d7254403e8655998a049ce5f8d532a43afe82d26b3d5effbd50d60957",
+      "output_sha256": "f83a45b0297cf2f46a2232c9d2469e3148665c79337899562c1e56f8d043de97"
+    }
+  ],
+  "retention": {
+    "regression": {
+      "old": "/tmp/nikke-parts-world-regression-v2-metal/readback.bin",
+      "new": "/tmp/nikke-interrupt-source-regression-v3-metal/readback.bin",
+      "bytes": 2670723072,
+      "sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1",
+      "all_bytes_equal": true,
+      "gpu_calls": 0
+    },
+    "rosters": {
+      "old": "/tmp/nikke-parts-world-rosters-v2-metal/readback.bin",
+      "new": "/tmp/nikke-interrupt-source-rosters-v2-metal/readback.bin",
+      "bytes": 12582912,
+      "sha256": "f83a45b0297cf2f46a2232c9d2469e3148665c79337899562c1e56f8d043de97",
+      "all_bytes_equal": true,
+      "gpu_calls": 0
+    },
+    "parts": {
+      "prior_cases": 26,
+      "new_cases": 40,
+      "input_native_case_fingerprints_equal": true,
+      "all_prior_case_raw_bytes_equal": true,
+      "compared_bytes": 81788928,
+      "case_names": [
+        "native/parts-skill-absent",
+        "native/parts-skill-false",
+        "native/parts-skill-true",
+        "native/parts-skill-static-only",
+        "native/parts-skill-static-false",
+        "native/parts-skill-no-parts",
+        "native/parts-skill-unbreakable-part",
+        "native/parts-skill-two-hits",
+        "native/parts-skill-burst",
+        "native/parts-skill-armor-burst",
+        "native/parts-skill-lifesteal",
+        "native/parts-skill-destroy-before-second",
+        "native/parts-skill-static-basis-after-destroy",
+        "native/parts-skill-extra-adds-outside-body-total",
+        "native/parts-skill-extra-periodic-three-ticks",
+        "reject/parts-skill-extra-deferred-burst3-reference-gap",
+        "native/parts-skill-extra-lifesteal-unsaturated",
+        "native/parts-skill-extra-shared-lifesteal-unsaturated",
+        "native/parts-lifecycle-named-child-snapshots-both-hits",
+        "native/parts-lifecycle-named-child-removes-basis-after-snapshot",
+        "native/parts-lifecycle-expiry-before-second",
+        "native/parts-lifecycle-reopened-same-labels",
+        "native/parts-lifecycle-heal-child-does-not-resample-part-amount",
+        "native/parts-lifecycle-destroy-group-before-child-healing",
+        "native/parts-lifecycle-queued-second-after-group-destruction",
+        "native/parts-skill-periodic-part-counter-family"
+      ],
+      "gpu_calls": 0
+    }
+  },
+  "paired_codegen": {
+    "path": "/tmp/nikke-interrupt-source-final-commands-codegen.json",
+    "source_files": 113,
+    "gpu_calls": 0
+  },
+  "public_actor_enum_unchanged": true,
+  "legacy_cuda_unchanged": true,
+  "windows": {
+    "new_runs": 0,
+    "preservation_verified": false,
+    "service": "unverified",
+    "seven_exit_cause": "unknown",
+    "user_observation": {
+      "date": "2026-10-22",
+      "time_jst": "19:04:25",
+      "app_terminal_close_reconnect_reboot": false,
+      "possible_concurrent_activity": [
+        "gaming",
+        "video viewing"
+      ],
+      "causal_evidence": false
+    }
+  },
+  "unresolved": [
+    "interrupt skill reach5",
+    "interrupt physical reach1",
+    "deferred burst reference gap1",
+    "coordinate reach",
+    "CUDA saved-generation reuse/cache",
+    "Windows seven process exit cause",
+    "full character/effect certification"
+  ],
+  "retained_intermediate_captures": [
+    "/tmp/nikke-interrupt-source-v1-metal",
+    "/tmp/nikke-interrupt-source-v2-metal",
+    "/tmp/nikke-interrupt-source-v3-metal",
+    "/tmp/nikke-interrupt-source-regression-v1-metal",
+    "/tmp/nikke-interrupt-source-regression-v2-metal",
+    "/tmp/nikke-interrupt-source-rosters-v1-metal"
+  ],
+  "compiler_controller": {
+    "package_id": "4a564ad6b576bb6d848fc442ef30e081e9e51be6e4833f55b0f5f3ca87aa4b52",
+    "capture": "/tmp/nikke-interrupt-source-controller-v1-cpu",
+    "cpu": {
+      "tests": 276,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    "gpu_calls": 0,
+    "calculation_verified": false
+  }
+}

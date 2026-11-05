@@ -1,0 +1,1142 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "cases": [
+    {
+      "owner": 0,
+      "scenario": "lazy-taunt-explicit-query-down-revive",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "리타",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.1,
+          "taunters": [
+            "N102"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "리타",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [],
+          "carriers": [],
+          "down": [
+            "N102"
+          ]
+        },
+        {
+          "time": 0.3,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "리타",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.4,
+          "taunters": [
+            "N102"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "리타",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "scenario": "all-allies-first-member-down-revive-appends",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "리타"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "리타",
+              "targets": [
+                "리타",
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [
+            "크라운"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "리타",
+              "targets": [
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102"
+              ]
+            }
+          ],
+          "down": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.3,
+          "taunters": [
+            "크라운"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "리타",
+              "targets": [
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102",
+                "리타"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "scenario": "ordered-first-recipient-not-smallest-slot",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "크라운"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "리타",
+              "targets": [
+                "크라운",
+                "리타"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "scenario": "enemy-membership-dropped",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "리타"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "리타",
+              "targets": [
+                "__enemy__"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "리타",
+              "targets": []
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "scenario": "stealth-resolves-on-first-pool-query-even-nonmember",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "리타",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.1,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "리타",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "lazy-taunt-explicit-query-down-revive",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "크라운",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.1,
+          "taunters": [
+            "N102"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "크라운",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [],
+          "carriers": [],
+          "down": [
+            "N102"
+          ]
+        },
+        {
+          "time": 0.3,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "크라운",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.4,
+          "taunters": [
+            "N102"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "크라운",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "all-allies-first-member-down-revive-appends",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "리타"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "크라운",
+              "targets": [
+                "리타",
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [
+            "크라운"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "크라운",
+              "targets": [
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102"
+              ]
+            }
+          ],
+          "down": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.3,
+          "taunters": [
+            "크라운"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "크라운",
+              "targets": [
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102",
+                "리타"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "ordered-first-recipient-not-smallest-slot",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "앨리스"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "크라운",
+              "targets": [
+                "앨리스",
+                "크라운"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "enemy-membership-dropped",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "크라운"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "크라운",
+              "targets": [
+                "__enemy__"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "크라운",
+              "targets": []
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "scenario": "stealth-resolves-on-first-pool-query-even-nonmember",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "크라운",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.1,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "크라운",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "lazy-taunt-explicit-query-down-revive",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "앨리스",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.1,
+          "taunters": [
+            "N102"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "앨리스",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [],
+          "carriers": [],
+          "down": [
+            "N102"
+          ]
+        },
+        {
+          "time": 0.3,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "앨리스",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.4,
+          "taunters": [
+            "N102"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "앨리스",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "all-allies-first-member-down-revive-appends",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "리타"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "앨리스",
+              "targets": [
+                "리타",
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [
+            "크라운"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "앨리스",
+              "targets": [
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102"
+              ]
+            }
+          ],
+          "down": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.3,
+          "taunters": [
+            "크라운"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "앨리스",
+              "targets": [
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102",
+                "리타"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "ordered-first-recipient-not-smallest-slot",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "모더니아"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "앨리스",
+              "targets": [
+                "모더니아",
+                "앨리스"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "enemy-membership-dropped",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "앨리스"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "앨리스",
+              "targets": [
+                "__enemy__"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "앨리스",
+              "targets": []
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "scenario": "stealth-resolves-on-first-pool-query-even-nonmember",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "앨리스",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.1,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "앨리스",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "lazy-taunt-explicit-query-down-revive",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "모더니아",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.1,
+          "taunters": [
+            "N102"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "모더니아",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [],
+          "carriers": [],
+          "down": [
+            "N102"
+          ]
+        },
+        {
+          "time": 0.3,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "모더니아",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.4,
+          "taunters": [
+            "N102"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "모더니아",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "all-allies-first-member-down-revive-appends",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "리타"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "모더니아",
+              "targets": [
+                "리타",
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [
+            "크라운"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "모더니아",
+              "targets": [
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102"
+              ]
+            }
+          ],
+          "down": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.3,
+          "taunters": [
+            "크라운"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "모더니아",
+              "targets": [
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102",
+                "리타"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "ordered-first-recipient-not-smallest-slot",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "N102"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "모더니아",
+              "targets": [
+                "N102",
+                "모더니아"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "enemy-membership-dropped",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "모더니아"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "모더니아",
+              "targets": [
+                "__enemy__"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "모더니아",
+              "targets": []
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "scenario": "stealth-resolves-on-first-pool-query-even-nonmember",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "모더니아",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.1,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "모더니아",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "lazy-taunt-explicit-query-down-revive",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "N102",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.1,
+          "taunters": [
+            "모더니아"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "N102",
+              "targets": [
+                "모더니아"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [],
+          "carriers": [],
+          "down": [
+            "모더니아"
+          ]
+        },
+        {
+          "time": 0.3,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "N102",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.4,
+          "taunters": [
+            "모더니아"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "N102",
+              "targets": [
+                "모더니아"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "all-allies-first-member-down-revive-appends",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "리타"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "N102",
+              "targets": [
+                "리타",
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [
+            "크라운"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "N102",
+              "targets": [
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102"
+              ]
+            }
+          ],
+          "down": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.3,
+          "taunters": [
+            "크라운"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "N102",
+              "targets": [
+                "크라운",
+                "앨리스",
+                "모더니아",
+                "N102",
+                "리타"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "ordered-first-recipient-not-smallest-slot",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "N102"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "N102",
+              "targets": [
+                "N102"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "enemy-membership-dropped",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [
+            "N102"
+          ],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "N102",
+              "targets": [
+                "__enemy__"
+              ]
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.2,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "N102",
+              "targets": []
+            }
+          ],
+          "down": []
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "scenario": "stealth-resolves-on-first-pool-query-even-nonmember",
+      "observations": [
+        {
+          "time": 0,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "N102",
+              "targets": null
+            }
+          ],
+          "down": []
+        },
+        {
+          "time": 0.1,
+          "taunters": [],
+          "carriers": [
+            {
+              "name": "target-marker",
+              "caster": "N102",
+              "targets": [
+                "모더니아"
+              ]
+            }
+          ],
+          "down": []
+        }
+      ]
+    }
+  ],
+  "gpu_admission_enabled": false,
+  "gpu_execution_performed": false,
+  "scope": "25 native boundary cases. Revive behavior is characterization of an outstanding shared executor feature,not a GPU certification.",
+  "source_sha256": {
+    "research/characterize-taunt-edges.py": "5c7039c7046a4e5522ae9172ff6df9d9c233576741b441b7ce7181944d90e7eb",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

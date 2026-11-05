@@ -1,0 +1,260 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "controller-cpu-batch.json",
+      "bytes": 1759,
+      "sha256": "422e32b9eb95ecb3a62d35a5138bedf1092f0bdc2708cd4cd14151724b66283e"
+    },
+    {
+      "path": "controller-cpu-tests.json",
+      "bytes": 8071,
+      "sha256": "c58d921e9d0fdd84e2097c3b8200535491fdb33f89d2ebb0b26653bad3471058"
+    },
+    {
+      "path": "controller-cpu.json",
+      "bytes": 109,
+      "sha256": "bc45e3d39298f7219da3140078d6f10d93262192126d145de384a7dcb2799e8e"
+    },
+    {
+      "path": "controller-result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "controller-run.json",
+      "bytes": 237,
+      "sha256": "b95dbcd488ffca8a615d8725189098ae93d369305a95a9d5740b3fefb83a1c85"
+    },
+    {
+      "path": "final-cpu-cpu-batch.json",
+      "bytes": 595,
+      "sha256": "507cbe12f338a5fa9536a0b8e0ede331761b718b9b9aefce30443a81b3d15518"
+    },
+    {
+      "path": "final-cpu-cpu-tests.json",
+      "bytes": 1538,
+      "sha256": "8b1751e48688a498e68d4a03ccf4b9eddc2f08700a129d279ff47a2924461468"
+    },
+    {
+      "path": "final-cpu-cpu.json",
+      "bytes": 248,
+      "sha256": "8d171fb18a5fc420c3526cacf5dbd4883cc2eca4fbd864d63f896419596755e8"
+    },
+    {
+      "path": "final-cpu-result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "final-cpu-run.json",
+      "bytes": 237,
+      "sha256": "a62a76ff14fbd59c88caa6710d2a6c9463090d893f013e329d90ed50f0136b84"
+    },
+    {
+      "path": "first-healing-audit-failure.json",
+      "bytes": 103,
+      "sha256": "39c95cc6cf181b24eae39345144d5e2ffe7b1c8a3f1b7f03892bed5bc4495649"
+    },
+    {
+      "path": "first-healing-audit-failure.log",
+      "bytes": 2675,
+      "sha256": "ec535b52cae8d8d8efd7cc3dbf50f47643ce717652207fa310bb88e554d51603"
+    },
+    {
+      "path": "metal13-comparison.json",
+      "bytes": 4963,
+      "sha256": "a0992b91f7fc01ccf55a147e0d9989359dcb2946cc3c5364d8efae1c8c60163d"
+    },
+    {
+      "path": "metal13-cpu-batch.json",
+      "bytes": 549,
+      "sha256": "a0b605f78ea013d5c1afccfcb93bdcb54ab3ad69041854996696648f76bff0e0"
+    },
+    {
+      "path": "metal13-cpu-tests.json",
+      "bytes": 1315,
+      "sha256": "5745051a756f9ed166b3da31902b1d7a817951fde25338e9f676243d58d5fb5e"
+    },
+    {
+      "path": "metal13-cpu.json",
+      "bytes": 543,
+      "sha256": "a0acd8dec327daad3ed5d40571f32db1818d4285364a3422fb500f7b797e2ec8"
+    },
+    {
+      "path": "metal13-evidence.json",
+      "bytes": 53059,
+      "sha256": "1ce74fc4f52b894b9e57b374f07e197adbca861f2d1e01a2f90ce1bf42af9fa8"
+    },
+    {
+      "path": "metal13-execution.json",
+      "bytes": 4146,
+      "sha256": "fbcc6961e42150b6e558d8f4fdf6f01088745c52514b4aa91be21adf35f9c4ac"
+    },
+    {
+      "path": "metal13-generation-cache.json",
+      "bytes": 30404,
+      "sha256": "c9a81ec0123e5e765a2e327ead72bc8307e6ccc7efd8a353b6122abf4d2e3f2a"
+    },
+    {
+      "path": "metal13-result.json",
+      "bytes": 3978,
+      "sha256": "be4564a1524f3a878d2f244264583782cec3285ab0732df0b003412580fbfad7"
+    },
+    {
+      "path": "metal13-run.json",
+      "bytes": 267,
+      "sha256": "af8c724c3625ad3969dd24a906344ee090447965253031aee4671c064c4c4583"
+    },
+    {
+      "path": "metal13-storage.json",
+      "bytes": 250,
+      "sha256": "d3ce504d82b116be43affe28fbf57a17a63cc3836011f57e33b70880c20640c7"
+    },
+    {
+      "path": "metal31-comparison.json",
+      "bytes": 11156,
+      "sha256": "087bb69dff116f4f71eb21ffba2fbf7853ff6e1c44d572f331b1ffcf740056fe"
+    },
+    {
+      "path": "metal31-cpu-batch.json",
+      "bytes": 595,
+      "sha256": "5ee0bc2d368d24e0a2c509049de1a7ac809af2558a60306493c2447d0e400926"
+    },
+    {
+      "path": "metal31-cpu-tests.json",
+      "bytes": 1536,
+      "sha256": "db669849621689b81419090ed2cf61151771a18b333eb64ae46cd7ba320ab3f1"
+    },
+    {
+      "path": "metal31-cpu.json",
+      "bytes": 545,
+      "sha256": "4ff503e5110f6004bf312292bf0d00d4ed38287a9d55e164011d0f11a8df28e5"
+    },
+    {
+      "path": "metal31-evidence.json",
+      "bytes": 53067,
+      "sha256": "1d9a94d3573f085c5fbe00ed5878c3721d6ca5fbc64723938e0d59ab18241e1e"
+    },
+    {
+      "path": "metal31-execution.json",
+      "bytes": 4141,
+      "sha256": "28736314bf1887a345fbffa47bd2f006a395cf391a8949460b07d04f7f7fe07c"
+    },
+    {
+      "path": "metal31-generation-cache.json",
+      "bytes": 30404,
+      "sha256": "c9a81ec0123e5e765a2e327ead72bc8307e6ccc7efd8a353b6122abf4d2e3f2a"
+    },
+    {
+      "path": "metal31-result.json",
+      "bytes": 3972,
+      "sha256": "ca932753dba673446275f84b0af310b3a9e8e069384e15c985ad2da15312bcd9"
+    },
+    {
+      "path": "metal31-run.json",
+      "bytes": 267,
+      "sha256": "df44349a960a855f593f271258e6eb281439a50f45849d3a34d648dd15fd83d8"
+    },
+    {
+      "path": "metal31-storage-before-gpu.json",
+      "bytes": 252,
+      "sha256": "1cb5f834db0c5c6e8d125f5a34da0755d932091b40a0a23dc7b83115c3a130f2"
+    },
+    {
+      "path": "metal31-storage.json",
+      "bytes": 253,
+      "sha256": "c5b3832287cd99f80254c090854805b9127b2c86a60b32d50a58ee7844b55344"
+    },
+    {
+      "path": "new-generation.json",
+      "bytes": 17319,
+      "sha256": "7ad35c5ccfd70c39beeb4ce072462642cb2f4a551bf3aa65bc207e68d2c0c4a7"
+    },
+    {
+      "path": "nikke-lifesteal-space-cubin-v1.json",
+      "bytes": 616,
+      "sha256": "5dd1fdef6b29905841e4598eb69d770d5ab67739be67856a1e3eb1037173c1c0"
+    },
+    {
+      "path": "nikke-lifesteal-space-enemy-selection-v1.json",
+      "bytes": 647,
+      "sha256": "2e6c898c0c2587f1a04942dd6696b4a54401ac95b99ddc43695471e73cf5e2af"
+    },
+    {
+      "path": "nikke-lifesteal-space-focus5-v1.json",
+      "bytes": 625,
+      "sha256": "f05cbcd7221b6846f847902e2c7be6b3bb7fb6ca8eeb1c706c02433b181f963c"
+    },
+    {
+      "path": "nikke-lifesteal-space-leftmost-v1.json",
+      "bytes": 634,
+      "sha256": "50ee0fb1d36306b98eefe694b1c8b5f78677df4e36f6d42c29314256497b3d6b"
+    },
+    {
+      "path": "nikke-lifesteal-space-readiness6-v1.json",
+      "bytes": 623,
+      "sha256": "c1f3d403df953fe2563ec2d9b713e8ab9b4e676f4b76698fe18d8769d66a4f73"
+    },
+    {
+      "path": "nikke-lifesteal-space-readiness73-v1.json",
+      "bytes": 629,
+      "sha256": "9929bbdf6ade1e65aec1edd17c6e7f69785d32310e29cda921e9d456c4beb085"
+    },
+    {
+      "path": "old18-generation.json",
+      "bytes": 17198,
+      "sha256": "85f3245c385d90e00735d15486e2a7bf87d0c5ae05c90aacbdfc12419e1803a3"
+    },
+    {
+      "path": "old18-preserved.json",
+      "bytes": 672,
+      "sha256": "6c6a593910109c3f5d01cbf417ead5e539db8f89f08ca64d3d0f4ddce4842736"
+    },
+    {
+      "path": "relocated-scratch-addresses.json",
+      "bytes": 1571,
+      "sha256": "301af43054b67fc0a7c9fb5980f3de5c4ee2a5b0fa5b41a4987874adf82b71bc"
+    },
+    {
+      "path": "replay13-comparison.json",
+      "bytes": 4963,
+      "sha256": "a0992b91f7fc01ccf55a147e0d9989359dcb2946cc3c5364d8efae1c8c60163d"
+    },
+    {
+      "path": "replay13-evidence.json",
+      "bytes": 53059,
+      "sha256": "1ce74fc4f52b894b9e57b374f07e197adbca861f2d1e01a2f90ce1bf42af9fa8"
+    },
+    {
+      "path": "replay13-replay.json",
+      "bytes": 230,
+      "sha256": "d5ce69834c63e6f0a5985b88abf3fb16d46c9abd9fc62b4bda54c45f801794c5"
+    },
+    {
+      "path": "replay13-result.json",
+      "bytes": 5301,
+      "sha256": "745577669b4fc38f4c9b0e3ba2ad0f39632f21319b69e65a86974997bf15c7ad"
+    },
+    {
+      "path": "replay13-run.json",
+      "bytes": 192,
+      "sha256": "69be61c4009200156ea471f09f9f9780ef3a7f77af031d71eeba38a0d5330698"
+    },
+    {
+      "path": "retained-aoe18.json",
+      "bytes": 1222,
+      "sha256": "598374f0388f427174786c9cf8dc4f8efd6f51bf1628f0e8dc30ba4d9058d780"
+    },
+    {
+      "path": "retained-lifesteal13-failure.json",
+      "bytes": 1910,
+      "sha256": "030a28a66ce40ccde8664b7f4c9a271afa66522c61deae4cb5c2b1f35bae0c72"
+    },
+    {
+      "path": "unchanged-core.json",
+      "bytes": 878,
+      "sha256": "2634c6394ecf5d855525993001b9e52ee8b8add0abf13e11c176afaa4c03bf5e"
+    }
+  ]
+}

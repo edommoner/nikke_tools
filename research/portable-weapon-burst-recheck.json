@@ -1,0 +1,2817 @@
+{
+  "passed": true,
+  "fixed_commit": "76e0c08aea7185ca00091a7a2efccdbda32181bb",
+  "backend": "metal",
+  "transport": {
+    "backend": "metal",
+    "cases": 1337,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "gpu_seconds": 0.48246550001204014,
+    "input_bytes": 416202756,
+    "library_compile_seconds": 0.0008680820465087891,
+    "output_bytes": 481918976,
+    "pipeline_compile_seconds": 0.001047968864440918,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "gpu_execution_verified": true,
+  "cpu_trace_used_as_gpu_input": false,
+  "report_sha256": "a82bc92b8afe549757c0254824b4fd3f086a772b7a328666e3b810613817b74c",
+  "baseline_sha256": "6aacf2492cad942d96fa9ddf4383df42bd5f6f82e9f64bb780125b45e175bc2e",
+  "input_sha256": "15ecd5c155b5d57e500e8b2ab533c01d445df423c4ac590c0dbd2072768f92ae",
+  "output_sha256": "9c7d28e936972facc16b592d4e343d9bcc0beb5f33e7318f19130e6e9dc79dc2",
+  "source_sha256": {
+    "gpu/event_runtime.slang": "5a07fa53a058640d8207ee014ab1eef5f97b5a4807a2bc5f8f72c29071d6224d",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+    "gpu/portable_schema.slang": "ff3234260d75365b8a7907ce3a3d1055de454e21315cf7e02ebfe57854ad98c3",
+    "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
+    "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+    "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+    "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+    "gpu/reference_runtime.slang": "133be7a63ebd51120783cd1c51172092cf258db1b8998d156e914eb5c507d3e7",
+    "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+    "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
+    "gpu/rank_runtime.slang": "81cbe580f8ff5e80c4d4a88e26822747f25dec1bcb40c958ddded1f5bdaca863",
+    "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
+    "gpu/enemy_buff_runtime.slang": "d27ebbbaec782eb6ae855bf3dfa3dc6cd2857eb1e251a48c03c693622425904b",
+    "gpu/carrier_runtime.slang": "a403b892b876c1038307d1c9d96dcf0702c8fd277421c8500adf6180adf1e879",
+    "gpu/quantity_runtime.slang": "44d9e37a3c81f77dcea96406db0cafc797401e211d5f9b41903b27254f72587e",
+    "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+    "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+    "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
+    "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+    "gpu/recipient_runtime.slang": "c29f87bdc65479778b72949a0876b42bc1bef9791bd3bb922a7dff6360c65215",
+    "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+    "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+    "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
+    "gpu/incoming_runtime.slang": "bde3b172675e137dea190196aeeb2b81e2608115756da932e2642d410c57cf68",
+    "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
+    "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+    "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+    "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
+    "gpu/periodic_runtime.slang": "d294fe3855156acf4fb0d9d89d084ea54693e7bd2080c706d31de9cd27316883",
+    "gpu/removal_runtime.slang": "52a1642db17ad0a03ad92785d2a5ef50db12f1a2c289ec4b853b4f765b2968b6",
+    "gpu/duration_extend_runtime.slang": "2a8810be4130e3d3beb86ded42a7017a138f0c26b97c26b0720ff8062a62c8ef",
+    "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+    "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
+    "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+    "gpu/combat_runtime.slang": "002d9bee278fc77e761b957dc4ccf60dd0f35e1961d5eb99c739517ca3f1415f",
+    "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+    "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+    "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+    "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
+  },
+  "validation_sha256": {
+    "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
+    "scripts/portable_duration_extend_oracle.py": "6d68ed922e60c67690b613de36d74753d4ac660e35e9132519b58aff3fff2d77",
+    "tests/fixtures/portable-duration-extend.json": "32f301f32116ebf38f9ccd198240cd4efedc0afa37aaba82a0888c5e3c83d4fc",
+    "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
+    "scripts/portable_removal_oracle.py": "bb47fb4399e67ca42e94fbc578f547b67b390e46ef82d4dc6fb2f0438f39763f",
+    "tests/fixtures/portable-removal.json": "ac1eea32bed09887687c397f70348dcf9fdb08d5946e2f3d147c65af4ca81d54",
+    "app/portable_lifesteal_reference.py": "eeb7dd998fce96afbc032e95b5f9b7454cb0f408d4472bfd6dae9f23a64a1104",
+    "scripts/portable_lifesteal_oracle.py": "082a9149627a837f0efd0ff966af6de8868be3a7b776bdc7b8b21dc13ae0d531",
+    "scripts/portable_landing_oracle.py": "318d4436c3636724112025866cd8e21f692772b96a83450e7bf3fae020484b45",
+    "tests/fixtures/portable-lifesteal-prototype.json": "7cb6cc69c90263f1aacaa86d777ef52e519e1d169386eba3093bb0d38b294ac0",
+    "tests/fixtures/portable-landings.json": "351c697e09cc503a03c91910b2b902e84c20acb6ad110d8532409f4036100a1b",
+    "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
+    "app/staged_dot_specs.py": "5c38be17b5afbe79c6d7a4a0cf9d00108d97ee37822c725803944a9f6cf617d1",
+    "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",
+    "tests/fixtures/portable-staged.json": "d3da4ed61ef8be36f8d3e43a6c9a413f2f8547911eea3a913b4554dc4cf2f245",
+    "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
+    "scripts/portable_source_oracle.py": "97475bdc1a97ddb67281c08bbfb7ee95978826e3f834f271155933fc4e631970",
+    "app/periodic_source_specs.py": "4c96a26ce0d0ca987c1e057d95d9a88055e706c7bf2cadde70df6b58ec9f2444",
+    "app/periodic_source_runtime.py": "bd45e4244fd741ff053a756876253b62221f1d28cfb00e01d89d5cacb39af062",
+    "tests/fixtures/portable-sources.json": "7c67eb17ad96eff5237e1a14de38ef5f30494cba272cf56da8acb0ce7c45ec86",
+    "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",
+    "app/reference_health_runtime.py": "5b756375f135d8b22d188c6e6e8d185bfbcbd36ed96b71ac1794f314aa2f9f41",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "tests/fixtures/portable-reference-scales.json": "e0e26b2691affa2f30e1456c9bf49923c24f0a63667c16da45f73a31c7ad61bd",
+    "app/portable_reference_specs.py": "de22b095242d7fd64ac1cdd362011fda0f48ea2f33e84be58dd348bc7400ff1a",
+    "tests/fixtures/portable-hit-references.json": "3868b333fdc77e82c644c038f62b4534e84e6214be0b93a5b2448e4750e05d8e",
+    "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
+    "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
+    "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
+    "app/resource_runtime.py": "8356943f18d137bfb90d60ab2096c2505403c9156f088cf29c7aeda38fecd58c",
+    "scripts/portable_resource_oracle.py": "6e8ab20b01c41618c554779f4f41eb6a693c14893da935e1cf2b382d7b6040d8",
+    "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4",
+    "app/portable_roster_input.py": "0a6c8c37bcf4e93af644769125a09535c618c4d601039fec440d473d84999121",
+    "app/portable_runtime_layout.py": "1a882b22eef68f04633c2a0fcdc542b188669e50f283dc88bf241af33c7ca0f1",
+    "app/portable_enemy_specs.py": "52ef96d79d4791ebe5a7da2ad6cee0a8550a50edccb1a3f5aaa5b7f4204e8686",
+    "app/portable_runtime.py": "578bcda5e4214721170d122b9bc1e0906d422ddd846a3fd6725f688b013ea450",
+    "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
+    "app/portable_specs.py": "90bf3d3afff7392ccc406dfb60ef0d7a8223d0aeacee000b342ed742d6e56d12",
+    "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
+    "app/portable_backend.py": "65fa85746a0be27fce443e95f47a92885a4c822dc6630141b1baa972c4cfff53",
+    "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
+    "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
+    "app/portable_damage_specs.py": "62d322155e688a5e428b4cf56550216c6d050c0605487d39331d4306d47b14bb",
+    "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
+    "scripts/portable_health_oracle.py": "0a10670fdba64a4e5de217869efc4f763ecf1dd67713cc67d7a8a2c25a62ed4f",
+    "scripts/portable_enemy_oracle.py": "1ed2d643cbb0999088b3ae2f119dae7a43ece9c84fa56c2150a46f882c2da893",
+    "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
+    "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
+    "scripts/portable_weapon_oracle.py": "f6de982a48e39b941dfead71d190d2b8d530b25a8aba37021f8692c7990a53a2",
+    "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
+    "scripts/verify-portable-combat.py": "41058f7bbf7a5e9917f8b4fde96ef0312dab49f62425323e4713fcf86c68c186",
+    "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
+    "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
+    "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
+    "tests/fixtures/portable-enemy-auto-aim.json": "494d24a29f565f4cbf2243ae94de40e3e42aa37a97aa119c4b1d32c1f7508ed3",
+    "tests/fixtures/portable-periodic-targets.json": "d81c7db7e3c17527ea04738940b9cd42eb389269b762d33ad4a163944c4d6506",
+    "scripts/portable_enemy_buff_oracle.py": "4811d1c4fb66c3bd8b49bfb2e170380e68bb77bab28d8d03d74b2c53ce437cee",
+    "tests/fixtures/portable-enemy-buffs.json": "d1112e9bc6f236f1af7ec39453b7ca4e3d2ea8a548e57a38368965ff9b9cfd85",
+    "research/portable-mode-session-contract.json": "8c31ba85469c0ba1374ba0682bbb34aa3bc03eef2840a6c052e7efe405b3f5aa",
+    "tests/fixtures/portable-buff-notices.json": "234bd8ad051a89f7382b67069e0cfdf5e479cc0c9de42ba3528ae3d493265fd8",
+    "tests/fixtures/portable-mode-sessions.json": "027dbc7c09af926d554359128a7aa6662d287123eb3534f3f911c5181fc11593",
+    "tests/fixtures/portable-ammo-modes.json": "bcf69144ed0706a9e8f85e22b8f98824fbc2309e54c4d8ddc5a0a9c4da4365a2",
+    "tests/fixtures/portable-ammo-instants.json": "69dad6e77c9eb72c06c3178197a2d5081ef4b0072a76f0fb5ce36e471dbdebb8",
+    "tests/fixtures/portable-burst-duration.json": "43b852e0e57886272ca1de313b48022218702946d96622de9af7c0359ecdb64b",
+    "tests/fixtures/portable-pending-burst.json": "da124167496dc414248c8abd737b7410b4fa0a1d50b5899f4ba7cb1c1bd1b941",
+    "tests/fixtures/portable-cover.json": "3b2cae16148429ef53243644607f63aca167ba013ec98bbb15948533cb829fc7",
+    "tests/fixtures/portable-enemy-damage.json": "3c2bcbb04f5f39d6400b7ca8ab147c0230fc98cc4b31e4ad1aec100ce4848f52",
+    "tests/fixtures/portable-burst-resources.json": "8d0f0ff8422c6b28c0c90d318569ff278b126c6e7a935b401861df0120fa13f7",
+    "tests/fixtures/portable-bullets.json": "ade37d6cad7cbfa3587542cf2095d8ab0c107bf443bc061281412146fedc6e65",
+    "tests/fixtures/portable-lazy.json": "1fb643957e6d9e830127c0c61a66bab058645689d643a83a39ac81d610987b46",
+    "tests/fixtures/portable-lazy-capacity-rejection.json": "a1c3ad623fc63459eaf29d0c1d4d2edfcba86d5bb284b30e0b65c7faba36324e",
+    "tests/fixtures/portable-carriers.json": "ce9c7185429262140b6e7d0fb3c4229512b6da14821bd814c0da8cf9076d1be7",
+    "tests/fixtures/portable-recipients.json": "bd64e66ab8edc35f799066a0bc619bd0ba1f86b22b7a31a83c5c86587222d5db",
+    "tests/fixtures/portable-capacity.json": "4676815cc32f2c8a6b2c4b921235fc091bd194eebdca2306905f677cc64452b1",
+    "tests/fixtures/portable-incoming.json": "fbd69208aeeba331eb5e8b73c073f03c95a16b35cbae8a1d27349fa343da60de",
+    "tests/fixtures/portable-hp-edges.json": "2342470a63a6a2a0505b81a0e6356a6254d9b4fc8c9d3db95bea334004a9d6f0",
+    "tests/fixtures/portable-health.json": "614201f346546358376038785f3196032efd3b0aa51276474da723a41267c365",
+    "tests/fixtures/portable-charge-control.json": "00b643a72ad7026de9cb122386cc3dce521ae13bc5813383886e637d635f4994",
+    "tests/fixtures/portable-quantities.json": "53affbf8b6cfb6b87639a4bfe1090c3b30a44596c09f7f334ee9073daad3a9fa",
+    "tests/fixtures/portable-weapons.json": "75960cd6b9daaf1315a03af930f193df2c637bff7b845cc9f19b524561f5f7bf",
+    "tests/fixtures/portable-damage.json": "ab596e0f01bb9f94ee9813c6027d46a85415b77d5a72c36e06b32bf45b6ac5c7",
+    "tests/fixtures/portable-triggers.json": "680d8d5e212f9604e23f895b141651114e8703a4051facd37deb5ac890a403ec",
+    "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
+    "tests/fixtures/portable-combat-extensions.json": "aa7a171bf82bbc1d8700507a8d5bcc66a5f8ad60fe8be971d3fd00fa06eb115d",
+    "tests/fixtures/portable-autonomous.json": "0d97f8e8a848cfaf25d08e52414f1055d6a8807625f28bce3608a1726db6a5e9",
+    "scripts/run-metal-probe.swift": "0f2b54212a600ae31a20930a3982e71d851b9951f63a2391d7bc1643c793a101"
+  },
+  "previous_full_readback_comparison": {
+    "source_sha256": true,
+    "input_sha256": true,
+    "output_sha256": true,
+    "validation_sha256": true,
+    "actual_statuses": true,
+    "expected_statuses": true,
+    "batch_layout": true,
+    "rejected_cases": true,
+    "results": true,
+    "cases": true,
+    "known_cpu_differences": true,
+    "known_health_cpu_differences": true,
+    "known_mode_cpu_differences": true,
+    "ammo_instant_cpu_regressions": true,
+    "bullet_cpu_regressions": true,
+    "burst_cpu_regressions": true,
+    "burst_duration_cpu_regressions": true,
+    "capacity_cpu_regressions": true,
+    "carrier_cpu_regressions": true,
+    "cover_cpu_regressions": true,
+    "damage_cpu_regressions": true,
+    "duration_extend_cpu_regressions": true,
+    "enemy_buff_cpu_regressions": true,
+    "enemy_component_cpu_regressions": true,
+    "health_cpu_regressions": true,
+    "hit_reference_cpu_regressions": true,
+    "landing_cpu_regressions": true,
+    "lazy_cpu_regressions": true,
+    "lifesteal_cpu_regressions": true,
+    "mode_session_cpu_regressions": true,
+    "named_buff_cpu_regressions": true,
+    "pending_controller_cpu_regressions": true,
+    "periodic_target_cpu_regressions": true,
+    "removal_cpu_regressions": true,
+    "resource_cpu_regressions": true,
+    "scale_reference_cpu_regressions": true,
+    "source_cpu_regressions": true,
+    "staged_cpu_regressions": true,
+    "trigger_cpu_regressions": true,
+    "weapon_cpu_regressions": true
+  },
+  "positives": 1131,
+  "rejections": 206,
+  "cases": [
+    {
+      "name": "mode-duration-restores-base",
+      "passed": true
+    },
+    {
+      "name": "mode-round-limit-restores-magazine",
+      "passed": true
+    },
+    {
+      "name": "mode-toggle-end-child-reentry",
+      "passed": true
+    },
+    {
+      "name": "mode-replacement-first-shot-coefficient",
+      "passed": true
+    },
+    {
+      "name": "reload-callback-selects-new-mode-before-fire",
+      "passed": true
+    },
+    {
+      "name": "charge-mode-entry-and-round-exit",
+      "passed": true
+    },
+    {
+      "name": "finite-timed-mode-stalls-on-empty",
+      "passed": true
+    },
+    {
+      "name": "named-removal-keeps-independent-weapon-mode",
+      "passed": true
+    },
+    {
+      "name": "pellet-packets-counters-resource-separation",
+      "passed": true
+    },
+    {
+      "name": "per-pellet-rounding-0.45",
+      "passed": true
+    },
+    {
+      "name": "per-pellet-rounding-0",
+      "passed": true
+    },
+    {
+      "name": "one-physical-shot-keeps-target-after-first-pellet-death",
+      "passed": true
+    },
+    {
+      "name": "pellet-callback-mode-switch-keeps-parent-packet",
+      "passed": true
+    },
+    {
+      "name": "reentry-b1-request-1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 1,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.5
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 2,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 3,
+              "casts": [
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 40.5
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.6
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 3,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 7,
+              "casts": [
+                1,
+                1,
+                1,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 40.5
+                },
+                {
+                  "ready": 40.6
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.7
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": 3,
+              "last_b3_cast_time": 0.7,
+              "last_full_start": -1.0,
+              "phase": 4,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 15,
+              "casts": [
+                1,
+                1,
+                1,
+                1,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 40.5
+                },
+                {
+                  "ready": 40.6
+                },
+                {
+                  "ready": 40.7
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 1.0699999999999998
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 11.07,
+              "last_b3_caster": 3,
+              "last_b3_cast_time": 0.7,
+              "last_full_start": 1.07,
+              "phase": 5,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 15,
+              "casts": [
+                1,
+                1,
+                1,
+                1,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 40.5
+                },
+                {
+                  "ready": 40.6
+                },
+                {
+                  "ready": 40.7
+                },
+                {
+                  "ready": 0.0
+                }
+              ]
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "casts": [
+          {
+            "time": 0,
+            "owner": 0,
+            "stage": 1
+          },
+          {
+            "time": 0.5,
+            "owner": 1,
+            "stage": 1
+          },
+          {
+            "time": 0.6,
+            "owner": 2,
+            "stage": 2
+          },
+          {
+            "time": 0.7,
+            "owner": 3,
+            "stage": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "reentry-b1-request-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 1,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.5
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 2,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 3,
+              "casts": [
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 40.5
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.6
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 3,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 7,
+              "casts": [
+                1,
+                1,
+                1,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 40.5
+                },
+                {
+                  "ready": 40.6
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.7
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": 3,
+              "last_b3_cast_time": 0.7,
+              "last_full_start": -1.0,
+              "phase": 4,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 15,
+              "casts": [
+                1,
+                1,
+                1,
+                1,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 40.5
+                },
+                {
+                  "ready": 40.6
+                },
+                {
+                  "ready": 40.7
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 1.0699999999999998
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 11.07,
+              "last_b3_caster": 3,
+              "last_b3_cast_time": 0.7,
+              "last_full_start": 1.07,
+              "phase": 5,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 15,
+              "casts": [
+                1,
+                1,
+                1,
+                1,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 40.5
+                },
+                {
+                  "ready": 40.6
+                },
+                {
+                  "ready": 40.7
+                },
+                {
+                  "ready": 0.0
+                }
+              ]
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "casts": [
+          {
+            "time": 0,
+            "owner": 0,
+            "stage": 1
+          },
+          {
+            "time": 0.5,
+            "owner": 1,
+            "stage": 1
+          },
+          {
+            "time": 0.6,
+            "owner": 2,
+            "stage": 2
+          },
+          {
+            "time": 0.7,
+            "owner": 3,
+            "stage": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "reentry-waits-own-cooldown-and-entry-notice",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 1,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.5
+            },
+            "attack_buffs": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 1,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 1,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 1.0
+            },
+            "attack_buffs": [
+              2.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 1,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 1,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 1.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 1.0
+            },
+            "attack_buffs": [
+              2.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 2,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                2,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 2.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 1.1
+            },
+            "attack_buffs": [
+              3.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 3,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 3,
+              "casts": [
+                2,
+                1,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 2.0
+                },
+                {
+                  "ready": 41.1
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 1.2000000000000002
+            },
+            "attack_buffs": [
+              3.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": 2,
+              "last_b3_cast_time": 1.2,
+              "last_full_start": -1.0,
+              "phase": 4,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 7,
+              "casts": [
+                2,
+                1,
+                1,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 2.0
+                },
+                {
+                  "ready": 41.1
+                },
+                {
+                  "ready": 41.2
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 1.5699999999999998
+            },
+            "attack_buffs": [
+              3.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 11.57,
+              "last_b3_caster": 2,
+              "last_b3_cast_time": 1.2,
+              "last_full_start": 1.57,
+              "phase": 5,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 7,
+              "casts": [
+                2,
+                1,
+                1,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "weapons": [
+                {
+                  "ready": 2.0
+                },
+                {
+                  "ready": 41.1
+                },
+                {
+                  "ready": 41.2
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ]
+            },
+            "attack_buffs": [
+              3.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "casts": [
+          {
+            "time": 0,
+            "owner": 0,
+            "stage": 1
+          },
+          {
+            "time": 1,
+            "owner": 0,
+            "stage": 1
+          },
+          {
+            "time": 1.1,
+            "owner": 1,
+            "stage": 2
+          },
+          {
+            "time": 1.2,
+            "owner": 2,
+            "stage": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "zero-valued-b3-reentry-state",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 2,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.1
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 3,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 3,
+              "casts": [
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.1
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.2
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": 2,
+              "last_b3_cast_time": 0.2,
+              "last_full_start": -1.0,
+              "phase": 3,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 7,
+              "casts": [
+                1,
+                1,
+                1,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.1
+                },
+                {
+                  "ready": 0.2
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.7
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": 2,
+              "last_b3_cast_time": 0.7,
+              "last_full_start": -1.0,
+              "phase": 4,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 7,
+              "casts": [
+                1,
+                1,
+                2,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.1
+                },
+                {
+                  "ready": 0.7
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 1.0699999999999998
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 11.07,
+              "last_b3_caster": 2,
+              "last_b3_cast_time": 0.7,
+              "last_full_start": 1.07,
+              "phase": 5,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 7,
+              "casts": [
+                1,
+                1,
+                2,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.1
+                },
+                {
+                  "ready": 0.7
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ]
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "casts": [
+          {
+            "time": 0,
+            "owner": 0,
+            "stage": 1
+          },
+          {
+            "time": 0.1,
+            "owner": 1,
+            "stage": 2
+          },
+          {
+            "time": 0.2,
+            "owner": 2,
+            "stage": 3
+          },
+          {
+            "time": 0.7,
+            "owner": 2,
+            "stage": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "startup-pending-reentry-consumed-once",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 1,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.5
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 2,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                2,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.5
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.6
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 3,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 3,
+              "casts": [
+                2,
+                1,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.5
+                },
+                {
+                  "ready": 0.6
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.7
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": 2,
+              "last_b3_cast_time": 0.7,
+              "last_full_start": -1.0,
+              "phase": 4,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 7,
+              "casts": [
+                2,
+                1,
+                1,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.5
+                },
+                {
+                  "ready": 0.6
+                },
+                {
+                  "ready": 0.7
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 1.0699999999999998
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 11.07,
+              "last_b3_caster": 2,
+              "last_b3_cast_time": 0.7,
+              "last_full_start": 1.07,
+              "phase": 5,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 7,
+              "casts": [
+                2,
+                1,
+                1,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.5
+                },
+                {
+                  "ready": 0.6
+                },
+                {
+                  "ready": 0.7
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ]
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "casts": [
+          {
+            "time": 0,
+            "owner": 0,
+            "stage": 1
+          },
+          {
+            "time": 0.5,
+            "owner": 0,
+            "stage": 1
+          },
+          {
+            "time": 0.6,
+            "owner": 1,
+            "stage": 2
+          },
+          {
+            "time": 0.7,
+            "owner": 2,
+            "stage": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "expired-reentry-state-does-not-open-slot",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 2,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.1
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 3,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 3,
+              "casts": [
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.1
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.2
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": 2,
+              "last_b3_cast_time": 0.2,
+              "last_full_start": -1.0,
+              "phase": 4,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 7,
+              "casts": [
+                1,
+                1,
+                1,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.1
+                },
+                {
+                  "ready": 0.2
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.5700000000000001
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 10.57,
+              "last_b3_caster": 2,
+              "last_b3_cast_time": 0.2,
+              "last_full_start": 0.57,
+              "phase": 5,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 7,
+              "casts": [
+                1,
+                1,
+                1,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.1
+                },
+                {
+                  "ready": 0.2
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ]
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "casts": [
+          {
+            "time": 0,
+            "owner": 0,
+            "stage": 1
+          },
+          {
+            "time": 0.1,
+            "owner": 1,
+            "stage": 2
+          },
+          {
+            "time": 0.2,
+            "owner": 2,
+            "stage": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "mode-expiry-end-child-starts-fresh-session",
+      "passed": true
+    },
+    {
+      "name": "all-stage-state-uses-current-stage",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 2,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.1
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": -1,
+              "last_b3_cast_time": -1.0,
+              "last_full_start": -1.0,
+              "phase": 3,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                2,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.1
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.2
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 0,
+              "last_b3_caster": 0,
+              "last_b3_cast_time": 0.2,
+              "last_full_start": -1.0,
+              "phase": 4,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.2
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ],
+              "action": 0.5700000000000001
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "combat": {
+              "full_end": 10.57,
+              "last_b3_caster": 0,
+              "last_b3_cast_time": 0.2,
+              "last_full_start": 0.57,
+              "phase": 5,
+              "gauge": 0.0,
+              "gauge_charging": false,
+              "cast_mask": 1,
+              "casts": [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              "cooldown_wait_mask": 0,
+              "cooldown_applied": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "weapons": [
+                {
+                  "ready": 0.2
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                },
+                {
+                  "ready": 0.0
+                }
+              ]
+            },
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "casts": [
+          {
+            "time": 0,
+            "owner": 0,
+            "stage": 1
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "stage": 2
+          },
+          {
+            "time": 0.2,
+            "owner": 0,
+            "stage": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "named-removal-last-bullet-keeps-mode-magazine",
+      "passed": true
+    },
+    {
+      "name": "named-removal-charge-pellet-keeps-mode-magazine",
+      "passed": true
+    }
+  ],
+  "native_controller_cases": 7,
+  "existing_native_regression_counts": {
+    "ammo_instant_cpu_regressions": 96,
+    "bullet_cpu_regressions": 34,
+    "burst_cpu_regressions": 31,
+    "burst_duration_cpu_regressions": 30,
+    "capacity_cpu_regressions": 12,
+    "carrier_cpu_regressions": 41,
+    "cover_cpu_regressions": 34,
+    "damage_cpu_regressions": 37,
+    "duration_extend_cpu_regressions": 39,
+    "enemy_buff_cpu_regressions": 55,
+    "enemy_component_cpu_regressions": 224,
+    "health_cpu_regressions": 166,
+    "hit_reference_cpu_regressions": 37,
+    "landing_cpu_regressions": 20,
+    "lazy_cpu_regressions": 26,
+    "lifesteal_cpu_regressions": 15,
+    "mode_session_cpu_regressions": 16,
+    "named_buff_cpu_regressions": 22,
+    "pending_controller_cpu_regressions": 29,
+    "periodic_target_cpu_regressions": 29,
+    "removal_cpu_regressions": 28,
+    "resource_cpu_regressions": 32,
+    "scale_reference_cpu_regressions": 40,
+    "source_cpu_regressions": 29,
+    "staged_cpu_regressions": 26,
+    "trigger_cpu_regressions": 15,
+    "weapon_cpu_regressions": 87
+  },
+  "known_mode_cpu_differences": [
+    {
+      "name": "mode-expiry-end-child-starts-fresh-session",
+      "reason": "Pinned CharState._in_weapon_change never observes the expired gap when the end callback immediately creates a child mode. GAMEPLAY.md:577-578 requires a new mode magazine and fresh charge; keep the pre-existing shared fresh-session expectation.",
+      "contract": "research/portable-mode-session-contract.json",
+      "differences": [
+        {
+          "query": 1,
+          "path": [
+            "combat",
+            "weapons",
+            0,
+            "ammo"
+          ],
+          "cpu": 999997,
+          "gpu": 999998
+        },
+        {
+          "query": 1,
+          "path": [
+            "combat",
+            "weapons",
+            0,
+            "mode_shots"
+          ],
+          "cpu": 2,
+          "gpu": 1
+        },
+        {
+          "query": 1,
+          "path": [
+            "combat",
+            "weapons",
+            0,
+            "next"
+          ],
+          "cpu": 0.5,
+          "gpu": 0.75
+        }
+      ],
+      "actual_cpu_queries": [
+        {
+          "combat": {
+            "full_end": 0,
+            "last_b3_caster": -1,
+            "last_b3_cast_time": -1.0,
+            "last_full_start": -1.0,
+            "phase": 0,
+            "gauge": 0,
+            "gauge_charging": true,
+            "cast_mask": 0,
+            "casts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cooldown_wait_mask": 0,
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "weapons": [
+              {
+                "ready": 0.0,
+                "ammo": 999998,
+                "shots": 1,
+                "reload_until": -1.0,
+                "next": 0.25,
+                "mode_shots": 1,
+                "mode_index": 1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              }
+            ]
+          },
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "combat": {
+            "full_end": 0,
+            "last_b3_caster": -1,
+            "last_b3_cast_time": -1.0,
+            "last_full_start": -1.0,
+            "phase": 0,
+            "gauge": 0,
+            "gauge_charging": true,
+            "cast_mask": 0,
+            "casts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cooldown_wait_mask": 0,
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "weapons": [
+              {
+                "ready": 0.0,
+                "ammo": 999997,
+                "shots": 2,
+                "reload_until": -1.0,
+                "next": 0.5,
+                "mode_shots": 2,
+                "mode_index": 1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              }
+            ]
+          },
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "combat": {
+            "full_end": 0,
+            "last_b3_caster": -1,
+            "last_b3_cast_time": -1.0,
+            "last_full_start": -1.0,
+            "phase": 0,
+            "gauge": 0,
+            "gauge_charging": true,
+            "cast_mask": 0,
+            "casts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cooldown_wait_mask": 0,
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "weapons": [
+              {
+                "ready": 0.0,
+                "ammo": 9,
+                "shots": 3,
+                "reload_until": -1.0,
+                "next": 1.25,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              },
+              {
+                "ready": 0.0,
+                "ammo": 1,
+                "shots": 0,
+                "reload_until": -1.0,
+                "next": 0.0,
+                "mode_shots": 0,
+                "mode_index": -1
+              }
+            ]
+          },
+          "damage": [
+            5000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "exploratory_raw_mode_audit": [
+    {
+      "name": "mode-duration-restores-base",
+      "raw_cpu_equal": true,
+      "differences": [],
+      "declared_contract_difference": false
+    },
+    {
+      "name": "mode-round-limit-restores-magazine",
+      "raw_cpu_equal": false,
+      "differences": [
+        {
+          "path": "[2].combat.weapons[0].next",
+          "gpu": 0.5,
+          "raw_cpu": 0.75
+        }
+      ],
+      "declared_contract_difference": false
+    },
+    {
+      "name": "mode-toggle-end-child-reentry",
+      "raw_cpu_equal": false,
+      "differences": [
+        {
+          "path": "[0].combat.weapons[0].ammo",
+          "gpu": 10,
+          "raw_cpu": 1
+        },
+        {
+          "path": "[0].combat.weapons[0].next",
+          "gpu": 0.0,
+          "raw_cpu": 0.25
+        },
+        {
+          "path": "[0].combat.weapons[0].mode_shots",
+          "gpu": 0,
+          "raw_cpu": 1
+        },
+        {
+          "path": "[1].combat.weapons[0].ammo",
+          "gpu": 1,
+          "raw_cpu": 0
+        },
+        {
+          "path": "[1].combat.weapons[0].mode_shots",
+          "gpu": 1,
+          "raw_cpu": 2
+        },
+        {
+          "path": "[2].combat.weapons[0].shots",
+          "gpu": 3,
+          "raw_cpu": 2
+        },
+        {
+          "path": "[2].combat.weapons[0].reload_until",
+          "gpu": -1.0,
+          "raw_cpu": 1.5
+        },
+        {
+          "path": "[2].combat.weapons[0].next",
+          "gpu": 0.75,
+          "raw_cpu": 0.5
+        },
+        {
+          "path": "[2].damage[0]",
+          "gpu": 6000.0,
+          "raw_cpu": 4000
+        }
+      ],
+      "declared_contract_difference": false
+    },
+    {
+      "name": "mode-replacement-first-shot-coefficient",
+      "raw_cpu_equal": false,
+      "differences": [
+        {
+          "path": "[0].combat.weapons[0].next",
+          "gpu": 0.0,
+          "raw_cpu": 0.25
+        },
+        {
+          "path": "[0].combat.weapons[0].mode_shots",
+          "gpu": 0,
+          "raw_cpu": 1
+        },
+        {
+          "path": "[1].combat.weapons[0].ammo",
+          "gpu": 1,
+          "raw_cpu": 0
+        },
+        {
+          "path": "[1].combat.weapons[0].mode_shots",
+          "gpu": 1,
+          "raw_cpu": 2
+        },
+        {
+          "path": "[1].damage[0]",
+          "gpu": 6000.0,
+          "raw_cpu": 5000
+        },
+        {
+          "path": "[2].combat.weapons[0].shots",
+          "gpu": 3,
+          "raw_cpu": 2
+        },
+        {
+          "path": "[2].combat.weapons[0].reload_until",
+          "gpu": -1.0,
+          "raw_cpu": 1.5
+        },
+        {
+          "path": "[2].combat.weapons[0].next",
+          "gpu": 0.75,
+          "raw_cpu": 0.5
+        },
+        {
+          "path": "[2].damage[0]",
+          "gpu": 9000.0,
+          "raw_cpu": 5000
+        }
+      ],
+      "declared_contract_difference": false
+    },
+    {
+      "name": "reload-callback-selects-new-mode-before-fire",
+      "raw_cpu_equal": false,
+      "differences": [
+        {
+          "path": "[3].combat.weapons[0].next",
+          "gpu": 0.75,
+          "raw_cpu": 1.0
+        }
+      ],
+      "declared_contract_difference": false
+    },
+    {
+      "name": "charge-mode-entry-and-round-exit",
+      "raw_cpu_equal": false,
+      "differences": [
+        {
+          "path": "[3].combat.weapons[0].next",
+          "gpu": 0.75,
+          "raw_cpu": 1.0
+        }
+      ],
+      "declared_contract_difference": false
+    },
+    {
+      "name": "finite-timed-mode-stalls-on-empty",
+      "raw_cpu_equal": false,
+      "differences": [
+        {
+          "path": "[1].combat.weapons[0].reload_until",
+          "gpu": 1.75,
+          "raw_cpu": 1.25
+        },
+        {
+          "path": "[2].combat.weapons[0].reload_until",
+          "gpu": 2.0,
+          "raw_cpu": 1.5
+        }
+      ],
+      "declared_contract_difference": false
+    },
+    {
+      "name": "mode-expiry-end-child-starts-fresh-session",
+      "raw_cpu_equal": false,
+      "differences": [
+        {
+          "path": "[1].combat.weapons[0].ammo",
+          "gpu": 999998,
+          "raw_cpu": 999997
+        },
+        {
+          "path": "[1].combat.weapons[0].next",
+          "gpu": 0.75,
+          "raw_cpu": 0.5
+        },
+        {
+          "path": "[1].combat.weapons[0].mode_shots",
+          "gpu": 1,
+          "raw_cpu": 2
+        }
+      ],
+      "declared_contract_difference": true
+    }
+  ],
+  "exploratory_raw_mode_audit_scope": "Unqualified native controller observer projection on older mode fixtures. Discrepancies remain for investigation; not counted as raw CPU equality or resolved by changing fixture expectations.",
+  "scope": "Component recheck; preserves existing declared CPU differences. No new production behavior or full character certification.",
+  "normal_ui_backend": "cpu",
+  "full_character_certification": 0
+}

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "source_commit": "8c1735bed84195bdb73bda7fe319dfc2095c8f97",
+  "gpu_source_unchanged": true,
+  "normalized_sha256": {
+    "cuda": "97aa12b381b5bc27ce1690093dc5f1592f4ac47af08ccadff6ff7d41c8685f6e",
+    "metal": "20a2297d64ed112597f2922e7018052623919a2b5230cd1deccccf1fa11247c7"
+  },
+  "current_full_cuda_batch_executed": false,
+  "verification_mode": "Unchanged 1622-program CUDA baseline plus two snapshot programs and one nullable-marker program; exact input/full-output subset proofs, no word normalization."
+}

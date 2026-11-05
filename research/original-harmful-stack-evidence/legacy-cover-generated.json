@@ -1,0 +1,15 @@
+{
+  "gpu_calls": 0,
+  "old_generated": {
+    "cuda": {
+      "bytes": 2513620,
+      "sha256": "443d64e66905a840c606ea303a2aeef873b8fa785c185b1195b8bb9ef027a0f6",
+      "all_bytes_equal": true
+    },
+    "metal": {
+      "bytes": 2667940,
+      "sha256": "b57a2453b008242ea98d77c4c7f24c215c6cbc09a5dd37c2f29c36edf71b7e38",
+      "all_bytes_equal": true
+    }
+  }
+}

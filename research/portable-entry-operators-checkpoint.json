@@ -1,0 +1,227 @@
+{
+  "passed": true,
+  "profile_count": 266,
+  "packed_profiles": 247,
+  "kind_rejected_profiles": 22,
+  "rejected_operator_categories": 26,
+  "kind_dependencies": [
+    {
+      "required_kinds": [
+        23
+      ],
+      "profile_count": 3,
+      "profiles": [
+        {
+          "character": "밀크 : 블루밍 바니",
+          "favorite_stage": 0
+        },
+        {
+          "character": "아스카 : WILLE",
+          "favorite_stage": 0
+        },
+        {
+          "character": "질",
+          "favorite_stage": 0
+        }
+      ]
+    },
+    {
+      "required_kinds": [
+        27
+      ],
+      "profile_count": 3,
+      "profiles": [
+        {
+          "character": "라푼젤 : 퓨어 그레이스",
+          "favorite_stage": 0
+        },
+        {
+          "character": "모리",
+          "favorite_stage": 0
+        },
+        {
+          "character": "킬로",
+          "favorite_stage": 0
+        }
+      ]
+    },
+    {
+      "required_kinds": [
+        33
+      ],
+      "profile_count": 3,
+      "profiles": [
+        {
+          "character": "율리아",
+          "favorite_stage": 1
+        },
+        {
+          "character": "율리아",
+          "favorite_stage": 2
+        },
+        {
+          "character": "율리아",
+          "favorite_stage": 3
+        }
+      ]
+    },
+    {
+      "required_kinds": [
+        15
+      ],
+      "profile_count": 2,
+      "profiles": [
+        {
+          "character": "크러스트",
+          "favorite_stage": 0
+        },
+        {
+          "character": "프리카",
+          "favorite_stage": 0
+        }
+      ]
+    },
+    {
+      "required_kinds": [
+        30
+      ],
+      "profile_count": 2,
+      "profiles": [
+        {
+          "character": "릴리",
+          "favorite_stage": 0
+        },
+        {
+          "character": "비스킷",
+          "favorite_stage": 0
+        }
+      ]
+    },
+    {
+      "required_kinds": [
+        34
+      ],
+      "profile_count": 2,
+      "profiles": [
+        {
+          "character": "도로시",
+          "favorite_stage": 0
+        },
+        {
+          "character": "트로니",
+          "favorite_stage": 0
+        }
+      ]
+    },
+    {
+      "required_kinds": [
+        15,
+        33
+      ],
+      "profile_count": 1,
+      "profiles": [
+        {
+          "character": "사쿠라 : 블룸 인 서머",
+          "favorite_stage": 0
+        }
+      ]
+    },
+    {
+      "required_kinds": [
+        18
+      ],
+      "profile_count": 1,
+      "profiles": [
+        {
+          "character": "소다 : 트윙클링 바니",
+          "favorite_stage": 0
+        }
+      ]
+    },
+    {
+      "required_kinds": [
+        20
+      ],
+      "profile_count": 1,
+      "profiles": [
+        {
+          "character": "미하라 : 본딩 체인",
+          "favorite_stage": 0
+        }
+      ]
+    },
+    {
+      "required_kinds": [
+        21
+      ],
+      "profile_count": 1,
+      "profiles": [
+        {
+          "character": "앵커 : 이노센트 메이드",
+          "favorite_stage": 0
+        }
+      ]
+    },
+    {
+      "required_kinds": [
+        31
+      ],
+      "profile_count": 1,
+      "profiles": [
+        {
+          "character": "라이",
+          "favorite_stage": 0
+        }
+      ]
+    },
+    {
+      "required_kinds": [
+        35
+      ],
+      "profile_count": 1,
+      "profiles": [
+        {
+          "character": "아인",
+          "favorite_stage": 0
+        }
+      ]
+    },
+    {
+      "required_kinds": [
+        37
+      ],
+      "profile_count": 1,
+      "profiles": [
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "favorite_stage": 0
+        }
+      ]
+    }
+  ],
+  "forbidden_calls": {
+    "cpu_battle": 0,
+    "gpu": 0
+  },
+  "calculation_verified": false,
+  "gpu_admission_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "elapsed_seconds": 3.790878833970055,
+  "scope": "Static literal-kind dependencies plus separate CPU force-skill observations; GPU implementation/admission remains pending",
+  "gpu_sources_unchanged": true,
+  "auditor_sources_guard_rechecked": true,
+  "unpacked_profiles": 19,
+  "tests": 6,
+  "source_commit": "c7356b89a47f5155f6eb6d16a08b8c2935d3a708",
+  "nonempty_periodic_clock_verified": false,
+  "next_gpu_batch": {
+    "kinds": [
+      15,
+      33
+    ],
+    "reason": "Julia favorite 1/2/3 require only force-skill use; Sakura requires both force-skill use and named duration extension",
+    "remaining_witness": "Actual part-destruction extension of both Sakura named states, timer expiration and phase"
+  },
+  "cleanse_gpu_source_matches_current_golden": true
+}

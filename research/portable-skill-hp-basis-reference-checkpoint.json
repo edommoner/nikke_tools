@@ -1,0 +1,370 @@
+{
+  "schema": 1,
+  "suite": "skill-hp-basis",
+  "stage": "cpu-native-contract",
+  "passed": true,
+  "cpu_reference_verified": true,
+  "calculation_verified": false,
+  "gpu_supported": false,
+  "case_count": 28,
+  "positive_contract_cases": 26,
+  "reference_model_gap_cases": 2,
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "packing_calls": 0,
+  "elapsed_seconds": 2.225776582956314,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "reference_report": {
+    "path": "/tmp/nikke-skill-hp-basis-reference-v3.json",
+    "sha256": "c21acc840eaa805477bca5a2466c3909b2d0cae500031799b50b1f763ec1d9d9"
+  },
+  "cases": [
+    {
+      "name": "skill-hp-basis-ordinary",
+      "input_sha256": "bba0d6db8609ec2deaa8354cdb78391c7afa961c0fda496b188c8dbb704ee286",
+      "native_sha256": "a41518fb7a5bd534cfed94b02f854b03c5a07107b1f1acc5b05b5da5d1fd022a",
+      "trace_sha256": "6be41fdd243626c57e341c7dfcae95cc109865af37312a1a60f697a7d0bddd17",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 0
+      }
+    },
+    {
+      "name": "skill-hp-basis-add",
+      "input_sha256": "14c833831bdbeabb0a5a22063dba3104f467f6bf722bcf6ba1ef04b8ccfa2e0b",
+      "native_sha256": "511e2397ee8cb2aa06c2fd407f080014dde35a8956fddc8736c8ce8c9e9fd141",
+      "trace_sha256": "f55f0d01a72a5066f46f786d7c0b0366711dcf0d71804f2b1bdac07c4f61cf06",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-double-max",
+      "input_sha256": "916c1b921cb528fe3fecf6829921d6b8752a2012811ebc4aec7107f2729ec9df",
+      "native_sha256": "00f0b4c827f8450ab4f87c5f949a68972ac366c375f423a4606f225ebc675dfc",
+      "trace_sha256": "6d48fc4757fa3241d07bceadbaf6722aaba456e8398c6980a82213c25e5068ef",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-half-max",
+      "input_sha256": "030f735d631464dff47147620bbe6dcccbd245e3d863729edab350aa0a7ad371",
+      "native_sha256": "9c6ef488422a50b9f43266649ed48627e2477edcac552915c3a0d3fed194292c",
+      "trace_sha256": "5fb15dfd896f3bedaf49a2e31d55009f3a345f81950fabb2678cbc55dc3144c1",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-zero-percent",
+      "input_sha256": "d701890a89a09cb3ed4cbd85c80480bd3dc807374a40b87ab1d7f02a829f656c",
+      "native_sha256": "2dc1434c56f9896e9da37c8ff65c18645d287b7568f77522116807a15ec06d07",
+      "trace_sha256": "6be41fdd243626c57e341c7dfcae95cc109865af37312a1a60f697a7d0bddd17",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-caster-hp-flat",
+      "input_sha256": "74ee58d7d460419912c23aee9002b8303cb5526ae6124bfea76e19fa1ada606a",
+      "native_sha256": "f8d5ace8305c05621e9af8d0f1a6c5a6fd2d834a5fa07ee1dcd46f1de2aa616f",
+      "trace_sha256": "391501e3535c244cb436f4204a8c2a650ee710c0c19371287fa71e74eae8843f",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-snapshot-hp",
+      "input_sha256": "842b9a786dd7a8750775a62d30ec8183d69237eb6e826a5f1d49e99901e4d1c7",
+      "native_sha256": "aabaf328c6b9673620ca04ab5ff102a4968753fa56bdcb0f6ad1c3315c58e6d5",
+      "trace_sha256": "95c7ebdc76c0bd4908f01a07079d8d1bdd602d208a19648800d8bbd210d81753",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-copied-hp",
+      "input_sha256": "c007b6209b52aa5deb522f7e6d617e86a4c5c498dd6fc9887701eb4e8533ec2f",
+      "native_sha256": "b1e1f2b091326fc20c4f4b11c70b9ba04b62c8c3ed4cbdeb86c5c6a27a8e6580",
+      "trace_sha256": "6d48fc4757fa3241d07bceadbaf6722aaba456e8398c6980a82213c25e5068ef",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-expiry",
+      "input_sha256": "3acfaa544a9a42ad5a861d686326fbe36991450ae173243548225a8c38224117",
+      "native_sha256": "eac2dfdd1f4e5211e83d74130fe096bcb789fa472180d3325c28016c139cb3c7",
+      "trace_sha256": "6304011f32270db8c4b302c1a253eac5db909cc7350fa1db63e552cc8432784b",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 2,
+        "basis_queries": 2
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-two-hits",
+      "input_sha256": "cdf308ed00533f3e38bd7484d094409cabb6192e6eef245edd3b5a20a7dfef8e",
+      "native_sha256": "1c6c0b26cd268a9ae3ba59c3a9cd6b1eff0a8b7e94d550c96a239ae673e1c6f1",
+      "trace_sha256": "a999dbacc15f7766de70e5d51f57cfa182f2efe5d6eb8f2242c0aeb83d43ef8c",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 2,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-lifesteal",
+      "input_sha256": "b914f3df5564b88d598d3a58ddc469d800fb7a19da8dad462771f71a8744b45d",
+      "native_sha256": "216c23bf236dcb914f8422ba98c3845d1c5518906349715543d0a14038094df0",
+      "trace_sha256": "7f3290fbcdd3ca80f90fdcaa64505a2aba5af67bbe76787bbd9cb5e6b3c201b5",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-parts",
+      "input_sha256": "6ea72d6a85a12452546737baca3f3df2899aa06cde8eb4eea10cf7be95a023b4",
+      "native_sha256": "eb256cd15a961131a2013603ab72745a7981ca322e07580a37185e2af7d41ed1",
+      "trace_sha256": "7f3290fbcdd3ca80f90fdcaa64505a2aba5af67bbe76787bbd9cb5e6b3c201b5",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 3,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-deferred",
+      "input_sha256": "d06cc5998d36b3f4f35a90f404e4b78238b33563f45ac0a90809dbef964654a2",
+      "native_sha256": "1afec84b66a66a821f816be7231af12f207552330b4cc29092e09f31fb502068",
+      "trace_sha256": "03515485b73f56d14053dba3bfcb8cded3ae7ce94d19a915b21d84334e3c8936",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "packets": 1,
+        "basis_queries": 0
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace",
+      "input_sha256": "a2473dd5ce9e4c0aa80e9852d6f1da1d7e585438e27360d8a8658c8021fa4616",
+      "native_sha256": "9b765957e9c8c14e654ff0b5cc848003b482e5c0b795eb08b5c41bc556054509",
+      "trace_sha256": "b7a25072d6c15b28c6d9e24f95ddcc43a23590093b3b2322e0ecfab56a53e1c2",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace-double-max",
+      "input_sha256": "f5f26af96cae066703e360283932534e17881d1f3964e02dfb012b83a319a8e0",
+      "native_sha256": "5c079cc81585e52c012dc875108af56a25b9382f0d7ba49264582454bbc94dbe",
+      "trace_sha256": "54a18eb4a96c8e4c87bb0951da838ebe88f8615be6092afdaea7d7c63fab9f73",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace-half-max",
+      "input_sha256": "35f41177c5a25d9456c1fed5ccfdfa82007550a8ec9063ac7e950dd29d6a22a8",
+      "native_sha256": "01950af1c42edf3746d0fcad5c97baed1962453bdfad2fe1cd4990da4bb079b5",
+      "trace_sha256": "112847635eeacab1724842b46fafe76e95dd3862e5f1483d00bc7c5eab8abf05",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace-zero-percent",
+      "input_sha256": "19f2497774a5cdfa6ebf8eb39b427c1a4d810f5157044d2069aa95626ab0b245",
+      "native_sha256": "ce0cdfaa52902a32aacf5cce177a154ef0480900b4a8f41ed58a73bce1d09236",
+      "trace_sha256": "5d1c1ad2cb9ec64682efb6a805a7e9e3c25f7a39174f10c3271885714f864f0a",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace-caster-hp-flat",
+      "input_sha256": "07603f0fd3b4816f6b5f2c625b775670c6971b4824d82d25a9fe7087dd43424c",
+      "native_sha256": "463fb1a5e0f4bb4b191a5fd6882699d5393b52d718737c8b23acaf300de30a71",
+      "trace_sha256": "b704b6277ca632d28934a509adf9cd4ac66b14d2188f26b22f45b410b4510a81",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace-snapshot-hp",
+      "input_sha256": "5da18e58bfcdb76fe7215fa16a0deef2682a3e60368c8d48a2a9d396d710d2a9",
+      "native_sha256": "ffa8c894de0288b736480d0d486e3ce11d486b33d4c4c68bb68fa4e834aa1ccf",
+      "trace_sha256": "d6e3f56cec188a7e482d93dce78b5c8b723eea25998d4fc2339c44d5f7ee5637",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace-copied-hp",
+      "input_sha256": "7431c1f80de99833dfce23aef4507b405f6c739e6235248f6d0383506a14ad40",
+      "native_sha256": "4466dd25ac6b27e574fa7342ba0541969bf818454562ba842a4f459b8ed7a03f",
+      "trace_sha256": "54a18eb4a96c8e4c87bb0951da838ebe88f8615be6092afdaea7d7c63fab9f73",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace-expiry",
+      "input_sha256": "38fa89ff197ffd6a7b5fbfe8bf77dc4415b2685e8132f5348d80f48eaaad12f6",
+      "native_sha256": "39e52a3d0bc6b348cbaf4e4a398bd638073c96303baf9b5cb8ea909b44af2785",
+      "trace_sha256": "976c8ab7c61deb9007f99d5a561b1a4724ebc27a77f4241d4e6e1ec40ce5111b",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 2,
+        "basis_queries": 2
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace-two-hits",
+      "input_sha256": "d714cf7dc0bbca218f46119490d275ac83d166470170d9d9b0c72e4c0dade60f",
+      "native_sha256": "47ee07c1c25ce0a7c71002dd939e00adc3975aadc70785657202c77f540a4111",
+      "trace_sha256": "444e92cddf5fb97e38cdf53c242803ee849fdbab559e18e9009ce4e4ca621a03",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 2,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace-lifesteal",
+      "input_sha256": "32fbbd41a29e347987ce38ce12278385168d3bfda702e3b798bba99010d65299",
+      "native_sha256": "865bc9b9cd823dda193d1cb135b5f915cb823e555007d427b95d0524dbc9d51c",
+      "trace_sha256": "73af2002d1472caa1210ac3a5ff5153f4faf51f0f285d169bf93c400645df00f",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace-parts",
+      "input_sha256": "27e171ab77df061b710fc115c670b7476bf016cb0bfa088148cca7dc19369e3f",
+      "native_sha256": "04290258ed5cbe57afae440362db5ca0502c39df6826c09ff970ef7523d7f383",
+      "trace_sha256": "73af2002d1472caa1210ac3a5ff5153f4faf51f0f285d169bf93c400645df00f",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 3,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace-deferred",
+      "input_sha256": "be5d5a73a01ca3255adced769f847a1aaee44b14a55333e9fcbb830a85852094",
+      "native_sha256": "1afec84b66a66a821f816be7231af12f207552330b4cc29092e09f31fb502068",
+      "trace_sha256": "03515485b73f56d14053dba3bfcb8cded3ae7ce94d19a915b21d84334e3c8936",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "packets": 1,
+        "basis_queries": 0
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-flat-grouping",
+      "input_sha256": "f0f0e0e8f091fc881a81cb17cdde0350ee19ec09cf0dea57ca308c68fe2ef566",
+      "native_sha256": "0ac1b7c2433dc002226e0841459b8c7b30170e3235e856b34639dcd1d443b4a1",
+      "trace_sha256": "fc4fc768df485a9d703ff5c1174f6c78e1e5dcbd9eb8bba48a690e3cabb5c678",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-replace-multiply-before-divide",
+      "input_sha256": "d54c8fbcf8b4fa4826b36efba53b2ad762d84a9e3182827baf62803bf9aff7b3",
+      "native_sha256": "065118b3227904c5306c5614322a7164cee3725de072d44013317d7eaf31fa03",
+      "trace_sha256": "4b89d944592da5a8cc19e73e56d01cc01e647c60f2e08b488057246d0b99c00c",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 1,
+        "basis_queries": 1
+      }
+    },
+    {
+      "name": "skill-hp-basis-add-callback-snapshot",
+      "input_sha256": "7d3690089431733177c59a613b02b97361a06ccdefb9b303db54281ea6c6922f",
+      "native_sha256": "efa5bf47adb3485b958325a1614f78f8683e503b7580906bbfb9cfdf0cc24c2b",
+      "trace_sha256": "171990c40e905f3cc420ad8e4aeecc74b5a8ac7e38a9a6f6174f96ddc1036197",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "packets": 2,
+        "basis_queries": 1
+      }
+    }
+  ],
+  "tests": {
+    "command": "python -m unittest discover -s tests -p test_portable_skill_hp_basis_reference.py",
+    "passed": 6,
+    "failed": 0
+  },
+  "gpu_implementation_connected": false,
+  "windows_new_execution_count": 0,
+  "next": "Connect shared damage_basis_specs modes to the Slang skill damage sampler; reject deferred HP basis due to pinned native omission; verify fresh Metal package and independently seal before certification."
+}

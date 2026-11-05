@@ -1,0 +1,4581 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "cases": [
+    {
+      "owner": 0,
+      "target": "self",
+      "pct": -5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            -500.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            -500.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            -750.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            -750.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            -750.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            -750.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            -500.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            -500.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "target": "self",
+      "pct": -5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            -500.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            -500.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            -750.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            -750.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            -750.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            -750.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            -500.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            -500.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "target": "self",
+      "pct": 0,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "target": "self",
+      "pct": 0,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "target": "self",
+      "pct": 12.5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            1250.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            1250.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            1875.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            1875.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            1875.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            1875.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            1250.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            1250.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "target": "self",
+      "pct": 12.5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            1250.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            1250.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            1875.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            1875.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            1875.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            1875.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            1250.0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            1250.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "pct": -5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "pct": -5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "pct": 0,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "pct": 0,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "pct": 12.5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "pct": 12.5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "pct": -5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            -600.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            -600.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            -900.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            -900.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            -900.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            -900.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            -600.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            -600.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "pct": -5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            -600.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            -600.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            -900.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            -900.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            -900.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            -900.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            -600.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            -600.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "pct": 0,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "pct": 0,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "pct": 12.5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            1500.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            1500.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            2250.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            2250.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            2250.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            2250.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            1500.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            1500.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "pct": 12.5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            1500.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            1500.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            2250.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            2250.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            2250.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            2250.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            1500.0,
+            0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            1500.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "pct": -5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "pct": -5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "pct": 0,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "pct": 0,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "pct": 12.5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "pct": 12.5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "pct": -5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            -700.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            -700.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            -1050.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            -1050.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            -1050.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            -1050.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            -700.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            -700.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "pct": -5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            -700.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            -700.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            -1050.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            -1050.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            -1050.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            -1050.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            -700.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            -700.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "pct": 0,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "pct": 0,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "pct": 12.5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            1750.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            1750.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            2625.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            2625.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            2625.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            2625.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            1750.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            1750.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "pct": 12.5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            1750.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            1750.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            2625.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            2625.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            2625.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            2625.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            1750.0,
+            0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            1750.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "pct": -5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "pct": -5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "pct": 0,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "pct": 0,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "pct": 12.5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "pct": 12.5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "pct": -5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            -800.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            -800.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            -1200.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            -1200.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            -1200.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            -1200.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            -800.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            -800.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "pct": -5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            -800.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            -800.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            -1200.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            -1200.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            -1200.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            -1200.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            -800.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            -800.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "pct": 0,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "pct": 0,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "pct": 12.5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            2000.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            3000.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            3000.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            3000.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            3000.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            2000.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            2000.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "pct": 12.5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            2000.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            3000.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            3000.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            3000.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            3000.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            2000.0,
+            0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            2000.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "pct": -5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "pct": -5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "pct": 0,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "pct": 0,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "pct": 12.5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "pct": 12.5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "pct": -5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            -900.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -900.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            -1350.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            -1350.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            -900.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -900.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "pct": -5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            -900.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -900.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            -1350.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            -1350.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            -900.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -900.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "pct": 0,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "pct": 0,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "pct": 12.5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            2250.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2250.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            3375.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            3375.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            2250.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2250.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "pct": 12.5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            2250.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2250.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            3375.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            3375.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0,
+            0,
+            0,
+            0,
+            2250.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2250.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "pct": -5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "pct": -5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ],
+          "actual_flat": [
+            -750.0,
+            -900.0,
+            -1050.0,
+            -1200.0,
+            -1350.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ],
+          "actual_flat": [
+            -500.0,
+            -600.0,
+            -700.0,
+            -800.0,
+            -900.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "pct": 0,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "pct": 0,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "actual_flat": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "pct": 12.5,
+      "duration": -1,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        }
+      ]
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "pct": 12.5,
+      "duration": 2,
+      "observations": [
+        {
+          "phase": "initial",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        },
+        {
+          "phase": "max-hp-up",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "low-current-hp",
+          "expected_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ],
+          "actual_flat": [
+            1875.0,
+            2250.0,
+            2625.0,
+            3000.0,
+            3375.0
+          ]
+        },
+        {
+          "phase": "hp-expired",
+          "expected_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ],
+          "actual_flat": [
+            1250.0,
+            1500.0,
+            1750.0,
+            2000.0,
+            2250.0
+          ]
+        }
+      ]
+    }
+  ],
+  "gpu_admission_enabled": false,
+  "gpu_execution_performed": false,
+  "rules": [
+    "Use recipient final maximum HP,not caster HP or current HP",
+    "Re-evaluate when maximum HP changes,including finite grant duration",
+    "Native multiplication is final_hp*(value/100),with division first",
+    "Native adds HP-derived attack after ordinary scalar buff accumulation"
+  ],
+  "layout_note": "Legacy compiler uses kind4 with HP flag241 for this family;portable kind4 is a burst-stage override. Do not admit it by only adding a buff/stat name.",
+  "scope": "60 BuffManager cases with5 recipients and4 phases;no damage,battle,GPU or catalog certification",
+  "source_sha256": {
+    "research/characterize-atk-from-hp.py": "f0d7d374e0fbafa283fcdcdf8bb6b7fed6aed62de34acec1abfea77660ddd25f",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270"
+  }
+}

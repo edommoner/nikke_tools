@@ -1,0 +1,127 @@
+{
+  "passed": true,
+  "source_commit": "795a9e5b684796b3b6a2fb9b59546e60401a5503",
+  "efficiency_evaluated": true,
+  "candidate": "Stop scanning after the first live enemy state for boolean predicates;stack maxima still scan all matching carriers",
+  "selected_for_adoption": false,
+  "production_change_adopted": false,
+  "adoption_stage": "Measured;keep current source",
+  "all_2754_input_output_bytes_equal": true,
+  "improved_nonoverlapping_workloads": [],
+  "worsened_nonoverlapping_workloads": [
+    "absent"
+  ],
+  "workloads": {
+    "ordinary": {
+      "ratio": 1.0383027597944035,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.005448708310723305,
+          0.0077093333238735795
+        ],
+        "candidate": [
+          0.0074428749503567815,
+          0.00773862493224442
+        ]
+      },
+      "median_gpu_seconds": {
+        "control": 0.007176375016570091,
+        "candidate": 0.007451249985024333
+      }
+    },
+    "absent": {
+      "ratio": 1.0979192910323525,
+      "ranges_overlap": false,
+      "ranges": {
+        "control": [
+          0.0026920416858047247,
+          0.003419750020839274
+        ],
+        "candidate": [
+          0.0034765416057780385,
+          0.003742541652172804
+        ]
+      },
+      "median_gpu_seconds": {
+        "control": 0.0033982082968577743,
+        "candidate": 0.0037309584440663457
+      }
+    },
+    "present": {
+      "ratio": 0.9837034576297728,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.0037112500285729766,
+          0.00419995840638876
+        ],
+        "candidate": [
+          0.0037052916595712304,
+          0.004174916655756533
+        ]
+      },
+      "median_gpu_seconds": {
+        "control": 0.004103624960407615,
+        "candidate": 0.00403675006236881
+      }
+    },
+    "multiple-enemies": {
+      "ratio": 0.9335748252311118,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.004543416667729616,
+          0.004989833338186145
+        ],
+        "candidate": [
+          0.0043894583359360695,
+          0.0047954999608919024
+        ]
+      },
+      "median_gpu_seconds": {
+        "control": 0.004877041676081717,
+        "candidate": 0.0045530833303928375
+      }
+    },
+    "periodic": {
+      "ratio": 0.9929737039108633,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.0038466249825432897,
+          0.004277208354324102
+        ],
+        "candidate": [
+          0.0023748750099912286,
+          0.004076250013895333
+        ]
+      },
+      "median_gpu_seconds": {
+        "control": 0.004074000054970384,
+        "candidate": 0.004045374924317002
+      }
+    },
+    "stack-maximum": {
+      "ratio": 1.0746522221337889,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.004266249947249889,
+          0.004269708297215402
+        ],
+        "candidate": [
+          0.0040926666697487235,
+          0.0046652499586343765
+        ]
+      },
+      "median_gpu_seconds": {
+        "control": 0.004268124932423234,
+        "candidate": 0.004586749942973256
+      }
+    }
+  },
+  "benchmark_sha256": "67d7c9a95bf15403d6f64d7dc4791c175c86d52f68407d1f401f2bfc670f72f8",
+  "initial_unlocalized_metal_finding_open": true,
+  "scope": "Six local workloads,warmup+3 samples on Apple M5;no full-roster,CUDA-speed or peak-memory claim"
+}

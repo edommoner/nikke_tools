@@ -1,0 +1,84 @@
+{
+  "request": {
+    "valid_json": true,
+    "exact_five_keys": true,
+    "last_byte_hex": "0a",
+    "literal_backslash_n_suffix": false,
+    "rewrite_needed": false
+  },
+  "attempts": 1,
+  "claim_consumed": true,
+  "terminal": true,
+  "ptxas": {
+    "return_code": 0,
+    "success": true,
+    "elapsed_seconds": 20.5452815,
+    "options": [
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose",
+      "--compile-only"
+    ]
+  },
+  "object": {
+    "saved_receipt_available": true,
+    "format": "elf64-little",
+    "type": "relocatable",
+    "bytes": 5452464,
+    "sha256": "ea9e1484a30fe69864a515cafdba87569079e93a924c55f44b82016762e48cb8",
+    "receipt_key": "be2171d8a78444feb5e29b474d2a71875909097d356c410d3cc49350133175fa"
+  },
+  "source": {
+    "ptx_bytes": 9554090,
+    "ptx_sha256": "578466d1a717d9adb4b965edc1178dd06cfff31379adb894b32751788ee4074e",
+    "source_bytes_unchanged": true,
+    "source_partitioned": false
+  },
+  "stage": {
+    "verified": false,
+    "object_verified": false,
+    "compiler_verified": false,
+    "calculation_verified": false,
+    "link_verified": false,
+    "reason": "内側は成功したが、外側の終了後package検証中に全stage時間上限へ到達"
+  },
+  "execution": {
+    "outer_timed_out": true,
+    "outer_final_exit_code": 1,
+    "outer_elapsed_seconds": 93.6340647,
+    "inner_timed_out": false,
+    "inner_exit_code": 0,
+    "inner_elapsed_seconds": 59.4140873,
+    "package_verify_seconds": [
+      6.8996383,
+      9.9543165
+    ],
+    "final_package_verify": "enteredのみ・完了記録なし"
+  },
+  "job": {
+    "both_pre_gates_verified": true,
+    "both_below_normal": true,
+    "both_limits_bytes": 2147483648,
+    "outer_peak_bytes": 396890112,
+    "inner_peak_bytes": 357236736,
+    "both_post_jobs_empty": true,
+    "cleanup_errors": null,
+    "observation_errors": null,
+    "inspection_errors": null
+  },
+  "preservation": {
+    "outer_missing": 0,
+    "inner_missing": 0,
+    "process_preservation_verified": true,
+    "service_before_after": "unverified",
+    "environment_preservation_verified": false
+  },
+  "slang_calls": 0,
+  "nvrtc_calls": 0,
+  "driver_load_calls": 0,
+  "gpu_calls": 0,
+  "link_calls": 0,
+  "retry": false,
+  "claims_and_partial_records_preserved": true
+}

@@ -1,0 +1,10 @@
+{
+  "schema": "snapshot-detail-v4-shared-manifest",
+  "files": [
+    {
+      "path": "summary.json",
+      "bytes": 10953,
+      "sha256": "17cff7e2dd5de08fcea40b866f7a80f2226874e3e4fd13d228f3648e28b798c8"
+    }
+  ]
+}

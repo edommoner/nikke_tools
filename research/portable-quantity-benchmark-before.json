@@ -1,0 +1,87 @@
+{
+  "strategy": "group_rescan",
+  "source": "gpu/benchmark_quantity_scan.slang",
+  "scope": "64 programs, 32 definitions, three seconds of GPU timeline each; not full battle or full catalog",
+  "passed": true,
+  "gpu_execution_verified": true,
+  "backend": "metal",
+  "fixture_sha256": "0a505ad71c831cd704dbfb21af2329c0874c02dc3b9f284c18c6f24b37f0ba03",
+  "median_gpu_seconds": 0.08494554169010371,
+  "samples": [
+    {
+      "transport": {
+        "backend": "metal",
+        "cases": 64,
+        "command_status": "completed",
+        "device": "Apple M5",
+        "gpu_seconds": 0.08448137500090525,
+        "input_bytes": 2097156,
+        "output_bytes": 4194304,
+        "registry_id": "4294968313"
+      },
+      "input_sha256": "aef52cb6361628c47613c18eb8b685679b427c10446b34b7da79a4d822cc1d85",
+      "output_sha256": "d597fcf0c190962acbdf0d96e9ca23fe352e5398efae7afa0d4a81dd2601e5c0",
+      "source_sha256": {
+        "gpu/benchmark_quantity_scan.slang": "14b23672dc144c19030759bfa2e0a396eeea08cf0707f1da361ccc78a760a576",
+        "gpu/event_runtime.slang": "df4df6183e49675cbae18b7a7794695e82981310eabe51a648b3d930c27d1e34",
+        "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
+        "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+        "gpu/portable_schema.slang": "fc40827177453cd8bb026aefb87ccc593e6acdbb76e8d214a732cdfa98fa7e96",
+        "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
+        "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+        "gpu/combat_runtime.slang": "1c250d512ee986c16e7945eda511e6d186b637e0c857b69796cdd998941619dd",
+        "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
+      }
+    },
+    {
+      "transport": {
+        "backend": "metal",
+        "cases": 64,
+        "command_status": "completed",
+        "device": "Apple M5",
+        "gpu_seconds": 0.08494554169010371,
+        "input_bytes": 2097156,
+        "output_bytes": 4194304,
+        "registry_id": "4294968313"
+      },
+      "input_sha256": "aef52cb6361628c47613c18eb8b685679b427c10446b34b7da79a4d822cc1d85",
+      "output_sha256": "d597fcf0c190962acbdf0d96e9ca23fe352e5398efae7afa0d4a81dd2601e5c0",
+      "source_sha256": {
+        "gpu/benchmark_quantity_scan.slang": "14b23672dc144c19030759bfa2e0a396eeea08cf0707f1da361ccc78a760a576",
+        "gpu/event_runtime.slang": "df4df6183e49675cbae18b7a7794695e82981310eabe51a648b3d930c27d1e34",
+        "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
+        "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+        "gpu/portable_schema.slang": "fc40827177453cd8bb026aefb87ccc593e6acdbb76e8d214a732cdfa98fa7e96",
+        "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
+        "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+        "gpu/combat_runtime.slang": "1c250d512ee986c16e7945eda511e6d186b637e0c857b69796cdd998941619dd",
+        "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
+      }
+    },
+    {
+      "transport": {
+        "backend": "metal",
+        "cases": 64,
+        "command_status": "completed",
+        "device": "Apple M5",
+        "gpu_seconds": 0.08502075000433251,
+        "input_bytes": 2097156,
+        "output_bytes": 4194304,
+        "registry_id": "4294968313"
+      },
+      "input_sha256": "aef52cb6361628c47613c18eb8b685679b427c10446b34b7da79a4d822cc1d85",
+      "output_sha256": "d597fcf0c190962acbdf0d96e9ca23fe352e5398efae7afa0d4a81dd2601e5c0",
+      "source_sha256": {
+        "gpu/benchmark_quantity_scan.slang": "14b23672dc144c19030759bfa2e0a396eeea08cf0707f1da361ccc78a760a576",
+        "gpu/event_runtime.slang": "df4df6183e49675cbae18b7a7794695e82981310eabe51a648b3d930c27d1e34",
+        "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
+        "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+        "gpu/portable_schema.slang": "fc40827177453cd8bb026aefb87ccc593e6acdbb76e8d214a732cdfa98fa7e96",
+        "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
+        "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+        "gpu/combat_runtime.slang": "1c250d512ee986c16e7945eda511e6d186b637e0c857b69796cdd998941619dd",
+        "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
+      }
+    }
+  ]
+}

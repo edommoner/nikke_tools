@@ -1,0 +1,20 @@
+{
+  "schema": "resource-diagnostic-manifest-v1",
+  "files": [
+    {
+      "path": "summary.json",
+      "bytes": 4162,
+      "sha256": "2ec88f9e6f9036ce21c3f96612eed24d67f4e8d11d2751706b94c09f3c0f2692"
+    },
+    {
+      "path": "resource-usage.txt",
+      "bytes": 202,
+      "sha256": "4841c4ae9a27af1814db4d3b777309174ffc3921994c6efabde419f47076f7d7"
+    },
+    {
+      "path": "gpu-memory-current.csv",
+      "bytes": 46,
+      "sha256": "36f82c1198ddf8b563c9e5aad1626a8f7f0414ecb707dc1c9af453625a39f956"
+    }
+  ]
+}

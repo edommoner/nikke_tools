@@ -1,0 +1,9 @@
+{
+  "scope": "Portability probe; no production damage formula or float64 admission",
+  "cases": [
+    {"name":"integer-damage-above-float32-exact-range","steps":[[1,0,3,5,0,0],[3,0,1,16777217,0,0]],"expected":[50331651,0,3,1,0,0,0]},
+    {"name":"64-bit-product-carries-above-32-bit-range","steps":[[1,0,3,5,0,0],[3,0,1,4294967295,0,0]],"expected":[4294967293,2,3,1,0,0,0]},
+    {"name":"old-target-generation-does-not-hit-new-generation","steps":[[1,0,2,5,0,0],[2,1,2,0,0,0],[1,1,1,5,0,0],[3,1,1,100,0,0],[3,1,2,5,0,0]],"expected":[5,0,1,2,0,0,0]},
+    {"name":"clock-refresh-rejects-old-registration-and-expires","steps":[[1,0,1,5,0,0],[4,0,10,40,100,10],[5,9,1,0,0,0],[5,10,1,0,0,0],[4,11,15,40,100,10],[5,15,1,0,0,0],[5,15,2,0,0,0],[6,16,0,0,0,0],[4,16,20,40,200,10],[5,20,2,0,0,0],[5,20,3,0,0,0],[5,40,3,0,0,0]],"expected":[400,0,1,1,3,30,0]}
+  ]
+}

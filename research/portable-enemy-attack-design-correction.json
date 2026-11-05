@@ -1,0 +1,123 @@
+{
+  "reason": "Native SummonSpec preserves integer attack while the body rank casts to float. Converting all add attacks to float in the observer would hide an ordering difference for an unrepresentable integer.",
+  "evidence": [
+    {
+      "add_attack": 9007199254740993,
+      "type": "int",
+      "selected": [
+        "__enemy__:add:1"
+      ]
+    },
+    {
+      "add_attack": 9007199254740992.0,
+      "type": "float",
+      "selected": [
+        "__enemy__"
+      ]
+    }
+  ],
+  "correction": "Preserve native add value types. Reject integer attack inputs not exactly representable in binary64 before dispatch; float inputs retain their explicitly authored binary64 value.",
+  "interrupted_gpu_run": "Stopped local verification with SIGINT and adapter cleanup before changing its inputs/validation code; no success claimed",
+  "interrupted_log": "Traceback (most recent call last):\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/scripts/verify-portable-combat.py\", line 449, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/scripts/verify-portable-combat.py\", line 276, in main\n    run_programs(programs+negative_programs,backend=args.backend)\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/app/portable_runtime.py\", line 382, in run_programs\n    raw,evidence=execute('gpu/event_runtime.slang','portableEvents',packed,L['INPUT_WORDS'],L['OUTPUT_WORDS'],backend)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/app/portable_backend.py\", line 105, in execute\n    process = run_metal_command(['swift', str(ROOT/'scripts/run-metal-probe.swift'),\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/app/portable_backend.py\", line 76, in run_metal_command\n    for key,_ in selector.select(min(remaining,.25)):\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.15/Frameworks/Python.framework/Versions/3.12/lib/python3.12/selectors.py\", line 566, in select\n    kev_list = self._selector.control(None, max_ev, timeout)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nKeyboardInterrupt\n",
+  "interrupted_exit_code": 130,
+  "correction_source_sha256": {
+    "app/portable_combat.py": "bd31654f2d8530755c9ab9e78b8badba4ece201020fb7103e9672c955bebd988",
+    "scripts/portable_enemy_oracle.py": "d46c7638c6d85b6a96cd7e50f8f93d9c8acb61c8e35c5dcd8e3753b321b01679",
+    "scripts/portable_enemy_buff_oracle.py": "b09227ae96191cadc5dd9a6883e87e6cf4387932da8acc7b99258999be7cbe1a",
+    "tests/test_portable_enemy_attack.py": "71993fc92df3278c7f64435c84716580eff6e32317b20fd1d4e55e2883d906a4",
+    "research/upstream/nikke-calc-master/calculator/boss_pattern.py": "ccbfde085e5c809b07215b15177a08d725cd56a2691fd26675a9b19b01296565"
+  },
+  "spawn_tie_order_correction": {
+    "native_source": "calculator/boss_pattern.py:1512 _Add.order=self._add_seq; 1740 descending attack then order",
+    "previous_equivalence": {
+      "passed": true,
+      "backend": "metal",
+      "gpu_execution_verified": true,
+      "positive_cases": 770,
+      "rejections": 94,
+      "input_sha256": "8882fe4666d636a6056fd9a90ec871154457faa2fffabc7df35135239dca16f2",
+      "output_sha256": "effd40df7e715e6b20bf31c90255fb51dd46ebc7ea33fe23a600b1aacfb3f555",
+      "all_words_equal": true,
+      "production_source": {
+        "gpu/event_runtime.slang": "118150549603e12e8bc70fd714d4ed7523700f3c49cdde85187c49b335aad67d",
+        "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+        "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+        "gpu/portable_schema.slang": "aa67910202aa44e21a40fd946f64c3f29cea641dac38df52fbce074110dd48bd",
+        "gpu/runtime_init.slang": "4ee03c4a1e99580f79f50e5d9754ed7d11a1cc438f0d866fccff523d62cf22fb",
+        "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
+        "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
+        "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
+        "gpu/enemy_buff_runtime.slang": "33a1a116cea23eb0f5e4223a1f1b7c59e811e994db6f871c0a65c56d8be067a9",
+        "gpu/carrier_runtime.slang": "dcbc75f3d88edda0227c68975087fc56c73ed938e6b3b72cd5d6246eace7a43c",
+        "gpu/quantity_runtime.slang": "5d0a7ee77ad299b161f59ecccccc16a5a082ccc57fcf226c04873464264c2abf",
+        "gpu/health_runtime.slang": "071e46cf983d294241247cfef5a3de6105829bd9e85fed05dc9d6050f8cc90fb",
+        "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
+        "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
+        "gpu/recipient_runtime.slang": "e3dca124f523e4a28ec42e3bc915df6163dfeb2b071e0b25248ad6b0a4e85e0d",
+        "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
+        "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
+        "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
+        "gpu/enemy_attack_rank_runtime.slang": "46afbfb06e3df0e1184b27642e9edd07c7b6288265e87cbf483df7f2be7587d3",
+        "gpu/enemy_damage_runtime.slang": "e8b1d1542c729faa26353b22fbd8a55f28db417ac5fb229efa45b030ee1049b7",
+        "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
+        "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
+        "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+        "gpu/combat_runtime.slang": "be9e50e3cad5170ba71a83ff980a99eb4d0385cf9ba9466e73d1f61dc8df63da",
+        "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+        "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+        "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
+      },
+      "reference_source": {
+        "gpu/benchmark_attack_rank_scan.slang": "2e9e76c310b706c1e12386cdd4c387631bb47f01d55d094f69db7975a88f6f52",
+        "gpu/event_runtime.slang": "118150549603e12e8bc70fd714d4ed7523700f3c49cdde85187c49b335aad67d",
+        "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+        "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+        "gpu/portable_schema.slang": "aa67910202aa44e21a40fd946f64c3f29cea641dac38df52fbce074110dd48bd",
+        "gpu/runtime_init.slang": "4ee03c4a1e99580f79f50e5d9754ed7d11a1cc438f0d866fccff523d62cf22fb",
+        "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
+        "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
+        "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
+        "gpu/enemy_buff_runtime.slang": "33a1a116cea23eb0f5e4223a1f1b7c59e811e994db6f871c0a65c56d8be067a9",
+        "gpu/carrier_runtime.slang": "dcbc75f3d88edda0227c68975087fc56c73ed938e6b3b72cd5d6246eace7a43c",
+        "gpu/quantity_runtime.slang": "5d0a7ee77ad299b161f59ecccccc16a5a082ccc57fcf226c04873464264c2abf",
+        "gpu/health_runtime.slang": "071e46cf983d294241247cfef5a3de6105829bd9e85fed05dc9d6050f8cc90fb",
+        "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
+        "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
+        "gpu/recipient_runtime.slang": "e3dca124f523e4a28ec42e3bc915df6163dfeb2b071e0b25248ad6b0a4e85e0d",
+        "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
+        "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
+        "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
+        "gpu/enemy_attack_rank_runtime.slang": "46afbfb06e3df0e1184b27642e9edd07c7b6288265e87cbf483df7f2be7587d3",
+        "gpu/enemy_damage_runtime.slang": "e8b1d1542c729faa26353b22fbd8a55f28db417ac5fb229efa45b030ee1049b7",
+        "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
+        "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
+        "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+        "gpu/combat_runtime.slang": "be9e50e3cad5170ba71a83ff980a99eb4d0385cf9ba9466e73d1f61dc8df63da",
+        "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+        "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+        "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
+      },
+      "validation_sha256": {
+        "scripts/verify-portable-attack-rank.py": "fb8f7697c7c9df51ee1f58e0eb4e5e596b8f9eddd444869cffe926945d9f044c"
+      },
+      "reports": [
+        "portable-combat-metal.json",
+        "portable-attack-rank-reference-metal.json"
+      ],
+      "scope": "Every authored positive/negative program, all output bytes, all native comparison lists; not full character certification",
+      "superseded": true
+    },
+    "reason": "A cached input-order tie would not preserve native spawn order after a same-identity reappearance",
+    "correction": "Reuse existing enemyBirth for equal-attack add ties; invalidate the single-word rank cache on generation change; retain original body-first tie priority"
+  },
+  "final_correction_source_sha256": {
+    "app/portable_combat.py": "bd31654f2d8530755c9ab9e78b8badba4ece201020fb7103e9672c955bebd988",
+    "scripts/portable_enemy_oracle.py": "d46c7638c6d85b6a96cd7e50f8f93d9c8acb61c8e35c5dcd8e3753b321b01679",
+    "scripts/portable_enemy_buff_oracle.py": "4ea37a8bd5632e1e52f321fb9d49d9f97f965e6a3f9b416a4ba77cdf8d500346",
+    "gpu/enemy_attack_rank_runtime.slang": "b56c55e800f34a26e44c41371a2472142c0d967b75b4a46f400ee12b208e724f",
+    "gpu/event_runtime.slang": "43c46846bb7ff09b31db3247f4013c492eff682728406d417281b997fedab823",
+    "tests/test_portable_enemy_attack.py": "71993fc92df3278c7f64435c84716580eff6e32317b20fd1d4e55e2883d906a4",
+    "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
+    "research/upstream/nikke-calc-master/calculator/boss_pattern.py": "ccbfde085e5c809b07215b15177a08d725cd56a2691fd26675a9b19b01296565"
+  }
+}

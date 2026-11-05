@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "9696f5eba5582d9486c3541f00ec231124ca606653159be754fa13787d1f6d97",
+  "capture": "/private/tmp/nikke-original-shield-metal-v2",
+  "child_pid": 42446,
+  "input_count": 9,
+  "native_cases": 9,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 60.446404500165954,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "baa1c43ac59eaa82844dab123ecc9a63c6838acd75b19d44a42084f69b15d41e",
+  "output_sha256": "1934d1d5d75e8ed19524145a36c9cea427158282f43c6fa26198ac7bf99d7931",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}

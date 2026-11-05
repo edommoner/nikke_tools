@@ -1,0 +1,213 @@
+{
+  "passed": false,
+  "timed_out": false,
+  "timeout_seconds": 180,
+  "elapsed_seconds": 3.9046426250133663,
+  "child_exit_code": 1,
+  "final_child_exit_code": 1,
+  "error": null,
+  "cleanup_error": null,
+  "cleanup_wait_seconds": 5,
+  "observation_error": null,
+  "wait_completed_unix_ns": 1792860187524910000,
+  "below_normal_priority": false,
+  "phase": {
+    "events": 62,
+    "last_event": {
+      "elapsed_seconds": 3.6873965,
+      "exception": "RuntimeError",
+      "monotonic_ns": 959337210474500,
+      "pid": 25970,
+      "stage": "shared_gpu_execute",
+      "state": "raised",
+      "wall_time_ns": 1792860187467880000
+    },
+    "timed_calls": [
+      {
+        "stage": "slang_generation_identity",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.112812375
+      },
+      {
+        "stage": "slang_compiler",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 1.187219917
+      },
+      {
+        "stage": "slang_compiler",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 1.367368208
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.002225792
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.01272475
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.00170325
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.006575
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.011954334
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.020843708
+      },
+      {
+        "stage": "slang_generation_identity",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.112243208
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.022184916
+      },
+      {
+        "stage": "slang_generation_read_entry",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.012767375
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.001779459
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.006860917
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.012022875
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.021258833
+      },
+      {
+        "stage": "slang_generation_identity",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.112666667
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.010221791
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.001982167
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.006186083
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.00353825
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.000160375
+      },
+      {
+        "stage": "slang_build",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 3.098890208
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.0017545
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.006579209
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.011958958
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.020829791
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 25970,
+        "state": "returned",
+        "elapsed_seconds": 0.001826667
+      },
+      {
+        "stage": "shared_gpu_execute",
+        "pid": 25970,
+        "state": "raised",
+        "elapsed_seconds": 3.6873965
+      }
+    ],
+    "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+    "nvrtc_compile_returned_success": false,
+    "cuda_compile_cache_hit_verified": false,
+    "cuda_linked_artifact_observed": false,
+    "cuda_launch_returned_success": false,
+    "cuda_synchronize_returned_success": false,
+    "cuda_readback_returned_success": false,
+    "scope": "Observed API returns only; full output verification requires the shared suite report"
+  },
+  "gpu_retry_count": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

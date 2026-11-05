@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "package_id": "3be3857734c6064e795d214cd6a30a5e328b4bb78fb45b75c876779c844d61c8",
+  "retained_inputs": 210,
+  "sources": [
+    {
+      "source": "nikke-regression-clock-connected-metal",
+      "inputs": 149,
+      "input_raw_equal": true,
+      "output_raw_equal": true,
+      "native_equal": true
+    },
+    {
+      "source": "nikke-skill-cooldown-ordered-clock-metal",
+      "inputs": 25,
+      "input_raw_equal": true,
+      "output_raw_equal": true,
+      "native_equal": true
+    },
+    {
+      "source": "nikke-healing-storage-development-metal",
+      "inputs": 36,
+      "input_raw_equal": true,
+      "output_raw_equal": true,
+      "native_equal": true
+    }
+  ],
+  "gpu_calls": 0,
+  "original_captures_modified": false
+}

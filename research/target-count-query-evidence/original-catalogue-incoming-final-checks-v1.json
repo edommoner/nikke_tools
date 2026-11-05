@@ -1,0 +1,60 @@
+{
+  "schema": "original-catalogue-incoming-final-checks-v1",
+  "source_commit": "a41de72fa7c99cf076be96932f4db71d7a1718c7",
+  "package_id": "b9cf55d4de4b112a7bf8d09126c9996c3933a6272eedeea7e88d4a0689f5e306",
+  "archive_sha256": "ea130e37f77e1f884e86bfd7681e96d640c419142b762083b56e8fa47ba7e274",
+  "unit_check": {
+    "passed": true,
+    "groups": 23,
+    "tests": 209,
+    "full_native_preflight_executed": false,
+    "calculation_verified": false,
+    "gpu_calls": 0
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "b9cf55d4de4b112a7bf8d09126c9996c3933a6272eedeea7e88d4a0689f5e306",
+    "suite": "original-catalogue-incoming-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "payload_delta": {
+    "changed": [
+      "app/portable_cpu_tests.py",
+      "scripts/nikke_gpu.py"
+    ],
+    "added": [
+      "research/portable-original-catalogue-incoming-v1-expected.json",
+      "tests/test_original_catalogue_incoming_sealed.py"
+    ],
+    "removed": [],
+    "function_class_asts_identical": {
+      "app/portable_cpu_tests.py": true,
+      "scripts/nikke_gpu.py": true
+    },
+    "original_input_native_gpu_source_baselines_identical": true,
+    "sealed_golden_exact_independent_output": true,
+    "extra_native_battles": 0,
+    "extra_gpu_runs": 0
+  },
+  "model_check": {
+    "passed": true,
+    "scope": "source audit only",
+    "report_sha256": "66b70764d8646b38d763d99382e87e823f302f28d2158c81c3fd040667f11391",
+    "public_gpu_admitted": false,
+    "full_goal_complete": false
+  },
+  "extra_native_battles": 0,
+  "extra_gpu_runs": 0
+}

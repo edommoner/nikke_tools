@@ -1,0 +1,763 @@
+{
+  "schema": "product-typed-lock-logical-add-v1",
+  "scope": "Ordinary product API, same original Heavy Arms profile and91 definitions; typed weapon interception plus original Lock On and declared stationary logical ADD geometry.",
+  "execution_owner": "72fbacbc3d60a4cd21d278fb2091225c0400872efb7460113a146038a7c8c7c4",
+  "release_owner": "924d149967d28d96f26cd61db4f16db450c766e4fcdfd21d8582a6987922c86c",
+  "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-lock-add-run-v1-20261102",
+  "implementation": {
+    "optional_public_field": "reference_models.typed_targets.logical_geometry",
+    "shared_input_words": 121392,
+    "shared_output_words": 2558208,
+    "new_suites": 0,
+    "new_auditors": 0,
+    "canonical_cpu_modified": false,
+    "pinned_upstream_modified": false,
+    "numeric_policy_changed": false,
+    "tolerance_changes": 0,
+    "capacity_reductions": 0,
+    "effects_omitted": 0,
+    "shared_slang_cuda_metal": true,
+    "one_native_world": true,
+    "physical_shot_union_uses_existing_logical_geometry": true,
+    "logical_add_gpu_delivery_uses_existing_group_consumer": true
+  },
+  "cli": {
+    "program": "typed-lock-accumulate",
+    "actual_metal_cases": 3,
+    "independent_gpu_forbidden_seal": {
+      "package_id": "72fbacbc3d60a4cd21d278fb2091225c0400872efb7460113a146038a7c8c7c4",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-lock-add-run-v1-20261102/metal-v1",
+      "child_pid": 56226,
+      "input_count": 3,
+      "native_cases": 3,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 2.982780541991815,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "5180fc988d7dc86afb89c9f3cc40406ff74c489ef5939f39cf0f5b43af399e2d",
+      "output_sha256": "c6fa97ac0a05cb2661113a0c1275cd292732ac0868c674fdc8d9dd103286d141",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "old_first_two_input_output_native_entries_unchanged": true,
+    "old_other_programs_unchanged": 41,
+    "golden": "research/portable-product-programs-v59-expected.json",
+    "release_cpu_tests": 175,
+    "release_native_cases": 3
+  },
+  "product": {
+    "metal_profiles_this_change": 1,
+    "new_distinct_profiles": 0,
+    "conditions": 12,
+    "rows": [
+      {
+        "variant": "fixed-front",
+        "duration": 4.0,
+        "capture_id": "a9197db31e5d4d3bbd021ef8bf01298c",
+        "input_sha256": "8fec7d242f7a04b2e2a72884897023da79c360d2937c73298a0ec2f8dd5d064b",
+        "output_sha256": "303b5a428d32fda6eb6bdd72fc0e322650e7b0eab428d6cd48c4992a4becdb38",
+        "weapon_packets": 34,
+        "lock_shots": [
+          {
+            "time": 1.2000000000000006,
+            "revision": 3,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "time": 2.799999999999995,
+            "revision": 7,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-behind",
+        "duration": 4.0,
+        "capture_id": "4adb83573e4e492e8fe3b7b4d25b2b5b",
+        "input_sha256": "eb5147a87e85f907ccee80c3c6c75d66df2733cd5cae3b7667661b56977adee4",
+        "output_sha256": "1b8a91a10d3cda3543ef470836ee981482c659cfae377c07fe5958d8dfba5191",
+        "weapon_packets": 171,
+        "lock_shots": [
+          {
+            "time": 1.2000000000000006,
+            "revision": 3,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "time": 2.799999999999995,
+            "revision": 7,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-dead",
+        "duration": 4.0,
+        "capture_id": "ac078ea273c94095a8269a6fd9566f03",
+        "input_sha256": "508c4a471250f8ab601222862b6685e1040f7abf9bdf0c133ab73a22c94069ec",
+        "output_sha256": "fda849e7045facc539800b2da5605282576d04a5e3922e783b1c063ab58f4ebc",
+        "weapon_packets": 169,
+        "lock_shots": [
+          {
+            "time": 1.2000000000000006,
+            "revision": 1,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "time": 2.799999999999995,
+            "revision": 3,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ]
+            ]
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-expired",
+        "duration": 4.0,
+        "capture_id": "a0e9f3fff36745b8be14fcb9d55db246",
+        "input_sha256": "d8c71c20117be4f742522ecd5578e3fd816e5149f005b5f66e4b245b506bd86f",
+        "output_sha256": "f536712f05b1862cc51adb5ef8e0a86497217396ec689e0cd813f12578d3d533",
+        "weapon_packets": 141,
+        "lock_shots": [
+          {
+            "time": 1.2000000000000006,
+            "revision": 3,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "time": 2.799999999999995,
+            "revision": 5,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ]
+            ]
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-front",
+        "duration": 4.0,
+        "capture_id": "cce5fdc408ee41e08a42fe3e01612dd7",
+        "input_sha256": "8e7ede8e41c60b77f9617f717910db937dfb272d5790adaad386c0cd546f36df",
+        "output_sha256": "16027ed894f0d672504cb10853e26f0b27fdcbf421b40e60e557098e0040250d",
+        "weapon_packets": 34,
+        "lock_shots": [
+          {
+            "time": 1.2000000000000006,
+            "revision": 3,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "time": 2.799999999999995,
+            "revision": 7,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-behind",
+        "duration": 4.0,
+        "capture_id": "5f52b59b88a84d20a5dcd966c6d13e11",
+        "input_sha256": "b3e6b325f768088e7016ae7bb14475737e6907c673050773b03a87e8b327ee48",
+        "output_sha256": "916e9060349f85de3726d55b17da1dc05826361718805507b614dd9bb746cb1f",
+        "weapon_packets": 171,
+        "lock_shots": [
+          {
+            "time": 1.2000000000000006,
+            "revision": 3,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "time": 2.799999999999995,
+            "revision": 7,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-dead",
+        "duration": 4.0,
+        "capture_id": "d504ed7de2a642728d683de10bcf26bb",
+        "input_sha256": "ddc8c851c9d2f982c29c377f03c04bc451dc1ed1d52764fbb7e82a06e015a28e",
+        "output_sha256": "8b853ac9b245916f8f727688b282790bd1e4d12ff176e2f8f7ec6ca57f05b381",
+        "weapon_packets": 169,
+        "lock_shots": [
+          {
+            "time": 1.2000000000000006,
+            "revision": 1,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "time": 2.799999999999995,
+            "revision": 3,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ]
+            ]
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-expired",
+        "duration": 4.0,
+        "capture_id": "9b7ccdc18e2342758870f930f6b5657a",
+        "input_sha256": "9313f889c354c35dc89f1f8406b3572be45a761deb9bfe4bbbd9b22102f72de2",
+        "output_sha256": "ea0d0a161ab86c7a27f5738dbd42204114fb558a0f263c5f08abba84725fc540",
+        "weapon_packets": 141,
+        "lock_shots": [
+          {
+            "time": 1.2000000000000006,
+            "revision": 3,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "time": 2.799999999999995,
+            "revision": 5,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ]
+            ]
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-add-renewal",
+        "duration": 4.0,
+        "capture_id": "930e9e5552f34f1a9089474fd4fe5b8e",
+        "input_sha256": "e63d9a638a7e99121e0ed4de824511571e63b3139a0f4eadd629cfd424e91ee6",
+        "output_sha256": "83a5fe61993f007e886f1242cb0b0535af123ee8c22bf08ba45ba4a8518136be",
+        "weapon_packets": 36,
+        "lock_shots": [
+          {
+            "time": 1.2000000000000006,
+            "revision": 3,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "time": 2.799999999999995,
+            "revision": 7,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                2
+              ],
+              [
+                5,
+                1,
+                2
+              ]
+            ]
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "fixed-both-renewal",
+        "duration": 4.0,
+        "capture_id": "d5b392f5d6ca4471901147fcf0a148c1",
+        "input_sha256": "1b03dbd1929cc029a32ab15b25ff48107c8b2dc106f3fefbaf5dad03edfd14af",
+        "output_sha256": "3be171119b6a74d5a3e858bddb32294ed55f68e6d1561969432269df9027932e",
+        "weapon_packets": 36,
+        "lock_shots": [
+          {
+            "time": 1.2000000000000006,
+            "revision": 3,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "time": 2.799999999999995,
+            "revision": 7,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                2
+              ],
+              [
+                5,
+                1,
+                2
+              ]
+            ]
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-add-renewal",
+        "duration": 4.0,
+        "capture_id": "07d2ca8c8d984ca2a45dc903abff34b4",
+        "input_sha256": "30a445580a1aedfc1c1769264fbd86972a256779aae3bf83ce4d90fa8d0bc892",
+        "output_sha256": "06917ccecbc54ef62ca4e225ec1c79a8537daac1724697087d16719d4d7024d8",
+        "weapon_packets": 36,
+        "lock_shots": [
+          {
+            "time": 1.2000000000000006,
+            "revision": 3,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "time": 2.799999999999995,
+            "revision": 7,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                2
+              ],
+              [
+                5,
+                1,
+                2
+              ]
+            ]
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      },
+      {
+        "variant": "accumulate-both-renewal",
+        "duration": 4.0,
+        "capture_id": "7023673791b549e9a4f5adc6285ca2f8",
+        "input_sha256": "3ce2f69412b3f8ec2d8adde5ac7a350f3a15932ed184b73352404ceff97a9011",
+        "output_sha256": "448c67e7a88bf6f9afef4bb510ee71aa788f6d54f4b01e43ed4894b16d5625f4",
+        "weapon_packets": 36,
+        "lock_shots": [
+          {
+            "time": 1.2000000000000006,
+            "revision": 3,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ]
+            ]
+          },
+          {
+            "time": 2.799999999999995,
+            "revision": 7,
+            "handles": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                0,
+                2
+              ],
+              [
+                5,
+                1,
+                2
+              ]
+            ]
+          }
+        ],
+        "full_cpu_gpu_http_equal": true,
+        "final_release_projection_equal": true
+      }
+    ],
+    "jobs": [
+      {
+        "path": "api-v1",
+        "conditions": 8,
+        "seconds": 29.563177249976434,
+        "saved_audit_gpu_calls": 0,
+        "saved_audit_battles": 0,
+        "owned_process_group_absent": true
+      },
+      {
+        "path": "api-renewal-v1",
+        "conditions": 4,
+        "seconds": 6.136274000047706,
+        "saved_audit_gpu_calls": 0,
+        "saved_audit_battles": 0,
+        "owned_process_group_absent": true
+      }
+    ],
+    "current_source_cuda_profiles_this_change": 0
+  },
+  "coverage_boundaries": {
+    "last_full_standard_matrix_owner": "5f88d1089e5f1433fe5f2894f0930db0a8582931464a22d6423278bdf442c622",
+    "last_full_standard_metal_profiles": 263,
+    "total_standard_profiles": 266,
+    "last_full_declared_extra_profiles": 3,
+    "new_source_full_standard_matrix_recertified": false,
+    "historical_cuda_standard_profiles": 263,
+    "new_source_cuda_profiles": 0,
+    "declared_geometry_not_game_verified": true,
+    "all_special_effects_verified": false,
+    "full_goal_complete": false
+  },
+  "failures_retained": [
+    {
+      "scope": "Native scout v2",
+      "error": "Canonical collider identity is ambiguous",
+      "cause": "Typed geometry was fed through a separate logical pellet wrapper; corrected by one shared shot union.",
+      "gpu_calls": 0
+    },
+    {
+      "scope": "release-v1",
+      "error": "Product baseline absent from immutable payload",
+      "cause": "New v59 file was not tracked before compact packaging; staged exact independently sealed baseline and created a separate release-v2.",
+      "gpu_calls": 0
+    }
+  ],
+  "windows": {
+    "new_requests": 0,
+    "connection_restored": true,
+    "latest_resident_sdk_gpu_not_run": true,
+    "available_ram_bytes": 1438969856,
+    "required_available_ram_bytes": 4294967296,
+    "resampling": 0,
+    "old_missing_process_and_memory_stops_preserved": true
+  },
+  "remaining": [
+    "Default missing-model Yuni/Yan/Heavy Arms remain explicit reasoned fallback without declarations.",
+    "Standalone typed logical ADD GPU composition remains explicit unsupported; combined lock composition verified here.",
+    "Other consumer compositions, long durations/capacity and all effect branches are incomplete.",
+    "Validate current CUDA differential via bounded Windows run only after external RAM state changes; do not retry old claims."
+  ],
+  "source_dependency_audit": {
+    "passed": true,
+    "scope": "Source/dependency audit only; not unrestricted product/GPU completion",
+    "report": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-typed-lock-add-run-v1-20261102/model-check-v1.json",
+    "sha256": "dd4f6f41c8ca10d018ba5993d0918a2b4faba1f43c8cbb7961da083bfa881bae",
+    "gpu_calls": 0,
+    "native_battle_calls": 0
+  },
+  "compile_policy_plans": {
+    "ptx": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "924d149967d28d96f26cd61db4f16db450c766e4fcdfd21d8582a6987922c86c",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    },
+    "cubin": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "924d149967d28d96f26cd61db4f16db450c766e4fcdfd21d8582a6987922c86c",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "cubin",
+      "ptxas_level": 1,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "--ptxas-options",
+        "-O1"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    }
+  }
+}

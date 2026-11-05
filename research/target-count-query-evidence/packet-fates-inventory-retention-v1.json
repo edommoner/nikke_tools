@@ -1,0 +1,13 @@
+{
+  "schema": "packet-fates-inventory-retention-v1",
+  "passed": true,
+  "all_fields_unchanged": true,
+  "profile_count": 266,
+  "packed_profiles": 245,
+  "packing_failures": 21,
+  "priority_categories": 20,
+  "full_character_verified": 0,
+  "normal_ui": "CPU",
+  "full_goal_complete": false,
+  "gpu_calls": 0
+}

@@ -1,0 +1,14 @@
+{
+  "profile_records_issues_and_priorities_identical_except_readiness_metadata": true,
+  "readiness_changed_priorities": [
+    1,
+    2
+  ],
+  "profiles": 266,
+  "packed_profiles": 245,
+  "packed_base": 185,
+  "remaining_categories": 20,
+  "full_character_verified": 0,
+  "normal_ui": "CPU",
+  "gpu_calls": 0
+}

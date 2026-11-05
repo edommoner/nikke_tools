@@ -1,0 +1,37 @@
+{
+  "prior759": {
+    "passed": true,
+    "gpu_calls": 0,
+    "scope": "Byte retention against a previously verified immutable golden; not a new GPU dispatch or standalone calculation certification",
+    "expanded_candidate": true,
+    "candidate_offset": 0,
+    "name_prefix": "",
+    "inputs": 759,
+    "all_input_raw_native_fingerprints_equal": true,
+    "all_raw_words_equal": true,
+    "lazy_banks_zero": true,
+    "output_bytes": 2387607552,
+    "output_sha256": "e9284ab0b1afb99a3d9969ec8ee2ff43d8e333608a59240ab446c323d1bc0481",
+    "baseline_golden_sha256": "80c4a4c1ff113efd2f494779cd3ac8867a3369a7a896d32b347ab48b4d9bcc17",
+    "elapsed_seconds": 2.7127910420531407
+  },
+  "added37": {
+    "passed": true,
+    "gpu_calls": 0,
+    "scope": "Byte retention against a previously verified immutable golden; not a new GPU dispatch or standalone calculation certification",
+    "expanded_candidate": true,
+    "candidate_offset": 759,
+    "name_prefix": "entry-reload/",
+    "inputs": 37,
+    "all_input_raw_native_fingerprints_equal": true,
+    "all_raw_words_equal": true,
+    "lazy_banks_zero": true,
+    "output_bytes": 116391936,
+    "output_sha256": "765c601cfd5cb7ba4ae57719659dce6511675e6afdcc19d649c7459dd08eeed7",
+    "baseline_golden_sha256": "b6e4ebc098daf847d62c811b2a56f4b043a1b440603dd39f8ff1cb7bcb302f5e",
+    "elapsed_seconds": 0.2501754160039127
+  },
+  "passed": true,
+  "gpu_calls": 0,
+  "scope": "Exact retained blocks; candidate full capture remains independently audited"
+}

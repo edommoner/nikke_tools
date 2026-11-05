@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "scope": "Official nvJitLink candidate and static ABI only; DLL never loaded",
+  "redistribution_descriptor": "https://developer.download.nvidia.com/compute/cuda/redist/redistrib_12.4.1.json",
+  "api_documentation": "https://docs.nvidia.com/cuda/archive/12.4.1/nvjitlink/index.html",
+  "url": "https://developer.download.nvidia.com/compute/cuda/redist/libnvjitlink/windows-x86_64/libnvjitlink-windows-x86_64-12.4.127-archive.zip",
+  "archive_bytes": 91513391,
+  "archive_sha256": "d8f4086215f482263dbfbe47a3580e88acbcdacbb284f8aa0c21a8fe408e671d",
+  "members": [
+    {
+      "member": "libnvjitlink-windows-x86_64-12.4.127-archive/LICENSE",
+      "name": "LICENSE",
+      "bytes": 63021,
+      "sha256": "e2c71babfd18a8e69542dd7e9ca018f9caa438094001a58e6bc4d8c999bf0d07"
+    },
+    {
+      "member": "libnvjitlink-windows-x86_64-12.4.127-archive/bin/nvJitLink_120_0.dll",
+      "name": "nvJitLink_120_0.dll",
+      "bytes": 38247424,
+      "sha256": "2da9da786b85c100ba122f931a49c5c1eda83c32e3fa36814c2ef470e45fa9b1"
+    },
+    {
+      "member": "libnvjitlink-windows-x86_64-12.4.127-archive/include/nvJitLink.h",
+      "name": "nvJitLink.h",
+      "bytes": 17018,
+      "sha256": "5c15689136c1da9a25013118c686e38ceb2adeb2ba544c37d274129fab0c7f06"
+    }
+  ],
+  "execution_calls": 0,
+  "library_identity": {
+    "version": "12.4.127",
+    "sha256": "2da9da786b85c100ba122f931a49c5c1eda83c32e3fa36814c2ef470e45fa9b1",
+    "archive_sha256": "d8f4086215f482263dbfbe47a3580e88acbcdacbb284f8aa0c21a8fe408e671d",
+    "bytes": 38247424
+  },
+  "required_exports": [
+    "nvJitLinkVersion",
+    "__nvJitLinkCreate_12_4",
+    "__nvJitLinkDestroy_12_4",
+    "__nvJitLinkAddData_12_4",
+    "__nvJitLinkComplete_12_4",
+    "__nvJitLinkGetLinkedCubinSize_12_4",
+    "__nvJitLinkGetLinkedCubin_12_4",
+    "__nvJitLinkGetErrorLogSize_12_4",
+    "__nvJitLinkGetErrorLog_12_4",
+    "__nvJitLinkGetInfoLogSize_12_4",
+    "__nvJitLinkGetInfoLog_12_4"
+  ],
+  "all_required_exports_present": true,
+  "pe_imports": [
+    "KERNEL32.dll",
+    "ADVAPI32.dll",
+    "ole32.dll",
+    "SHELL32.dll"
+  ],
+  "delay_import_directory_bytes": 0,
+  "driver_string_matches": {
+    "nvcuda.dll": 0,
+    "nvrtc": 0,
+    "cuinit": 1,
+    "cumoduleload": 0
+  },
+  "options": [
+    "-arch=sm_86",
+    "-verbose"
+  ],
+  "input_type": "NVJITLINK_INPUT_CUBIN=1",
+  "source_compilation": false,
+  "dll_load_calls": 0,
+  "link_calls": 0,
+  "driver_calls": 0,
+  "gpu_calls": 0,
+  "runtime_driver_activity_verified": false
+}

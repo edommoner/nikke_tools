@@ -1,0 +1,56 @@
+{
+  "schema": "enemy-healing-named-admission-final-cli-v5",
+  "source_commit": "4883442a",
+  "unit_checks": [
+    {
+      "suite": "enemy-healing",
+      "package_id": "0d04ce84977c9f0c03a1ad85acc0a68dd325a1f315d05c92b0c81dd019cfb725",
+      "passed": true,
+      "tests": 107,
+      "groups": 14,
+      "gpu_calls": 0,
+      "calculation_verified": false
+    },
+    {
+      "suite": "enemy-healing-cache-only",
+      "package_id": "a0bcdd4833577221761365efd033b418f150f743844dd1b965e9e519ea17ad3b",
+      "passed": true,
+      "tests": 135,
+      "groups": 16,
+      "gpu_calls": 0,
+      "calculation_verified": false
+    }
+  ],
+  "generation": {
+    "verified": true,
+    "cache_hit": true,
+    "compiler_invocations": 0,
+    "sealed_generated_baseline_verified": true,
+    "gpu_calls": 0
+  },
+  "compile_plan": {
+    "passed": true,
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60
+  },
+  "model_check_passed": true,
+  "source_inventory_counts": {
+    "current": 21,
+    "stale": 179,
+    "unavailable": 2
+  },
+  "all_registered_source_current": false,
+  "missing_canonical_stats": [
+    "enemy_movement_disable",
+    "force_move",
+    "effect_range_pct",
+    "effect_target_count_add",
+    "lock_on"
+  ],
+  "gpu_calls": 0,
+  "windows_gpu_calls": 0,
+  "current_cuda_verified": false,
+  "full_goal_complete": false
+}

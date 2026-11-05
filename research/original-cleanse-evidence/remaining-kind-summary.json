@@ -1,0 +1,20 @@
+{
+  "scope": "Static kind rejection only; no battle or GPU certification",
+  "profiles": 266,
+  "packed": 247,
+  "kind_rejected_profiles": 22,
+  "remaining_kind_definition_counts": {
+    "15": 5,
+    "18": 1,
+    "20": 2,
+    "21": 1,
+    "23": 3,
+    "27": 3,
+    "30": 2,
+    "31": 2,
+    "33": 4,
+    "34": 2,
+    "35": 2,
+    "37": 1
+  }
+}

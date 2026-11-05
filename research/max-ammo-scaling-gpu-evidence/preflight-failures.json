@@ -1,0 +1,7 @@
+{
+  "gpu_calls": 0,
+  "generation_v1": "Slang E55201 rawFullCapacity -> plainQuantity -> collectStats static recursion; preserved /tmp/nikke-max-ammo-generation-v1/failure.json",
+  "roster_reference_v1": "Standalone native import had no calculator path; preserved failed-reference-import.json and immutable package.",
+  "roster_tests_v2": "test_original_effects_are_not_rewritten treated prepared effect dictionaries as tuples; tool result recorded AttributeError; immutable package retained. No GPU claim/run for this package.",
+  "final_rosters_v3": "Prepared effect dictionary access corrected; CPU tests succeeded before one Metal2 run."
+}

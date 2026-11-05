@@ -1,0 +1,69 @@
+{
+  "schema": "lock-packet-bindings-final-preflight-v1",
+  "packages": [
+    {
+      "suite": "lock-packet-bindings",
+      "package_id": "06d016661f731befc214dab2b5f0060eaae45b4f6e2cfbea281b1d9aee41638b",
+      "source_commit": "0dd69ca61400ea24b2815b3c68bb689f15fd9e28",
+      "archive_sha256": "93b0869de560c5717b3bf6d7e48f36b63e3deb3ebc6419d34dd71a2fe21cac07"
+    },
+    {
+      "suite": "lock-packet-cache-only",
+      "package_id": "06c63eaf4a90578be78ef3901e64775bd25e9d60cc9921ef89d91fbf3612ea7f",
+      "source_commit": "0dd69ca61400ea24b2815b3c68bb689f15fd9e28",
+      "archive_sha256": "242cba55aee97ecef9ce58f29b8ee43ebe19dac40ce1b437203f699ce05229b4"
+    },
+    {
+      "suite": "physical-generation-locks",
+      "package_id": "179956c9183ce9583c7b3d1dcfc8648198046e0ae8aa69e4df6ebac4dccfbfb1",
+      "source_commit": "c5c4b9c8d527a6459e5664ad9976ba778e92539e",
+      "archive_sha256": "28126711eb56e8ea114eccbc57940172054ce091f507d24d250bd05987508c50"
+    },
+    {
+      "suite": "named-generation-locks",
+      "package_id": "d638290de17fb6c232976acb2e9bc488cf65ff9db572bf303b30a60ae9d3583a",
+      "source_commit": "c5c4b9c8d527a6459e5664ad9976ba778e92539e",
+      "archive_sha256": "8a4306c9cdcb6f0e8e6cebf2bf770d27a70881bb6f3edf0a75b81ae089206000"
+    }
+  ],
+  "checks": {
+    "binding": {
+      "groups": 7,
+      "tests": 39,
+      "skipped": 0,
+      "passed": true
+    },
+    "smoke": {
+      "groups": 66,
+      "tests": 642,
+      "skipped": 1,
+      "passed": true
+    },
+    "cache": {
+      "groups": 8,
+      "tests": 46,
+      "skipped": 0,
+      "passed": true
+    }
+  },
+  "all_GPU_source_bytes_unchanged_from_Metal_proof": true,
+  "passive_native_observer_event_id_cleanup_added": true,
+  "cuda_required_cache_negative": {
+    "passed": true,
+    "expected_exit": 1,
+    "capture_created": false,
+    "claim_consumed": false,
+    "CUDA_calculation_verified": false,
+    "CUDA_cache_hit_verified": false,
+    "scope": "Actual immutable CUDA cache-only CLI rejects missing requirements before capture/claim"
+  },
+  "legacy23_current_source_recertified": false,
+  "legacy23_current_package_source_guard_verified": true,
+  "legacy23_old_sealed_archive_retained": true,
+  "legacy23_failed_capture_and_claim_retained": true,
+  "additional_GPU_calls": 0,
+  "cuda_executed": false,
+  "slot_selection_applied_to_landing": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

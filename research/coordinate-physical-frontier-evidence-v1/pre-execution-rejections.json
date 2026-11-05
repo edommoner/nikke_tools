@@ -1,0 +1,21 @@
+{
+  "packaging_v1": {
+    "error": "Adapter output words disagree with transport allocation",
+    "cause": "New standalone suite omitted explicit output_words=4100; fixed in v2",
+    "package_created": false,
+    "gpu_calls": 0,
+    "claim_consumed": false
+  },
+  "metal_v2": {
+    "error": "Generation cache requires a resident source; omit --generation-cache for a standalone probe",
+    "capture_created": false,
+    "claim_consumed": false,
+    "gpu_calls": 0,
+    "correction": "Use standalone probe arguments; first dispatch at fresh v2b capture with same unclaimed package"
+  },
+  "legacy_observer_first_attempt": {
+    "error": "AssertionError at capture_projectile_shots equal-damage/muzzle assertion",
+    "gpu_calls": 0,
+    "correction": "Reuse battle/team/control observer before restrictive projectile layer; preserve legacy observer"
+  }
+}

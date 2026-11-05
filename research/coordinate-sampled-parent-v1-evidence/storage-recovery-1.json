@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-sampled-battle-metal-v1",
+  "raw_bytes": 66322432,
+  "raw_sha256": "b8c9c4f6eca05a8757b6a97ed1dde17002dc6fe12a21de92890b3c1ddb3e9d9c",
+  "evidence_sha256": "084a5b998fb823637cbe5af115132505f4f71c62d9b75df10c45dd86df465b85",
+  "raw_inode": 510261013,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 392,
+  "zero_range_bytes": 64483328,
+  "allocated_before": 66322432,
+  "allocated_after": 1839104,
+  "allocated_reclaimed": 64483328,
+  "full_hash_verified": true
+}

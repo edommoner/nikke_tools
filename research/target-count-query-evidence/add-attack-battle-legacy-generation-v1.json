@@ -1,0 +1,27 @@
+{
+  "schema": "add-attack-guarded-legacy-generation-v1",
+  "source_commit": "44a543f843f8b4278242098ea8bca263f497fdd7",
+  "baseline_capture": "enemy-healing-named-admission-recert-v3-metal",
+  "source": "gpu/world_enemy_healing_entry.slang",
+  "rows": [
+    {
+      "target": "cuda",
+      "bytes": 2562723,
+      "equal": true,
+      "sha256": "98cfb423847266c42bcffabe18ad747bfcf578d18b99574756d4dd4be2f2eb02"
+    },
+    {
+      "target": "metal",
+      "bytes": 2721916,
+      "equal": true,
+      "sha256": "622337773c23ce61421069e547bbaec63e03bad889a479434dead895eb5369a3"
+    }
+  ],
+  "all_raw_generated_bytes_retained": true,
+  "elapsed_seconds": 4.345021374989301,
+  "gpu_calls": 0,
+  "actual_cuda_compile_calls": 0,
+  "actual_cuda_cache_hit_verified": false,
+  "calculation_verified": false,
+  "registered_golden_recertified": false
+}

@@ -1,0 +1,274 @@
+{
+  "commit": "6f54193636f2e44e59a588e208528f099419ac6e",
+  "parent": "73570451569dce424667e37f4729e475ea6b0a86",
+  "source_snapshot": "74f964aec2deac5cc704774aecc38d4c2d96332e",
+  "branch": "codex/cuda-world-v79-source",
+  "files": 42,
+  "total_bytes": 818904,
+  "rows": [
+    {
+      "path": "app/portable_runtime.py",
+      "bytes": 64282,
+      "sha256": "4c5f298c27a65f5dfb5f391932f11c6120a76f09e70954e56bb483ac4317cee8",
+      "blob": "812aab6aa02ddf1d5b056e69f979d248268b4a5d"
+    },
+    {
+      "path": "app/portable_specs.py",
+      "bytes": 10354,
+      "sha256": "6540c152be54ccdfe7f75f87463f23106c498a47045d536f0060efb567095864",
+      "blob": "7ca91ce1fa8b6c38736a56c56da4ff0a2c1e385a"
+    },
+    {
+      "path": "app/portable_trigger_specs.py",
+      "bytes": 8519,
+      "sha256": "c421db6cd40d3c27843c8c2fd3f62f74090c987a07aa1caecb2cd299fda17387",
+      "blob": "e0d386d5e2fe11a20b8f98ef075155b72faf3c8c"
+    },
+    {
+      "path": "app/portable_world_schedule_specs.py",
+      "bytes": 3360,
+      "sha256": "d88f63e1754c627383d632d696c4c730f22c7b147d3e5d745fcc97ae92d633bf",
+      "blob": "ae6b3df9c86270d65cfe650d3179328582ac738d"
+    },
+    {
+      "path": "docs/mac-handoff.md",
+      "bytes": 119559,
+      "sha256": "64c8952e8b5be25ec12ed2a65752d26e5d2f10e8e44a8fbea492032b52292650",
+      "blob": "a7758bf62e7eecb0b4076a2cb1c40a805bb320e3"
+    },
+    {
+      "path": "docs/mac-migration.md",
+      "bytes": 29064,
+      "sha256": "6c7fb6e541765b7252542cd506d6ae3280ee8c2f8de4f6914c8a462db6e3f018",
+      "blob": "d09b1976e2955ca49554dc86e232e55f6f009e58"
+    },
+    {
+      "path": "docs/portable-combat-runtime.md",
+      "bytes": 125172,
+      "sha256": "a2c83f59a0ec373c315a563bd5e8b626bed41e14f8dd20c81e0d80ce1ce9d109",
+      "blob": "d1f77a8629f413b794307c26c8505f370cb480eb"
+    },
+    {
+      "path": "docs/portable-roadmap.md",
+      "bytes": 12239,
+      "sha256": "0eb6a3bea14f5a40d9009b00475c30991ede90c17b1f998cd066e2d336183f05",
+      "blob": "a84b5ec8591c1e02c0ae6c9ea2cf5c7ce06ab8eb"
+    },
+    {
+      "path": "docs/portable-taunt-design.md",
+      "bytes": 15419,
+      "sha256": "f42c3f0f2a56fedb292734955f8797d29cb13f1958125f3d78f0380e08f686d5",
+      "blob": "b6f8e0fa4da17b50a7fb066b6b1ef86f4d645369"
+    },
+    {
+      "path": "docs/portable-world-frame-design.md",
+      "bytes": 9522,
+      "sha256": "4ebf13956788c615b38bb98cd0d6141bf5362721c3ca01fd6dcf1af531cb4262",
+      "blob": "1fec67e663bb6abf40c16ea7ab0be70cba7f7862"
+    },
+    {
+      "path": "docs/portable-world-notices.md",
+      "bytes": 5272,
+      "sha256": "03449127fb9fd65f52143ce9f4e3eff3845e1db7fe008f01d7c3746594e12001",
+      "blob": "8160158d76ac6d15361209bf51f1ddbb83168b7a"
+    },
+    {
+      "path": "docs/portable-world-schedule-design.md",
+      "bytes": 5570,
+      "sha256": "a8e6fc1bf196b1758e3c6a625364dd8ad6832fe563218271ca6632331488f34c",
+      "blob": "81863a534d1be24afcca384d1638cbbdaf56ab00"
+    },
+    {
+      "path": "gpu/combat_runtime.slang",
+      "bytes": 24531,
+      "sha256": "de65fe8974c6e035a2611ed04eb5cf1e67fd3b4af532476bd355550d82cd281d",
+      "blob": "74caed0db1038c9c70e722bf38b0637550d3c881"
+    },
+    {
+      "path": "gpu/enemy_target_runtime.slang",
+      "bytes": 7853,
+      "sha256": "bb88cf05d475109cf34e6fca4099ce71096cecc8ba03c72995cce8de15a0b730",
+      "blob": "d43dbacf01cf7f31f73180acb4ce7c7ee9c57cf7"
+    },
+    {
+      "path": "gpu/event_runtime.slang",
+      "bytes": 98455,
+      "sha256": "b2b2afeb055be9b6dce6103dedb6395514c6f8ad135b18e799a7576469c24f7d",
+      "blob": "8f6077c11dd33bdb33dbd6cb01f803c33b395ea5"
+    },
+    {
+      "path": "gpu/incoming_descriptor_runtime.slang",
+      "bytes": 1270,
+      "sha256": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+      "blob": "0fd827d8d00c471c1a47c810bc41934b9c1dea9b"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "bytes": 14590,
+      "sha256": "6915870da99061338204aa96cb9cebeb49091391f4608f170c20f633dcd1a055",
+      "blob": "484a10c3624c554a5c9298c1f84cbcb53c9d81d2"
+    },
+    {
+      "path": "gpu/protection_runtime.slang",
+      "bytes": 17122,
+      "sha256": "768eefaec94ee16a561a471c0400506f2b9c13ac3b8756693be1bbbcafc4bdd2",
+      "blob": "729c28860d0ecaed50a4a2e4ab0d5cb87a7ad2c2"
+    },
+    {
+      "path": "gpu/world_frame_addresses.slang",
+      "bytes": 4715,
+      "sha256": "5f4f5bd1401b9db5b05a3f1b057fc1fabe72255aed612b552f3a5b4057a5cc80",
+      "blob": "03f2a3afa4a22b974788abfc06cc09d060d9608c"
+    },
+    {
+      "path": "gpu/world_frame_entry.slang",
+      "bytes": 137,
+      "sha256": "0f9f49c8225bada65d06b069f7eebbb316c72bbb00eab05fa679f9ceaf755269",
+      "blob": "96f59d18ef0cdb3fff0e8578c65984323fb15096"
+    },
+    {
+      "path": "gpu/world_frame_runtime.slang",
+      "bytes": 2321,
+      "sha256": "705bb6a964271f70d7bb602dbfb14b190161b7bbd5901bd0630be5fefd5c1793",
+      "blob": "790fd622700acc0f9dd1a413c358c0c83fd249b7"
+    },
+    {
+      "path": "gpu/world_schedule.slang",
+      "bytes": 7795,
+      "sha256": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+      "blob": "f78c1d86ece3617624240f78d911432ad6be2d1d"
+    },
+    {
+      "path": "gpu/world_schedule_probe.slang",
+      "bytes": 2388,
+      "sha256": "f7ac487c8102911b66f5dfde6c9785f0bc4423ba24e46fc8b57443c6e43cd8da",
+      "blob": "e4c90a3c54213ead736d488d4261b077705b7e84"
+    },
+    {
+      "path": "research/portable-cross-v79-expected.json",
+      "bytes": 43912,
+      "sha256": "a114dfe12eb5aafe218c42907775339752ebe998c3f8f17bae7367bc5bc133ff",
+      "blob": "73cbe51247233e7c1f362416474913e476503871"
+    },
+    {
+      "path": "research/portable-cross-v79-metal-summary.json",
+      "bytes": 44023,
+      "sha256": "a1ba97511c692b394906bcd63d8a02645e7629968a8e29c92acef2f4d7be9a8b",
+      "blob": "0cbc33b318167766cb7b912290faddfd2b386afb"
+    },
+    {
+      "path": "research/portable-world-notices-validation.json",
+      "bytes": 11459,
+      "sha256": "8152a4b42456399b03ad7fa688fc74ee1530721aa473a3c9d99e0254f0f2b3c1",
+      "blob": "80f5a6cd6a19ee4d54d5129882987c006aea10b5"
+    },
+    {
+      "path": "research/portable-world-provider-global-validation.json",
+      "bytes": 18261,
+      "sha256": "4f744f5524d163cd7a3f0c0c18c28aedfb93e1b1970498ff497ade40ae2a4813",
+      "blob": "f5a39cbf706494501a04d7bdf113e4576f577698"
+    },
+    {
+      "path": "research/portable-world-suite-golden.json",
+      "bytes": 19963,
+      "sha256": "474c5518d0fb0c33fd6ae826eb93e8974da13364797c2e15ffd467a8af2b5bb3",
+      "blob": "be500ad108b7246b432b473f03d491774a37f76e"
+    },
+    {
+      "path": "research/portable-world-suite-metal.json",
+      "bytes": 17270,
+      "sha256": "cabd7f26521e4c89bcba01a786c64ca118ce39d637a17fe4ec5c44395a9d148b",
+      "blob": "cbc54e2e4ed446d3e1b26c1bc2eca8fe32dcd539"
+    },
+    {
+      "path": "research/prepare-world-frame-candidate.py",
+      "bytes": 1325,
+      "sha256": "09a418564d32423876c03c28c8e8793328460915d96c16e202ae1ee073e1a31d",
+      "blob": "f46a1a33cfe6c34c68879a6abd3cfafc9c89c355"
+    },
+    {
+      "path": "research/summarize-portable-cross-gpu.py",
+      "bytes": 6132,
+      "sha256": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a",
+      "blob": "8da625454decbcc56376efb3f9bed7450d97fe3a"
+    },
+    {
+      "path": "research/verify-world-frame-extended.py",
+      "bytes": 5844,
+      "sha256": "2b9ac707f84fe30c7b3047dc19452609832079bd5b31e4e09cd68cb4ae45f836",
+      "blob": "53843fc271cc23fb67b8fa327901bb9021102f33"
+    },
+    {
+      "path": "research/verify-world-frame-prior.py",
+      "bytes": 6070,
+      "sha256": "6dd5f84c25d146af058d0e92e74b64caf98562ebff19fbaad6e6cec9b0ebd708",
+      "blob": "d73dcd4c8325b728bcd928813b20fc53f32718df"
+    },
+    {
+      "path": "research/verify-world-frame.py",
+      "bytes": 11586,
+      "sha256": "05e4ebaaecb1af7e859c9d7d69b8c2c33180cfdbc690610d06e1f4076abdf4e8",
+      "blob": "d2b3b07247dc96295851b4ff2a2c70ba17ea9332"
+    },
+    {
+      "path": "research/verify-world-notices.py",
+      "bytes": 7487,
+      "sha256": "ac9c5db4012b7ac21acae734ad282632fbf4425aa7fba333e41609e0c59267c5",
+      "blob": "d429f1e81af0a368843a8b773c66f936abc3140c"
+    },
+    {
+      "path": "research/verify-world-schedule.py",
+      "bytes": 12543,
+      "sha256": "c205c7926708873b69787101bb41484f8063331016ae163716ac40457517fc06",
+      "blob": "fd9cf520ecdb45c3db599cd71e53ba77456f0ea9"
+    },
+    {
+      "path": "research/verify-world-suite.py",
+      "bytes": 6994,
+      "sha256": "cf7ae22fbe8eca57acfd30db182776df58a5a2e1628a77d97e1c3895c0eed767",
+      "blob": "991ef5e6f7cdfba606ea75097c9c9991e4951639"
+    },
+    {
+      "path": "research/verify-world-zero-once.py",
+      "bytes": 3870,
+      "sha256": "87c695607aa623144d6c154195b13fb12d3397b5afaa9d82f0591e93e766f03e",
+      "blob": "6e101658b7c5ae119d88472e98ec42973173f1a6"
+    },
+    {
+      "path": "research/world_frame_native.py",
+      "bytes": 4366,
+      "sha256": "b6e7e708a155165ecec11c0169aa3e394aaabcf98451f663f429979cc4630166",
+      "blob": "08841c55c5fa37adcd17dc60ebbf4ad9023a8516"
+    },
+    {
+      "path": "research/world_schedule_native.py",
+      "bytes": 2543,
+      "sha256": "8a6d9b3dad5674065a0e1c313699af9bad2730597638c73bf3bae161f5a69123",
+      "blob": "d54114d1c457b3ee56ce06c6c942618f46b8ec61"
+    },
+    {
+      "path": "tests/test_portable_world_frame_input.py",
+      "bytes": 3598,
+      "sha256": "5509d7c26289b359f146f917b595892c5832b5ba655f4986e02a031ad594d48e",
+      "blob": "40bc580b10e843ceef907714020c4a6ee67d9cea"
+    },
+    {
+      "path": "tests/test_portable_world_schedule.py",
+      "bytes": 2149,
+      "sha256": "d9677791aead0fa4e7892bedae982cecf44203e406ed2e0b82d5682be2dffc3f",
+      "blob": "1880c9589f9ea9dd5cad5fc14aeda5ef0b11a513"
+    }
+  ],
+  "critical_source_files_verified": 226,
+  "raw_binaries": false,
+  "personal_configuration": false,
+  "full_reports_excluded": true,
+  "planned_windows_scope": "BelowNormal one bounded180-second attempt:normal4682 plus one shared world49 session;no full build or full52 gates;save compact exact summary and execution JSON,retain raw/full reports locally",
+  "shared": true,
+  "created_at": "2026-10-20T17:05:32.177102+00:00",
+  "push_exit_code": 0,
+  "remote_branch": "codex/cuda-world-v79-source",
+  "remote_commit": "6f54193636f2e44e59a588e208528f099419ac6e",
+  "user_approval": "Explicit42-file818904-byte approval received in this task",
+  "shared_at": "2026-10-20T17:12:09.269555+00:00"
+}

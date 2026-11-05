@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "old_raw": "/tmp/nikke-original-modifier-hp-metal-v2/readback.bin",
+  "new_raw": "/tmp/nikke-coordinate-typed-legacy-metal-v1/readback.bin",
+  "inputs": 19,
+  "bytes": 79691776,
+  "sha256": "a4a23aa6f147b5c7ee7f2d0c161155dd3e890efb791693527d5b587ce5783075",
+  "all_words_exact": true,
+  "gpu_calls": 0,
+  "scope": "Full legacy19 output retention after actual new-source Metal run"
+}

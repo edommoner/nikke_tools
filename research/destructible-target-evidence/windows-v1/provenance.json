@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "source_commit": "3ab3035b383516e7e2249f826aee653740fde454",
+  "archive_sha256": "b01943862d017ecc664fa67c2223664b778c33b28124da3c7312c72016a553d2",
+  "archive_bytes": 6862616,
+  "package_id": "be8e852d3661dfd749b3d08c986877cab2e5dbcc391357d12b310736daf8e17f",
+  "suite": "destructible-target-core",
+  "inputs": 46,
+  "declared_state_cases": 24,
+  "rejects": 22,
+  "scope": "Typed state operations only, not full battle",
+  "raw_binaries_personal_settings_and_compiler_distributions_included": false
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "resident-parent-final-binding-v1",
+  "proof_package_id": "922d299973b3019c64d5ff3cfbe7e919705da33f3acf8855ec61cc6bff454801",
+  "final_package_id": "11bf241826b02fc6872da46d4b1f254abced81cbdf8e17ebc17c7fb0f8cad0d4",
+  "changed_payload_files": [
+    "scripts/nikke_gpu.py"
+  ],
+  "entire_golden_equal": true,
+  "source_and_native_and_comparator_files_equal": true,
+  "comparison_and_preflight_and_audit_methods_ast_equal": true,
+  "change_scope": "CLI summary output and inclusion of existing parent-oracle fault tests; no calculation, input, source, provider or comparison changes",
+  "gpu_calls": 0
+}

@@ -1,0 +1,11 @@
+{
+  "stage": "model-check",
+  "package_id": "fee44bff09573a85f2518639554e9eccf3e072effeaf867a19eb79d23daf08a9",
+  "passed": false,
+  "error": "FileNotFoundError: research/upstream/nikke-calc-master/docs/IMPL-STATUS.md",
+  "capture": "/tmp/nikke-coordinate-physical-common-model-v1.json",
+  "report_created": false,
+  "gpu_calls": 0,
+  "fix": "Declare pinned IMPL-STATUS.md and arc golden support; include frontier test in selected CPU groups",
+  "fixed_package_id": "437763d5caef8fb22aedf52b25a29aa39678dd2b6ca22372c93a4741c743ee3a"
+}

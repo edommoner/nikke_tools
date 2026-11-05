@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "cases": [
+    "coordinate-squad/no-owner",
+    "coordinate-squad-mode/finite-before",
+    "coordinate-burst-control/default",
+    "coordinate-mode-actions/hold-active-mode",
+    "coordinate-auto-reload/latched-speed-expiry",
+    "coordinate-healing/pool-discharge"
+  ],
+  "gpu_calls": 0,
+  "elapsed_seconds": 20.150973708019592,
+  "scope": "Selected saved block comparator regression; no new GPU proof"
+}

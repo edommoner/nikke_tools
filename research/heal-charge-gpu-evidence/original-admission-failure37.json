@@ -1,0 +1,217 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "reject/heal-charge-missing-policy",
+      "input_sha256": "d88da485f4e1c00e56c76c9320e4cabb23df76ca1a42ac59d21eb2effc825e4c",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/heal-charge-wrong-stat",
+      "input_sha256": "298ccfed2501126b7a0f438a1b853f668e26bc552b805235322e54e1ea99d717",
+      "output_sha256": "8867604f70812228945141bd8cd6d1dfeb67533a44911cdfb001b44eb8dd1360",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/heal-charge-wrong-kind",
+      "input_sha256": "8a5472f83b9ec64e7b872a8cd03dbc81274cfd1ea2dadad13c3740d0bc999553",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/heal-charge-nonfinite",
+      "input_sha256": "758978408c5f712eeb11bfc66a45cc7e7f4e794ee6ce1610c0b6086a5b98fb89",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/heal-charge-periodic",
+      "input_sha256": "5d12dede4065adbfd8f25cf57796db97d782b0db474c7761d13b97faf90fed26",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/heal-charge-missing-world",
+      "input_sha256": "5e4a87a10d9d9e6c3287251db17ca071eb99e8f4f700876ebf36e00dc7f5be50",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/heal-charge-invalid-policy",
+      "input_sha256": "53c6b50938e34b6f2298cfabb5c82a29f73aa87041b867b1976c011a7d6b13d4",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/heal-charge-missing-discharge-name",
+      "input_sha256": "f0375eadd13ba5edd3a3e1319448db414c2567c200117b8e87f832fb2b2855ef",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "heal-charge-empty",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 1,
+      "name": "heal-charge-full-HP",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 2,
+      "name": "heal-charge-damaged",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 3,
+      "name": "heal-charge-capacity-clamp",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 4,
+      "name": "heal-charge-zero-capacity",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 5,
+      "name": "heal-charge-negative-capacity",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 6,
+      "name": "heal-charge-negative-heal",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 7,
+      "name": "heal-charge-live-bonus",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 8,
+      "name": "heal-charge-wrong-bonus-name",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 9,
+      "name": "heal-charge-unrestricted-bonus",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 10,
+      "name": "heal-charge-expired-bonus-keeps-amount",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 11,
+      "name": "heal-charge-source-ATK-snapshot",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 12,
+      "name": "heal-charge-initial-ATK",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 13,
+      "name": "heal-charge-one-discharge",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 14,
+      "name": "heal-charge-missing-name",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 15,
+      "name": "heal-charge-refresh-resets-quantity",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 16,
+      "name": "heal-charge-named-removal-retains",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 17,
+      "name": "heal-charge-cleanse-discards",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 18,
+      "name": "heal-charge-ordered-duplicate-recipients",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 19,
+      "name": "heal-charge-live-other-pool-receives-release",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 20,
+      "name": "heal-charge-source-outgoing-and-received",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 21,
+      "name": "heal-charge-lifesteal",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 22,
+      "name": "heal-charge-down-discards",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 23,
+      "name": "heal-charge-repair-does-not-deposit",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 24,
+      "name": "heal-charge-shared-scalar-pool",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 25,
+      "name": "heal-charge-other-owner",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 26,
+      "name": "heal-charge-owner-order-before-activation",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 27,
+      "name": "heal-charge-other-caster-bonus",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 28,
+      "name": "heal-charge-other-caster-bonus-late-in-order",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    }
+  ],
+  "input_count": 37,
+  "native_oracles": 29,
+  "input_sha256": "fabb6e25e36ab48b1d5e93b19077b9d8e0548cde9c8566fb8fe9bf6817d55bfa",
+  "output_sha256": "0ce91dbf91d4af78f86216fe0eebbdbd1067ef7a7b26497b91185f124aecb105",
+  "generated_normalized": {
+    "cuda": "f4327b94ea353d950eac605caae355f4660e8eda07abe0a680912c89e10bd5a6",
+    "metal": "d15b0f5885b8d950aacf3ecf0274801f61e8899c75f1f044c9537080c4005bd4"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 0,
+    "fresh_native_cases": 0,
+    "rejection_cases": 8,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

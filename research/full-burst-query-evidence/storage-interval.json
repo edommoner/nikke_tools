@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-skill-interval-metal",
+  "raw_bytes": 1135607808,
+  "raw_sha256": "eeccbc3f32d591a1fa336e14be694f395f0433d4ecbb186ad21e0123b4f0e9bb",
+  "evidence_sha256": "5b483a78817176a41ceeec44dfb4282aefa863c1e7a71ffaa35d8916da6c642a",
+  "raw_inode": 506671624,
+  "zero_ranges": 2758,
+  "zero_range_bytes": 803930112,
+  "allocated_before": 1135607808,
+  "allocated_after": 331677696,
+  "allocated_reclaimed": 803930112,
+  "full_hash_verified": true
+}

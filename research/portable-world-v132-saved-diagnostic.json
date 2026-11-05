@@ -1,0 +1,58 @@
+{
+  "version": "v132",
+  "mode": "保存ファイルのCPU読み取りのみ",
+  "logs": {
+    "assembler.stdout.log": {
+      "bytes": 95,
+      "sha256": "9646198cf301336d848af1074f8ad9e381a3a1ee09657c8adcd1378d18c143d5",
+      "tail": "ptxas fatal   : Memory allocation failure\r\nptxas fatal   : Ptx assembly aborted due to errors\r\n"
+    },
+    "assembler.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tail": ""
+    }
+  },
+  "phase_monotonic_ns": {
+    "assembly_origin_verified": 2460406468000000,
+    "shared_offline_assembly_entered": 2460406468000000,
+    "offline_ptxas_entered": 2460406500000000,
+    "offline_ptxas_child_verified": 2460406531000000,
+    "offline_ptxas_returned": 2460444562000000
+  },
+  "phase_deltas_seconds": {
+    "origin_to_shared_entered": 0,
+    "origin_to_ptxas_entered": 0.032,
+    "shared_entered_to_ptxas_entered": 0.032,
+    "ptxas_entered_to_child_verified": 0.031,
+    "ptxas_entered_to_returned": 38.062,
+    "child_verified_to_returned": 38.031,
+    "precision_note": "保存されたmonotonic時刻の差。0は同一記録値を意味する"
+  },
+  "start_gate_timing": {
+    "exact_gate_release_to_ptxas_seconds": null,
+    "reason": "start.jsonは空オブジェクトで、gate開放時刻は保存されていない",
+    "saved_wall_clock_deltas_seconds": {
+      "pre_gate_job_observation_to_ptxas_entered": 15.0325547,
+      "before_snapshot_observation_to_ptxas_entered": 13.0101347
+    },
+    "note": "上記は観測時刻からの差であり、gate開放からの実測値ではない"
+  },
+  "saved_memory": {
+    "pre_gate_job_peak_bytes": 5824512,
+    "job_members_at_observation": [
+      78856
+    ],
+    "definition": "gate開放前の単一harness所属Jobについて保存されたPeakJobMemoryUsed",
+    "source": "assembly/job.json records[0].pre_gate.job_peak_memory_bytes。既存observerのQueryInformationJobObjectクラス9から取得",
+    "immediately_before_ptxas_harness_memory_bytes": null,
+    "immediately_before_ptxas_harness_memory_status": "未取得",
+    "note": "pre-gate Job peakはptxas起動直前のharness使用量ではない"
+  },
+  "diagnostic_update": "前報ではstderrのみ空と確認していた。保存stdoutにはptxasのMemory allocation failureがある。ただしJob上限との因果や必要メモリ量は確定できない。",
+  "new_measurements": 0,
+  "compiler_gpu_package_reruns": 0,
+  "capture_cache_claims_modified": false,
+  "checkout_or_environment_modified": false,
+  "source_scope": "Windows peer read-only saved-file report; original capture not independently audited on Mac"
+}

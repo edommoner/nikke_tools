@@ -11,7 +11,7 @@ body=read('research/detail-burst-gauge-api-fixture.json');old=body['squad'][0];w
 body['squad'][0]=who;body['profile']['chars'][who]=body['profile']['chars'].pop(old)
 for k in ['patches','stat_deltas']:
  if old in body.get(k,{}):body[k][who]=body[k].pop(old)
-compiled=a.evaluate({**body,'_compile_gpu_detail':True})
+compiled=a.evaluate({**body,'_compile_detail':True})
 write('research/detail-burst-stage-api-fixture.json',body)
 print(json.dumps({'new_characters':added,'rows':len(compiled['program']['effects'])},ensure_ascii=True))
 n=read('research/detail-expansion-next.json')

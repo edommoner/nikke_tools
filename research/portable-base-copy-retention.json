@@ -1,0 +1,28 @@
+{
+  "candidate_package_id": "2452a6a2f8751b1b08d889abb7322f66e8d7a4c8edb0302954618344f5379221",
+  "candidate_inputs": 481,
+  "gpu_calls": 0,
+  "raw_reread_sha_verified": true,
+  "full_goal_complete": false,
+  "baselines": {
+    "old428": {
+      "package_id": "981e71beb7a30043f3a2c492aa351e5a26bb4f44b446c6115d9d45107887b6c9",
+      "checked": 428,
+      "input_all_raw_and_native_equal": true
+    },
+    "copy47": {
+      "package_id": "1c945deed81bdd1dd0f828a315a68342764bf1d4620b75b733d8a987dd9f9383",
+      "checked": 47,
+      "input_all_raw_and_native_equal": true
+    }
+  },
+  "added_complete_roster_inputs": [
+    "roster/real/길티/favorite-0/3s",
+    "roster/real/길티/favorite-0/30s",
+    "roster/real/신/favorite-0/3s",
+    "roster/real/신/favorite-0/30s",
+    "roster/real/퀀시/favorite-0/3s",
+    "roster/real/퀀시/favorite-0/30s"
+  ],
+  "lazy_bank_zero_inputs": 481
+}

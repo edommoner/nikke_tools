@@ -1,0 +1,134 @@
+{
+  "passed": false,
+  "complete": false,
+  "gates": [
+    {
+      "name": "protection-native",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7536244590301067,
+      "log": "/tmp/nikke-v57-gate-protection-native.log"
+    },
+    {
+      "name": "status-native",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7355869589373469,
+      "log": "/tmp/nikke-v57-gate-status-native.log"
+    },
+    {
+      "name": "stack-foundation",
+      "exit_code": 0,
+      "elapsed_seconds": 4.7312530420022085,
+      "log": "/tmp/nikke-v57-gate-stack-foundation.log"
+    },
+    {
+      "name": "staged-native",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7148033750709146,
+      "log": "/tmp/nikke-v57-gate-staged-native.log"
+    },
+    {
+      "name": "source-native",
+      "exit_code": 0,
+      "elapsed_seconds": 0.03204770805314183,
+      "log": "/tmp/nikke-v57-gate-source-native.log"
+    },
+    {
+      "name": "native-mode-spec",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7392085830215365,
+      "log": "/tmp/nikke-v57-gate-native-mode-spec.log"
+    },
+    {
+      "name": "native-mode-input",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7489810000406578,
+      "log": "/tmp/nikke-v57-gate-native-mode-input.log"
+    },
+    {
+      "name": "reference-rewrite",
+      "exit_code": 0,
+      "elapsed_seconds": 0.029583209077827632,
+      "log": "/tmp/nikke-v57-gate-reference-rewrite.log"
+    },
+    {
+      "name": "duration-native",
+      "exit_code": 0,
+      "elapsed_seconds": 2.37341666710563,
+      "log": "/tmp/nikke-v57-gate-duration-native.log"
+    },
+    {
+      "name": "definition-input",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0513899580109864,
+      "log": "/tmp/nikke-v57-gate-definition-input.log"
+    },
+    {
+      "name": "definition-scalar",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0861803750740364,
+      "log": "/tmp/nikke-v57-gate-definition-scalar.log"
+    },
+    {
+      "name": "definition-out",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0798490419983864,
+      "log": "/tmp/nikke-v57-gate-definition-out.log"
+    },
+    {
+      "name": "removal-queue",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8887061669956893,
+      "log": "/tmp/nikke-v57-gate-removal-queue.log"
+    },
+    {
+      "name": "numeric",
+      "exit_code": 0,
+      "elapsed_seconds": 0.6781759170116857,
+      "log": "/tmp/nikke-v57-gate-numeric.log"
+    },
+    {
+      "name": "probe",
+      "exit_code": 0,
+      "elapsed_seconds": 0.3676683750236407,
+      "log": "/tmp/nikke-v57-gate-probe.log"
+    },
+    {
+      "name": "events",
+      "exit_code": 0,
+      "elapsed_seconds": 3.6153470830759034,
+      "log": "/tmp/nikke-v57-gate-events.log"
+    },
+    {
+      "name": "roster",
+      "exit_code": 0,
+      "elapsed_seconds": 550.0583017090103,
+      "log": "/tmp/nikke-v57-gate-roster.log"
+    },
+    {
+      "name": "catalog-weapons",
+      "exit_code": 0,
+      "elapsed_seconds": 3.4479289170121774,
+      "log": "/tmp/nikke-v57-gate-catalog-weapons.log"
+    },
+    {
+      "name": "equipment",
+      "exit_code": 0,
+      "elapsed_seconds": 4.1875036670826375,
+      "log": "/tmp/nikke-v57-gate-equipment.log"
+    },
+    {
+      "name": "real-battle",
+      "exit_code": 0,
+      "elapsed_seconds": 22.209953957935795,
+      "log": "/tmp/nikke-v57-gate-real-battle.log"
+    },
+    {
+      "name": "api",
+      "exit_code": 1,
+      "elapsed_seconds": 4.886576999910176,
+      "log": "/tmp/nikke-v57-gate-api.log"
+    }
+  ],
+  "superseded_reason": "Former unsupported API shield sentinel is now supported; replace with taunt. No production/runtime change.",
+  "failed_api_output": "Traceback (most recent call last):\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/scripts/verify-portable-api.py\", line 545, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/scripts/verify-portable-api.py\", line 49, in main\n    else:raise AssertionError('Unported effect was accepted')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Unported effect was accepted\n"
+}

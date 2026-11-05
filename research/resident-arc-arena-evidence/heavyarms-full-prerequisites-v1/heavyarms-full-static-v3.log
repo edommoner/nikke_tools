@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/heavyarms-full-static-v3.py", line 35, in <module>
+    words,meta,actors,scene=compile_coordinate_typed(p,bindings,probe,max_attacks=128)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/classification-evidence-v1-package/app/portable_coordinate_typed_input.py", line 76, in compile_coordinate_typed
+    words,meta,actors,scene=compile_coordinate_battle(lowered)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/classification-evidence-v1-package/app/portable_coordinate_roster_input.py", line 37, in compile_coordinate_battle
+    words,meta=compile_world_battle(lowered,trace='full',allow_physical_interrupt=bool(cfg.get('aim_interrupt')),coordinate=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/classification-evidence-v1-package/app/portable_world_roster_input.py", line 101, in compile_world_battle
+    words, meta = compile_program(chars, compiled, script, attacks,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/classification-evidence-v1-package/app/portable_runtime.py", line 286, in compile_program
+    for eff, owner in effects:validate_effect(eff,combat=combat,world_frame=world_frame)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/heavyarms-full-static-v3.py", line 18, in diagnostic_validate
+    try:return original_validate(effect,*args,**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/classification-evidence-v1-package/app/portable_runtime.py", line 212, in validate_effect
+    raise UnsupportedPortable('Unported buff stat', reason='effect')
+portable_runtime.UnsupportedPortable: Unported buff stat

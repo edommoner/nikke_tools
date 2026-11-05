@@ -1,0 +1,30 @@
+"""Complete original Delta ninja-thief through the same CUDA/Metal runtime and table."""
+import array,importlib.util,sys
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
+s=importlib.util.spec_from_file_location('ammo_real_prior',ROOT/'research/verify-world-full-burst-landing-rosters-short.py');prior=importlib.util.module_from_spec(s);s.loader.exec_module(prior)
+roster,suite,cross=prior.roster,prior.suite,prior.cross
+from portable_heal_charge_roster_cases import fixtures
+from portable_heal_charge_roster_contracts import verify
+from world_heal_charge_roster_native import observe
+s=importlib.util.spec_from_file_location('healing_real_charge_observer',ROOT/'research/verify-world-heal-charge-short.py');charge=importlib.util.module_from_spec(s);s.loader.exec_module(charge)
+from portable_heal_charge_observation import compare_final
+def prepare():
+    rows=[]
+    for c in fixtures():
+        p=roster.engine_worker.evaluate(dict(c['body'],_portable_static_inputs=True));w,m=roster.compile_projectile_battle(p);assert len(m['effects'])==len(p['effects']);rows.append((c['name'],w,(c,m,p,w)))
+    packed=array.array('I',[len(rows)])
+    for _,w,_ in rows:packed.extend(w)
+    if sys.byteorder!='little':packed.byteswap()
+    return rows,packed.tobytes()
+def native_reference(domain):
+    c,m,p,w=domain;n,_=observe(c);verify(c,n)
+    expected=[dict(owner=c['body']['squad'].index(e['owner']),name=e['effect'].get('name'),stat=e['effect'].get('stat'),kind=e['effect'].get('type')) for e in p['effects']]
+    assert n['healing_charge']['definitions']==expected,'Original native/packed definition identity or order differs'
+    return n
+def compare(block,domain):
+    c,m,p,w=domain;expected=native_reference(domain);_,_,_,diff=roster.compare(block,p,(w,m),expected['battle'],expected['projectile_shots']);assert block[0]==0 and not diff,(c['name'],block[0],diff[:8])
+    charge.compare_trace(block,expected['healing_charge']['events'])
+    compare_final(block,m,dict(effects=[e['effect'] for e in p['effects']]),expected['healing_charge'])
+    return expected
+def validate_rejection(block,name):raise AssertionError('No original roster rejection inputs')

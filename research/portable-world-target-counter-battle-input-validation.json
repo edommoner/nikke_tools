@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "full_native_battles": 23,
+  "old53_native_dictionaries_exact": true,
+  "old32_literal_fingerprints_exact": true,
+  "portable_cpu_tests": 368,
+  "gpu_source_blobs_unchanged": 116,
+  "physical_gpu_entry_implemented": false,
+  "pending_physical_abi": "0x5045567f",
+  "gpu_executions": 0,
+  "windows_additional_runs": 0,
+  "cpu_state_used_as_gpu_input": false,
+  "normal_ui": "CPU",
+  "canonical_world_admission": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "files": {
+    "app/portable_target_counter_specs.py": "e28ca1eac889b2f661c6da6ed7fe380806f3796942b2abffe6c514e9dccfccbf",
+    "app/portable_target_counter_program.py": "e4e16b9a5bdf01f3e2bfb64ae2777fc70ca36760993c66db6f1f491f5c298083",
+    "research/world_target_counter_battle_cases.py": "345c8219f263e6034529d4fed816c6b3c6d0f333e9694c6453800651798fbadd",
+    "research/world_target_counter_battle_native.py": "0e9e9387135a0a5a563c857b28725af2e43f1db53c66ff6262747bf162496819",
+    "research/compile-world-target-counter-battles.py": "d348bdf57193521367066865a43e0cd53e149e66486cf31f2fbbcfe83d4e0288",
+    "research/characterize-world-target-counter-landings.py": "cab787d45e8a3b9985cc64f9f629ada5201559728f6cd525221fd6d2dea858e7",
+    "research/world_frame_native.py": "2538893ac7b98a6ff60accb19ea9f6a17c996bb4677219ff7c3ba012b12676e1",
+    "tests/test_portable_counter_landings.py": "a6e84755be882b5e8c7a74f189afc6c031849343917fe2120499ed4bee330083",
+    "research/portable-world-target-counter-battle-native-contract.json": "18e5c210154a6c63cd8b5123730e0d1fc367a0febe2577625d2583ccec67e116"
+  },
+  "observer_preserves_all_battle_fields_for_all23": true
+}

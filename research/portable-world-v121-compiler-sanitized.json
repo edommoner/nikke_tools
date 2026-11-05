@@ -1,0 +1,101 @@
+{
+  "version": 121,
+  "source_commit": "6f5b47c87c004fb75e084ef4b90161d143eed1d2",
+  "package_id": "0fec968e69be5592bc6cf0d877f0418a356ab893d8d18ab8fd588f21c477ee64",
+  "manifest_files": 1832,
+  "manifest_and_golden_verified": true,
+  "package_unchanged": true,
+  "original_mismatch_record_preserved": true,
+  "cpu_tests": [
+    {
+      "suite": "windows_cleanup",
+      "count": 4,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "compile_cli",
+      "count": 8,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "cuda_artifact",
+      "count": 12,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "resident_layout",
+      "count": 3,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "resident_transport",
+      "count": 3,
+      "skip": 0,
+      "exit": 0
+    }
+  ],
+  "cpu_total": 30,
+  "compiler_only": {
+    "attempts": 1,
+    "retries": 0,
+    "budget_seconds": 60,
+    "elapsed_seconds": 12.325770699884742,
+    "timed_out": false,
+    "child_exit": 1,
+    "last_stage": "slang_build",
+    "exception": "FileNotFoundError",
+    "missing_artifact": "world_projectile_resident_entry.cu.reflection.json",
+    "classification": "reflection_artifact_missing_before_NVRTC",
+    "abi_assert_evaluated": false,
+    "abi_mismatch_proven": false,
+    "allocation_failure": false,
+    "nvrtc_compile_calls": 0
+  },
+  "artifact": {
+    "kind": "cubin",
+    "completed": false,
+    "bytes": 0,
+    "sha256": null
+  },
+  "cache_check_executed": false,
+  "job": {
+    "cap_bytes": 2147483648,
+    "peak_bytes": 502575104,
+    "pre_single_verified": true,
+    "post_empty_verified": true,
+    "cleanup_error": null,
+    "inspection_error": null,
+    "observation_error": null,
+    "below_normal": true
+  },
+  "environment": {
+    "missing_count": 0,
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "service_preservation_verified": false,
+    "original_head_status_preserved": true,
+    "parent_environment_preserved": true
+  },
+  "compiler_verified": false,
+  "containment_verified": true,
+  "preservation_verified": false,
+  "calculation_verified": false,
+  "audit_exit": 1,
+  "collect_exit": 0,
+  "nvrtc_DLL_load_calls": 0,
+  "driver_calls": 0,
+  "context_calls": 0,
+  "kernel_calls": 0,
+  "gpu_calls": 0,
+  "saved_report": {
+    "bytes": 3000,
+    "sha256": "b4d58f9c1940a939d5281efc4abc69a13d9b01fc11c169189ecc50d89a18c3db"
+  },
+  "prior_records_preserved": true,
+  "github_push": false,
+  "evidence_scope": "Derived Windows structured chat report; original artifacts not independently audited on Mac."
+}

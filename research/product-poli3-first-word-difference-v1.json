@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "scope": "Exact scalar difference deduced from full Windows block SHA equalling all-zero4096 bytes, and actual Mac block bytes",
+  "input_sha256": "774447605c6480cb355fed607bc94b01290e993c9139f621c0235154b3b21a0e",
+  "word_index": 5657,
+  "m5_value": 1,
+  "cuda_value": 0,
+  "region": "TIMER_TARGET_BASE",
+  "base_word": 5648,
+  "record": 4,
+  "field": "timerGeneration",
+  "meaning": "The periodic self-heal linked to Poli badge state-end has different timer-generation history; impact/cause still under investigation",
+  "not_classified_as_padding": true,
+  "extra_gpu_calls": 0,
+  "extra_cpu_battle_calls": 0
+}

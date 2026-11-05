@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "suite": "coordinate-typed-owner-lifecycle",
+  "inputs": 88,
+  "native_cases": 53,
+  "rejected_cases": 35,
+  "new_cases": 8,
+  "original_definitions": 71,
+  "declared_counter_audit_effects": 2,
+  "projectile_owner_field_battle_verified": true,
+  "dead_owner_query_verified": true,
+  "second_generation_counter_verified": true,
+  "late_stale_counter_suppression_verified": true,
+  "gpu_stale_context_rejection_verified": false,
+  "metal_calculation_verified": true,
+  "fresh_all_input_audit_verified": true,
+  "warm_metal_pipeline_verified": true,
+  "all_gpu_sources_unchanged": true,
+  "prior80_output_bytes_retained": 650240000,
+  "new_gpu_dispatches": 1,
+  "gpu_retry_count": 0,
+  "windows_requests": 0,
+  "cuda_device_verified": false,
+  "add_owner_verified": false,
+  "canonical_consumer_verified": false,
+  "in_game_rules_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "artifacts": {
+    "comparator-refresh.json": {
+      "bytes": 1659,
+      "sha256": "d5e11eceeb23dc41f0ad7d53a73657d35b52a9287759d1a994c69c2adabd2df6"
+    },
+    "cpu-lifecycle-unit.log": {
+      "bytes": 102,
+      "sha256": "fdb19b7aaa0f5861a5f61a174aa031e28a14d5a636ce15eb2b9ed3dac2437f76"
+    },
+    "cpu-reference-summary.json": {
+      "bytes": 8960,
+      "sha256": "cb60eeed4f2eaf8ceb600c596699c3b5b9d7fdb992dce5add3b5ed434147dac5"
+    },
+    "final-control-summary.json": {
+      "bytes": 233,
+      "sha256": "a190b8b9b1a72f9bada196268f91cdbd2b484a5f6c5c10f056edcfa69850b317"
+    },
+    "final-generation.json": {
+      "bytes": 267,
+      "sha256": "987f3e87b732e61ed5fd6a46cd5f0a07959991125c56082e08db58b6fbdd5bf4"
+    },
+    "final-related-summary.json": {
+      "bytes": 232,
+      "sha256": "ec7d7a3411ba9f96e6b6b038a5720ec4b3bee2c597199307e0cada56487fa83d"
+    },
+    "fresh-all88-summary.json": {
+      "bytes": 2838,
+      "sha256": "f13bd04cd89621217d5d57f2c6955251d3789d06cd371be1617b75c106cbf533"
+    },
+    "initial-counter-field-difference.json": {
+      "bytes": 7561,
+      "sha256": "7a6935fe4d53df5c6a0d42043a1faa936dff627fa69f341d72258854fb04d10e"
+    },
+    "metal-execution-summary.json": {
+      "bytes": 10921,
+      "sha256": "e663e160436762578609dc3029495e759c88d32088b33954bf4ba343f86e55b3"
+    },
+    "package-binding.json": {
+      "bytes": 774,
+      "sha256": "197cf5c3777d6f3cf526221af7500c93caa24a8cef7763f1c25d68af161cbb28"
+    },
+    "retained80.json": {
+      "bytes": 223,
+      "sha256": "3cd1d5a8174b278dddf5068b9a1fe90a34aa21c678602f595080b07fa18a2503"
+    },
+    "sparse-raw.json": {
+      "bytes": 698,
+      "sha256": "8171ccbb1ced52c5c0860c5f5f2e0cbec795d2ebec19bce1a1c3dcf5feb27038"
+    }
+  }
+}

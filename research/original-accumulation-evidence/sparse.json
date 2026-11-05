@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-original-accum-metal-v1",
+  "raw_bytes": 28317696,
+  "raw_sha256": "5d3adc235de692eeed5a4e671015c383f22a0571f93ba9c88b85d1050425b754",
+  "evidence_sha256": "7bb7ec3216618ec22c73ea1c249e88b07923070be4185c540c341535f46da79a",
+  "raw_inode": 511428284,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 56,
+  "zero_range_bytes": 21561344,
+  "allocated_before": 28319744,
+  "allocated_after": 6758400,
+  "allocated_reclaimed": 21561344,
+  "full_hash_verified": true
+}

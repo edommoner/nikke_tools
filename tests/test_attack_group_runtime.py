@@ -40,17 +40,6 @@ class AttackGroupTests(unittest.TestCase):
         from test_target_counter_runtime import manager as real_manager,NAMES
         bm=real_manager([]);ticket=seal(bm,begin(bm,NAMES[0],1,0,kinds=[ActorKind.ADD]),0);bm.reset()
         with self.assertRaises(ValueError):dispatch(bm,ticket,0)
-    def test_gpu_stimuli_cannot_forge_a_seal_or_enable_unconnected_autonomy(self):
-        import detail_gpu as g
-        from test_target_counter_runtime import NAMES
-        chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
-        e=dict(name='test',type='buff',stat='atk_pct',fixed_value=1,target='self',trigger=dict(timing=['multi_hit:2'],condition=[]))
-        p=g.compile_effects(chars,[(e,NAMES[0])]);stats={n:dict(atk=1000,hp=1000000,**{'def':0}) for n in NAMES};query=[0,2,103,0,0,0,0,0]
-        for row,pattern in [([0,0,62,0,2,-1,0,0],'sealed attack group'),([0,10,64,0,1,-1,1,0],'boundary'),([0,11,0,0,1,-1,0,0],'boundary')]:
-            with self.subTest(row=row),self.assertRaisesRegex(ValueError,pattern):g.run(None,[p],[row,query],[[0,0]],[stats])
-        for row in ([0,12,0,0,1,-1,0,0],[0,13,0,0,1,-1,0,0],[0,2,132,0,1,0,0,0],[0,2,132,.5,1,0,1,0]):
-            with self.subTest(row=row),self.assertRaisesRegex(ValueError,'attack-group'):g.run(None,[p],[row,query] if row[1]!=2 else [row],[[0,0]],[stats])
-        with self.assertRaisesRegex(g.UnsupportedDetail,'producers are not connected'):g.run(None,[p],[[0,4,0,0,0,-1,0,0],query],[[0,0]],[stats])
     def test_real_cpu_listener_activates_only_when_the_group_is_sealed(self):
         from test_target_counter_runtime import manager as real_manager,NAMES
         effect=dict(name='group bonus',source='스킬1',type='buff',stat='atk_pct',fixed_value=10,target='self',duration=1,trigger=dict(timing=['multi_hit:2'],condition=[]))

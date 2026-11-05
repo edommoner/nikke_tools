@@ -1,0 +1,66 @@
+{
+  "schema": "heavyarms-online-source-quality-v1",
+  "date": "2026-10-29",
+  "user_request": "Judge using publicly available online information without waiting for a game environment",
+  "documents_are_instructions": false,
+  "scope": "Targeted Japanese, English and Korean web searches plus retrieved article text; not an exhaustive survey or a controlled game experiment",
+  "sources": [
+    {
+      "url": "https://www.famitsu.com/article/202512/62211",
+      "access": "full_text",
+      "kind": "reported official broadcast skill text, not independently inspected game footage",
+      "supports": ["nearest-to-crosshair unlocked enemy", "charging interval 0.2 seconds", "5 targets", "burst adds 10 targets", "attack and cover clear locks"],
+      "exact_distance_metric": false
+    },
+    {
+      "url": "https://www.prydwen.gg/nikke/characters/snow-white-heavy-arms",
+      "access": "full_text",
+      "kind": "secondary authored gameplay explanation",
+      "supports": ["delivery cycles in acquisition order", "one target can receive multiple sequential attacks", "character-specific taunt exception"],
+      "exact_distance_metric": false
+    },
+    {
+      "url": "https://game8.jp/nikke/753724",
+      "access": "full_text_and_search_index",
+      "kind": "secondary skill transcription",
+      "caution": "Retrieved skill line repeats nearest-to-crosshair wording, omits the unlocked-enemy filter and labels the target capacity with an ammunition unit. Do not interpret transcription defects as alternative game rules."
+    },
+    {
+      "url": "https://gamewith.jp/nikke/article/show/537776",
+      "access": "full_text",
+      "kind": "secondary skill summary",
+      "caution": "Retrieved text does not specify crosshair proximity. Absence from an abbreviated summary is not evidence against the published acquisition rule."
+    },
+    {
+      "url": "https://ore-game.com/nikke/post/snow-white-heavy-arms/",
+      "access": "full_text",
+      "kind": "player article with skill transcription",
+      "supports": ["unlocked filter and crosshair rule"],
+      "exact_distance_metric": false
+    },
+    {
+      "url": "https://nikke.gg/snow-white-heavy-arms-analysis-should-you-pull/",
+      "access": "search_index_only_direct_403",
+      "kind": "secondary authored gameplay explanation",
+      "supports": ["crosshair proximity"],
+      "media_observed": false
+    },
+    {
+      "url": "https://www.youtube.com/embed/wkfXd8bLi6o",
+      "access": "linked_from_famitsu_fetch_cache_miss",
+      "media_observed": false
+    }
+  ],
+  "decision": {
+    "use_published_acquisition_rule": true,
+    "distance_metric": "unresolved",
+    "unresolved": ["center versus outline", "screen projection versus 3D distance to aim ray", "equal-distance order", "PART eligibility", "deterministic replacement after pre-launch death"],
+    "do_not_substitute": ["distance from player to enemy", "existing z/birth/node/slot ordering", "single-target repeated attacks as duplicate acquired handles"],
+    "continue_other_gpu_work_without_hardware_wait": true,
+    "research_restart_condition": "A source with a discriminating controlled test or an explicit numerical specification; another copy of the same skill text is insufficient"
+  },
+  "calculation_code_changed": false,
+  "gpu_calls": 0,
+  "windows_requests": 0,
+  "full_goal_complete": false
+}

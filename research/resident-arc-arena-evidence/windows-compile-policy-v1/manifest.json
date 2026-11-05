@@ -1,0 +1,10 @@
+{
+  "schema": "resident-compile-v1-preflight-manifest",
+  "files": [
+    {
+      "path": "summary.json",
+      "bytes": 4097,
+      "sha256": "4b6db793b88c1a00024c70c2cf923d559e277fa8400b3d10c65f9f97f4f53b12"
+    }
+  ]
+}

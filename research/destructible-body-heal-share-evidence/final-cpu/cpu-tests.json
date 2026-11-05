@@ -1,0 +1,102 @@
+[
+  {
+    "pattern": "test_destructible_weapon_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.9490574169904,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 83144
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.12855912500526756,
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 83144
+  },
+  {
+    "pattern": "test_destructible_skill_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.4753393330611289,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 83144
+  },
+  {
+    "pattern": "test_destructible_weapon_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 12.45651145791635,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 83144
+  },
+  {
+    "pattern": "test_destructible_skill_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 23.956640667049214,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 83144
+  },
+  {
+    "pattern": "test_destructible_body_lifesteal.py",
+    "exit_code": 0,
+    "elapsed_seconds": 11.60606658400502,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 83144
+  },
+  {
+    "pattern": "test_destructible_aoe_burst_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 16.724275292013772,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 83144
+  },
+  {
+    "pattern": "test_destructible_body_accum.py",
+    "exit_code": 0,
+    "elapsed_seconds": 5.771763209020719,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 83144
+  },
+  {
+    "pattern": "test_destructible_body_heal_share.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.566130833001807,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 83144
+  },
+  {
+    "pattern": "test_portable_heal_share_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.3380115829641,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 83144
+  }
+]

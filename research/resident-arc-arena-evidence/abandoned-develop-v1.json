@@ -1,0 +1,9 @@
+{
+  "schema": "abandoned-development-package-v1",
+  "reason": "Source audit was corrected while native baseline preparation was live; interrupted exact tool session86292 and observed terminal exit1. No package may be used from this attempt.",
+  "tool_session_id": 86292,
+  "terminal_exit_code": 1,
+  "gpu_calls": 0,
+  "expected_valid_package": false,
+  "preserve_log": "develop-v1.log"
+}

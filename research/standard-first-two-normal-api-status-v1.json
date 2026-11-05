@@ -1,0 +1,568 @@
+{
+  "schema": 1,
+  "owner": "032bbb7646fe850b222c0c23097b16cd820f2ad4295c5ce7b00510171d7be071",
+  "source_commit": "00ed1f529995ce206378255f6aa51e2619d54392",
+  "transport_commit": "6c983c21ff01f65bda257a7a7822863faf045cd9",
+  "archive_sha256": "11609648d7781dd7a3ca698d6f388d11affd20aa8f9a23d8a94ee088d8e73bd0",
+  "scope": "Only Poli3 and D0 original standard 30 second requests; no remaining six or full266 execution",
+  "overall_verified": false,
+  "whole_environment_preservation_verified": false,
+  "identified_service_preservation_verified": false,
+  "full_goal_complete": false,
+  "old_failure_records_relabelled": false,
+  "old_files_rehashed_unchanged": 4772,
+  "gpu_retries": 0,
+  "report": "standard-first-two-normal-api-status-v1",
+  "normal_api_verified": true,
+  "numerical_cases_verified": 2,
+  "profile_order": [
+    "Poli3",
+    "D0"
+  ],
+  "duration_seconds": 30,
+  "job_body_sha256": "8b44a5113ec4f27ae719585031b5099f8428baeb0633df2a289ec825754ff984",
+  "all_request_fields_unchanged": true,
+  "job_id": "3fb6c903-5963-44d5-a697-d5786a5ca414",
+  "physical_gpu_dispatch_count": 1,
+  "normal_http_post_count": 1,
+  "parent_capture_id": "batch-6b4428e09c734a519890511b81f1f78d",
+  "capture_ref": "standard-current-windows-v1/normal-api-v1/api-once-v1/detail-captures/batch-6b4428e09c734a519890511b81f1f78d",
+  "path_base": "Documents/Codex",
+  "physical_input_sha256": "e7cebc56ccbb29b1b9786d82633c289fdc554f29fbbf2d5ef9667ca33695ca5f",
+  "physical_output_sha256": "6c7d8eb0284b1921d7f4947f138aa1002bfe24caa7dc29190a8856482551d87e",
+  "physical_input_bytes": 835204,
+  "physical_output_bytes": 6291456,
+  "source": "gpu/product_fixed_battle_entry.slang",
+  "source_closure_current_compiler_equal": true,
+  "members": [
+    {
+      "index": 0,
+      "profile": "Poli3",
+      "original_profile_index": 14,
+      "capture_id": "e5a3286335a846f6ab8c006748657b14",
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "status": 0,
+      "input_bytes": 417604,
+      "output_bytes": 3145728,
+      "input_sha256": "774447605c6480cb355fed607bc94b01290e993c9139f621c0235154b3b21a0e",
+      "output_sha256": "657ef8fb9ec63494bd16648f45f43a287cf0b04819448744f72e7675ae278050",
+      "m5_full_readback_equal": true,
+      "parent_input_slice_equal": true,
+      "parent_output_slice_equal": true,
+      "static_repack_equal": true,
+      "full_cpu_gpu_api_payload_equal": true,
+      "unicode_exclusions": [],
+      "excluded_transport_metadata": [
+        "compute",
+        "cache_hit"
+      ],
+      "cpu_battle_used_as_gpu_input": false
+    },
+    {
+      "index": 1,
+      "profile": "D0",
+      "original_profile_index": 20,
+      "capture_id": "98bdb95170eb4840b775a282f5d0ea30",
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "status": 0,
+      "input_bytes": 417604,
+      "output_bytes": 3145728,
+      "input_sha256": "815156e459dfb18a3a2511db2e55ed7c1f19b9cb9386e1a716e3357776d48d5b",
+      "output_sha256": "279eec95f216372e44eab2a23411b5a169b4b9d5f257a0315f576281b6bf9f26",
+      "m5_full_readback_equal": true,
+      "parent_input_slice_equal": true,
+      "parent_output_slice_equal": true,
+      "static_repack_equal": true,
+      "full_cpu_gpu_api_payload_equal": true,
+      "unicode_exclusions": [],
+      "excluded_transport_metadata": [
+        "compute",
+        "cache_hit"
+      ],
+      "cpu_battle_used_as_gpu_input": false
+    }
+  ],
+  "fresh_cpu_full_payload_comparisons": [
+    {
+      "index": 0,
+      "performed": true,
+      "api_gpu_matched": true,
+      "gpu_cpu_matched": true,
+      "api_compute_matched": true,
+      "unicode_exclusions": [],
+      "excluded_transport_metadata": [
+        "compute",
+        "cache_hit"
+      ],
+      "api_gpu_differing_fields": [],
+      "gpu_cpu_differing_fields": []
+    },
+    {
+      "index": 1,
+      "performed": true,
+      "api_gpu_matched": true,
+      "gpu_cpu_matched": true,
+      "api_compute_matched": true,
+      "unicode_exclusions": [],
+      "excluded_transport_metadata": [
+        "compute",
+        "cache_hit"
+      ],
+      "api_gpu_differing_fields": [],
+      "gpu_cpu_differing_fields": []
+    }
+  ],
+  "all_m5_member_full_readbacks_equal": true,
+  "all_parent_member_input_output_slices_equal": true,
+  "static_repack_verified": true,
+  "saved_audit_additional_cpu_battles": 0,
+  "saved_audit_additional_gpu_calls": 0,
+  "raw_samples_generated": 0,
+  "device": "NVIDIA GeForce RTX 3070 Ti",
+  "cache_hit": false,
+  "artifact_provider": "saved-module-jit-cubin",
+  "artifact": {
+    "bytes": 5357328,
+    "sha256": "0a25fdc0dbbc7a0b31a55433373aa215d8d2baff721ed004481b6b8b730ff2f0"
+  },
+  "paired_cache": {
+    "key": "fc8e5d0e1208011c9d683fefb6c98c1fc3ccb0b71cf0c0a8d02382bd83aaad05",
+    "hit": true,
+    "compiler_invocations": 0
+  },
+  "api_compiler_invocations": {
+    "slang": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "nvjitlink": 0
+  },
+  "cuda_api_counts": {
+    "cuInit": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 0.0193044
+    },
+    "cuCtxCreate_v2": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 0.0645073
+    },
+    "cuModuleLoadData": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 0.0041792
+    },
+    "cuLaunchKernel": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 0.0014372
+    },
+    "cuCtxSynchronize": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 2.3784353
+    },
+    "cuMemcpyDtoH_v2": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 0.0005857
+    },
+    "cuCtxDestroy_v2": {
+      "entered": 1,
+      "returned": 1,
+      "return_code": 0,
+      "elapsed_seconds": 0.0276028
+    }
+  },
+  "elapsed": {
+    "http_seconds": 21.171342600136995,
+    "host_dispatch_seconds": 2.384660500101745
+  },
+  "execution": {
+    "static-preflight": {
+      "child_exit_code": 0,
+      "elapsed_seconds": 12.593839600216597,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 97488896,
+      "below_normal": true,
+      "identified_service_preservation_verified": false,
+      "whole_environment_preservation_verified": false
+    },
+    "api-once-v1": {
+      "child_exit_code": 0,
+      "elapsed_seconds": 25.421089000068605,
+      "timeout_seconds": 53,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 1459347456,
+      "below_normal": true,
+      "identified_service_preservation_verified": false,
+      "whole_environment_preservation_verified": false
+    },
+    "saved-audit": {
+      "child_exit_code": 0,
+      "elapsed_seconds": 10.359426999930292,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "job_records": 1,
+      "pre_gate_verified": true,
+      "post_wait_empty": true,
+      "job_memory_limit_bytes": 2147483648,
+      "job_peak_memory_bytes": 68792320,
+      "below_normal": true,
+      "identified_service_preservation_verified": false,
+      "whole_environment_preservation_verified": false
+    }
+  },
+  "owned_server_stopped": true,
+  "secondary_helper_error": false,
+  "resource_summary": {
+    "schema": "saved-standard-first-two-resource-summary-v1",
+    "snapshots": [
+      {
+        "boundary": "cuMemAlloc_v2",
+        "position": "before",
+        "started_unix_ns": 1793502114657980600,
+        "finished_unix_ns": 1793502114658997700,
+        "device": {
+          "available": true,
+          "free_bytes": 7448035328,
+          "observed_unix_ns": 1793502114658997700,
+          "return_code": 0,
+          "total_bytes": 8589410304
+        },
+        "host_process": {
+          "available": true,
+          "private_bytes": 381571072,
+          "peak_private_bytes": 381571072,
+          "working_set_bytes": 249090048,
+          "observed_unix_ns": 1793502114657980600
+        },
+        "host_parent": {
+          "available": true,
+          "private_bytes": 28835840,
+          "peak_private_bytes": 32366592,
+          "working_set_bytes": 54149120,
+          "observed_unix_ns": 1793502114658997700
+        },
+        "host_job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 410411008,
+          "observed_unix_ns": 1793502114658997700
+        },
+        "atomic": false,
+        "driver_memory_query_calls": 1,
+        "kernel_calls_added": 0
+      },
+      {
+        "boundary": "cuMemAlloc_v2",
+        "position": "after",
+        "started_unix_ns": 1793502114661091100,
+        "finished_unix_ns": 1793502114661091100,
+        "device": {
+          "available": true,
+          "free_bytes": 7445938176,
+          "observed_unix_ns": 1793502114661091100,
+          "return_code": 0,
+          "total_bytes": 8589410304
+        },
+        "host_process": {
+          "available": true,
+          "private_bytes": 383946752,
+          "peak_private_bytes": 383946752,
+          "working_set_bytes": 249397248,
+          "observed_unix_ns": 1793502114661091100
+        },
+        "host_parent": {
+          "available": true,
+          "private_bytes": 28835840,
+          "peak_private_bytes": 32366592,
+          "working_set_bytes": 54149120,
+          "observed_unix_ns": 1793502114661091100
+        },
+        "host_job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 412786688,
+          "observed_unix_ns": 1793502114661091100
+        },
+        "atomic": false,
+        "driver_memory_query_calls": 1,
+        "kernel_calls_added": 0
+      },
+      {
+        "boundary": "cuMemAlloc_v2",
+        "position": "before",
+        "started_unix_ns": 1793502114661629700,
+        "finished_unix_ns": 1793502114661629700,
+        "device": {
+          "available": true,
+          "free_bytes": 7445938176,
+          "observed_unix_ns": 1793502114661629700,
+          "return_code": 0,
+          "total_bytes": 8589410304
+        },
+        "host_process": {
+          "available": true,
+          "private_bytes": 383946752,
+          "peak_private_bytes": 383950848,
+          "working_set_bytes": 249397248,
+          "observed_unix_ns": 1793502114661629700
+        },
+        "host_parent": {
+          "available": true,
+          "private_bytes": 28835840,
+          "peak_private_bytes": 32366592,
+          "working_set_bytes": 54149120,
+          "observed_unix_ns": 1793502114661629700
+        },
+        "host_job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 412786688,
+          "observed_unix_ns": 1793502114661629700
+        },
+        "atomic": false,
+        "driver_memory_query_calls": 1,
+        "kernel_calls_added": 0
+      },
+      {
+        "boundary": "cuMemAlloc_v2",
+        "position": "after",
+        "started_unix_ns": 1793502114663573400,
+        "finished_unix_ns": 1793502114664081000,
+        "device": {
+          "available": true,
+          "free_bytes": 7439646720,
+          "observed_unix_ns": 1793502114664081000,
+          "return_code": 0,
+          "total_bytes": 8589410304
+        },
+        "host_process": {
+          "available": true,
+          "private_bytes": 390250496,
+          "peak_private_bytes": 390250496,
+          "working_set_bytes": 249397248,
+          "observed_unix_ns": 1793502114664081000
+        },
+        "host_parent": {
+          "available": true,
+          "private_bytes": 28835840,
+          "peak_private_bytes": 32366592,
+          "working_set_bytes": 54149120,
+          "observed_unix_ns": 1793502114664081000
+        },
+        "host_job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 419090432,
+          "observed_unix_ns": 1793502114664081000
+        },
+        "atomic": false,
+        "driver_memory_query_calls": 1,
+        "kernel_calls_added": 0
+      },
+      {
+        "boundary": "cuMemAlloc_v2",
+        "position": "before",
+        "started_unix_ns": 1793502114664081000,
+        "finished_unix_ns": 1793502114664871500,
+        "device": {
+          "available": true,
+          "free_bytes": 7439646720,
+          "observed_unix_ns": 1793502114664871500,
+          "return_code": 0,
+          "total_bytes": 8589410304
+        },
+        "host_process": {
+          "available": true,
+          "private_bytes": 390250496,
+          "peak_private_bytes": 390254592,
+          "working_set_bytes": 249397248,
+          "observed_unix_ns": 1793502114664871500
+        },
+        "host_parent": {
+          "available": true,
+          "private_bytes": 28835840,
+          "peak_private_bytes": 32366592,
+          "working_set_bytes": 54149120,
+          "observed_unix_ns": 1793502114664871500
+        },
+        "host_job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 419090432,
+          "observed_unix_ns": 1793502114664871500
+        },
+        "atomic": false,
+        "driver_memory_query_calls": 1,
+        "kernel_calls_added": 0
+      },
+      {
+        "boundary": "cuMemAlloc_v2",
+        "position": "after",
+        "started_unix_ns": 1793502114665386100,
+        "finished_unix_ns": 1793502114665386100,
+        "device": {
+          "available": true,
+          "free_bytes": 7439646720,
+          "observed_unix_ns": 1793502114665386100,
+          "return_code": 0,
+          "total_bytes": 8589410304
+        },
+        "host_process": {
+          "available": true,
+          "private_bytes": 390529024,
+          "peak_private_bytes": 390529024,
+          "working_set_bytes": 249663488,
+          "observed_unix_ns": 1793502114665386100
+        },
+        "host_parent": {
+          "available": true,
+          "private_bytes": 28835840,
+          "peak_private_bytes": 32366592,
+          "working_set_bytes": 54149120,
+          "observed_unix_ns": 1793502114665386100
+        },
+        "host_job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 419368960,
+          "observed_unix_ns": 1793502114665386100
+        },
+        "atomic": false,
+        "driver_memory_query_calls": 1,
+        "kernel_calls_added": 0
+      },
+      {
+        "boundary": "cuLaunchKernel",
+        "position": "before",
+        "started_unix_ns": 1793502114671135600,
+        "finished_unix_ns": 1793502114671723200,
+        "device": {
+          "available": true,
+          "free_bytes": 7439646720,
+          "observed_unix_ns": 1793502114671723200,
+          "return_code": 0,
+          "total_bytes": 8589410304
+        },
+        "host_process": {
+          "available": true,
+          "private_bytes": 390529024,
+          "peak_private_bytes": 390533120,
+          "working_set_bytes": 249712640,
+          "observed_unix_ns": 1793502114671135600
+        },
+        "host_parent": {
+          "available": true,
+          "private_bytes": 28835840,
+          "peak_private_bytes": 32366592,
+          "working_set_bytes": 54149120,
+          "observed_unix_ns": 1793502114671723200
+        },
+        "host_job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 419368960,
+          "observed_unix_ns": 1793502114671723200
+        },
+        "atomic": false,
+        "driver_memory_query_calls": 1,
+        "kernel_calls_added": 0
+      },
+      {
+        "boundary": "cuLaunchKernel",
+        "position": "after",
+        "started_unix_ns": 1793502114674793000,
+        "finished_unix_ns": 1793502114674793000,
+        "device": {
+          "available": true,
+          "free_bytes": 6533677056,
+          "observed_unix_ns": 1793502114674793000,
+          "return_code": 0,
+          "total_bytes": 8589410304
+        },
+        "host_process": {
+          "available": true,
+          "private_bytes": 1399128064,
+          "peak_private_bytes": 1399128064,
+          "working_set_bytes": 249741312,
+          "observed_unix_ns": 1793502114674793000
+        },
+        "host_parent": {
+          "available": true,
+          "private_bytes": 28835840,
+          "peak_private_bytes": 32366592,
+          "working_set_bytes": 54149120,
+          "observed_unix_ns": 1793502114674793000
+        },
+        "host_job": {
+          "available": true,
+          "job_limit_flags": 15360,
+          "job_memory_limit_bytes": null,
+          "job_peak_memory_bytes": 1427968000,
+          "observed_unix_ns": 1793502114674793000
+        },
+        "atomic": false,
+        "driver_memory_query_calls": 1,
+        "kernel_calls_added": 0
+      }
+    ],
+    "observation_complete": false,
+    "incomplete_fields": [
+      "All inner resource snapshots report host.job.job_memory_limit_bytes=null; do not infer zero or a verified limit from these snapshots."
+    ],
+    "enforced_outer_job_pre_post_limit_verified": true,
+    "enforced_outer_job_memory_limit_bytes": 2147483648,
+    "outer_job_peak_memory_bytes": 1459347456,
+    "sampled_process_private_max_bytes": 1399128064,
+    "process_historical_private_peak_bytes": 1399128064,
+    "device_free_min_bytes": 6533677056,
+    "device_free_max_bytes": 7448035328,
+    "runtime": {
+      "input_bytes": 835204,
+      "output_bytes": 6291456,
+      "runtime_stride_bytes": 167680,
+      "runtime_buffer_bytes": 335360,
+      "runtime_element_capacity": 2
+    },
+    "scope": "Saved non-atomic observations and historical peaks; not capacity, root-cause, or maximum future batch admission evidence",
+    "additional_gpu_calls": 0,
+    "additional_cpu_battles": 0,
+    "raw_process_identifiers_omitted": true
+  },
+  "remaining_six_executed": false,
+  "full266_executed": false,
+  "performance_or_larger_batch_admission_claimed": false
+}

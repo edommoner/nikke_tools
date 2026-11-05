@@ -1,0 +1,495 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-22T23:23:13.585660+00:00",
+  "scope": "Private shared CUDA/Metal runtime",
+  "full_goal_complete": false,
+  "full_character_certified": 0,
+  "ui_backend": "cpu",
+  "changes": [
+    "Native full-burst logging selection with explicit private logging policy",
+    "First/changed explicit HP sync invalidates dictionary cache without altering arithmetic",
+    "Expiration logs resolve lazy membership after state-end children; reserve dead snapshots across reactivation",
+    "Read-only bounded census/window entries and exact reversible source audit",
+    "Historical pellet fault injection targets its projected source layer"
+  ],
+  "battle_packet": {
+    "path": "/tmp/nikke-native-snapshot-battles-v4",
+    "package_id": "d63af63d578d73f16486b557150df9e049f5c4cc0e9bccc552331d752098fd43",
+    "archive": {
+      "path": "/tmp/nikke-native-snapshot-battles-v4.zip",
+      "bytes": 5664688,
+      "sha256": "c22afde6586af74ada1d16d16b9c10fca5c78fdce969cc9421e4fa090ed8071f"
+    },
+    "seal": {
+      "path": "/tmp/nikke-native-snapshot-battles-v4-sealed.json",
+      "bytes": 21929,
+      "sha256": "3415225ecac53965324fa1c374316212c2200b8f3ed975b0986df158defd836f"
+    },
+    "inputs": 25,
+    "native": 17,
+    "rejections": 8,
+    "passed": true
+  },
+  "retention_packet": {
+    "path": "/tmp/nikke-native-snapshot-retention-v2",
+    "package_id": "2c05f378b91f3185008da793b87715ba99f6148ee11d49d38247f88a2faa3ffc",
+    "archive": {
+      "path": "/tmp/nikke-native-snapshot-retention-v2.zip",
+      "bytes": 6975419,
+      "sha256": "76a576c25d62ee2933b2fecaffee8791059abaa56a76d74cdc9f00e6f6aa1f18"
+    },
+    "inputs": 1355,
+    "native": 1071,
+    "rejections": 284,
+    "status": "finished",
+    "passed": true,
+    "seal": {
+      "path": "/tmp/nikke-native-snapshot-retention-v2-sealed.json",
+      "bytes": 752057,
+      "sha256": "4861d4840c5574677950f4ba58a15645b817a7a0bb5300ea100b215efaf8bed8"
+    }
+  },
+  "lily_history": {
+    "verified": true,
+    "total": 4550,
+    "raw_retained": 128,
+    "raw_suffix_omitted": 4422,
+    "semantic_sha256": "d535eb73d32c08670144e58222e1e25fcb7534b5b818490569698ec6bcf840b0",
+    "complete_selection_order_verified": true,
+    "timestamps_in_semantic_digest": false,
+    "full_final_mt_state_verified": true
+  },
+  "reference_preservation": [
+    {
+      "name": "state-focus-real/비스킷/3s",
+      "original_battle_and_full_trace_sha256": "04c0e660c4c98d12d6f269d326d43f2243de8d55b2ee0a7003c8545c8e6c3fef",
+      "unchanged": true
+    },
+    {
+      "name": "state-focus-real/비스킷/30s",
+      "original_battle_and_full_trace_sha256": "04ce3acd0ae89bbed633ce19a91d2aeceddcf765da08c9a603e301df13835c25",
+      "unchanged": true
+    },
+    {
+      "name": "state-focus-real/리틀 머메이드/3s",
+      "original_battle_and_full_trace_sha256": "4297460cad6b71b93f1bb124192d2690be7a91da3d38bec737abdfad38bd236a",
+      "unchanged": true
+    },
+    {
+      "name": "state-focus-real/리틀 머메이드/30s",
+      "original_battle_and_full_trace_sha256": "20e6dab4d68bbf5f17622b4fa01d77486aaaeef4cf209ca56a1ed5393a1383ab",
+      "unchanged": true
+    },
+    {
+      "name": "state-focus-real/릴리/3s",
+      "original_battle_and_full_trace_sha256": "653e26b3d6590de76468ffe49b0579408d552057e3e31f215d2cb7cadf1af678",
+      "unchanged": true
+    },
+    {
+      "name": "state-focus-real/릴리/30s",
+      "original_battle_and_full_trace_sha256": "a09eaa4b50963b4cca25509154221d3d455871690706fb666ef2ec949c75d5a5",
+      "unchanged": true
+    }
+  ],
+  "source_count": 121,
+  "runtime_stride_bytes": 138952,
+  "output_stride_words": 786432,
+  "diagnostic_bank": {
+    "base_word": 781856,
+    "words": 4112
+  },
+  "evidence_file": "research/portable-native-query-observation-metal-evidence.json",
+  "preserved_failures": [
+    {
+      "capture": "/tmp/nikke-native-query-diag-v1-metal",
+      "retained": true,
+      "run": {
+        "schema": 1,
+        "package_id": "7e1769cf0ff4ea611b64653fb360adf4654a45908cccbab4a5b2986c4930ff74",
+        "backend": "metal",
+        "mode": "gpu",
+        "status": "finished",
+        "gpu_retry_count": 0,
+        "finished_unix_ns": 1792708927702490000
+      },
+      "result": {
+        "sealed": false,
+        "purpose": "development",
+        "calculation_verified": false,
+        "preservation_verified": null,
+        "passed": false,
+        "containment_verified": true,
+        "comparison_error": null,
+        "first_difference": {
+          "index": 0,
+          "name": "state-focus-real/릴리/30s",
+          "reason": "AssertionError: {'gpu_misses': 45, 'native_misses': 45, 'first': [{'index': 31, 'gpu': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 3.9666666666666575, 'atk_flat': 0.0, 'atk_pct': 34.07}, 'native': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 3.9666666666666575, 'atk_flat': 35759.6, 'atk_pct': 34.07}}, {'index': 36, 'gpu': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 3.983333333333324, 'atk_flat': 35759.6, 'atk_pct': 34.07}, 'native': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 3.983333333333324, 'atk_flat': 0.0, 'atk_pct': 34.07}}, {'index': 38, 'gpu': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 3.983333333333324, 'atk_flat': 0.0, 'atk_pct': 34.07}, 'native': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 3.983333333333324, 'atk_flat': 35759.6, 'atk_pct': 34.07}}, {'index': 43, 'gpu': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 3.9999999999999907, 'atk_flat': 35759.6, 'atk_pct': 34.07}, 'native': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 3.9999999999999907, 'atk_flat': 0.0, 'atk_pct': 34.07}}, {'index': 44, 'gpu': {'owner': 4, 'target': 0, 'exclusion': 0, 'time': 3.9999999999999907, 'atk_flat': 0.0, 'atk_pct': 34.07}, 'native': {'owner': 4, 'target': 0, 'exclusion': 0, 'time': 3.9999999999999907, 'atk_flat': 35759.6, 'atk_pct': 34.07}}]}"
+        },
+        "phase": {
+          "events": 9,
+          "last_event": {
+            "monotonic_ns": 808079338286958,
+            "pid": 44024,
+            "stage": "shared_gpu_execute",
+            "state": "returned",
+            "wall_time_ns": 1792708927445210000
+          },
+          "nvrtc_compile_returned_success": false,
+          "cuda_compile_cache_hit_verified": false,
+          "cuda_linked_artifact_observed": false,
+          "cuda_launch_returned_success": false,
+          "cuda_synchronize_returned_success": false,
+          "cuda_readback_returned_success": false,
+          "scope": "Observed API returns only; full output verification requires the shared suite report"
+        },
+        "gpu_retries": 0,
+        "audit_gpu_calls": 0
+      }
+    },
+    {
+      "capture": "/tmp/nikke-native-query-diag-v2-metal",
+      "retained": true,
+      "run": {
+        "schema": 1,
+        "package_id": "882984d4e05c380ac8bf1f78edd7f10052cbd7abe7c957aafb6969cfb68ad240",
+        "backend": "metal",
+        "mode": "gpu",
+        "status": "finished",
+        "gpu_retry_count": 0,
+        "finished_unix_ns": 1792709088674954000
+      },
+      "result": {
+        "sealed": false,
+        "purpose": "development",
+        "calculation_verified": false,
+        "preservation_verified": null,
+        "passed": false,
+        "containment_verified": true,
+        "comparison_error": null,
+        "first_difference": {
+          "index": 0,
+          "name": "state-focus-real/릴리/30s",
+          "reason": "AssertionError: {'gpu_misses': 45, 'native_misses': 45, 'first': [{'index': 30, 'gpu': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 3.9666666666666575, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 331, 'sample_total': 156}, 'native': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 3.9666666666666575, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 340, 'sample_total': 161}}, {'index': 31, 'gpu': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 3.9666666666666575, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 332, 'sample_total': 157}, 'native': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 3.9666666666666575, 'atk_flat': 35759.6, 'atk_pct': 34.07, 'after_index': 342, 'sample_total': 162}}, {'index': 32, 'gpu': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 3.9666666666666575, 'atk_flat': 0.0, 'atk_pct': 74.47, 'after_index': 335, 'sample_total': 158}, 'native': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 3.9666666666666575, 'atk_flat': 0.0, 'atk_pct': 74.47, 'after_index': 343, 'sample_total': 163}}, {'index': 33, 'gpu': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 3.9666666666666575, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 336, 'sample_total': 159}, 'native': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 3.9666666666666575, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 345, 'sample_total': 164}}, {'index': 34, 'gpu': {'owner': 4, 'target': 0, 'exclusion': 0, 'time': 3.9666666666666575, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 339, 'sample_total': 160}, 'native': {'owner': 4, 'target': 0, 'exclusion': 0, 'time': 3.9666666666666575, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 347, 'sample_total': 165}}, {'index': 35, 'gpu': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 3.983333333333324, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 340, 'sample_total': 161}, 'native': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 3.983333333333324, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 348, 'sample_total': 166}}, {'index': 36, 'gpu': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 3.983333333333324, 'atk_flat': 35759.6, 'atk_pct': 34.07, 'after_index': 342, 'sample_total': 162}, 'native': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 3.983333333333324, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 349, 'sample_total': 167}}, {'index': 37, 'gpu': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 3.983333333333324, 'atk_flat': 0.0, 'atk_pct': 74.47, 'after_index': 343, 'sample_total': 163}, 'native': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 3.983333333333324, 'atk_flat': 0.0, 'atk_pct': 74.47, 'after_index': 352, 'sample_total': 168}}]}"
+        },
+        "phase": {
+          "events": 9,
+          "last_event": {
+            "monotonic_ns": 808240317326833,
+            "pid": 44138,
+            "stage": "shared_gpu_execute",
+            "state": "returned",
+            "wall_time_ns": 1792709088420093000
+          },
+          "nvrtc_compile_returned_success": false,
+          "cuda_compile_cache_hit_verified": false,
+          "cuda_linked_artifact_observed": false,
+          "cuda_launch_returned_success": false,
+          "cuda_synchronize_returned_success": false,
+          "cuda_readback_returned_success": false,
+          "scope": "Observed API returns only; full output verification requires the shared suite report"
+        },
+        "gpu_retries": 0,
+        "audit_gpu_calls": 0
+      }
+    },
+    {
+      "capture": "/tmp/nikke-native-query-diag-v3-metal",
+      "retained": true,
+      "run": {
+        "schema": 1,
+        "package_id": "ebd8aa510ce0a587483c8f42f24b87467dce39166519c258a17a2931592510c3",
+        "backend": "metal",
+        "mode": "gpu",
+        "status": "finished",
+        "gpu_retry_count": 0,
+        "finished_unix_ns": 1792709681018876000
+      },
+      "result": {
+        "sealed": false,
+        "purpose": "development",
+        "calculation_verified": false,
+        "preservation_verified": null,
+        "passed": false,
+        "containment_verified": true,
+        "comparison_error": null,
+        "first_difference": {
+          "index": 0,
+          "name": "state-focus-real/릴리/30s",
+          "reason": "AssertionError: {'gpu_misses': 45, 'native_misses': 45, 'first': [{'index': 0, 'gpu': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 394, 'sample_total': 2997}, 'native': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 395, 'sample_total': 2998}}, {'index': 1, 'gpu': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 395, 'sample_total': 2998}, 'native': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 397, 'sample_total': 2999}}, {'index': 2, 'gpu': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 74.47, 'after_index': 397, 'sample_total': 2999}, 'native': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 35759.6, 'atk_pct': 74.47, 'after_index': 401, 'sample_total': 3000}}, {'index': 3, 'gpu': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 401, 'sample_total': 3000}, 'native': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 402, 'sample_total': 3001}}, {'index': 4, 'gpu': {'owner': 4, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 35759.6, 'atk_pct': 34.07, 'after_index': 402, 'sample_total': 3001}, 'native': {'owner': 4, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 406, 'sample_total': 3002}}, {'index': 5, 'gpu': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 13.36666666666691, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 406, 'sample_total': 3002}, 'native': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 13.36666666666691, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 407, 'sample_total': 3003}}, {'index': 6, 'gpu': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 13.36666666666691, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 407, 'sample_total': 3003}, 'native': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 13.36666666666691, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 408, 'sample_total': 3004}}, {'index': 7, 'gpu': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 13.36666666666691, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 408, 'sample_total': 3004}, 'native': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 13.36666666666691, 'atk_flat': 35759.6, 'atk_pct': 34.07, 'after_index': 414, 'sample_total': 3005}}]}"
+        },
+        "phase": {
+          "events": 9,
+          "last_event": {
+            "monotonic_ns": 808832620508583,
+            "pid": 44975,
+            "stage": "shared_gpu_execute",
+            "state": "returned",
+            "wall_time_ns": 1792709680708081000
+          },
+          "nvrtc_compile_returned_success": false,
+          "cuda_compile_cache_hit_verified": false,
+          "cuda_linked_artifact_observed": false,
+          "cuda_launch_returned_success": false,
+          "cuda_synchronize_returned_success": false,
+          "cuda_readback_returned_success": false,
+          "scope": "Observed API returns only; full output verification requires the shared suite report"
+        },
+        "gpu_retries": 0,
+        "audit_gpu_calls": 0
+      }
+    },
+    {
+      "capture": "/tmp/nikke-native-query-diag-v4-metal",
+      "retained": true,
+      "run": {
+        "schema": 1,
+        "package_id": "f4f4a7c2235e80a88e2d4b486029395504b028cb6b4d6d6f0c730f036cf54056",
+        "backend": "metal",
+        "mode": "gpu",
+        "status": "finished",
+        "gpu_retry_count": 0,
+        "finished_unix_ns": 1792709798507869000
+      },
+      "result": {
+        "sealed": false,
+        "purpose": "development",
+        "calculation_verified": false,
+        "preservation_verified": null,
+        "passed": false,
+        "containment_verified": true,
+        "comparison_error": null,
+        "first_difference": {
+          "index": 0,
+          "name": "state-focus-real/릴리/30s",
+          "reason": "AssertionError: query census observation count"
+        },
+        "phase": {
+          "events": 9,
+          "last_event": {
+            "monotonic_ns": 808950126132916,
+            "pid": 45186,
+            "stage": "shared_gpu_execute",
+            "state": "returned",
+            "wall_time_ns": 1792709798210691000
+          },
+          "nvrtc_compile_returned_success": false,
+          "cuda_compile_cache_hit_verified": false,
+          "cuda_linked_artifact_observed": false,
+          "cuda_launch_returned_success": false,
+          "cuda_synchronize_returned_success": false,
+          "cuda_readback_returned_success": false,
+          "scope": "Observed API returns only; full output verification requires the shared suite report"
+        },
+        "gpu_retries": 0,
+        "audit_gpu_calls": 0
+      }
+    },
+    {
+      "capture": "/tmp/nikke-native-query-diag-v5-metal",
+      "retained": true,
+      "run": {
+        "schema": 1,
+        "package_id": "1c01307e580b6d2d163316bb234d829db8b581beb87f17be3a6fec5cb786f8ce",
+        "backend": "metal",
+        "mode": "gpu",
+        "status": "finished",
+        "gpu_retry_count": 0,
+        "finished_unix_ns": 1792710157752368000
+      },
+      "result": {
+        "sealed": false,
+        "purpose": "development",
+        "calculation_verified": false,
+        "preservation_verified": null,
+        "passed": false,
+        "containment_verified": true,
+        "comparison_error": null,
+        "first_difference": {
+          "index": 0,
+          "name": "state-focus-real/릴리/30s",
+          "reason": "AssertionError: {'gpu_count': 1802, 'native_count': 1801, 'gpu_endpoints': [0.0, 30.0], 'native_endpoints': [0.0, 29.999999999999577], 'first': [{'index': 808, 'gpu': {'sample_total': 3032, 'after_index': 459}, 'native': {'time': 13.466666666666915, 'sample_total': 3033, 'after_index': 461}}, {'index': 809, 'gpu': {'sample_total': 3032, 'after_index': 459}, 'native': {'time': 13.483333333333583, 'sample_total': 3033, 'after_index': 461}}, {'index': 810, 'gpu': {'sample_total': 3032, 'after_index': 459}, 'native': {'time': 13.50000000000025, 'sample_total': 3033, 'after_index': 461}}], 'scope': 'First owner0 miss at each observed time; intermediate times are ordinal context, not independently certified'}"
+        },
+        "phase": {
+          "events": 9,
+          "last_event": {
+            "monotonic_ns": 809307285371750,
+            "pid": 45814,
+            "stage": "shared_gpu_execute",
+            "state": "returned",
+            "wall_time_ns": 1792710157499180000
+          },
+          "nvrtc_compile_returned_success": false,
+          "cuda_compile_cache_hit_verified": false,
+          "cuda_linked_artifact_observed": false,
+          "cuda_launch_returned_success": false,
+          "cuda_synchronize_returned_success": false,
+          "cuda_readback_returned_success": false,
+          "scope": "Observed API returns only; full output verification requires the shared suite report"
+        },
+        "gpu_retries": 0,
+        "audit_gpu_calls": 0
+      }
+    },
+    {
+      "capture": "/tmp/nikke-native-query-window-v1-metal",
+      "retained": true,
+      "run": {
+        "schema": 1,
+        "package_id": "309036f36e033dec1a144c0e436af7d128e5a5c3ad600d8318d8ccdb561dfc1c",
+        "backend": "metal",
+        "mode": "gpu",
+        "status": "finished",
+        "gpu_retry_count": 0,
+        "finished_unix_ns": 1792709886070806000
+      },
+      "result": {
+        "sealed": false,
+        "purpose": "development",
+        "calculation_verified": false,
+        "preservation_verified": null,
+        "passed": false,
+        "containment_verified": true,
+        "comparison_error": null,
+        "first_difference": {
+          "index": 0,
+          "name": "state-focus-real/릴리/30s",
+          "reason": "AssertionError: {'gpu_misses': 25, 'native_misses': 26, 'first': [{'index': 15, 'gpu': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 394, 'sample_total': 2997}, 'native': {'owner': 4, 'target': 0, 'exclusion': 0, 'time': 13.333333333333576, 'atk_flat': 35759.6, 'atk_pct': 34.07, 'after_index': 394, 'sample_total': 2997}}, {'index': 16, 'gpu': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 395, 'sample_total': 2998}, 'native': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 395, 'sample_total': 2998}}, {'index': 17, 'gpu': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 74.47, 'after_index': 397, 'sample_total': 2999}, 'native': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 397, 'sample_total': 2999}}, {'index': 18, 'gpu': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 401, 'sample_total': 3000}, 'native': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 35759.6, 'atk_pct': 74.47, 'after_index': 401, 'sample_total': 3000}}, {'index': 19, 'gpu': {'owner': 4, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 35759.6, 'atk_pct': 34.07, 'after_index': 402, 'sample_total': 3001}, 'native': {'owner': 3, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 402, 'sample_total': 3001}}, {'index': 20, 'gpu': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 13.36666666666691, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 406, 'sample_total': 3002}, 'native': {'owner': 4, 'target': 0, 'exclusion': 0, 'time': 13.350000000000243, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 406, 'sample_total': 3002}}, {'index': 21, 'gpu': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 13.36666666666691, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 407, 'sample_total': 3003}, 'native': {'owner': 0, 'target': 0, 'exclusion': 0, 'time': 13.36666666666691, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 407, 'sample_total': 3003}}, {'index': 22, 'gpu': {'owner': 2, 'target': 0, 'exclusion': 0, 'time': 13.36666666666691, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 408, 'sample_total': 3004}, 'native': {'owner': 1, 'target': 0, 'exclusion': 0, 'time': 13.36666666666691, 'atk_flat': 0.0, 'atk_pct': 34.07, 'after_index': 408, 'sample_total': 3004}}]}"
+        },
+        "phase": {
+          "events": 9,
+          "last_event": {
+            "monotonic_ns": 809037679283208,
+            "pid": 45354,
+            "stage": "shared_gpu_execute",
+            "state": "returned",
+            "wall_time_ns": 1792709885761596000
+          },
+          "nvrtc_compile_returned_success": false,
+          "cuda_compile_cache_hit_verified": false,
+          "cuda_linked_artifact_observed": false,
+          "cuda_launch_returned_success": false,
+          "cuda_synchronize_returned_success": false,
+          "cuda_readback_returned_success": false,
+          "scope": "Observed API returns only; full output verification requires the shared suite report"
+        },
+        "gpu_retries": 0,
+        "audit_gpu_calls": 0
+      }
+    },
+    {
+      "capture": "/tmp/nikke-native-snapshot-battles-v1-metal",
+      "retained": true,
+      "run": {
+        "schema": 1,
+        "package_id": "74607ede0701a7fd3b65c4c9b338b77057a139a25d15b19ad08c0598496fd42f",
+        "backend": "metal",
+        "mode": "gpu",
+        "status": "finished",
+        "gpu_retry_count": 0,
+        "finished_unix_ns": 1792709561386311000
+      },
+      "result": {
+        "sealed": false,
+        "purpose": "development",
+        "calculation_verified": false,
+        "preservation_verified": null,
+        "passed": false,
+        "containment_verified": true,
+        "comparison_error": null,
+        "first_difference": {
+          "index": 21,
+          "name": "state-focus-rosters/state-focus-real/릴리/30s",
+          "reason": "AssertionError: ('state-focus-real/릴리/30s', 'full original battle', [{'path': '.body_damage[1]', 'gpu': 24692414.0, 'cpu': 24656296}, {'path': '.body_damage[2]', 'gpu': 53480275.0, 'cpu': 53373035}, {'path': '.body_damage[4]', 'gpu': 13378340.0, 'cpu': 13328130}, {'path': 'physical_shots[636].damage', 'gpu': 65494.0, 'cpu': 48084}, {'path': 'physical_shots[713].damage', 'gpu': 36660.0, 'cpu': 30424}, {'path': 'physical_shots[719].damage', 'gpu': 30424.0, 'cpu': 36660}, {'path': 'physical_shots[729].damage', 'gpu': 30424.0, 'cpu': 36660}, {'path': 'physical_shots[733].damage', 'gpu': 30424.0, 'cpu': 36660}])"
+        },
+        "phase": {
+          "events": 9,
+          "last_event": {
+            "monotonic_ns": 808712885210833,
+            "pid": 44746,
+            "stage": "shared_gpu_execute",
+            "state": "returned",
+            "wall_time_ns": 1792709560975855000
+          },
+          "nvrtc_compile_returned_success": false,
+          "cuda_compile_cache_hit_verified": false,
+          "cuda_linked_artifact_observed": false,
+          "cuda_launch_returned_success": false,
+          "cuda_synchronize_returned_success": false,
+          "cuda_readback_returned_success": false,
+          "scope": "Observed API returns only; full output verification requires the shared suite report"
+        },
+        "gpu_retries": 0,
+        "audit_gpu_calls": 0
+      }
+    },
+    {
+      "capture": "/tmp/nikke-native-snapshot-battles-v2-metal",
+      "retained": true,
+      "run": {
+        "schema": 1,
+        "package_id": "7265a6c6a5778df0380598782bb2fa425ba23daffd07501151e4fe37b894deb2",
+        "backend": "metal",
+        "mode": "gpu",
+        "status": "finished",
+        "gpu_retry_count": 0,
+        "finished_unix_ns": 1792710088704448000
+      },
+      "result": {
+        "sealed": false,
+        "purpose": "development",
+        "calculation_verified": false,
+        "preservation_verified": null,
+        "passed": false,
+        "containment_verified": true,
+        "comparison_error": null,
+        "first_difference": {
+          "index": 22,
+          "name": "state-focus-rosters/state-focus-real/릴리/30s",
+          "reason": "AssertionError: ('state-focus-real/릴리/30s', 'full original battle', [{'path': '.body_damage[1]', 'gpu': 24681240.0, 'cpu': 24656296}, {'path': '.body_damage[3]', 'gpu': 5864973.0, 'cpu': 5785374}, {'path': '.body_damage[4]', 'gpu': 13478760.0, 'cpu': 13328130}, {'path': 'physical_shots[719].damage', 'gpu': 30424.0, 'cpu': 36660}, {'path': 'physical_shots[723].damage', 'gpu': 36660.0, 'cpu': 30424}, {'path': 'physical_shots[725].damage', 'gpu': 30424.0, 'cpu': 36660}, {'path': 'physical_shots[729].damage', 'gpu': 30424.0, 'cpu': 36660}, {'path': 'physical_shots[731].damage', 'gpu': 36660.0, 'cpu': 30424}])"
+        },
+        "phase": {
+          "events": 9,
+          "last_event": {
+            "monotonic_ns": 809238049493041,
+            "pid": 45680,
+            "stage": "shared_gpu_execute",
+            "state": "returned",
+            "wall_time_ns": 1792710088265077000
+          },
+          "nvrtc_compile_returned_success": false,
+          "cuda_compile_cache_hit_verified": false,
+          "cuda_linked_artifact_observed": false,
+          "cuda_launch_returned_success": false,
+          "cuda_synchronize_returned_success": false,
+          "cuda_readback_returned_success": false,
+          "scope": "Observed API returns only; full output verification requires the shared suite report"
+        },
+        "gpu_retries": 0,
+        "audit_gpu_calls": 0
+      }
+    },
+    {
+      "capture": "/tmp/nikke-native-snapshot-retention-v1-metal",
+      "retained": true,
+      "run": {
+        "schema": 1,
+        "package_id": "0379bebebea47da74295e34d376e2a5a870ef908c14039e72629df191f32c544",
+        "backend": "metal",
+        "mode": "gpu",
+        "status": "failed",
+        "gpu_retry_count": 0
+      }
+    }
+  ],
+  "windows": {
+    "additional_operations": 0,
+    "cause": "unknown",
+    "preservation_verified": false
+  },
+  "remaining": [
+    "Current source CUDA execution remains frozen pending unrelated-process cause investigation",
+    "Additional stat query consumers and mixed revival/random recipients",
+    "Typed physical interrupt adapter bridge",
+    "Broad admission/promotion and full-character certification"
+  ]
+}

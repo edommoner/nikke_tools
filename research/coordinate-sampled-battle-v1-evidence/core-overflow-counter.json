@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "case_index": 22,
+  "case": "core-distance-overflow",
+  "raw_sha256": "93ddd8415ea788b8777acab82667376a5fac26bab679a7e92d92711527210941",
+  "mt_head": [
+    4,
+    4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "mt_words_before_rejection": 4,
+  "additional_critical_uniform_not_consumed": true,
+  "inference": "Angle point consumes two uniforms/four MT words; source returns before critical draw",
+  "gpu_calls": 0
+}

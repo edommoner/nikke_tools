@@ -1,0 +1,376 @@
+{
+  "schema": 1,
+  "scope": "Existing shared lost-HP scalar engine now admits self ATK as well as DEF; no duplicate numerical implementation",
+  "full_goal_complete": false,
+  "full_character_certifications": 0,
+  "normal_ui": "CPU",
+  "proofs": [
+    {
+      "suite": "lost-hp-attack",
+      "package_id": "d66dd03bc2f85815a5b56bb7ff3ae901f2c8ee623293c69889a3951e02ca1ad0",
+      "capture": "/tmp/nikke-lost-hp-attack-v1-metal",
+      "seal": "/tmp/nikke-lost-hp-attack-v1-sealed.json",
+      "seal_sha256": "58638b88c40d995c61352c5d49481f78123279efa37c8cacb9568a9b30f43c26",
+      "independent_seal": true,
+      "inputs": 29,
+      "native": 21,
+      "device": "Apple M5",
+      "gpu_seconds": 0.03834204166196287,
+      "source_files": 115,
+      "runtime_stride_bytes": 138952,
+      "generation_cache_hit": false,
+      "slang_calls": 2,
+      "cpu_tests": {
+        "tests": 56,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "input_sha256": "595acfd55a1baddbe3d631e7845b87aa8a78f4c8634321af78aaeee4acd41534",
+      "output_sha256": "37862ceb35243d452902b21ebd45859ecec317d2c3d0e469a7d69508c213de57"
+    },
+    {
+      "suite": "lost-hp-attack-revival",
+      "package_id": "49b307b94d07296b341cb703e8cc0134bd669e904183d48d5104562bebb043ac",
+      "capture": "/tmp/nikke-lost-hp-attack-revival-v1-metal",
+      "seal": "/tmp/nikke-lost-hp-attack-revival-v1-sealed.json",
+      "seal_sha256": "a616144a6b2660feb099c321161cf331990c882e02f4013a33fb52513fa659e9",
+      "independent_seal": true,
+      "inputs": 3,
+      "native": 3,
+      "device": "Apple M5",
+      "gpu_seconds": 0.04530020826496184,
+      "source_files": 115,
+      "runtime_stride_bytes": 138952,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "cpu_tests": {
+        "tests": 57,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "input_sha256": "db0df5f7f50db767db3ad5969b447ede1790d2515cf265c634d2013178436673",
+      "output_sha256": "888fbbb8aa1d3dc61c0c470e9d0c02f20f0225d9e3a517ec2be04974f1ab1e69"
+    },
+    {
+      "suite": "lost-hp-attack-rosters",
+      "package_id": "827e83aad1368a2e2b14bd0b2e6bdd9e1057c4c03522937075abde7d40cd56be",
+      "capture": "/tmp/nikke-lost-hp-attack-rosters-v1-metal",
+      "seal": "/tmp/nikke-lost-hp-attack-rosters-v1-sealed.json",
+      "seal_sha256": "7b1e30c92f9e70de36049614bf596d7c172137ea3a3e845614c02d4d5baa1fd9",
+      "independent_seal": true,
+      "inputs": 2,
+      "native": 2,
+      "device": "Apple M5",
+      "gpu_seconds": 2.8963257500436157,
+      "source_files": 115,
+      "runtime_stride_bytes": 138952,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "cpu_tests": {
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "input_sha256": "e33f4a78f3d9b91e1adedc14c235a4a0bdf09bc934c97d6f08d043cbed3a789f",
+      "output_sha256": "a69be9617abea941dc9ad73994fe46576e5159b8750a7cdc85f89768a6bbdc3a",
+      "physical_history": [
+        {
+          "name": "real/길로틴/favorite-0/3s",
+          "stored": 112,
+          "omitted": 0
+        },
+        {
+          "name": "real/길로틴/favorite-0/30s",
+          "stored": 2048,
+          "omitted": 32
+        }
+      ]
+    },
+    {
+      "suite": "lost-hp-attack-retention",
+      "package_id": "037d784e2eac06cd042f7fc1f87949b73500a4b12370aaec7bd72e0edcd4b2f5",
+      "capture": "/tmp/nikke-lost-hp-attack-retention-v1-metal",
+      "seal": "/tmp/nikke-lost-hp-attack-retention-v1-sealed.json",
+      "seal_sha256": "7a00e707b6be92b899cf0c5fb5d0e7ea1536897b5a853c6e398196591bf82d98",
+      "independent_seal": true,
+      "inputs": 1016,
+      "native": 821,
+      "device": "Apple M5",
+      "gpu_seconds": 10.416488125105388,
+      "source_files": 115,
+      "runtime_stride_bytes": 138952,
+      "generation_cache_hit": true,
+      "slang_calls": 0,
+      "cpu_tests": {
+        "tests": 350,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "input_sha256": "dec3f19bcb5cb138ccf14863661d34764cc7942668ebc5a6422c126ef6c4189e",
+      "output_sha256": "a8b17ad7194060ebeb755cfb07190e89a1f4dbec8082337924197c8b84c7a9db"
+    }
+  ],
+  "total_inputs": 1050,
+  "total_native": 847,
+  "total_rejected": 203,
+  "native_contract_cases": 24,
+  "reference_model_gaps": 0,
+  "retention": {
+    "schema": 1,
+    "verified": true,
+    "gpu_calls": 0,
+    "scope": "All old1016 input/native/output entries and raw bytes; nested old groups retain exact entries via the byte-identical971 parent",
+    "inputs": 1016,
+    "raw_bytes": 3196059648,
+    "package_id": "037d784e2eac06cd042f7fc1f87949b73500a4b12370aaec7bd72e0edcd4b2f5",
+    "capture": "/tmp/nikke-lost-hp-attack-retention-v1-metal",
+    "independent_seal": "/tmp/nikke-lost-hp-attack-retention-v1-sealed.json",
+    "families": [
+      {
+        "suite": "skill-hp-basis-retention",
+        "inputs": 971,
+        "raw_bytes": 3054501888,
+        "raw_sha256": "d7dab05a598f6f8f83949c836f0abdfd7b687c6b66e29904bf1159f725fa3c4a",
+        "input_sha256": "baf175e051dac6e70fc358f4cd2acf1c98888a64fb579de82b133d25a97ab7a6",
+        "entries_equal": true,
+        "raw_byte_equal": true,
+        "old_capture": "/tmp/nikke-skill-hp-basis-retention-v2-metal"
+      },
+      {
+        "suite": "skill-hp-basis",
+        "inputs": 37,
+        "raw_bytes": 116391936,
+        "raw_sha256": "8144afd59256c212d71c19b21457fd08435c3deb6eb6c2d8ca74fd1dbf102d8f",
+        "input_sha256": "f2f2883d4f87f614b0d7603c0c09d3ab4a4709e1394c4e61822dd727d580a0b8",
+        "entries_equal": true,
+        "raw_byte_equal": true,
+        "old_capture": "/tmp/nikke-skill-hp-basis-v5-metal"
+      },
+      {
+        "suite": "skill-hp-basis-protection",
+        "inputs": 4,
+        "raw_bytes": 12582912,
+        "raw_sha256": "95a6ce050e69e9b227a9e1fff8f0cc61a78292b5e2402148faea4cc0aaa1f254",
+        "input_sha256": "59cb55cc6266d80eadb8f3a37fba0aa4d7fb6c0e356207007996481dc449be4a",
+        "entries_equal": true,
+        "raw_byte_equal": true,
+        "old_capture": "/tmp/nikke-skill-hp-basis-protection-v1-metal"
+      },
+      {
+        "suite": "skill-hp-basis-rosters",
+        "inputs": 4,
+        "raw_bytes": 12582912,
+        "raw_sha256": "113d344c251828aefb96296fd761efb59e9976c5de32724410d9cef400f8bd9a",
+        "input_sha256": "5bbc9d7d0a1f1cd370b91de981a0797b5d1ebf45d3f6351682af7889be523c42",
+        "entries_equal": true,
+        "raw_byte_equal": true,
+        "old_capture": "/tmp/nikke-skill-hp-basis-rosters-v3-metal"
+      }
+    ],
+    "nested_families": [
+      {
+        "suite": "heal-share-regression",
+        "inputs": 849,
+        "entries_equal": true,
+        "source_update_via_byte_identical_971_parent": true
+      },
+      {
+        "suite": "parts-skill-world",
+        "inputs": 63,
+        "entries_equal": true,
+        "source_update_via_byte_identical_971_parent": true
+      },
+      {
+        "suite": "heal-share-rosters",
+        "inputs": 4,
+        "entries_equal": true,
+        "source_update_via_byte_identical_971_parent": true
+      },
+      {
+        "suite": "ally-burst",
+        "inputs": 16,
+        "entries_equal": true,
+        "source_update_via_byte_identical_971_parent": true
+      },
+      {
+        "suite": "ally-burst-rosters",
+        "inputs": 2,
+        "entries_equal": true,
+        "source_update_via_byte_identical_971_parent": true
+      },
+      {
+        "suite": "mode-capacity",
+        "inputs": 32,
+        "entries_equal": true,
+        "source_update_via_byte_identical_971_parent": true
+      },
+      {
+        "suite": "mode-capacity-instant",
+        "inputs": 3,
+        "entries_equal": true,
+        "source_update_via_byte_identical_971_parent": true
+      },
+      {
+        "suite": "mode-capacity-rosters",
+        "inputs": 2,
+        "entries_equal": true,
+        "source_update_via_byte_identical_971_parent": true
+      }
+    ]
+  },
+  "full_native_roster_witness": {
+    "schema": 1,
+    "scope": "CPU-only full-profile witness; not an extra GPU execution",
+    "gpu_calls": 0,
+    "package_id": "827e83aad1368a2e2b14bd0b2e6bdd9e1057c4c03522937075abde7d40cd56be",
+    "cases": [
+      {
+        "name": "real/길로틴/favorite-0/3s",
+        "scalar_queries": 1,
+        "positive_scalar_queries": 0,
+        "min_hp_pct": 100.0,
+        "max_scalar": 0.0,
+        "first_positive": null,
+        "native_sha256": "c08df243083c767b107273780203e4e299ee82e27ef5cff70ca2bf4d840d66cd",
+        "native_preserved": true
+      },
+      {
+        "name": "real/길로틴/favorite-0/30s",
+        "scalar_queries": 715,
+        "positive_scalar_queries": 714,
+        "min_hp_pct": 50.1208908972972,
+        "max_scalar": 47.883944738594685,
+        "first_positive": [
+          4.016666666666658,
+          94.09039093989998,
+          5.673224697696023
+        ],
+        "native_sha256": "721d1d14ce7b0e999ce3e7041a9db9731c8a879e0ec2f2ac6c0e036e037b598d",
+        "native_preserved": true
+      }
+    ]
+  },
+  "shared_gpu_files_changed": [
+    "gpu/reference_runtime.slang"
+  ],
+  "existing_scalar_helper": "gpu/quantity_runtime.slang:stackedValue",
+  "runtime_fields_added": 0,
+  "runtime_stride_bytes": 138952,
+  "cuda_parameter_bytes": 48,
+  "software_binary64_integer_pow_changed": false,
+  "strict_normalizer_changed": false,
+  "canonical_cpu_or_legacy_cuda_changed": false,
+  "cpu_batch": {
+    "groups": 58,
+    "tests": 350,
+    "passed": true,
+    "elapsed_seconds": 79.06223433301784,
+    "timeout_seconds": 90,
+    "timed_out": false
+  },
+  "source_certificate_tests": {
+    "tests": 14,
+    "passed": true
+  },
+  "source_closure": {
+    "full": 115,
+    "commands": 116,
+    "commands_generation_gpu_calls": 0
+  },
+  "commands_generation_unchanged": [
+    {
+      "backend": "cu",
+      "bytes": 1332818,
+      "sha256": "c4e2c22eef8980bff0a89c09d6cd291a0df9dbdc032f859a1fa16675cb21a0be",
+      "original_bytes_equal": true
+    },
+    {
+      "backend": "metal",
+      "bytes": 1436651,
+      "sha256": "f1c6b77cad8a5fbef9cb257d94088edb22aae0009e629250619654e7fbd94417",
+      "original_bytes_equal": true
+    }
+  ],
+  "cuda_cache_scope": "Commands CUDA/Metal bytes are unchanged; this does not prove a live NVRTC cache hit or a new CUDA execution",
+  "inventory": {
+    "profile_count": 266,
+    "packed_profiles": 223,
+    "base_count": 203,
+    "packed_base": 163,
+    "forbidden_calls": {
+      "cpu_battle": 0,
+      "gpu": 0
+    },
+    "full_character_verified": 0,
+    "normal_ui": "CPU",
+    "full_goal_complete": false,
+    "categories": 72
+  },
+  "windows": {
+    "new_native": 0,
+    "new_compile": 0,
+    "new_gpu": 0,
+    "seven_exits_cause": "unknown",
+    "preservation_verified": false,
+    "services": "unverified"
+  },
+  "failed_reference_preserved": {
+    "path": "/tmp/nikke-lost-hp-attack-reference-v1.json",
+    "reason": "Initial fixture assumed a runtime predicate could activate before passing its initial HP condition; correct fixture orders the drain before activation and separately retains the false-at-activation control"
+  },
+  "storage": {
+    "checked_free_bytes": 36781273088,
+    "required_raw_bytes": 3196059648,
+    "reserve_bytes": 14000000000,
+    "method": "shutil.disk_usage; isolated branch lacks storage-check; no raw/failure removal"
+  },
+  "limitations": [
+    "Self ATK/DEF only; other scaling stats/recipients still fail closed.",
+    "Guillotine30 physical history omits32; previous Kilo32 and Rem55 omissions remain.",
+    "No new Windows CUDA compile/link/GPU proof.",
+    "Static packing and selected exact battles are not exhaustive character/effect certification."
+  ],
+  "next": "Contract the pinned pellet_hit_in_shot:5 trigger before lowering; observed blocker for Privaty Unkind Maid. Keep unknown projectile/shield consumers closed.",
+  "release_native_references": [
+    {
+      "path": "/tmp/nikke-lost-hp-attack-reference-release-v1.json",
+      "sha256": "b7f3281e57031929cb9ae06d1e1b6a82cb53ceafc7babbd9cfbd445ba4fc5976",
+      "cases": 21,
+      "positive": 21,
+      "model_gaps": 0,
+      "gpu_calls": {
+        "build": 0,
+        "execute": 0
+      },
+      "packing_calls": 0,
+      "source_identity_current": true
+    },
+    {
+      "path": "/tmp/nikke-lost-hp-attack-revival-reference-release-v1.json",
+      "sha256": "1063b0de3f1c457a790d4fe0fe8d65d349489457131db8ba8b48ffd4b35a28bc",
+      "cases": 3,
+      "positive": 3,
+      "model_gaps": 0,
+      "gpu_calls": {
+        "build": 0,
+        "execute": 0
+      },
+      "packing_calls": 0,
+      "source_identity_current": true
+    }
+  ],
+  "sealed_release": {
+    "package_id": "0a09f448568324b96f51938cde10f2bca0fb79cc2a14b64591dadba78f467d27",
+    "capture": "/tmp/nikke-lost-hp-attack-sealed-v1-cpu",
+    "cpu_tests": 57,
+    "failures": 0,
+    "gpu_calls": 0,
+    "gpu_claim_present": false,
+    "inputs": 29,
+    "native": 21
+  }
+}

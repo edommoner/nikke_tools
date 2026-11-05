@@ -1,0 +1,61 @@
+{
+  "version": 110,
+  "source_log": "stderr.log",
+  "bytes": 3291,
+  "sha256": "38243546d2dab55d55979c762d1ebcbe1c8b98a05186802f060c563670596dc5",
+  "total_lines": 39,
+  "excerpt_only": true,
+  "context": "Each error/fatal line plus up to 3 preceding and following lines",
+  "excerpts": [
+    {
+      "lines": [
+        {
+          "line": 1,
+          "text": "ptxas fatal   : Memory allocation failure"
+        },
+        {
+          "line": 2,
+          "text": "Traceback (most recent call last):"
+        },
+        {
+          "line": 3,
+          "text": "  File \"[redacted]\", line 885, in <module>"
+        },
+        {
+          "line": 4,
+          "text": "    if __name__=='__main__':main()"
+        }
+      ]
+    },
+    {
+      "lines": [
+        {
+          "line": 35,
+          "text": "             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+        },
+        {
+          "line": 36,
+          "text": "RuntimeError: portable.cu(9): warning: extern declaration of the entity SLANG_globalParams is treated as a static definition"
+        },
+        {
+          "line": 37,
+          "text": ""
+        },
+        {
+          "line": 38,
+          "text": "ptxas fatal   : Ptx assembly aborted due to errors"
+        },
+        {
+          "line": 39,
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "additional_stack_register_assembler_details_found": false,
+  "explicit_allocation_failure_found": true,
+  "memory_limit_causality_proven": false,
+  "compile_calls": 0,
+  "gpu_calls": 0,
+  "retry_count": 0
+}

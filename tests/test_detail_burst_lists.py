@@ -11,7 +11,7 @@ class BurstListCompilerTests(unittest.TestCase):
   prepare=a.sim.prepare
   def configured(request):
    run=prepare(request);run.config['burst_pattern']={'리타':cycles};return run
-  with patch.object(a.sim,'prepare',configured):return a.evaluate({**body,'_compile_gpu_detail':True})
+  with patch.object(a.sim,'prepare',configured):return a.evaluate({**body,'_compile_detail':True})
  def test_empty_priority_retains_both_b1_candidates(self):
   compiled=self.compile([]);chars=compiled['program']['chars']
   self.assertEqual(chars[0]['_detail_pattern'],-1)

@@ -1,0 +1,736 @@
+{
+  "schema": "metal-original-catalogue-burst-v1",
+  "gpu_source_commit": "24c4d9180ff5bdda4e2209e7004a40f0b945b1f1",
+  "observer_fix_commit": "99b20b7cf52222b63b237db93dcc125d2353d5a8",
+  "source_package_id": "e78d2c1715ec2887c64254234c9cb15332b63fe973ef680079917f1e5a129ebe",
+  "replay_package_id": "e5e6e9e007254a95e071f379a039f6fae2787c51cb1079da48b5d5f69357aa1c",
+  "source": "gpu/world_coordinate_typed_history_entry.slang",
+  "input_count": 4,
+  "native_cases": 4,
+  "calculation_verified": true,
+  "independently_sealed": true,
+  "independent_receipt_sha256": "a3664cd89dca2c73221b6f552a359c27447820a6c3e87f5f7c9610106d74a849",
+  "independent_seconds": 101.21508916700259,
+  "independent_gpu_calls": 0,
+  "independent_live_parent_reuse": false,
+  "gpu_executions": 1,
+  "gpu_retries": 0,
+  "replay_gpu_calls": 0,
+  "all4_complete_input_and_native_fingerprints_retained": true,
+  "entire_readback_bytes_reused": 32512000,
+  "readback_sha256": "01aed74cb4c83f8540c952110121cd0f25a2528171f61a5afec2d512ff2d04a3",
+  "input_sha256": "26c4600fafcecd3972467d6df3973f2e1477f8c8c52818eb83f7b0ac5307b7d9",
+  "actual_device": "Apple M5",
+  "gpu_seconds": 4.036409416672541,
+  "pipeline_compile_seconds": 0.0032700300216674805,
+  "required_pipeline_cache": true,
+  "actual_pipeline_cache_hit": true,
+  "pipeline_cache_key": "6465e1882657160283c692687d65deadee4b259dcc58f5503f8f5a3f3275a112",
+  "required_generation_cache_hit": true,
+  "run_slang_compiler_invocations": 0,
+  "generated_normalized": {
+    "cuda": "1919893a9b5bd492b8a456dc7699eb0ee9d97d21a852c84eb04644d454454d9e",
+    "metal": "6117e656780854798267945640225b4a796ba4c051e605eabc02b985d0f92982"
+  },
+  "same_gpu_source_and_generated_pair_as_previous_initial_cohort": true,
+  "canonical_cpu_gpu_numeric_or_effect_definition_changes": false,
+  "native_observer_fix": {
+    "classification": "independent_reference_observer_gap",
+    "cause": "Outer creation observer captured calc code before typed scalar hooks; pending legacy hit receipts were not captured",
+    "fix": "Compare the live scalar boundary only after checking the canonical legacy caller; preserve exact count/order/value assertions",
+    "profiler_guard_changed": false,
+    "red_regression_sha256": "1d97db9b5062b55870fcb2650b9355db940797ffccd3e213a296a5d69ee503fb",
+    "green_regression_sha256": "33e96d1b34b5e6541093f387847dfcd0b63eb36359212f1fdeb5b494dd71cd94",
+    "complete_native_payload_unchanged_with_outer_observer": true,
+    "original30s_cases_not_shortened": true,
+    "regression_fixture_seconds": 5
+  },
+  "activity_scope": "Saved successful native-matched GPU output decoded with existing parsers; timer activations are GPU counters, not independent CPU handler-call counts",
+  "records": [
+    {
+      "name": "original-catalogue/hp-shield/라피 : 레드 후드/favorite-0/30s",
+      "definitions": 87,
+      "own_effect_activity": [
+        {
+          "row": 0,
+          "type": "buff",
+          "name": "전투 보조",
+          "stat": "burst_stage_override:1",
+          "target": "self",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 1,
+          "type": "instant",
+          "name": "전투 보조 해제",
+          "stat": "remove_named_buff",
+          "target": "self",
+          "gpu_timer_activations": 2,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 2,
+          "type": "instant",
+          "name": "전황 파악",
+          "stat": "burst_cooldown_reduce",
+          "target": "all_allies",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 3,
+          "type": "buff",
+          "name": "전황 파악 2",
+          "stat": "atk_dmg_pct",
+          "target": "all_allies",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 4,
+          "type": "buff",
+          "name": "전황 파악 3",
+          "stat": "atk_pct",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 5,
+          "type": "buff",
+          "name": "전황 파악 4",
+          "stat": "intercept_dmg_pct",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 6,
+          "type": "buff",
+          "name": "부착형 유탄",
+          "stat": "element_code_override",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 7,
+          "type": "buff",
+          "name": "부착형 유탄 2",
+          "stat": "projectile_attachment_dmg_pct",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 8,
+          "type": "buff",
+          "name": "부착형 유탄 3",
+          "stat": "projectile_explosion_dmg_pct",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 9,
+          "type": "damage",
+          "name": "부착형 유탄 4",
+          "stat": "projectile_attachment_damage",
+          "target": "target",
+          "gpu_timer_activations": 16,
+          "native_matched_skill_landings": 16
+        },
+        {
+          "row": 10,
+          "type": "buff",
+          "name": "유탄",
+          "stat": "buff_stack_add",
+          "target": "target",
+          "gpu_timer_activations": 7,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 11,
+          "type": "damage",
+          "name": "유탄 폭발",
+          "stat": "projectile_explosion_damage",
+          "target": "target",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 1
+        },
+        {
+          "row": 12,
+          "type": "instant",
+          "name": "유탄 제거",
+          "stat": "remove_named_buff",
+          "target": "target",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 13,
+          "type": "damage",
+          "name": "유탄 즉발 폭발",
+          "stat": "projectile_explosion_damage",
+          "target": "target",
+          "gpu_timer_activations": 9,
+          "native_matched_skill_landings": 9
+        },
+        {
+          "row": 14,
+          "type": "instant",
+          "name": "계승되는 힘",
+          "stat": "burst_cooldown_reduce",
+          "target": "self",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 15,
+          "type": "buff",
+          "name": "계승되는 힘 2",
+          "stat": "explosion_range",
+          "target": "self",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 16,
+          "type": "buff",
+          "name": "계승되는 힘 3",
+          "stat": "atk_caster_based_pct",
+          "target": "all_allies",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 17,
+          "type": "damage",
+          "name": "계승되는 힘 4",
+          "stat": "bonus_damage",
+          "target": "enemies_nearest:1",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 1
+        },
+        {
+          "row": 18,
+          "type": "buff",
+          "name": "계승되는 힘 5",
+          "stat": "explosion_range",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 19,
+          "type": "buff",
+          "name": "계승되는 힘 6",
+          "stat": "projectile_attachment_dmg_pct",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 20,
+          "type": "buff",
+          "name": "계승되는 힘 7",
+          "stat": "trigger_count_reduce",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        }
+      ],
+      "skill_history_rows": 29,
+      "physical_receipts": 2457,
+      "retained_physical_rows": 2048,
+      "physical_prefix_complete": false,
+      "own_coefficient_transitions_in_retained_prefix": [
+        {
+          "time": 0.0,
+          "coefficient": 5.57,
+          "skill_damage": false
+        }
+      ],
+      "own_final_weapon": {
+        "warm": 41.39917201655967,
+        "last_fire": 29.999999999999577,
+        "last_interval": 0.014285714285714285,
+        "post_reload_until": -1.0,
+        "spread": 9.506048,
+        "probability": 1.0,
+        "probability_evaluations": 3,
+        "pending_auto_reload": false,
+        "charge_started_at": 0.0
+      },
+      "own_final_health": {
+        "hp": 2715916.0,
+        "max_hp": 2715916.0,
+        "hp_pct": 100.0,
+        "defense": 15771.0,
+        "healing": 0.0,
+        "received_damage": 0.0,
+        "received_hits": 0,
+        "down": false
+      },
+      "unobserved_own_skill_rows": [
+        0,
+        2,
+        3,
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "name": "original-catalogue/hp-shield/홍련 : 흑영/favorite-0/30s",
+      "definitions": 76,
+      "own_effect_activity": [
+        {
+          "row": 0,
+          "type": "instant",
+          "name": "파죽 게이지",
+          "stat": "gauge_charge",
+          "target": "self",
+          "gpu_timer_activations": 20,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 1,
+          "type": "damage",
+          "name": "화무십일홍 · 파죽",
+          "stat": "damage",
+          "target": "enemies_lowest_def:1",
+          "gpu_timer_activations": 7,
+          "native_matched_skill_landings": 7
+        },
+        {
+          "row": 2,
+          "type": "damage",
+          "name": "화무십일홍 · 파죽 2",
+          "stat": "split_damage",
+          "target": "enemies_in_range",
+          "gpu_timer_activations": 7,
+          "native_matched_skill_landings": 7
+        },
+        {
+          "row": 3,
+          "type": "damage",
+          "name": "화무십일홍 · 파죽 3",
+          "stat": "split_damage",
+          "target": "all_enemies",
+          "gpu_timer_activations": 6,
+          "native_matched_skill_landings": 6
+        },
+        {
+          "row": 4,
+          "type": "instant",
+          "name": "화무십일홍 · 파죽 4",
+          "stat": "gauge_consume",
+          "target": "self",
+          "gpu_timer_activations": 6,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 5,
+          "type": "buff",
+          "name": "화무십일홍 · 수라",
+          "stat": "max_ammo_pct",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 6,
+          "type": "instant",
+          "name": "화무십일홍 · 수라 2",
+          "stat": "ammo_charge_pct",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 7,
+          "type": "buff",
+          "name": "화무십일홍 · 만개",
+          "stat": "trigger_count_reduce",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 8,
+          "type": "buff",
+          "name": "화무십일홍 · 만개 2",
+          "stat": "atk_pct",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 9,
+          "type": "buff",
+          "name": "화무십일홍 · 만개 3",
+          "stat": "charge_dmg_pct",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        }
+      ],
+      "skill_history_rows": 22,
+      "physical_receipts": 1141,
+      "retained_physical_rows": 1141,
+      "physical_prefix_complete": true,
+      "own_coefficient_transitions_in_retained_prefix": [
+        {
+          "time": 0.3,
+          "coefficient": 57.29,
+          "skill_damage": false
+        }
+      ],
+      "own_final_weapon": {
+        "warm": 0.0,
+        "last_fire": -999.0,
+        "last_interval": 0.0,
+        "post_reload_until": -1.0,
+        "spread": 9.506048,
+        "probability": 0.0,
+        "probability_evaluations": 0,
+        "pending_auto_reload": false,
+        "charge_started_at": 29.79999999999959
+      },
+      "own_final_health": {
+        "hp": 2715916.0,
+        "max_hp": 2715916.0,
+        "hp_pct": 100.0,
+        "defense": 17767.0,
+        "healing": 0.0,
+        "received_damage": 0.0,
+        "received_hits": 0,
+        "down": false
+      },
+      "unobserved_own_skill_rows": []
+    },
+    {
+      "name": "original-catalogue/hp-shield/레드 후드/favorite-0/30s",
+      "definitions": 81,
+      "own_effect_activity": [
+        {
+          "row": 0,
+          "type": "buff",
+          "name": "글레링 아이즈",
+          "stat": "charge_speed_pct",
+          "target": "self",
+          "gpu_timer_activations": 50,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 1,
+          "type": "buff",
+          "name": "글레링 아이즈 2",
+          "stat": "charge_speed_overflow_conversion_pct",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 2,
+          "type": "buff",
+          "name": "와일드 투스",
+          "stat": "pierce_enabled",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 3,
+          "type": "buff",
+          "name": "와일드 투스 2",
+          "stat": "def_caster_based_pct",
+          "target": "all_allies",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 4,
+          "type": "buff",
+          "name": "와일드 투스 3",
+          "stat": "lifesteal_pct",
+          "target": "self",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 5,
+          "type": "buff",
+          "name": "와일드 투스 4",
+          "stat": "atk_pct",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 6,
+          "type": "buff",
+          "name": "비스트 케이지",
+          "stat": "atk_caster_based_pct",
+          "target": "all_allies",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 7,
+          "type": "instant",
+          "name": "비스트 케이지 2",
+          "stat": "burst_cooldown_reduce",
+          "target": "self",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 8,
+          "type": "buff",
+          "name": "주목",
+          "stat": "taunt",
+          "target": "self",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 9,
+          "type": "buff",
+          "name": "엔드 하울링",
+          "stat": "heal_received_pct",
+          "target": "self",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 10,
+          "type": "instant",
+          "name": "엔드 하울링 2",
+          "stat": "burst_cooldown_reduce",
+          "target": "self",
+          "gpu_timer_activations": 0,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 11,
+          "type": "weapon_change",
+          "name": "레드 울프",
+          "stat": null,
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 12,
+          "type": "buff",
+          "name": "레드 울프 2",
+          "stat": "pierce_range",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 13,
+          "type": "buff",
+          "name": "레드 울프 3",
+          "stat": "charge_speed_pct",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        }
+      ],
+      "skill_history_rows": 7,
+      "physical_receipts": 1561,
+      "retained_physical_rows": 1561,
+      "physical_prefix_complete": true,
+      "own_coefficient_transitions_in_retained_prefix": [
+        {
+          "time": 1.0000000000000013,
+          "coefficient": 69.04,
+          "skill_damage": false
+        },
+        {
+          "time": 2.6166666666666623,
+          "coefficient": 51.46,
+          "skill_damage": false
+        },
+        {
+          "time": 13.250000000000238,
+          "coefficient": 69.04,
+          "skill_damage": false
+        }
+      ],
+      "own_final_weapon": {
+        "warm": 0.0,
+        "last_fire": -999.0,
+        "last_interval": 0.0,
+        "post_reload_until": -1.0,
+        "spread": 8.430068,
+        "probability": 0.0,
+        "probability_evaluations": 0,
+        "pending_auto_reload": false,
+        "charge_started_at": 29.883333333332917
+      },
+      "own_final_health": {
+        "hp": 2715916.0,
+        "max_hp": 2715916.0,
+        "hp_pct": 100.0,
+        "defense": 15818.0,
+        "healing": 0.0,
+        "received_damage": 0.0,
+        "received_hits": 0,
+        "down": false
+      },
+      "unobserved_own_skill_rows": [
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "name": "original-catalogue/hp-shield/신데렐라/favorite-0/30s",
+      "definitions": 74,
+      "own_effect_activity": [
+        {
+          "row": 0,
+          "type": "buff",
+          "name": "무결한 유리",
+          "stat": "atk_from_hp_pct",
+          "target": "self",
+          "gpu_timer_activations": 2,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 1,
+          "type": "buff",
+          "name": "무결한 유리 2",
+          "stat": "charge_speed_pct",
+          "target": "self",
+          "gpu_timer_activations": 80,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 2,
+          "type": "instant",
+          "name": "무결한 유리 3",
+          "stat": "remove_named_buff",
+          "target": "self",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 3,
+          "type": "damage",
+          "name": "무결한 유리 4",
+          "stat": "bonus_damage",
+          "target": "target",
+          "gpu_timer_activations": 80,
+          "native_matched_skill_landings": 80
+        },
+        {
+          "row": 4,
+          "type": "buff",
+          "name": "디코이",
+          "stat": "decoy",
+          "target": "self",
+          "gpu_timer_activations": 3,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 5,
+          "type": "buff",
+          "name": "아름다움",
+          "stat": "max_hp_pct",
+          "target": "self",
+          "gpu_timer_activations": 9,
+          "native_matched_skill_landings": 0
+        },
+        {
+          "row": 6,
+          "type": "damage",
+          "name": "유리 구두 풀 컨텍트",
+          "stat": "sequential_damage:10",
+          "target": "enemies_random",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 10
+        },
+        {
+          "row": 7,
+          "type": "damage",
+          "name": "유리 구두 풀 컨텍트 2",
+          "stat": "bonus_damage",
+          "target": "same_target:유리 구두 풀 컨텍트",
+          "gpu_timer_activations": 1,
+          "native_matched_skill_landings": 10
+        }
+      ],
+      "skill_history_rows": 102,
+      "physical_receipts": 1185,
+      "retained_physical_rows": 1185,
+      "physical_prefix_complete": true,
+      "own_coefficient_transitions_in_retained_prefix": [
+        {
+          "time": 1.0000000000000013,
+          "coefficient": 32.11,
+          "skill_damage": false
+        }
+      ],
+      "own_final_weapon": {
+        "warm": 0.0,
+        "last_fire": -999.0,
+        "last_interval": 0.0,
+        "post_reload_until": -1.0,
+        "spread": 9.506048,
+        "probability": 0.0,
+        "probability_evaluations": 0,
+        "pending_auto_reload": false,
+        "charge_started_at": 29.933333333332914
+      },
+      "own_final_health": {
+        "hp": 3757782.6000000006,
+        "max_hp": 3757782.6000000006,
+        "hp_pct": 100.0,
+        "defense": 21481.0,
+        "healing": 1.3969838619232178e-09,
+        "received_damage": 0.0,
+        "received_hits": 0,
+        "down": false
+      },
+      "unobserved_own_skill_rows": []
+    }
+  ],
+  "skill_history_rows": 160,
+  "physical_receipts": 6344,
+  "all_physical_receipts_compared_by_ordered_semantic_sha_and_retained_prefix": true,
+  "physical_prefix_is_not_full_raw_history_for_Rapi": true,
+  "unverified_conditions": [
+    "Rapi no-other-B1 party branch",
+    "Red Hood B1/B2 branches",
+    "incoming attacks/decoy mitigation",
+    "multi-enemy and mixed typed-target scenes",
+    "arbitrary profiles and favorite stages",
+    "current CUDA hardware execution"
+  ],
+  "cuda_cache_profile": "compile-cache-only-v1",
+  "cuda_cache_hit_verified": false,
+  "windows_new_run_requests": 0,
+  "windows_existing_status": "host unavailable; terminal unknown; no resend",
+  "full_character_verified": 0,
+  "public_gpu_admission_added": false,
+  "full_goal_complete": false,
+  "private_artifact_anchors": {
+    "comparison.json": "e72125c6a4e0a478a41d174ddb1c05132d20fb9c64f9dbaf0d8b62baf9a60191",
+    "cpu.json": "ec574e8b4bc6d633bcb2295acc8b6c0985803ab340452f4170f64f429203d8e8",
+    "result.json": "0814a7d4496b776308cbe6dad426a0f82b3cf1e455d7a7c0023153ea74614284",
+    "evidence.json": "c17d34a01d6e556429410e95fce4dd1cb2289a78cf6c1ffda3ba15a46f9ef519"
+  },
+  "replay_comparison_sha256": "6d246b8b74a0fa0276c7c1aa4e69e7b34371656622af67783004ed0d48cab71e",
+  "generated_cuda_and_metal_raw_bytes_equal_previous_initial_cohort": true
+}

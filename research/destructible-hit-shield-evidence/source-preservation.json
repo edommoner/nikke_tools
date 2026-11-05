@@ -1,0 +1,19 @@
+{
+  "old_closure_files": 153,
+  "new_closure_files": 153,
+  "only_shader_change": [
+    "gpu/destructible_shield_battle_entry.slang"
+  ],
+  "protected_and_shared_files_unchanged": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "gpu/binary64.slang",
+    "gpu/destructible_frame_runtime.slang",
+    "gpu/destructible_target_core.slang",
+    "gpu/destructible_modifier_runtime.slang"
+  ],
+  "normal147_and_scalar119_unchanged": true,
+  "strict_normalizer_changed": false
+}

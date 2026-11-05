@@ -1,0 +1,85 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "coordinate-original/Marciana/control/3s",
+      "input_sha256": "db0a1360466410ec755c89f9758acedd4fff533a84d27fb8589006afac26da86",
+      "output_sha256": "a8d598708cfb2661b30e30d0a831ef2b384401a8a511dc0ce3d2729dcbcd1a14",
+      "native_sha256": "dca7a371a40f6bbdebe3a2f0ae627dc451595cb948f3831b192b510614f7152a"
+    },
+    {
+      "name": "coordinate-original/Marciana/control/30s",
+      "input_sha256": "958a34e9151c78a029f7b77968ad083bbb7b6dab28e75f037aae34595e35a08c",
+      "output_sha256": "2886e88a46c72e1325c1d97ae492b43d87ff193a21a6728ebd8846119f407003",
+      "native_sha256": "3df969c892d08ca56d385c953ccb1a38c3d3fab3be3cd50d9b00d6dcc71b179d"
+    },
+    {
+      "name": "coordinate-original/Marciana/defender/3s",
+      "input_sha256": "9702bbacf52a4392191bf5640fee5f8a796ee7f849033c87692499d3476917f3",
+      "output_sha256": "fa529e42e54d381c50a820b4cb36ddec72ad51f6341cd31c7b8fe8ae25118888",
+      "native_sha256": "29e1954693e1f8e979dfb21a6c8fecf7bd049c2a68455afa1fcc56936366a1d7"
+    },
+    {
+      "name": "coordinate-original/Marciana/defender/30s",
+      "input_sha256": "78fa3ca5f0bcbcfd4cadcb8704de71148e39c22b755056033432a0e9af4e81e1",
+      "output_sha256": "de289dd45f3771a7b3f0f58445425a8d67480e347bb019b2f0c15f33f89f7f93",
+      "native_sha256": "f0ae33e9c2afcb75810d820df17e1e88e3181157cc22bc49fe4957f9c549126b"
+    },
+    {
+      "name": "coordinate-original/Delta-ninja-thief/control/3s",
+      "input_sha256": "1909afd907b8bc7e2abc4b0bdcf0fbddde14bbcbda90bf117e4e34e594e12ee5",
+      "output_sha256": "ebf760ba3b281f8b3ede8b96dff46eb3969d2c0dda9171d384e4f5595a75c5f4",
+      "native_sha256": "b1f880dae5462e248653a0f3917e2222bb2b4e0e7d0738d2fc240dd7752c2291"
+    },
+    {
+      "name": "coordinate-original/Delta-ninja-thief/control/30s",
+      "input_sha256": "99c6ce4c2fca4296cf12ae7df187dcff7e567f077d588ae59ea136483316d63a",
+      "output_sha256": "e9491c9ac215b37347fa9fe30f22ec34841edc47510a1475e8771aa2c1ed782e",
+      "native_sha256": "c04feee24300a4aa6eeaa12cf40fa1b948cf212e00d02ba630601eea78b1a1e3"
+    },
+    {
+      "name": "coordinate-original/Delta-ninja-thief/defender/3s",
+      "input_sha256": "948e56c2069ea76e16b63e1bcb187dce92656e4ec359cde1f10f4240d9599ae3",
+      "output_sha256": "7e87c4f1b1950e8b50c9a829f4ab74b8cd27daf7630af2f6217c0e0fae504d04",
+      "native_sha256": "8c8e9727ee8825f4c64760d69d4b35d78bcaf0c2f9f9f65f25a8af580d92f331"
+    },
+    {
+      "name": "coordinate-original/Delta-ninja-thief/defender/30s",
+      "input_sha256": "372e5df20f8280ca141a3358e79e6dc10b6ed90535f3dc4018f7227954b3f938",
+      "output_sha256": "7f4e7f229de5b44eb8094b91a5f7d6946d537ac8371b2088a8ba636e3d25199d",
+      "native_sha256": "3128e024c41049cc8cab3c0053be866149cc0b8e5cec990b3ec4b9bfe002d30f"
+    },
+    {
+      "name": "coordinate-original/Delta-ninja-thief/control/3s/direct-hits",
+      "input_sha256": "c5bda88b818d8a8e96dafb8c5bc33129bdb6ae90e23bedfce6e7b906f3e7fd94",
+      "output_sha256": "1b65d5c2a2559ffed50ae48e2c2d97248c1bc5ecc72ef3b6d1bc404fab1f16aa",
+      "native_sha256": "9da06fb25bf85e71de29f4868f767d67e47c48dc0f57f5dd68167aadee32022e"
+    },
+    {
+      "name": "coordinate-original/Delta-ninja-thief/defender/3s/direct-hits",
+      "input_sha256": "50e0e868472e8ec2d3cf3e2650232c20c4f1091d271cd17360ecaf4c243fddde",
+      "output_sha256": "c046b4089190934633f7ec13293c76092a26542ecee751f590de37f929140d2e",
+      "native_sha256": "5c4a1fa2e0b38b35b49527f64d2f7ad7b0c38b4088e782f7e71bb2cd5241c77d"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 10,
+  "native_oracles": 10,
+  "input_sha256": "6e7780c9dd8be074877e058f94907c5e274f0359a291562623c202821589fc5a",
+  "output_sha256": "5addbd9b6c77244262a9e93e81dc4a83da896fa48012e7c364743c2bb2557135",
+  "generated_normalized": {
+    "cuda": "d4cd541ab55c38aa2924ecd08cbe906010f63413e9e54223ea2dac3b4491be14",
+    "metal": "f695eefed6708370f777fc97b037c4fa683c9a780bd9476404c634930a2a6ed1"
+  },
+  "audit_gpu_calls": 0,
+  "passed": true,
+  "preservation_verified": null,
+  "sealed": false,
+  "mode": "saved-metal-replay",
+  "source_package_id": "0d8be0bb208a14f86abc5d63731816050e9fdc86c74cf03f072512e7fcc43fa1",
+  "source_execution_passed": true,
+  "original_failure_preserved": true,
+  "gpu_calls": 0,
+  "gpu_retry_count": 0,
+  "source_gpu_dispatches": 1
+}

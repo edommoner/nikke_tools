@@ -1,0 +1,1054 @@
+{
+  "schema": "product-movement-range-v1",
+  "source_commits": {
+    "initial": "62b53a3cd9c6374da408f99d270de8a06327c225",
+    "live_geometry": "2d1e48332f10af038034ff2bc4db176857c8a199",
+    "history_capacity": "bd6a63004a7878af51b869d8cc51c5d746177db5",
+    "utf8": "350048553527be7a2d31867761adad28eef1a8ef",
+    "history_registry": "3466cb4df0c4f3808a8cc795619bd96c30dbb659"
+  },
+  "scope": "Normal product API composition of declared ADD movement and named range/count, not game-rule verification or default-profile admission.",
+  "implementation": {
+    "input_words": 118020,
+    "output_words": 2165136,
+    "movement_capacity": 8192,
+    "range_output": 2131344,
+    "range_end": 2147744,
+    "effects_preserved": 86,
+    "same_actor_pool_frame_and_event_executor": true,
+    "numeric_rules_changed": false,
+    "canonical_cpu_or_pinned_upstream_changed": false,
+    "new_suites_or_permanent_auditors": 0
+  },
+  "failures": {
+    "initial_api": {
+      "duration_seconds": 15,
+      "matched": 2,
+      "rejected_and_cpu_fallback": 2,
+      "cause": "Named range CPU adapter consumed static declared colliders after force movement; movement history itself exactly matched",
+      "saved": true
+    },
+    "cross_context_diagnosis": {
+      "result": "fresh corrected native vs saved GPU differed only in evaluator provenance; no comparison exclusion applied, verification moved to immutable API context",
+      "calculation_verification_claim": false
+    },
+    "v3_api_transport": {
+      "internal_gpu_cpu_matched": 8,
+      "published_response_exact": 7,
+      "failing_index": 7,
+      "field": "spec.text",
+      "cause": "UTF-8 codepoint split between child stdout chunks was decoded independently",
+      "comparison_exclusions_added": 0,
+      "saved": true
+    },
+    "v4_preflight": {
+      "gpu_calls": 0,
+      "cause": "v25 registry path not yet anchored in existing source-history inverse; corrected by exact baseline-to-current history only",
+      "saved": true
+    },
+    "sealed_package_before_development": {
+      "gpu_calls": 0,
+      "cause": "Global schema source closure changed; new development/M5/fresh independent seal used, old golden retained"
+    }
+  },
+  "v3_normal_api": {
+    "rows": [
+      {
+        "variant": "15s-fixed-disable",
+        "duration": 15,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "미란다",
+          "유니",
+          "얀"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_matched": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 2700,
+        "segments": 2700,
+        "range_casts": 54,
+        "capture": "53762d290a5f4df7ace5b6a224ac5485"
+      },
+      {
+        "variant": "15s-fixed-force-and-disable",
+        "duration": 15,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "얀",
+          "유니",
+          "미란다"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_matched": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 2700,
+        "segments": 2703,
+        "range_casts": 54,
+        "capture": "a42a5422aa9f4e63b5d0b8cfe7cc08e4"
+      },
+      {
+        "variant": "30s-fixed-disable",
+        "duration": 30,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "미란다",
+          "유니",
+          "얀"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_matched": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 5403,
+        "segments": 5406,
+        "range_casts": 54,
+        "capture": "9372e5c8fa7d4dab84353a2ffb967bdb"
+      },
+      {
+        "variant": "30s-fixed-force-and-disable",
+        "duration": 30,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "얀",
+          "유니",
+          "미란다"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_matched": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 5403,
+        "segments": 5412,
+        "range_casts": 54,
+        "capture": "f1f247aa34c64d0ab864b299f08e2012"
+      },
+      {
+        "variant": "15s-accumulate-disable",
+        "duration": 15,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "미란다",
+          "유니",
+          "얀"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_matched": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 2700,
+        "segments": 2700,
+        "range_casts": 54,
+        "capture": "0f25236d5428409abeccc61ed380aa3c"
+      },
+      {
+        "variant": "15s-accumulate-force-and-disable",
+        "duration": 15,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "얀",
+          "유니",
+          "미란다"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_matched": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 2700,
+        "segments": 2703,
+        "range_casts": 54,
+        "capture": "7a93ef8199aa48cab474d81d7dd3e7c5"
+      },
+      {
+        "variant": "30s-accumulate-disable",
+        "duration": 30,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "미란다",
+          "유니",
+          "얀"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_matched": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 5403,
+        "segments": 5403,
+        "range_casts": 54,
+        "capture": "0655bc1f7c9047469507dea3b24e5dd6"
+      },
+      {
+        "variant": "30s-accumulate-force-and-disable",
+        "duration": 30,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "얀",
+          "유니",
+          "미란다"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_matched": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 5403,
+        "segments": 5409,
+        "range_casts": 54,
+        "capture": "6d08dd5c05de49faa247c1c3d940f701"
+      }
+    ],
+    "wall_seconds": 50.75260208401596,
+    "physical_dispatches": 2,
+    "cases_per_dispatch": 4,
+    "status": "Internal CPU/GPU exact8; HTTP spec.text corruption1 preserved; superseded by corrected transport validation"
+  },
+  "validation": {
+    "v2_15s_saved_audit": {
+      "rows": [
+        {
+          "index": 0,
+          "profile": "Yuni/Yan/Asuka/Rei",
+          "variant": "fixed-disable",
+          "capture": "b9949d984b1347879b57e2eed05fc55e",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 1,
+          "profile": "Yuni/Yan/Asuka/Rei",
+          "variant": "fixed-force-and-disable",
+          "capture": "dbef480c723f4e08b423238fc51903a5",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 2,
+          "profile": "Yuni/Yan/Asuka/Rei",
+          "variant": "accumulate-disable",
+          "capture": "daba55381d7b4b00955fd09f587390d1",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 3,
+          "profile": "Yuni/Yan/Asuka/Rei",
+          "variant": "accumulate-force-and-disable",
+          "capture": "b70a41ab9bba486a877423e8362ab9ec",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        }
+      ],
+      "audited": 4,
+      "native_battle_calls": 0,
+      "gpu_calls": 0
+    },
+    "v3_history_fault_checks": {
+      "rows": [
+        {
+          "index": 0,
+          "variant": "15s-fixed-disable",
+          "duration": 15,
+          "frames": 2700,
+          "segments": 2700,
+          "old_4096_limit_exceeded": false,
+          "corruptions_rejected": 7,
+          "old_15s_full_product_payload_retained": true
+        },
+        {
+          "index": 1,
+          "variant": "15s-fixed-force-and-disable",
+          "duration": 15,
+          "frames": 2700,
+          "segments": 2703,
+          "old_4096_limit_exceeded": false,
+          "corruptions_rejected": 7,
+          "old_15s_full_product_payload_retained": true
+        },
+        {
+          "index": 2,
+          "variant": "30s-fixed-disable",
+          "duration": 30,
+          "frames": 5403,
+          "segments": 5406,
+          "old_4096_limit_exceeded": true,
+          "corruptions_rejected": 7,
+          "old_15s_full_product_payload_retained": null
+        },
+        {
+          "index": 3,
+          "variant": "30s-fixed-force-and-disable",
+          "duration": 30,
+          "frames": 5403,
+          "segments": 5412,
+          "old_4096_limit_exceeded": true,
+          "corruptions_rejected": 7,
+          "old_15s_full_product_payload_retained": null
+        },
+        {
+          "index": 4,
+          "variant": "15s-accumulate-disable",
+          "duration": 15,
+          "frames": 2700,
+          "segments": 2700,
+          "old_4096_limit_exceeded": false,
+          "corruptions_rejected": 7,
+          "old_15s_full_product_payload_retained": true
+        },
+        {
+          "index": 5,
+          "variant": "15s-accumulate-force-and-disable",
+          "duration": 15,
+          "frames": 2700,
+          "segments": 2703,
+          "old_4096_limit_exceeded": false,
+          "corruptions_rejected": 7,
+          "old_15s_full_product_payload_retained": true
+        },
+        {
+          "index": 6,
+          "variant": "30s-accumulate-disable",
+          "duration": 30,
+          "frames": 5403,
+          "segments": 5403,
+          "old_4096_limit_exceeded": true,
+          "corruptions_rejected": 7,
+          "old_15s_full_product_payload_retained": null
+        },
+        {
+          "index": 7,
+          "variant": "30s-accumulate-force-and-disable",
+          "duration": 30,
+          "frames": 5403,
+          "segments": 5409,
+          "old_4096_limit_exceeded": true,
+          "corruptions_rejected": 7,
+          "old_15s_full_product_payload_retained": null
+        }
+      ],
+      "total_rejected": 56,
+      "extra_native_calls": 0,
+      "extra_gpu_calls": 0
+    },
+    "v3_independent_seal_audit": {
+      "package_id": "5874511325adbde7fae11fc0cb7710b03dd01b8883649f0364d8fe40eab63c26",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-movement-range-v1-20261101/v3/cli-run-v3",
+      "child_pid": 94906,
+      "input_count": 1,
+      "native_cases": 1,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 2.114508750033565,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "07c3e787b44ae4a370a5cebe93d90e4e53b0040e1a0875bdf94d70241889e523",
+      "output_sha256": "772355d422323d47092c7376fda7419f8d99149c52b0eada88c08ab8acea2fe1",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "node_worker_tests": {
+      "passed": 24,
+      "failed": 0,
+      "byte_by_byte_utf8_regression": true
+    },
+    "static_standard_retention": {
+      "total": 266,
+      "program_counts": {
+        "gpu/product_fixed_battle_entry.slang": 245,
+        "gpu/product_fixed_group_battle_entry.slang": 2,
+        "gpu/product_healing_fixed_battle_entry.slang": 1,
+        "cpu": 4,
+        "gpu/product_fixed_target_battle_entry.slang": 8,
+        "gpu/product_cover_fixed_battle_entry.slang": 1,
+        "gpu/product_ammo_fixed_battle_entry.slang": 1,
+        "gpu/product_weighted_fixed_battle_entry.slang": 4
+      },
+      "changed": [],
+      "unsupported": [
+        {
+          "index": 88,
+          "character": "유니",
+          "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected"
+        },
+        {
+          "index": 111,
+          "character": "얀",
+          "reason": "Movement requires explicit reference_models.enemy_movement geometry and policies; composition is not connected"
+        },
+        {
+          "index": 210,
+          "character": "스노우 화이트 : 헤비암즈",
+          "reason": "Lock On requires explicit reference_models.lock_on candidate/delivery policies and typed bindings; composition is not connected"
+        },
+        {
+          "index": 251,
+          "character": "레이 (가칭)",
+          "reason": "Named range requires explicit reference_models.named_range geometry and rules; composition is not connected"
+        }
+      ],
+      "old_full_readback_anchors": 262,
+      "gpu_calls": 0,
+      "native_battle_calls": 0
+    },
+    "standard_generated_retention": {
+      "scope": "Generated CUDA/MSL bytes only, no new GPU execution or prior owner reassignment",
+      "rows": [
+        {
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "before": {
+            "cuda": "959747bb61444c8f6d87fe8c5101e4a154821f42ab1b28fd59f3156f24198dce",
+            "metal": "308692a0e201e294162f390c02533b795e1f70b85633f5c965913f7f782aca78"
+          },
+          "after": {
+            "cuda": "959747bb61444c8f6d87fe8c5101e4a154821f42ab1b28fd59f3156f24198dce",
+            "metal": "308692a0e201e294162f390c02533b795e1f70b85633f5c965913f7f782aca78"
+          },
+          "identical": true
+        },
+        {
+          "source": "gpu/product_fixed_group_battle_entry.slang",
+          "before": {
+            "cuda": "4f3f4b7de95d3dc900f9c072273be4bb0423a6172e9e381da56328e2d33a29fd",
+            "metal": "67386dd78ea94b892f08971dc7121ffbb308501e5ad4146dd38a88f57df3f23f"
+          },
+          "after": {
+            "cuda": "4f3f4b7de95d3dc900f9c072273be4bb0423a6172e9e381da56328e2d33a29fd",
+            "metal": "67386dd78ea94b892f08971dc7121ffbb308501e5ad4146dd38a88f57df3f23f"
+          },
+          "identical": true
+        },
+        {
+          "source": "gpu/product_healing_fixed_battle_entry.slang",
+          "before": {
+            "cuda": "c7e569e767af57f26a69a7d6445647053e4670232cb2c79994f32d2025cbd953",
+            "metal": "4eb1e8843ea1ebef220f1c187a4114459720614590a2e94e665affc08b5f9da1"
+          },
+          "after": {
+            "cuda": "c7e569e767af57f26a69a7d6445647053e4670232cb2c79994f32d2025cbd953",
+            "metal": "4eb1e8843ea1ebef220f1c187a4114459720614590a2e94e665affc08b5f9da1"
+          },
+          "identical": true
+        },
+        {
+          "source": "gpu/product_fixed_target_battle_entry.slang",
+          "before": {
+            "cuda": "27f241f087ab2251c081bc441e4a08c564bdaff2d79e715d1a414b0c40b0da0a",
+            "metal": "3142ba975b6c6dca66730066a686e1d1df23f65aa777850ce85225ea838a9214"
+          },
+          "after": {
+            "cuda": "27f241f087ab2251c081bc441e4a08c564bdaff2d79e715d1a414b0c40b0da0a",
+            "metal": "3142ba975b6c6dca66730066a686e1d1df23f65aa777850ce85225ea838a9214"
+          },
+          "identical": true
+        },
+        {
+          "source": "gpu/product_cover_fixed_battle_entry.slang",
+          "before": {
+            "cuda": "516bcc274bb1349341facfab5ee84c8986ed644ffefac3ae45c38a3da08f4086",
+            "metal": "5a409a1aeb2a48140da7cb771568d40cb4b4b886b268a319de86c38d4e1c2c08"
+          },
+          "after": {
+            "cuda": "516bcc274bb1349341facfab5ee84c8986ed644ffefac3ae45c38a3da08f4086",
+            "metal": "5a409a1aeb2a48140da7cb771568d40cb4b4b886b268a319de86c38d4e1c2c08"
+          },
+          "identical": true
+        },
+        {
+          "source": "gpu/product_ammo_fixed_battle_entry.slang",
+          "before": {
+            "cuda": "cf0936f484e290228269f6e1beb34c7b5fff2c72f274793b64c64b089efc2c9f",
+            "metal": "4c81c20172587672c4865bfe3f4753a1f5227600dec9861c3f7c0833ea8b7cd6"
+          },
+          "after": {
+            "cuda": "cf0936f484e290228269f6e1beb34c7b5fff2c72f274793b64c64b089efc2c9f",
+            "metal": "4c81c20172587672c4865bfe3f4753a1f5227600dec9861c3f7c0833ea8b7cd6"
+          },
+          "identical": true
+        },
+        {
+          "source": "gpu/product_weighted_fixed_battle_entry.slang",
+          "before": {
+            "cuda": "65ac37a079d3b5b1768cb32e85f7f1f52bd7dea65d4dc05bbb17944a4a1794b0",
+            "metal": "2fc221ac06d2b3e175c943aacaff816b7519d31542dbd9cef0ee4da570983a58"
+          },
+          "after": {
+            "cuda": "65ac37a079d3b5b1768cb32e85f7f1f52bd7dea65d4dc05bbb17944a4a1794b0",
+            "metal": "2fc221ac06d2b3e175c943aacaff816b7519d31542dbd9cef0ee4da570983a58"
+          },
+          "identical": true
+        }
+      ],
+      "gpu_calls": 0,
+      "native_battle_calls": 0,
+      "cuda_sdk_calls": 0
+    }
+  },
+  "registry": {
+    "golden": "research/portable-product-programs-v25-expected.json",
+    "programs_added": 0,
+    "only_lock_cover_fixed_source_closure_updated": true,
+    "old_input_output_native_generated_values_unchanged": true,
+    "new_movement_range_baseline_registered": false
+  },
+  "v5_normal_api": {
+    "status": "complete and independently audited",
+    "package_id": "68cff40dd5cab352eca490759705be111758f3bc87a82b8aa986e43dea75a10c",
+    "source_commit": "3466cb4df0c4f3808a8cc795619bd96c30dbb659",
+    "purpose": "sealed",
+    "wall_seconds": 23.34063175000483,
+    "physical_dispatches": 2,
+    "cases_per_dispatch": 4,
+    "rows": [
+      {
+        "index": 0,
+        "variant": "15s-fixed-disable",
+        "duration": 15,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "미란다",
+          "유니",
+          "얀"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 2700,
+        "segments": 2700,
+        "range_casts": 54,
+        "first_cast": {
+          "owner": "아스카 : WILLE",
+          "effect": "섬멸 태세 추가 효과",
+          "time": 3.299999999999993,
+          "base_radius": 1.0,
+          "percent": 0.0,
+          "factor": 1.0,
+          "radius": 1.0,
+          "base_count": 2,
+          "capacity": 2,
+          "additional_targets": 0.0,
+          "body_position": 2,
+          "add_count": 1,
+          "aim": [
+            0.0,
+            0.0
+          ]
+        },
+        "input_and_raw_same_as_v3": true,
+        "complete_http_payload_including_unicode_exact": true,
+        "capture_id": "aa12b63c75fb45a2bb5f8efb39203890"
+      },
+      {
+        "index": 1,
+        "variant": "15s-fixed-force-and-disable",
+        "duration": 15,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "얀",
+          "유니",
+          "미란다"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 2700,
+        "segments": 2703,
+        "range_casts": 54,
+        "first_cast": {
+          "owner": "아스카 : WILLE",
+          "effect": "섬멸 태세 추가 효과",
+          "time": 3.299999999999993,
+          "base_radius": 1.0,
+          "percent": 0.0,
+          "factor": 1.0,
+          "radius": 1.0,
+          "base_count": 2,
+          "capacity": 2,
+          "additional_targets": 0.0,
+          "body_position": 0,
+          "add_count": 2,
+          "aim": [
+            0.0,
+            0.0
+          ]
+        },
+        "input_and_raw_same_as_v3": true,
+        "complete_http_payload_including_unicode_exact": true,
+        "capture_id": "972f1a7d84284b47a8791df418bf61f6"
+      },
+      {
+        "index": 2,
+        "variant": "30s-fixed-disable",
+        "duration": 30,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "미란다",
+          "유니",
+          "얀"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 5403,
+        "segments": 5406,
+        "range_casts": 54,
+        "first_cast": {
+          "owner": "아스카 : WILLE",
+          "effect": "섬멸 태세 추가 효과",
+          "time": 3.299999999999993,
+          "base_radius": 1.0,
+          "percent": 0.0,
+          "factor": 1.0,
+          "radius": 1.0,
+          "base_count": 2,
+          "capacity": 2,
+          "additional_targets": 0.0,
+          "body_position": 2,
+          "add_count": 1,
+          "aim": [
+            0.0,
+            0.0
+          ]
+        },
+        "input_and_raw_same_as_v3": true,
+        "complete_http_payload_including_unicode_exact": true,
+        "capture_id": "e3745f49ac554290b2f39d978f13e04a"
+      },
+      {
+        "index": 3,
+        "variant": "30s-fixed-force-and-disable",
+        "duration": 30,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "얀",
+          "유니",
+          "미란다"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 5403,
+        "segments": 5412,
+        "range_casts": 54,
+        "first_cast": {
+          "owner": "아스카 : WILLE",
+          "effect": "섬멸 태세 추가 효과",
+          "time": 3.299999999999993,
+          "base_radius": 1.0,
+          "percent": 0.0,
+          "factor": 1.0,
+          "radius": 1.0,
+          "base_count": 2,
+          "capacity": 2,
+          "additional_targets": 0.0,
+          "body_position": 0,
+          "add_count": 2,
+          "aim": [
+            0.0,
+            0.0
+          ]
+        },
+        "input_and_raw_same_as_v3": true,
+        "complete_http_payload_including_unicode_exact": true,
+        "capture_id": "5823edbc8a4c4676a7c8df0a1839bedb"
+      },
+      {
+        "index": 4,
+        "variant": "15s-accumulate-disable",
+        "duration": 15,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "미란다",
+          "유니",
+          "얀"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 2700,
+        "segments": 2700,
+        "range_casts": 54,
+        "first_cast": {
+          "owner": "아스카 : WILLE",
+          "effect": "섬멸 태세 추가 효과",
+          "time": 6.133333333333317,
+          "base_radius": 1.0,
+          "percent": 0.0,
+          "factor": 1.0,
+          "radius": 1.0,
+          "base_count": 2,
+          "capacity": 2,
+          "additional_targets": 0.0,
+          "body_position": 2,
+          "add_count": 1,
+          "aim": [
+            0.0,
+            0.0
+          ]
+        },
+        "input_and_raw_same_as_v3": true,
+        "complete_http_payload_including_unicode_exact": true,
+        "capture_id": "b0b05d432d454034915d078ac5dc4fe8"
+      },
+      {
+        "index": 5,
+        "variant": "15s-accumulate-force-and-disable",
+        "duration": 15,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "얀",
+          "유니",
+          "미란다"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 2700,
+        "segments": 2703,
+        "range_casts": 54,
+        "first_cast": {
+          "owner": "아스카 : WILLE",
+          "effect": "섬멸 태세 추가 효과",
+          "time": 5.633333333333319,
+          "base_radius": 1.0,
+          "percent": 0.0,
+          "factor": 1.0,
+          "radius": 1.0,
+          "base_count": 2,
+          "capacity": 2,
+          "additional_targets": 0.0,
+          "body_position": 0,
+          "add_count": 2,
+          "aim": [
+            0.0,
+            0.0
+          ]
+        },
+        "input_and_raw_same_as_v3": true,
+        "complete_http_payload_including_unicode_exact": true,
+        "capture_id": "b102bc3d934a486d80e8ffd7bb3e2fda"
+      },
+      {
+        "index": 6,
+        "variant": "30s-accumulate-disable",
+        "duration": 30,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "미란다",
+          "유니",
+          "얀"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 5403,
+        "segments": 5403,
+        "range_casts": 54,
+        "first_cast": {
+          "owner": "아스카 : WILLE",
+          "effect": "섬멸 태세 추가 효과",
+          "time": 6.133333333333317,
+          "base_radius": 1.0,
+          "percent": 0.0,
+          "factor": 1.0,
+          "radius": 1.0,
+          "base_count": 2,
+          "capacity": 2,
+          "additional_targets": 0.0,
+          "body_position": 2,
+          "add_count": 1,
+          "aim": [
+            0.0,
+            0.0
+          ]
+        },
+        "input_and_raw_same_as_v3": true,
+        "complete_http_payload_including_unicode_exact": true,
+        "capture_id": "d378683546a8475498b77be093ac9ba9"
+      },
+      {
+        "index": 7,
+        "variant": "30s-accumulate-force-and-disable",
+        "duration": 30,
+        "squad": [
+          "아스카 : WILLE",
+          "레이 (가칭)",
+          "얀",
+          "유니",
+          "미란다"
+        ],
+        "backend": "metal_detail",
+        "device": "Apple M5",
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        },
+        "frames": 5403,
+        "segments": 5409,
+        "range_casts": 54,
+        "first_cast": {
+          "owner": "아스카 : WILLE",
+          "effect": "섬멸 태세 추가 효과",
+          "time": 5.633333333333319,
+          "base_radius": 1.0,
+          "percent": 0.0,
+          "factor": 1.0,
+          "radius": 1.0,
+          "base_count": 2,
+          "capacity": 2,
+          "additional_targets": 0.0,
+          "body_position": 0,
+          "add_count": 2,
+          "aim": [
+            0.0,
+            0.0
+          ]
+        },
+        "input_and_raw_same_as_v3": true,
+        "complete_http_payload_including_unicode_exact": true,
+        "capture_id": "85e2a3566e8541a7896e2a122baba145"
+      }
+    ],
+    "independent_saved_audit": {
+      "rows": [
+        {
+          "index": 0,
+          "profile": "Yuni/Yan/Asuka/Rei",
+          "variant": "15s-fixed-disable",
+          "capture": "aa12b63c75fb45a2bb5f8efb39203890",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 1,
+          "profile": "Yuni/Yan/Asuka/Rei",
+          "variant": "15s-fixed-force-and-disable",
+          "capture": "972f1a7d84284b47a8791df418bf61f6",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 2,
+          "profile": "Yuni/Yan/Asuka/Rei",
+          "variant": "30s-fixed-disable",
+          "capture": "e3745f49ac554290b2f39d978f13e04a",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 3,
+          "profile": "Yuni/Yan/Asuka/Rei",
+          "variant": "30s-fixed-force-and-disable",
+          "capture": "5823edbc8a4c4676a7c8df0a1839bedb",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 4,
+          "profile": "Yuni/Yan/Asuka/Rei",
+          "variant": "15s-accumulate-disable",
+          "capture": "b0b05d432d454034915d078ac5dc4fe8",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 5,
+          "profile": "Yuni/Yan/Asuka/Rei",
+          "variant": "15s-accumulate-force-and-disable",
+          "capture": "b102bc3d934a486d80e8ffd7bb3e2fda",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 6,
+          "profile": "Yuni/Yan/Asuka/Rei",
+          "variant": "30s-accumulate-disable",
+          "capture": "d378683546a8475498b77be093ac9ba9",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        },
+        {
+          "index": 7,
+          "profile": "Yuni/Yan/Asuka/Rei",
+          "variant": "30s-accumulate-force-and-disable",
+          "capture": "85e2a3566e8541a7896e2a122baba145",
+          "backend": "metal_detail",
+          "api_cache_hit": false,
+          "physical_batch_and_exact_member_slices_verified": true,
+          "raw_hashes_verified": true,
+          "static_input_exact": true,
+          "current_source_exact": true,
+          "reprojected_raw_matches_cpu_gpu_api": true
+        }
+      ],
+      "audited": 8,
+      "native_battle_calls": 0,
+      "gpu_calls": 0
+    },
+    "own_cpu_tests": [
+      {
+        "pattern": "test_portable_detail.py",
+        "exit_code": 0,
+        "elapsed_seconds": 3.4700324169825763,
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 95302
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "exit_code": 0,
+        "elapsed_seconds": 1.4399515420082025,
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 95302
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "exit_code": 0,
+        "elapsed_seconds": 0.2673486659768969,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 95302
+      },
+      {
+        "pattern": "test_product_reference_models.py",
+        "exit_code": 0,
+        "elapsed_seconds": 19.489312625024468,
+        "tests": 52,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runner_pid": 95302
+      }
+    ],
+    "full_input_and_readback_retention_against_v3": true,
+    "all_http_fields_including_unicode_match": true
+  },
+  "coverage": {
+    "standard_profiles": 266,
+    "metal_last_full_execution": 262,
+    "metal_execution_source": "5e1f9c2a",
+    "cuda_historical_strict": 3,
+    "cuda_current_source": 0,
+    "new_standard_profiles": 0,
+    "default_fallbacks": [
+      "Yuni",
+      "Yan",
+      "Snow White Heavy Arms",
+      "Rei"
+    ],
+    "declaration_models_not_default_admission": true,
+    "goal_complete": false
+  }
+}

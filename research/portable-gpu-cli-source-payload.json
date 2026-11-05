@@ -1,0 +1,53 @@
+{
+  "source_commit": "3c44b97e6ff981c2219c3af4428e3349a3cda248",
+  "branch": "refs/heads/codex/gpu-validation-cli",
+  "base": "cadd96b552dd46a31f80120c82f3e6031a5c3ca2",
+  "files": [
+    {
+      "path": "research/portable_typed_cuda_proof_audit.py",
+      "bytes": 6929,
+      "sha256": "0833c4656ad0bfb4cf94e808b4ee43b712927ca834be507dc101f99df9a48180"
+    },
+    {
+      "path": "research/portable_phase_audit.py",
+      "bytes": 4444,
+      "sha256": "0d119417956ab779a37f362efcf293d945d10b67a5cd8dc2722790be1218aa4b"
+    },
+    {
+      "path": "app/portable_backend.py",
+      "bytes": 15587,
+      "sha256": "88b0eec6bddbf89ff59fc70cd6861b892db6ad66aaf01d02357bcf0d9511df0c"
+    },
+    {
+      "path": "research/run-world-bounded.py",
+      "bytes": 8528,
+      "sha256": "4382257e043afcec7154ada05c920ef98cc5dd76da13f303caa85087e9a23af7"
+    },
+    {
+      "path": "scripts/nikke_gpu.py",
+      "bytes": 27107,
+      "sha256": "295aee087c2ffbf11945a4db4f15926abd6e88ff7ba83c03fd39a978d27fc626"
+    },
+    {
+      "path": "tests/test_portable_gpu_cli.py",
+      "bytes": 8995,
+      "sha256": "c5edb3fa490fe09d89c0d984311f3ec4ed70edcb9d950714c5654d66081e5542"
+    },
+    {
+      "path": "docs/gpu-development-cli.md",
+      "bytes": 8128,
+      "sha256": "00844c639d73fffc02dc12a37529462ac67786aabd3dcc80c33e2a1cf47dc910"
+    },
+    {
+      "path": "skills/nikke-shared-gpu-development/SKILL.md",
+      "bytes": 3809,
+      "sha256": "3763f1a9083c425ff59c23ab49011ef224800fff139478af551652b1a511ab2f"
+    },
+    {
+      "path": "skills/nikke-shared-gpu-development/agents/openai.yaml",
+      "bytes": 320,
+      "sha256": "6870557c887430f211b1af8309d44990e5b1bb7d07a2efcee61a6364b697998d"
+    }
+  ],
+  "bytes": 83847
+}

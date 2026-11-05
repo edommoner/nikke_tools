@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "suite": "coordinate-sampled-battle",
+  "scope": "Private buff-only sampled physical resident battles; full goal incomplete",
+  "reference_kind": "deterministic-common-cpu",
+  "sealed": true,
+  "input_count": 23,
+  "native_oracles": 20,
+  "rejections": 3,
+  "native_totals": {
+    "pellets": 1256,
+    "packets": 1397,
+    "physical_rng_words": 5498
+  },
+  "logical_pellet_capacity_verified": 1024,
+  "coordinate_target_capacity_verified": 127,
+  "input_words": 109528,
+  "output_words": 1507328,
+  "runtime_stride_bytes": 138952,
+  "extra_runtime_bytes": 0,
+  "extra_output_words": 0,
+  "physical_rng_separate_from_boss": true,
+  "scalar_condition_rng": [
+    "not_core",
+    "prob:0",
+    "prob:50",
+    "prob:100"
+  ],
+  "per_shot_basis_snapshot": true,
+  "ordered_auto_charge_notifications": true,
+  "per_muzzle_core_average": true,
+  "admitted_definition_kinds": [
+    "buff"
+  ],
+  "sampled_non_buff_effects_admitted": false,
+  "parent_reference_quantity_admitted": false,
+  "group_functions_reused": true,
+  "group_owner_worlds_verified": false,
+  "cpu": {
+    "tests": 18,
+    "failures": 0
+  },
+  "control": {
+    "tests": 416,
+    "failures": 0,
+    "skipped": 1
+  },
+  "legacy_cpu": {
+    "tests": 9,
+    "failures": 0
+  },
+  "actual_gpu_dispatches": 2,
+  "first_v1_gpu_inputs": 11,
+  "source_v3_gpu_inputs": 23,
+  "source_v3_comparator_failures": 1,
+  "gpu_recomputations": 0,
+  "same_claim_retries": 0,
+  "replay_gpu_calls": 0,
+  "original_failures_and_claims_preserved": true,
+  "independent_seal": true,
+  "source_only_compiler_certificate": true,
+  "compiler_device_verification": false,
+  "team_history": {
+    "case": "pellets-1024",
+    "total_observations": 2048,
+    "retained": 1024,
+    "omitted": 1024,
+    "omission_count_and_native_totals_verified": true,
+    "omitted_individual_history_verified": false,
+    "original_readback_modified": false
+  },
+  "retention": {
+    "passed": true,
+    "retained_inputs": 11,
+    "retained_raw_bytes": 66322432,
+    "raw_prefix_sha256": "b8c9c4f6eca05a8757b6a97ed1dde17002dc6fe12a21de92890b3c1ddb3e9d9c",
+    "old11_inputs_identical": true,
+    "all_original_native_fields_except_scope_identical": true,
+    "added_observation_only": [
+      "sampled_draws"
+    ],
+    "scope_metadata_updated": true,
+    "old_native_proofs_rebound": false,
+    "gpu_calls": 0,
+    "calculation_verified": false
+  },
+  "legacy_generated_cuda_msl_pairs_retained": 8,
+  "legacy_generated_retention_versions": 2,
+  "old_gpu_reruns": 0,
+  "protected_source_sha256": {
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "research/summarize-portable-cross-gpu.py": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a",
+    "app/portable_compile_cache.py": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505"
+  },
+  "core_probability_sha256": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+  "gpu_package_id": "0236968743691d6332ddc23d8f3517ae422a216526095072bc7c338639a4437f",
+  "replay_package_id": "9f371f6d2b82ab686b7f0307c6aa105c6ab163b019a16fcbe5ded4dd68f6ccb1",
+  "final_compact_package_id": "29b50ec591258df6f23d03b155a8b7ba5088296678445938e94de3b80cc9a4d3",
+  "final_full_package_id": "18ffc1c171cf968ef277442b137e7833cac8d2050dffdb89302b49303897dc1a",
+  "package_projection": {
+    "passed": true,
+    "full_files": 3099,
+    "compact_files": 1755,
+    "all_retained_records_and_bytes_identical": true,
+    "gpu_calls": 0
+  },
+  "timing": {
+    "gpu_seconds": 0.44852537498809397,
+    "pipeline_seconds": 91.90978705883026,
+    "gpu_child_seconds": 95.84992987499572
+  },
+  "raw_output_bytes": 138674176,
+  "raw_output_sha256": "93ddd8415ea788b8777acab82667376a5fac26bab679a7e92d92711527210941",
+  "calculation_verified": true,
+  "containment_verified": true,
+  "preservation_verified": null,
+  "raw_deleted": false,
+  "windows_requests": 0,
+  "current_cuda_calculation_verified": false,
+  "cuda_current_cache_hit_verified": false,
+  "cuda_cache_rules_changed": false,
+  "strict_normalizer_changed": false,
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "remaining_model_gaps": 20,
+  "ui_backend": "cpu",
+  "public_gpu_admitted": false,
+  "remaining": [
+    "non-buff effects including weapon changes, healing, sampled damage/queue effects",
+    "parent reference quantity integer division",
+    "group-owner sampled worlds",
+    "original definitions and public admission",
+    "bounded current CUDA execution/cache verification"
+  ]
+}
