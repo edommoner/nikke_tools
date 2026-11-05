@@ -114,3 +114,20 @@
 .synergy-tooltip[hidden]{display:none}
 .synergy-tooltip strong{display:block;color:#fff}
 .synergy-tooltip section+section{border-top:1px solid #496071;margin-top:6px;padding-top:6px}
+
+/* Squad presets */
+#team-preset-dialog .dialog-heading>div{min-width:0}
+#team-preset-description,.team-preset-row h3{overflow-wrap:anywhere}
+.team-preset-save{display:grid;gap:12px;padding-bottom:20px}
+.team-preset-save h3,.team-preset-row h3{margin:0}
+.team-preset-row{min-width:0;padding:18px 0;border-top:1px solid var(--border)}
+.team-preset-members{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:12px 0}
+.team-preset-member{min-width:0;text-align:center}
+#team-preset-dialog .team-preset-member .portrait{width:100%;height:auto;aspect-ratio:1;max-width:64px;margin:auto;border-radius:4px}
+.team-preset-member>span:not(.portrait){display:block;font-size:10px;overflow-wrap:anywhere}
+.team-preset-member.unowned{opacity:.5}
+.team-preset-member strong{font-size:10px}
+.team-preset-placeholder{aspect-ratio:1;max-height:64px;border:1px dashed var(--border);border-radius:4px}
+#team-preset-dialog .team-preset-actions,.team-preset-rename{display:flex;flex-wrap:wrap;gap:8px}
+.team-preset-rename input{min-width:0;flex:1 1 160px;width:100%}
+#team-preset-name{width:100%;min-width:0;box-sizing:border-box}
