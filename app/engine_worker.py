@@ -43,7 +43,7 @@ def catalog():
             continue
         rid = by_name.get(name)
         chars.append({'name': name, 'label': MAPPINGS['names'].get(str(rid)) or name,
-                      'image': display.get(str(rid), {}).get('image'), 'burst': m.get('burst_stage', '?'), 'weapon': m.get('weapon_type', ''), 'element': m.get('element_code', '')})
+                      'image': display.get(str(rid), {}).get('image'), 'burst': m.get('burst_stage', '?'), 'weapon': m.get('weapon_type', ''), 'element': m.get('element_code', ''), 'manufacturer': m.get('manufacturer', '')})
     cube_display_path = ROOT / 'data/cube-display.json'
     cube_display = json.loads(cube_display_path.read_text(encoding='utf-8-sig')) if cube_display_path.exists() else {'cubes': []}
     return {'characters': chars, 'cubes': list(spec.CUBES), 'cube_labels': {c['name']['ko']: c['name']['ja'] for c in cube_display['cubes']}, 'revision': REVISION,

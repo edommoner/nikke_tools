@@ -2,6 +2,23 @@
 import {validPatterns} from './phase-model.mjs';
 import {validParts} from './parts-model.mjs';
 export const elementLabels={'풍압':'風圧','수냉':'水冷','작열':'灼熱','전격':'電撃','철갑':'鉄甲'};
+export const manufacturerLabels={'엘리시온':'エリシオン','미실리스':'ミシリス','테트라':'テトラ','필그림':'ピルグリム','어브노말':'アブノーマル'};
+const iconBase='https://www.blablalink.com/assets/nikke/version/default/shiftysassets/images/';
+const manufacturerIcons={'엘리시온':'elysion','미실리스':'missilis','테트라':'tetra','필그림':'pilgrim','어브노말':'abnormal'};
+const elementIcons={'풍압':'wind','수냉':'water','작열':'fire','전격':'electric','철갑':'iron'};
+const weapons=['AR','SMG','SG','MG','SR','RL'];
+export function manufacturerIconUrl(value){return Object.hasOwn(manufacturerIcons,value)?`${iconBase}icon-manufacturer-${manufacturerIcons[value]}--white.png`:null;}
+export function elementIconUrl(value){return Object.hasOwn(elementIcons,value)?`${iconBase}icon-code-${elementIcons[value]}.png`:null;}
+export function burstIconUrl(value){return ['1','2','3'].includes(value)?`${iconBase}icon-burst-${value}.png`:null;}
+export function matchesRosterFilters(meta,filters){
+  return Object.entries(filters).every(([category,selected])=>{
+    if(!selected.size)return true;
+    const value=meta?.[category];
+    if(category==='burst')return value==='A'||(['1','2','3'].includes(value)&&selected.has(value));
+    const known=category==='manufacturer'?Object.hasOwn(manufacturerLabels,value):category==='element'?Object.hasOwn(elementLabels,value):category==='weapon'&&weapons.includes(value);
+    return known&&selected.has(value);
+  });
+}
 export function skillValues(value){if(typeof value==='number')return [value,value,value];if(typeof value==='string')return value.split('/').map(Number);return Array.isArray(value)?value:['1','2','3'].map(k=>value?.[k]);}
 export function rosterValue(entry,field){
   if(field==='power')return numeric(entry._observed_combat_power);
