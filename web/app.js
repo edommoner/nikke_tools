@@ -4,7 +4,7 @@ import {enemyScope,groupPresets} from '/enemy-model.mjs';
 import {manufacturerLabels,manufacturerIconUrl,elementIconUrl,burstIconUrl,matchesRosterFilters,elementLabels,rosterValue,sortRoster,visibleTeams,presetFields,validPreset,overloadFields,formatOverload,parseOverload} from '/roster-model.mjs';
 import {emptyTeams,placeCharacter,restoreTeams,completeTeams} from '/board-model.mjs';
 import {rankSynergyCandidates,teamSynergy} from '/synergy-model.mjs';
-import {selectorLabel,conditionLabel,statLabel,sourceLabel} from '/synergy-labels.mjs';
+import {selectorLabel,conditionLabel,statLabel,statShortLabel,sourceLabel} from '/synergy-labels.mjs';
 import {cubeEffectLabel,cubeEffectText,rangeValue,cubeEditorPatch,overloadParts,overloadOptionText,partsToEquipSkills,partsMatchEquipSkills,normalizeParts as normalizeOverloadParts,duplicateEffects,inferPartsFromEquipSkills,overloadLevelTotal} from '/growth-model.mjs';
 const $=id=>document.getElementById(id),clone=v=>structuredClone(v);
 const state={catalog:null,snapshot:null,profile:null,patches:{},deltas:{},teams:emptyTeams(),activeTeam:0,activeSlot:0,raidCount:5,excluded:new Set(),excludeMode:false,rosterFilters:{manufacturer:new Set(),element:new Set(),burst:new Set(),weapon:new Set()},synergyBasis:emptyTeams().map(()=>new Set()),synergyOn:false,sortBeforeSynergy:'overload',synergyTiers:new Set(['A','B']),synergyMatches:new Map(),singleMode:false,sortDirection:'desc',customPresets:[],enemyContexts:{},enemyParts:[],enemyPatterns:[],scores:{},comparison:null,reference:null,job:null,lastRequest:null,busy:false};
@@ -87,11 +87,41 @@ function teamSynergyItems(data,details=false){
     ...data.global.map(({owner,entries})=>({text:`${label(owner.name)}：味方全体`,detail:entries.map(providesDetail).join('、')})),
   ].map(item=>details?`<li class="${item.className??''}"><strong>${e(item.text)}</strong><span>${e(item.detail)}</span></li>`:`<span class="team-synergy-chip ${item.className??''}" title="${e(item.detail)}">${e(item.text)}</span>`).join('');
 }
+function slotStatChips(entries){
+  const groups=new Map();
+  for(const entry of entries){
+    const short=statShortLabel(entry.stat);
+    if(!groups.has(short))groups.set(short,[]);
+    groups.get(short).push(providesDetail(entry));
+  }
+  return [...groups].map(([short,details])=>`<span class="slot-synergy-chip" title="${e([...new Set(details)].join('、'))}">${e(short)}</span>`).join('');
+}
+function slotSynergyGroup(badge,className,content){
+  return `<span class="slot-synergy-group ${className}"><span class="slot-synergy-badge">${badge}</span>${content}</span>`;
+}
 function boardSlotSynergy(name,slot,data,squad){
   if(teamSynergyMode==='off')return '';
-  const global=data.global.some(item=>item.owner.name===name),unmatched=data.unmatched.some(item=>item.owner.name===name)||data.conditions.some(item=>item.owner.name===name&&item.effect==='unmet'),broken=data.conditions.some(item=>item.owner.name===name&&item.effect==='broken');
+  const groups=[];
+  const wholeTeam=data.global.filter(item=>item.owner.name===name).flatMap(item=>item.entries);
+  if(wholeTeam.length)groups.push(slotSynergyGroup('全体','synergy-global',slotStatChips(wholeTeam)));
+  const unmatched=new Map();
+  for(const {owner,entry} of data.unmatched){
+    if(owner.name!==name)continue;
+    const key=JSON.stringify(Object.fromEntries(Object.entries(entry.selector).sort(([a],[b])=>a.localeCompare(b))));
+    if(!unmatched.has(key))unmatched.set(key,{selector:entry.selector,entries:[]});
+    unmatched.get(key).entries.push(entry);
+  }
+  for(const {selector,entries} of unmatched.values()){
+    const full=selectorLabel(selector,label),compact=full.replace('（条件で選ばれる対象）','※');
+    groups.push(slotSynergyGroup('対象なし','synergy-unmatched',`<span class="slot-synergy-target" title="${e(full)}">${e(compact)}：</span>${entries.map(entry=>slotStatChips([entry])).join('')}`));
+  }
+  for(const {owner,condition,effect} of data.conditions){
+    if(owner.name!==name||!['unmet','broken'].includes(effect))continue;
+    const text=conditionLabel(condition),detail=`${text} / ${sourceLabel(condition.source)}`;
+    groups.push(slotSynergyGroup(effect==='broken'?'⚠ 衝突':'対象なし',effect==='broken'?'synergy-conflict':'synergy-unmatched',`<span class="slot-synergy-chip" title="${e(detail)}">${e(text)}</span>`));
+  }
   const dots=teamSynergyMode==='dots'?`<span class="team-synergy-dots"><span class="synergy-dot own synergy-color-${slot}" title="${e(label(name))}の色" aria-label="${e(label(name))}の色"></span>${data.links.filter(link=>link.to.name===name).map(link=>`<span class="synergy-dot synergy-color-${squad.indexOf(link.from.name)} tier-${link.tier}" title="${e(label(link.from.name))} → ${e(label(name))}（${link.tier}）" aria-label="${e(label(link.from.name))}からの強化 ${link.tier}"></span>`).join('')}</span>`:'';
-  return `<span class="slot-synergy-marks">${global?'<span class="synergy-global">全体</span>':''}${unmatched?'<span class="synergy-unmatched" title="対象のいない効果あり">対象なし</span>':''}${broken?'<span class="synergy-conflict" title="衝突する条件あり">⚠ 衝突</span>':''}</span>${dots}`;
+  return `<span class="slot-synergy-marks">${groups.join('')}</span>${dots}`;
 }
 function burstCompleteness(squad){
   if(!squad.some(Boolean))return '';
