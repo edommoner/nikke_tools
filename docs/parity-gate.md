@@ -161,3 +161,54 @@ is deliberately not a CLI flag. It requires a separate cache, is labelled in the
 run manifest, and is a test of invalidation/reuse mechanics, not execution of the
 modified sources. The S8 harness uses inert `pass` additions on existing lines
 and a comment-only identity edit; it never modifies upstream in the worktree.
+
+## Remote hosts
+
+Copy `docs/remote-hosts.example.json` to the ignored `.nikke-hosts.json` and
+configure trusted SSH aliases, remote checkout roots, Python executables,
+compiler environment and process counts. Each entry requires exactly `name`,
+`ssh`, `root`, `python`, `env`, and a positive integer `workers`. Names are
+unique (`local` is reserved). Use key authentication and preinstalled Python
+3.12+, rsync, clang and Slang; no installation or sudo is performed.
+
+```sh
+python3.12 scripts/parity-gate.py run --corpus research/parity/s1-corpus.json \
+  --output research/parity/runs/distributed --hosts .nikke-hosts.json --local-workers 10
+```
+
+`--workers` and `--local-workers` are aliases. `--no-local` uses only remote
+slots and requires `--hosts`. `--native-root` cannot be combined with hosts.
+Each remote job uses that host's root for native builds and a fresh spawned
+process, with one native host thread. Free slots take the next row dynamically.
+Local storage planning and reserve checks still apply; remote jobs require at
+least 20 GiB free before execution. The coordinator observes the run's `STOP`
+file; already submitted work may finish before shutdown. Repeat the command to
+resume completed journal entries across any mix of hosts.
+
+Before work, rsync copies `app/`, `data/`, `gpu/`, `scripts/`, and
+`research/upstream/`, excluding bytecode, plus the corpus and CPU cache. Cache
+sync uses `--ignore-existing`; no sync uses `--delete`. Per-run remote artifacts
+live under `research/parity/remote-pool/` in the configured root. Existing
+scratch files elsewhere are untouched. A live handshake compares CPU code
+identity and every native source hash supplied by the coordinator, without
+requiring remote git metadata. Unequal identities refuse the host. Slang and
+clang versions are recorded in the manifest session, not required equal.
+
+The persistent stdin/stdout JSON-lines protocol accepts `hello` and `job`
+messages and returns `result` messages keyed by sequence number. Only explicitly
+allow-listed `module:attr` functions can execute. Results carry changed cache,
+coverage, source-store, alias and native files as base64 gzip data with SHA-256.
+The coordinator validates paths and digests and atomically publishes absent
+files; existing files must match byte for byte. Result payloads are unchanged
+apart from a coordinator-added `host` field. Exclude `host` and timings when
+comparing runs. Summaries retain corpus order and record host row counts and
+aggregate task seconds; sessions record their own host activity and failures.
+
+A lost connection resubmits its unjournalled rows. The coordinator reconnects
+once; a second connection failure drops that host for the run and reports it.
+If no slots remain the run fails with resumable progress. Job errors and file
+conflicts are hard failures, not silently retried. SSH always uses BatchMode and
+a ten-second connection timeout; command values are shell quoted, and aliases
+and environment keys are validated. Configuration is trusted executable setup:
+use only trusted hosts and nonsecret environment values. No credentials are
+sent by this protocol. Remote code receives the complete synced evaluation data.

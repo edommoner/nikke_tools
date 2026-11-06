@@ -1,0 +1,10 @@
+[
+  {
+    "name": "gx10",
+    "ssh": "gx10-afe7-tailscale",
+    "root": "~/nikke-remote",
+    "python": "python3.12",
+    "env": {"NIKKE_SLANG_ROOT": "~/nikke-tools/slang-2026.20-Linux-aarch64"},
+    "workers": 20
+  }
+]

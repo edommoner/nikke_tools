@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import ast
 import concurrent.futures
+import contextlib
+import multiprocessing
 import copy
 import gzip
 import hashlib
@@ -561,6 +563,17 @@ def run(args):
 
 def _run(args):
     start = time.perf_counter()
+    from remote_pool import load_hosts, sync_host, RemoteHost, source_hashes, file_inventory, dispatch
+    hosts_path = getattr(args, 'hosts', None)
+    hosts = load_hosts(hosts_path) if hosts_path else []
+    no_local = getattr(args, 'no_local', False)
+    if no_local and not hosts:
+        raise ValueError('--no-local requires --hosts')
+    if hosts and getattr(args, 'native_root', None):
+        raise ValueError('--native-root cannot be combined with --hosts')
+    if hosts and getattr(args, 'coverage_test_code_root', None):
+        raise ValueError('Coverage source override cannot be combined with --hosts')
+    local_workers = 0 if no_local else args.workers
     storage_check(1024**3)
     from portable_native import availability, clang_compiler
     available = availability(ROOT)
@@ -648,7 +661,7 @@ def _run(args):
                     raise ValueError('Duplicate result ID')
                 done[item['id']] = item
     pending = [r for r in rows if r['id'] not in done]
-    required = plan_storage(pending, args.workers)
+    required = plan_storage(pending, local_workers)
     minfree = storage_check(required)
     print(json.dumps(dict(pending=len(pending), peak_additional_bytes=required, free=minfree)), flush=True)
     # Exact-count deterministic sample, chosen only among stale, unchanged-member references.
@@ -662,42 +675,60 @@ def _run(args):
     sample = set(random.Random(args.seed).sample(sorted(set(eligible)), math.ceil(len(set(eligible)) * args.sample_fraction)))
     native_dir = output / 'native'
     native_dir.mkdir(exist_ok=True)
-    # Continuously refill ten slots; a slow CPU squad never stalls a batch.
-    # Each task gets a fresh interpreter for the adapter's monkeypatch contract.
-    with journal.open('ab') as stream, concurrent.futures.ProcessPoolExecutor(
-            max_workers=args.workers, max_tasks_per_child=1) as pool:
-        iterator = iter(pending)
-        futures = {}
+    # Shared dispatcher journals local and remote rows through the same durable path.
+    destinations = dict(cache=cache, native=native_dir)
+    namespace = 'research/parity/remote-pool/' + digest(dict(output=str(output.resolve()), cache=str(cache.resolve())))[:24]
+    hello = dict(namespace=namespace, code_identity=code, native_sources=native_sources,
+                 native_hashes=source_hashes(ROOT, native_sources), known_files=file_inventory(destinations))
+    host_stats = {}
+    events = []
+    remotes = []
 
-        def submit(row):
-            ident = identities[row['id']]
-            old = prev.get(ident['request_sha256'])
-            inherit = (old.get('reference_identity', old['identity']) if old and
-                       ident['request_sha256'] in eligible and
-                       ident['request_sha256'] not in sample and not args.full else None)
-            futures[pool.submit(row_job, row, ident, old, inherit, args.full,
-                                cache, native_dir, scratch, sources, spot_fraction, args.seed)] = row['id']
+    def job_args(row, remote=False):
+        ident = identities[row['id']]
+        old = prev.get(ident['request_sha256'])
+        inherit = (old.get('reference_identity', old['identity']) if old and
+                   ident['request_sha256'] in eligible and
+                   ident['request_sha256'] not in sample and not args.full else None)
+        paths = [namespace + '/' + label for label in ('cache', 'native', 'scratch')] if remote else [cache, native_dir, scratch]
+        return [row, ident, old, inherit, args.full, *paths, sources, spot_fraction, args.seed]
 
-        for _ in range(min(args.workers, len(pending))):
-            submit(next(iterator))
-        while futures:
-            finished, _ = concurrent.futures.wait(futures, return_when=concurrent.futures.FIRST_COMPLETED)
-            for future in finished:
-                futures.pop(future)
-                result = future.result()
+    try:
+        for host in hosts:
+            sync_host(host, ROOT, args.corpus, cache, namespace)
+            remote = RemoteHost(host, dict(hello, workers=host['workers']), destinations)
+            remotes.append(remote)
+        record['sessions'][session_index]['remote_hosts'] = {r.host['name']: r.info for r in remotes}
+        record['sessions'][session_index]['host_failures'] = events
+        atomic_json(manifest, record)
+        with contextlib.ExitStack() as stack:
+            stream = stack.enter_context(journal.open('ab'))
+            pool = stack.enter_context(concurrent.futures.ProcessPoolExecutor(
+                max_workers=local_workers, max_tasks_per_child=1,
+                mp_context=multiprocessing.get_context('spawn'))) if local_workers else None
+            for row, result, host, seconds in dispatch(
+                    pending, pool, local_workers, remotes,
+                    lambda pool, row: pool.submit(row_job, *job_args(row)),
+                    lambda remote, row: ('parity_gate:row_job', job_args(row, True)),
+                    stopped=lambda: (output / 'STOP').exists(), events=events):
+                result['host'] = host
                 stream.write(canonical(result) + b'\n')
                 stream.flush()
                 os.fsync(stream.fileno())
                 done[result['id']] = result
-                record['sessions'][session_index].update(seconds=time.perf_counter()-start, completed=len(done)-(len(rows)-len(pending)))
+                stats = host_stats.setdefault(host, dict(rows=0, seconds=0))
+                stats['rows'] += 1
+                stats['seconds'] += seconds
+                record['sessions'][session_index].update(seconds=time.perf_counter()-start,
+                    completed=len(done)-(len(rows)-len(pending)), hosts=host_stats)
                 atomic_json(manifest, record)
                 minfree = min(minfree, storage_check(required))
                 if len(done) % 10 == 0 or len(done) == len(rows):
                     print(json.dumps(dict(completed=len(done), total=len(rows), seconds=round(time.perf_counter()-start, 2),
                                           cpu_evaluations=sum(r['cpu_evaluations'] for r in done.values()))), flush=True)
-                row = next(iterator, None)
-                if row is not None:
-                    submit(row)
+    finally:
+        for remote in remotes:
+            remote.close()
     ordered = [done[r['id']] for r in rows]
     counts = {s: sum(r['status'] == s for r in ordered) for s in ('matched', 'mismatched', 'cpu-fallback', 'unsupported')}
     chars = {}
@@ -712,7 +743,10 @@ def _run(args):
     record['sessions'][session_index].update(seconds=elapsed, completed=len(pending), min_free=minfree, state='complete')
     atomic_json(manifest, record)
     regressions = [r['id'] for r in ordered if r['regression']]
-    summary = dict(schema=SCHEMA, counts=counts, total=len(ordered), cache_hits=sum(r['cache_hit'] for r in ordered),
+    summary = dict(schema=SCHEMA, hosts={name: dict(rows=sum(r.get('host', 'local') == name for r in ordered),
+                   seconds=sum(s.get('hosts', {}).get(name, {}).get('seconds', 0) for s in record['sessions']))
+                   for name in sorted({r.get('host', 'local') for r in ordered})},
+                   host_failures=[e for s in record['sessions'] for e in s.get('host_failures', [])], counts=counts, total=len(ordered), cache_hits=sum(r['cache_hit'] for r in ordered),
                    cache_misses=sum(not r['cache_hit'] for r in ordered), cpu_evaluations=sum(r['cpu_evaluations'] for r in ordered),
                    inherited=sum(r['reference_status'] == 'inherited-from-previous-reference' for r in ordered),
                    current_reference_counts={s: sum(r['status'] == s and r['reference_status'] in ('current-reference', 'coverage-reused') for r in ordered) for s in counts},
