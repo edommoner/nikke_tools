@@ -65,6 +65,37 @@ def install():
     original_dispatch=BuffManager._dispatch_instant;original_tick=BuffManager.tick
     original_damage=BuffManager.register_damage_handler;original_reset=BuffManager.reset
     original_sync=BuffManager.sync_hp
+    original_max_hp=BuffManager.effective_max_hp
+    # Retain all installed per-entry semantics (query exclusions, shield gates,
+    # and future checked compatibility edits), changing only the loop iterable.
+    import ast,copy
+    from reference_rewrite import compile_reference_helper
+    node=copy.deepcopy(original_max_hp._nikke_reference_tree.body[0])
+    loops=[n for n in ast.walk(node) if isinstance(n,ast.For)
+           and isinstance(n.iter,ast.Attribute) and n.iter.attr=='_active']
+    if len(loops)!=1:raise AssertionError('Unexpected maximum HP loop')
+    node.name='_indexed_max_hp'
+    node.args.kwonlyargs.append(ast.arg(arg='_hp_entries'))
+    node.args.kw_defaults.append(ast.Constant(None))
+    loops[0].iter=ast.Name(id='_hp_entries',ctx=ast.Load())
+    indexed_max_hp=compile_reference_helper(original_max_hp,node)
+    @wraps(original_max_hp)
+    def effective_max_hp(self,name,*,query_scope=None):
+        # Preserve direct unbound calls with minimal reference-test managers.
+        if not hasattr(self,'_by_stat'):
+            return original_max_hp(self,name,query_scope=query_scope)
+        lists=[self._by_stat(stat) for stat in (
+            'max_hp_pct','max_hp_only_pct','hp_caster_based_pct',
+            'hp_only_caster_based_pct','max_hp_from_max_hp_pct')]
+        populated=[entries for entries in lists if entries]
+        # The app compatibility layer also supports hp_copy; preserve its full
+        # original path rather than treating it as an empty five-stat query.
+        if len(populated)>1 or self._by_stat('hp_copy'):
+            return original_max_hp(self,name,query_scope=query_scope)
+        if not populated:
+            base_hp=self.state.get('base_stats',{}).get(name,{}).get('hp',0.0)
+            return base_hp * (1.0 + 0.0 / 100.0) + 0.0
+        return indexed_max_hp(self,name,query_scope=query_scope,_hp_entries=populated[0])
     @wraps(original_notify)
     def notify(self,event,t,caster,*args,**kwargs):
         return execute(self,t,lambda:original_notify(self,event,t,caster,*args,**kwargs))
@@ -103,4 +134,5 @@ def install():
     BuffManager.notify=notify;BuffManager._activate=activate;BuffManager._dispatch_instant=dispatch
     BuffManager.tick=tick;BuffManager.register_damage_handler=register_damage;BuffManager.reset=reset
     BuffManager.sync_hp=sync_hp
+    BuffManager.effective_max_hp=effective_max_hp
     BuffManager._nikke_reference_health=True
