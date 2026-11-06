@@ -8,13 +8,13 @@ from l2_compile import compile_profiles, unpack
 HERE=pathlib.Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 CACHE=HERE/'l2_fast/.cache'
-FLAGS=['-O2','-std=c++17','-ffp-contract=off']
+FLAGS=['-pthread','-O2','-std=c++17','-ffp-contract=off']
 
 def build(wasm=False):
     sources=['l2.cpp','l2.h','cli.cpp'];folder=HERE/'l2_fast'
     if wasm:
         sys.path.insert(0,str(ROOT/'app'));from portable_wasm import toolchain, FLAGS as WASM_FLAGS
-        compiler,env=toolchain(ROOT);flags=list(WASM_FLAGS)+['-sEXPORTED_FUNCTIONS=["_l2_create","_l2_destroy","_l2_score_many","_alloc","_release","_l2_generate"]'];target='l2.wasm'
+        compiler,env=toolchain(ROOT);flags=list(WASM_FLAGS)+['-sEXPORTED_FUNCTIONS=["_l2_create","_l2_destroy","_l2_score_many","_alloc","_release","_l2_generate","_l2_enumerate"]'];target='l2.wasm'
     else:
         compiler=shutil.which('clang++')
         if not compiler:raise FileNotFoundError('clang++ unavailable')
@@ -84,6 +84,18 @@ class Score:
     def member_scores(self,squad):
         _,v=self.score_indices(self._indices([squad]),True);return dict(zip(squad,v))
     def __call__(self,squad):return self.score_many([squad])[0]
+
+class Entry(C.Structure):
+    _fields_=[('ids',C.c_uint32*5),('score',C.c_double)]
+class Counts(C.Structure):
+    _fields_=[('visited',C.c_uint64),('covered',C.c_uint64),('scored',C.c_uint64),('seconds',C.c_double)]
+def enumerate_top(score,roster,k=10000,threads=1,stride=1):
+    ids=(C.c_uint32*len(roster))(*roster);out=(Entry*k)();n=C.c_size_t();counts=Counts()
+    fn=score.lib.l2_enumerate_threads
+    fn.argtypes=[C.c_void_p,C.POINTER(C.c_uint32),C.c_size_t,C.c_size_t,C.c_uint32,C.c_uint32,C.POINTER(Entry),C.POINTER(C.c_size_t),C.POINTER(Counts)]
+    fn.restype=C.c_int
+    if fn(score.table,ids,len(roster),k,threads,stride,out,C.byref(n),C.byref(counts)):raise ValueError('invalid enumeration')
+    return dict(entries=[dict(indices=list(e.ids),score=e.score) for e in out[:n.value]],counts={name:getattr(counts,name) for name,_ in Counts._fields_})
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',choices=['build']);p.add_argument('--wasm',action='store_true');a=p.parse_args();print(build(a.wasm))

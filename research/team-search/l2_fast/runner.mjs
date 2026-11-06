@@ -4,11 +4,32 @@ import fs from 'node:fs';
 import {Worker,isMainThread,parentPort,workerData} from 'node:worker_threads';
 import {performance} from 'node:perf_hooks';
 export function load(wasm,table){
-  const e=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(wasm)),{env:{emscripten_notify_memory_growth(){}}}).exports;e._initialize();
+  let e; e=new WebAssembly.Instance(new WebAssembly.Module(fs.readFileSync(wasm)),{env:{emscripten_notify_memory_growth(){}},wasi_snapshot_preview1:{clock_time_get(clock,precision,p){if(clock!==0&&clock!==1)return 28;new DataView(e.memory.buffer).setBigUint64(p,BigInt(Math.floor((clock===0?Date.now():performance.now())*1e6)),true);return 0;}}}).exports;e._initialize();
   const raw=fs.readFileSync(table),n=Number(raw.readBigUInt64LE(8)),p=e.alloc(n*8);new Uint8Array(e.memory.buffer,p,n*8).set(raw.subarray(16,16+n*8));const t=e.l2_create(p,n);e.release(p);if(!t)throw Error('table load');return {e,t};
 }
 const args=process.argv.slice(2),opt=k=>args[args.indexOf(k)+1];
-if(isMainThread&&args.includes('--bench')){
+export function enumeratePartition(wasm,table,roster,k,partition,partitions,stride=1){
+  const {e,t}=load(wasm,table),ip=e.alloc(roster.length*4),op=e.alloc(k*32),np=e.alloc(4),cp=e.alloc(32);
+  new Uint32Array(e.memory.buffer,ip,roster.length).set(roster);
+  if(e.l2_enumerate(t,ip,roster.length,k,partition,partitions,stride,op,np,cp))throw Error('enumerate');
+  const count=new DataView(e.memory.buffer).getUint32(np,true),entries=[];
+  for(let i=0;i<count;i++){const v=new DataView(e.memory.buffer,op+i*32,32);entries.push({indices:Array.from({length:5},(_,j)=>v.getUint32(j*4,true)),score:v.getFloat64(24,true)});}
+  const v=new DataView(e.memory.buffer,cp,32),counts={visited:Number(v.getBigUint64(0,true)),covered:Number(v.getBigUint64(8,true)),scored:Number(v.getBigUint64(16,true)),seconds:v.getFloat64(24,true)};
+  for(const p of [ip,op,np,cp])e.release(p);e.l2_destroy(t);return {entries,counts};
+}
+const compare=(a,b)=>{if(a.score!==b.score)return b.score-a.score;for(let j=0;j<5;j++)if(a.indices[j]!==b.indices[j])return a.indices[j]-b.indices[j];return 0;};
+if(!isMainThread&&workerData.enumerate){
+  parentPort.postMessage(enumeratePartition(workerData.wasm,workerData.table,workerData.roster,workerData.k,workerData.partition,workerData.workers,workerData.stride));
+}else if(isMainThread&&args.includes('--enumerate')){
+  const workers=Number(opt('--workers')),k=args.includes('--k')?Number(opt('--k')):10000,roster=JSON.parse(fs.readFileSync(opt('--roster'),'utf8')),stride=args.includes('--stride')?Number(opt('--stride')):1,start=performance.now();
+  if(!Number.isInteger(workers)||workers<1||workers>256||!Number.isInteger(k)||k<1||!Number.isInteger(stride)||stride<1)throw Error('invalid enumeration options');
+  const results=await Promise.all(Array.from({length:workers},(_,partition)=>new Promise((resolve,reject)=>{
+    const w=new Worker(new URL(import.meta.url),{workerData:{enumerate:true,wasm:opt('--wasm'),table:opt('--table'),roster,k,partition,workers,stride}});
+    w.on('message',resolve);w.on('error',reject);w.on('exit',code=>{if(code)reject(Error('worker exit '+code));});
+  })));
+  const counts={visited:0,covered:0,scored:0,seconds:(performance.now()-start)/1000};for(const r of results)for(const key of ['visited','covered','scored'])counts[key]+=r.counts[key];
+  console.log(JSON.stringify({entries:results.flatMap(r=>r.entries).sort(compare).slice(0,k),counts,partition_seconds:results.map(r=>r.counts.seconds)}));
+}else if(isMainThread&&args.includes('--bench')){
   const workers=Number(opt('--workers')),count=Number(opt('--count')),started=performance.now();
   const barrier=new SharedArrayBuffer(8);
   const results=await Promise.all(Array.from({length:workers},(_,i)=>new Promise((resolve,reject)=>{

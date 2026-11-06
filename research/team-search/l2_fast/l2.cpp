@@ -207,3 +207,73 @@ extern "C" uint32_t l2_generate(const void*ptr,uint32_t seed,uint32_t*ids,size_t
     auto next=[&](){seed^=seed<<13;seed^=seed>>17;seed^=seed<<5;return seed;};
     for(size_t row=0;row<n;){unsigned mask=0;for(int i=0;i<5;){uint32_t x=next()%t.chars.size();bool duplicate=false;for(int j=0;j<i;j++)if(ids[row*5+j]==x)duplicate=true;if(!duplicate){ids[row*5+i++]=x;mask|=t.chars[x].stage;}}if(!covered||mask==7)row++;}return seed;
 }
+
+#include <chrono>
+#include <queue>
+#ifndef __EMSCRIPTEN__
+#include <thread>
+#endif
+namespace {
+bool better(const L2Entry&a,const L2Entry&b){
+    if(a.score!=b.score)return a.score>b.score;
+    return std::lexicographical_compare(a.ids,a.ids+5,b.ids,b.ids+5);
+}
+struct Better { bool operator()(const L2Entry&a,const L2Entry&b)const{return better(a,b);} };
+using Heap=std::priority_queue<L2Entry,vector<L2Entry>,Better>;
+void retain(Heap&heap,const L2Entry&e,size_t k){
+    if(heap.size()<k)heap.push(e);
+    else if(better(e,heap.top())){heap.pop();heap.push(e);}
+}
+void finish(Heap&heap,L2Entry*out,size_t*count){
+    *count=heap.size();for(size_t i=*count;i>0;i--){out[i-1]=heap.top();heap.pop();}
+}
+uint64_t choose(size_t n,unsigned k){uint64_t v=1;if(n<k)return 0;for(unsigned j=1;j<=k;j++)v=v*(n-j+1)/j;return v;}
+bool covered(const Table&t,const uint32_t*ids){
+    const Char*c[5];for(int i=0;i<5;i++)c[i]=&t.chars[ids[i]];
+    int mask=0;
+    for(int i=0;i<5;i++){
+        int stage=c[i]->stage;
+        if(t.switches&2)for(const auto&r:c[i]->mechanics)
+            if(r.kind==1&&condition(r.condition,i,c))stage=1<<(int(r.value)-1);
+        mask|=stage;
+    }return mask==7;
+}
+}
+extern "C" int l2_enumerate(const void*ptr,const uint32_t*roster,size_t n,size_t k,
+    uint32_t part,uint32_t parts,uint32_t stride,L2Entry*out,size_t*out_n,L2Counts*counts){
+    if(!ptr||!roster||!out||!out_n||!counts||n<5||n>1000||!k||!parts||part>=parts||!stride)return -1;
+    const Table&t=*static_cast<const Table*>(ptr);
+    vector<uint32_t> r(roster,roster+n);std::sort(r.begin(),r.end());
+    for(size_t i=0;i<n;i++)if(r[i]>=t.chars.size()||(i&&r[i]==r[i-1]))return -1;
+    auto start=std::chrono::steady_clock::now();*counts={};Heap heap;
+    for(size_t a=part;a+4<n;a+=parts){
+        // Global lexicographic rank, independent of partition count.
+        uint64_t rank=choose(n,5)-choose(n-a,5);
+        for(size_t b=a+1;b+3<n;b++)for(size_t c=b+1;c+2<n;c++)
+        for(size_t d=c+1;d+1<n;d++)for(size_t e=d+1;e<n;e++,rank++){
+            counts->visited++;if(rank%stride)continue;
+            L2Entry entry{{r[a],r[b],r[c],r[d],r[e]},0.};
+            if(!covered(t,entry.ids))continue;counts->covered++;
+            score(t,entry.ids,entry.score,nullptr);counts->scored++;retain(heap,entry,k);
+        }
+    }
+    finish(heap,out,out_n);counts->seconds=std::chrono::duration<double>(std::chrono::steady_clock::now()-start).count();return 0;
+}
+extern "C" int l2_enumerate_threads(const void*t,const uint32_t*r,size_t n,size_t k,
+    uint32_t threads,uint32_t stride,L2Entry*out,size_t*out_n,L2Counts*counts){
+    if(!threads||threads>256||!k||!out||!out_n||!counts)return -1;
+#ifdef __EMSCRIPTEN__
+    if(threads!=1)return -1;
+    return l2_enumerate(t,r,n,k,0,1,stride,out,out_n,counts);
+#else
+    auto start=std::chrono::steady_clock::now();
+    vector<vector<L2Entry>> results(threads,vector<L2Entry>(k));vector<size_t> sizes(threads);
+    vector<L2Counts> stats(threads);vector<int> rc(threads);vector<std::thread> workers;
+    for(uint32_t i=0;i<threads;i++)workers.emplace_back([&,i](){rc[i]=l2_enumerate(t,r,n,k,i,threads,stride,results[i].data(),&sizes[i],&stats[i]);});
+    for(auto&w:workers)w.join();*counts={};Heap heap;
+    for(uint32_t i=0;i<threads;i++){
+        if(rc[i])return rc[i];counts->visited+=stats[i].visited;counts->covered+=stats[i].covered;counts->scored+=stats[i].scored;
+        for(size_t j=0;j<sizes[i];j++)retain(heap,results[i][j],k);
+    }finish(heap,out,out_n);counts->seconds=std::chrono::duration<double>(std::chrono::steady_clock::now()-start).count();return 0;
+#endif
+}

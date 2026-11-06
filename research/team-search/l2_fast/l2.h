@@ -27,3 +27,16 @@ void release(void* p);
 // Deterministic xorshift32 streaming workload; seed must be nonzero. Rejection
 // sampling of distinct ordered members, optionally requiring cycle coverage.
 extern "C" uint32_t l2_generate(const void* table,uint32_t seed,uint32_t* squads,size_t count,int covered);
+
+// Canonical order is ascending table index. Partitions own first-position
+// offsets modulo partitions. stride selects lexicographic subset rank % stride
+// == 0 for explicitly sampled benchmarks; stride=1 is exhaustive.
+struct L2Entry { uint32_t ids[5]; double score; };
+struct L2Counts { uint64_t visited, covered, scored; double seconds; };
+extern "C" int l2_enumerate(const void* table,const uint32_t* roster,size_t n,
+    size_t k,uint32_t partition,uint32_t partitions,uint32_t stride,
+    L2Entry* output,size_t* output_count,L2Counts* counts);
+// Native threads use the same partition primitive as independent WASM workers.
+extern "C" int l2_enumerate_threads(const void* table,const uint32_t* roster,
+    size_t n,size_t k,uint32_t threads,uint32_t stride,L2Entry* output,
+    size_t* output_count,L2Counts* counts);
