@@ -11,8 +11,11 @@ from l2_score import Score
 def save(path,value):path.write_text(json.dumps(value,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
 
 
-def evaluate(out):
-    started=time.perf_counter();score=Score.load(out/'profiles.json')
+def evaluate(out,fast=False):
+    scorer=Score
+    if fast:
+        from l2_fast import Score as scorer
+    started=time.perf_counter();score=scorer.load(out/'profiles.json')
     rows=s9.valid(s9.read(s9.HERE/'s9-dataset.jsonl'));random.Random(45).shuffle(rows)
     train=rows[:10000];holdout=rows[10000:12000];external=s9.valid(s9.read(s9.HERE/'s1-results.jsonl'))
     old=json.loads((s9.SCRATCH/'part-c.json').read_text())
@@ -58,7 +61,7 @@ def evaluate(out):
     stopped=metrics['L2']['holdout']['spearman']<.5
     result=dict(metrics=metrics,stop_rule_triggered=stopped,
         M5='Not run: optional learned correction; L2 remains wholly profile-based.',
-        speed=dict(host=socket.gethostname(),implementation='pure Python',n_per_repeat=len(timed),repeats=5,ns_per_squad=timings,median_ns_per_squad=statistics.median(timings),checksum=checksum,includes='recipient selection + static burst cycle + all bucket products and dependencies',numpy='not implemented'),
+        speed=dict(host=socket.gethostname(),implementation='native C++' if fast else 'pure Python',n_per_repeat=len(timed),repeats=5,ns_per_squad=timings,median_ns_per_squad=statistics.median(timings),checksum=checksum,includes='recipient selection + static burst cycle + all bucket products and dependencies',numpy='not implemented'),
         residual=dict(method='Each squad absolute log error is split equally among its five membership indicators; these are associations, not causal damage attribution.',top20=[dict(character=n,**residual[n]) for n in ranked],characters=residual,
                       largest_errors=sorted(cases,key=lambda v:-abs(v['log_error']))[:20],by_flag=flags),
         prediction_seconds=prediction_seconds,wall_seconds=time.perf_counter()-started,
@@ -163,5 +166,5 @@ def report(out):
     (out.parent/'s18-report.md').write_text('\n'.join(lines)+'\n')
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',choices=['evaluate','report']);p.add_argument('--out',type=pathlib.Path,required=True);a=p.parse_args()
-    (evaluate if a.action=='evaluate' else report)(a.out)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',choices=['evaluate','report']);p.add_argument('--out',type=pathlib.Path,required=True);p.add_argument('--fast',action='store_true',help='opt in to the built native L2 scorer');a=p.parse_args()
+    evaluate(a.out,fast=a.fast) if a.action=='evaluate' else report(a.out)

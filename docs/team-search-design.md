@@ -233,3 +233,13 @@ S1 の全206キャラを未改変CPU参照の外部観測でプロファイル�
 S9 holdout 1,956部隊の Spearman は L2=0.916285、M0=0.063097、M2=0.949117。L2の真の上位100の再現率は K=5%で61%、K=20%で99%。S1外部2,406部隊は Spearman=0.913109、上位100のK=20%再現率95%。停止基準0.5は非該当。真値を用いた調整・M5学習は行っていない。
 
 純Pythonは約 147,218 ns/部隊（JSON読込を除き、対象選択・静的バースト周期込み）。設計の100ns想定や安全な枝刈りは未実証。残差の大きい所属関連はティア、アニス：スター、シンデレラなどで、条件付き周期・補充・スタック・対象選択を次段階で切り分ける必要がある。詳細・全ランキング表・キャラ別被覆表は証拠ディレクトリ `team-search-v1/s18-report.md` と `s18/evaluation.json`。製品・CPU参照の変更はない。
+
+## S19: L2 の C++ / WASM 高速化（2026-11-07）
+
+`l2_compile.py` は S18 JSON を単一の version 1 フラット表へ変換する。自身の基準バケット、武器定数、付与元ATK、対象opcodeとメタデータを事前解決し、同じ `l2_fast/l2.cpp` を native shared library / CLI と standalone WASM にビルドする。`l2_fast.py build [--wasm]` は既存clang++/emsdkを使う内容アドレス付きignored cache。Python binding は明示ビルドが必要で、fallbackはない。`evaluate_s18.py evaluate --fast --out ...` は opt-in のみ。
+
+Python 3.12 の `sum` は補償和であり、明示的な `+=` と `math.prod` は左から計算する。この差、付与元・buff・amount順、対象集合の重複除去と自身除外、静的cycleとRed Hood規則を維持した。S9全11,956、S1全2,460行（S18外部2,406＋CPU真値54）、seed固定random 200,000、全対象opcodeの合成258部隊で、native binding / CLI / WASM とoracleのメンバー値・合計をraw binary64比較し差分0。S18の全指標・残差・splitは完全一致、予測JSONはbyte一致。
+
+Macの10M有効段階・順序付きrandomでnative単一thread中央値980 ns/部隊、10 threadsの集約kernel throughputは175 ns/部隊。WASMは1 worker 1,140 ns、10 workers 208 ns。Python 512部隊は152,440 ns。native単一threadは約156倍だが100 ns想定には約9.8倍の隔たりがあり、S9小標本の中央値は1,014 nsだった。150体の固定3人＋残り147体から順序付き2人を全列挙した21,462部隊はnative単一thread616 nsだが、9,120部隊は段階不足でcycleを省略するため速さの一因になる。増分演算による再利用は未実装。
+
+150体の C(150,5)=591,600,030 は代表順序1つだけならnative 10 threadsでkernel約104秒の投影。順序はburst優先・位置対象・浮動小数点の加算順に影響するため、同値性を未証明のまま全順序を調べると120倍、約3.46時間（WASM 10 workers約4.10時間）。これは全列挙の実測ではなく、top-K保持等も含まない。丸めを維持するprefix/suffix再計算、配置同値類、L2上界による枝刈りが引き続き必要。精度・CPU参照・製品には変更なし。全測定（修正前harnessの測定も保存）、再現手順、制約は `team-search-v1/s19-report.md` と `s19/` に記録する。
