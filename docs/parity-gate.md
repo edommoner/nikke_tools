@@ -141,7 +141,11 @@ CPU spot checks and `previous_code_payload_equal` compare payload digests after
 excluding only the top-level `evaluator` git-provenance key. All other fields,
 including nested `evaluator` keys, remain significant. Stored payloads retain
 provenance, and `payload_sha256`, cache integrity and exact-copy alias checks
-continue to cover the full payload. Native-vs-CPU `payload_differences` is unchanged.
+continue to cover the full payload. The gate's native-vs-cached-CPU comparison
+also removes only top-level `evaluator` from copies before calling the unchanged
+product `payload_differences`. Each row records `provenance_differs`, and the
+summary counts these rows, so provenance differences remain visible without
+causing parity mismatches. The product's same-process CPU verification is unchanged.
 
 This is conservative selection under a static Python source model, not a proof
 for dynamic `exec`/`eval`, third-party or interpreter changes. Changes to those

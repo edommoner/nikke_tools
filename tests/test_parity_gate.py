@@ -150,6 +150,40 @@ class CorpusTests(unittest.TestCase):
         self.assertEqual(inventory['damageGauge']['stride'], L['DAMAGE_DEFINITION_WORDS'])
         self.assertEqual(inventory['healthScaling']['stride'], L['HEALTH_DEFINITION_WORDS'])
 
+class ResultTests(unittest.TestCase):
+    def test_native_cached_cpu_provenance(self):
+        cpu = dict(total_damage=123, members=[{'evaluator': 'nested'}],
+                   evaluator={'commit': 'old'}, compute={'backend': 'cpu'})
+        native = dict(cpu, evaluator={'commit': 'current'}, compute={'backend': 'native_detail'})
+        variants = [({}, [], True),
+                    ({'total_damage': 456}, ['total_damage'], True),
+                    ({'members': [{'evaluator': 'changed'}], 'total_damage': 456},
+                     ['members', 'total_damage'], True),
+                    ({'evaluator': cpu['evaluator']}, [], False)]
+        for changes, fields, provenance in variants:
+            with self.subTest(changes=changes):
+                payload = dict(native, **changes)
+                original_native, original_cpu = copy.deepcopy(payload), copy.deepcopy(cpu)
+                result = {}
+                gate.finish_result(result, payload, cpu, {'status': 'matched'})
+                self.assertEqual(result['status'], 'mismatched' if fields else 'matched')
+                self.assertEqual(result['differing_fields'], fields)
+                self.assertEqual(result['provenance_differs'], provenance)
+                self.assertEqual(result['regression'], bool(fields))
+                self.assertEqual(payload, original_native)
+                self.assertEqual(cpu, original_cpu)
+
+    def test_missing_provenance_is_visible(self):
+        for native_evaluator, cpu_evaluator in (({}, {'evaluator': None}),
+                                                 ({'evaluator': None}, {}), ({}, {})):
+            with self.subTest(native=native_evaluator, cpu=cpu_evaluator):
+                result = {}
+                gate.finish_result(result, dict(compute={'backend': 'native_detail'}, **native_evaluator),
+                                   cpu_evaluator, None)
+                self.assertEqual(result['status'], 'matched')
+                self.assertEqual(result['provenance_differs'], native_evaluator != cpu_evaluator)
+
+
 class CoverageTests(unittest.TestCase):
     OLD = 'K = 1\ndef covered(x=1):\n    return x + 1\ndef other():\n    return 2\nclass C:\n    a = 1\n    def method(self):\n        return 3\n'
 

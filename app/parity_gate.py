@@ -722,6 +722,7 @@ def _run(args):
                    cache_size=dict(entries=len(sizes), total_bytes=sum(sizes), min_bytes=min(sizes, default=0), max_bytes=max(sizes, default=0)),
                    min_free=minfree, peak_additional_bytes=required, per_character=chars, squads=ordered)
     summary.update(fresh=sum(r['cpu_evaluations'] and not r['spot_checked'] for r in ordered),
+                   provenance_differs=sum(r.get('provenance_differs', False) for r in ordered),
                    coverage_reused=sum(r['reference_status'] == 'coverage-reused' for r in ordered),
                    spot_checked=sum(r['spot_checked'] for r in ordered),
                    spot_check_failures=sum(r['spot_check_failure'] for r in ordered),
@@ -756,6 +757,8 @@ def row_job(row, identity, previous, inherited_identity, full, cache, native_dir
 
 def finish_result(result, native, cpu, previous):
     from portable_detail import payload_differences
+    result['provenance_differs'] = (('evaluator' in native) != ('evaluator' in cpu)
+                                    or native.get('evaluator') != cpu.get('evaluator'))
     fallback = native.get('cpu_fallback_pending')
     backend = native.get('compute', {}).get('backend')
     if fallback:
@@ -764,7 +767,9 @@ def finish_result(result, native, cpu, previous):
     elif backend != 'native_detail':
         status, differences = 'cpu-fallback', []
     else:
-        differences = sorted(payload_differences(native, cpu))
+        differences = sorted(payload_differences(
+            {key: value for key, value in native.items() if key != 'evaluator'},
+            {key: value for key, value in cpu.items() if key != 'evaluator'}))
         status = 'mismatched' if differences else 'matched'
     result.update(status=status, differing_fields=differences,
                   regression=(status != 'matched' and (previous is None or previous['status'] == 'matched')),
