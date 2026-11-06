@@ -12,7 +12,7 @@ export function elementIconUrl(value){return Object.hasOwn(elementIcons,value)?`
 export function burstIconUrl(value){return ['1','2','3'].includes(value)?`${iconBase}icon-burst-${value}.png`:null;}
 export function matchesRosterFilters(meta,filters){
   return Object.entries(filters).every(([category,selected])=>{
-    if(!selected.size)return true;
+    if(category==='group'||!selected.size)return true;
     const value=meta?.[category];
     if(category==='burst')return value==='A'||(['1','2','3'].includes(value)&&selected.has(value));
     const known=category==='manufacturer'?Object.hasOwn(manufacturerLabels,value):category==='element'?Object.hasOwn(elementLabels,value):category==='weapon'&&weapons.includes(value);

@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import unittest
 
-from app.synergy_profile import TIER_B_TRAITS, build_profiles
+from app.synergy_profile import TIER_B_TRAITS, build_profiles, build_damage_groups
 
 
 def effect(target='self', stat='atk_pct', **extra):
@@ -99,6 +99,71 @@ class SynergyProfileTests(unittest.TestCase):
         self.assertTrue(any(e['tier'] == 'C' and e['stat'] == 'atk_dmg_pct' and e['selector']['kind'] == 'all' for e in profiles['헬름']['provides']))
         traits = {t for p in profiles.values() for t in p['traits']}
         self.assertTrue(set(TIER_B_TRAITS.values()) <= traits)
+
+
+
+class DamageGroupTests(unittest.TestCase):
+    def test_mapping_and_scopes(self):
+        cases = [('normal_atk_dmg_pct', '1'), ('atk_pct', '2'),
+                 ('atk_caster_based_pct', '2'), ('atk_from_hp_pct', '2'),
+                 ('def_ignore_pct', '2'), ('crit_rate', '3'), ('crit_dmg', '3'),
+                 ('normal_atk_crit_rate', '3'), ('core_dmg_pct', '3'),
+                 ('charge_dmg_pct', '4'), ('charge_dmg_mag_pct', '4'),
+                 ('atk_dmg_pct', '5'), ('burst_dmg_pct', '5'), ('burst_dmg_aoe_pct', '5'),
+                 ('burst_dmg_single_pct', '5'), ('pierce_dmg_pct', '5'),
+                 ('armor_break_dmg_pct', '5'), ('dot_dmg_pct', '5'),
+                 ('projectile_explosion_dmg_pct', '5'), ('projectile_attachment_dmg_pct', '5'),
+                 ('sequential_dmg_pct', '5'), ('part_dmg_pct', '5'), ('intercept_dmg_pct', '5'),
+                 ('split_dmg_pct', '6'), ('element_bonus_pct', '7'), ('reload_speed_pct', 'count')]
+        for stat, group in cases:
+            with self.subTest(stat=stat):
+                out = build_damage_groups({'x': [effect('all_allies', stat)]}, {})['x']['effects'][0]
+                self.assertEqual((out['group'], out['scope']), (group, 'ally'))
+                self.assertEqual(out['caster_based'], stat == 'atk_caster_based_pct')
+        for target, scope in [('self', 'self'), (['self', 'self'], 'self'),
+                              (['self', 'allies_top_atk:2'], 'ally'), ('self|allies_weapon:SG', 'ally'),
+                              ('receiver', 'ally')]:
+            out = build_damage_groups({'x': [effect(target)], 'receiver': []}, {})['x']['effects']
+            self.assertEqual(out[0]['scope'], scope)
+        for target in ['target', 'same_target:x', 'enemies_top_hp:2', 'all_enemies', 'boss']:
+            for stat, group in [('def_pct', '2'), ('def_caster_based_pct', '2'), ('received_dmg_pct', '6')]:
+                out = build_damage_groups({'x': [effect(target, stat, polarity='harmful')]}, {})['x']['effects'][0]
+                self.assertEqual((out['scope'], out['group']), ('enemy', group))
+                self.assertEqual(out['caster_based'], stat == 'def_caster_based_pct')
+
+    def test_skips_and_value_projection(self):
+        skipped = [effect('self', 'received_dmg_pct'), effect('all_allies', polarity='harmful'),
+                   effect('target', 'received_dmg_pct'), effect('self', 'def_pct'),
+                   effect('self', 'projectile_dmg_pct'), effect('self_cover'),
+                   effect('all_projectiles'), effect('target', polarity='harmful'),
+                   dict(type='damage', stat='atk_pct', target='self')]
+        self.assertEqual(build_damage_groups({'x': skipped}, {})['x']['effects'], [])
+        values = {'1': 1, '10': 10}
+        source = effect(values=values, max_stack=3, favorite=2)
+        fixed = effect(fixed_value=-4, max_stack=0)
+        unknown = effect(fixed_value='unknown', max_stack=True)
+        profiles = build_damage_groups({'x': [source, fixed, unknown]}, {'x': {'favorite_slots': [2, 1]}})
+        out = profiles['x']['effects']
+        self.assertEqual(profiles['x']['favorite_slots'], [2, 1])
+        self.assertEqual(out[0]['values'], values)
+        self.assertIsNot(out[0]['values'], values)
+        self.assertEqual((out[0]['max_stack'], out[0]['favorite']), (3, 2))
+        self.assertEqual((out[1]['fixed'], out[1]['max_stack'], out[1]['favorite']), (-4, 1, None))
+        self.assertNotIn('values', out[2]); self.assertNotIn('fixed', out[2])
+        self.assertEqual(out[2]['max_stack'], 1)
+        instant = dict(type='instant', target='self', stat='burst_reentry')
+        self.assertEqual(build_damage_groups({'x': [instant]}, {})['x']['effects'][0]['group'], 'count')
+
+    def test_real_damage_groups(self):
+        data = Path(__file__).resolve().parents[1] / 'research/upstream/nikke-calc-master/data'
+        profiles = build_damage_groups(json.loads((data / 'parsed_skills.json').read_text()),
+                                       json.loads((data / 'parsed_nikke.json').read_text()))
+        self.assertTrue(all(e['group'] in {'1','2','3','4','5','6','7','count'}
+                            for p in profiles.values() for e in p['effects']))
+        crown = profiles['크라운']['effects']
+        self.assertTrue(any(e['stat'] == 'atk_caster_based_pct' and e['group'] == '2'
+                            and e['scope'] == 'ally' and e['caster_based'] for e in crown))
+        self.assertTrue(any(e['stat'] == 'reload_speed_pct' and e['group'] == 'count' for e in crown))
 
 
 if __name__ == '__main__':
