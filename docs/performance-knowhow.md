@@ -217,3 +217,41 @@ stackedValue 9.2%。これは OS profiler が成功した証拠ではなく、si
 だけに絞る変更はその副作用監査なしでは不可。値や eligibility のフレーム間キャッシュは提案していない。ここでは未実装。
 
 全文・コマンド・結果・OS 制約: `team-search-v1/s13-report.md` と `s13/`。Python 2,642 run（2,640 pass、旧 GPU fixture の source hash 比較 2 fail、error/skip 0）、Node 169 pass、fail/skip 0。
+
+
+## 12. S16: browser WASM も hardware binary64 (2026-11-07)
+
+`portable_wasm.build_product` は native host と同じ `_build_cpp(..., native_binary64=True)` を選ぶ。
+`PORTABLE_NATIVE_BINARY64` の名前、Slang ソースと native の生成 C++ bytes は維持し、既定の `build()` は整数 soft-float の oracle のまま。
+§7 の旧 GPU 向け制約に対し、S13 の native CPU に加え、この単位で WASM の hardware binary64 を検証した。
+WASM の IEEE nearest/even、gradual underflow、ordered comparisons と既存 NaN 正規化を使う。
+`-O2 -std=c++17 -ffp-contract=off` は維持し、SIMD・relaxed SIMD・fast-math・O3 は追加しない。
+C++ bytes が異なるため WASM は別 identity。通常 entry は旧 451,078 → 新 405,901 bytes、旧 cache は残す。
+
+同じ S13 差分 harness を同じ em++/production flags で WASM 化し、node で各二項演算 41,261,564 回、
+FromI64 61,261,564 回を比較して差 0。各 20M の一様ビット対と極端・近接 exponent 対、独立 20M int64、
+special/halfway/underflow/overflow/subnormal/整数境界を含む。`test_wasm_binary64.py` は toolchain があれば
+この完全件数を実行し、なければ skip する。
+
+S1 全 2,460 件を parity gate と同じ body から deferred/static-only で準備し、旧 soft / 新 hardware WASM を
+node worker_threads で実行。**2,460/2,460 readback bytes 一致、rc 全 0、未対応 0**。
+全 28 source 系統、606/836、最大 41,690,688 bytes の ammo 系統を含む 344 件も native と全 bytes 一致。
+28 系統すべての hardware WASM C++ digest が native receipt と一致する。CPU 参照実行は行わない。
+readback はメモリ内で照合・破棄し、保存するのは per-row SHA/length/status。入力は所有一時領域で gzip 化し片付ける。
+
+S9 native 成功の先頭 256 件、S1 条件。各 worker 数で soft/hardware/hardware/soft の A/B/B/A、除外なし。
+準備・ビルドを除き、worker 起動、WASM 初期化、入力展開/hash、alloc/run、readback hash、解放・終了までの wall。
+全 run の rc と readback digest を事前の byte 比較結果に照合する。Python 全 tests・S1 照合との重複なし。
+
+| Node workers | 旧 soft ms/部隊 (2回) | 新 hardware ms/部隊 (2回) | 平均 wall 減 |
+|---:|---:|---:|---:|
+| 1 | 539.319 / 553.804 | 352.029 / 373.242 | 33.65% |
+| 10 | 150.705 / 150.963 | 106.594 / 107.556 | 29.01% |
+
+
+`research/team-search/bench_wasm_prepare.py --mode benchmark --scratch PATH` が固定セット準備・比較・全計測、
+`bench_wasm.mjs --manifest FILE --workers N --variant soft|hard|compare` が実行部分。
+**これは Mac の node/V8 測定。Chrome での実 worker・転送・圧縮・画面を含む測定は引き続き必要**。
+Python 全検査は 2644 pass、fail/error/skip 0。S13 の旧 source-pin 失敗はこの HEAD では再発せず、
+S16 で pin は変更していない。Node は 169 pass。全件の timing、再現環境、全 test log、容量監視と後片付けは proofs の
+`team-search-v1/s16-report.md` と `s16/` に記録する。

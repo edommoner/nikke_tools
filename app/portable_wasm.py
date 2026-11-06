@@ -62,8 +62,10 @@ def build_wasm(root,cpp):
 
 
 def build_product(root,source):
-    from portable_slang_generation import build,source_hashes
-    outputs,hashes=build(root,source,'portableEvents',target='cpp')
+    from portable_slang_generation import _build_cpp,source_hashes
+    # Use the same explicit hardware variant as the native host. Public build()
+    # remains the integer oracle; changed C++ bytes select a separate WASM cache.
+    outputs,hashes=_build_cpp(root,source,'portableEvents',native_binary64=True)
     wasm,receipt=build_wasm(root,outputs['cpp'])
     if source_hashes(root,source)!=hashes:raise RuntimeError('Shared sources changed during browser build')
     return wasm,receipt
