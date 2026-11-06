@@ -8,6 +8,7 @@ import shutil
 import subprocess
 import tempfile
 
+from portable_file_identity import file_value, file_digest
 from contextvars import ContextVar
 HOST_THREADS=ContextVar('native_host_threads',default=None)
 
@@ -41,10 +42,9 @@ def cpu_brand():
 def build_host(root,cpp):
     compiler=clang_compiler()
     if not compiler:raise RuntimeError('clang++ is unavailable')
-    version=subprocess.check_output([compiler,'--version'],timeout=10)
+    version=file_value(compiler, 'clang-version', lambda p: subprocess.check_output([str(p),'--version'],timeout=10))
     source=root/'scripts/native-product-host.cpp'
-    generated=cpp.read_bytes();host_source=source.read_bytes()
-    identity_data=dict(cpp_sha256=hashlib.sha256(generated).hexdigest(),host_sha256=hashlib.sha256(host_source).hexdigest(),
+    identity_data=dict(cpp_sha256=file_digest(cpp),host_sha256=file_digest(source),
         compiler_version=version.decode('utf-8','replace'),flags=list(FLAGS))
     identity=hashlib.sha256(json.dumps(identity_data,sort_keys=True,separators=(',',':')).encode()).hexdigest()
     directory=root/'research/portable-build/native'/identity;directory.mkdir(parents=True,exist_ok=True)
@@ -56,10 +56,12 @@ def build_host(root,cpp):
         fcntl.flock(lock,fcntl.LOCK_EX)
         if executable.is_file() and receipt.is_file():
             saved=json.loads(receipt.read_text())
-            if saved['identity']==identity and saved['host_binary_sha256']==hashlib.sha256(executable.read_bytes()).hexdigest():return executable,dict(saved,cache_hit=True)
+            if saved['identity']==identity and saved['host_binary_sha256']==file_digest(executable):return executable,dict(saved,cache_hit=True)
         with tempfile.TemporaryDirectory(prefix='build-',dir=directory) as tmp:
             tmp=Path(tmp);kernel=tmp/'kernel.cpp';host=tmp/'host.cpp';binary=tmp/'host'
-            kernel.write_bytes(generated);host.write_bytes(host_source)
+            kernel.write_bytes(cpp.read_bytes());host.write_bytes(source.read_bytes())
+            if file_digest(kernel)!=identity_data['cpp_sha256'] or file_digest(host)!=identity_data['host_sha256']:
+                raise RuntimeError('Native sources changed during build')
             command=[compiler,*FLAGS,'-DKERNEL_FILE="'+str(kernel)+'"',str(host),'-o',str(binary)]
             process=subprocess.run(command,capture_output=True,text=True,timeout=300)
             if process.returncode:raise RuntimeError(process.stderr or process.stdout)

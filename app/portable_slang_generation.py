@@ -3,18 +3,43 @@ import hashlib,json,os,platform,re,subprocess,tempfile
 from pathlib import Path
 
 
+from portable_file_identity import file_value, file_digest, stamp
+from threading import RLock
+
+_source_cache = {}
+_source_lock = RLock()
+
+
 def source_hashes(root,source):
-    found = {}
-    def visit(path):
-        key = path.relative_to(root).as_posix()
-        if key in found:
-            return
-        raw = path.read_bytes()
-        found[key] = hashlib.sha256(raw).hexdigest()
-        for include in re.findall(rb'^\s*#include\s+"([^"]+)"', raw, re.M):
-            visit((path.parent/include.decode()).resolve())
-    visit(root/source)
-    return found
+    # Remember every lexical include edge as well as the resolved file. A
+    # retargeted symlink must invalidate the graph even if its old target lives.
+    root = Path(os.fspath(root))
+    cache_key = (str(root.absolute()), str(source))
+    with _source_lock:
+        saved = _source_cache.get(cache_key)
+        if saved is not None and all(stamp(p) == st for p, st in saved[0]):
+            return dict(saved[1])
+        requested_source = root/source
+        visited = {requested_source: stamp(requested_source)}
+        root = root.resolve()
+        found = {}
+        def visit(path):
+            visited[path] = stamp(path)
+            path = path.resolve()
+            visited[path] = stamp(path)
+            key = path.relative_to(root).as_posix()
+            if key in found:return
+            def read(p):
+                raw = p.read_bytes()
+                return hashlib.sha256(raw).hexdigest(), tuple(re.findall(rb'^\s*#include\s+"([^"]+)"', raw, re.M))
+            digest, includes = file_value(path, 'slang-includes', read)
+            found[key] = digest
+            for include in includes:visit(path.parent/include.decode())
+        visit(root/source)
+        if any(stamp(p) != st for p, st in visited.items()):
+            raise RuntimeError('Shared sources changed during build; discard generated outputs')
+        _source_cache[cache_key] = (tuple(visited.items()), dict(found))
+        return found
 
 def validate_counter_snapshots(generated):
     """Reject known lossy lowering before either backend can execute it.
@@ -43,8 +68,8 @@ CPP_FLAGS=('-target','cpp','-fp-mode','precise','-line-directive-mode','none')
 
 
 def cpp_compiler_identity(compiler):
-    return dict(sha256=hashlib.sha256(compiler.read_bytes()).hexdigest(),
-        version=subprocess.check_output([str(compiler),'-version'],stderr=subprocess.STDOUT,timeout=10).decode('utf-8','replace'))
+    return dict(file_value(compiler, 'slang-identity', lambda p: dict(sha256=file_digest(p),
+        version=subprocess.check_output([str(p),'-version'],stderr=subprocess.STDOUT,timeout=10).decode('utf-8','replace'))))
 
 
 def _build_cpp(root,source,entry):
@@ -59,15 +84,18 @@ def _build_cpp(root,source,entry):
     with (directory/'build.lock').open('a') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX)
         try:
-            saved=json.loads(receipt.read_text());raw=output.read_bytes()
-            hit=bool(raw) and saved==dict(identity=identity,**identity_data,cpp_sha256=hashlib.sha256(raw).hexdigest())
+            saved=json.loads(receipt.read_text())
+            hit=output.stat().st_size>0 and saved==dict(identity=identity,**identity_data,cpp_sha256=file_digest(output))
         except (OSError,ValueError):hit=False
         if not hit:
             process=subprocess.run([str(compiler),str(root/source),'-entry',entry,*CPP_FLAGS],capture_output=True,timeout=90)
             if process.returncode:raise RuntimeError(process.stderr.decode('utf-8','replace'))
             raw=process.stdout
             if not raw:raise RuntimeError('Empty Slang C++ output')
-        validate_counter_snapshots(raw.decode('utf-8'))
+        if hit:
+            file_value(output, 'counter-snapshots', lambda p: validate_counter_snapshots(p.read_text(encoding='utf-8')))
+        else:
+            validate_counter_snapshots(raw.decode('utf-8'))
         if hashes!=source_hashes(root,source):raise RuntimeError('Shared sources changed during build; discard generated outputs')
         if not hit:
             saved=dict(identity=identity,**identity_data,cpp_sha256=hashlib.sha256(raw).hexdigest())

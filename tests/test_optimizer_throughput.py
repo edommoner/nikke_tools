@@ -37,6 +37,10 @@ class CppCache(unittest.TestCase):
             paths=[self.build()[0]['cpp']]
             for mutate in [lambda:(self.root/'dep.slang').write_text('// changed dependency'),lambda:self.compiler.write_bytes(b'compiler2')]:
                 mutate();paths.append(self.build()[0]['cpp'])
+            # Compiler version is a file-derived fact: changing a mock alone
+            # does not change the executable. A new file stamp must re-query it.
+            st=self.compiler.stat()
+            os.utime(self.compiler,ns=(st.st_atime_ns,st.st_mtime_ns+1))
             with patch.object(generation.subprocess,'check_output',return_value=b'v2'):paths.append(self.build()[0]['cpp'])
             paths.append(self.build('other')[0]['cpp'])
             with patch.object(generation,'CPP_FLAGS',(*generation.CPP_FLAGS,'-g0')):paths.append(self.build()[0]['cpp'])
@@ -52,11 +56,16 @@ class CppCache(unittest.TestCase):
 
     def test_hit_still_rechecks_source_and_generated_guard(self):
         with self.harness():
-            self.build()
+            output=self.build()[0]['cpp']
             hashes=generation.source_hashes(self.root,'entry.slang')
             with patch.object(generation,'source_hashes',side_effect=[hashes,{'x':'b'}]),self.assertRaisesRegex(RuntimeError,'sources changed'):self.build()
             self.assertEqual(self.calls,1)  # The mutation was detected on a cache hit.
-            with patch.object(generation,'validate_counter_snapshots',side_effect=ValueError('guard')),self.assertRaisesRegex(ValueError,'guard'):self.build()
+            with patch.object(generation,'validate_counter_snapshots',side_effect=ValueError('guard')) as guard:
+                self.build();guard.assert_not_called()  # Unchanged validated bytes hit.
+                st=output.stat()
+                os.utime(output,ns=(st.st_atime_ns,st.st_mtime_ns+1))
+                with self.assertRaisesRegex(ValueError,'guard'):self.build()
+                guard.assert_called_once()  # A changed stamp revalidates even identical bytes.
     def test_concurrent_identical_publish_generates_once(self):
         with self.harness(),concurrent.futures.ThreadPoolExecutor(4) as pool:
             rows=list(pool.map(lambda _:self.build(),range(4)))

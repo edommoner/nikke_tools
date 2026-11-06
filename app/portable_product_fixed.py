@@ -16,8 +16,10 @@ def lower(prepared,*,manual_posture=False):
     regen=[c.get('burst_regen_time',2.) for c in prepared['chars']]
     if any(type(v) not in (int,float) or not math.isfinite(v) or not 0<=v<=180 for v in [first,*regen]):
         raise UnsupportedPortable('Fixed burst delays require finite binary64 seconds in [0,180]')
-    lowered=copy.deepcopy(prepared)
-    lowered['policies']['config']['burst_gauge_mode']='accumulate'
+    # Only this config field is lowered. The remaining graph is read-only to
+    # this adapter and retains its original identities.
+    lowered=dict(prepared,policies=dict(prepared['policies'],
+        config=dict(prepared['policies']['config'],burst_gauge_mode='accumulate')))
     return lowered,(first,regen)
 
 

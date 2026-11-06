@@ -25,7 +25,7 @@ class RemoteTests(unittest.TestCase):
         self.root = Path(self.temp.name) / 'root with spaces'
         self.app = self.root / 'app'
         self.app.mkdir(parents=True)
-        for name in ('remote_pool.py', 'remote_worker.py', 'parity_gate.py', 'portable_native.py', 'portable_slang_generation.py'):
+        for name in ('remote_pool.py', 'remote_worker.py', 'parity_gate.py', 'portable_native.py', 'portable_slang_generation.py', 'portable_file_identity.py'):
             shutil.copyfile(gate.ROOT / 'app' / name, self.app / name)
         (self.app / 'engine_worker.py').write_text('# minimal CPU closure\n')
         (self.root / gate.ENGINE / 'calculator').mkdir(parents=True)

@@ -1,4 +1,5 @@
 """Slang C++ build and native CPU buffer transport; no game arithmetic here."""
+from portable_file_identity import file_digest
 import ctypes as C
 import contextlib
 import hashlib
@@ -383,10 +384,10 @@ def execute(source, entry, packed, input_words, output_words, backend='native', 
         transport['build']=build_receipt
         raw=None if destination is not None else output_path.read_bytes()
     if destination is not None:
-        from portable_capture_storage import file_digest
+        from portable_capture_storage import file_digest as capture_digest
         if raw is not None or not partial.is_file() or partial.is_symlink() or partial.stat().st_size!=count*output_words*4 or transport['cases']!=count or transport['command_status']!='completed' or transport.get('input_bytes')!=len(packed) or transport.get('output_bytes')!=count*output_words*4:
             raise RuntimeError('Incomplete file readback')
-        output_digest=file_digest(partial)
+        output_digest=capture_digest(partial)
     else:output_digest=hashlib.sha256(raw).hexdigest()
     if (destination is None and len(raw)!=count*output_words*4) or hashes!=source_hashes(source):
         raise RuntimeError('Invalid native output or source changed during execution')
@@ -399,6 +400,6 @@ def execute(source, entry, packed, input_words, output_words, backend='native', 
             try:os.fsync(fd)
             finally:os.close(fd)
     return raw, dict(transport=transport, source_sha256=hashes,
-                    generated_sha256={k:hashlib.sha256(p.read_bytes()).hexdigest() for k,p in outputs.items()},
+                    generated_sha256={k:file_digest(p) for k,p in outputs.items()},
                     input_sha256=hashlib.sha256(packed).hexdigest(), output_sha256=output_digest,
                     native_execution_verified=True,gpu_execution_verified=False, backend=backend)
