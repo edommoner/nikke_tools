@@ -74,28 +74,75 @@ def install():
     loops=[n for n in ast.walk(node) if isinstance(n,ast.For)
            and isinstance(n.iter,ast.Attribute) and n.iter.attr=='_active']
     if len(loops)!=1:raise AssertionError('Unexpected maximum HP loop')
+    loop=loops[0]
+    # Check every pre-dispatch statement, including installed app gates. For
+    # unrelated stats the shield gate short-circuits before any runtime call.
+    expected=ast.parse('''if ab.effect.get('stat') in {'max_hp_pct','max_hp_only_pct','hp_caster_based_pct','hp_only_caster_based_pct','max_hp_from_max_hp_pct','hp_copy'} and name in (ab.target_chars or []) and (query_scope is None or not query_scope.excludes(ab)) and ab.has_runtime_conditions and 'during_shield' in ab.effect.get('trigger',{}).get('condition',[]) and not self._runtime_condition_ok(ab.effect['trigger']['condition'],ab.caster,name,name,self._cur_t):
+ continue
+if query_scope is not None and query_scope.excludes(ab):
+ continue
+stat=ab.effect.get('stat','')
+if name not in (ab.target_chars or []):
+ continue
+''').body
+    if (not isinstance(loop.target,ast.Name) or loop.target.id!='ab' or loop.orelse
+            or len(loop.body)!=5 or
+            [ast.dump(n) for n in loop.body[:4]]!=[ast.dump(n) for n in expected]):
+        raise AssertionError('Unexpected maximum HP loop prelude')
+    # Only a chain of stat tests may dispatch work. Derive its complete set;
+    # reject any unguarded/default work, rather than silently dropping it.
+    hp_stats=set();branch=loop.body[4];branches=0
+    while True:
+        if not isinstance(branch,ast.If):raise AssertionError('Unexpected maximum HP dispatch')
+        branches+=1
+        test=branch.test
+        if (not isinstance(test,ast.Compare) or not isinstance(test.left,ast.Name)
+                or test.left.id!='stat' or len(test.ops)!=1 or len(test.comparators)!=1):
+            raise AssertionError('Unexpected maximum HP stat test')
+        value=test.comparators[0]
+        if isinstance(test.ops[0],ast.Eq):values=[value]
+        elif isinstance(test.ops[0],ast.In) and isinstance(value,(ast.Tuple,ast.List,ast.Set)):values=value.elts
+        else:raise AssertionError('Unexpected maximum HP stat comparison')
+        if not values or any(not isinstance(v,ast.Constant) or not isinstance(v.value,str) for v in values):
+            raise AssertionError('Unexpected maximum HP stat literal')
+        hp_stats.update(v.value for v in values)
+        if not branch.orelse:break
+        if len(branch.orelse)!=1:raise AssertionError('Unexpected maximum HP default branch')
+        branch=branch.orelse[0]
+    # There must be no additional stat comparisons hidden inside contributions.
+    comparisons=[n for n in ast.walk(loop) if isinstance(n,ast.Compare)
+                 and isinstance(n.left,ast.Name) and n.left.id=='stat']
+    if len(comparisons)!=branches:raise AssertionError('Unexpected nested maximum HP stat test')
+    hp_stats=frozenset(hp_stats)
+    from damage_query_runtime import DamageQueryScope
+    # The built-in exclusion is a pure name/caster predicate. Custom scopes
+    # may observe visits to unrelated entries, so preserve their original loop.
+    import inspect,textwrap
+    exclusion=ast.parse(textwrap.dedent(inspect.getsource(DamageQueryScope.excludes))).body[0]
+    if ast.dump(exclusion.body[0])!=ast.dump(ast.parse(
+            "return carrier.caster == self.owner and carrier.effect.get('name') in self.excluded_names").body[0]) or len(exclusion.body)!=1:
+        raise AssertionError('Unexpected maximum HP query exclusion')
     node.name='_indexed_max_hp'
     node.args.kwonlyargs.append(ast.arg(arg='_hp_entries'))
     node.args.kw_defaults.append(ast.Constant(None))
-    loops[0].iter=ast.Name(id='_hp_entries',ctx=ast.Load())
+    loop.iter=ast.Name(id='_hp_entries',ctx=ast.Load())
     indexed_max_hp=compile_reference_helper(original_max_hp,node)
+    # Share the actual index lifetime: every clear/replacement of _stat_index
+    # also discards this list. The private object key cannot alias a stat string.
+    hp_entries_key=object()
     @wraps(original_max_hp)
     def effective_max_hp(self,name,*,query_scope=None):
         # Preserve direct unbound calls with minimal reference-test managers.
-        if not hasattr(self,'_by_stat'):
+        if not hasattr(self,'_by_stat') or (query_scope is not None and type(query_scope) is not DamageQueryScope):
             return original_max_hp(self,name,query_scope=query_scope)
-        lists=[self._by_stat(stat) for stat in (
-            'max_hp_pct','max_hp_only_pct','hp_caster_based_pct',
-            'hp_only_caster_based_pct','max_hp_from_max_hp_pct')]
-        populated=[entries for entries in lists if entries]
-        # The app compatibility layer also supports hp_copy; preserve its full
-        # original path rather than treating it as an empty five-stat query.
-        if len(populated)>1 or self._by_stat('hp_copy'):
-            return original_max_hp(self,name,query_scope=query_scope)
-        if not populated:
+        entries=self._stat_index.get(hp_entries_key)
+        if entries is None:
+            entries=[ab for ab in self._active if ab.effect.get('stat','') in hp_stats]
+            self._stat_index[hp_entries_key]=entries
+        if not entries:
             base_hp=self.state.get('base_stats',{}).get(name,{}).get('hp',0.0)
             return base_hp * (1.0 + 0.0 / 100.0) + 0.0
-        return indexed_max_hp(self,name,query_scope=query_scope,_hp_entries=populated[0])
+        return indexed_max_hp(self,name,query_scope=query_scope,_hp_entries=entries)
     @wraps(original_notify)
     def notify(self,event,t,caster,*args,**kwargs):
         return execute(self,t,lambda:original_notify(self,event,t,caster,*args,**kwargs))

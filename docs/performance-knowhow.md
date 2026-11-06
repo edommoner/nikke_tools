@@ -129,3 +129,45 @@ S1 の比較は 2,458 matched と既知の 606/836 mismatched のまま。計算
 ただし evaluator の Git provenance は compute 外にあるため、compute の変動キーだけを除く厳密比較では
 1,237/2,460 同一、残りは provenance だけが異なる。これを黙って除外して「完全一致」としない。
 最終の全検査は Python 2,634 / Node 169 成功。Python は既存の pinned gmpy2 を PYTHONPATH で参照し、インストールなし。
+
+## 10. S12: CPU 最大 HP の一般順序付き索引 (2026-11-06)
+
+`reference_health_runtime.install()` は、互換層を適用した元の `effective_max_hp` の AST から、
+stat 分岐に現れる文字列を抽出する。現在は HP の 5 stat と `hp_copy`。その stat に属する carrier だけを
+`_active` 順に取り出し、既存の `_indexed_max_hp` に渡す。複数 stat のリストを連結すると加算順が変わるので使わない。
+carrier の参照だけを `_stat_index` の private object key に保持し、同じ辞書の clear/reset で同時に破棄する。
+値、対象、stack、HP、shield 条件は毎回読む。元の loop/prelude の形が変わると install で明示的に失敗する。
+
+元の互換 AST は、無関係な stat にも query_scope.excludes を呼ぶ。組み込み DamageQueryScope の純粋な判定は
+AST で確認し、独自 scope/subclass は元の走査に戻して訪問の副作用を維持する。単純な「元のループに呼び出しはない」
+という証明では不十分。最小 manager の unbound 呼び出しも元の経路を保つ。
+
+S1 全件は 2,460 fresh、previous_code_payload_equal 2,460 true / 0 false。coverage reuse/spot check はともに 0。
+2,458 matched、既知の 606/836 mismatched、回帰 0。gate wall 980.520 秒、gx10 1,936 行 / local 524 行。
+
+gx10 で gate 終了後、1 プロセスずつ before/after を測定。before は `33ec2908` の変更ファイル 1 個だけを
+小さな app overlay から読む。CPU 秒 (before→after、倍率):
+
+| S1 ID | CPU 秒 | 倍率 |
+| --- | --- | ---: |
+| 280 | 40.962350→7.057472 | 5.804× |
+| 18 | 6.137176→5.372096 | 1.142× |
+| 1396 | 2.240789→2.231102 | 1.004× |
+| 17 (릴리) | 1.774331→1.749430 | 1.014× |
+| 0 | 3.363425→2.722508 | 1.235× |
+
+各組は payload 同一。各 1 回の対比較であり、小差の統計的な有意性は主張しない。
+同じ 280/18/1396 の cProfile 合計 evaluate は 227.913→62.754 秒。元の full-loop fallback は
+5,530,805→0 回、_by_stat は 44,775,898→955,582 回、dict.get は 1,119,769,556→169,827,601 回。
+_get_value の 4,059,823 回は変わらない。
+
+次の独立した問い合わせ hotspot は evaluate 比 25% 未満 (base_copy.get_value 24.1%、
+survival_scaling.get_value 21.1%、get_buffs 16.1%)。25% を超える残りの health 呼び出しは、
+HP clamp、edge callback、再入後の 2 回目の同期を含む。数値をキャッシュするには membership だけでなく
+HP/stack/reference/shield/query scope/時刻/復活中の状態を含む全入力と全変更箇所の証明が必要なので、
+S12 では追加変更を行わなかった。詳しい AST 証明、全 invalidation 行、profile 上位、gate/test 証拠は
+proofs の `team-search-v1/s12-report.md` と `s12/` に保存。
+
+最終の全検査は Python 2,640 / Node 169 成功、失敗・skip 0。Python は既存の pinned gmpy2 と
+明示した既存 Slang パスをプロセス環境で参照する。コンパイラパスを欠いた診断実行は保存し、環境を修正して
+全件を再実行した。テストの assertion や計算コードを環境のために変更していない。
