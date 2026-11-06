@@ -72,10 +72,11 @@ def cpp_compiler_identity(compiler):
         version=subprocess.check_output([str(p),'-version'],stderr=subprocess.STDOUT,timeout=10).decode('utf-8','replace'))))
 
 
-def _build_cpp(root,source,entry):
+def _build_cpp(root,source,entry,*,native_binary64=False):
+    flags=(*CPP_FLAGS, '-DPORTABLE_NATIVE_BINARY64=1') if native_binary64 else CPP_FLAGS
     hashes=source_hashes(root,source)
     compiler=slang_compiler(root)
-    identity_data=dict(source_hashes=hashes,source=str(source),compiler=cpp_compiler_identity(compiler),entry=entry,flags=list(CPP_FLAGS))
+    identity_data=dict(source_hashes=hashes,source=str(source),compiler=cpp_compiler_identity(compiler),entry=entry,flags=list(flags))
     identity=hashlib.sha256(json.dumps(identity_data,sort_keys=True,separators=(',',':')).encode()).hexdigest()
     directory=root/'research/portable-build/cpp'/identity;directory.mkdir(parents=True,exist_ok=True)
     output=directory/(Path(source).stem+'.cpp');receipt=directory/'build.json'
@@ -88,7 +89,7 @@ def _build_cpp(root,source,entry):
             hit=output.stat().st_size>0 and saved==dict(identity=identity,**identity_data,cpp_sha256=file_digest(output))
         except (OSError,ValueError):hit=False
         if not hit:
-            process=subprocess.run([str(compiler),str(root/source),'-entry',entry,*CPP_FLAGS],capture_output=True,timeout=90)
+            process=subprocess.run([str(compiler),str(root/source),'-entry',entry,*flags],capture_output=True,timeout=90)
             if process.returncode:raise RuntimeError(process.stderr.decode('utf-8','replace'))
             raw=process.stdout
             if not raw:raise RuntimeError('Empty Slang C++ output')

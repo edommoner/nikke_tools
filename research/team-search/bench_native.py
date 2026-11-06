@@ -26,6 +26,7 @@ def main():
     p.add_argument('--threads',type=int,default=10)
     p.add_argument('--repetitions',type=int,default=2)
     p.add_argument('--payloads',action='store_true')
+    p.add_argument('--children-cpu',action='store_true',help='Report os.times child CPU during evaluate_many')
     a=p.parse_args();a.scratch.mkdir(parents=True,exist_ok=True)
     # One bounded batch plus a 20 GiB disk reserve; build caches are warm.
     if shutil.disk_usage(a.scratch).free < 23*1024**3:
@@ -56,15 +57,18 @@ def main():
     rows=rows[a.shard::a.shards]
     reports=[]
     for rep in range(a.repetitions):
-        elapsed=0.;checked=0
+        elapsed=0.;checked=0;children_cpu=0.
         payloads=gzip.open(a.scratch/f'payloads-{a.shard}-{rep}.jsonl.gz','wt') if a.payloads else None
         for offset in range(0,len(rows),32):
             batch=rows[offset:offset+32]
             with tempfile.TemporaryDirectory(prefix='bench-capture-',dir=a.scratch) as capture:
                 os.environ['NIKKE_DETAIL_CAPTURE_ROOT']=capture
+                child_start=os.times()
                 started=time.perf_counter()
                 results=pd.evaluate_many([dict(body,squad=r['members']) for r in batch],verification='deferred')
                 elapsed+=time.perf_counter()-started
+                child_end=os.times()
+                children_cpu+=(child_end.children_user+child_end.children_system-child_start.children_user-child_start.children_system)
                 for r,result in zip(batch,results,strict=True):
                     value=result.get('result',{})
                     if value.get('compute',{}).get('backend')!='native_detail' or value.get('total_damage')!=r['total_damage']:
@@ -73,6 +77,7 @@ def main():
                     if payloads:payloads.write(json.dumps(dict(id=r['id'],payload=value),ensure_ascii=False)+'\n')
         if payloads:payloads.close()
         report=dict(repetition=rep,rows=checked,seconds=elapsed,ms_per_squad=elapsed*1000/checked,threads=a.threads,shard=a.shard,shards=a.shards,code_root=str(root))
+        if a.children_cpu:report.update(children_cpu_seconds=children_cpu,children_cpu_ms_per_squad=children_cpu*1000/checked)
         reports.append(report);print(json.dumps(report),flush=True)
         (a.scratch/f'timings-{a.shard}.json').write_text(json.dumps(reports,indent=2)+'\n')
 

@@ -1,6 +1,6 @@
-// Integer-only IEEE binary64 candidate for CUDA and Metal. Round to nearest,
-// ties to even; gradual underflow; canonical quiet NaN. No native double/float.
-// Not yet connected to the production interpreter.
+// Default integer IEEE binary64 implementation. Round to nearest, ties to even;
+// gradual underflow; canonical quiet NaN. Native CPU generation can explicitly
+// select hardware operations; all other consumers retain the integer path.
 static const uint64_t F64_SIGN = uint64_t(1) << 63;
 static const uint64_t F64_FRAC = (uint64_t(1) << 52) - 1;
 static const uint64_t F64_INF = uint64_t(0x7ff) << 52;
@@ -17,6 +17,22 @@ bool f64Nan(uint64_t x) { return (x & ~F64_SIGN) > F64_INF; }
 bool f64Zero(uint64_t x) { return (x & ~F64_SIGN) == 0; }
 bool f64Finite(uint64_t x) { return (x & ~F64_SIGN) < F64_INF; }
 uint64_t f64Abs(uint64_t x) { return x & ~F64_SIGN; }
+
+// Enabled only by the native CPU generation target. The default remains the
+// integer implementation, including for C++ subsequently compiled to WASM.
+#ifdef PORTABLE_NATIVE_BINARY64
+double f64HardwareValue(uint64_t bits)
+{
+    return asdouble(uint(bits), uint(bits >> 32));
+}
+uint64_t f64HardwareBits(double value)
+{
+    uint low, high;
+    asuint(value, low, high);
+    uint64_t bits = uint64_t(low) | (uint64_t(high) << 32);
+    return f64Nan(bits) ? F64_NAN : bits;
+}
+#endif
 
 // mode 0: nearest/even, 1: toward zero, 2: floor. Preserve signed zero.
 uint64_t f64Integral(uint64_t x, uint mode)
@@ -58,6 +74,9 @@ uint64_t f64ToI64(uint64_t x, uint mode, out uint status)
 
 uint64_t f64FromI64(uint64_t integer)
 {
+#ifdef PORTABLE_NATIVE_BINARY64
+    return f64HardwareBits(double(int64_t(integer)));
+#else
     uint64_t sign = integer & F64_SIGN;
     uint64_t magnitude = sign != 0 ? (~integer + 1) : integer;
     if (magnitude == 0) return 0;
@@ -65,19 +84,28 @@ uint64_t f64FromI64(uint64_t integer)
     for (uint64_t scan = magnitude; scan > 1; scan >>= 1) highest++;
     uint64_t extended = highest > 55 ? shiftJam(magnitude, highest - 55) : magnitude << (55 - highest);
     return f64Pack(sign, int(highest) + 1023, extended);
+#endif
 }
 
 bool f64Equal(uint64_t a, uint64_t b)
 {
+#ifdef PORTABLE_NATIVE_BINARY64
+    return f64HardwareValue(a) == f64HardwareValue(b);
+#else
     return !f64Nan(a) && !f64Nan(b) && (a == b || (f64Zero(a) && f64Zero(b)));
+#endif
 }
 
 bool f64Less(uint64_t a, uint64_t b)
 {
+#ifdef PORTABLE_NATIVE_BINARY64
+    return f64HardwareValue(a) < f64HardwareValue(b);
+#else
     if (f64Nan(a) || f64Nan(b) || f64Equal(a, b)) return false;
     bool negativeA = (a & F64_SIGN) != 0, negativeB = (b & F64_SIGN) != 0;
     if (negativeA != negativeB) return negativeA;
     return negativeA ? a > b : a < b;
+#endif
 }
 
 // significand has three rounding bits; hidden bit is at bit 55.
@@ -124,6 +152,9 @@ void f64Unpack(uint64_t bits, out int exponent, out uint64_t significand)
 [noinline]
 uint64_t f64Add(uint64_t a, uint64_t b)
 {
+#ifdef PORTABLE_NATIVE_BINARY64
+    return f64HardwareBits(f64HardwareValue(a) + f64HardwareValue(b));
+#else
     if (f64Nan(a) || f64Nan(b)) return F64_NAN;
     uint64_t ma = a & ~F64_SIGN, mb = b & ~F64_SIGN;
     if (ma == F64_INF || mb == F64_INF)
@@ -142,6 +173,7 @@ uint64_t f64Add(uint64_t a, uint64_t b)
     if (((a ^ b) & F64_SIGN) == 0) return f64Pack(a & F64_SIGN, ea, sa + sb);
     if (sa == sb) return 0;
     return f64Pack(a & F64_SIGN, ea, sa - sb);
+#endif
 }
 
 void mulWide(uint64_t a, uint64_t b, out uint64_t hi, out uint64_t lo)
@@ -158,6 +190,9 @@ void mulWide(uint64_t a, uint64_t b, out uint64_t hi, out uint64_t lo)
 [noinline]
 uint64_t f64Mul(uint64_t a, uint64_t b)
 {
+#ifdef PORTABLE_NATIVE_BINARY64
+    return f64HardwareBits(f64HardwareValue(a) * f64HardwareValue(b));
+#else
     uint64_t sign = (a ^ b) & F64_SIGN;
     uint64_t ma = a & ~F64_SIGN, mb = b & ~F64_SIGN;
     if (f64Nan(a) || f64Nan(b)) return F64_NAN;
@@ -170,11 +205,15 @@ uint64_t f64Mul(uint64_t a, uint64_t b)
     uint64_t sig = (hi << 15) | (lo >> 49);
     sig |= (lo << 15) != 0 ? 1 : 0;
     return f64Pack(sign, ea + eb - 1023, sig);
+#endif
 }
 
 [noinline]
 uint64_t f64Div(uint64_t a, uint64_t b)
 {
+#ifdef PORTABLE_NATIVE_BINARY64
+    return f64HardwareBits(f64HardwareValue(a) / f64HardwareValue(b));
+#else
     uint64_t sign = (a ^ b) & F64_SIGN;
     uint64_t ma = a & ~F64_SIGN, mb = b & ~F64_SIGN;
     if (f64Nan(a) || f64Nan(b) || (ma == F64_INF && mb == F64_INF) || (ma == 0 && mb == 0)) return F64_NAN;
@@ -194,4 +233,5 @@ uint64_t f64Div(uint64_t a, uint64_t b)
     }
     sig |= remainder != 0 ? 1 : 0;
     return f64Pack(sign, exponent, sig);
+#endif
 }

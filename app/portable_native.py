@@ -40,6 +40,13 @@ def cpu_brand():
 
 
 def build_host(root,cpp):
+    # The shared C++ artifact is also the WASM input. Specialize only here,
+    # using its immutable source/entry receipt; never enable hardware globally.
+    from portable_slang_generation import _build_cpp
+    if cpp.parent.parent == root/'research/portable-build/cpp':
+        generation=json.loads((cpp.parent/'build.json').read_text())
+        outputs,_=_build_cpp(root,generation['source'],generation['entry'],native_binary64=True)
+        cpp=outputs['cpp']
     compiler=clang_compiler()
     if not compiler:raise RuntimeError('clang++ is unavailable')
     version=file_value(compiler, 'clang-version', lambda p: subprocess.check_output([str(p),'--version'],timeout=10))

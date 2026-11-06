@@ -171,3 +171,49 @@ proofs の `team-search-v1/s12-report.md` と `s12/` に保存。
 最終の全検査は Python 2,640 / Node 169 成功、失敗・skip 0。Python は既存の pinned gmpy2 と
 明示した既存 Slang パスをプロセス環境で参照する。コンパイラパスを欠いた診断実行は保存し、環境を修正して
 全件を再実行した。テストの assertion や計算コードを環境のために変更していない。
+
+## 11. S13: native CPU だけ hardware binary64 (2026-11-07)
+
+`gpu/binary64.slang` の既定経路は整数 soft-float のまま維持する。native host のビルド時だけ、共有 C++ の
+生成 receipt から `PORTABLE_NATIVE_BINARY64=1` を付けた C++ を別のキャッシュ identity で生成する。
+Slang の precise と clang の `-O2 -std=c++17 -ffp-contract=off` は維持する。add / mul / div / signed int64
+conversion / ordered less / equal を binary64 の bit-cast とハードウェア命令に置換し、演算結果の全 NaN は
+`0x7ff8000000000000` に正規化する。signed zero、infinity、gradual underflow、nearest/even は維持する。
+§7 の旧 GPU 向け制約に対し、この単位で許可・検証した例外は **native CPU のみ**。WASM は既定の整数経路を使う。
+
+soft / hardware の両経路を同じ Slang から一つの C++ に生成する差分 harness を追加した。Mac と gx10
+(aarch64 Linux / clang 18) の両方で、各二項演算 **41,261,564** 回、int64 conversion **61,261,564** 回を
+照合して差は 0。20M の一様乱数ビット対と 20M の極端・近接 exponent 対に加え、special、halfway、各指数境界、
+int64 の境界近傍を含む。`tests/native_binary64_diff.py --scratch PATH --pairs 20000000` が完全検証、
+`test_native_binary64.py` が短い回帰と生成 flags/cache identity の検証。
+
+既定経路の preprocessed token は HEAD と全一致。37 個の C++ entry variant を再生成して byte 一致を確認した。
+`portable_wasm.py`、WASM の生成 C++・host/platform・compiler flags は同一。代表 entry を before/after で独立に
+WASM 化して 451,078 bytes 全体の一致も確認した。
+S1 は S11 native payload と **2,460/2,460** 一致（許可された compute の timing/capture/device と top-level evaluator
+のみ除外）。それ以外の compute 差は 0。状態は 2,458 matched と既知の 606/836 のまま。CPU cache hits 2,460、
+CPU evaluation/fallback/host failure は 0。S9 の native 成功 **全 11,956 行**も記録 total_damage と完全一致した。
+
+Mac の 128 部隊、HOST_THREADS=1、2 反復で `os.times()` children CPU は変更前 380.70 / 372.03 ms/部隊、
+変更後 224.30 / 222.73 ms/部隊。平均 **40.61% 減**。warm cache の 1,024 部隊 throughput は次表。
+
+| 環境 | 変更前 | 変更後 |
+| --- | --- | --- |
+| Mac / 1 process × 10 threads / ms/部隊、2反復 | 150.047 / 157.844 | 98.514 / 119.911 |
+| gx10 / 5 processes × 4 threads / 全体 wall 秒 | 42.947798 | 29.316063 |
+
+最終 warm 計測の平均 wall は Mac 29.06% 減、gx10 31.74% 減。Mac の反復差は両方残す。
+Mac の最初の変更後 pass は未生成 variant のビルドを含んだため、warm 計測から除外した。単なる flags 変更ではなく、
+soft-float の整数演算をなくした効果。Python の準備・readback・decode は依然残る。
+
+Mac `sample` はプロセス観測権限で拒否、gx10 `perf` は `perf_event_paranoid=4` で拒否された。sudo や設定変更は行わず、
+scratch host の entry 外側だけに worker-PC self-sampler を置いた。26 case の出力全体は production host と byte 一致。
+15,891 samples の先頭は effectiveMaxHP 33.3%、basicConditions 19.6%、collectStats 10.6%、quantityTotals 9.5%、
+stackedValue 9.2%。これは OS profiler が成功した証拠ではなく、signal sampling の補助的な観測。
+
+次の候補は、orderedRows の純粋な kind/stat prefilter を、markEntry と同時に保つ順序付き structural projection にすること。
+既存 loop が dynamic predicate より前に無条件 continue する行だけを除外し、残る行の順序、dead/recycled lifetime、
+全条件・scalar 呼び出しと加算順を維持する。HP は無関係な kind-0 stat にも現在 scalarValue を呼ぶため、単に HP stat
+だけに絞る変更はその副作用監査なしでは不可。値や eligibility のフレーム間キャッシュは提案していない。ここでは未実装。
+
+全文・コマンド・結果・OS 制約: `team-search-v1/s13-report.md` と `s13/`。Python 2,642 run（2,640 pass、旧 GPU fixture の source hash 比較 2 fail、error/skip 0）、Node 169 pass、fail/skip 0。
