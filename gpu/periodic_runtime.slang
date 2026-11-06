@@ -90,6 +90,9 @@ void registerTimer(inout Runtime s, uint source, uint64_t when)
     s.expiry[row] = f64Less(grant.duration,0) ? F64_INF : f64Add(when,grant.duration);
     if (d.kind == 3)
     {
+        // Canonical buff_manager.py:3651 bumps on every existing damage
+        // resident; :3666 invalidates a new resident before appending it.
+        invalidateNativeNumeric(s);
         if(WORLD_PERIODIC_STATUS(s,d,commands[s.inputBase+P_STATUS_META_BASE]!=0) && (!resident || source!=row))
         {
             Definition selector=readDefinition(s.inputBase,source);if(selector.damageRoute==0) selector.damageRoute=6;

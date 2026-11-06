@@ -1,7 +1,7 @@
 // Allied body state and healing. All arithmetic uses shared software binary64.
-bool liveHealthRecipient(inout Runtime s,uint row,uint who,uint64_t when)
+bool liveHealthRecipient(inout Runtime s,uint row,uint who,uint64_t when,bool expiry=true)
 {
-    return s.alive[row]!=0 && f64Less(when,s.end[row]) && (s.activeRecipients[row]&(1U<<who))!=0 &&
+    return s.alive[row]!=0 && (!expiry || f64Less(when,s.end[row])) && (s.activeRecipients[row]&(1U<<who))!=0 &&
            ((residentDefinition(s,row).flags&256U)!=0 || basicConditions(s,row,when,true,who));
 }
 [noinline]
@@ -14,7 +14,9 @@ uint64_t effectiveMaxHP(inout Runtime s, uint who, uint64_t when)
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
-        if (d.kind != 0 || !liveHealthRecipient(s,row,who,when)) continue;
+        // Canonical buff_manager.py:2599-2619 reads resident HP modifiers
+        // until _active removal, including the final nudged damage callback.
+        if (d.kind != 0 || !liveHealthRecipient(s,row,who,when,false)) continue;
         uint64_t value = scalarValue(s,row,who);
         if (d.stat == S_max_hp_pct || d.stat == S_max_hp_only_pct) percent = f64Add(percent,value);
         else if (d.stat == S_hp_caster_based_pct || d.stat == S_hp_only_caster_based_pct)
@@ -56,7 +58,10 @@ void syncHealthActor(inout Runtime s, uint who, uint64_t when,bool nativeNotific
     if(nativeNotification || (s.healthMask&32)!=0) observeNativeNumericHP(s,who);
     s.hpPct[who] = f64Mul(f64Div(s.hp[who],maximum),HUNDRED);
     if (!f64Finite(s.hpPct[who])) { s.error = 16; return; }
-    if(!f64Equal(previous,s.hpPct[who])) invalidateFocusNumeric(s);
+    // Canonical buff_manager.py:3337-3338 publishes the percentage without
+    // bumping the numeric version. reference_health_runtime.py:95-97 observes
+    // absolute HP instead (observeNativeNumericHP above).
+    if(!f64Equal(previous,s.hpPct[who])) invalidateFocusNumeric(s,false);
     revivalClearNull(s,who);
     if (!nullPrevious && s.hpWatchCount != 0 && s.hpEdgeGuard == 0 && !f64Equal(previous,s.hpPct[who]))
     {

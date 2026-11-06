@@ -484,6 +484,9 @@ void applyDefinitionFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
                 if (prior != int(row)) { s.modeEpoch[d.owner]++; s.modeShots[d.owner] = 0; }
                 s.modeIndex[d.owner] = int(row);
                 s.modeEnd[d.owner] = f64Less(d.duration,0) ? FOREVER : f64Add(f.time,d.duration);
+                // Canonical buff_manager.py:3728-3733 invalidates logical
+                // mode activation before named children and physical entry.
+                invalidateNativeNumeric(s);
                 if (d.target != 0) pushFrame(s,frames,depth,12,31,d.owner,int(d.name),f.time);
             }
         }

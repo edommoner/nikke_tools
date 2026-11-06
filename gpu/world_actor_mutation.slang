@@ -23,12 +23,16 @@ void actorMutationRemoveNamed(inout Runtime s,uint row,uint target,uint64_t when
             // Native mutation_targets requires both current scope membership and
             // the canonical captured generation;old empty carriers survive.
             if(WORLD_RECIPIENT_SCOPE_MISS(s,slot,enemies,bound==0||!actorFieldMember(s,slot,ACTOR_REF|(bound-1))||!actorBitsHas(enemies,bound-1))) continue;
+            // Canonical buff_manager.py:1520: partial target membership changes.
+            invalidateFocusNumeric(s);
             s.activeRecipients[slot]&=~32U;
         }
         else if(d.target==1)
         {
             if(bound!=0) continue;
             uint prior=removalMembers(s,slot),stripped=prior&scope;if(stripped==0) continue;
+            // Canonical buff_manager.py:1520 also covers retained carriers.
+            invalidateFocusNumeric(s);
             uint remaining=prior&~stripped;s.activeRecipients[slot]=remaining;
             storeCarrierOrder(s,slot,filterRemovalOrder(carrierOrder(s,slot),remaining&31,3,21));
             if(remaining!=0) continue;

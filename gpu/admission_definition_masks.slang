@@ -23,6 +23,9 @@
         if ((d.kind == 7 || d.kind == 30) && (f64Less(d.value,0) || d.kind == 30 && f64Zero(d.value))) { s.error = 64; break; }
         if (d.kind == 7 || d.kind == 30) s.coverMask |= 2;
         if (d.kind == 0 && (d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct)) s.healthMask |= 1;
+        // reference_health_runtime.py:18-20 enables boundary synchronization
+        // for every finite ordinary HP modifier, not just stack references.
+        if(d.kind==0 && d.stat>=S_max_hp_pct && d.stat<=S_max_hp_only_pct && !f64Less(d.duration,0)) s.healthMask|=32;
         if (d.kind == 0 && d.enemyBuff == 0 && ((d.alliedFlags & 1) != 0 || d.stat == S_def_caster_based_pct)) s.healthMask |= 2;
         if (d.kind == 0 && d.stat == S_heal_received_pct) s.healthMask |= 4;
         if (d.kind == 0 && d.stat == S_outgoing_heal_pct) s.healthMask |= 8;

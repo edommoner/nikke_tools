@@ -1,4 +1,4 @@
-// Shared dictionary-query cache. Enabled only for late random numeric readers.
+// Shared dictionary-query cache, matching canonical get_buffs dictionary reuse.
 bool nativeNumericEnabled(inout Runtime s)
 {
 #ifdef PORTABLE_WORLD_PROJECTILE
@@ -25,6 +25,11 @@ bool initializeNativeNumeric(inout Runtime s)
             commands[s.inputBase+P_RECIPIENT_BASE+row*8]==19 && commands[s.inputBase+P_RECIPIENT_BASE+row*8+1]!=0;
     bool enabled=commands[s.inputBase+P_RECIPIENT_META_BASE+5]==0x4e515231U;
     if(enabled!=expected) return false;
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+    // buff_manager.py:4556-4559 caches every product dictionary, including
+    // HP predicates whose percentage can change without an absolute-HP bump.
+    enabled=true;
+#endif
 #ifdef PORTABLE_WORLD_PROJECTILE
     if(!enabled) return true;
     if(s.landingPolicy==0) return false;
@@ -69,6 +74,28 @@ uint nativeNumericTarget(inout Runtime s)
 bool loadNativeNumeric(inout Runtime s,uint who,uint64_t when,out uint64_t values[64],out uint slot,out uint epoch)
 {
     uint head=s.resourceOutput+P_NATIVE_QUERY_BASE;
+    // Canonical timeline.py:4026-4059 returns an empty frozenset when no
+    // later burst buff names exist; buff_manager.py:4556 uses that set in
+    // the query key, so such pending damage shares the ordinary query.
+    uint exclusion=s.damageExclusion;
+    if(exclusion!=0)
+    {
+        uint mask=s.inputBase+P_PENDING_EXCLUDE_BASE+(exclusion-1)*P_MASK_WORDS,any=0;
+        for(uint word=0;word<P_MASK_WORDS;word++) any|=commands[mask+word];
+        if(any==0) exclusion=0;
+        else
+        {
+            // The same canonical frozenset also shares a key when nonempty
+            // (timeline.py:4051-4059, buff_manager.py:4556). The compiler
+            // expands each excluded name to all of its owner definitions.
+            for(uint prior=0;prior+1<exclusion;prior++)
+            {
+                uint other=s.inputBase+P_PENDING_EXCLUDE_BASE+prior*P_MASK_WORDS,different=0;
+                for(uint word=0;word<P_MASK_WORDS;word++) different|=commands[mask+word]^commands[other+word];
+                if(different==0) { exclusion=prior+1;break; }
+            }
+        }
+    }
     epoch=results[head+1];slot=0xffffffffU;
     uint64_t time=uint64_t(results[head+5])|(uint64_t(results[head+6])<<32);
     if(results[head+3]==0 || !f64Equal(time,when))
@@ -77,16 +104,16 @@ bool loadNativeNumeric(inout Runtime s,uint who,uint64_t when,out uint64_t value
     for(uint i=0;i<count;i++)
     {
         uint at=nativeNumericCell(s.resourceOutput,i);
-        if(results[at]==who && results[at+1]==target && results[at+2]==s.damageExclusion && results[at+3]==epoch && results[at+4]!=0)
+        if(results[at]==who && results[at+1]==target && results[at+2]==exclusion && results[at+3]==epoch && results[at+4]!=0)
         {
             for(uint k=0;k<64;k++) values[k]=uint64_t(results[at+8+k*2])|(uint64_t(results[at+9+k*2])<<32);
-            recordNativeQueryDiagnostic(s,who,target,s.damageExclusion,epoch,when,true,values);
+            recordNativeQueryDiagnostic(s,who,target,exclusion,epoch,when,true,values);
             results[head+8]++;return true;
         }
     }
     if(count==P_NATIVE_QUERY_COUNT) { s.error=64;return false; }
     slot=nativeNumericCell(s.resourceOutput,count);results[head+2]=count+1;
-    results[slot]=who;results[slot+1]=target;results[slot+2]=s.damageExclusion;results[slot+3]=epoch;results[slot+4]=0;
+    results[slot]=who;results[slot+1]=target;results[slot+2]=exclusion;results[slot+3]=epoch;results[slot+4]=0;
     results[head+4]=1;results[head+7]++;return false;
 }
 void storeNativeNumeric(inout Runtime s,uint slot,uint epoch,uint64_t values[64])

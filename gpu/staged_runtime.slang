@@ -37,6 +37,9 @@ void prepareStaged(inout Runtime s, uint row, uint count, uint64_t when, bool pr
     results[at]=generation+1;results[at+1]=++results[global];results[at+2]=count;results[at+3]=0;storeNumber(at+4,when);
     uint64_t last=f64Add(when,f64Mul(f64FromI64(count),loadNumber(stagedDefinition(s,row)+2)));
     s.stacks[row]=0;s.end[row]=f64Less(definition_duration(s.inputBase,row),0) ? F64_INF : f64Add(last,definition_duration(s.inputBase,row));
+    // Installed canonical app/staged_dot_runtime.py:52,59 sets stack zero
+    // and bumps after publishing the staged expiry.
+    invalidateNativeNumeric(s);
     s.expiry[row]=s.end[row];s.due[row]=f64Add(last,loadNumber(stagedDefinition(s,row)+4));
 }
 [noinline]

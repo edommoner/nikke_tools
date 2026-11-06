@@ -25,9 +25,9 @@ uint stackImmunity(inout Runtime s)
     }
     return mask;
 }
-void setCarrierStack(inout Runtime s,uint slot,uint value)
+void setCarrierStack(inout Runtime s,uint slot,uint value,bool numeric=true)
 {
-    invalidateFocusNumeric(s);
+    if(numeric) invalidateFocusNumeric(s);
     s.stacks[slot]=value;
     uint flags=referenceCaptureFlags(s,slot);
     if((flags&2)!=0) storeReferenceCapture(s,slot,flags,f64FromI64(value));
@@ -83,7 +83,14 @@ void mutateStacks(inout Runtime s,uint row,uint scope,uint64_t when)
         uint64_t previous=carrierStackValue(s,slot);
         uint next=checkedStackChange(previous,delta,carrier.maxStack,floor,0,s.error);
         if(s.error!=0) return;
-        setCarrierStack(s,slot,next);
+        bool changed=!f64Equal(previous,f64FromI64(next));
+        bool perCharacter=maximum && carrier.bulletDuration!=0 && s.bulletInitialized[slot]==1;
+        uint64_t duration=stackLiteralDuration(s,definition);
+        bool ownRefresh=own && f64Less(0,delta) && s.end[slot]!=F64_INF && duration!=F64_INF && f64Less(0,duration);
+        // Canonical buff_manager.py:1331-1340 only invalidates own stack
+        // changes/finite refreshes; :3516-3527 skips capped max-stack adds
+        // except for per-character stacks. Debuff operations always bump (:1436).
+        setCarrierStack(s,slot,next,!own && !maximum || changed || perCharacter || ownRefresh);
         if(maximum && carrier.bulletDuration!=0 && s.bulletInitialized[slot]==1)
             for(uint who=0;who<5;who++)
             {
@@ -91,7 +98,6 @@ void mutateStacks(inout Runtime s,uint row,uint scope,uint64_t when)
                 if(s.recipientStacks[at]!=0) s.recipientStacks[at]=checkedStackChange(f64FromI64(s.recipientStacks[at]),delta,carrier.maxStack,0,0,s.error);
                 if(s.error!=0) return;
             }
-        bool changed=!f64Equal(previous,f64FromI64(next));
         if((own && f64Less(0,delta)) || maximum && changed) refreshStackDuration(s,slot,when);
         if(changed && (maximum || own && f64Less(0,delta))) queueStackNotice(s,carrier.owner,carrier.name,next);
     } WORLD_STACK_SCOPE_END(s)

@@ -121,6 +121,10 @@ uint64_t liveQuantity(inout Runtime s, uint who, uint key, uint64_t when)
         uint row = s.orderedRows[pass], source = s.carrierDefinition[row];
         if (definition_kind(s.inputBase,source) != 0 || definition_stat(s.inputBase,source) != key) continue;
         Definition d = residentDefinition(s,row);
+        // Canonical buff_manager.py:2765-2768: a direct _live_sum read
+        // freezes a pending selector and invalidates before membership tests.
+        if(s.alive[row]!=0 && f64Less(when,s.end[row]) && s.lazyPending[row]!=0)
+        { ensureLazyRecipients(s,row,when);invalidateFocusNumeric(s); }
         if (queryRecipient(s,row,who,when)) result = f64Add(result,d.queryResolve != 0 && d.alliedFlags == 0 ? recipientValue(s,row,who) : scalarValue(s,row,who));
     }
     return result;

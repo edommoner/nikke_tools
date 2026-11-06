@@ -1114,7 +1114,10 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
         if (definition_kind(s.inputBase,source) != 0 || (stat >= 64 && stat != S_atk_copy) || stat == S_infinite_ammo) continue;
         Definition d = residentDefinition(s,selected);
         if((s.quantityMask & 256)!=0 && stat==S_atk_caster_based_pct) continue;
-        if(stat==S_stun) continue; // Presence must not consume a pending rank as a numeric buff.
+        // Canonical buff_manager.py:4621-4622 skips stats absent from
+        // _STAT_TO_BUFF. heal_received_pct is a direct _live_sum reader
+        // (:336, :2831), so a damage query must not freeze its lazy rank.
+        if(stat==S_stun || stat==S_heal_received_pct) continue;
         if (d.alliedFlags != 0 || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
             !WORLD_ENEMY_ATTACK_DAMAGE_MEMBER(s,selected,who,when,queryRecipient(s,selected,who,when))) continue;
         // Native boolean flags ignore their numeric value and stack scaling.
@@ -1491,7 +1494,10 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
 #endif
 #endif
     uint previousHitCrit=s.triggerHitCrit;
-    WORLD_INITIAL_SPAWN_OBSERVE(s,mode,event,owner,when) s.sourceTime=when; syncHealth(s,when);
+    WORLD_INITIAL_SPAWN_OBSERVE(s,mode,event,owner,when) s.sourceTime=when;
+    // Canonical timeline.py:5160-5164 only reads buffs when lifesteal is
+    // zero. That internal landing read is not a reference-health boundary.
+    if(mode!=17) syncHealth(s,when);
     WORLD_TEAM_BEGIN(s) COUNTER_CONTEXT_BEGIN(s) WORLD_STATE_DISPATCH_BEGIN(s) uint entryTarget = s.target;
     DISPATCH_FRAMES(frames); DISPATCH_FRAMES_INIT(frames,s) int depth = -1;
     if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
@@ -1527,6 +1533,11 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint64_t previous = s.hpPrevious[who], next = s.hpNext[who];
             pushFrame(s,frames,depth,4,f64Less(next,previous) ? 0 : 2,who,0,frames[depth].time);
             if (s.error != 0) break;
+            // Canonical sync_hp (buff_manager.py:3338-3350) finishes this
+            // actor's notifications before reference_health_runtime.py:37
+            // synchronizes the next actor. Only child-requested dirty work
+            // belongs under this notification's recursion guard.
+            frames[depth].value=s.hpDirtyMask;s.hpDirtyMask=0;
             frames[depth].healthPrevious = previous; frames[depth].healthNext = next; s.hpEdgeGuard = 1; continue;
         }
         if (s.hpDirtyMask != 0)
@@ -1721,7 +1732,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             }
             if (delivered) continue;
             if (f.event == 0) { frames[depth].event = 1; frames[depth].cursor = 0; continue; }
-            s.hpEdgeGuard = 0; depth--; continue;
+            s.hpDirtyMask|=uint(f.value);s.hpEdgeGuard = 0; depth--; continue;
         }
         if(f.mode==27)
         {
@@ -1749,12 +1760,19 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if(healShareFrameEnabled(s))
             {
                 uint64_t amount;
-                if(!prepareLifestealAmount(s,f.owner,f.healthValue,f.time,amount) || s.error!=0) { depth--;continue; }
+                if(!prepareLifestealAmount(s,f.owner,f.healthValue,f.time,amount) || s.error!=0)
+                { depth--;if(mode==17 && depth==0 && (s.healthMask&32)!=0) depth--;continue; }
                 BEGIN_DISPATCH_HEAL_SHARE(s,frames,depth,amount,f.owner);continue;
             }
             depth--;
             if (applyLifestealState(s,f.owner,f.healthValue,f.time) && s.error == 0)
+            {
+                if((s.healthMask&32)!=0) syncHealth(s,f.time);
                 pushFrame(s,frames,depth,0,16,f.owner,int(f.owner),f.time);
+            }
+            // Discard the root's deferred HP sweep on the canonical early
+            // return. Positive healing retains its notify and final sweep.
+            else if(mode==17 && depth==0 && (s.healthMask&32)!=0) depth--;
             continue;
         }
         if (f.mode == 3)
@@ -1842,6 +1860,10 @@ void stagedPass(inout Runtime s,uint64_t when,uint output)
         if(selected==s.count) break;
         if(++work>4096) { s.error=4;break; }
         uint at=stagedAddress(s,selected),index=++results[at+3];s.stacks[selected]=min(index,definition_maxStack(s.inputBase,selected));
+        // Installed canonical app/staged_dot_runtime.py:73 bumps each due
+        // stack once. Its scoped damage override (:76-79) does not mutate
+        // that stack or invalidate the dictionary on entry/exit.
+        invalidateNativeNumeric(s);
 #ifdef PORTABLE_COORDINATE_ORIGINAL_SOURCE_OPS
         uint scope=s.resourceOutput+P_STAGED_HEADER_BASE+2;
         uint savedRow=stagedScopeSnapshot(s,0),savedGen=stagedScopeSnapshot(s,1),savedEntry=stagedScopeSnapshot(s,2),savedStack=stagedScopeSnapshot(s,3);

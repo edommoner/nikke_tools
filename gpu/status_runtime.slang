@@ -128,6 +128,9 @@ void cleanseResidents(inout Runtime s,uint row,uint scope)
             if(s.alive[slot]==0 || d.polarity!=2 || s.lazyPending[slot]!=0) continue;
             uint members=removalMembers(s,slot);
             if(WORLD_STATUS_MEMBER_INVALID(s,slot,who,(members&bit)==0)) continue;
+            // Canonical buff_manager.py:1477-1479 invalidates whenever the
+            // strip set is nonempty, including a partially retained carrier.
+            if(taken==0) invalidateFocusNumeric(s);
             taken++;
             // Dispel is silent, retaining timer clocks and independent maps.
             s.activeRecipients[slot]=WORLD_STATUS_CLEANSE_MEMBERS(s,slot,who,bit,s.activeRecipients[slot]&~bit);
@@ -139,10 +142,11 @@ void cleanseResidents(inout Runtime s,uint row,uint scope)
 [noinline]
 bool validStatusDefinitions(inout Runtime s)
 {
-    uint expected=0;
+    uint expected=0;bool health=false;
     for(uint row=0;row<s.count;row++)
     {
         Definition d=readDefinition(s.inputBase,row);uint policy=immunityPolicy(s.inputBase,row);
+        health |= d.kind==0 && (d.stat>=S_max_hp_pct && d.stat<=S_max_hp_only_pct || d.stat==S_max_hp_from_max_hp_pct);
         if(policy!=0)
         {
             if(d.kind!=4 || d.stat!=0 || d.name>=P_DEFINITIONS || !f64Finite(d.value) || (d.flags&8)!=0) return false;
@@ -164,8 +168,11 @@ bool validStatusDefinitions(inout Runtime s)
             for(uint word=2;word<8;word++) if(commands[packet+word]!=0) return false;
         }
         else for(uint word=0;word<8;word++) if(commands[packet+word]!=0) return false;
-        s.healthMask|=32;
     }
+    // reference_health_runtime.py:15-20: cleanse enables boundary HP sync
+    // only when an observed HP modifier exists. Otherwise the first actual
+    // heal owns the first numeric-HP observation (:95-97).
+    if((expected&4)!=0 && health) s.healthMask|=32;
     for(uint word=1;word<8;word++) if(commands[s.inputBase+P_STATUS_META_BASE+word]!=0) return false;
     return commands[s.inputBase+P_STATUS_META_BASE]==expected;
 }

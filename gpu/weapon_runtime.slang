@@ -33,6 +33,9 @@ void beginReload(inout Runtime s, Weapon w, uint who, uint64_t when)
     if(!manualBaseReload(s,who))
 #endif
     {s.charging[who] = 0; clearFullCharge(s,who); WORLD_CONTROL_RELOAD(s,who)}
+    // Canonical timeline.py:3217 invalidates on every _start_reload,
+    // including an automatic weapon whose charging flag was already false.
+    invalidateNativeNumeric(s);
     WORLD_RELOAD_RECORD(s,who,when,1)
 }
 bool completeReload(inout Runtime s, Weapon w, uint who, uint64_t when, uint output)

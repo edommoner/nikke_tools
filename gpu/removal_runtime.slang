@@ -40,6 +40,9 @@ void retireNamedCarrier(inout Runtime s,uint slot,uint notices)
 [noinline]
 void removeNamedResidents(inout Runtime s,uint row,uint target,uint64_t when)
 {
+    // Canonical buff_manager.py:1527-1531 invalidates global removal even
+    // when its name has no resident, before either recipient routing path.
+    if(definition_target(s.inputBase,row)==0) invalidateFocusNumeric(s);
     WORLD_MUTATION_NAMED_REMOVE(s,row,target,when) uint policy=definition_target(s.inputBase,row),name=uint(definition_targetName(s.inputBase,row)),scope=0xffffffff;
     if(policy==1) { uint64_t order;scope=selectRecipients(s,row,when,order); }
     else if(policy==2) { uint order;scope=enemyDamageMask(s,readDefinition(s.inputBase,row),target,order)<<5; }
@@ -56,6 +59,8 @@ void removeNamedResidents(inout Runtime s,uint row,uint target,uint64_t when)
             // stale bindings. Generation filtering belongs to value queries.
             uint prior=sharedEnemy ? s.activeRecipients[slot] : removalMembers(s,slot),stripped=prior&scope;
             if(stripped==0) continue;
+            // buff_manager.py:1520 also invalidates partial target removal.
+            invalidateFocusNumeric(s);
             uint remaining=prior&~stripped;
             if(definition_kind(s.inputBase,definition)==3 && !f64Zero(definition_interval(s.inputBase,definition)) && commands[s.inputBase+P_STATUS_META_BASE]==0)
             {

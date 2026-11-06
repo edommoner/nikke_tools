@@ -42,7 +42,11 @@ void prepareWeaponFrame(inout Runtime s,uint who,uint64_t when,uint output,out u
         int previousReloadMode=s.modeIndex[who];
 #endif
         if (!completeReload(s,w,who,when,output)) return; WORLD_RELOAD_AFTER_COMPLETE(s,who)
-        selectWeapon(s,who,when,w); // A completion callback may change the mode.
+        // Canonical timeline.py:1504-1522 enters a new mode immediately,
+        // but a base post-reload wait returns without another numeric query
+        // after full_reload callbacks. Reselecting there consumes late RNG.
+        if(s.modeIndex[who]>=0 || !f64Less(when,s.postReloadUntil[who]))
+            selectWeapon(s,who,when,w);
 #ifdef PORTABLE_COORDINATE_SQUAD_MODE_STATE
         // A base reload callback may enter a mode during this same char tick.
         squadModeReloadEntry(s,who);
@@ -82,7 +86,9 @@ void advanceWeaponCharge(inout Runtime s,inout Weapon w,uint who,uint64_t when,u
     // Native _tick_weapon_change samples was_ready before _tick_charge turns
     // an expired post-delay into ready. Cover/reset ready refills; expiry does not.
     if(mode>=0&&w.mode==1&&results[controlState(s,who)+24]==0)
-        s.ammo[who]=ammoInstantCapacity(s,who,when);
+        // Canonical timeline.py:2587-2590 gives sentinel modes 999999
+        // directly; only finite mode magazines call the numeric provider.
+        s.ammo[who]=w.sentinelMode!=0 ? 999999 : ammoInstantCapacity(s,who,when);
 #endif
     if (f64Less(when,s.nextShot[who])) return;
     if (s.pendingAutoReload[who] != 0 && w.mode==1
@@ -103,7 +109,11 @@ void advanceWeaponCharge(inout Runtime s,inout Weapon w,uint who,uint64_t when,u
 #ifdef PORTABLE_WORLD_CHARGE_CONTROL
     if(w.mode==1&&results[controlState(s,who)+24]==2)results[controlState(s,who)+24]=0;
 #endif
-    w.infinite = uint(hasInfiniteAmmo(s,who,when));
+    // Canonical timeline.py:2024 only queries infinite ammo in the ready
+    // charge path when empty. The last-bullet query follows the charge-start
+    // invalidation at :2071-2072; firing has its own later query.
+    if(w.mode!=1 || (s.charging[who]==0 && s.ammo[who]<=0))
+        w.infinite = uint(hasInfiniteAmmo(s,who,when));
     if (w.infinite == 0 && s.ammo[who] <= 0 && (w.mode != 1 || s.charging[who] == 0))
     {
         beginReload(s,w,who,when);
@@ -223,6 +233,10 @@ void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint
 #endif
     WORLD_FRACTION_CHARGE(s,w,who,count,when,output) if (last) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,14,who,0,when,output);
     WORLD_CHARGE_FINISH(s,w,who) if (changedWeaponSession(s,who,epoch,mode)) return; // Preserve a callback's new session.
+    // Canonical timeline.py:2394 precedes _tick_weapon_change's base-ammo
+    // restoration (:2675) and end_weapon_change (:2681), including the last
+    // mode shot. Do not skip this invalidation via clearMode's early return.
+    if(w.mode==1) invalidateNativeNumeric(s);
     if (mode >= 0)
     {
         s.modeShots[who]++;
@@ -230,7 +244,7 @@ void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint
         { uint name = definition_name(s.inputBase,mode); s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0; clearMode(s,who,when); dispatch(s,0,29,who,int(name),when,output); return; }
     }
     if (w.mode == 1)
-    { s.pendingAutoReload[who] |= uint(scheduleAutoReload); s.charging[who] = 0; clearFullCharge(s,who);invalidateNativeNumeric(s); s.nextShot[who] = larger(f64Add(when,WORLD_FRACTION_POST_DELAY(s,who,mode,f64Add(w.interval,w.chargeTime ^ F64_SIGN))),f64Add(s.chargeStartedAt[who],w.minCycle)); }
+    { s.pendingAutoReload[who] |= uint(scheduleAutoReload); s.charging[who] = 0; clearFullCharge(s,who); s.nextShot[who] = larger(f64Add(when,WORLD_FRACTION_POST_DELAY(s,who,mode,f64Add(w.interval,w.chargeTime ^ F64_SIGN))),f64Add(s.chargeStartedAt[who],w.minCycle)); }
     else s.nextShot[who] = larger(when,f64Add(s.nextShot[who],shotInterval));
 #ifdef PORTABLE_PARTIAL_CHARGE
     if(w.mode==1 && w.partialTapRow!=0)
