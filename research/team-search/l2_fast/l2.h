@@ -8,6 +8,14 @@
 //        own[nkeys],base[7],self[7].
 // buff: phase,burst dependent,amount/rule counts; (key,value)*; (op,a,b,limit)*.
 // dependency: enabled,team,ratio. Trailing metadata is outside this payload.
+// L2FT v2 retains those records (payload version=2), then appends:
+// switches, action-key indices[7]; per character: base ATK/HP/DEF,
+// ranking-own ATK%/flat, rate, charge base, post-fire delay, clips, ammo,
+// reload, minimum cycle, charged, literal B1; per group: reference action
+// rate, context unit, cast-scaled flag and action-eligible flag; per buff: structural condition; mechanic count,
+// then (kind,event,condition,threshold,value,all-allies-scope,max-trigger)*.
+// Switch bits: action rate=1, event burst cycle=2, dynamic recipients=4,
+// alternate context cadence=8. Version 1 has no extension and no switches.
 extern "C" {
 void* l2_create(const double* words, size_t count);
 void l2_destroy(void* table);

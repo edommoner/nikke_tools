@@ -243,3 +243,11 @@ Python 3.12 の `sum` は補償和であり、明示的な `+=` と `math.prod` 
 Macの10M有効段階・順序付きrandomでnative単一thread中央値980 ns/部隊、10 threadsの集約kernel throughputは175 ns/部隊。WASMは1 worker 1,140 ns、10 workers 208 ns。Python 512部隊は152,440 ns。native単一threadは約156倍だが100 ns想定には約9.8倍の隔たりがあり、S9小標本の中央値は1,014 nsだった。150体の固定3人＋残り147体から順序付き2人を全列挙した21,462部隊はnative単一thread616 nsだが、9,120部隊は段階不足でcycleを省略するため速さの一因になる。増分演算による再利用は未実装。
 
 150体の C(150,5)=591,600,030 は代表順序1つだけならnative 10 threadsでkernel約104秒の投影。順序はburst優先・位置対象・浮動小数点の加算順に影響するため、同値性を未証明のまま全順序を調べると120倍、約3.46時間（WASM 10 workers約4.10時間）。これは全列挙の実測ではなく、top-K保持等も含まない。丸めを維持するprefix/suffix再計算、配置同値類、L2上界による枝刈りが引き続き必要。精度・CPU参照・製品には変更なし。全測定（修正前harnessの測定も保存）、再現手順、制約は `team-search-v1/s19-report.md` と `s19/` に記録する。
+
+## S20: L2 の機構追加と sealed fresh test（2026-11-07）
+
+S18 oracle と L2FT v1 を維持し、version 2 に行動速度、効果データ由来のCD短縮・再突入・段階変更、動的受領者、最大4文脈の cadence を独立switchで追加した。burst_cast 起点なのに is_burst_damage=false の自動・連続攻撃も個人の使用回数でスケールする。参照コードの値と外部観測のみを使い、詳細真値への係数fitは行っていない。S9/S1で全16組合せを測定し、採用はmask 15。221組のplain/logged全payloadは一致した。
+
+変更前に新規3,000部隊をgx10で計算・封印（成功2,979、失敗21件と理由を保存）。開封評価は最終モデル固定後の1回のみ。fresh testのSpearmanは S20=0.943108、S18=0.916649、上位100のK=5%再現率は79%対68%、上位20のK=1%は75%対55%。M2はSpearman 0.948330、上位100 K=5%は78%。S9/S1全行＋random 200,000＋合成switch/opcodeで、Python/native binding・CLI/WASMの差分0（計218,846部隊、legacy合成258を含む）。S18予測JSONもbyte一致。
+
+10M randomの中央値はnative 1/10 threadsで1,788/550 ns、WASM 1/10 workersで2,261/599 ns。精度向上と速度の交換条件がある。HP/DEF状態、動的対象から外れた本人のバフ、crit補充、stack履歴などは近似が残り、安全な強い枝刈りは未証明。全ablation、封印hash/時刻、失敗・修正履歴、2662 Python / 169 Node testsの成功、再現手順は証拠ディレクトリ `team-search-v1/s20-report.md` と `s20/` に記録した。製品・CPU参照・GPUの変更、commit/pushはない。

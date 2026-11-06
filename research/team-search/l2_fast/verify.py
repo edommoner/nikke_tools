@@ -6,7 +6,7 @@ The first mismatch raises with the exact ordered squad and raw 64-bit values.
 import argparse, collections, ctypes as C, json, pathlib, random, struct, subprocess, sys, time
 HERE=pathlib.Path(__file__).resolve().parent;sys.path.insert(0,str(HERE.parent))
 import l2_score, l2_fast
-from l2_compile import compile_profiles, OPCODES
+from l2_compile import compile_profiles, OPCODES, DYNAMIC_OPCODES
 
 def synthetic():
     # Every recipient leaf opcode, negative slices, union deduplication, Red Hood,
@@ -20,7 +20,8 @@ def synthetic():
     return dict(settings={'duration':180.},characters=chars)
 
 def compare(p,squads,out,lib,wasm,label):
-    out.mkdir(parents=True,exist_ok=True);table=out/(label+'.l2ft');table.write_bytes(compile_profiles(p));oracle=l2_score.Score(p);fast=l2_fast.Score(p,library=lib)
+    import l2_score_s20
+    out.mkdir(parents=True,exist_ok=True);table=out/(label+'.l2ft');table.write_bytes(compile_profiles(p));oracle=(l2_score_s20.Score if 's20' in p else l2_score.Score)(p);fast=l2_fast.Score(p,library=lib)
     count=0;opcounts=collections.Counter();failcoverage=0;rh=0;union=0;started=time.perf_counter()
     # Bounded batches prevent storing the random acceptance output corpus.
     for offset in range(0,len(squads),1024):
@@ -63,14 +64,39 @@ def main():
     if args.full:
         for label,file in [('S9','s9-dataset.jsonl'),('S1-external','s1-results.jsonl')]:
             rows=[json.loads(l) for l in (HERE.parent/file).read_text().splitlines()]
-            if label=='S9':rows=[r for r in rows if r['backend']=='native_detail' and r.get('total_damage',0)>0]
+            rows=[r for r in rows if r['backend']=='native_detail' and r.get('total_damage',0)>0]
             results.append(compare(p,[r['members'] for r in rows],args.out,lib,wasm,label))
+        # Also cover saved failed/native-other rows: all valid ordered inputs
+        # belong to the scorer's bit contract regardless of truth availability.
+        for label,file in [('S9-other','s9-dataset.jsonl'),('S1-other','s1-results.jsonl')]:
+            rows=[json.loads(l) for l in (HERE.parent/file).read_text().splitlines()]
+            rows=[r for r in rows if not (r['backend']=='native_detail' and r.get('total_damage',0)>0)]
+            if rows:results.append(compare(p,[r['members'] for r in rows],args.out,lib,wasm,label))
     rng=random.Random(190019);names=list(p['characters']);squads=[rng.sample(names,5) for _ in range(args.random)]
     results.append(compare(p,squads,args.out,lib,wasm,'random'))
     import itertools
     q=synthetic();samples=[list(s) for s in itertools.islice(itertools.permutations(q['characters'],5),256)]
     samples+=[list('abcdef')[:5],list('bcdef')];results.append(compare(q,samples,args.out,lib,wasm,'synthetic'))
-    covered={op for r in results for op,n in r['opcode_visits'].items() if n};assert covered==set(OPCODES),(covered,set(OPCODES))
+    if 's20' in p:
+        import copy
+        import l2_score_s20
+        q['s20']=dict(version=2,switches=15)
+        rules=['allies_top_atk:2','allies_top_atk_excl:1','allies_weapon_top_atk:AR:2','allies_lowest_hp:2','allies_lowest_hp_excl:1','allies_top_hp:2','allies_top_def:2','allies_below_def']
+        for i,c in enumerate(q['characters'].values()):
+            c['base_stats'].update(hp=1000.+i,**{'def':10.+i})
+            c['metadata'].update(is_charge=bool(i%2),max_ammo=6,reload_time=2.,fire_rate=2.,clip_count=3,input_type='DOWN_Charge')
+            c['rank_own_s20']={'atk_pct':float(i),'atk_flat':float(i)}
+            c['mechanics_s20']=[[0,2,0,2,1.2,1],[2,1,2,1,1.,0]] if i==1 else [[0,3,3,1,1.3,0],[3,1,0,1,-5.,1]]
+            for g in c['groups']:
+                g['own'].update(max_ammo_pct=13.3,reload_speed_pct=7.,charge_speed_pct=23.,attack_speed_pct=17.)
+                g['action_rate_s20']=l2_score_s20.action_rate(c,g['own']);g['context_unit_s20']=g['unit']*.9
+                g['flags']['is_burst_damage']=False;g['cast_scaled_s20']=bool(i%2);g['action_eligible_s20']=bool(i%3)
+            c['buffs'].extend(dict(phase=1,effect={'target':r},amount={'atk_pct':2.}) for r in rules)
+            for j,b in enumerate(c['buffs']):b['condition_s20']=j%4
+        for mask in range(16):
+            q['s20']['switches']=mask
+            results.append(compare(q,samples,args.out,lib,wasm,'synthetic-s20-'+str(mask)))
+    covered={op for r in results for op,n in r['opcode_visits'].items() if n};required=set(OPCODES+(DYNAMIC_OPCODES if 's20' in p else []));assert covered==required,(covered,required)
     receipt=dict(seed=190019,random_count=args.random,results=results,opcode_visits=dict(sum((collections.Counter(r['opcode_visits']) for r in results),collections.Counter())))
     (args.out/'identity.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n');print(json.dumps(receipt,ensure_ascii=False))
 if __name__=='__main__':main()
