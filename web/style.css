@@ -160,3 +160,16 @@
 .swap-bar-negative{justify-content:flex-end}.swap-bar-negative>span{background:#ba3434}.swap-bar-positive>span{background:#16783d}
 .swap-row .button{flex-shrink:0}
 @media(max-width:600px){.swap-members{gap:4px}.swap-member{padding:6px 2px}.swap-member>span:not(.portrait){font-size:10px}#swap-dialog .swap-member .portrait{width:38px;height:38px}.swap-row{gap:8px}.swap-character{flex-basis:calc(100% - 64px)}.swap-damage{flex-basis:140px}.swap-row>.button{margin-left:auto}.team-tools{gap:10px}}
+
+:root{--damage-group-1:#87bdf1;--damage-group-2:#efb66b;--damage-group-3:#c7a0ee;--damage-group-4:#8fd3a4;--damage-group-5:#f19caf;--damage-group-6:#7ed4d5;--damage-group-7:#d9d37e}
+.squad-damage-groups{grid-column:2 / -1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.damage-group-bar{display:block;width:100%;height:24px;padding:0;border:1px solid var(--border);border-radius:5px;overflow:hidden;background:var(--raised);font-size:11px}
+.damage-group-bar.large{height:36px;margin-bottom:18px;cursor:default}
+.damage-group-bar svg{display:block}.damage-group-bar text{fill:#17212c;font-size:12px;font-weight:700}
+.damage-group-1{fill:var(--damage-group-1)}.damage-group-2{fill:var(--damage-group-2)}.damage-group-3{fill:var(--damage-group-3)}.damage-group-4{fill:var(--damage-group-4)}.damage-group-5{fill:var(--damage-group-5)}.damage-group-6{fill:var(--damage-group-6)}.damage-group-7{fill:var(--damage-group-7)}
+.damage-count-summary{font-size:10px;color:var(--muted);overflow-wrap:anywhere}
+#damage-group-details{min-width:0;overflow-wrap:anywhere}#damage-group-details section{margin:20px 0}#damage-group-details h3{font-size:14px;line-height:1.7;margin-bottom:8px}#damage-group-details h3>span{display:block;font-size:12px;color:var(--muted)}
+.damage-effect-row{display:flex;align-items:center;flex-wrap:wrap;gap:9px;padding:10px 0;border-bottom:1px solid var(--border);font-size:12px;min-width:0}
+.damage-effect-row>.portrait{width:36px;height:40px;flex:none}.damage-effect-description{flex:1;min-width:130px}.damage-effect-description>span,.damage-effect-description>small{display:block;line-height:1.7}.damage-effect-description>small{color:var(--muted)}.damage-effect-row>strong{margin-left:auto}.damage-scope{border:1px solid var(--border);border-radius:3px;padding:1px 4px;font-size:10px}
+[data-group-self]{margin-left:4px}.roster-stat{overflow-wrap:anywhere}
+@media(max-width:600px){.squad-damage-groups{grid-column:1 / -1}.damage-effect-row{gap:7px}.damage-effect-row>strong{font-size:11px}}

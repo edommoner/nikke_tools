@@ -129,3 +129,72 @@ def build_profiles(skills: dict, meta: dict) -> dict:
         profiles[character] = {'traits': sorted(traits), 'provides': list(provides.values()),
                                'conditions': list(conditions.values())}
     return profiles
+
+
+# Only stats routed into damage.py's seven factors (projectile_dmg_pct is not).
+_DAMAGE_GROUP_STATS = {
+    '1': 'normal_atk_dmg_pct',
+    '2': 'atk_pct atk_caster_based_pct atk_from_hp_pct def_ignore_pct',
+    '3': 'crit_rate crit_dmg normal_atk_crit_rate core_dmg_pct',
+    '4': 'charge_dmg_pct charge_dmg_mag_pct',
+    '5': ('atk_dmg_pct burst_dmg_pct burst_dmg_aoe_pct burst_dmg_single_pct '
+          'pierce_dmg_pct armor_break_dmg_pct dot_dmg_pct projectile_explosion_dmg_pct '
+          'projectile_attachment_dmg_pct sequential_dmg_pct part_dmg_pct intercept_dmg_pct'),
+    '6': 'split_dmg_pct',
+    '7': 'element_bonus_pct',
+    'count': ('attack_speed_pct reload_speed_pct reload_time_fixed max_ammo_pct max_ammo_flat '
+              'ammo_charge_pct ammo_charge_flat infinite_ammo charge_speed_pct '
+              'charge_speed_caster_based_pct charge_time_flat charge_time_fixed '
+              'burst_cooldown_reduce burst_charge_pct burst_charge_speed_pct fullburst_duration '
+              'burst_reentry mg_warmup_speed_pct pellet_count accuracy_pct skill_cooldown_pct '
+              'skill_cooldown_reduce_pct optimal_range_max_pct'),
+}
+_ALLY_DAMAGE_GROUPS = {stat: group for group, stats in _DAMAGE_GROUP_STATS.items()
+                       for stat in stats.split()}
+_ENEMY_DAMAGE_GROUPS = {'def_pct': '2', 'def_caster_based_pct': '2', 'received_dmg_pct': '6'}
+
+
+def build_damage_groups(skills: dict, meta: dict) -> dict:
+    """Project parsed buffs without mutating data or choosing favorite/skill levels."""
+    profiles = {}
+    for character, effects in skills.items():
+        out = []
+        for effect in effects:
+            stat = effect.get('stat')
+            if effect.get('type') not in ('buff', 'instant') or not stat:
+                continue
+            targets = effect.get('target', [])
+            if isinstance(targets, str):
+                targets = targets.split('|')
+            if not targets:
+                continue
+            if all(t == 'self' for t in targets):
+                scope = 'self'
+            elif any(t in skills or t.startswith(('all_allies', 'allies_')) for t in targets):
+                scope = 'ally'
+            elif all(t.split(':')[0] in ('target', 'same_target', 'all_enemies', 'boss')
+                     or t.startswith('enemies_') for t in targets):
+                scope = 'enemy'
+            else:
+                continue
+            harmful = effect.get('polarity') == 'harmful'
+            if (scope == 'enemy') != harmful:
+                continue
+            group = (_ENEMY_DAMAGE_GROUPS if scope == 'enemy' else _ALLY_DAMAGE_GROUPS).get(stat)
+            if group is None:
+                continue
+            stack = effect.get('max_stack')
+            favorite = effect.get('favorite')
+            entry = dict(group=group, stat=stat, scope=scope, source=effect.get('source'),
+                         name=effect.get('name'), favorite=favorite if type(favorite) is int else None,
+                         max_stack=stack if type(stack) is int and stack >= 1 else 1,
+                         caster_based=stat in ('atk_caster_based_pct', 'def_caster_based_pct',
+                                               'charge_speed_caster_based_pct'))
+            if isinstance(effect.get('values'), dict):
+                entry['values'] = effect['values'].copy()
+            elif type(effect.get('fixed_value')) in (int, float):
+                entry['fixed'] = effect['fixed_value']
+            out.append(entry)
+        profiles[character] = {'favorite_slots': list(meta.get(character, {}).get('favorite_slots') or []),
+                               'effects': out}
+    return profiles

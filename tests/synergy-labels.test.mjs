@@ -122,3 +122,24 @@ test('classLabel translates character classes', async () => {
   assert.equal(classLabel('화력형'), '火力型');
   assert.equal(classLabel(undefined), '');
 });
+
+// Mirrors the ally and enemy damage-group maps in app/synergy_profile.py.
+test('every damage-group stat has full and short Japanese labels', () => {
+  const stats = `accuracy_pct ammo_charge_flat ammo_charge_pct armor_break_dmg_pct atk_caster_based_pct
+    atk_dmg_pct atk_from_hp_pct atk_pct attack_speed_pct burst_charge_pct
+    burst_charge_speed_pct burst_cooldown_reduce burst_dmg_aoe_pct burst_dmg_pct burst_dmg_single_pct
+    burst_reentry charge_dmg_mag_pct charge_dmg_pct charge_speed_caster_based_pct charge_speed_pct
+    charge_time_fixed charge_time_flat core_dmg_pct crit_dmg crit_rate
+    def_caster_based_pct def_ignore_pct def_pct dot_dmg_pct element_bonus_pct
+    fullburst_duration infinite_ammo intercept_dmg_pct max_ammo_flat max_ammo_pct
+    mg_warmup_speed_pct normal_atk_crit_rate normal_atk_dmg_pct optimal_range_max_pct part_dmg_pct
+    pellet_count pierce_dmg_pct projectile_attachment_dmg_pct projectile_explosion_dmg_pct received_dmg_pct
+    reload_speed_pct reload_time_fixed sequential_dmg_pct skill_cooldown_pct skill_cooldown_reduce_pct
+    split_dmg_pct`.split(/\s+/);
+  for(const stat of stats){
+    assert.notEqual(statLabel(stat),stat,stat);
+    assert.notEqual(statShortLabel(stat),stat,stat);
+  }
+  assert.equal(statLabel('projectile_attachment_dmg_pct'),'付着弾ダメージ');
+  assert.equal(statShortLabel('projectile_attachment_dmg_pct'),'付着弾ダメ');
+});

@@ -42,11 +42,12 @@ def number(v, lo, hi, label, integer=False):
 
 
 def catalog():
-    global _SYNERGY_PROFILES
+    global _SYNERGY_PROFILES, _DAMAGE_GROUPS
     if '_SYNERGY_PROFILES' not in globals():
-        from synergy_profile import build_profiles
+        from synergy_profile import build_profiles, build_damage_groups
         skills = json.loads((ENGINE / 'data/parsed_skills.json').read_text(encoding='utf-8'))
         _SYNERGY_PROFILES = build_profiles(skills, META)
+        _DAMAGE_GROUPS = build_damage_groups(skills, META)
     by_name = {v: k for k, v in RESOURCE_NAMES.items()}
     display_path = ROOT / 'data/character-display.json'
     display = json.loads(display_path.read_text(encoding='utf-8-sig')) if display_path.exists() else {}
@@ -58,7 +59,7 @@ def catalog():
         chars.append({'name': name, 'label': MAPPINGS['names'].get(str(rid)) or name,
                       'image': display.get(str(rid), {}).get('image'), 'burst': m.get('burst_stage', '?'), 'weapon': m.get('weapon_type', ''), 'element': m.get('element_code', ''), 'manufacturer': m.get('manufacturer', ''),
                       'class': m.get('class', ''), 'squad': m.get('squad', ''), 'is_charge': m.get('is_charge', False),
-                      'synergy': _SYNERGY_PROFILES.get(name)})
+                      'synergy': _SYNERGY_PROFILES.get(name), 'damage_groups': _DAMAGE_GROUPS.get(name)})
     cube_display_path = ROOT / 'data/cube-display.json'
     cube_display = json.loads(cube_display_path.read_text(encoding='utf-8-sig')) if cube_display_path.exists() else {'cubes': []}
     cube_effects = {
