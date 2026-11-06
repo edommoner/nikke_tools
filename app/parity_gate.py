@@ -32,6 +32,11 @@ def digest(value):
     return hashlib.sha256(canonical(value)).hexdigest()
 
 
+def comparable_payload_digest(payload):
+    """Compare CPU results across code versions, excluding only git provenance."""
+    return digest({key: value for key, value in payload.items() if key != 'evaluator'})
+
+
 def read(path):
     path = Path(path)
     if path.suffix == '.gz':
@@ -419,9 +424,10 @@ def reference_payload(body, identity, cache, sources, full=False, inherited_iden
         result['reference_status'] = 'coverage-reused'
         if spot_check_selected(identity['request_sha256'], spot_fraction, seed):
             checked = cpu_job(body, sources, cache, identity, save=False)
+            equal = comparable_payload_digest(checked) == comparable_payload_digest(cpu)
             result.update(cpu_evaluations=1, spot_checked=True,
-                          spot_check_failure=digest(checked) != candidate['payload_sha256'],
-                          previous_code_payload_equal=digest(checked) == candidate['payload_sha256'],
+                          spot_check_failure=not equal,
+                          previous_code_payload_equal=equal,
                           previous_code_cache_key=candidate['identity']['cache_key'])
         if not result['spot_check_failure']:
             save_cache(cache, identity, cpu, reused_from=candidate['identity']['cache_key'])
@@ -434,7 +440,7 @@ def reference_payload(body, identity, cache, sources, full=False, inherited_iden
     cpu = cpu_job(body, sources, cache, identity)
     result['cpu_evaluations'] = 1
     if entries:
-        result['previous_code_payload_equal'] = digest(cpu) == entries[0]['payload_sha256']
+        result['previous_code_payload_equal'] = comparable_payload_digest(cpu) == comparable_payload_digest(entries[0]['payload'])
         result['previous_code_cache_key'] = entries[0]['identity']['cache_key']
     return cpu, result
 

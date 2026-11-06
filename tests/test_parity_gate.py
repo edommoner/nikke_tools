@@ -153,6 +153,44 @@ class CorpusTests(unittest.TestCase):
 class CoverageTests(unittest.TestCase):
     OLD = 'K = 1\ndef covered(x=1):\n    return x + 1\ndef other():\n    return 2\nclass C:\n    a = 1\n    def method(self):\n        return 3\n'
 
+    def test_payload_provenance_comparisons(self):
+        from unittest.mock import patch
+        original = dict(result=1, compute={'backend': 'cpu'}, nested={'evaluator': 'keep'},
+                        evaluator=dict(repo='old', commit='old', dirty=False))
+        changed_provenance = dict(original, evaluator=dict(repo='new', commit='new', dirty=True))
+        variants = [('provenance', changed_provenance, True),
+                    ('absent provenance', {k: v for k, v in original.items() if k != 'evaluator'}, True),
+                    ('result', dict(changed_provenance, result=2), False),
+                    ('compute', dict(changed_provenance, compute={'backend': 'other'}), False),
+                    ('nested evaluator', dict(changed_provenance, nested={'evaluator': 'changed'}), False),
+                    ('added key', dict(changed_provenance, extra=None), False),
+                    ('removed key', {k: v for k, v in changed_provenance.items() if k != 'result'}, False)]
+        for name, checked, equal in variants:
+            for full in (False, True):
+                with self.subTest(change=name, full=full), tempfile.TemporaryDirectory() as tmp:
+                    old = dict(cache_key='a'*64, request_sha256='r', data_identity='d', code_identity='old')
+                    current = dict(old, cache_key='b'*64, code_identity='new')
+                    gate.save_cache(tmp, old, original)
+                    entry = gate.read(gate.cache_path(tmp, old['cache_key']))
+                    self.assertEqual(gate.comparable_payload_digest(original) ==
+                                     gate.comparable_payload_digest(checked), equal)
+                    self.assertNotEqual(gate.digest(original), gate.digest(checked))
+                    with patch.object(gate, 'coverage_candidate', return_value=(entry, [])), \
+                            patch.object(gate, 'cpu_job', return_value=checked) as job:
+                        _, result = gate.reference_payload({}, current, tmp, {}, full=full, spot_fraction=1)
+                    self.assertEqual(result['previous_code_payload_equal'], equal)
+                    self.assertEqual(result['spot_checked'], not full)
+                    self.assertEqual(result['spot_check_failure'], not full and not equal)
+                    if not full:
+                        job.assert_called_once_with({}, {}, tmp, current, save=False)
+                        self.assertEqual(gate.cache_path(tmp, current['cache_key']).exists(), equal)
+                        if equal:
+                            alias = gate.read(gate.cache_path(tmp, current['cache_key']))
+                            self.assertEqual(alias['payload'], original)
+                            self.assertEqual(alias['payload_sha256'], gate.digest(original))
+                            self.assertEqual(gate.original_entry(tmp, alias), entry)
+                    self.assertEqual(entry['payload'], original)
+
     def check(self, new, valid, lines=(3,)):
         analysis = gate.source_changes({'a.py': self.OLD}, {'a.py': new})
         self.assertEqual(gate.coverage_valid(analysis, {'a.py': lines})[0], valid)

@@ -137,6 +137,12 @@ The summary reports `fresh`, `cache_hits`, `coverage_reused`, `spot_checked`, an
 same-request/data entry also record diagnostic `previous_code_payload_equal`
 and the compared original key; summary true/false counts do not affect status.
 
+CPU spot checks and `previous_code_payload_equal` compare payload digests after
+excluding only the top-level `evaluator` git-provenance key. All other fields,
+including nested `evaluator` keys, remain significant. Stored payloads retain
+provenance, and `payload_sha256`, cache integrity and exact-copy alias checks
+continue to cover the full payload. Native-vs-CPU `payload_differences` is unchanged.
+
 This is conservative selection under a static Python source model, not a proof
 for dynamic `exec`/`eval`, third-party or interpreter changes. Changes to those
 environments require a separate cache. Data changes have no line coverage and
