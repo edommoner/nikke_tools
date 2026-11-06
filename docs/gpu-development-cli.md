@@ -1,4 +1,6 @@
 <!-- parent-audit-current -->
+2026-11-03: ストレージ予備容量を20GiBへ増やし、package作成・展開前の非圧縮容量チェックと、Darwin完了済みreadbackの自動ゼロ領域回収を追加しました。[保存・整理手順](project-storage-maintenance.md)。検証のbyte・結果・claim・失敗記録は保持します。
+
 共通CLIのGPU子プロセスはraw保存までとし、親の独立監査へCPU比較を一本化しました。親の計測はaudit-phases.jsonl、子のCUDA API traceは従来のphases.jsonlです。独立audit／sealと失敗保持は維持します。詳細は[親監査の変更](portable-parent-audit.md)を参照してください。
 <!-- /parent-audit-current -->
 
@@ -282,6 +284,10 @@ v110の修正版argvは実NVRTCで受け付けられましたが、本体O1コ�
 復元は既存readbackを上書きせず、receipt・圧縮byte・元evidence・展開後のサイズ／SHAをすべて確認してから公開します。原byteの退避先は`.gz`と隣接`.gz.json`の組です。非圧縮ファイルがない状態では従来の監査器は実行できないため、監査前に復元します。Linux／Macは除去前にarchive親directoryもfsyncし、Windowsはそのdirectory fsyncを行いません。停電耐性の認定ではありません。
 
 Macの実capture2,082,471,936byteは5,849,675byteへ圧縮でき、全展開byteの元SHA一致を確認しました。復元・破損拒否・出力上書き拒否・検証失敗時の原ファイル保持はCPU4テストで検査します。rawや圧縮rawをGitHubへ含めません。
+
+旧`portable-build`ベンチマークの入力／readbackは、専用のCPU限定CLI `scripts/archive-portable-benchmarks.py`で一覧固定・無損失圧縮・復元できます。2026-10-22に測定用224ファイル（105 GiB）を移行し、全件展開SHAと実復元を確認、空き容量は約104.6 GiB増えました。全件比較用24ファイルと証拠類は保持。旧readerの使用前には必要なパスを復元してください。保存先・再開・復元・新規測定後の整理手順は[portable-benchmark-storage.md](portable-benchmark-storage.md)、実測値は`research/portable-benchmark-storage-migration.json`に記録しています。
+
+`storage-check --required-bytes N`は必要な非圧縮容量と既定1 GiBの予備容量を検査し、不足時は終了1。`storage-check --storage PATH --require-archived`は保存一覧・証拠・圧縮SHAを検査し、整理対象の原本が残れば終了1です。`--verify`を加えた場合だけ全展開と保持原本のSHAも再検査します。通常`run`はCPU準備後、GPU claim前に入力＋readbackの容量を自動検査し`storage.json`へ記録します。CPU-only／smokeは未使用のGPU出力容量を要求しません。欠けた原本は監査／replay前に復元し、GPU再実行で埋め合わせません。保存処理の異常系テストをregressionのCPUチェックにも登録しています。
 
 ## GPU接続前のCPU正本契約
 

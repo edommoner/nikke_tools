@@ -5,6 +5,7 @@ R=Path(__file__).resolve().parents[1];P=R/'research';SOURCE='782a13ca6249a52c300
 sys.path[:0]=[str(R/'app'),str(R/'scripts')]
 import portable_runtime as rt
 from portable_specs import ABI,LIMITS as L
+from portable_capture_storage import benchmark_space_preflight
 
 def load(n):return json.loads((P/(n+'.json')).read_text())
 def save(n,x):(P/(n+'.json')).write_text(json.dumps(x,indent=2)+'\n')
@@ -14,6 +15,7 @@ def sha(p):
   while b:=f.read(8*1024*1024):h.update(b)
  return h.hexdigest()
 def read_input(path):
+ if not Path(path).exists():raise FileNotFoundError(str(path)+'; restore this path with scripts/archive-portable-benchmarks.py restore before reading archived buffers')
  a=array.array('I');a.frombytes(Path(path).read_bytes())
  if sys.byteorder!='little':a.byteswap()
  count=a[0];assert len(a)==1+count*L['INPUT_WORDS']
@@ -53,6 +55,7 @@ def main():
  barrier=load('portable-enemy-target-timing-order');broad=load('portable-enemy-target-broad-validation');core=load('portable-combat-metal')
  assert barrier['passed'] and not barrier['verification_processes'] and barrier['windows_execution_and_transfer_terminal']
  assert broad['passed'] and broad['mac_gates']==52 and broad['source_commit']==SOURCE and core['passed']
+ benchmark_space_preflight(P,L['INPUT_WORDS'],L['OUTPUT_WORDS'],[4682,80,20],7)
  subprocess.run(['git','diff','--exit-code',SOURCE,'--','app','scripts','gpu','tests'],cwd=R,check=True)
  folder=P/'portable-build'/('enemy-target-scalar-benchmark-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir()
  paths={name:prepare(folder,name) for name in ('control','candidate')};one,many=rt.execute,rt.execute_batches
@@ -121,4 +124,5 @@ def main():
  criteria=any(x['improves'] for k,x in rows.items() if k in ('random-dense','rank-dense','slot-dense')) and not any(x['regresses'] for x in rows.values())
  save('portable-enemy-target-scalar-benchmark',dict(passed=True,source_commit=SOURCE,criteria_met=criteria,production_adopted=False,workloads=rows,parity=parity,timing_order=barrier,captured=str(folder),tool_sha256=sha(__file__),scope='Apple M5 seven local workloads:ordinary,long RNG,mode/enemy alias,and four dense authored victim rules. Alternating order,warmup+3 samples. Full4682+80+20 parity before timing. No CUDA speed/full-roster speed/physical peak memory claim;production unchanged pending adoption verification.'))
  print('Efficiency criteria met:',criteria,'production unchanged',flush=True)
+ print('After this process exits, archive timing buffers using scripts/archive-portable-benchmarks.py; folder:',folder.name,'report: portable-enemy-target-scalar-benchmark.json',flush=True)
 if __name__=='__main__':main()

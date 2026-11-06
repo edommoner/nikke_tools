@@ -7,6 +7,7 @@ __pycache__/
 .venv/
 .tools/
 research/portable-build/
+research/portable-archives/
 local-data/
 .session_cookie
 .env

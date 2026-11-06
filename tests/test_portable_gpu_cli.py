@@ -43,7 +43,7 @@ class PacketTests(unittest.TestCase):
             root=Path(folder);capture=root/'capture'
             failed=dict(passed=False,calculation_verified=False,first_difference=dict(reason='Native differs'))
             with patch.object(cli,'ROOT',root),patch.object(cli,'verify_package',return_value=dict(suite='projectile',package_id='transport-test')),\
-                 patch.object(cli,'SUITES',dict(projectile=dict(tests=[]))),patch.object(cli,'cpu_preflight',return_value=dict(passed=True)),\
+                 patch.object(cli,'SUITES',dict(projectile=dict(tests=[]))),patch.object(cli,'cpu_preflight',return_value=dict(passed=True,input_bytes=8,output_bytes=16)),\
                  patch.object(cli,'os',SimpleNamespace(**dict(vars(os),name='nt'))),\
                  patch.object(cli,'run_job',return_value=dict(passed=True)) as job,patch.object(cli,'copy_generated'),\
                  patch.object(cli,'audit_capture',return_value=failed) as audit:
@@ -53,6 +53,42 @@ class PacketTests(unittest.TestCase):
             self.assertFalse(cli.load(capture/'result.json')['passed'])
             self.assertTrue((root/'gpu-claimed-cuda.json').exists())
             self.assertTrue((capture/'artifacts.json').exists())
+
+    def test_low_space_stops_before_gpu_claim_and_child(self):
+        from types import SimpleNamespace
+        import portable_capture_storage as storage
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);capture=root/'capture'
+            with patch.object(cli,'ROOT',root),patch.object(cli,'verify_package',return_value=dict(suite='projectile',package_id='space-test')),\
+                 patch.object(cli,'cpu_preflight',return_value=dict(passed=True,input_bytes=8,output_bytes=16)),\
+                 patch.object(cli,'os',SimpleNamespace(**dict(vars(os),name='nt'))),\
+                 patch.object(storage,'space_status',return_value=dict(passed=False,required_bytes=24,reserve_bytes=1024,free_bytes=10)),\
+                 patch.object(cli,'run_job',side_effect=AssertionError('GPU forbidden')) as job:
+                with self.assertRaisesRegex(ValueError,'Insufficient space'):cli.run_capture(capture,'cuda',180)
+            job.assert_not_called();self.assertFalse((root/'gpu-claimed-cuda.json').exists())
+            self.assertFalse(cli.load(capture/'storage.json')['passed'])
+            self.assertEqual(cli.load(capture/'run.json')['status'],'failed')
+
+    def test_missing_raw_audit_fails_before_native_work(self):
+        with tempfile.TemporaryDirectory() as folder,patch.object(cli,'open_suite',side_effect=AssertionError('Native forbidden')) as opened:
+            with self.assertRaisesRegex(FileNotFoundError,'restore archived bytes'):
+                cli.compare_readback({},Path(folder))
+            opened.assert_not_called()
+
+    def test_cpu_only_does_not_reserve_gpu_output_space(self):
+        import portable_capture_storage as storage
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            with patch.object(cli,'ROOT',root),patch.object(cli,'verify_package',return_value=dict(suite='projectile',package_id='cpu-space-test')),\
+                 patch.object(cli,'SUITES',dict(projectile=dict(tests=[]))),patch.object(cli,'cpu_preflight',return_value=dict(passed=True)),\
+                 patch.object(storage,'space_status',side_effect=AssertionError('No GPU output reserve for CPU-only')),patch.object(cli,'run_job') as job:
+                result=cli.run_capture(root/'capture','cuda',180,cpu_only=True)
+            job.assert_not_called();self.assertTrue(result['cpu_verified'])
+
+    def test_storage_cli_insufficient_budget_returns_nonzero_json_without_gpu(self):
+        completed=subprocess.run([sys.executable,str(ROOT/'scripts/nikke_gpu.py'),'storage-check','--required-bytes',str(10**18)],capture_output=True,text=True)
+        self.assertEqual(completed.returncode,1)
+        result=json.loads(completed.stdout);self.assertFalse(result['passed']);self.assertEqual(result['gpu_calls'],0)
 
     def test_missing_metal_compiler_stops_before_native_and_gpu_claim(self):
         with tempfile.TemporaryDirectory() as folder:
@@ -375,7 +411,10 @@ class CaptureAuditTests(unittest.TestCase):
         with patch.object(cli,'verify_package',return_value=dict(package_id='fixture',suite='projectile',golden=dict(entries=[{}]*63))),patch.object(cli,'compare_readback') as compare:
             result=cli.audit_capture(self.root,verify_artifacts=False,record_comparison=True)
         compare.assert_not_called();self.assertFalse(result['calculation_verified'])
-        self.assertEqual(cli.load(self.root/'comparison.json'),dict(calculation_verified=False,comparison_error='Missing readback.bin'))
+        receipt=cli.load(self.root/'comparison.json')
+        self.assertFalse(receipt['calculation_verified'])
+        self.assertEqual(receipt['comparison_error'],result['comparison_error'])
+        self.assertIn('restore archived bytes',receipt['comparison_error'])
 
     def test_calculation_and_environment_success_remain_distinct(self):
         result=self.audit();self.assertTrue(result['passed']);self.assertTrue(result['calculation_verified'])

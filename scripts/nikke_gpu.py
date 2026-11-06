@@ -17,7 +17,9 @@ from unittest.mock import patch
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+if (ROOT/'gpu-package.json').is_file():sys.dont_write_bytecode=True
 sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
+from portable_capture_storage import RESERVE_BYTES
 # No GPU/backend/native imports at startup: collect/audit must work without them.
 SUITES = {
     'projectile': dict(script='research/verify-world-projectile-short.py',
@@ -63,7 +65,7 @@ SUITES['regression']=dict(script='research/verify-world-regression-short.py',
     source='gpu/world_projectile_entry.slang',inputs=759,native=602,
     tests=['test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_phase_audit.py','test_portable_regression_adapter.py','test_portable_roster_regression.py',
            'test_portable_readiness.py','test_portable_stun.py','test_portable_typed_recipient_delegation.py',
-           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py','test_portable_lazy_bank.py','test_portable_compiler_stats.py','test_portable_base_copy.py','test_portable_seal.py','test_portable_persona.py','test_portable_compile_cache.py','test_portable_named_magnitude.py','test_portable_enemy_selection.py','test_portable_capture_storage.py','test_portable_attack_magnitude.py','test_portable_revive_reference.py','test_portable_revival.py'])
+           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py','test_portable_lazy_bank.py','test_portable_compiler_stats.py','test_portable_base_copy.py','test_portable_seal.py','test_portable_persona.py','test_portable_compile_cache.py','test_portable_named_magnitude.py','test_portable_enemy_selection.py','test_portable_capture_storage.py','test_portable_benchmark_storage.py','test_portable_attack_magnitude.py','test_portable_revive_reference.py','test_portable_revival.py'])
 SUITES['healing-storage']=dict(script='research/verify-world-healing-storage-short.py',
     golden='research/portable-world-healing-storage-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=51,native=39,development_only=True,
@@ -205,6 +207,11 @@ def make_package(suite, output, *, develop=False, cases=()):
     # Include this CLI even before its first commit during local development.
     if 'scripts/nikke_gpu.py' not in names:
         names.append('scripts/nikke_gpu.py')
+    # This post-run dependency must travel even before a local first commit.
+    for name in ('app/portable_sparse_raw.py','app/portable_benchmark_storage.py',
+                 'scripts/archive-portable-benchmarks.py','tests/test_portable_benchmark_storage.py',
+                 'tests/test_portable_sparse_raw.py','tests/test_portable_storage_policy.py'):
+        if name not in names:names.append(name)
     for pattern in SUITES[suite]['tests']:
         if 'tests/'+pattern not in names:
             raise ValueError('Required CPU test is missing from tracked payload: '+pattern)
@@ -217,6 +224,8 @@ def make_package(suite, output, *, develop=False, cases=()):
         raise ValueError('Pinned upstream source/data must be installed first')
     names.append(license_path.relative_to(ROOT).as_posix())
     records = file_records(ROOT, names)
+    from portable_capture_storage import require_space
+    require_space(Path(output).parent,2*sum(r['bytes'] for r in records)+1024**2)
     if cases and not develop:
         raise ValueError('--case requires --develop')
     golden = development_baseline(suite, cases) if develop else load(ROOT/SUITES[suite]['golden'])
@@ -253,6 +262,8 @@ def unpack(archive, destination):
             raise ValueError('Duplicate package artifact records')
         if m['package_id'] != package_id(m) or set(names) != {'gpu-package.json', *(r['path'] for r in m['files'])}:
             raise ValueError('Unlisted package members or identity mismatch')
+        from portable_capture_storage import require_space
+        require_space(destination.parent,sum(info.file_size for info in z.infolist()))
         for row in m['files']:
             raw = z.read(row['path'])
             if len(raw) != row['bytes'] or sha(raw) != row['sha256']:
@@ -351,7 +362,8 @@ def cpu_preflight(m):
     from portable_typed_cuda_proof_audit import verify_cpu_gpu_calls
     calls = dict(build=0,execute=0); verify_cpu_gpu_calls(calls)
     return dict(passed=True, input_count=len(entries), native_oracles=sum(domain is not None for _,_,domain in entries),
-                input_sha256=sha(data), gpu_calls=calls, elapsed_seconds=time.perf_counter()-started)
+                input_sha256=sha(data),input_bytes=len(data),output_bytes=len(entries)*786432*4,
+                gpu_calls=calls, elapsed_seconds=time.perf_counter()-started)
 
 
 def child(capture, backend, smoke=False, compile_only=False):
@@ -387,6 +399,8 @@ def child(capture, backend, smoke=False, compile_only=False):
 
 def compare_readback(m, capture, adapter=None):
     """Re-run existing native comparators; no GPU builds/executes allowed."""
+    from portable_capture_storage import require_raw_files
+    require_raw_files(capture/'input.bin',capture/'readback.bin')
     (ROOT/'research/portable-build').mkdir(parents=True, exist_ok=True)
     with forbid_gpu():
         adapter = adapter or open_suite(m)
@@ -492,6 +506,8 @@ def audit_replay_capture(m, capture, *, verify_artifacts=True,record_comparison=
     original,facts,evidence=replay_source(m,Path(origin['source_package']),Path(origin['source_capture']))
     if origin['source_package_id']!=original['package_id']:raise ValueError('Wrong original package')
     source=Path(origin['source_capture'])
+    from portable_capture_storage import require_raw_files
+    require_raw_files(capture/'input.bin',capture/'readback.bin',source/'input.bin',source/'readback.bin')
     for name in ('input.bin','readback.bin','evidence.json','generated.cu','generated.metal'):
         if (capture/name).read_bytes()!=(source/name).read_bytes():raise ValueError('Replay changed original bytes: '+name)
     if (capture/'source-execution.json').read_bytes()!=(source/'execution.json').read_bytes():
@@ -505,6 +521,9 @@ def audit_replay_capture(m, capture, *, verify_artifacts=True,record_comparison=
 
 def replay_capture(capture, source_package, source_capture):
     m=verify_package(ROOT);original,facts,evidence=replay_source(m,source_package,source_capture)
+    from portable_capture_storage import require_raw_files,require_space
+    require_raw_files(source_capture/'input.bin',source_capture/'readback.bin')
+    require_space(capture.parent,sum((source_capture/n).stat().st_size for n in ('input.bin','readback.bin','evidence.json','generated.cu','generated.metal','execution.json')))
     capture.mkdir(parents=True,exist_ok=False)
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='metal',mode='replay',status='replaying',gpu_retry_count=0))
     write(capture/'replay.json',dict(source_package=str(source_package.resolve()),source_capture=str(source_capture.resolve()),source_package_id=original['package_id']))
@@ -705,6 +724,11 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
         pre=(dict(passed=True,controller_only=True,input_count=0,native_oracles=0,gpu_calls=0)
              if smoke else cpu_preflight(m))
         write(capture/'cpu.json',pre)
+        if not smoke and not cpu_only:
+            from portable_capture_storage import space_status
+            budget=space_status(capture,pre['input_bytes']+pre['output_bytes'])
+            write(capture/'storage.json',dict(budget,gpu_calls=0,calculation_verified=False))
+            if not budget['passed']:raise ValueError('Insufficient space for uncompressed input/readback and reserve; see storage.json')
         test_results=[]
         test_env=validation_environment(capture)
         for pattern in (SMOKE_TESTS if smoke else SUITES[m['suite']]['tests']):
@@ -744,6 +768,9 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
         raise
     finally:
         collect(capture,capture/'artifacts.json')
+    if not smoke and not cpu_only:
+        from portable_sparse_raw import compact_completed_capture
+        compact_completed_capture(capture,check_records)
     return load(capture/'result.json')
 
 
@@ -900,8 +927,11 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False):
         except Exception as exc:
             error=type(exc).__name__+': '+str(exc)
             if record_comparison:write(capture/'comparison.json',dict(calculation_verified=False,comparison_error=error))
-    elif record_comparison:
-        write(capture/'comparison.json',dict(calculation_verified=False,comparison_error='Missing readback.bin'))
+    else:
+        from portable_capture_storage import require_raw_files
+        try:require_raw_files(capture/'readback.bin')
+        except FileNotFoundError as exc:error=str(exc)
+        if record_comparison:write(capture/'comparison.json',dict(calculation_verified=False,comparison_error=error))
     backend=load(capture/'run.json')['backend']
     if (capture/'evidence.json').exists():
         e=load(capture/'evidence.json')
@@ -975,6 +1005,9 @@ def main(argv=None):
     for storage_command in ('archive-raw','restore-raw'):
         a=sub.add_parser(storage_command);a.add_argument('--capture',type=Path,required=True);a.add_argument('--archive',type=Path,required=True)
         if storage_command=='archive-raw':a.add_argument('--remove-original',action='store_true')
+    a=sub.add_parser('storage-check',help='CPU-only free-space and optional saved-archive integrity check')
+    a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=RESERVE_BYTES)
+    a.add_argument('--storage',type=Path);a.add_argument('--verify',action='store_true');a.add_argument('--require-archived',action='store_true')
     a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True)
     for name in ('run','_child'):
@@ -1025,6 +1058,12 @@ def main(argv=None):
     elif a.command=='restore-raw':
         from portable_capture_storage import restore_raw
         result=restore_raw(a.capture,a.archive,check_records)
+    elif a.command=='storage-check':
+        from portable_benchmark_storage import storage_check
+        result=storage_check(ROOT,needed=a.required_bytes,reserve=a.reserve_bytes,storage=a.storage,
+                             verify=a.verify,require_archived=a.require_archived)
+        if not result['passed']:
+            print(json.dumps(result,indent=2));raise SystemExit(1)
     elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case)
     elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest))
     elif a.command=='run':

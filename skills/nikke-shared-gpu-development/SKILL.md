@@ -1,6 +1,6 @@
 ---
 name: nikke-shared-gpu-development
-description: Develop and verify nikke_tools shared CUDA/Metal effects and execution using the repository proof CLI, immutable verification packages, saved-result audits, and bounded Windows checks. Use for this project's GPU migration and verification workflow.
+description: Develop and verify nikke_tools shared CUDA/Metal effects using the proof CLI, immutable packages, saved-result audits, storage checks and lossless archival, and bounded Windows checks. Use for this project's GPU development and verification workflow.
 ---
 
 # NIKKE共通GPU開発
@@ -15,6 +15,15 @@ Work in the `nikke_tools` checkout. Read `docs/gpu-development-cli.md` for execu
 - Reuse saved results when source/input/runtime match. A consumed execution claim is a recovery pointer, not a reason to remove the claim or rerun the GPU. If a run failed, preserve it and decide whether a corrected source/input justifies a new package.
 - For a disconnected Windows chat, request `status`/`export` for the existing capture. Do not send another `run` command. Result import/export and audit are CPU-only.
 - Prefer the shortest CUDA suite that covers the change. Use the package's direct base-Python launch, BelowNormal priority, fresh-child JobObject, start gate and maximum 180-second command budget. Run the CPU-only Job smoke when changing orchestration; it does not require a CUDA dispatch.
+
+## Bound raw storage and preserve recovery
+
+- Retain at least 20 GiB free after the complete peak write budget. Check using the current checkout before executing historical packets with older reserve defaults. Follow `docs/project-storage-maintenance.md` and repository `AGENTS.md`; reclaim verified zero blocks after readers exit, retaining every raw byte, path, size and inode. Never treat proof snapshots or shared warm caches as generic disposable output.
+
+- Before a large benchmark, budget all uncompressed inputs/readbacks across workloads, variants, warmup and measured samples, plus a reserve. Use `python scripts/nikke_gpu.py storage-check --required-bytes N`; do not assume compression will lower the measurement peak or reduce batch/sample counts to fit. Normal GPU captures also check their prepared input/readback budget before consuming an execution claim; CPU-only checks need no GPU output allocation.
+- After measurement exits, use the CPU-only workflow in `docs/portable-benchmark-storage.md` to inventory and archive timing buffers. Preserve historical evidence, failures and source snapshots; keep parity and pinned captures raw by default. Use existing authorization for removal: explicit migration removes an original only after durable archive publication, full byte-hash verification and a real restore test. Do not create historical `artifacts.json` records to fit a newer storage format.
+- Check completed cleanup with `python scripts/nikke_gpu.py storage-check --storage PATH --require-archived`. This checks metadata, receipt anchors and compressed hashes without expanding every raw buffer. Use `--verify` after migration or archive changes for full decompression and retained-raw verification; reuse that result while its anchors are unchanged. A passing storage check is not a calculation or GPU proof.
+- Missing archived raw during audit/replay means restore the original bytes first, never repeat GPU execution to reconstruct evidence. Keep the external archive inventory, receipts and payloads together when moving/backing up captures. Do not delete archives, automatically expire evidence, or expand cleanup to parity/pinned data outside the authorized scope.
 
 ## Preserve the proof boundaries
 
