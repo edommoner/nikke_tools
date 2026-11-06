@@ -17,9 +17,6 @@
 .board-foot{flex-wrap:wrap}
 .board-foot>#board-operation-help{flex:1;min-width:160px}
 .team-slots{position:relative;min-width:0}
-.team-synergy-lines{position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none;overflow:hidden}
-.team-synergy-link{fill:none;stroke:#77e3df;stroke-width:2;filter:drop-shadow(0 1px 1px #000);pointer-events:none}
-.team-synergy-link.tier-B{stroke:#ffc77e;stroke-dasharray:5 3}
 .slot-synergy-marks{position:absolute;top:51px;left:2px;right:2px;display:flex;flex-wrap:wrap;gap:2px;pointer-events:none;font-size:8px;line-height:12px}
 .slot-synergy-marks>span{background:#172530ec;border-radius:2px;padding:0 2px}
 .synergy-global{color:#bce9ff;border:1px solid #7399b6}
@@ -36,7 +33,6 @@
 .slot.synergy-hovered{outline:2px solid #fff;outline-offset:1px}
 .slot.synergy-partner{outline:2px solid #7cdfe9;outline-offset:1px}
 .slot.synergy-dimmed{opacity:.35}
-.team-synergy-link.synergy-dimmed{opacity:.12}
 .team-synergy-list{grid-column:2 / -1;display:flex;flex-wrap:wrap;gap:5px;min-width:0}
 .team-synergy-chip{font-size:10px;line-height:1.5;padding:3px 6px;border:1px solid #496071;background:#253646;color:#c6deec;border-radius:4px;overflow-wrap:anywhere;max-width:100%}
 .team-synergy-chip.synergy-conflict{color:#ffd088}
@@ -45,7 +41,6 @@
 .burst-completeness .present{color:#fff2bf;background:#5b4928;border-color:#c1a56b}
 .team-tools{flex-wrap:wrap}
 @media(max-width:600px){.team-synergy-modes{flex-shrink:1}
-.team-synergy-link{stroke-width:2}
 .slot-synergy-marks{font-size:7px;line-height:10px;top:48px}
 .team-synergy-dots{gap:2px;padding:1px;left:2px;right:2px;bottom:21px}
 .synergy-dot{width:5px;height:5px}
@@ -56,8 +51,7 @@
 .team-synergy-chip{font-size:9px}
 .team-tools{gap:10px}}
 
-/* Keep arrows outside cards, and give card annotations their own rows. */
-.synergy-mode-lines .team-slots{padding-block:28px}
+/* Give card annotations their own rows. */
 .team-row .slot.filled{display:flex;flex-direction:column;height:auto;min-height:0;--slot-main-height:99px}
 .team-row .slot-main{flex:none}
 .team-row .slot-footer{order:1;flex:none}
@@ -104,10 +98,6 @@
 @media(max-width:340px){#growth-dialog .overload-line{grid-template-columns:minmax(0,1fr)}}
 .team-synergy-legend{font-size:10px;line-height:1.6;overflow-wrap:anywhere;min-width:0}
 .team-synergy-legend[hidden]{display:none}
-.synergy-line-sample{display:inline-block;width:16px;border-top:2px solid #77e3df;vertical-align:middle;margin-right:3px}
-.synergy-line-sample.tier-B{border-top:2px dashed #ffc77e}
-.team-synergy-arc-label{font-size:8px;text-anchor:middle;dominant-baseline:central;fill:#77e3df;stroke:#14202c;stroke-width:3px;paint-order:stroke;stroke-linejoin:round;pointer-events:none}
-.team-synergy-arc-label.tier-B{fill:#ffc77e}
 [data-synergy-chip]{cursor:help;touch-action:manipulation}
 [data-synergy-chip]:focus-visible{outline:2px solid #fff;outline-offset:1px}
 .synergy-tooltip{position:absolute;z-index:1000;box-sizing:border-box;width:max-content;max-width:min(360px,calc(100vw - 16px));max-height:calc(100dvh - 16px);overflow:auto;padding:10px 12px;border:1px solid #87b8cf;border-radius:6px;background:#142330;color:#e1eff8;box-shadow:0 4px 16px #0009;font-size:12px;line-height:1.7;overflow-wrap:anywhere;pointer-events:none}
@@ -173,3 +163,27 @@
 .damage-effect-row>.portrait{width:36px;height:40px;flex:none}.damage-effect-description{flex:1;min-width:130px}.damage-effect-description>span,.damage-effect-description>small{display:block;line-height:1.7}.damage-effect-description>small{color:var(--muted)}.damage-effect-row>strong{margin-left:auto}.damage-scope{border:1px solid var(--border);border-radius:3px;padding:1px 4px;font-size:10px}
 [data-group-self]{margin-left:4px}.roster-stat{overflow-wrap:anywhere}
 @media(max-width:600px){.squad-damage-groups{grid-column:1 / -1}.damage-effect-row{gap:7px}.damage-effect-row>strong{font-size:11px}}
+
+/* Switchable, in-row synergy views share the damage group's palette. */
+.synergy-view{grid-column:2 / -1;min-width:0;font-size:11px;line-height:1.6}
+.synergy-points ul{list-style:none;margin:0;padding:0}
+.synergy-points li{overflow-wrap:anywhere;margin:2px 0}
+.point-warning{color:#ffd088}.point-ok{color:#a9dfbd}.point-info{color:var(--muted)}
+.synergy-matrix-wrap{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+.synergy-matrix{border-collapse:collapse;width:100%;table-layout:fixed;min-width:330px;font-size:10px}
+.synergy-matrix caption{text-align:left}.synergy-matrix th{font-weight:400}
+.synergy-matrix th,.synergy-matrix td{padding:2px;text-align:center;border:1px solid #3b4b59}
+.synergy-matrix th:first-child{width:45px}.synergy-matrix th:last-child{width:18px}
+.matrix-member{display:flex;align-items:center;justify-content:center;gap:2px;min-width:0;overflow:hidden}
+.matrix-member .portrait{width:18px;height:22px;flex:none;aspect-ratio:auto}.matrix-member .portrait-fallback{font-size:9px}.matrix-member img{width:100%;height:100%;object-fit:cover}.matrix-member span{overflow:hidden;white-space:nowrap}
+.matrix-cell,.matrix-dynamic{display:block;width:100%;min-height:30px;padding:2px;background:#202e3c;border:0;border-radius:3px;color:#c6d8e4;font-size:12px;line-height:1.3;overflow-wrap:anywhere}
+.matrix-cell span{display:inline-block}.matrix-cell:focus-visible,.receive-bar:focus-visible{outline:2px solid #fff}
+.synergy-receive{grid-column:2;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;align-self:start}
+.receive-member{min-width:0;font-size:10px;overflow-wrap:anywhere;line-height:1.5}
+.receive-bar{display:block;width:100%;padding:5px 0;margin:0 0 3px;border:0;background:transparent;min-height:16px}
+.receive-bar svg{display:block;background:#344453;border-radius:3px;overflow:hidden}
+.synergy-group-1{color:var(--damage-group-1)}.synergy-group-2{color:var(--damage-group-2)}.synergy-group-3{color:var(--damage-group-3)}.synergy-group-4{color:var(--damage-group-4)}.synergy-group-5{color:var(--damage-group-5)}.synergy-group-6{color:var(--damage-group-6)}.synergy-group-7{color:var(--damage-group-7)}.synergy-group-count{color:#c6d8e4}
+@media(max-width:1150px){.synergy-receive{gap:6px}}
+@media(max-width:600px){.synergy-view:not(.synergy-receive){grid-column:1 / -1}.synergy-receive{gap:5px}.receive-member{font-size:9px}.synergy-matrix{min-width:330px}}
+
+.receive-dynamic{grid-column:1 / -1;overflow-wrap:anywhere}

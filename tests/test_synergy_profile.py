@@ -154,6 +154,19 @@ class DamageGroupTests(unittest.TestCase):
         instant = dict(type='instant', target='self', stat='burst_reentry')
         self.assertEqual(build_damage_groups({'x': [instant]}, {})['x']['effects'][0]['group'], 'count')
 
+    def test_damage_group_selectors(self):
+        for target, kind in [('all_allies', 'all'), ('allies_code:수냉', 'element'),
+                             ('allies_top_atk:2', 'dynamic'),
+                             ('self|allies_code:수냉', 'element')]:
+            entry = build_damage_groups({'x': [effect(target)]}, {})['x']['effects'][0]
+            self.assertEqual(entry['selector']['kind'], kind)
+            self.assertIn('tier', entry)
+        for target, stat, polarity in [('self', 'atk_pct', 'beneficial'),
+                                       ('target', 'def_pct', 'harmful')]:
+            entry = build_damage_groups({'x': [effect(target, stat, polarity=polarity)]}, {})['x']['effects'][0]
+            self.assertNotIn('selector', entry)
+            self.assertNotIn('tier', entry)
+
     def test_real_damage_groups(self):
         data = Path(__file__).resolve().parents[1] / 'research/upstream/nikke-calc-master/data'
         profiles = build_damage_groups(json.loads((data / 'parsed_skills.json').read_text()),
@@ -162,7 +175,8 @@ class DamageGroupTests(unittest.TestCase):
                             for p in profiles.values() for e in p['effects']))
         crown = profiles['크라운']['effects']
         self.assertTrue(any(e['stat'] == 'atk_caster_based_pct' and e['group'] == '2'
-                            and e['scope'] == 'ally' and e['caster_based'] for e in crown))
+                            and e['scope'] == 'ally' and e['caster_based']
+                            and e['selector']['kind'] == 'all' for e in crown))
         self.assertTrue(any(e['stat'] == 'reload_speed_pct' and e['group'] == 'count' for e in crown))
 
 

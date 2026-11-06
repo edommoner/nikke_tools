@@ -190,6 +190,12 @@ def build_damage_groups(skills: dict, meta: dict) -> dict:
                          max_stack=stack if type(stack) is int and stack >= 1 else 1,
                          caster_based=stat in ('atk_caster_based_pct', 'def_caster_based_pct',
                                                'charge_speed_caster_based_pct'))
+            if scope == 'ally':
+                for target in targets:
+                    match = _selector(target, skills, stat)
+                    if match is not None:
+                        entry['tier'], entry['selector'] = match
+                        break
             if isinstance(effect.get('values'), dict):
                 entry['values'] = effect['values'].copy()
             elif type(effect.get('fixed_value')) in (int, float):
