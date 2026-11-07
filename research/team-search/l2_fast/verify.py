@@ -102,6 +102,20 @@ def main():
         for mask in range(16):
             q['s20']['switches']=mask
             results.append(compare(q,samples,args.out,lib,wasm,'synthetic-s20-'+str(mask)))
+        if 's22' in p:
+            # Exercise every v3 bit combination with observed/unobserved own
+            # supply, conditional removal, caps and zero reference phases.
+            # The v2 switch space is independently covered immediately above.
+            q['s20']['switches']=2
+            q['s22']=dict(version=3,switches=0)
+            for i,(name,c) in enumerate(q['characters'].items()):
+                for g in c['groups']:g['cast_scaled_s22']=bool(i%2)
+                for j,b in enumerate(c['buffs']):
+                    b['recipients']=[name] if j%2 else []
+                    if j%3==0:b['caps_s22']={'atk_pct':.25,'atk_flat':.125}
+            for mask in range(0,256,16):
+                q['s22']['switches']=mask
+                results.append(compare(q,samples,args.out,lib,wasm,'synthetic-s22-'+str(mask)))
     covered={op for r in results for op,n in r['opcode_visits'].items() if n};required=set(OPCODES+(DYNAMIC_OPCODES if 's20' in p else []));assert covered==required,(covered,required)
     receipt=dict(seed=190019,random_count=args.random,results=results,opcode_visits=dict(sum((collections.Counter(r['opcode_visits']) for r in results),collections.Counter())))
     (args.out/'identity.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n');print(json.dumps(receipt,ensure_ascii=False))
