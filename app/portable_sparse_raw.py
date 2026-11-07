@@ -15,6 +15,7 @@ ZERO_CHUNK=bytes(CHUNK)
 def scan(stream,size,block_size=BLOCK):
     digest=hashlib.sha256();ranges=[];start=None;offset=0;zero_block=bytes(block_size)
     while chunk:=stream.read(CHUNK):
+        if offset%block_size:raise ValueError('Unaligned short read; raw remains unchanged')
         digest.update(chunk)
         for at in range(0,len(chunk),block_size):
             block=chunk[at:at+block_size];zero=len(block)==block_size and block==zero_block
@@ -41,6 +42,7 @@ def sparsify_raw(capture,receipt,check_records,*,apply=False,block_size=BLOCK):
     # Reserve the receipt before any mutation, including failures.
     with receipt.open('x') as report:
         state=dict(schema=1,operation='sparsify-raw',apply=apply,gpu_calls=0,calculation_verified=False,raw_deleted=False,passed=False)
+        json.dump(dict(state,status='started'),report);report.flush();os.fsync(report.fileno())
         try:
             capture,size,digest,evidence_sha=anchor(capture,check_records)
             run=json.loads((capture/'run.json').read_text())
@@ -67,10 +69,10 @@ def sparsify_raw(capture,receipt,check_records,*,apply=False,block_size=BLOCK):
                         # Read each planned range again immediately before deallocation.
                         stream.seek(offset);remaining=length
                         while remaining:
-                            chunk=stream.read(min(CHUNK,remaining))
+                            at=stream.tell();chunk=stream.read(min(1024**2,remaining))
                             if not chunk or chunk!=ZERO_CHUNK[:len(chunk)]:raise ValueError('Planned zero range changed; stop with original bytes retained')
+                            fcntl.fcntl(stream,99,struct.pack('=IIqq',0,0,at,len(chunk)))
                             remaining-=len(chunk)
-                        fcntl.fcntl(stream,99,struct.pack('=IIqq',0,0,offset,length))
                     os.fsync(stream.fileno())
                 stream.seek(0);after_digest,_=scan(stream,size,block_size);after=os.fstat(stream.fileno())
                 if after_digest!=digest or after.st_size!=size or after.st_ino!=before.st_ino or (raw.stat().st_dev,raw.stat().st_ino)!=(before.st_dev,before.st_ino):raise ValueError('Raw byte/size/identity verification failed')
@@ -78,6 +80,7 @@ def sparsify_raw(capture,receipt,check_records,*,apply=False,block_size=BLOCK):
                 _,after_size,after_anchor,after_evidence=anchor(capture,check_records)
                 if (after_size,after_anchor,after_evidence)!=(size,digest,evidence_sha):raise ValueError('Evidence anchor changed during reclamation')
                 check_records(capture,raw_records)
+                if apply:os.utime(stream.fileno(),ns=(before.st_atime_ns,before.st_mtime_ns));os.fsync(stream.fileno())
                 state.update(passed=True,capture=str(capture),raw_bytes=size,raw_sha256=digest,evidence_sha256=evidence_sha,
                              raw_inode=after.st_ino,scan_block_bytes=block_size,filesystem_allocation_unit=allocation_unit,zero_ranges=len(ranges),zero_range_bytes=sum(n for _,n in ranges),
                              allocated_before=before.st_blocks*512,allocated_after=after.st_blocks*512,
@@ -86,5 +89,5 @@ def sparsify_raw(capture,receipt,check_records,*,apply=False,block_size=BLOCK):
             state['error']=type(error).__name__+': '+str(error)
             raise
         finally:
-            json.dump(state,report,indent=2);report.write('\n');report.flush();os.fsync(report.fileno())
+            report.seek(0);json.dump(state,report,indent=2);report.write('\n');report.truncate();report.flush();os.fsync(report.fileno())
     return state

@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "required_bytes": 0,
+  "reserve_bytes": 1073741824,
+  "free_bytes": 119807733760,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "archive_storage_checked": true,
+  "archives": {
+    "schema": 1,
+    "inventory_sha256": "432b3f99e78a52607c06566c07329d02ba76d5fd78fc35a14baa8d5f94a16eec",
+    "total_binary_files": 248,
+    "archived_files": 224,
+    "removed_files": 224,
+    "kept_raw_files": 24,
+    "removed_raw_bytes": 112742891968,
+    "archive_bytes": 340987952,
+    "pending_timing_raw_files": 0,
+    "raw_files_requiring_restore": 224,
+    "compressed_bytes_verified": true,
+    "net_file_bytes_saved": 112401904016,
+    "free_bytes_before": 7987286016,
+    "free_bytes_now": 119807733760,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "all_archives_verified": false
+  },
+  "checked_utc": "2026-10-21T20:47:49.327578+00:00",
+  "command": "python scripts/nikke_gpu.py storage-check --storage research/portable-archives/legacy-benchmarks-20261022 --require-archived",
+  "tests": {
+    "storage": 28,
+    "gpu_cli": 38,
+    "replay": 6,
+    "total": 72
+  },
+  "skill_sha256": "42365a03b18d3566f7b12c1cd7bddbd5e992a1260b768fdc334fd35a4e0ebc2b",
+  "skill_copies_match": true,
+  "skill_validator_passed": true,
+  "controller_smoke": {
+    "mode": "local-cpu-controller-smoke",
+    "passed": true,
+    "gpu_calls": 0,
+    "child_exit": 0,
+    "windows_job_verified": null
+  }
+}

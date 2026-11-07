@@ -1,0 +1,309 @@
+{
+  "schema": 1,
+  "completed_jst": "2026-11-03T05:55:43.964055+09:00",
+  "status": "complete",
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "zero_block_reclamation": {
+    "verified_files": 929,
+    "logical_bytes_verified": 187278379140,
+    "reclaimed_allocated_bytes": 172845649920,
+    "raw_files_deleted": 0,
+    "raw_bytes_changed": false,
+    "inodes_preserved": true,
+    "mtime_preserved": true,
+    "ctime_changes": true,
+    "receipt_directory": "research/portable-archives/project-zero-reclaim-20261103",
+    "skipped": [
+      {
+        "path": "research/portable-build/attack-flag-component-20261020T071721830000Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/attack-flag-component-20261020T071721830000Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/attack-flag-component-20261020T071721830000Z/readback.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/attack-flag-component-20261020T071721830000Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/burst-charge-component-20261020T083646529328Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/burst-charge-component-20261020T083646529328Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/burst-charge-component-20261020T083646529328Z/readback.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/burst-charge-component-20261020T083646529328Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/burst-charge-component-20261020T083858886294Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/burst-charge-component-20261020T083858886294Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/burst-charge-component-20261020T083858886294Z/readback.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/burst-charge-component-20261020T083858886294Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/burst-charge-component-20261020T090252667886Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/burst-charge-component-20261020T090252667886Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/burst-charge-component-20261020T090252667886Z/readback.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/burst-charge-component-20261020T090252667886Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/dispatch-2znbykc9/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/dispatch-2znbykc9/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/dispatch-f__wisac/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/dispatch-f__wisac/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/dispatch-fe200akw/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/dispatch-fe200akw/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/dispatch-v2lpyafv/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/dispatch-v2lpyafv/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/geometry-component-20261020T053140740079Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/geometry-component-20261020T053140740079Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/geometry-component-20261020T053140740079Z/readback.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/geometry-component-20261020T053140740079Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/geometry-component-20261020T053252467497Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/geometry-component-20261020T053252467497Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/geometry-component-20261020T053252467497Z/readback.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/geometry-component-20261020T053252467497Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/mode-entry-prior-20261020T102907793704Z/input.bin",
+        "reason": "Non-object historical evidence"
+      },
+      {
+        "path": "research/portable-build/mode-entry-prior-20261020T102907793704Z/readback.bin",
+        "reason": "Non-object historical evidence"
+      },
+      {
+        "path": "research/portable-build/mode-entry-prior-20261020T104728390499Z/input.bin",
+        "reason": "Non-object historical evidence"
+      },
+      {
+        "path": "research/portable-build/mode-entry-prior-20261020T104728390499Z/readback.bin",
+        "reason": "Non-object historical evidence"
+      },
+      {
+        "path": "research/portable-build/probability-component-20261020T041431292474Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/probability-component-20261020T041431292474Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/probability-component-20261020T041431292474Z/readback.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/probability-component-20261020T041431292474Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/probability-component-20261020T041830372617Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/probability-component-20261020T041830372617Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/probability-component-20261020T041830372617Z/readback.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/probability-component-20261020T041830372617Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/probability-component-20261020T042248029385Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/probability-component-20261020T042248029385Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/probability-component-20261020T042248029385Z/readback.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/probability-component-20261020T042248029385Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/probability-core-20261020T050206951348Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/probability-core-20261020T050206951348Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/probability-optimized-metal-20261020T050208432594/input.bin",
+        "reason": "Historical size differs"
+      },
+      {
+        "path": "research/portable-build/target-rng-20261020T113811725567Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/target-rng-20261020T113811725567Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/target-stack-alias-20261020T062359498231Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/target-stack-alias-20261020T062359498231Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/target-stack-alias-20261020T062359498231Z/readback.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/target-stack-alias-20261020T062359498231Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/target-state-component-20261020T061031557095Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/target-state-component-20261020T061031557095Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/target-state-component-20261020T061031557095Z/readback.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/target-state-component-20261020T061031557095Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/target-state-component-20261020T061125294219Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/target-state-component-20261020T061125294219Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/target-state-component-20261020T061125294219Z/readback.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/target-state-component-20261020T061125294219Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/target-state-incremental-preflight/input.bin",
+        "reason": "Symlinked or escaped raw path"
+      },
+      {
+        "path": "research/portable-build/target-state-incremental-preflight/readback.bin",
+        "reason": "Symlinked or escaped raw path"
+      },
+      {
+        "path": "research/portable-build/world-periodic-20261021T012409981007Z/input.bin",
+        "reason": "'input_bytes'"
+      },
+      {
+        "path": "research/portable-build/world-periodic-20261021T012409981007Z/readback.bin",
+        "reason": "'output_bytes'"
+      },
+      {
+        "path": "research/portable-build/world-periodic-20261021T013202330501Z/input.bin",
+        "reason": "'input_bytes'"
+      },
+      {
+        "path": "research/portable-build/world-periodic-20261021T013202330501Z/readback.bin",
+        "reason": "'output_bytes'"
+      },
+      {
+        "path": "research/portable-build/world-projectile-sealed-combined/input.bin",
+        "reason": "'transport'"
+      },
+      {
+        "path": "research/portable-build/world-projectile-sealed-combined/readback.bin",
+        "reason": "'transport'"
+      },
+      {
+        "path": "research/portable-build/world-reload-20261021T050159604829Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/world-reload-20261021T050159604829Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/world-roster-20261021T054444200895Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/world-roster-20261021T054444200895Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/world-team-20261021T030547405284Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/world-team-20261021T030547405284Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/world-team-20261021T031352450955Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/world-team-20261021T031352450955Z/evidence.json'"
+      },
+      {
+        "path": "research/portable-build/world-team-20261021T032056350340Z/input.bin",
+        "reason": "[Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/world-team-20261021T032056350340Z/evidence.json'"
+      }
+    ]
+  },
+  "bytecode_cleanup": {
+    "schema": 1,
+    "removed_files": 35758,
+    "reclaimed_allocated_bytes": 805572608,
+    "skipped": 0,
+    "source_files_removed": 0,
+    "gpu_calls": 0
+  },
+  "free_bytes_before": 13740941312,
+  "free_bytes_after": 186777600000,
+  "archive_integrity": {
+    "passed": true,
+    "required_bytes": 0,
+    "reserve_bytes": 21474836480,
+    "free_bytes": 186777600000,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "archive_storage_checked": true,
+    "archives": {
+      "schema": 1,
+      "inventory_sha256": "432b3f99e78a52607c06566c07329d02ba76d5fd78fc35a14baa8d5f94a16eec",
+      "total_binary_files": 248,
+      "archived_files": 224,
+      "removed_files": 224,
+      "kept_raw_files": 24,
+      "removed_raw_bytes": 112742891968,
+      "archive_bytes": 340987952,
+      "pending_timing_raw_files": 0,
+      "raw_files_requiring_restore": 224,
+      "compressed_bytes_verified": true,
+      "net_file_bytes_saved": 112401904016,
+      "free_bytes_before": 7987286016,
+      "free_bytes_now": 186777600000,
+      "gpu_calls": 0,
+      "calculation_verified": false,
+      "all_archives_verified": false
+    }
+  },
+  "prevention": {
+    "reserve_bytes": 21474836480,
+    "package_budget_before_native": true,
+    "unpack_budget_before_creation": true,
+    "automatic_darwin_finished_readback_reclamation": true,
+    "primary_and_runtime_worktree_updated": true,
+    "historical_immutable_packets_unchanged": true,
+    "operating_rules": "AGENTS.md",
+    "documentation": "docs/project-storage-maintenance.md"
+  },
+  "validation": {
+    "primary_unit_cases": 89,
+    "runtime_worktree_unit_cases": 77,
+    "passed": true,
+    "fresh_regression_packet": {
+      "package_id": "45ae894a1576de0e2ba0a568b1166d4210f859031280c61cfbbee6147eb7791e",
+      "files": 1831,
+      "archive_sha256": "dbf57766844c11e1c95b63220ad90e2d8562746bdaab95c381c90fea332a2fb7",
+      "created_unpacked_storage_check_and_30_storage_tests_passed": true,
+      "gpu_calls": 0
+    },
+    "live_ui_pid_preserved": 93421,
+    "live_worker_pid_preserved": 95287
+  },
+  "claude_review": {
+    "plan_review": true,
+    "legacy_implementation_review": true,
+    "final_review": true,
+    "final_high_or_critical_findings": 0,
+    "confirmed_medium_packaging_issue_fixed_and_transfer_tested": true,
+    "zero_range_race_mitigation_and_timestamp_and_interrupt_findings_addressed": true
+  },
+  "exclusions": [
+    "live runtime service and shared warm caches",
+    "proof packet/source snapshots and Git worktrees",
+    "unanchored or unsupported historical raw",
+    "existing compressed archives and receipts"
+  ],
+  "source_sha256": {
+    "app/portable_project_storage.py": "93959e048161168a081a4d075b5c921cd5fa8700d114dff56294d5b30a535d91",
+    "app/portable_sparse_raw.py": "7f95d727272e135a6cc33140b48cd6102d429f3f0536f0e775f31ec1212f1c4d",
+    "app/portable_capture_storage.py": "356f06c6538e0f29a9e42d78dd6a8fe0d7a1c30231b2e328ed7053dc837e87d7",
+    "scripts/nikke_gpu.py": "7549ca52d87de0ee5994025d4a745146ac47d42807912fcb03e765b1463f8409",
+    "scripts/reclaim-project-storage.py": "e8e4b56061cdc0361fc1b75a072e97ec8d49cda63157a0ca472080607850c769",
+    "AGENTS.md": "02be489bb0f7e5380718e3ee6954ef2f1fee06a840ac3b994e5b63055c5aae3c"
+  },
+  "observed_free_bytes_increase": 173036658688,
+  "measured_project_size_gib_rounded": {
+    "before": 332,
+    "after": 170
+  },
+  "measured_legacy_build_size_gib_rounded": {
+    "before": 204,
+    "after": 43
+  }
+}
