@@ -43,7 +43,12 @@ struct L2Counts { uint64_t visited, covered, scored; double seconds; };
 extern "C" int l2_enumerate(const void* table,const uint32_t* roster,size_t n,
     size_t k,uint32_t partition,uint32_t partitions,uint32_t stride,
     L2Entry* output,size_t* output_count,L2Counts* counts);
-// Native threads use the same partition primitive as independent WASM workers.
+// Balanced worker partition: lexicographic (first,second) prefix ordinal
+// modulo partitions. The original first-index API remains available above.
+extern "C" int l2_enumerate_balanced(const void* table,const uint32_t* roster,size_t n,
+    size_t k,uint32_t partition,uint32_t partitions,uint32_t stride,
+    L2Entry* output,size_t* output_count,L2Counts* counts);
+// Native threads and the WASM runner use balanced partitions.
 extern "C" int l2_enumerate_threads(const void* table,const uint32_t* roster,
     size_t n,size_t k,uint32_t threads,uint32_t stride,L2Entry* output,
     size_t* output_count,L2Counts* counts);

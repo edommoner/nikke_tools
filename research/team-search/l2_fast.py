@@ -14,7 +14,7 @@ def build(wasm=False):
     sources=['l2.cpp','l2.h','cli.cpp'];folder=HERE/'l2_fast'
     if wasm:
         sys.path.insert(0,str(ROOT/'app'));from portable_wasm import toolchain, FLAGS as WASM_FLAGS
-        compiler,env=toolchain(ROOT);flags=list(WASM_FLAGS)+['-sEXPORTED_FUNCTIONS=["_l2_create","_l2_destroy","_l2_score_many","_alloc","_release","_l2_generate","_l2_enumerate"]'];target='l2.wasm'
+        compiler,env=toolchain(ROOT);flags=list(WASM_FLAGS)+['-sEXPORTED_FUNCTIONS=["_l2_create","_l2_destroy","_l2_score_many","_alloc","_release","_l2_generate","_l2_enumerate","_l2_enumerate_balanced"]'];target='l2.wasm'
     else:
         compiler=shutil.which('clang++')
         if not compiler:raise FileNotFoundError('clang++ unavailable')

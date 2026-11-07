@@ -11,7 +11,7 @@ const args=process.argv.slice(2),opt=k=>args[args.indexOf(k)+1];
 export function enumeratePartition(wasm,table,roster,k,partition,partitions,stride=1){
   const {e,t}=load(wasm,table),ip=e.alloc(roster.length*4),op=e.alloc(k*32),np=e.alloc(4),cp=e.alloc(32);
   new Uint32Array(e.memory.buffer,ip,roster.length).set(roster);
-  if(e.l2_enumerate(t,ip,roster.length,k,partition,partitions,stride,op,np,cp))throw Error('enumerate');
+  if(e.l2_enumerate_balanced(t,ip,roster.length,k,partition,partitions,stride,op,np,cp))throw Error('enumerate');
   const count=new DataView(e.memory.buffer).getUint32(np,true),entries=[];
   for(let i=0;i<count;i++){const v=new DataView(e.memory.buffer,op+i*32,32);entries.push({indices:Array.from({length:5},(_,j)=>v.getUint32(j*4,true)),score:v.getFloat64(24,true)});}
   const v=new DataView(e.memory.buffer,cp,32),counts={visited:Number(v.getBigUint64(0,true)),covered:Number(v.getBigUint64(8,true)),scored:Number(v.getBigUint64(16,true)),seconds:v.getFloat64(24,true)};

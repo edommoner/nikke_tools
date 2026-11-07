@@ -277,3 +277,24 @@ native/WASM共通のC++で、自己専用バフの対象判定省略、スレッ
 The native/WASM core precomputes bucket factors, the unchanged seven-factor product and action rate from each group's own inputs. Conservative emission/read masks (key modulo 64, so collisions only force recomputation) select the unchanged path. Changed groups retain dense merges and original floating-point order; groups with byte-identical own vectors and the same phase reuse merges and action rates within a member. Static recipient leaves are compiled into candidate unions; sliced, positional and ranked leaves retain their existing evaluator.
 
 An invocation-local direct-mapped cycle cache reuses results across squads with identical ordered effective behavior classes. Classes contain the raw cooldown bits, nominal stage and ordered enabled mechanics after the two structural condition predicates; all five class IDs must match before reuse. Entries store raw casts/full-burst exposure and reset at each public scoring/enumeration call. Enumeration order, coverage, scoring counts and top-K ordering are unchanged. No bound pruning is used. S24 evidence/report records independent raw-bit, exhaustive top-K and performance checks; this remains exact acceleration of the existing L2 approximation.
+
+### S25: exact enumeration structure and scheduling
+
+Native enumeration shares each supplied buff scalar across its selected destinations.
+Every destination still receives additions in the original source, buff and
+amount order; presence bits, own corrections, ranking, group arithmetic and
+compensated sums retain their existing behavior. Plain batch scoring retains
+its original emission loop. WASM enumeration calls that same original scorer:
+a separate enumeration specialization regressed its runtime, while retaining
+one shared scorer restores its measured throughput. No prefix member score is assumed independent of
+the fifth member: tested last-value, factor and bounded member caches were
+rejected on measured cost.
+
+Native threads take canonical `(first, second)` prefix tasks from an atomic
+queue, retaining a local heap and scratch per thread. Standalone WASM workers
+use round-robin partitions of the same prefix ordinal. Global lexicographic
+subset ranks determine stride selection; source ordering within each squad,
+coverage, tie-breaking and the deterministic final top-K merge are unchanged.
+The original first-index `l2_enumerate` partition API remains available for
+historical replay. S25 timings, complete identity checks and rejected candidate
+evidence are recorded in the sibling proof tree's `s25-report.md` and `s25/`.

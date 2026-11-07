@@ -1,3 +1,4 @@
+#include <atomic>
 #include "l2.h"
 #include <algorithm>
 #include <array>
@@ -183,6 +184,7 @@ double own_delta(const Table&t,const Buff&b,size_t j,bool valid,double scale){
     if(b.capped){double own_scale=b.phase_scaled?scale:1.;return supplied_value(t,b,j,own_scale)-b.amounts[j].second;}
     return b.amounts[j].second*own_correction(t,b,valid,scale);
 }
+template<bool Reuse=false>
 void score(const Table&t,const uint32_t*ids,double&total,double*members,Scratch&scratch){
     const Char*c[5];for(int i=0;i<5;i++)c[i]=&t.chars[ids[i]];
     int casts[5]={};double ready[5]={},fb=0,time=3.;int stage_mask=0;
@@ -239,9 +241,22 @@ void score(const Table&t,const uint32_t*ids,double&total,double*members,Scratch&
         unsigned mask=0;if(valid&&b.can_supply)mask=buff_targets(b,src,c,ids,(t.switches&4)?stats:nullptr);
         if(!mask&&!b.correctable)continue;
         double scale=supply_scale(t,*c[src],b,casts[src],fb);
+        if constexpr(Reuse){
+            // Each destination is an independent accumulator. Keep source,
+            // buff and amount order within every accumulator, sharing only
+            // the identical supplied scalar across destinations.
+            for(size_t j=0;j<b.amounts.size();j++){
+                int k=b.amounts[j].first;double value=supplied_value(t,b,j,scale);uint64_t bit=uint64_t(1)<<(k%64);
+                for(unsigned remaining=mask;remaining;remaining&=remaining-1){
+                    int dst=__builtin_ctz(remaining),phase=dst*2+b.phase,offset=phase*t.keys+k;
+                    emission[offset]+=value;touched[offset]=1;dirty[phase]|=bit;
+                }
+            }
+        }else{
         for(int dst=0;dst<5;dst++)if(mask&(1u<<dst)){
             int offset=(dst*2+b.phase)*t.keys;
             for(size_t j=0;j<b.amounts.size();j++){int k=b.amounts[j].first;emission[offset+k]+=supplied_value(t,b,j,scale);touched[offset+k]=1;dirty[dst*2+b.phase]|=uint64_t(1)<<(k%64);}
+        }
         }
         double correction=own_correction(t,b,valid,scale);
         if(correction||(b.capped&&b.own_observed))for(size_t j=0;j<b.amounts.size();j++){int off=(src*2+b.phase)*t.keys+b.amounts[j].first;emission[off]+=own_delta(t,b,j,valid,scale);touched[off]=1;dirty[src*2+b.phase]|=uint64_t(1)<<(b.amounts[j].first%64);}
@@ -425,26 +440,52 @@ bool covered(const Table&t,const uint32_t*ids){
     }return mask==7;
 }
 }
-extern "C" int l2_enumerate(const void*ptr,const uint32_t*roster,size_t n,size_t k,
-    uint32_t part,uint32_t parts,uint32_t stride,L2Entry*out,size_t*out_n,L2Counts*counts){
+static int enumerate_impl(const void*ptr,const uint32_t*roster,size_t n,size_t k,
+    uint32_t part,uint32_t parts,uint32_t stride,L2Entry*out,size_t*out_n,L2Counts*counts,bool balanced,std::atomic<uint32_t>*next=nullptr){
     if(!ptr||!roster||!out||!out_n||!counts||n<5||n>1000||!k||!parts||part>=parts||!stride)return -1;
     const Table&t=*static_cast<const Table*>(ptr);
     vector<uint32_t> r(roster,roster+n);std::sort(r.begin(),r.end());
     for(size_t i=0;i<n;i++)if(r[i]>=t.chars.size()||(i&&r[i]==r[i-1]))return -1;
     Scratch&scratch=scratch_for(t);
     auto start=std::chrono::steady_clock::now();*counts={};Heap heap;
-    for(size_t a=part;a+4<n;a+=parts){
+    uint64_t pair=0,task=next?next->fetch_add(1):0;
+    for(size_t a=balanced?0:part;a+4<n;a+=balanced?1:parts){
         // Global lexicographic rank, independent of partition count.
         uint64_t rank=choose(n,5)-choose(n-a,5);
-        for(size_t b=a+1;b+3<n;b++)for(size_t c=b+1;c+2<n;c++)
+        for(size_t b=a+1;b+3<n;b++,pair++){
+        if(balanced){
+            if(next?pair!=task:pair%parts!=part)continue;
+            rank=choose(n,5)-choose(n-a,5)+choose(n-a-1,4)-choose(n-b,4);
+        }
+        for(size_t c=b+1;c+2<n;c++)
         for(size_t d=c+1;d+1<n;d++)for(size_t e=d+1;e<n;e++,rank++){
             counts->visited++;if(rank%stride)continue;
             L2Entry entry{{r[a],r[b],r[c],r[d],r[e]},0.};
             if(!covered(t,entry.ids))continue;counts->covered++;
-            score(t,entry.ids,entry.score,nullptr,scratch);counts->scored++;retain(heap,entry,k);
+#ifdef __EMSCRIPTEN__
+            // Keep one shared WASM scorer. The enum-only specialization caused
+            // a measured runtime regression; the original emission path is exact.
+            score(t,entry.ids,entry.score,nullptr,scratch);
+#else
+            score<true>(t,entry.ids,entry.score,nullptr,scratch);
+#endif
+            counts->scored++;retain(heap,entry,k);
+        }
+        if(next)task=next->fetch_add(1);
         }
     }
     finish(heap,out,out_n);counts->seconds=std::chrono::duration<double>(std::chrono::steady_clock::now()-start).count();return 0;
+}
+// Preserve the public first-index partition contract for saved replays.
+extern "C" int l2_enumerate(const void*t,const uint32_t*r,size_t n,size_t k,
+    uint32_t part,uint32_t parts,uint32_t stride,L2Entry*out,size_t*out_n,L2Counts*counts){
+    return enumerate_impl(t,r,n,k,part,parts,stride,out,out_n,counts,false);
+}
+// Round-robin canonical (first,second) prefixes spread the heavy early first
+// indices over workers. Each worker keeps one scratch and one local top-K.
+extern "C" int l2_enumerate_balanced(const void*t,const uint32_t*r,size_t n,size_t k,
+    uint32_t part,uint32_t parts,uint32_t stride,L2Entry*out,size_t*out_n,L2Counts*counts){
+    return enumerate_impl(t,r,n,k,part,parts,stride,out,out_n,counts,true);
 }
 extern "C" int l2_enumerate_threads(const void*t,const uint32_t*r,size_t n,size_t k,
     uint32_t threads,uint32_t stride,L2Entry*out,size_t*out_n,L2Counts*counts){
@@ -456,7 +497,8 @@ extern "C" int l2_enumerate_threads(const void*t,const uint32_t*r,size_t n,size_
     auto start=std::chrono::steady_clock::now();
     vector<vector<L2Entry>> results(threads,vector<L2Entry>(k));vector<size_t> sizes(threads);
     vector<L2Counts> stats(threads);vector<int> rc(threads);vector<std::thread> workers;
-    for(uint32_t i=0;i<threads;i++)workers.emplace_back([&,i](){rc[i]=l2_enumerate(t,r,n,k,i,threads,stride,results[i].data(),&sizes[i],&stats[i]);});
+    std::atomic<uint32_t> next{0};
+    for(uint32_t i=0;i<threads;i++)workers.emplace_back([&,i](){rc[i]=enumerate_impl(t,r,n,k,i,threads,stride,results[i].data(),&sizes[i],&stats[i],true,&next);});
     for(auto&w:workers)w.join();*counts={};Heap heap;
     for(uint32_t i=0;i<threads;i++){
         if(rc[i])return rc[i];counts->visited+=stats[i].visited;counts->covered+=stats[i].covered;counts->scored+=stats[i].scored;
