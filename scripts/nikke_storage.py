@@ -49,9 +49,55 @@ def main():
     for name in ('archive-raw','restore-raw'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--archive',type=Path,required=True)
         if name=='archive-raw':a.add_argument('--remove-original',action='store_true')
+    a=sub.add_parser('reclaim-project',help='Plan or reclaim zero blocks in old evidence-anchored raw buffers (Darwin)')
+    a.add_argument('--repository',type=Path,default=ROOT)
+    a.add_argument('--storage',type=Path,required=True,help='External receipt directory; use a fresh directory to apply a plan')
+    a.add_argument('--apply',action='store_true',help='Reclaim allocation; default only scans and writes planning receipts')
+    a.add_argument('--limit',type=int)
+    for name in ('benchmark-inventory','archive-benchmarks','benchmark-status','restore-benchmark'):
+        a=sub.add_parser(name,help={'benchmark-inventory':'Inventory completed timing captures',
+            'archive-benchmarks':'Plan lossless timing archives; --apply writes bundles',
+            'benchmark-status':'Check benchmark archives and preserved evidence',
+            'restore-benchmark':'Restore an inventoried raw path without overwriting'}[name])
+        a.add_argument('--storage',type=Path,required=True)
+        a.add_argument('--repository',type=Path,default=ROOT)
+        if name=='benchmark-inventory':
+            a.add_argument('--folder',help='Completed folder under research/portable-build')
+            a.add_argument('--report',help='Matching completed report filename under research')
+        elif name=='archive-benchmarks':
+            a.add_argument('--apply',action='store_true',help='Write archives and test restoration (default: read-only plan)')
+            a.add_argument('--remove-original',action='store_true',help='With --apply, remove verified timing originals after a real restore test')
+            a.add_argument('--workload',help='Limit to one capture directory name')
+        elif name=='benchmark-status':a.add_argument('--verify',action='store_true',help='Fully decompress archives and hash retained raw')
+        else:a.add_argument('--path',required=True,help='Repository-relative inventoried raw path')
+    # Keep main's capacity floor and exit status; add optional archive integrity gates.
+    budget=sub.choices['storage-check']
+    budget.add_argument('--storage',type=Path)
+    budget.add_argument('--verify',action='store_true')
+    budget.add_argument('--require-archived',action='store_true')
     a=p.parse_args()
+    if a.command=='reclaim-project' and a.limit is not None and a.limit<1:p.error('--limit must be positive')
+    if a.command=='benchmark-inventory' and bool(a.folder)!=bool(a.report):p.error('--folder and --report are required together')
+    if a.command=='archive-benchmarks' and a.remove_original and not a.apply:p.error('--remove-original requires --apply')
     from portable_capture_storage import space_status,archive_raw,restore_raw
-    if a.command=='storage-check':result=space_status(a.path,a.required_bytes,reserve=max(a.reserve_bytes,20*1024**3))
+    if a.command=='storage-check':
+        from portable_benchmark_storage import storage_check
+        result=storage_check(a.path,needed=a.required_bytes,reserve=max(a.reserve_bytes,20*1024**3),storage=a.storage,verify=a.verify,require_archived=a.require_archived)
+    elif a.command=='reclaim-project':
+        from portable_project_storage import sweep
+        result=sweep(a.repository,a.storage,apply=a.apply,limit=a.limit)
+    elif a.command in ('benchmark-inventory','archive-benchmarks','benchmark-status','restore-benchmark'):
+        import portable_benchmark_storage as storage
+        with storage.locked(a.storage.resolve()):
+            if a.command=='benchmark-inventory':
+                options=dict(targets=[(a.folder,a.report)]) if a.folder else {}
+                manifest=storage.inventory(a.repository,a.storage,**options)
+                result=dict(files=len(manifest['files']),selected=sum(r['selected'] for r in manifest['files']),gpu_calls=0)
+            elif a.command=='archive-benchmarks':
+                if a.apply:result=storage.migrate(a.storage,repository=a.repository,remove_original=a.remove_original,workload=a.workload)
+                else:result=storage.plan(a.storage,repository=a.repository,workload=a.workload)
+            elif a.command=='benchmark-status':result=storage.status(a.storage,repository=a.repository,verify=a.verify)
+            else:result=storage.restore(a.storage,a.path,repository=a.repository)
     elif a.command=='archive-raw':result=archive_raw(a.capture,a.archive,check_records,remove_original=a.remove_original)
     elif a.command=='restore-raw':result=restore_raw(a.capture,a.archive,check_records)
     else:

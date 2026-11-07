@@ -10,7 +10,7 @@ GitHubには現行のソース、GPU生成物、検証スクリプトと記録�
 
 ## 保存領域の確認ツール
 
-GPU開発CLI（`scripts/nikke_gpu.py`）と共通GPU開発スキルは削除しました（2026-11-05）。大きな計測や復元の前の空き容量確認は `python scripts/nikke_storage.py storage-check --required-bytes N` で行います（`archive-raw`／`restore-raw`／`sparsify-raw` も同じCLI）。[旧CLIの説明](docs/gpu-development-cli.md)は履歴として残しています。
+GPU開発CLI（`scripts/nikke_gpu.py`）と共通GPU開発スキルは削除しました（2026-11-05）。大きな計測や復元の前の空き容量確認は `python scripts/nikke_storage.py storage-check --required-bytes N` で行います（`archive-raw`／`restore-raw`／`sparsify-raw` も同じCLI）。旧計測バッファの `benchmark-inventory`／`archive-benchmarks`／`benchmark-status`／`restore-benchmark` とゼロブロック回収の `reclaim-project` は [計測アーカイブ](docs/portable-benchmark-storage.md)・[ストレージ保守](docs/project-storage-maintenance.md)を参照してください。[旧CLIの説明](docs/gpu-development-cli.md)は履歴として残しています。
 
 ## 共通仕様と既存キャラの移行
 
