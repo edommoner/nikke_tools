@@ -3,7 +3,7 @@
 Full reproduction: --profiles PATH --out DIR --random 200000 --full.
 The first mismatch raises with the exact ordered squad and raw 64-bit values.
 """
-import argparse, collections, ctypes as C, json, pathlib, random, struct, subprocess, sys, time
+import argparse, collections, ctypes as C, hashlib, json, pathlib, random, struct, subprocess, sys, time
 HERE=pathlib.Path(__file__).resolve().parent;sys.path.insert(0,str(HERE.parent))
 import l2_score, l2_fast
 from l2_compile import compile_profiles, OPCODES, DYNAMIC_OPCODES
@@ -20,8 +20,17 @@ def synthetic():
     return dict(settings={'duration':180.},characters=chars)
 
 def compare(p,squads,out,lib,wasm,label):
-    import l2_score_s20, l2_score_s22
-    out.mkdir(parents=True,exist_ok=True);table=out/(label+'.l2ft');table.write_bytes(compile_profiles(p));oracle=(l2_score_s22.Score if 's22' in p else l2_score_s20.Score if 's20' in p else l2_score.Score)(p);fast=l2_fast.Score(p,library=lib)
+    import l2_score_s20, l2_score_s22, l2_score_s26
+    out.mkdir(parents=True,exist_ok=True)
+    raw=compile_profiles(p);table_hash=hashlib.sha256(raw).hexdigest()
+    # Several complete acceptance workloads use the exact same immutable
+    # table. Retain it once per byte identity, preserving every workload and
+    # comparison rather than making another copy for each label.
+    table=out/('table-'+table_hash+'.l2ft')
+    if table.exists():assert table.read_bytes()==raw,'table identity collision'
+    else:
+        with table.open('xb') as f:f.write(raw)
+    oracle=(l2_score_s26.Score if 's26' in p else l2_score_s22.Score if 's22' in p else l2_score_s20.Score if 's20' in p else l2_score.Score)(p);fast=l2_fast.Score(p,library=lib)
     count=0;opcounts=collections.Counter();failcoverage=0;rh=0;union=0;started=time.perf_counter()
     # Bounded batches prevent storing the random acceptance output corpus.
     for offset in range(0,len(squads),1024):
@@ -55,7 +64,7 @@ def compare(p,squads,out,lib,wasm,label):
         q=dict(p,characters={name:dict(c,buffs=c['buffs'] if name==n else []) for name,c in p['characters'].items()})
         meta=unpack(compile_profiles(q))[1]
         for op,v in meta['profile_opcode_counts'].items():opcounts[op]+=v*k
-    result=dict(label=label,squads=count,member_values=count*5,total_values=count,engines=['binding','CLI','WASM'],differences=0,opcode_visits=dict(opcounts),failed_cycle_coverage=failcoverage,red_hood_squads=rh,union_buff_visits=union,seconds=time.perf_counter()-started)
+    result=dict(label=label,table=table.name,table_sha256=table_hash,squads=count,member_values=count*5,total_values=count,engines=['binding','CLI','WASM'],differences=0,opcode_visits=dict(opcounts),failed_cycle_coverage=failcoverage,red_hood_squads=rh,union_buff_visits=union,seconds=time.perf_counter()-started)
     fast.close();return result
 
 def main():
@@ -78,6 +87,9 @@ def main():
             roster=json.loads((DEFAULT/'s21/rosters.json').read_text())['names']
             orders=json.loads((DEFAULT/'s21/orders-206-15.json').read_text())['rows']
             results.append(compare(p,[[roster[i] for i in r['best']['indices']] for r in orders],args.out,lib,wasm,'S22-shortlist10000'))
+            if 's26' in p:
+                orders=json.loads((DEFAULT/'s22/search-cap/orders-206.json').read_text())['rows']
+                results.append(compare(p,[[roster[i] for i in r['best']['indices']] for r in orders],args.out,lib,wasm,'S26-v3-shortlist10000'))
     rng=random.Random(190019);names=list(p['characters']);squads=[rng.sample(names,5) for _ in range(args.random)]
     results.append(compare(p,squads,args.out,lib,wasm,'random'))
     import itertools
@@ -116,6 +128,21 @@ def main():
             for mask in range(0,256,16):
                 q['s22']['switches']=mask
                 results.append(compare(q,samples,args.out,lib,wasm,'synthetic-s22-'+str(mask)))
+            if 's26' in p:
+                # Exercise impossible own/foreign supply and a provider that
+                # is present in only some squads, with both v4 switch states.
+                for i,c in enumerate(q['characters'].values()):
+                    for j,b in enumerate(c['buffs']):
+                        b['needs_shield_s26']=bool(j%2)
+                        b['prerequisite_s26']=j%4
+                        if j%3==0:b['target_s26']='all_allies'
+                for provider in (False,True):
+                    for i,c in enumerate(q['characters'].values()):
+                        c['shield_provider_s26']=provider and i==6
+                        c['stage_uncertain_s26']=provider and i==5
+                    for mask in range(8):
+                        q['s26']=dict(version=4,switches=mask)
+                        results.append(compare(q,samples,args.out,lib,wasm,'synthetic-s26-'+str(int(provider))+'-'+str(mask)))
     covered={op for r in results for op,n in r['opcode_visits'].items() if n};required=set(OPCODES+(DYNAMIC_OPCODES if 's20' in p else []));assert covered==required,(covered,required)
     receipt=dict(seed=190019,random_count=args.random,results=results,opcode_visits=dict(sum((collections.Counter(r['opcode_visits']) for r in results),collections.Counter())))
     (args.out/'identity.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n');print(json.dumps(receipt,ensure_ascii=False))

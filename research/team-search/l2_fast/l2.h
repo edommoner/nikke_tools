@@ -23,6 +23,17 @@
 // Optional v3 trailing tag128 then one nonnegative bound per buff amount;
 // zero means unbounded. Old v3 tables remain readable. Switch128 enables
 // plain, nonstacking effect bounds derived at the actual profiling skill level.
+// L2FT v4 retains v3 and always includes tag128 bounds, then tag256,
+// v4 switches, and per character: shield-provider flag, per-buff shield
+// prerequisite flags. Bit1 removes impossible shield-dependent observed
+// supply when the whole squad has no shield provider. It predicts no targets
+// or uptime. v1-v3 retain their original wire/arithmetic.
+// Bit2 lowers eligible observed single-BODY enemy-code supply to the existing
+// all-recipient opcode at table compilation; no runtime targeting is added.
+// Optional tag512 then per character: uncertain-stage flag, followed by one
+// structural prerequisite code0-3 per buff; required
+// for bit4. False prerequisites remove only explicitly observed own/foreign
+// supply. Older v4 tables without tag512 remain readable with bits0-1.
 extern "C" {
 void* l2_create(const double* words, size_t count);
 void l2_destroy(void* table);

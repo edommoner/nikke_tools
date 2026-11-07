@@ -8,7 +8,7 @@
 int main(int argc,char**argv){
     if(argc!=2 && !(argc>=11&&std::string(argv[2])=="--enumerate")){std::cerr<<"usage: l2-cli TABLE < squads.u32 > scores.f64\n";return 2;}
     std::ifstream f(argv[1],std::ios::binary);char magic[8];uint64_t n=0;f.read(magic,8);f.read(reinterpret_cast<char*>(&n),8);
-    if(!f||(std::string(magic,8)!="L2FT0001"&&std::string(magic,8)!="L2FT0002"&&std::string(magic,8)!="L2FT0003")||n>10000000)return 2;
+    if(!f||(std::string(magic,8)!="L2FT0001"&&std::string(magic,8)!="L2FT0002"&&std::string(magic,8)!="L2FT0003"&&std::string(magic,8)!="L2FT0004")||n>10000000)return 2;
     std::vector<double> words(n);f.read(reinterpret_cast<char*>(words.data()),n*8);if(!f)return 2;
     void*t=l2_create(words.data(),n);if(!t)return 2;
     if(argc>2){

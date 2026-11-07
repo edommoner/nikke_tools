@@ -12,13 +12,13 @@ using std::vector;
 namespace {
 struct Sum { double s=0,c=0;bool compensated; explicit Sum(bool b):compensated(b){} void add(double x){double t=s+x;if(compensated){if(std::abs(s)>=std::abs(x))c+=(s-t)+x;else c+=(x-t)+s;}s=t;} double value()const{return c && std::isfinite(c)?s+c:s;} };
 struct Rule{int op,a,b,limit;};
-struct Buff{int phase;bool burst;int condition=0;bool own_observed=false,has_caps=false,can_supply=true,correctable=false,phase_scaled=false,capped=false;vector<std::pair<int,double>> amounts;vector<double> caps;vector<size_t> rank_amounts;vector<Rule> rules,dynamic_rules;vector<unsigned char> candidates;bool all_candidates=false;};
+struct Buff{int phase;bool burst;bool needs_shield=false;unsigned char prerequisite=0;int condition=0;bool own_observed=false,has_caps=false,can_supply=true,correctable=false,phase_scaled=false,capped=false;vector<std::pair<int,double>> amounts;vector<double> caps;vector<size_t> rank_amounts;vector<Rule> rules,dynamic_rules;vector<unsigned char> candidates;bool all_candidates=false;};
 struct Group{int phase;uint32_t flags;double unit,coeff,atk,def,core,corebonus,charge,action_rate=1,context_unit=0;bool cast_scaled=false,cast_scaled_s22=false,action_eligible=true;vector<double> own;std::array<double,7> base,self;int offset=0,merge_class=0;bool use_cast=false,use_action=false;double selected_unit=0,action_divisor=1;std::array<unsigned char,9> bonus_keys{};unsigned char bonus_count=0;vector<int> read_keys;uint64_t read_mask=0,bucket_reads[7]={};std::array<double,7> idle_f{};double idle_product=1,idle_action=1;};
 struct Dep{bool enabled,team;double ratio;};
 struct Mechanic{int kind,event,condition,threshold;double value;int scope,limit;};
 struct ActiveMechanic{const Mechanic* rule;int source,used;};
-struct Char{int stage,b3,b1=0,squad,has_squad,weapon,klass,code;double cd,charge,casts,seconds[2],phase_raw[2]={};double atk=0,hp=0,def=0,rank_pct=0,rank_flat=0,rate=1,charge_base=0,delay=0,clips=1,ammo=1,reload=0,mincycle=0;bool charged=false;int cycle_conditions=0;uint32_t cycle_classes[4]={};vector<Mechanic> mechanics;vector<size_t> stage_rules,extension_rules,event_rules[7];vector<Group> groups;vector<Buff> buffs;vector<size_t> rank_buffs;vector<Dep> deps;};
-struct Table{int keys;double duration;bool compensated;int switches=0,v3=0;int action_keys[7];size_t max_mechanics=0;vector<Char> chars;};
+struct Char{bool shield_provider=false,stage_uncertain=false;int stage,b3,b1=0,squad,has_squad,weapon,klass,code;double cd,charge,casts,seconds[2],phase_raw[2]={};double atk=0,hp=0,def=0,rank_pct=0,rank_flat=0,rate=1,charge_base=0,delay=0,clips=1,ammo=1,reload=0,mincycle=0;bool charged=false;int cycle_conditions=0;uint32_t cycle_classes[4]={};vector<Mechanic> mechanics;vector<size_t> stage_rules,extension_rules,event_rules[7];vector<Group> groups;vector<Buff> buffs;vector<size_t> rank_buffs;vector<Dep> deps;};
+struct Table{int keys;double duration;bool compensated;int switches=0,v3=0,v4=0;int action_keys[7];size_t max_mechanics=0;vector<Char> chars;};
 // One bounded workspace per native thread / standalone WASM instance.
 // Capacity is prepared once per batch or enumeration, never per squad.
 struct CycleResult{uint32_t key[5]={};int casts[5]={};double fb=0;bool valid=false;};
@@ -87,6 +87,12 @@ bool condition(int code,int src,const Char*const*c){
     for(int i=0;i<5;i++)if(i!=src&&c[i]->b1)other=true;
     if(code==1||code==2)return other==(code==2);
     for(int i=0;i<5;i++)if(i!=src&&c[src]->has_squad&&c[src]->squad==c[i]->squad)return true;return false;
+}
+bool prerequisite_ok(int code,int src,const Char*const*c){
+    // Runtime stages may differ from nominal B1. An uncertain other member
+    // prevents this new absence proof; keep the observed supply unchanged.
+    if(code==1||code==2)for(int i=0;i<5;i++)if(i!=src&&c[i]->stage_uncertain)return true;
+    return condition(code,src,c);
 }
 void dynamic_cycle(const Table&t,const Char*const*c,int*casts,double&fb,Scratch&scratch){
     double ready[5]={};int stages[5];bool reentry[5]={};
@@ -170,23 +176,25 @@ double supply_scale(const Table&t,const Char&c,const Buff&b,int casts,double fb)
     if(b.phase_scaled){double exposure=b.phase?fb:t.duration-fb;scale*=c.phase_raw[b.phase]/std::max(exposure,1e-9);}
     return scale;
 }
-double own_correction(const Table&t,const Buff&b,bool valid,double scale){
+double own_correction(const Table&t,const Buff&b,bool valid,double scale,bool blocked=false){
     if(!b.own_observed)return 0.;
-    if((t.v3&32)&&!valid)return -1.;
+    if(blocked||((t.v3&32)&&!valid))return -1.;
     return b.phase_scaled?scale-1.:0.;
 }
 double supplied_value(const Table&t,const Buff&b,size_t j,double scale){
     double value=b.amounts[j].second*scale;
     return b.capped&&b.caps[j]>0.?std::min(value,b.caps[j]):value;
 }
-double own_delta(const Table&t,const Buff&b,size_t j,bool valid,double scale){
-    if((t.v3&32)&&!valid)return -b.amounts[j].second;
+double own_delta(const Table&t,const Buff&b,size_t j,bool valid,double scale,bool blocked=false){
+    if(blocked||((t.v3&32)&&!valid))return -b.amounts[j].second;
     if(b.capped){double own_scale=b.phase_scaled?scale:1.;return supplied_value(t,b,j,own_scale)-b.amounts[j].second;}
-    return b.amounts[j].second*own_correction(t,b,valid,scale);
+    return b.amounts[j].second*own_correction(t,b,valid,scale,blocked);
 }
-template<bool Reuse=false>
+template<bool Reuse=false,bool V4=true>
 void score(const Table&t,const uint32_t*ids,double&total,double*members,Scratch&scratch){
     const Char*c[5];for(int i=0;i<5;i++)c[i]=&t.chars[ids[i]];
+    bool shield_possible=true;
+    if constexpr(V4)if(t.v4&1){shield_possible=false;for(auto x:c)shield_possible|=x->shield_provider;}
     int casts[5]={};double ready[5]={},fb=0,time=3.;int stage_mask=0;
     for(auto x:c)stage_mask|=x->stage;
     if(t.switches&2){
@@ -225,19 +233,21 @@ void score(const Table&t,const uint32_t*ids,double&total,double*members,Scratch&
     if(t.switches&4){
         for(int src=0;src<5;src++)for(size_t bi:c[src]->rank_buffs){
             const Buff&b=c[src]->buffs[bi];
-            bool valid=!(t.switches&2)||condition(b.condition,src,c);
+            bool blocked=false;if constexpr(V4)blocked=((t.v4&1)&&b.needs_shield&&!shield_possible)||((t.v4&4)&&b.prerequisite&&!prerequisite_ok(b.prerequisite,src,c));
+        bool valid=(!(t.switches&2)||condition(b.condition,src,c))&&!blocked;
             unsigned mask=0;if(valid&&b.can_supply)mask=buff_targets(b,src,c,ids);
             if(!mask&&!b.correctable)continue;
             double scale=supply_scale(t,*c[src],b,casts[src],fb);
             for(int dst=0;dst<5;dst++)if(mask&(1u<<dst))for(size_t j:b.rank_amounts){int off=(dst*2+1)*t.keys+b.amounts[j].first;emission[off]+=supplied_value(t,b,j,scale);touched[off]=1;}
-            double correction=own_correction(t,b,valid,scale);
-            if(correction||(b.capped&&b.own_observed))for(size_t j:b.rank_amounts){int off=(src*2+1)*t.keys+b.amounts[j].first;emission[off]+=own_delta(t,b,j,valid,scale);touched[off]=1;}
+            double correction=own_correction(t,b,valid,scale,blocked);
+            if(correction||(b.capped&&b.own_observed))for(size_t j:b.rank_amounts){int off=(src*2+1)*t.keys+b.amounts[j].first;emission[off]+=own_delta(t,b,j,valid,scale,blocked);touched[off]=1;}
         }
         for(int i=0;i<5;i++){int off=(i*2+1)*t.keys;double pct=touched[off+1]?c[i]->rank_pct+emission[off+1]:c[i]->rank_pct;double flat=touched[off+2]?c[i]->rank_flat+emission[off+2]:c[i]->rank_flat;stats[i][0]=c[i]->atk*(1.+pct/100.)+flat;stats[i][1]=100.;stats[i][2]=c[i]->hp;stats[i][3]=c[i]->def;}
         std::fill(emission.begin(),emission.end(),0.);std::fill(touched.begin(),touched.end(),0);
     }
     for(int src=0;src<5;src++)for(const Buff&b:c[src]->buffs){
-        bool valid=!(t.switches&2)||condition(b.condition,src,c);
+        bool blocked=false;if constexpr(V4)blocked=((t.v4&1)&&b.needs_shield&&!shield_possible)||((t.v4&4)&&b.prerequisite&&!prerequisite_ok(b.prerequisite,src,c));
+        bool valid=(!(t.switches&2)||condition(b.condition,src,c))&&!blocked;
         unsigned mask=0;if(valid&&b.can_supply)mask=buff_targets(b,src,c,ids,(t.switches&4)?stats:nullptr);
         if(!mask&&!b.correctable)continue;
         double scale=supply_scale(t,*c[src],b,casts[src],fb);
@@ -258,8 +268,8 @@ void score(const Table&t,const uint32_t*ids,double&total,double*members,Scratch&
             for(size_t j=0;j<b.amounts.size();j++){int k=b.amounts[j].first;emission[offset+k]+=supplied_value(t,b,j,scale);touched[offset+k]=1;dirty[dst*2+b.phase]|=uint64_t(1)<<(k%64);}
         }
         }
-        double correction=own_correction(t,b,valid,scale);
-        if(correction||(b.capped&&b.own_observed))for(size_t j=0;j<b.amounts.size();j++){int off=(src*2+b.phase)*t.keys+b.amounts[j].first;emission[off]+=own_delta(t,b,j,valid,scale);touched[off]=1;dirty[src*2+b.phase]|=uint64_t(1)<<(b.amounts[j].first%64);}
+        double correction=own_correction(t,b,valid,scale,blocked);
+        if(correction||(b.capped&&b.own_observed))for(size_t j=0;j<b.amounts.size();j++){int off=(src*2+b.phase)*t.keys+b.amounts[j].first;emission[off]+=own_delta(t,b,j,valid,scale,blocked);touched[off]=1;dirty[src*2+b.phase]|=uint64_t(1)<<(b.amounts[j].first%64);}
     }
     double direct[5];auto&own=scratch.own;
     for(int i=0;i<5;i++){
@@ -280,7 +290,7 @@ void score(const Table&t,const uint32_t*ids,double&total,double*members,Scratch&
 }
 }
 extern "C" void* l2_create(const double*words,size_t count){
-    try{Reader r{words,count};int version=r.integer();if(version!=1&&version!=2&&version!=3)return nullptr;int n=r.count();Table t;t.keys=r.count();if(t.keys<29||t.keys>4096)return nullptr;t.duration=r.next();t.compensated=r.integer();t.chars.resize(n);
+    try{Reader r{words,count};int version=r.integer();if(version!=1&&version!=2&&version!=3&&version!=4)return nullptr;int n=r.count();Table t;t.keys=r.count();if(t.keys<29||t.keys>4096)return nullptr;t.duration=r.next();t.compensated=r.integer();t.chars.resize(n);
         for(Char&c:t.chars){c.stage=r.integer();c.b3=r.integer();c.cd=r.next();c.squad=r.integer();c.has_squad=r.integer();c.weapon=r.integer();c.klass=r.integer();c.code=r.integer();c.charge=r.next();c.casts=r.next();c.seconds[0]=r.next();c.seconds[1]=r.next();int ng=r.count(),nb=r.count(),nd=r.count();
             c.groups.resize(ng);c.buffs.resize(nb);c.deps.resize(nd);
             for(Group&g:c.groups){g.phase=r.integer();g.flags=r.integer();g.unit=r.next();g.coeff=r.next();g.atk=r.next();g.def=r.next();g.core=r.next();g.corebonus=r.next();g.charge=r.next();g.own.resize(t.keys);for(double&x:g.own)x=r.next();for(double&x:g.base)x=r.next();for(double&x:g.self)x=r.next();if(g.phase<0||g.phase>1)return nullptr;}
@@ -295,9 +305,13 @@ extern "C" void* l2_create(const double*words,size_t count){
                 int nm=r.count();for(int j=0;j<nm;j++)c.mechanics.push_back({r.integer(),r.integer(),r.integer(),r.integer(),r.next(),r.integer(),r.integer()});
             }
         }
-        if(version==3){t.v3=r.integer();for(Char&c:t.chars){for(double&v:c.phase_raw)v=r.next();for(Group&g:c.groups)g.cast_scaled_s22=r.integer();for(Buff&b:c.buffs)b.own_observed=r.integer();}}
+        if(version>=3){t.v3=r.integer();for(Char&c:t.chars){for(double&v:c.phase_raw)v=r.next();for(Group&g:c.groups)g.cast_scaled_s22=r.integer();for(Buff&b:c.buffs)b.own_observed=r.integer();}}
         for(Char&c:t.chars)for(Buff&b:c.buffs)b.caps.resize(b.amounts.size(),0.);
-        if(version==3&&r.n){if(r.integer()!=128)return nullptr;for(Char&c:t.chars)for(Buff&b:c.buffs)for(double&v:b.caps){v=r.next();if(!std::isfinite(v)||v<0.)return nullptr;b.has_caps|=v>0.;}}
+        if(version>=3&&r.n){if(r.integer()!=128)return nullptr;for(Char&c:t.chars)for(Buff&b:c.buffs)for(double&v:b.caps){v=r.next();if(!std::isfinite(v)||v<0.)return nullptr;b.has_caps|=v>0.;}}
+        if(version==4){if(r.integer()!=256)return nullptr;t.v4=r.integer();if(t.v4&~7)return nullptr;for(Char&c:t.chars){c.shield_provider=r.integer();for(Buff&b:c.buffs)b.needs_shield=r.integer();}
+            if(r.n){if(r.integer()!=512)return nullptr;for(Char&c:t.chars){c.stage_uncertain=r.integer();for(Buff&b:c.buffs){int v=r.integer();if(v<0||v>3)return nullptr;b.prerequisite=v;}}}
+            else if(t.v4&4)return nullptr;
+        }
         for(Char&c:t.chars){t.max_mechanics=std::max(t.max_mechanics,c.mechanics.size());const int source=int(&c-t.chars.data());
             // Preserve group order and every floating-point operation chain;
             // only table-constant choices and the ordered bonus-key list move.
@@ -345,7 +359,7 @@ extern "C" void* l2_create(const double*words,size_t count){
                 b.can_supply=!std::all_of(b.rules.begin(),b.rules.end(),[&](const Rule&q){return q.op==0||q.op==2||(q.op==4&&q.a==source);});
                 b.phase_scaled=(t.v3&16)&&b.burst;
                 b.capped=(t.v3&128)&&b.has_caps;
-                b.correctable=b.own_observed&&((t.v3&32)||b.phase_scaled||b.capped);
+                b.correctable=b.own_observed&&((t.v3&32)||b.phase_scaled||b.capped||((t.v4&1)&&b.needs_shield)||((t.v4&4)&&b.prerequisite));
                 for(const Rule&q:b.rules){
                     if(q.op==1||q.op==3){b.all_candidates=true;continue;}
                     if(q.op==0||q.op==2)continue;
@@ -399,7 +413,14 @@ extern "C" void l2_destroy(void*t){delete static_cast<Table*>(t);}
 extern "C" int l2_score_many(const void*ptr,const uint32_t*ids,size_t n,double*out,double*members){
     if(!ptr||(!ids&&n)||(!out&&n))return -1;const Table&t=*static_cast<const Table*>(ptr);
     Scratch&scratch=scratch_for(t);
-    for(size_t row=0;row<n;row++){const uint32_t*s=ids+row*5;for(int i=0;i<5;i++){if(s[i]>=t.chars.size())return -1;for(int j=0;j<i;j++)if(s[i]==s[j])return -1;}score(t,s,out[row],members?members+row*5:nullptr,scratch);}return 0;
+    for(size_t row=0;row<n;row++){const uint32_t*s=ids+row*5;for(int i=0;i<5;i++){if(s[i]>=t.chars.size())return -1;for(int j=0;j<i;j++)if(s[i]==s[j])return -1;}
+#ifdef __EMSCRIPTEN__
+        score(t,s,out[row],members?members+row*5:nullptr,scratch);
+#else
+        if(t.v4)score<false,true>(t,s,out[row],members?members+row*5:nullptr,scratch);
+        else score<false,false>(t,s,out[row],members?members+row*5:nullptr,scratch);
+#endif
+    }return 0;
 }
 extern "C" void* alloc(size_t n){return std::malloc(n);}
 extern "C" void release(void*p){std::free(p);}
@@ -467,7 +488,8 @@ static int enumerate_impl(const void*ptr,const uint32_t*roster,size_t n,size_t k
             // a measured runtime regression; the original emission path is exact.
             score(t,entry.ids,entry.score,nullptr,scratch);
 #else
-            score<true>(t,entry.ids,entry.score,nullptr,scratch);
+            if(t.v4)score<true,true>(t,entry.ids,entry.score,nullptr,scratch);
+            else score<true,false>(t,entry.ids,entry.score,nullptr,scratch);
 #endif
             counts->scored++;retain(heap,entry,k);
         }

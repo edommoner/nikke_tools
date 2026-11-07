@@ -56,7 +56,8 @@ def _compile_v1(p):
             words.extend([int(g['phase']),sum(1<<i for i,f in enumerate(FLAGS) if h.get(f)),g['unit'],w['damage_coeff'] if coeff is None else coeff,g['base_atk'],g['enemy_def'],float(h.get('is_core',False)) if core is None else core,(w.get('core_dmg_mult',200)-100)/100,w.get('full_charge_mult',100)/100])
             words.extend(g['own'].get(k,0.) for k in keys);words.extend(base);words.extend(g.get('self_buckets',base))
         for q in c['buffs']:
-            rules=rule(q['effect']['target']);words.extend([int(q['phase']),int(burst_dependent(q['effect'])),len(q['amount']),len(rules)])
+            target=q.get('target_s26',q['effect']['target']) if p.get('s26',{}).get('switches',0)&2 else q['effect']['target']
+            rules=rule(target);words.extend([int(q['phase']),int(burst_dependent(q['effect'])),len(q['amount']),len(rules)])
             for k,v in q['amount'].items():
                 if k=='atk_flat' and 'caster_atk_coefficient' in q:v=q['caster_atk_coefficient']*c['base_stats']['atk']
                 words.extend([ki[k],v])
@@ -90,17 +91,28 @@ def compile_profiles(p):
             words.extend(c['reference']['phase_seconds'])
             words.extend(int(bool(g.get('cast_scaled_s22'))) for g in c['groups'])
             words.extend(int(name in q.get('recipients',[])) for q in c['buffs'])
-        if any(q.get('caps_s22') for c in p['characters'].values() for q in c['buffs']):
+        if 's26' in p or any(q.get('caps_s22') for c in p['characters'].values() for q in c['buffs']):
             words.append(128)
             for c in p['characters'].values():
                 for q in c['buffs']:
                     words.extend(q.get('caps_s22',{}).get(k,0.) for k in q['amount'])
         meta.update(version=3,s22=p['s22']);magic=b'L2FT0003'
+    if 's26' in p:
+        if 's22' not in p:raise ValueError('v4 requires the v3 extension')
+        words[0]=4;words.extend([256,p['s26']['switches']])
+        for c in p['characters'].values():
+            words.append(int(bool(c.get('shield_provider_s26'))))
+            words.extend(int(bool(q.get('needs_shield_s26'))) for q in c['buffs'])
+        words.append(512)
+        for c in p['characters'].values():
+            words.append(int(bool(c.get('stage_uncertain_s26'))))
+            words.extend(q.get('prerequisite_s26',0) for q in c['buffs'])
+        meta.update(version=4,s26=p['s26']);magic=b'L2FT0004'
     if not all(math.isfinite(x) for x in words):raise ValueError('non-finite profile extension')
     return magic+struct.pack('<Q',len(words))+struct.pack('<%sd'%len(words),*words)+json.dumps(meta,ensure_ascii=False,separators=(',',':')).encode()
 
 def unpack(raw):
-    if raw[:8] not in (b'L2FT0001',b'L2FT0002',b'L2FT0003'):raise ValueError('unknown table version')
+    if raw[:8] not in (b'L2FT0001',b'L2FT0002',b'L2FT0003',b'L2FT0004'):raise ValueError('unknown table version')
     n=struct.unpack_from('<Q',raw,8)[0];end=16+8*n
     return raw[16:end],json.loads(raw[end:])
 

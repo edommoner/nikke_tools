@@ -298,3 +298,26 @@ coverage, tie-breaking and the deterministic final top-K merge are unchanged.
 The original first-index `l2_enumerate` partition API remains available for
 historical replay. S25 timings, complete identity checks and rejected candidate
 evidence are recorded in the sibling proof tree's `s25-report.md` and `s25/`.
+
+### S26: fresh v3 shortlist truth and mechanics-only supply prerequisites
+
+`truth_s26.py` collects the unchanged v3/206 canonical top10,000 subsets' best
+orders plus a deterministic1,000-subset order sample. S22-sealed subset membership
+is excluded from both new hash-split evaluation halves; excluded orders remain
+collection records only. Truth hashes/time precede v4 work. `evaluate_s26.py`
+creates an exclusive final-once receipt before any new sealed metric read.
+
+`l2_score_s26.py` and L2FT0004 retain the v1-v3 oracles and wire behavior. Independent
+v4 bits test conservative shield-event feasibility, observed enemy-code supply in
+the fixed single-BODY scenario, and structural own-supply prerequisites. The shield
+absence proof requires no shield-creating effect anywhere in the squad and predicts
+no recipients or uptime. Structural state inversion requires the permanent marker
+and its exact complementary removal path; uncertain other burst stages prevent the
+new absence proof. No dormant supply or truth-fitted coefficient is introduced.
+
+S23-S25 caches retain their exact input contracts: changes enter the ordinary ordered
+emission/presence/dirty-mask path, and enemy-selector lowering uses existing recipient
+opcodes in an immutable table. Group inputs, cycle behavior and ordered accumulation
+are unchanged. Compact truth, paired gx10 observer summaries, all dev combinations,
+independent speed costs and once-only sealed results belong to `team-search-v1/s26/`
+and its report. Raw observation evidence remains on gx10.
