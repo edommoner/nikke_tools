@@ -20,8 +20,8 @@ def synthetic():
     return dict(settings={'duration':180.},characters=chars)
 
 def compare(p,squads,out,lib,wasm,label):
-    import l2_score_s20
-    out.mkdir(parents=True,exist_ok=True);table=out/(label+'.l2ft');table.write_bytes(compile_profiles(p));oracle=(l2_score_s20.Score if 's20' in p else l2_score.Score)(p);fast=l2_fast.Score(p,library=lib)
+    import l2_score_s20, l2_score_s22
+    out.mkdir(parents=True,exist_ok=True);table=out/(label+'.l2ft');table.write_bytes(compile_profiles(p));oracle=(l2_score_s22.Score if 's22' in p else l2_score_s20.Score if 's20' in p else l2_score.Score)(p);fast=l2_fast.Score(p,library=lib)
     count=0;opcounts=collections.Counter();failcoverage=0;rh=0;union=0;started=time.perf_counter()
     # Bounded batches prevent storing the random acceptance output corpus.
     for offset in range(0,len(squads),1024):
@@ -72,6 +72,12 @@ def main():
             rows=[json.loads(l) for l in (HERE.parent/file).read_text().splitlines()]
             rows=[r for r in rows if not (r['backend']=='native_detail' and r.get('total_damage',0)>0)]
             if rows:results.append(compare(p,[r['members'] for r in rows],args.out,lib,wasm,label))
+        if 's22' in p:
+            # Score-only shortlist input manifest. No dev or sealed truth read.
+            from search_s21 import DEFAULT
+            roster=json.loads((DEFAULT/'s21/rosters.json').read_text())['names']
+            orders=json.loads((DEFAULT/'s21/orders-206-15.json').read_text())['rows']
+            results.append(compare(p,[[roster[i] for i in r['best']['indices']] for r in orders],args.out,lib,wasm,'S22-shortlist10000'))
     rng=random.Random(190019);names=list(p['characters']);squads=[rng.sample(names,5) for _ in range(args.random)]
     results.append(compare(p,squads,args.out,lib,wasm,'random'))
     import itertools

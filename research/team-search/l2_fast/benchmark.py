@@ -48,8 +48,8 @@ def main():
         x['recorded_at']=time.time()
         with receipt.open('a') as f:f.write(json.dumps(x)+'\n')
         print(json.dumps(x),flush=True)
-    import l2_score_s20
-    oracle=(l2_score_s20.Score if 's20' in score.profiles else l2_score.Score)(score.profiles)
+    import l2_score_s20,l2_score_s22
+    oracle=(l2_score_s22.Score if 's22' in score.profiles else l2_score_s20.Score if 's20' in score.profiles else l2_score.Score)(score.profiles)
     for repeat in range(args.repeats):
         checksum=0.;start=time.perf_counter_ns()
         for squad in s9[:512]:checksum+=oracle(squad)

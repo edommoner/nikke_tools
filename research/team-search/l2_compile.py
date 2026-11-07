@@ -83,10 +83,24 @@ def compile_profiles(p):
         for r in rules:words.extend(r if len(r)==7 else [*r,0])
     if not all(math.isfinite(x) for x in words):raise ValueError('non-finite S20 profile input')
     meta.update(version=2,s20=p['s20'])
-    return b'L2FT0002'+struct.pack('<Q',len(words))+struct.pack('<%sd'%len(words),*words)+json.dumps(meta,ensure_ascii=False,separators=(',',':')).encode()
+    magic=b'L2FT0002'
+    if 's22' in p:
+        words[0]=3;words.append(p['s22']['switches'])
+        for name,c in p['characters'].items():
+            words.extend(c['reference']['phase_seconds'])
+            words.extend(int(bool(g.get('cast_scaled_s22'))) for g in c['groups'])
+            words.extend(int(name in q.get('recipients',[])) for q in c['buffs'])
+        if any(q.get('caps_s22') for c in p['characters'].values() for q in c['buffs']):
+            words.append(128)
+            for c in p['characters'].values():
+                for q in c['buffs']:
+                    words.extend(q.get('caps_s22',{}).get(k,0.) for k in q['amount'])
+        meta.update(version=3,s22=p['s22']);magic=b'L2FT0003'
+    if not all(math.isfinite(x) for x in words):raise ValueError('non-finite profile extension')
+    return magic+struct.pack('<Q',len(words))+struct.pack('<%sd'%len(words),*words)+json.dumps(meta,ensure_ascii=False,separators=(',',':')).encode()
 
 def unpack(raw):
-    if raw[:8] not in (b'L2FT0001',b'L2FT0002'):raise ValueError('unknown table version')
+    if raw[:8] not in (b'L2FT0001',b'L2FT0002',b'L2FT0003'):raise ValueError('unknown table version')
     n=struct.unpack_from('<Q',raw,8)[0];end=16+8*n
     return raw[16:end],json.loads(raw[end:])
 

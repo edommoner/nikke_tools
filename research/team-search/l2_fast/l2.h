@@ -16,6 +16,13 @@
 // then (kind,event,condition,threshold,value,all-allies-scope,max-trigger)*.
 // Switch bits: action rate=1, event burst cycle=2, dynamic recipients=4,
 // alternate context cadence=8. Version 1 has no extension and no switches.
+// L2FT v3 retains v2, then appends v3 switches; per character: raw reference
+// phase seconds[2], per-group burst-state-count flag, per-buff observed-self
+// flag. v3 bits: phase-normalized burst occupancy=16, own conditions=32,
+// burst-state-gated hit counts=64. v1/v2 never enter those code paths.
+// Optional v3 trailing tag128 then one nonnegative bound per buff amount;
+// zero means unbounded. Old v3 tables remain readable. Switch128 enables
+// plain, nonstacking effect bounds derived at the actual profiling skill level.
 extern "C" {
 void* l2_create(const double* words, size_t count);
 void l2_destroy(void* table);
