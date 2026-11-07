@@ -271,3 +271,9 @@ native/WASM共通のC++で、自己専用バフの対象判定省略、スレッ
 開始時の1分load平均≤2という確認済み条件で、S21/S22の150体v2列挙は89.813/93.806秒。コード差の約4.45%は再現したが、以前の164.9秒への増大は再現せず、過去の負荷原因の特定には当時の記録が不足する。10M randomのnative単一thread中央値はv1/v2/v3で1,020/1,823/2,388→956/1,368/1,528 ns。150体のv2/v3全列挙は67.770/72.839秒、206体は370.372/413.082秒。各10,000件の添字・raw得点・件数はS21/S22保存値と一致した。全バージョンの200,000 randomを含む666,538部隊でbinding/CLI/WASM対Pythonの11,997,684比較が差分0。全switchの合成検査とnativeの256組合せ比較も実施した。全repeat、負荷、profile、WASM投影、完全な受入検査と保管上の制約はS23 reportに記録する。再現用は `research/team-search/bench_s23.py`。
 
 全Python検査は2,673件成功。Nodeは168件成功、1件はsandboxによる `127.0.0.1` のlisten拒否（EPERM）でHTTP検証前に停止し、loopbackを許可した環境での再実行が残る。テストの省略・弱体化は行っていない。
+
+## S24: exact scorer and cycle reuse
+
+The native/WASM core precomputes bucket factors, the unchanged seven-factor product and action rate from each group's own inputs. Conservative emission/read masks (key modulo 64, so collisions only force recomputation) select the unchanged path. Changed groups retain dense merges and original floating-point order; groups with byte-identical own vectors and the same phase reuse merges and action rates within a member. Static recipient leaves are compiled into candidate unions; sliced, positional and ranked leaves retain their existing evaluator.
+
+An invocation-local direct-mapped cycle cache reuses results across squads with identical ordered effective behavior classes. Classes contain the raw cooldown bits, nominal stage and ordered enabled mechanics after the two structural condition predicates; all five class IDs must match before reuse. Entries store raw casts/full-burst exposure and reset at each public scoring/enumeration call. Enumeration order, coverage, scoring counts and top-K ordering are unchanged. No bound pruning is used. S24 evidence/report records independent raw-bit, exhaustive top-K and performance checks; this remains exact acceleration of the existing L2 approximation.
